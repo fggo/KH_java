@@ -6,6 +6,6 @@ import product.model.vo.Products;
 public class TestEmp {
 	public static void main(String[] args) {
 		new Employee().printEmployee();
-		new Products().printProduct();
+		Products.printProduct(); // static method
 	}
 }
