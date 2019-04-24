@@ -4,20 +4,18 @@ package com.kh.day2;
 public class Run {
 	public static void main(String[] args) {
 		//변수 선언 (method, class)
-		//논리형 선언
-		//메모리ram안에 공간 생성됐다가 프로그램 끝나면 사라짐.
-		boolean flag; //기준
+
+		//논리형 boolean
+		//메모리ram안에 공간 생성되고 프로그램 끝나면 사라짐
+		boolean flag;
 	
-		//단일문자
-		//이름: char
+		//단일문자 char
 		char gender;
 
-		//문자열
-		//이름: String
+		//문자열 String
 		String name;
 		
-		//정수
-		//byte, short, int, long
+		//정수 byte, short, int, long
 		byte data;
 		short num;
 		int i; // default data type

@@ -12,9 +12,8 @@ public class DeclareVariable {
 		//논리형
 		boolean flag;
 		flag = true;
-		System.out.println(flag);
 		flag = false;
-//		flag = 1000; ERROR assigning int to boolean!
+//		flag = 1000; ERROR
 		System.out.println(flag);
 
 		//문자형(문자, 문자열)
@@ -33,8 +32,13 @@ public class DeclareVariable {
 		System.out.println(msg);
 		
 		//숫자형(정수, 실수)
-		byte bnum = 100; // int -> byte
-//		bnum = 128;  ERROR; 범위(-128~127) 벗어남
+		byte bnum1 = 10; // int -> byte
+		byte bnum2 = 20;
+//		byte bnum  = bnum1 + bnum2; //ERROR int->bnum not allowed
+		//강제형변환 (explicit)
+		byte bnum  = (byte)(bnum1 + bnum2);
+
+//		bnum = 128;  ERROR; 범위(-128~127) 밖
 		//90000 short가 표현할수 있는 범위를 벗어나는 literal값이기
 		//때문에, 자동형변환 일어나지 않음.
 		short snum = 10000; //int->short 자동형변환
@@ -51,7 +55,7 @@ public class DeclareVariable {
 		//실수 (float, double)
 		float fnum;
 		double dnum;
-		fnum = 180.5f; //ERROR if 180.5
+		fnum = 180.5f; //ERROR! if 180.5(double)
 		// double-> float 자동형변환 불가
 		dnum = 65.5;
 		System.out.println(fnum);
@@ -61,7 +65,8 @@ public class DeclareVariable {
 		long num = 9000000;
 		System.out.println(num*10);
 		System.out.println(num*20);
-		System.out.println(num*30);
+		// ...
+		System.out.println(num*90);
 		
 		//상수의 선언 및 대입
 		final int AGE;
@@ -71,33 +76,32 @@ public class DeclareVariable {
 		
 		//문자 + 숫자 = > 문자
 		//솟자+숫자 + 문자 = > 숫자합 + 문자
-		String msg2 = "안녕! 나는 ...";
-		System.out.println(msg2);
+		String msg2;
+		msg2 = "안녕! 나는 ...";
 		msg2 = new String("안녕 난 아아ㅏ");
-		System.out.println(msg2);
 		
 		//문자열에서 +기호는 연결연산으로 사용
-		msg2 += "라라라는 " + 19 + 1+ " 살 입니다."; //191
-		msg2 += "라라라는 " + (19 + 1)+ " 살 입니다."; //20
-		msg2+= 19+1 + "살 입니다."; //20
+		msg2 = "나는 " + 19 + 1+ " 살 입니다."; //191
+		msg2 = "나는 " + (19 + 1)+ " 살 입니다."; //20
+		msg2 = 19+1 + "살 입니다."; //20
+
 		System.out.println(msg2);
 
 		String nameOfStudent = "나나나";
 		int age = 19;
-		String address = "서울시 관악구";
+		String address = "서울";
 
 		String msg3 = "나는 " + nameOfStudent + " 이다."
 					+ ",\n나는 " + age+ " 살이다.\n"
 					+ address + "에 살고있다.";
 		System.out.println(msg3);
 
-		String memberName = name;
-		System.out.println(memberName);
+		String memberName = name; //assign variable
+
 		int plusAge = age+ 2;
-		System.out.println(plusAge);
 		
 		//byte data overflow Test: -128~127 
-		byte bnum1 = 127;
+		bnum = 127;
 		for(int i=0 ;i <300; i++) {
 			System.out.println(bnum1++);
 		}
