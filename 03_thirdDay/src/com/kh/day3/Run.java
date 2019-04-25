@@ -6,8 +6,8 @@ import com.kh.day3.function.OperatorTest;
 
 public class Run {
 	public static void main(String[] args) {
-		new CastingTest().castingTest();
+//		new CastingTest().castingTest();
 //		new ScannerTest().inputTest();
-//		new OperatorTest().selfAdd();
+		new OperatorTest().selfAdd();
 	}
 }

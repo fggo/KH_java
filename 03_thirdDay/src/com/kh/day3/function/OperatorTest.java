@@ -13,6 +13,24 @@ public class OperatorTest {
 		//논리부정연산
 		boolean flag = true;
 		System.out.println(!flag);
-		System.out.println(flag ^ !flag);
+
+		//bit operator - xor ^
+		System.out.println(flag ^ !flag); // 1^0 == 1
+
+		System.out.println(1^0); //1
+		System.out.println(0^1); //1
+		System.out.println(1^1); //0
+		System.out.println(0^0); //0
+		
+		//실습예제1. ++ --
+		int a= 10, b = 20, c= 30;
+		a++;
+		b = (--a) + b;
+		c = (a++) + (--b);
+		System.out.println(a); // 11
+		System.out.println(b); // 29
+		System.out.println(c); // 39
+		flag = true;
+		System.out.println(!!!!flag); //true
 	}
 }
