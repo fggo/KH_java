@@ -4,14 +4,12 @@ public class CastingTest {
 	public void castingTest() {
 		//자동형변환 implicit
 		int account = 1000;
-		long accountVip = account;  // int->long
-		// account (int 4b) -> accountVip (long 8b)
+		long accountVip = account;  //int->long
 //		account = accountVip; ERROR
-		account = (int)accountVip; //explicit
 
 		int su = 10;
 		double height = 180.5;
-		double result = su+height; // int->double
+		double result = su+height; //int->double
 //		int result = su+height; // ERROR
 		System.out.println(result);
 		
@@ -19,10 +17,13 @@ public class CastingTest {
 		int character = ch; //char -> int
 		System.out.println((char)(character+1));
 		
+
+		//강제형변환 explicit
 		byte bnum = 100;
 		byte bnum2 = 100;
-//		byte bresult = bnum + bnum2; //ERROR
+//		byte bresult = bnum + bnum2; //ERROR (int->byte)
 		byte bresult = (byte)(bnum + bnum2); //data loss
+
 		int a = 19, b= 20;
 		int iresult = a + b;
 		System.out.println((double)a/b);
@@ -33,6 +34,7 @@ public class CastingTest {
 		int cast = (int)d;
 		System.out.println(cast);
 
+//		RAM 구조
 //		static 어디서든 사용가능
 //		heap 사용자 지정 new object(); gc에 의해 소명 안됨 
 //		stack 지역변수 등 알아서 메모리 할당/소멸

@@ -1,5 +1,6 @@
 package com.kh.day3.practice;
 
+//실습예제	
 public class RunPractice1 {
 	public static void main(String[] args) {
 		int inum = 100;

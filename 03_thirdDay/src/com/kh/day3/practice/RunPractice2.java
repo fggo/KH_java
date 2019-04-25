@@ -1,5 +1,6 @@
 package com.kh.day3.practice;
 
+//½Ç½À¿¹Á¦2
 public class RunPractice2 {
 	public static void main(String[] args) {
 		String[] name = {"È«µÎ±ú", "°í±æµ¿"};
