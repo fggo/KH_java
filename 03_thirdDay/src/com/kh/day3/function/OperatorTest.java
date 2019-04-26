@@ -32,5 +32,7 @@ public class OperatorTest {
 		System.out.println(c); // 39
 		flag = true;
 		System.out.println(!!!!flag); //true
+		
+		System.out.println(10/3);
 	}
 }
