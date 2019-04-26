@@ -3,7 +3,7 @@ package com.ex.func;
 import java.util.Scanner;
 
 public class ExTest {
-	public static Scanner sc = new Scanner(System.in);
+	public Scanner sc = new Scanner(System.in);
 
 	public void cal() {
 		int n1, n2;
@@ -43,7 +43,7 @@ public class ExTest {
 		
 		int inputNum1, inputNum2;
 		System.out.print("정수입력 1: ");
-		inputNum1 = sc.nextInt(); sc.hasNextLine();
+		inputNum1 = sc.nextInt(); sc.nextLine();
 		
 		System.out.print("정수입력 2: ");
 		inputNum2 = sc.nextInt(); sc.nextLine();

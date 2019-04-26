@@ -11,5 +11,6 @@ public class Main {
 //		new OperatorTest().complexTest();
 //		new OperatorTest().thirdOper();
 		new PracticeFunc().prac();
+		new PracticeFunc().incentive();
 	}
 }

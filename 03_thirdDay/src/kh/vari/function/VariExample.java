@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class VariExample {
 	//static memeber
-	public static Scanner sc = new Scanner(System.in);
+	public Scanner sc = new Scanner(System.in);
 
 	public void Example() {
 		System.out.print("정수1 입력하세요: ");

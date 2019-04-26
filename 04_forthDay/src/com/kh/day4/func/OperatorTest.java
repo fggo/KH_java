@@ -64,9 +64,9 @@ public class OperatorTest {
 	{
 		int a=10, b=22;
 		String basic="00000000000000000000000000000000";
-		String bit=basic+Integer.toBinaryString(a);
 
 		//a비트값
+		String bit=basic+Integer.toBinaryString(a);
 		bit=bit.substring(bit.length()-32);
 		System.out.println("a비트값 : "+bit);
 
@@ -79,22 +79,27 @@ public class OperatorTest {
 		bit=basic+Integer.toBinaryString(a&b);
 		bit=bit.substring(bit.length()-32);
 		System.out.println("a&b비트값 : "+bit);
+
 		//a|b결과값
 		bit=basic+Integer.toBinaryString(a|b);
 		bit=bit.substring(bit.length()-32);
 		System.out.println("a|b비트값 : "+bit);
+
 		//a^b결과값
 		bit=basic+Integer.toBinaryString(a^b);
 		bit=bit.substring(bit.length()-32);
 		System.out.println("a^b비트값 : "+bit);
+
 		//~a결과값
 		bit=basic+Integer.toBinaryString(~a);
 		bit=bit.substring(bit.length()-32);
 		System.out.println("~a비트값 : "+bit);
+
 		//a<<2
 		bit=basic+Integer.toBinaryString(a<<2);
 		bit=bit.substring(bit.length()-32);
 		System.out.println("a<<2비트값 : "+bit);
+
 		//a>>2
 		bit=basic+Integer.toBinaryString(a>>2);
 		bit=bit.substring(bit.length()-32);
@@ -103,16 +108,16 @@ public class OperatorTest {
 	
 	public void complexTest() {
 		int a = 10, b = 20, c = 30;
-		double d =0;
-		a+=3;
+		double d = 0;
+		a += 3;
 		System.out.println(a);
-		a+=b;
+		a += b;
 		System.out.println(a);
-		a-=c;
+		a -= c;
 		System.out.println(a);
-		a/=b;
+		a /= b;
 		System.out.println(a);
-		a%=b;
+		a %= b;
 		System.out.println(a);
 		
 		//사용자에게 정수3개를 입력받고, 총합을 구하는 프로그램
@@ -127,6 +132,7 @@ public class OperatorTest {
 		System.out.println(sum);
 	}
 	
+	//삼항 연산자 condition ? trueRt : falseRt;
 	public void thirdOper() {
 		int a = 20;
 		int b = 30;
@@ -147,6 +153,5 @@ public class OperatorTest {
 	public void compareString() {
 		String name = "aaa";
 		System.out.println(name.equals("aaa"));
-
 	}
 }
