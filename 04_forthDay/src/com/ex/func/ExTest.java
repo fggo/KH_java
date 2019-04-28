@@ -3,9 +3,9 @@ package com.ex.func;
 import java.util.Scanner;
 
 public class ExTest {
-	public Scanner sc = new Scanner(System.in);
-
 	public void cal() {
+		Scanner sc = new Scanner(System.in);
+
 		int n1, n2;
 
 		//연산에 사용할 숫자 입력

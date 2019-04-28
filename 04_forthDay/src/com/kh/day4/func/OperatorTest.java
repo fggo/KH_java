@@ -3,7 +3,7 @@ package com.kh.day4.func;
 import java.util.Scanner;
 
 public class OperatorTest {
-	public static Scanner sc = new Scanner(System.in);
+	public static final Scanner CONSOLE = new Scanner(System.in);
 
 	public void cal() {
 		int num = 10;
@@ -123,11 +123,11 @@ public class OperatorTest {
 		//사용자에게 정수3개를 입력받고, 총합을 구하는 프로그램
 		int sum = 0;
 		System.out.print("1번정수 입력: ");
-		sum += sc.nextInt(); sc.nextLine();
+		sum += CONSOLE.nextInt(); CONSOLE.nextLine();
 		System.out.print("2번정수 입력: ");
-		sum += sc.nextInt(); sc.nextLine();
+		sum += CONSOLE.nextInt(); CONSOLE.nextLine();
 		System.out.print("3번정수 입력: ");
-		sum += sc.nextInt(); sc.nextLine();
+		sum += CONSOLE.nextInt(); CONSOLE.nextLine();
 		
 		System.out.println(sum);
 	}
@@ -141,9 +141,9 @@ public class OperatorTest {
 		System.out.println(msg);
 		
 		System.out.print("첫번째 수 입력(>=10): ");
-		int first = sc.nextInt(); sc.nextLine();
+		int first = CONSOLE.nextInt(); CONSOLE.nextLine();
 		System.out.print("두번째 수 입력(>=10): ");
-		int second = sc.nextInt(); sc.nextLine();
+		int second = CONSOLE.nextInt(); CONSOLE.nextLine();
 
 		String msg2 = first>=10 && second>=10? 
 				first > second? "첫번째수가 커": "두번째수가 커" : "10이상의 숫자입력 해야함!!";

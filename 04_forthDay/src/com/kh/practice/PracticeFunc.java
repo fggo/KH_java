@@ -3,14 +3,14 @@ package com.kh.practice;
 import java.util.Scanner;
 
 public class PracticeFunc {
-	public Scanner sc = new Scanner(System.in);
+	public static final Scanner CONSOLE = new Scanner(System.in);
 
 	public void prac() {
 		System.out.print("나이를 입력하세요: ");
-		int age = sc.nextInt(); sc.nextLine();
+		int age = CONSOLE.nextInt(); CONSOLE.nextLine();
 		System.out.print("성별을 입력하세요(남/여): ");
-		String gender = sc.nextLine();
-//		char gender = sc.nextLine().charAt(0);
+		String gender = CONSOLE.nextLine();
+//		char gender = CONSOLE.nextLine().charAt(0);
 //		gender == '남'? //char
 
 		String msg = age > 19? 
@@ -23,13 +23,13 @@ public class PracticeFunc {
 	
 	public void incentive() {
 		System.out.print("\nA의 연봉을 입력하세요: ");
-		int salA = sc.nextInt(); sc.nextLine();
+		int salA = CONSOLE.nextInt(); CONSOLE.nextLine();
 
 		System.out.print("B의 연봉을 입력하세요: ");
-		int salB = sc.nextInt(); sc.nextLine();
+		int salB = CONSOLE.nextInt(); CONSOLE.nextLine();
 
 		System.out.print("C의 연봉을 입력하세요: ");
-		int salC = sc.nextInt(); sc.nextLine();
+		int salC = CONSOLE.nextInt(); CONSOLE.nextLine();
 
 		int raisedA = (int)(salA * 1.05);
 		int raisedB = salB;
