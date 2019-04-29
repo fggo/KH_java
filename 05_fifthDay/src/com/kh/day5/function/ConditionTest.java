@@ -155,7 +155,6 @@ public class ConditionTest {
 	
 		if ((n1 > 0 && n2 > 0)
 				&& (op == '+' || op == '-' || op != '*' || op != '/')) {
-			System.out.println("잘못 입력 하셨습니다."); 
 			if(op == '+') {
 				result = n1+n2;
 				System.out.println(n1 + " + " + n2 + " = " + result);
@@ -172,10 +171,9 @@ public class ConditionTest {
 				result = n1 /n2;
 				System.out.println(n1 + " / " + n2 + " = " + result);
 			}
-			else {
-				System.out.println("잘못 입력 하셨습니다");
-				return;
-			}
+		}
+		else {
+			System.out.println("잘못 입력 하셨습니다."); 
 		}
 	}
 	
@@ -184,12 +182,10 @@ public class ConditionTest {
 		int num = CONSOLE.nextInt();
 		
 		if(num >= 1 && num <= 10) {
-			if(num %2 == 0) {
+			if(num %2 == 0) 
 				System.out.println("짝수입니다.");
-			}  
-			else if (num % 2 == 1){
+			else
 				System.out.println("홀수입니다.");
-			}
 		}
 		else {
 			System.out.println("숫자가 1~10사이 숫자가 아닙니다.");
