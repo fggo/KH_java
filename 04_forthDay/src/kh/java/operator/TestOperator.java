@@ -31,9 +31,20 @@ public class TestOperator {
 	public void operFunc3() {
 		System.out.print("문자 입력: ");
 		char ch = CONSOLE.nextLine().charAt(0);
-		int unicode = (char)ch;
 
-		unicode = unicode > 90? unicode -32: unicode +32;
-		System.out.println(ch + " -> " + (char)unicode);
+//		char result = (char)(ch ^32);
+		
+		char result = (ch >='a' && ch <='z')? (char)(ch-32): 
+			(ch>='A' && ch<='Z')? (char)(ch+32): 'X';
+		System.out.println(result);
+		
+		if(ch >='a' && ch <= 'z')
+			ch = (char)(ch-32);
+		else if( ch>='A' && ch <='Z')
+			ch = (char)(ch+32);
+		else
+			ch = '?';
+		
+		System.out.println(ch);
 	}
 }

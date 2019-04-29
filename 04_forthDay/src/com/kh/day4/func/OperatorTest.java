@@ -22,8 +22,7 @@ public class OperatorTest {
 		int result = num2 /num3;
 		double result2 = num2/num3; //integer.0
 //		int total = result + result2; //ERROR
-
-		}
+	}
 	public void compare() {
 		//비교연산자: 기본자료형만 비교 가능
 		//String은 비교 불가, char는 int로 인식하여 비교가능
