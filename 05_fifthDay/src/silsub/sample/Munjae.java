@@ -1,7 +1,6 @@
 package silsub.sample;
 
 import java.util.Scanner;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Munjae {
 	public static final Scanner CONSOLE = new Scanner(System.in);

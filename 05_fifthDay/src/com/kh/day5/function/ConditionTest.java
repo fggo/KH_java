@@ -175,9 +175,8 @@ public class ConditionTest {
 		else {
 			System.out.println("잘못 입력 하셨습니다."); 
 		}
-	}
-	
-	public void checkEvenNum() {
+	}	
+		public void checkEvenNum() {
 		System.out.print("정수를 입력하세요 (1~10): ");
 		int num = CONSOLE.nextInt();
 		
@@ -192,4 +191,25 @@ public class ConditionTest {
 		}
 	}
 
+	public void login() {
+		System.out.print("아이디입력: ");
+		String id = CONSOLE.nextLine();
+		System.out.print("패스워드 입력: ");
+		String pw = CONSOLE.nextLine();
+		if(id.equals("admin")) {
+			if(pw.equals("1234")){
+				System.out.println("로그인성공");
+				System.out.println("====회원관리====");
+				System.out.println("1. 회원등록");
+				System.out.println("2. 회원검색");
+				System.out.println("3. 회원삭제");
+			}
+			else {
+				System.out.println("비밀번호가 틀렸습니다.");
+			}
+		}
+		else {
+			System.out.println("아이디가 틀렸습니다.");
+		}
+	}
 }

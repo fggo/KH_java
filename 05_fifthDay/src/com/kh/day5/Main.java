@@ -11,7 +11,8 @@ public class Main {
 //		new ConditionTest().checkSal();
 //		new ConditionTest().modByTwo();
 //		new ConditionTest().printStudentInfo();
-		new ConditionTest().runCalculator();
+//		new ConditionTest().runCalculator();
 //		new ConditionTest().checkEvenNum();
+		new ConditionTest().login();
 	}
 }
