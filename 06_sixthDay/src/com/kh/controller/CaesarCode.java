@@ -1,34 +1,34 @@
-package silsub.sample;
+package com.kh.controller;
 
 import java.util.Scanner;
 
 public class CaesarCode {
-	public static void main(String[] args) {
+	public void caesarEncode() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Type a String to encode : ");
 		String str = sc.nextLine();
 
 		System.out.print("Type Number for encoding : ");
-		int num = sc.nextInt();
-		num = num % 26;
+		int move = sc.nextInt();
+		move = move % 26;
 
 		String newStr = "";
 		for (int i =0 ; i<str.length(); i++) {
 			char ch = str.charAt(i);
-			if (ch >=65 && ch <=90) {
-				if(ch + num > 90) {
-					newStr += (char)(ch+num-90-1 + 65);
+			if(Character.isUpperCase(ch)) {
+				if(ch + move > 90) {
+					newStr += (char)(ch+move-26);
 				}
 				else {
-					newStr += (char)(ch+num);
+					newStr += (char)(ch+move);
 				}
 			}
-			else if (ch >=97 && ch <= 122) {
-				if(ch+num > 122) {
-					newStr += (char)(ch+num-122-1 + 97);
+			else if(Character.isLowerCase(ch)){
+				if(ch+move > 122) {
+					newStr += (char)(ch+move-26);
 				}
 				else {
-					newStr += (char)(ch+num);
+					newStr += (char)(ch+move);
 				}
 			}
 			else {

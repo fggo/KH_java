@@ -52,8 +52,7 @@ public class SwitchController {
 	}
 
 	public void printMsg() {
-		if(1<0) System.out.println("wow");
-		else System.out.println("화이팅");
+		System.out.println("화이팅");
 	}
 	
 	public void fruitPrice() {
@@ -142,15 +141,16 @@ public class SwitchController {
 		switch(choice) {
 		case 'a': System.out.println("햄버거는 300원입니다.");
 			break;
-		case 'b': System.out.println("햄버거는 3000원입니다.");
+		case 'b': System.out.println("감자튀김은 2000원입니다.");
 			break;
-		case 'c': System.out.println("감자튀김은 2000원입니다.");
+		case 'c': System.out.println("치킨은 5000원입니다.");
 			break;
-//		c 선택시 “치킨은 5000원입니다.” 출력
 //		d 선택시 “사이다는 1000원입니다.” 출력
 //		e 선택시 “콜라은 1000원입니다.” 출력
-//		다른문자 입력시 “번호가 잘못 입력되었습니다. 프로그램
-//		종료합니다.”
+		default:
+			System.out.println("번호가 잘못 입력되었습니다.\n" 
+					+ "프로그램을 종료합니다.");
+			return;
 		}
 	}
 	
@@ -173,6 +173,7 @@ public class SwitchController {
 			default:
 				System.out.println("점수를 잘못입력 하셨습니다. \n"
 						+ "1~100사이의 점수만 가능합니다.");
+				return;
 		}
 
 		System.out.println(score + "은 " + grade + "입니다.");
