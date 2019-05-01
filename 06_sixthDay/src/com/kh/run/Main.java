@@ -1,6 +1,5 @@
 package com.kh.run;
 
-import com.kh.controller.CaesarCode;
 import com.kh.controller.ForController;
 import com.kh.controller.SwitchController;
 
@@ -14,6 +13,6 @@ public class Main {
 //		new SwitchController().computeGrade();
 //		new SwitchController().computeSal();
 //		new ForController().forTest();
-		new CaesarCode().caesarEncode();
+//		new CaesarCode().caesarEncode();
 	}
 }

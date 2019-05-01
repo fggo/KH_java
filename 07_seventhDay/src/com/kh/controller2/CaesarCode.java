@@ -1,4 +1,4 @@
-package com.kh.controller;
+package com.kh.controller2;
 
 import java.util.Scanner;
 
