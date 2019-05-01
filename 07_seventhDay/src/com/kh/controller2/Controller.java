@@ -115,59 +115,36 @@ public class Controller {
 		}
 	}
 
-	public void computeChange() {
-		System.out.print("받으신 금액을 입력하세요: ");
-		int yourMoney = CONSOLE.nextInt();
-		System.out.print("상품 가격을 입력하세요.");
-		int price = CONSOLE.nextInt();
-		int moneyToReturn = yourMoney - price;
-		System.out.println("거스름돈: " + moneyToReturn + "원");
-
-		int[] bills = {50000, 10000, 5000, 1000, 500, 100, 50, 10};
-		int temp = moneyToReturn;
-
-		System.out.println("====================");
-		for(int i =0 ;i<bills.length; i++) {
-			System.out.println(bills[i] + "원권 지폐 "
-					+ temp /bills[i]+ "장");
-			temp = temp % bills[i];
-		}
-		System.out.println("====================");
-		System.out.println("거스름돈: " + moneyToReturn +"원");
-	}
-	
-	public void testRandom() {
-		for(int i =0; i<5; i++) {
-			//random*10 == 0~9사이의 임의의 수
-//			System.out.println((int)(Math.random()*10 + 1));
-			//random*60 == 1~60
-//			System.out.println((int)(Math.random()*60)+ 1);
-		}
-	}
-	
-	public void silsub() {
-		/* 회원정보 입력 */
+	public void enrollMembers() {
+		/* 회원 수 */
 		System.out.print("입력할 총 회원 수 : ");
 		int enrollNum = CONSOLE.nextInt(); CONSOLE.nextLine();
+		
+		/* 회원정보  */
+		String name = "", location = "", phone = "";
+		int age =0;
+		double height = 0, weight = 0;
+
 		String personInfo = "";
+
+		/* 합계 데이터 */
 		int sumAge = 0;
 		double sumHeight = 0;
 		double sumWeight = 0;
-
+	
 		for(int i =0; i<enrollNum; i++) {
-
 			System.out.print("이름: ");
-			String name = CONSOLE.nextLine();
+			name = CONSOLE.nextLine();
 			System.out.print("나이: ");
-			int age = CONSOLE.nextInt(); CONSOLE.nextLine();
+			age = CONSOLE.nextInt(); CONSOLE.nextLine();
 			System.out.print("사는곳: ");
-			String location = CONSOLE.nextLine();
+			location = CONSOLE.nextLine();
 			System.out.print("키: ");
-			double height = CONSOLE.nextDouble();
+			height = CONSOLE.nextDouble();
 			System.out.print("몸무게: ");
-			double weight = CONSOLE.nextDouble(); CONSOLE.nextLine();
+			weight = CONSOLE.nextDouble(); CONSOLE.nextLine();
 			System.out.print("전화번호: ");
-			String phone = CONSOLE.nextLine();
+			phone = CONSOLE.nextLine();
 			
 			sumAge += age;
 			sumHeight += height;
@@ -178,12 +155,55 @@ public class Controller {
 					+ "\t" + height+ "cm\t" + weight + "kg\t"
 					+ phone + "\n";
 		}
-		System.out.println("=========== 저장회원==========");
+		System.out.println("===========저장회원==========");
 		System.out.println(personInfo);
 		System.out.printf("평균나이: %d/"
 				+ "평균 키: %.2f / 평균 몸무게: %.2f",
 				sumAge/enrollNum, sumHeight/enrollNum, 
 				sumWeight/enrollNum);
+	}
+	
+	public void storeElectronics() {
+		boolean flag = true;
+		int count = 0;
+
+		String id = "", kind = "", name = "";
+		int price = 0;
+		int sumPrice = 0;
+		String productInfo = "";
+				
+		while(flag) {
+			System.out.print("상품 id: ");
+			id = CONSOLE.nextLine();
+			System.out.print("상품 종류: ");
+			kind = CONSOLE.nextLine();
+			System.out.print("상품 명: ");
+			name = CONSOLE.nextLine();
+			System.out.print("상품 가격: ");
+			price = CONSOLE.nextInt(); CONSOLE.nextLine();
+			
+			productInfo += id + "\t" + kind + "\t" + name
+					+ "\t" +  price +"만원\n";
+			count++;
+			sumPrice += price;
+			
+			System.out.print("상품을 더 입력하시겠습니까? (Y/N): ");
+			if(Character.toLowerCase(CONSOLE.nextLine().charAt(0)) == 'n')
+				flag =false;
+		}
+		System.out.println("====== 저장상품(" +count + ")======");
+		System.out.println(productInfo);
+		System.out.println("상품 가격의 평균: " + sumPrice/count);
+	}
+
+
+	public void testRandom() {
+		for(int i =0; i<5; i++) {
+			//random*10 == 0~9사이의 임의의 수
+//			System.out.println((int)(Math.random()*10 + 1));
+			//random*60 == 1~60
+//			System.out.println((int)(Math.random()*60)+ 1);
+		}
 	}
 	
 	public void guessRandom() {
@@ -221,16 +241,34 @@ public class Controller {
 
 		if (num <= 2)
 			System.out.println("숫자를 잘못 입력하셨습니다.");
-			
-		boolean isPrimary = true;
 
-		for(int i = 2; i <num; i++) 
-			if (num%i == 0)
-				isPrimary = false;
-		
-		if(isPrimary)
-			System.out.println("소수입니다.");
-		else
-			System.out.println("소수가 아닙니다.");
+		for(int i = 2; i <num; i++) {
+			if (num%i == 0) {
+				System.out.println("소수가 아닙니다.");
+				return;
+			}
+		}
+		System.out.println("소수입니다.");
+	}
+
+	public void computeChange() {
+		System.out.print("받으신 금액을 입력하세요: ");
+		int yourMoney = CONSOLE.nextInt();
+		System.out.print("상품 가격을 입력하세요.");
+		int price = CONSOLE.nextInt();
+
+		int moneyToReturn = yourMoney - price;
+
+		int[] bills = {50000, 10000, 5000, 1000, 500, 100, 50, 10};
+		int temp = moneyToReturn;
+
+		System.out.println("====================");
+		for(int i =0 ;i<bills.length; i++) {
+			System.out.println(bills[i] + "원권 지폐 "
+					+ temp /bills[i]+ "장");
+			temp = temp % bills[i];
+		}
+		System.out.println("====================");
+		System.out.println("거스름돈: " + moneyToReturn +"원");
 	}
 }
