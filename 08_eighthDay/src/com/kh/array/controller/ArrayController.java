@@ -22,8 +22,6 @@ public class ArrayController {
 		intArr[0] = 111;
 		intArr[1] = 123;
 		intArr[2] = 155;
-		System.out.println(intArr);
-
 		for(int i =0; i<intArr.length; i++) 
 			System.out.println(++intArr[i]);
 
@@ -113,7 +111,6 @@ public class ArrayController {
 
 		char[] charArr = str.toCharArray();
 
-		
 		int count = 0;
 		for(int i =0 ; i<charArr.length; i++) {
 			if (charArr[i] == ch)
