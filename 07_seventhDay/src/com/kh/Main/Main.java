@@ -11,7 +11,7 @@ public class Main {
 //		new Controller().enrollMembers();
 //		new Controller().storeElectronics();
 //		new Controller().guessRandom();
-//		new Controller().checkPrimary();
-		new Controller().computeChange();
+		new Controller().checkPrime();
+//		new Controller().computeChange();
 	}
 }

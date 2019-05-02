@@ -155,10 +155,11 @@ public class Controller {
 					+ "\t" + height+ "cm\t" + weight + "kg\t"
 					+ phone + "\n";
 		}
+
 		System.out.println("===========저장회원==========");
 		System.out.println(personInfo);
-		System.out.printf("평균나이: %d/"
-				+ "평균 키: %.2f / 평균 몸무게: %.2f",
+		System.out.printf("평균나이: %d세/ "
+				+ "평균 키: %.2fcm / 평균 몸무게: %.2fkg\n",
 				sumAge/enrollNum, sumHeight/enrollNum, 
 				sumWeight/enrollNum);
 	}
@@ -171,7 +172,7 @@ public class Controller {
 		int price = 0;
 		int sumPrice = 0;
 		String productInfo = "";
-				
+		
 		while(flag) {
 			System.out.print("상품 id: ");
 			id = CONSOLE.nextLine();
@@ -196,13 +197,31 @@ public class Controller {
 		System.out.println("상품 가격의 평균: " + sumPrice/count);
 	}
 
+	public void huntMonster() {
+		int monsterNum = 0;
+		int exp = 0;
+
+		while(true) {
+			System.out.println("0. 사냥시작 1. 오크사냥 2. 용사냥 3. 사람사냥 99.끝내기");
+			System.out.print("선택: ");
+			int choice = CONSOLE.nextInt(); CONSOLE.nextLine();
+
+			System.out.println("사냥을 시작합니다.");
+			System.out.println("오크사냥완료 +1 exp");
+			System.out.println("용 사냥 완료 +15exp");
+			System.out.println("사냥을 마쳤습니다.");
+			System.out.println("사냥한 몹의 수는 "
+					+ monsterNum + "마리, 획득한 경험치는 16exp입니다.");
+			break;
+		}
+	}
 
 	public void testRandom() {
 		for(int i =0; i<5; i++) {
 			//random*10 == 0~9사이의 임의의 수
-//			System.out.println((int)(Math.random()*10 + 1));
+			System.out.println((int)(Math.random()*10 + 1));
 			//random*60 == 1~60
-//			System.out.println((int)(Math.random()*60)+ 1);
+			System.out.println((int)(Math.random()*60)+ 1);
 		}
 	}
 	
@@ -235,20 +254,41 @@ public class Controller {
 			+ count + "회 시도하였습니다.");
 	}
 	
-	public void checkPrimary() {
-		System.out.print("2보다 큰 정수를 입력하세요: ");
-		int num = CONSOLE.nextInt(); CONSOLE.nextLine();
+	public void checkPrime() {
+		int num = 0;
+		int count = 0;
 
-		if (num <= 2)
-			System.out.println("숫자를 잘못 입력하셨습니다.");
+		boolean resume = false;
 
-		for(int i = 2; i <num; i++) {
-			if (num%i == 0) {
-				System.out.println("소수가 아닙니다.");
-				return;
+		do{
+			System.out.print("2보다 큰 정수를 입력하세요: ");
+			num = CONSOLE.nextInt(); CONSOLE.nextLine();
+			count = 0;
+		
+			if (num >= 2) {
+				for(int i = 1; i <=num; i++) {
+					if (num%i == 0)
+						count++;
+				}
 			}
-		}
-		System.out.println("소수입니다.");
+			else {
+				System.out.println("숫자를 잘못 입력하셨습니다.");
+			}
+
+			if(count >2) {
+				System.out.println("소수가 아닙니다.");
+			}
+			else {
+				System.out.println("소수입니다.");
+			}
+
+			System.out.print("프로그램을 계속 진행 하시겠습니까? (y/n): ");
+			resume = 
+				CONSOLE.nextLine().toLowerCase().equals("y");
+			System.out.println();
+		} while(resume);
+
+		System.out.println("프로그램을 종료합니다...");
 	}
 
 	public void computeChange() {
@@ -270,5 +310,10 @@ public class Controller {
 		}
 		System.out.println("====================");
 		System.out.println("거스름돈: " + moneyToReturn +"원");
+	}
+	
+	public void silsub() {
+		System.out.print("문자열 입력: ");
+		String str = "";
 	}
 }
