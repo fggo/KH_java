@@ -294,22 +294,33 @@ public class Controller {
 	public void computeChange() {
 		System.out.print("받으신 금액을 입력하세요: ");
 		int yourMoney = CONSOLE.nextInt();
-		System.out.print("상품 가격을 입력하세요.");
+		System.out.print("상품 가격을 입력하세요: ");
 		int price = CONSOLE.nextInt();
 
 		int moneyToReturn = yourMoney - price;
 
-		int[] bills = {50000, 10000, 5000, 1000, 500, 100, 50, 10};
-		int temp = moneyToReturn;
+		int[] billSize = {50000, 10000, 5000, 1000, 500, 100, 50, 10};
+		int remainder = moneyToReturn;
+		int billNum = 0;
 
 		System.out.println("====================");
-		for(int i =0 ;i<bills.length; i++) {
-			System.out.println(bills[i] + "원권 지폐 "
-					+ temp /bills[i]+ "장");
-			temp = temp % bills[i];
+		for(int i =0 ;i<billSize.length; i++) {
+			billNum = remainder / billSize[i];
+
+			System.out.println(billSize[i] + "원권 지폐 " + billNum + "장");
+			remainder %= billSize[i];
 		}
 		System.out.println("====================");
 		System.out.println("거스름돈: " + moneyToReturn +"원");
+	}
+	
+	public void cal() {
+		System.out.print("받으신 금액을 입력하세요: ");
+		int yourMoney = CONSOLE.nextInt();
+		System.out.print("상품 가격을 입력하세요.");
+		int price = CONSOLE.nextInt();
+
+		int moneyToReturn = yourMoney - price;
 	}
 	
 	public void silsub() {
