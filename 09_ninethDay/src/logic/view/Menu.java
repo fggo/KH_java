@@ -14,7 +14,7 @@ public class Menu {
 			System.out.println("1. 간단 계산기");
 			System.out.println("2. 작은수에서 큰수까지 합계구하기 ");
 			System.out.println("3. 신상정보 확인하기");
-			System.out.println("4. 학생정보 확인하기");
+			System.out.println("4. 학생성적 정보 확인하기");
 			System.out.println("5. 별과 숫자 출력하기 ");
 			System.out.println("6. 난수까지의 합게 구하기 ");
 			System.out.println("7. 구구단 ");
