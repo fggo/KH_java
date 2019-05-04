@@ -1,8 +1,6 @@
 package test.array.premitive;
 
 import java.util.Scanner;
-import java.util.TimeZone;
-import java.util.Date;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 

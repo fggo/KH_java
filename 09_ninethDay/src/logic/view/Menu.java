@@ -1,14 +1,15 @@
 package logic.view;
 
-import login.controller.Function;
-
 import java.util.Scanner;
+
+import logic.controller.Function;
 
 public class Menu {
 	public static final Scanner CONSOLE = new Scanner(System.in);
-
+	static Function function = new Function();
+	
 	public static void displayMenu() {
-		int choice = 0;
+		int no = 0;
 
 		do {
 			System.out.println("1. 간단 계산기");
@@ -22,36 +23,22 @@ public class Menu {
 			System.out.println("9. 프로그램 종료");
 			System.out.print("메뉴 번호 입력: ");
 
-			choice = CONSOLE.nextInt();
-			switch(choice) {
-			case 1: 
-				new Function().calculator();
-				break;
-			case 2:
-				new Function().totalCalculator();
-				break;
-			case 3:
-				new Function().profile();
-				break;
-			case 4:
-				new Function().sungjuk();
-				break;
-			case 5:
-				new Function().printStarNumber();
-				break;
-			case 6:
-				new Function().sumRandomNumber();
-				break;
-			case 7:
-				 new Function().continueGugudan();
-				 break;
-			case 8:
-				new Function().shutNumber();
-				break;
-			case 9:
-				System.out.println("프로그램을 종료합니다.");
+			no = CONSOLE.nextInt();
+			switch(no) {
+			case 1: function.calculator(); break;
+			case 2: function.totalCalculator(); break;
+			case 3: function.profile(); break;
+			case 4: function.sungjuk(); break;
+			case 5: function.printStarNumber(); break;
+			case 6: function.sumRandomNumber(); break;
+			case 7: function.continueGugudan(); break;
+			case 8: function.shutNumber(); break;
+			case 9: System.out.println("프로그램을 종료합니다.");
+				return;
+			default:
+				System.out.println("잘못 입력 하셨습니다.");
 				break;
 			}
-		}while(choice != 9);
+		}while(no != 9);
 	}
 }

@@ -1,17 +1,15 @@
-package login.controller;
+package logic.controller;
 
-import java.util.Scanner;
+import logic.view.Menu;
 
 public class Function {
-	public static final Scanner CONSOLE = new Scanner(System.in);
-
 	public void calculator() {
 		System.out.print("첫번째 정수: ");
-		int n1 = CONSOLE.nextInt(); 
+		int n1 = Menu.CONSOLE.nextInt(); 
 		System.out.print("두번째 정수: ");
-		int n2 = CONSOLE.nextInt(); CONSOLE.nextLine();
+		int n2 = Menu.CONSOLE.nextInt();
 		System.out.print("연산문자: ");
-		char operator= CONSOLE.nextLine().charAt(0); 
+		char operator= Menu.CONSOLE.next().charAt(0); 
 		
 		int result = 0;
 
@@ -40,9 +38,9 @@ public class Function {
 
 	public void totalCalculator() {
 		System.out.print("정수1 입력: ");
-		int n1 = CONSOLE.nextInt();
+		int n1 = Menu.CONSOLE.nextInt();
 		System.out.print("정수2 입력: ");
-		int n2 = CONSOLE.nextInt(); CONSOLE.nextLine();
+		int n2 = Menu.CONSOLE.nextInt();
 		
 		int small = n1<n2? n1:n2;
 		int big = n1>n2? n1:n2;
@@ -56,18 +54,20 @@ public class Function {
 	}
 	
 	public void profile() {
+		if(Menu.CONSOLE.hasNextLine())
+			Menu.CONSOLE.nextLine();
+		
 		System.out.print("이름: ");
-		String name = CONSOLE.nextLine();
+		String name = Menu.CONSOLE.nextLine();
 
 		System.out.print("나이: ");
-		int age = CONSOLE.nextInt(); CONSOLE.nextLine();
+		int age = Menu.CONSOLE.nextInt(); Menu.CONSOLE.nextLine();
 
 		System.out.print("성별: ");
-		char gender = CONSOLE.nextLine().charAt(0);
-		gender = gender =='M'? '남': (gender=='F'? '여' :'\u0000');
+		String gender = Menu.CONSOLE.nextLine();
 
 		System.out.print("성격: ");
-		String personality = CONSOLE.nextLine();
+		String personality = Menu.CONSOLE.nextLine();
 
 		System.out.println("이름: " + name);
 		System.out.println("나이: " + age);
@@ -76,24 +76,27 @@ public class Function {
 	}
 
 	public void sungjuk() {
+		if(Menu.CONSOLE.hasNextLine())
+			Menu.CONSOLE.nextLine();
+		
 		System.out.print("이름: ");
-		String name = CONSOLE.nextLine();
+		String name = Menu.CONSOLE.nextLine();
 
 		System.out.print("학년: ");
-		int year = CONSOLE.nextInt();
+		int year = Menu.CONSOLE.nextInt();
 
 		System.out.print("반: ");
-		int classRoom = CONSOLE.nextInt();
+		int classRoom = Menu.CONSOLE.nextInt();
 
 		System.out.print("번호: ");
-		int number = CONSOLE.nextInt(); CONSOLE.nextLine();
+		int number = Menu.CONSOLE.nextInt();
 
 		System.out.print("성별(M/F): ");
-		char gender = CONSOLE.nextLine().charAt(0);
-		gender = gender =='M'? '남': (gender=='F'? '여' :'?');
+		char gender = Menu.CONSOLE.next().charAt(0);
+		gender = (gender =='M'? '남': '여');
 
 		System.out.print("성적: ");
-		double grade = CONSOLE.nextDouble(); CONSOLE.nextLine();
+		double grade = Menu.CONSOLE.nextDouble();
 		
 		char letterGrade = '\u0000';
 		
@@ -114,7 +117,7 @@ public class Function {
 	
 	public void printStarNumber() {
 		System.out.print("양의정수를 입력: ");
-		int num = CONSOLE.nextInt();
+		int num = Menu.CONSOLE.nextInt();
 		if (num <1) {
 			System.out.println("양수가 아닙니다.");
 			return;
@@ -138,7 +141,7 @@ public class Function {
 
 	public void continueGugudan() {
 		System.out.print("양의정수 하나 입력: ");
-		int num = CONSOLE.nextInt(); CONSOLE.nextLine();
+		int num = Menu.CONSOLE.nextInt();
 
 		for(int i =1; i<=9; i++) {
 			if(i%num == 0)
@@ -155,7 +158,7 @@ public class Function {
 		int n1 = 0, n2 = 0;
 		do {
 			System.out.print("주사위 합(2~12)을 예상해주세요: ");
-			guessNum = CONSOLE.nextInt(); CONSOLE.nextLine();
+			guessNum = Menu.CONSOLE.nextInt(); Menu.CONSOLE.nextLine();
 
 			n1 = (int)(Math.random()*6 + 1);
 			n2 = (int)(Math.random()*6 + 1);
@@ -166,7 +169,7 @@ public class Function {
 				System.out.println("틀렸습니다.");
 			
 			System.out.print("계속하시겠습니까?(y/n): ");
-			answer = CONSOLE.nextLine().charAt(0);
+			answer = Menu.CONSOLE.next().charAt(0);
 		}while(Character.toLowerCase(answer) == 'y');
 	}
 }
