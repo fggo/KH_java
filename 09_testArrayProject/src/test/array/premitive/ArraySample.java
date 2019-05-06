@@ -1,8 +1,10 @@
 package test.array.premitive;
 
 import java.util.Scanner;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.Date;
 
 public class ArraySample {
 	public static final Scanner CONSOLE = new Scanner(System.in);
@@ -71,23 +73,33 @@ public class ArraySample {
 	
 	public void test6() {
 		String personID = "881225-1234567";
-//		생년, 생월, 생일, 성별
-//		추출한 생년월일 값으로 날짜 데이터
-//		생일의 요일이 무슨 요일이었는지
-//		나이
-		int birthYear = Integer.valueOf("19"+personID.substring(0, 2));
+		//생년월일
+		int birthYear = Integer.valueOf("19" + personID.substring(0, 2));
 		int birthMonth = Integer.valueOf(personID.substring(2, 4));
-		int birthDate = Integer.valueOf(personID.substring(4, 6));
-		char gender = personID.substring(7, 8)=="1"? '남':'여';
-		Calendar cal = new GregorianCalendar(birthYear, birthMonth, birthDate);
+		int birthDay = Integer.valueOf(personID.substring(4, 6));
 
-//		int age = cal.YEAR - birthYear + 1;
+		//요일
+		Date dt1 = new Date();
+		try {
+			dt1 = new SimpleDateFormat("yyMMdd")
+					.parse(personID.substring(0, 6));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		String dayOfWeek = new SimpleDateFormat("EEEE").format(dt1);
+
+		//성별
+		char gender = personID.substring(7, 8).equals("1")? '남':'여';
+
+		//나이
+		int age = Calendar.getInstance().get(Calendar.YEAR) - birthYear + 1;
 		
-		System.out.println("생년: " + birthYear);
-		System.out.println("생월: " + birthMonth);
-		System.out.println("생일: " + birthDate);
-//		System.out.println("생일 요일: " + calPast);
+		System.out.println("===== 생일 정보 =====");
+		System.out.println("연도: " + birthYear);
+		System.out.println("월: " + birthMonth);
+		System.out.println("일: " + birthDay);
+		System.out.println("요일: " + dayOfWeek);
 		System.out.println("성별: " + gender + "자");
-//		System.out.println("나이: " + age);
+		System.out.println("나이: " + age);
 	}
 }
