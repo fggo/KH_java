@@ -67,21 +67,8 @@ public class ArrayTest {
 		}
 	}
 	
-	public void printStar() {
-		System.out.print("별 출력할 행 갯수 입력: ");
-		int row = CONSOLE.nextInt();
-		String format = "";
-
-		for(int i =1; i<=row; i++) {
-			format = "%"+i+"s";
-			System.out.println(String.format(format, i).replace(' ', '*'));
-		}
-	}
-	
+	//for each: 배열, 컬렉션(List , Set, HashMap)에 유용
 	public void test3() {
-		//for each
-		//array, Collection(List , Set, HashMap)
-		//for(int a : 배열)
 		char[] arr = "abcdefe".toCharArray();
 		char val = '\u0000';
 		int count = 0;
