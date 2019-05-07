@@ -1,5 +1,8 @@
 package com.kh.array.controller;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 public class ArrayController {
@@ -7,11 +10,8 @@ public class ArrayController {
 
 	public void arrayTest() {
 		//intArr(reference 타입 변수): stack에 주소값 저장
-		//오른쪽 초기화 값(배열)은 heap에 저장
-		//array는 객체
-		int[] intArr = new int[5]; //heap 메모리에 생성
-
-		//0 if not initialized
+		//오른쪽 초기화 값(배열)은 heap에 메모리 생성 (배열 = 객체)
+		int[] intArr = new int[5]; //default 0
 		for(int i =0; i<intArr.length; i++) 
 			System.out.print(intArr[i] + " ");
 
@@ -20,14 +20,12 @@ public class ArrayController {
 
 		//배열에 저장된 값 변경
 		intArr[0] = 111;
-		intArr[1] = 123;
-		intArr[2] = 155;
-		for(int i =0; i<intArr.length; i++) 
-			System.out.println(++intArr[i]);
+		intArr[intArr.length - 1] = 123;
+		for(int i =0; i<intArr.length; i++) {
+			intArr[i] = (i+1)*10; //array element 값변경
+			System.out.println(++intArr[i]); //array element 값변경; 1증가
+		}
 
-		for(int i =0; i<intArr.length; i++) 
-			intArr[i] = (i+1)*10;
-		
 		//선언과 동시에 초기화
 		char[] ch =  {'가', '나', '다', '라', '마', '바'};
 		
@@ -43,9 +41,7 @@ public class ArrayController {
 		}
 	}
 
-	/*실습1*/
 	public void changeArraySize() {
-		/* 배열 크기 변경 */
 		int[] arr2 = new int[10];
 		for(int i =0; i<10; i++)
 			arr2[i] = i+1;
@@ -60,7 +56,6 @@ public class ArrayController {
 		}
 	}
 	
-	/*실습2*/
 	public void findFruit() {
 		String [] fruits = {"딸기", "바나나", "복숭아", "키위", "사과"};
 		for(int i =0 ;i <fruits.length; i++) {
@@ -69,9 +64,23 @@ public class ArrayController {
 						+ " has index " + i);
 			}
 		}
+		//과일 순서 랜덤 리스트 생성
+		ArrayList<Integer> list = new ArrayList<Integer>(fruits.length);
+		String[] fruits2 = new String[5];
+
+		int rand = 0, index =0;
+		while(list.size() < 5) {
+			rand = (int)(Math.random()*5);
+			if(!list.contains(rand)) {
+				list.add(rand);
+				fruits2[rand] = fruits[index++];
+			}
+		}
+		
+		for(int i =0; i<fruits2.length; i++)
+			System.out.print(fruits2[i] + " ");
 	}
 
-	/*실습3*/
 	public void printArrElement() {
 		char [] c = new char[5];
 		for(int i =0; i<5; i++) {
@@ -89,26 +98,6 @@ public class ArrayController {
 		System.out.println();
 	}
 	
-	/*shallow copy*/
-	public void shallowCopy() {
-		int[] intArr = {1, 2, 3, 4};
-		int[] intCopy = intArr;
-		
-		System.out.println(intArr);
-		System.out.println(intCopy);
-		
-		for(int i = 0; i<intArr.length; i++) 
-			System.out.print(intArr[i] + " ");
-
-		intArr[2] = 2323;
-
-		for(int i = 0; i<intArr.length; i++)
-			System.out.print(intCopy[i] + " ");
-
-		System.out.println();
-	}
-	
-	/*실습4*/
 	public void countLetter() {
 		System.out.print("문자열 입력: ");
 		String str = CONSOLE.nextLine();
