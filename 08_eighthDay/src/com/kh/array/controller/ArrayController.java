@@ -62,10 +62,10 @@ public class ArrayController {
 	
 	/*실습2*/
 	public void findFruit() {
-		String [] fruitArr = {"딸기", "바나나", "복숭아", "키위", "사과"};
-		for(int i =0 ;i <fruitArr.length; i++) {
-			if(fruitArr[i].equals("복숭아")) {
-				System.out.println(fruitArr[i] 
+		String [] fruits = {"딸기", "바나나", "복숭아", "키위", "사과"};
+		for(int i =0 ;i <fruits.length; i++) {
+			if(fruits[i].equals("복숭아")) {
+				System.out.println(fruits[i] 
 						+ " has index " + i);
 			}
 		}
@@ -76,11 +76,17 @@ public class ArrayController {
 		char [] c = new char[5];
 		for(int i =0; i<5; i++) {
 			System.out.print((i+1) + "번째 입력: ");
-			c[i] = CONSOLE.nextLine().charAt(0);
+			c[i] = CONSOLE.next().charAt(0);
 		}
+
 		System.out.println(c);
 		System.out.println("첫번째: " + c[0]);
 		System.out.println("마지막: " + c[c.length - 1]);
+		
+		for(int i=c.length -1 ; i>=0; i--)
+			System.out.print(c[i]);
+
+		System.out.println();
 	}
 	
 	/*shallow copy*/
