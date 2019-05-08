@@ -75,6 +75,7 @@ public class MultiLoop {
 	}
 	
 	public void printStar2() {
+		//sol1
 		System.out.print("양의정수 하나 입력: ");
 		int row = CONSOLE.nextInt();
 		String format1 = "", format2 = "";
@@ -94,12 +95,19 @@ public class MultiLoop {
 				}
 			}
 			
-			
-			
-			
 			//sol2
-			for(int i =1; i<=row; i++) {
-				
+			for(int i =1; i<=2*row; i++) {
+				if(i<=row) {
+					for(int j=1; j<=i; j++)
+						System.out.print('*');
+				}
+				else {
+					for(int n=1; n<=i-row; n++)
+						System.out.print(' ');
+					for(int k=1; k<=2*row-i; k++)
+						System.out.print('*');
+				}
+				System.out.println();
 			}
 		}
 	}

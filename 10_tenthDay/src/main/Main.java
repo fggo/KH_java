@@ -15,7 +15,7 @@ public class Main {
 //		new MultiLoop().test3();
 //		new MultiLoop().printStar();
 //		new MultiLoop().printRowCol();
-//		new MultiLoop().printStar2();
-		new MultiLoop().printMoreStars();
+		new MultiLoop().printStar2();
+//		new MultiLoop().printMoreStars();
 	}
 }
