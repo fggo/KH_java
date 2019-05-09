@@ -1,4 +1,4 @@
-package main;
+package test.main;
 
 import array.test.ArrayTest;
 import multi.loop.MultiLoop;

@@ -1,4 +1,4 @@
-package main;
+package test.main;
 
 import twoD.array.TwoDArray;
 
