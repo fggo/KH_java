@@ -2,7 +2,6 @@ package com.kh.oop.controller;
 
 import com.kh.oop.model.vo.Person;
 import com.kh.oop.model.vo.Car;
-import com.kh.oop.model.vo.Member;
 
 public class ObjectController {
 	public void accessTest() {
@@ -19,18 +18,17 @@ public class ObjectController {
 		//접근제한자별 멤버변수 접근
 //		p1.name; //ERROR if private
 		//'public' static
-		Person.name = "라가가가";
+		Person.name = "라라라";
 		//static변수는 인스턴스변수처럼 접근 X
-		p1.name = "0바바";
-		Person.setName("1가가");
+		//p1.name = "0바바";
 		
 		//static method
 		Person.getName();
 
 //		System.out.println(p1.gender);
 		System.out.println(p1);
-		p1.setName("가나다");
-		System.out.println(p1.getName());
+		Person.name = "가나다";
+		System.out.println(Person.getName());
 	}
 	
 	public void initialBlock() {

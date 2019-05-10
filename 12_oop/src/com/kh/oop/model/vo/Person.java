@@ -14,19 +14,20 @@ public class Person {
 	//default Constructor
 	public Person() {}
 	
-	//constructor
+	//constructor w/ parameters
 	public Person(String name, String memberId) {
 		Person.name = name;
 		this.memberId = memberId;
 	}
 	
-	//초기화블록(static/default)
+	//static 초기화블록static
 	static {
-//		num = 10; //ERROR
+		//num = 10; //ERROR
 		pNum = 10;
 		if(pNum == 11) name= "하이";
 		else name = "홍길동";
 	}
+	//초기화블록
 	{
 		num = pNum++;
 		memberId = "000" + pNum;
@@ -37,24 +38,12 @@ public class Person {
 		}
 	}
 
-	//setter메소드!
-	public static void setName(String name) {
-		Person.name=name;
-	}
-	//getter메소드!
-	public static String getName() {
-		return Person.name;
-	}
-	public void setMemberId(String id) {
-		this.memberId = id;
-	}
-	public String getMemberId() {
-		return memberId;
-	}
-	
-	public int getAge() {
-		return Person.AGE;
-	}
+	//setter, getter메소드!
+	public static String getName() { return Person.name; }
+
+	public void setMemberId(String id) { this.memberId = id; }
+	public String getMemberId() { return memberId; }
+	public static int getAge() { return Person.AGE; }
 	
 	public void printPerson() {
 		System.out.println(pNum + " " + num+ Person.name 

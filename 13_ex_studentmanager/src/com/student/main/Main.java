@@ -1,9 +1,9 @@
 package com.student.main;
 
-import com.student.view.MainMenu;
+import com.student.controller.StudentController;
 
 public class Main {
 	public static void main(String[] args) {
-		new MainMenu().mainMenu();
+		new StudentController().mainMenu();
 	}
 }

@@ -11,7 +11,7 @@ public class Employee {
 	private Date enrollDate;
 
 	//default/private ACS일경우 
-	//다른 pakcge에서 디폴트로 객체 생성시 에러!
+	//다른 package에서 디폴트로 객체 생성시 에러!
 	private Employee() {
 		//this : Employee클래스 주소값에 접근
 		System.out.println("디폴트 생성자 호출!");
@@ -35,6 +35,7 @@ public class Employee {
 	}
 	
 	public void printEmployee() {
-		System.out.println(name  + dept + salary + job + foryears + enrollDate);
+		System.out.println(name  + dept + salary + 
+				job + foryears + enrollDate);
 	}
 }

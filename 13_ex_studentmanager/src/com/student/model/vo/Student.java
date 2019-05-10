@@ -1,24 +1,25 @@
 package com.student.model.vo;
 
 public class Student {
-	private int studentNo;
-	private int number;
-	private String name;
-	private int year;
-	private char grade;
-	private int classRoom;
-	private double score;
 	private static int count = 0;
-
-	public Student(int no, String name, int year,
-			char grade, int classRoom, double score) {
-		this.number = no;
-		this.name = name;
-		this.year = year;
-		this.grade = grade;
-		this.classRoom = classRoom;
-		this.score = score;
+	private int studentNo;
+	private String name;
+	private char grade;
+	private int number;
+	private int year;
+	private double sungjuk;
+	
+	{
 		studentNo = count++;
+	}
+
+	public Student(String name, char grade, int no,
+			double sungjuk, int year) {
+		this.name = name;
+		this.grade = grade;
+		this.number = no;
+		this.sungjuk = sungjuk;
+		this.year = year;
 	}
 
 	//setter getter
@@ -32,19 +33,15 @@ public class Student {
 	public void setGrade(char grade) { this.grade = grade; }
 	public int getYear() { return year; }
 	public void setYear(int year) { this.year = year; }
-	public int getClassRoom() { return classRoom; }
-	public void setClassRoom(int classRoom) { this.classRoom = classRoom; }
-	public double getScore() { return score; }
-	public void setScore(double score) { this.score = score; }
+	public double getSungjuk() { return sungjuk; }
+	public void setSungjuk(double sungjuk) { this.sungjuk = sungjuk; }
 	
-	public static int getCount() {
-		return Student.count;
-	}
+	public static int getCount() { return Student.count; }
+	public static void minusCount() {count--;}
 
 	public void printStudent() {
-		System.out.printf("%d번 %s학생은 %d학년 %d반이고 "
+		System.out.printf("%s학생은 %d학년 %d번이고 "
 				+ "성적은 %.2f점 %c학점 입니다.\n", 
-				studentNo, name, year, classRoom, score, grade);
+				name, year, number, sungjuk, grade);
 	}
-	
 }
