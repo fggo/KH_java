@@ -2,26 +2,42 @@ package com.kh.oop.controller;
 
 import com.kh.oop.model.vo.Person;
 import com.kh.oop.model.vo.Car;
+import com.kh.oop.model.vo.Member;
 
 public class ObjectController {
-
 	public void accessTest() {
-		new Person().printPerson();
-		new Car();
-		Person p1=new Person();
-		p1.printPerson();
-//		접근제한자별 멤버변수 접근
-//		p1.name;//private 일때는 접근불가
-//		System.out.println(p1.age);
+		//1. static 공용으로 사용가능하게 변수를 공개하는것
+		//	저장공간이 heap이 아닌 static 영역에 저장됨
+		//	프로그램 시작과 동시에 저장공간이 생성됨.
+		System.out.println(new Person().hashCode());
+		new Person().printPerson(); //0x222
 
-//		public으로 선언되어서 접근이 가능
-//		System.out.println(p1.age);
+		Person p1 = new Person(); //0x123
 		p1.printPerson();
-//		p1.gender;//default로 선언되서 불가능
-//		default는 같은패키지내에서만 접근이 가능
-		p1.setName("댕댕이");
+		System.out.println(p1.hashCode());
+
+		//접근제한자별 멤버변수 접근
+//		p1.name; //ERROR if private
+		//'public' static
+		Person.name = "라가가가";
+		//static변수는 인스턴스변수처럼 접근 X
+		p1.name = "0바바";
+		Person.setName("1가가");
+		
+		//static method
+		Person.getName();
+
+//		System.out.println(p1.gender);
+		System.out.println(p1);
+		p1.setName("가나다");
 		System.out.println(p1.getName());
-		System.out.println(p1.getMemberId());
-//		p1.memberId="p002";
+	}
+	
+	public void initialBlock() {
+		Person p1 = new Person();
+		p1.printPerson();
+		Person p2 = new Person();
+		p2.printPerson();
+		p1.printPerson();
 	}
 }
