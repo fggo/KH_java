@@ -8,53 +8,46 @@ import com.student.model.vo.Student;
 public class MainMenu {
 	public static final Scanner CONSOLE = new Scanner(System.in);
 	StudentController controller = new StudentController();
+	
+	public void mainMenu(){
+		int choice = -1;
 
-	public void mainMenu() {
-		int choice = 0;
-		do {
-			System.out.println("===학생관리 프로그램===");
-			System.out.println("1. 학생등록");
-			System.out.println("2. 학생수정");
-			System.out.println("3. 학생 조회");
-			System.out.println("4. 학생 성적입력");
-			System.out.println("5. 학생 삭제");
-			System.out.println("6. 프로그램 종료");
+		do{
+			System.out.println("1.학생 등록");
+			System.out.println("2.학생 조회");
+			System.out.println("3.학생 수정");
+			System.out.println("4.학생성적 입력");
+			System.out.println("5.학생 삭제");
+			System.out.println("0.프로그램 종료");
 			System.out.print("입력: ");
 			choice = CONSOLE.nextInt();
-
-			switch(choice) {
+			switch(choice){
 				case 1: controller.enroll(); break;
-				case 2: controller.update(); break;
-				case 3: controller.search(); break;
-				case 4: controller.inputSungjuk(); break;
+				case 2: controller.search(); break;
+				case 3: controller.update(); break;
+				case 4: controller.updateScore(); break;
 				case 5: controller.delete(); break;
-				case 6: System.out.println("프로그램을 종료합니다...");
-					System.exit(0);
-				default: System.out.println("잘못된 메뉴 번호 입니다...");
+				case 0: 
+					System.out.println("프로그램을 종료합니다.");
+					return;
 			}
-		}while(choice!= 6);
+		}while(choice != 0);
 	}
 	
-	public Student enrollView() {
-		if(CONSOLE.hasNextLine())
+	public Student enrollView(){
+		if (CONSOLE.hasNextLine())
 			CONSOLE.nextLine();
+		System.out.println("====학생등록 화면====");
+		System.out.print("  학생이름 : ");
+		String name=MainMenu.CONSOLE.nextLine();
+		System.out.print("  학년(1~3): ");
+		int year=MainMenu.CONSOLE.nextInt();
+		System.out.print("  번호 : ");
+		int number=MainMenu.CONSOLE.nextInt();
+		System.out.print("  성적(평균 1~100) : ");
+		double score =MainMenu.CONSOLE.nextDouble();
 
-		System.out.println("===== 학생등록 화면 =====");
-		System.out.print("이름: ");
-		String name = CONSOLE.nextLine();
-		System.out.print("학점: ");
-		char grade = CONSOLE.next().charAt(0);
-		System.out.print("번호: ");
-		int no = CONSOLE.nextInt();
-		System.out.print("점수: ");
-		double sungjuk = CONSOLE.nextDouble();
-		System.out.print("학년: ");
-		int year = CONSOLE.nextInt();
-		
-		Student s = new Student(name, grade, no, sungjuk, year);
-
+		Student s = new Student(number, name, year, score);
 		return s;
 	}
-	
-
 }
