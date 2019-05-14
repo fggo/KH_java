@@ -19,7 +19,7 @@ public class StudentController {
 			students[Student.getCount()-1] = s;
 		}
 		else {
-			System.out.println("  더이상  등록 할 수 없습니다.");
+			System.out.println("  더이상 등록 할 수 없습니다.");
 		}
 	}
 

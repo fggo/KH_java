@@ -9,6 +9,7 @@ import com.student.model.vo.Student;
 public class MainMenu {
 	public static final Scanner CONSOLE = new Scanner(System.in);
 	StudentController controller = Main.getController();
+
 	public void mainMenu(){
 		int choice = -1;
 
