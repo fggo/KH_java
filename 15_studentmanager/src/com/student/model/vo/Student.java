@@ -50,10 +50,8 @@ public class Student {
 		return grade;
 	}
 
-
-	
 	public static int getCount() { return count; }
-	public static void setCount(int n) { Student.count = n; }
+	public static void deleteCount() { Student.count--; }
 	
 	public void printStudent() {
 		System.out.printf("%d 학번 %d 학년 %s 학생의 성적은 %.2f 학점은 %c입니다.\n",
