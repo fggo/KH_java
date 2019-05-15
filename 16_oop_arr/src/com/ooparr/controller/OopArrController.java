@@ -1,7 +1,5 @@
 package com.ooparr.controller;
 
-import java.util.ArrayList;
-
 import com.ooparr.model.vo.Person;
 import com.ooparr.model.vo.Student;
 import com.ooparr.model.vo.Teacher;
@@ -23,10 +21,10 @@ public class OopArrController extends Person{
 		System.out.println(s);
 		System.out.println(t);
 		
-		//protected: accessible by child classes
+		//protected: accessible by child(inheriting) classes
 		address = "aa";
 		
-		ArrayList list = new ArrayList();
-		list.equals(list);
+//		ArrayList list = new ArrayList();
+//		list.equals(list);
 	}
 }

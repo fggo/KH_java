@@ -6,14 +6,14 @@ public class Student extends Person{
 
 	public Student() {}
 
-	public Student(String name, int age, String addr, char gender, 
+	public Student(String name, int age, String address, char gender, 
 			int grade, String major) {
 
-		super(name, age, addr, gender);
+		super(name, age, address, gender);
 
 		super.setName(name);
 		super.setAge(age);
-		super.address = addr; //protected
+		super.address = address; //protected
 		super.setGender(gender);
 		this.grade = grade;
 		this.major = major;
@@ -28,9 +28,9 @@ public class Student extends Person{
 
 	@Override
 	public String toString() {
-		return "Student [grade=" + grade + ", major=" + major + ", getGrade()=" + getGrade() + ", getMajor()="
-				+ getMajor() + ", getName()=" + getName() + ", getAge()=" + getAge() + ", getAddress()=" + getAddress()
-				+ ", getGender()=" + getGender() + ", toString()=" + super.toString() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + "]";
+		return "Student [grade=" + grade + ", major=" + major + ", address=" + address + ", getGrade()=" + getGrade()
+				+ ", getMajor()=" + getMajor() + ", getName()=" + getName() + ", getAge()=" + getAge()
+				+ ", getAddress()=" + getAddress() + ", getGender()=" + getGender() + ", toString()=" + super.toString()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
 	}
 }

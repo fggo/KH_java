@@ -1,15 +1,15 @@
 package com.ooparr.model.vo;
 
 //public final class Person {
-//final class NO inheritance allowedjj
+//final class NO inheritance allowed
 public class Person {
 	private String name;
 	private int age;
+	//protected!
 	protected String address;
 	private char gender;
 	
 	public Person() {}
-	
 	public Person(String name, int age, String address, char gender) {
 		this.name = name;
 		this.age = age;

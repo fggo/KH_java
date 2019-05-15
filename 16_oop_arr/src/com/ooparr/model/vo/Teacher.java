@@ -26,5 +26,4 @@ public class Teacher extends Person{
 				+ getClass() + ", getGender()=" + getGender() + ", getName()=" + getName() + ", hashCode()="
 				+ hashCode() + ", toString()=" + super.toString() + "]";
 	}
-	
 }

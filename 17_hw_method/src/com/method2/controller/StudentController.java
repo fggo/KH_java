@@ -3,8 +3,7 @@ package com.method2.controller;
 import com.method2.model.vo.Student;
 
 public class StudentController {
-	public void insertStudent( String name, int year,
-			double kor, double eng, double math) {
+	public void insertStudent( String name, int year, double kor, double eng, double math) {
 		Student s = new Student();
 
 		s.setName(name);

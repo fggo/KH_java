@@ -8,11 +8,9 @@ public class Member {
 	private String name;
 	private String email;
 	private String addr;
-
 	private int age;
 	private String phone;
 	
-
 	public String getClientInfo() {
 		System.out.print("¿Ã∏ß : ");
 		name = Main.CONSOLE.nextLine();
