@@ -32,13 +32,15 @@ public class NonStaticSample {
 		}
 	}
 	
-	//TODO
 	public char alphabette() {
 		int shift = (int)(Math.random()*26);
-		char a = 'a';
-//		char A = 'A';
-
-		return (char)(a+shift);
+		char a = 'a'; //65
+		char A = 'A';// 97
+		shift = (int)(Math.random()*52);
+		if(shift/26 >0)
+			return (char)(a +(shift%26));
+		else
+			return (char)(A+shift);
 	}
 	
 	public String mySubstring(String str, int begin, int end) {
@@ -51,14 +53,16 @@ public class NonStaticSample {
 		}
 	}
 	
-	//TODO
 	//int 한개의 전달값을 받아서, 배열의 주소를 리턴하는 메소드
 	//처리할 내용 : 전달받은 정수 갯수만큼의 배열공간을 할당하여, 
 	//         임의의 1부터 100사이의 값으로 값 기록하고 주소 리턴함
 	//메소드 명 : intArrayAllocation
 	//매개변수도 있고 반환값도 있는 메소드
-	public int intArrayAllocation(int length) {
-		return 0;
+	public int[] intArrayAllocation(int length) {
+		int[] arr = new int[length];
+		for(int i =0; i<arr.length; i++)
+			arr[i] = (i+1);
+		return arr;
 	}
 
 	//메소드 명 : display
@@ -85,17 +89,25 @@ public class NonStaticSample {
 	//매개변수 있고 반환값 없는 메소드
 	//처리할 내용 : 위에서 작성한 swap 메소드를 이용하여 배열의 값 들을 내림차순 정렬 처리함
 	public void sortDescending(int[] arr) {
-		
+		for(int i =0; i<arr.length; i++) {
+			for(int j =i; j<arr.length; j++) {
+				if(arr[j] > arr[i])
+					swap(arr,i, j);
+			}
+		}
 	}
 	
-	//TODO
 	//메소드명 : sortAscending
 	//매개변수 있고 반환값 없는 메소드
 	//처리할 내용 : swap 메소드를 이용하여 배열의 값들을 오름차순 정렬함
 	public void sortAscending(int[] arr) {
-		
+		for(int i =0; i<arr.length; i++) {
+			for(int j =i; j<arr.length; j++) {
+				if(arr[j] < arr[i])
+					swap(arr,i, j);
+			}
+		}
 	}
-	
 	
 	//1. 문자열과 문자 하나를 전달받아, 문자열에 포함된 문자의 갯수를 리턴하는 메소드
 	//포함된 문자가 없으면 0 리턴함
@@ -109,7 +121,6 @@ public class NonStaticSample {
 		return count;
 	}
 	
-	
 	//2. 정수 두 개를 전달받아, 두 수중 작은 값에서 큰 값사이의 정수들의 합계를 구해서
 	//리턴하는 메소드
 	//메소드명 : totalValue
@@ -122,7 +133,6 @@ public class NonStaticSample {
 		}
 		return sum;
 	}
-	
 	
 	//문자열과 인덱스를 전달받아, 그 위치의 문자를 리턴하는 메소드
 	//메소명명 : pCharAt
