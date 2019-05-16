@@ -17,14 +17,18 @@ public class OopArrController extends Person{
 		Student s = new Student();
 		Teacher t = new Teacher();
 
-		System.out.println(p);
-		System.out.println(s);
+//		System.out.println(p.plus(10, 20));
+//		System.out.println(s.plus(10, 20));
+		
 		System.out.println(t);
 		
 		//protected: accessible by child(inheriting) classes
 		address = "aa";
-		
+	
 //		ArrayList list = new ArrayList();
 //		list.equals(list);
+		System.out.println(p);
+		System.out.println(s);
+		System.out.println(t);
 	}
 }

@@ -21,5 +21,6 @@ public class Main {
 			students[i]= new Student();
 			System.out.println(students[i]);
 		}
+
 	}
 }

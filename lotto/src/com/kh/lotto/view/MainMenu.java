@@ -1,8 +1,10 @@
 package com.kh.lotto.view;
 
 import com.kh.lotto.model.vo.User;
+import java.util.Scanner;
 
 public class MainMenu {
+	public final static Scanner CONSOLE = new Scanner(System.in);
 	
 	public static void mainMenu() {
 		System.out.println("********** 회원 정보관리 프로그램  **********");
@@ -11,7 +13,17 @@ public class MainMenu {
 		System.out.println("3. 회원 정보 삭제 => clientDelete");
 		System.out.println("4. 회원정보 출력 =>  clientOutput() 메소드 실행");
 		System.out.println("0. 끝내기");
-
+		
+		int choice = 0;
+		do {
+			choice = CONSOLE.nextInt();
+			if (CONSOLE.hasNextLine()) CONSOLE.nextLine();
+			switch(choice) {
+				case 1:
+				case 2:
+				case 3:
+			}
+		}while(choice !=9);
 	}
 	
 	public static User inputView() {

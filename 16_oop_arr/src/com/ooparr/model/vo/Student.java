@@ -25,12 +25,21 @@ public class Student extends Person{
 	public void setGrade(double grade) { this.grade = grade; }
 	public String getMajor() { return major; }
 	public void setMajor(String major) { this.major = major; }
-
+	
 	@Override
-	public String toString() {
-		return "Student [grade=" + grade + ", major=" + major + ", address=" + address + ", getGrade()=" + getGrade()
-				+ ", getMajor()=" + getMajor() + ", getName()=" + getName() + ", getAge()=" + getAge()
-				+ ", getAddress()=" + getAddress() + ", getGender()=" + getGender() + ", toString()=" + super.toString()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
+//	protected int plus(int a, int b) {
+//	cannot reduce visibility
+	protected int plus(int a, int b) {
+		a += 2;
+		b +=2;
+		return a+ b;
 	}
+
+//	@Override
+//	public String toString() {
+//		return "Student [grade=" + grade + ", major=" + major + ", address=" + address + ", getGrade()=" + getGrade()
+//				+ ", getMajor()=" + getMajor() + ", getName()=" + getName() + ", getAge()=" + getAge()
+//				+ ", getAddress()=" + getAddress() + ", getGender()=" + getGender() + ", toString()=" + super.toString()
+//				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
+//	}
 }

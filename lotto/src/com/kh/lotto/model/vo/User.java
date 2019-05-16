@@ -12,8 +12,7 @@ public class User {
     private int userPoint;
     private int userMoney;
     private String[] gambleRecord;
-
-
+    
     public String getUsername() { return username; }
 	public void setUsername(String username) { this.username = username; }
 	public String getPassword() { return password; }

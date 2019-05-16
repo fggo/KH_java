@@ -19,11 +19,11 @@ public class Teacher extends Person{
 	public int getExpert() { return expert; }
 	public void setExpert(int expert) { this.expert = expert; }
 
-	@Override
-	public String toString() {
-		return "Teacher [expert=" + expert + ", major=" + major + ", getExpert()=" + getExpert() + ", getMajor()="
-				+ getMajor() + ", getAddress()=" + getAddress() + ", getAge()=" + getAge() + ", getClass()="
-				+ getClass() + ", getGender()=" + getGender() + ", getName()=" + getName() + ", hashCode()="
-				+ hashCode() + ", toString()=" + super.toString() + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Teacher [expert=" + expert + ", major=" + major + ", getExpert()=" + getExpert() + ", getMajor()="
+//				+ getMajor() + ", getAddress()=" + getAddress() + ", getAge()=" + getAge() + ", getClass()="
+//				+ getClass() + ", getGender()=" + getGender() + ", getName()=" + getName() + ", hashCode()="
+//				+ hashCode() + ", toString()=" + super.toString() + "]";
+//	}
 }

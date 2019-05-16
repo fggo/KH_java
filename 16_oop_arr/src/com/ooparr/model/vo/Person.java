@@ -2,7 +2,7 @@ package com.ooparr.model.vo;
 
 //public final class Person {
 //final class NO inheritance allowed
-public class Person {
+public class Person{
 	private String name;
 	private int age;
 	//protected!
@@ -27,11 +27,16 @@ public class Person {
 	public char getGender() { return gender; }
 	public void setGender(char gender) { this.gender = gender; }
 
-	@Override
-	public String toString() {
-		return "Person [name=" + name + ", age=" + age + ", address=" + address + ", gender=" + gender + ", getName()="
-				+ getName() + ", getAge()=" + getAge() + ", getAddress()=" + getAddress() + ", getGender()="
-				+ getGender() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+	
+	int plus(int a, int b) {
+		return a + b;
 	}
+
+//	@Override
+//	public String toString() {
+//		return "Person [name=" + name + ", age=" + age + ", address=" + address + ", gender=" + gender + ", getName()="
+//				+ getName() + ", getAge()=" + getAge() + ", getAddress()=" + getAddress() + ", getGender()="
+//				+ getGender() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+//				+ super.toString() + "]";
+//	}
 }
