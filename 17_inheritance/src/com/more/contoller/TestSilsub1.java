@@ -1,7 +1,7 @@
-package com.practice1.controller;
+package com.more.contoller;
 
-import com.practice1.model.vo.Book;
-import com.practice2.model.entity.Point;
+import com.more.model.vo.Book;
+import com.more.model.vo.Point;
 
 public class TestSilsub1 {
 	public static void main(String[] args) {

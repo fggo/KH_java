@@ -1,7 +1,6 @@
 package com.more.contoller;
 
 import java.util.Date;
-import java.util.Scanner;
 
 import com.more.model.vo.Animal;
 import com.more.model.vo.Cat;
@@ -13,7 +12,7 @@ import com.more.model.vo.Tiger;
 import com.more.model.vo.Triangle;
 
 public class MoreController {
-	public void basicTest() {
+	public void shapeTest() {
 		Shape shape=new Shape();
 		Circle circle=new Circle();
 		Triangle triangle=new Triangle();
@@ -36,6 +35,7 @@ public class MoreController {
 		shape=new Circle();
 		shape.getX();
 		shape.getY();
+
 		((Circle)shape).getRadius();
 		Circle c = (Circle)shape;
 		shape = new Triangle();
@@ -43,8 +43,8 @@ public class MoreController {
 //		rec = (Rectangle)shape;// ok but compile error
 		rec.getPoint();
 
-		shape.CircleCal(new Circle());
-		shape.RecCal(new Rectangle());
+		shape.calCircle(new Circle());
+		shape.calRec(new Rectangle());
 
 		Shape[] shapes = new Shape[5];
 		shapes[0] = new Circle();
@@ -56,8 +56,8 @@ public class MoreController {
 		System.out.println(shapes[2]); //Circle
 
 		((Circle)shapes[0]).getRadius();
-		shape.CircleCal(new Circle());
-		shape.RecCal(new Rectangle());
+		shape.calCircle(new Circle());
+		shape.calRec(new Rectangle());
 	}
 	
 	public void animalTest() {

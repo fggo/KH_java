@@ -1,37 +1,47 @@
 package com.kh.lotto.view;
 
-import com.kh.lotto.model.vo.User;
 import java.util.Scanner;
+
+import com.kh.lotto.controller.UserController;
+import com.kh.lotto.model.vo.User;
 
 public class MainMenu {
 	public final static Scanner CONSOLE = new Scanner(System.in);
+	UserController controller = new UserController();
 	
 	public static void mainMenu() {
-		System.out.println("********** 회원 정보관리 프로그램  **********");
-		System.out.println("1. 회원 정보 입력  => clientInput() 메소드 실행 - 부메뉴 작성");
-		System.out.println("2. 회원 정보 수정 => clientEdit() 메소드 실행 - 부메뉴 작성");
-		System.out.println("3. 회원 정보 삭제 => clientDelete");
-		System.out.println("4. 회원정보 출력 =>  clientOutput() 메소드 실행");
-		System.out.println("0. 끝내기");
-		
 		int choice = 0;
 		do {
-			choice = CONSOLE.nextInt();
-			if (CONSOLE.hasNextLine()) CONSOLE.nextLine();
+			System.out.println("===== 회원 정보관리 프로그램 =====");
+			System.out.println("1. 회원 가입");
+			System.out.println("2. 회원 수정");
+			System.out.println("3. 회원 탈퇴");
+			System.out.println("4. 회원 조회");
+			System.out.println("0. 프로그램 종료");
+			choice = CONSOLE.nextInt(); CONSOLE.nextLine();
 			switch(choice) {
-				case 1:
+				case 1: 
 				case 2:
 				case 3:
+				case 4:
+				case 0: System.out.println("프로그램을 종료합니다.");
+					return;
 			}
 		}while(choice !=9);
 	}
 	
 	public static User inputView() {
-		System.out.println("********** 회원 추가 프로그램 **********");
-		System.out.println("1.아이디 : ");
-		System.out.println("2.비밀번호 : ");
-		System.out.println("3.계좌번호 : ");
-		System.out.println("4.이메일 : ");
-		return null;
+		System.out.println("===== 회원 추가 프로그램 =====");
+		System.out.print("아이디 : ");
+		String username = CONSOLE.nextLine();
+		System.out.print("비밀번호 : ");
+		String password = CONSOLE.nextLine();
+		System.out.print("계좌번호 : ");
+		String accountNumber = CONSOLE.nextLine();
+		
+		User user = new User(username, password, accountNumber);
+		return user;
 	}
+	
+	
 }

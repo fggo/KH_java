@@ -1,6 +1,6 @@
-package com.practice1.controller;
+package com.more.contoller;
 
-import com.practice1.model.vo.Book;
+import com.more.model.vo.Book;
 
 public class BookController {
 	public static void main(String[] args) {

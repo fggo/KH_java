@@ -6,7 +6,7 @@ public class Main {
 	static MoreController mc = new MoreController();
 	
 	public static void main(String[] args) {
-		mc.basicTest();
+		mc.shapeTest();
 		mc.animalTest();
 	}
 }

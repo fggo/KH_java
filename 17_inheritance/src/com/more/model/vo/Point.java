@@ -1,4 +1,4 @@
-package com.practice2.model.entity;
+package com.more.model.vo;
 
 public class Point {
 	protected int x;

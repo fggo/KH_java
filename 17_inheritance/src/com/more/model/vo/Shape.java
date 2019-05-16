@@ -12,24 +12,21 @@ public class Shape {
 		this.y = y;
 	}
 	
-	public double CircleCal(Circle c) {
+	public double calCircle(Circle c) {
 		return c.getX() * c.getY();
 	}
 	
-	public double RecCal(Rectangle r) {
+	public double calRec(Rectangle r) {
 		return r.getX() * r.getY();
 	}
 	
 	public double calcultor(Shape s ) {
-		if(s instanceof Circle) {
+		if(s instanceof Circle) 
 			return ((Circle)s).getX() * ((Circle)s).getY();
-		}
-		else if (s instanceof Rectangle) {
+		else if (s instanceof Rectangle)
 			return ((Rectangle)s).getX() * ((Rectangle)s).getY();
-		}
-		else {
+		else
 			return ((Triangle)s).getX() * ((Triangle)s).getY();
-		}
 	}
 
 	public int getX() { return x; }

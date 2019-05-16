@@ -1,4 +1,4 @@
-package com.practice1.model.vo;
+package com.more.model.vo;
 
 public class Book {
 	private String title;
