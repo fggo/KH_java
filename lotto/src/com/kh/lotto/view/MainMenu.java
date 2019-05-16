@@ -7,7 +7,7 @@ import com.kh.lotto.model.vo.User;
 
 public class MainMenu {
 	public final static Scanner CONSOLE = new Scanner(System.in);
-	UserController controller = new UserController();
+	static UserController controller = new UserController();
 	
 	public static void mainMenu() {
 		int choice = 0;
@@ -17,13 +17,15 @@ public class MainMenu {
 			System.out.println("2. 회원 수정");
 			System.out.println("3. 회원 탈퇴");
 			System.out.println("4. 회원 조회");
+			System.out.println("5. 회원 전체조회");
 			System.out.println("0. 프로그램 종료");
 			choice = CONSOLE.nextInt(); CONSOLE.nextLine();
 			switch(choice) {
-				case 1: 
-				case 2:
-				case 3:
-				case 4:
+				case 1: controller.input(); break;
+				case 2: controller.update(); break;
+				case 3: controller.delete(); break;
+				case 4: controller.search(); break;
+				case 5: controller.searchAll(); break;
 				case 0: System.out.println("프로그램을 종료합니다.");
 					return;
 			}

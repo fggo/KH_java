@@ -6,15 +6,9 @@ import com.kh.lotto.view.MainMenu;
 public class UserController {
 	private final static int MAX_CNT = 25;
 	private User[] users = new User[MAX_CNT];
-	private static int count = 0;
-	{
-		count++;
-	}
 
 	public User[] getUsers() { return users; }
 	public void setUsers(User[] users) { this.users = users; }
-	public static int getCount() { return count; }
-	public static void deleteCount() { UserController.count--; }
 	public static int getMaxCnt() { return MAX_CNT; }
 	
 	public void input() {
@@ -27,7 +21,7 @@ public class UserController {
 
 	public void searchAll() {
 
-		for(int i =0; i<count; i++) {
+		for(int i =0; i<User.getCount(); i++) {
 			users[i].showUserInfo();
 			System.out.println();
 		}
@@ -38,7 +32,7 @@ public class UserController {
 	}
 
 	private int search(String username) {
-		for(int i =0; i<count; i++) {
+		for(int i =0; i<User.getCount(); i++) {
 			if(users[i].getUsername().equals(username))
 				return i;
 		}

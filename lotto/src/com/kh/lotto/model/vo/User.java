@@ -12,6 +12,12 @@ public class User {
     private int userPoint;
     private int userMoney;
     private List<String> gambleRecord;
+
+	private static int count = 0;
+
+	{
+		count++;
+	}
     
     public User() {}
     
@@ -43,6 +49,8 @@ public class User {
 	public void setUserMoney(int userMoney) { this.userMoney = userMoney; }
 	public List<String> getGambleRecord() { return gambleRecord; }
 	public void setGambleRecord(List<String> gambleRecord) { this.gambleRecord = gambleRecord; }
+	public static int getCount() { return count; }
+	public static void deleteCount() { User.count--; }
 	
 	public void showUserInfo() {
 		System.out.println("¾ÆÀÌµð : " + username);
