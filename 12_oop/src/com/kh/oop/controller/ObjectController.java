@@ -1,15 +1,16 @@
 package com.kh.oop.controller;
 
+import java.util.Date;
+
+import com.kh.oop.model.vo.Employee;
 import com.kh.oop.model.vo.Person;
-import com.kh.oop.model.vo.Car;
 
 public class ObjectController {
 	public void accessTest() {
 		//1. static 공용으로 사용가능하게 변수를 공개하는것
-		//	저장공간이 heap이 아닌 static 영역에 저장됨
-		//	프로그램 시작과 동시에 저장공간이 생성됨.
-		System.out.println(new Person().hashCode());
+		//	프로그램 시작과 동시에 static영역에 저장됨
 		new Person().printPerson(); //0x222
+		System.out.println(new Person().hashCode());
 
 		Person p1 = new Person(); //0x123
 		p1.printPerson();
@@ -33,9 +34,16 @@ public class ObjectController {
 	
 	public void initialBlock() {
 		Person p1 = new Person();
-		p1.printPerson();
 		Person p2 = new Person();
-		p2.printPerson();
 		p1.printPerson();
+		p2.printPerson();
+	}
+
+	public void constructorTest() {
+		Employee e = Employee.getEmployee(); //when private Employee()
+		Employee e1 = new Employee("홍길동", "전산부", 100, "개발자", 1, new Date());
+		
+		e.printEmployee();
+		e1.printEmployee();
 	}
 }

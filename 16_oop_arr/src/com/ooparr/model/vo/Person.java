@@ -32,11 +32,11 @@ public class Person{
 		return a + b;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Person [name=" + name + ", age=" + age + ", address=" + address + ", gender=" + gender + ", getName()="
-//				+ getName() + ", getAge()=" + getAge() + ", getAddress()=" + getAddress() + ", getGender()="
-//				+ getGender() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-//				+ super.toString() + "]";
-//	}
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", age=" + age + ", address=" + address + ", gender=" + gender + ", getName()="
+				+ getName() + ", getAge()=" + getAge() + ", getAddress()=" + getAddress() + ", getGender()="
+				+ getGender() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
+	}
 }

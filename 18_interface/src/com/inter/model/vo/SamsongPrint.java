@@ -19,8 +19,7 @@ public class SamsongPrint implements PrintDriver{
 	public void setName(String name) { this.name = name; }
 	
 	@Override
-	public void printInfo() {
-	}
+	public void printInfo() {}
 
 	@Override
 	public String printDriver() {

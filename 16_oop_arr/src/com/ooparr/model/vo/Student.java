@@ -6,9 +6,7 @@ public class Student extends Person{
 
 	public Student() {}
 
-	public Student(String name, int age, String address, char gender, 
-			int grade, String major) {
-
+	public Student(String name, int age, String address, char gender, int grade, String major) {
 		super(name, age, address, gender);
 
 		super.setName(name);
@@ -35,11 +33,11 @@ public class Student extends Person{
 		return a+ b;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Student [grade=" + grade + ", major=" + major + ", address=" + address + ", getGrade()=" + getGrade()
-//				+ ", getMajor()=" + getMajor() + ", getName()=" + getName() + ", getAge()=" + getAge()
-//				+ ", getAddress()=" + getAddress() + ", getGender()=" + getGender() + ", toString()=" + super.toString()
-//				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
-//	}
+	@Override
+	public String toString() {
+		return "Student [grade=" + grade + ", major=" + major + ", address=" + address + ", getGrade()=" + getGrade()
+				+ ", getMajor()=" + getMajor() + ", getName()=" + getName() + ", getAge()=" + getAge()
+				+ ", getAddress()=" + getAddress() + ", getGender()=" + getGender() + ", toString()=" + super.toString()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
+	}
 }

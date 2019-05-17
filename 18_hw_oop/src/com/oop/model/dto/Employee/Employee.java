@@ -1,7 +1,5 @@
 package com.oop.model.dto.Employee;
 
-import com.oop.view.MainMenu;
-
 public class Employee {
 	private int empNo;
 	private String empName;
@@ -14,22 +12,10 @@ public class Employee {
 	private String phone;
 	private String address;
 
-//	1. 키보드입력용 메소드 : empInput()
-	public static void empInput() {
-	}
-	public static void empOutput() {
-	}
-//	2. 출력용 메소드 : empOutput()
-//	3. 값 변경용 메소드 : setName(String newName) //이름 변경용
-//	  => 각 필드 값 변경용 메소드 작성
-//	* 실행용 클래스 : com.oop.run.EmpTest
-//	메뉴작성 : 메소드 작성
-	
-	public static void modify() {
+	public void empInput() {
 	}
 
-	
-	public static void delete() {
+	public void empOutput() {
 	}
 
 	public int getEmpNo() { return empNo; }

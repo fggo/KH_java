@@ -7,7 +7,5 @@ public class TestBook {
 		Book book = Book.createBook();
 		book.setTitle("ÀÚ¹Ù");
 		book.setAuthor("aaa");
-
-		book.bookInfomation();
 	}
 }

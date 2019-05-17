@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 import com.method2.controller.MethodTest;
 import com.method2.controller.NonStaticSample;
-import com.method2.controller.StudentController;
-import com.method2.model.vo.Member;
 
 public class Main {
 	public final static Scanner CONSOLE = new Scanner(System.in);
@@ -19,15 +17,6 @@ public class Main {
 		mt.test3('\u0000');
 		mt.test3('A');
 
-		//method hw #2
-		Member member = new Member();
-		System.out.println(member.getClientInfo());
-		member.insertMember();
-		
-		//method hw #3
-		StudentController controller = new StudentController();
-		controller.insertStudent("ȫ�浿", 3, 99.22, 98.22, 87.22);
-		
 		//non-static method1
 		nss.printLottoNumber();
 		nss.outputChar(10, 'A');

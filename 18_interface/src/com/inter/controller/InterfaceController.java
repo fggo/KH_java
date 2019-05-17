@@ -5,9 +5,9 @@ import com.inter.model.vo.SamsongPrint;
 
 public class InterfaceController {
 	public void interfaceController() {
-//		PrintDriver pd = new PrintDriver();
 		PrintDriver pd = new SamsongPrint();
-//		((SamsongPrint)pd)
-		System.out.println(pd.TEST);
+		((SamsongPrint)pd).getModel();
+
+		System.out.println(PrintDriver.TEST);
 	}
 }

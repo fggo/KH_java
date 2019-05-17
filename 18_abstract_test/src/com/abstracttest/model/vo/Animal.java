@@ -17,8 +17,6 @@ public abstract class Animal {
 	public String getCategory() { return category; }
 	public void setCategory(String category) { this.category = category; }
 	
-//	public abstract void printAnimal();
-	public void printAnimal(){
-		
-	}
+	public abstract void printAnimal();
+//	public void printAnimal() {}
 }
