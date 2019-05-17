@@ -4,6 +4,7 @@ public class Animal {
 	private String category;
 	private String name;
 
+	public Animal() {}
 	public Animal(String category, String name) {
 		super();
 		this.category = category;

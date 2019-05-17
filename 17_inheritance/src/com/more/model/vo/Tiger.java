@@ -1,6 +1,8 @@
 package com.more.model.vo;
 
 public class Tiger extends Animal{
+	public Tiger() {}
+
 	public Tiger(String category, String name) {
 		super(category, name);
 	}

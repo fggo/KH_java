@@ -45,5 +45,9 @@ public class MainMenu {
 		return user;
 	}
 	
-	
+	public static String searchView() {
+		System.out.print("¿Ã∏ß: ");
+		String name = CONSOLE.nextLine();
+		return name;
+	}
 }

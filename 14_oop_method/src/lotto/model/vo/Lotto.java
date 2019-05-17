@@ -35,4 +35,5 @@ public class Lotto {
 				System.out.println();
 		}
 	}
+	
 }

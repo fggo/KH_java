@@ -2,6 +2,9 @@ package com.more.model.vo;
 
 public class Dog extends Animal{
 
+	public Dog() {
+		super();
+	}
 	public Dog(String category, String name) {
 		super(category, name);
 	}

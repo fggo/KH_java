@@ -4,10 +4,13 @@ import java.util.Date;
 
 import com.more.model.vo.Animal;
 import com.more.model.vo.Cat;
+import com.more.model.vo.Character;
 import com.more.model.vo.Circle;
 import com.more.model.vo.Dog;
 import com.more.model.vo.Rectangle;
 import com.more.model.vo.Shape;
+import com.more.model.vo.Shield;
+import com.more.model.vo.Sword;
 import com.more.model.vo.Tiger;
 import com.more.model.vo.Triangle;
 
@@ -70,5 +73,33 @@ public class MoreController {
 		ani[1].bark();
 		ani[2].bark();
 //		ani[0].action(); //ERROR
+	}
+	
+	public void instanceTest() {
+		checkObj(new Dog());
+		checkObj(new Cat());
+
+	}
+	
+	public void checkObj(Animal ani) {
+		if(ani instanceof Cat)
+			((Cat)ani).clean(); //ERROR if ani instanceof Dog
+		else if (ani instanceof Dog)
+			((Dog)ani).action();
+		else if (ani instanceof Tiger)
+			((Tiger)ani).attack();
+		else
+			System.out.println("그런 객체는 없습니다.");
+	}
+	
+	public void createChara() {
+		Character c1 = new Character("지짖지", 50, 99, 99, 0, new Sword("광전사검 ", 3000));
+		Character c2 = new Character("바바", 50, 99, 99, 0, new Shield("나무방패", 2500));
+		
+		System.out.println(c1);
+		System.out.println(c2);
+
+		((Sword)(c1.getItem())).getAttack();
+		((Shield)c2.getItem()).getDefence();
 	}
 }
