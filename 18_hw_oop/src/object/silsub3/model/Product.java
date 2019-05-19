@@ -10,6 +10,7 @@ public class Product {
 	public Product(){}
 	
 	public Product(String productID, String productName, String productArea, int price, double tax) {
+		super();
 		this.productID = productID;
 		this.productName = productName;
 		this.productArea = productArea;
@@ -18,8 +19,13 @@ public class Product {
 	}
 
 	public void information() {
-		System.out.println(productID + '\t' + productName + '\t' + 
-				productArea + '\t' + price + '\t' + tax);
+		System.out.println(this);
+	}
+
+	@Override
+	public String toString() {
+		return productID + "  " + productName + "  " + productArea
+				+ "  " + price + "  " + tax;
 	}
 
 	public String getProductID() { return productID; }

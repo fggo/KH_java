@@ -12,11 +12,6 @@ public class Rectangle implements IShape{
 		this.height = height;
 	}
 
-	public double getWidth() { return width; }
-	public void setWidth(double width) { this.width = width; }
-	public double getHeigth() { return height; }
-	public void setHeigth(double height) { this.height = height; }
-
 	@Override
 	public double area() {
 		return width*height;
@@ -26,4 +21,9 @@ public class Rectangle implements IShape{
 	public double perimeter() {
 		return 2*(width + height);
 	}
+
+	public double getWidth() { return width; }
+	public void setWidth(double width) { this.width = width; }
+	public double getHeigth() { return height; }
+	public void setHeigth(double height) { this.height = height; }
 }
