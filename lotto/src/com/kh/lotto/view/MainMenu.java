@@ -75,6 +75,9 @@ public class MainMenu {
 		int userPoint = 0;
 		int userMoney = 0;
 
+		//loggedOn
+		boolean loggedOn = false;
+		
 		//gambleRecord
 		HashSet<String> gambleRecord = new HashSet<String>();
 		
@@ -86,6 +89,7 @@ public class MainMenu {
 		hmap.put("accountNumber", accountNumber);
 		hmap.put("userPoint", Integer.valueOf(userPoint));
 		hmap.put("userMoney", Integer.valueOf(userMoney));
+		hmap.put("loggedOn", loggedOn);
 		hmap.put("gambleRecord", gambleRecord);
 		
 		return hmap;

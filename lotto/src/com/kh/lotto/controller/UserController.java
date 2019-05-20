@@ -45,6 +45,7 @@ public class UserController {
 							 (String)hmap.get("accountNumber"),
 							 (int)hmap.get("userPoint"),
 							 (int)hmap.get("userMoney"),
+							 (boolean)hmap.get("loggedOn"),
 							 (HashSet<String>)hmap.get("gambleRecord"));
 		users.add(user);
 	}
@@ -55,6 +56,10 @@ public class UserController {
 		User user = search(username);
 		if(user == null) {
 			System.out.println("로그인 정보가 맞지 않습니다.");
+			return;
+		}
+		if(user.isLoggedOn()) {
+			System.out.println("이미 로그인된 유저입니다.");
 			return;
 		}
 		String originalPassword = map.get("password");
@@ -72,10 +77,14 @@ public class UserController {
 			e.printStackTrace();
 		}
 
-		if(loginSuccess)
+		if(loginSuccess) {
 			System.out.println("로그인이 성공적으로 되었습니다!");
-		else
+			user.setLoggedOn(true);
+		}
+		else {
 			System.out.println("로그인이 실패했습니다...");
+			user.setLoggedOn(false);
+		}
 	}
 
 	public void modify() {
@@ -254,6 +263,97 @@ public class UserController {
         }
         return bytes;
     }
+
+
+//		List<HashMap<String, String>> myArrList = new ArrayList<HashMap<String, String>>();
+//		HashMap<String, String> map;
+//
+//		/*** Rows 1 ***/
+//		map = new HashMap<String, String>();
+//		map.put("CustomerID", "C001");
+//		map.put("Name", "Ajay Kumar");
+//		map.put("Email", "ajay@gmail.com");
+//		map.put("CountryCode", "TH");
+//		map.put("Budget", "1000000");
+//		map.put("Used", "600000");
+//		myArrList.add(map);
+//
+//		/*** Rows 2 ***/
+//		map = new HashMap<String, String>();
+//		map.put("CustomerID", "C002");
+//		map.put("Name", "Rahul Kumar");
+//		map.put("Email", "Rahul.kumar@gmail.com");
+//		map.put("CountryCode", "UK");
+//		map.put("Budget", "2000000");
+//		map.put("Used", "800000");
+//		myArrList.add(map);
+//
+//
+//		File file = new File("d:\\sample.csv");
+//		// Create a File and append if it already exists.
+//		Writer writer = new FileWriter(file, true);
+//		Reader reader = new FileReader(file);
+//		//Copy List of Map Object into CSV format at specified File location.
+//		csvWriter(myArrList, writer);
+//		//Read CSV format from specified File location and print on console..
+//		csvReader(reader);
+//	}
     
+	/**
+	 * @param listOfMap
+	 * @param writer
+	 * @throws IOException
+	 */
+//	public static void csvWriter(List<HashMap<String, String>> listOfMap, Writer writer) throws IOException {
+//		CsvSchema schema = null;
+//		CsvSchema.Builder schemaBuilder = CsvSchema.builder();
+//		if (listOfMap != null && !listOfMap.isEmpty()) {
+//			for (String col : listOfMap.get(0).keySet()) {
+//				schemaBuilder.addColumn(col);
+//			}
+//			schema = schemaBuilder.build().withLineSeparator("\r").withHeader();
+//		}
+//		CsvMapper mapper = new CsvMapper();
+//		mapper.writer(schema).writeValues(writer).writeAll(listOfMap);
+//		writer.flush();
+//	}
+//
+//	/**
+//	 * 
+//	 * @param collection
+//	 * @param writer
+//	 * @param 
+//	 * @throws IOException
+//	 */
+//	public static  void csvWriter(Collection collection, Writer writer) throws IOException {
+//		if (collection != null && collection.size() > 0) {
+//			CsvMapper mapper = new CsvMapper();
+//			Object[] objects = collection.toArray();
+//			Class type = objects[0].getClass();
+//			CsvSchema schema = mapper.schemaFor(type).withHeader();
+//			mapper.writer(schema).writeValues(writer).write(objects);
+//		} else {
+//			writer.write("No Data");
+//		}
+//		writer.flush();
+//	}
+//
+//
+//	/**
+//	 * @param reader
+//	 * @throws IOException
+//	 */
+//
+//	public static void csvReader(Reader reader) throws IOException {
+//		Iterator<Map<String, String>> iterator = new CsvMapper()
+//				.readerFor(Map.class)
+//				.with(CsvSchema.emptySchema().withHeader())
+//				.readValues(reader);
+//		while (iterator.hasNext()) {
+//			Map<String, String> keyVals = iterator.next();
+//			System.out.println(keyVals);
+//		}
+//	}
+
 	public HashSet<User> getUsers() { return users; }
 }
