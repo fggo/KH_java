@@ -5,7 +5,7 @@ import javax.swing.text.StyleContext.SmallAttributeSet;
 import com.inter.model.vo.CannonPrint;
 import com.inter.model.vo.LgPrint;
 import com.inter.model.vo.Print;
-import com.inter.model.vo.SamSongPrint;
+import com.inter.model.vo.SamsongPrint;
 
 public class InterfaceController {
 	private Print print;

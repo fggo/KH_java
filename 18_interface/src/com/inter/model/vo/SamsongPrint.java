@@ -1,17 +1,15 @@
 package com.inter.model.vo;
 
-import com.inter.model.inter.PrintDriver;
-
-public class SamSongPrint implements Print{
+public class SamsongPrint implements Print{
 
 	private String model;
 	private String name;
 	
-	public SamSongPrint() {
+	public SamsongPrint() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public SamSongPrint(String model, String name) {
+	public SamsongPrint(String model, String name) {
 		super();
 		this.model = model;
 		this.name = name;
