@@ -1,13 +1,54 @@
 package com.inter.controller;
 
-import com.inter.model.inter.PrintDriver;
-import com.inter.model.vo.SamsongPrint;
+import javax.swing.text.StyleContext.SmallAttributeSet;
+
+import com.inter.model.vo.CannonPrint;
+import com.inter.model.vo.LgPrint;
+import com.inter.model.vo.Print;
+import com.inter.model.vo.SamSongPrint;
 
 public class InterfaceController {
-	public void interfaceController() {
-		PrintDriver pd = new SamsongPrint();
-		((SamsongPrint)pd).getModel();
+	private Print print;
 
-		System.out.println(PrintDriver.TEST);
+	public void interfaceController(Print print) {
+		this.print = print;
+		//PrintDriver pd=new PrintDriver();
+		//PrintDriver pd=new SamSongPrint();
+		//System.out.println(pd.TEST);		
 	}
+	
+	public void usePrint(Print print) {
+		print.print();
+		print.copy();
+		print.scan();
+		
+//		SamSongPrint sp=new SamSongPrint();
+//		sp.printSam();
+//		LgPrint lg=new LgPrint();
+//		lg.print();
+//		CannonPrint c=new CannonPrint();
+//		c.connonPrint();
+//		Print print=new SamSongPrint();
+//		//((SamSongPrint)print).printSam();
+//		print.print();
+//		print=new LgPrint();
+//		print.print();
+//		//((LgPrint)print).print();
+//		print=new CannonPrint();
+//		print.print();
+		
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+

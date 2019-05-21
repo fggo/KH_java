@@ -1,6 +1,8 @@
 package com.abstracttest.controller;
 
 import com.abstracttest.model.vo.Animal;
+import com.abstracttest.model.vo.Bus;
+import com.abstracttest.model.vo.Car;
 import com.abstracttest.model.vo.Dog;
 import com.abstracttest.model.vo.Jaguar;
 
@@ -18,5 +20,13 @@ public  class AbstractController {
 		ani = new Jaguar();
 		ani.printAnimal();
 		((Jaguar)ani).getPaw();
+	}
+	
+	public void test2() {
+		Car vehicle = new Bus("BusModel01", "V100", 4, 20,
+				"HappyBusCORP", "Seoul", "Hyundai", 200);
+		vehicle.move(10, 20);
+		((Bus)vehicle).getCompany();
+		((Bus)vehicle).addPassenger();
 	}
 }
