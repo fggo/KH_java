@@ -1,6 +1,9 @@
 package com.kh.food.model.vo;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Map;
 
 import com.kh.food.view.MainMenu;
@@ -13,13 +16,11 @@ public class User implements Serializable {
 	private String address;
 	private boolean logged; //로그인 상태 여부
 	private Map<String, Integer> orderList;
-	
-	public void mainMenu() {
-		MainMenu.mainMenu();
-	}
+	private GregorianCalendar orderCreated;
+	private int seatNo; //좌석(1~SEATS)
 
-	public User(String username, String phone, String email, String address,
-			boolean logged, Map<String, Integer> orderList) {
+	public User(String username, String phone, String email, String address, boolean logged,
+			Map<String, Integer> orderList, GregorianCalendar orderCreated, int seatNo) {
 		super();
 		this.username = username;
 		this.phone = phone;
@@ -27,21 +28,33 @@ public class User implements Serializable {
 		this.address = address;
 		this.logged = logged;
 		this.orderList = orderList;
+		this.orderCreated = orderCreated;
+		this.seatNo = seatNo;
+	}
+
+	public void mainMenu() {
+		MainMenu.mainMenu();
 	}
 
 	public void showUserInfo() {
-		System.out.printf("%s\t%s\t%s\t%s\t%s\n",
+		String date = null;
+		if(orderCreated !=null) {
+			Date temp = new Date(orderCreated.getTimeInMillis());
+			SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss yy-MM-dd");
+			date = sdf.format(temp);
+		}
+		System.out.printf("%s\t%s\t%s\t%s\t%s\t%s\n",
 							username, phone, email, address,
-							(logged? "로그ON":"로그OFF"));
+							(logged? "로그ON":"로그OFF"), date);
 		for(Map.Entry<String, Integer> entry : orderList.entrySet())
 			System.out.println("\t[" + entry.getKey() + ", " +entry.getValue() + "개]");
-//		System.out.println(username);
-//		System.out.println("전화: " + phone);
-//		System.out.println("이메일 : "  + email);
-//		System.out.println("주소 : " + address);
-//		System.out.println("로그인상태: " + (logged? "로그ON":"로그OFF"));
 	}
 	
+	@Override
+	public int hashCode() {
+		return this.phone.hashCode();
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		User user = (User)obj;
@@ -64,4 +77,8 @@ public class User implements Serializable {
 	public void setLogged(boolean logged) { this.logged = logged; }
 	public Map<String, Integer> getOrderList() { return orderList; }
 	public void setOrderList(Map<String, Integer> orderList) { this.orderList = orderList; }
+	public GregorianCalendar getOrderCreated() { return orderCreated; }
+	public void setOrderCreated(GregorianCalendar orderCreated) { this.orderCreated = orderCreated; }
+	public int getSeatNo() { return seatNo; }
+	public void setSeatNo(int seatNo) { this.seatNo = seatNo; }
 }

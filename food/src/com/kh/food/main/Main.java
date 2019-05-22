@@ -9,6 +9,15 @@ public class Main {
 		return controller;
 	}
 	public static void main(String[] args) {
-		getController().mainMenu();
+		Main.getController().mainMenu();
+
+//		Runtime.getRuntime().addShutdownHook(
+//			new Thread() { 
+//				public void run() { 
+//					System.out.println("Shutdown Hook is running !"); 
+//				}
+//			}
+//		); 
+//		System.out.println("Application Terminating ..."); 		}
 	}
 }

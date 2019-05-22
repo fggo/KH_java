@@ -26,9 +26,10 @@ public class StringController {
 		Collections.sort(list, (i,j)->i.compareTo(j));
 		System.out.println(list);
 		
+		//String(변경시 주소값 변경) 문자 수정 불가
+
 		//concat
 		System.out.println(name1.concat(name2));
-		System.out.println(name1);
 
 		if(name1.contains("AB"))
 			System.out.println("AB를 포함합니다.");
@@ -41,8 +42,6 @@ public class StringController {
 		System.out.println(str.substring(3));
 		System.out.println(str.substring(3, 6));
 		
-		
-		//String(변경시 주소값 변경) 문자 수정 불가
 
 		//StrinBuffer(주소값 그대로) 문자 수정 가능
 		String msg = "가나다";
@@ -57,7 +56,10 @@ public class StringController {
 		System.out.println(msg2 + " : " + msg2.hashCode());
 		
 		msg2.delete(0, 2);
-		System.out.print(msg2);
+		System.out.println(msg2);
+
+		msg2.replace(0, msg2.length()/2, "REPLACED");
+		System.out.println(msg2);
 		
 		System.out.println(msg + " : " + msg.hashCode());
 		System.out.println(msg2 + " : " + msg2.hashCode());
@@ -67,7 +69,7 @@ public class StringController {
 		System.out.println(msg2 + " : " + msg2.hashCode());
 		
 		
-		//StringBuilder 문자 수정 가능
+		//StringBuilder 문자 수정 가능 (NOT thread safe)
 		StringBuilder builder = new StringBuilder();
 		
 		//StringTokenizer
@@ -100,13 +102,16 @@ public class StringController {
 		
 		//valueof (convert primitive type)
 	}
-	
 
 	public void dateTest() {
-		Date today = new Date(); //new Date(0); 1970.1.1
-		today = new Date(987654322221L);  //new Date(milis);
+		Date today = new Date(); //current time
+		Date date0 = new Date(0); //1970.1.1 9:00 am
+		Date date1 = new Date(987654322221L);  //new Date(milis);
 		System.out.println(today);
+		System.out.println(date0);
+		System.out.println(date1);
 		
+		//current time
 		Calendar cal = Calendar.getInstance();
 		System.out.println(cal);
 		System.out.println(cal.get(Calendar.YEAR));
@@ -116,27 +121,27 @@ public class StringController {
 		System.out.println(cal.get(Calendar.MINUTE));
 		System.out.println(cal.get(Calendar.SECOND));
 		
-		//birth day 2001-5-22
+		//2001-5-22 birthday
 		Calendar birthday = Calendar.getInstance();
 		birthday.set(Calendar.YEAR, 2001);
 		birthday.set(Calendar.MONTH, 5-1);
 		birthday.set(Calendar.DATE, 22);
 		
-		GregorianCalendar birth = new GregorianCalendar
-				(2001, 5-1, 22,6,30,30);
-		//6:30:30
+		//2001-5-22 6:30:30
+		GregorianCalendar birth = new GregorianCalendar(2001, 5-1, 22,6,30,30);
 
-		System.out.println(birth.get(Calendar.YEAR));
-		System.out.println(birth.get(Calendar.MONTH) + 1);
-		System.out.println(birth.get(Calendar.DATE));
+		System.out.println(birth.get(Calendar.YEAR)); //2001
+		System.out.println(birth.get(Calendar.MONTH) + 1); //5
+		System.out.println(birth.get(Calendar.DATE)); //22
 //		System.out.println(birth.get(Calendar.AM_PM));
-		System.out.println(birth.get(Calendar.HOUR));
-		System.out.println(birth.get(Calendar.MINUTE));
-		System.out.println(birth.get(Calendar.SECOND));
+		System.out.println(birth.get(Calendar.HOUR)); //6
+		System.out.println(birth.get(Calendar.MINUTE)); //30
+		System.out.println(birth.get(Calendar.SECOND)); //30
 
 		Date temp = new Date(birth.getTimeInMillis());
 		System.out.println(temp);
 
+		//date format
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = sdf.format(temp);
 		System.out.println(date);
@@ -158,9 +163,8 @@ public class StringController {
 			System.out.println(st.countTokens());
 			System.out.println(st.nextToken());
 		}
-	}
-	
-	public void dateTest1() {
+
+		//test2
 		String[] members={
 			"prince 1234 유병승 19 180.5 9번선수",
 			"user01 user01 호날두 34 180 7번선수",
@@ -190,4 +194,5 @@ public class StringController {
 			member.showMemberInfo();
 		}
 	}
+	
 }
