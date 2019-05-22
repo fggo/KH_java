@@ -1,11 +1,15 @@
 package com.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Formatter;
 import java.util.GregorianCalendar;
 import java.util.StringTokenizer;
+
+import com.model.Member;
 
 public class StringController {
 	public void stringController() {
@@ -22,6 +26,7 @@ public class StringController {
 		Collections.sort(list, (i,j)->i.compareTo(j));
 		System.out.println(list);
 		
+		//concat
 		System.out.println(name1.concat(name2));
 		System.out.println(name1);
 
@@ -94,12 +99,12 @@ public class StringController {
 		System.out.println(num3);
 		
 		//valueof (convert primitive type)
-		
 	}
 	
+
 	public void dateTest() {
 		Date today = new Date(); //new Date(0); 1970.1.1
-//		today = new Date(987654322221L);  //new Date(milis);
+		today = new Date(987654322221L);  //new Date(milis);
 		System.out.println(today);
 		
 		Calendar cal = Calendar.getInstance();
@@ -117,13 +122,72 @@ public class StringController {
 		birthday.set(Calendar.MONTH, 5-1);
 		birthday.set(Calendar.DATE, 22);
 		
-		GregorianCalendar birth = new GregorianCalendar(2001, 5-1, 22);
+		GregorianCalendar birth = new GregorianCalendar
+				(2001, 5-1, 22,6,30,30);
+		//6:30:30
+
 		System.out.println(birth.get(Calendar.YEAR));
 		System.out.println(birth.get(Calendar.MONTH) + 1);
 		System.out.println(birth.get(Calendar.DATE));
 //		System.out.println(birth.get(Calendar.AM_PM));
+		System.out.println(birth.get(Calendar.HOUR));
+		System.out.println(birth.get(Calendar.MINUTE));
+		System.out.println(birth.get(Calendar.SECOND));
 
-		Date temp = new Date(birthday.getTimeInMillis());
+		Date temp = new Date(birth.getTimeInMillis());
 		System.out.println(temp);
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date = sdf.format(temp);
+		System.out.println(date);
+
+		int year = Integer.parseInt(date.substring(0,4));
+		System.out.println(year);
+		
+		Formatter f = new Formatter(System.out);
+		f.format("%s%d%c", "안녕", 10, 'A');
+		
+//		Formatter f2 = new Formatter(new File("output.txt"));
+	}
+
+	public void stringTokenizer() {
+		String str = "a,b,c,d , e , f, g";
+		StringTokenizer st = new StringTokenizer(str, ",");
+		
+		while(st.hasMoreTokens()) {
+			System.out.println(st.countTokens());
+			System.out.println(st.nextToken());
+		}
+	}
+	
+	public void dateTest1() {
+		String[] members={
+			"prince 1234 유병승 19 180.5 9번선수",
+			"user01 user01 호날두 34 180 7번선수",
+			"user02 user02 아자르 26 175.5 10번선수",
+			"user03 user03 메시 33 165.5 7번선수"
+		};
+		StringTokenizer sz = null;
+
+		String id;
+		String pw;
+		String name;
+		int age;
+		double height;
+		String nickname;
+		Member member = null;
+		
+		for(int i =0; i<members.length; i++) {
+			sz = new StringTokenizer(members[i], " ");
+			id = sz.nextToken();
+			pw = sz.nextToken();
+			name = sz.nextToken();
+			age = Integer.valueOf(sz.nextToken());
+			height = Double.valueOf(sz.nextToken());
+			nickname = sz.nextToken();
+			
+			member = new Member(id, pw, name, age, height, nickname);
+			member.showMemberInfo();
+		}
 	}
 }
