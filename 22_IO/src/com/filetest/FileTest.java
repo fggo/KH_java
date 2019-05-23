@@ -17,9 +17,15 @@ public class FileTest {
 			dir.mkdirs();
 
 			System.out.println(file.createNewFile()); //하드에 파일이 생성
+			
 		} catch(IOException e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
+		}
+		finally {
+			if(file.exists()) {
+				file.delete(); //파일 삭제
+			}
 		}
 	}
 }
