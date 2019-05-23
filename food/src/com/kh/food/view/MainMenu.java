@@ -11,37 +11,12 @@ import com.kh.food.controller.UserController;
 import com.kh.food.main.Main;
 import com.kh.food.model.vo.MenuChoiceException;
 import com.kh.food.model.vo.User;
-
-interface INIT_MENU {
-	int SIGNUP=1, SIGNIN=2, LOGOFF=3, ORDER=4, VIEW_ORDER=5, SHOW_USERS=6, EXIT=0;
-}
-
-interface LOGGED{
-	boolean OFF=false, ON=true;
-}
-
-interface FOOD{
-	String BURGER="BURGER", CHICKEN="CHICKEN", COKE="COKE", MILK="MILK";
-}
-
-interface FOOD_MENU{
-	int BURGER=1, CHICKEN=2, COKE=3, MILK=4, EXIT=0;
-}
+import static com.kh.food.view.Constants.*;
 
 public class MainMenu {
 	public final static Scanner CONSOLE = new Scanner(System.in);
 	static UserController controller = Main.getController();
 	
-	private final static Map<String, Integer> FOOD_PRICE = 
-			new HashMap<String, Integer>(){
-		{
-			put(FOOD.BURGER, 2000);
-			put(FOOD.CHICKEN, 9000);
-			put(FOOD.COKE, 1000);
-			put(FOOD.MILK, 500);
-		};
-	};
-
 	public static void showMainMenu() {
 		System.out.println("=== 홈페이지 ===");
 		System.out.println("1. 회원 가입");
@@ -60,17 +35,17 @@ public class MainMenu {
 			try {
 				MainMenu.showMainMenu();
 				choice = CONSOLE.nextInt(); CONSOLE.nextLine();
-				if(choice <INIT_MENU.EXIT || choice > INIT_MENU.SHOW_USERS)
+				if(choice <MENU_EXIT || choice > SHOW_USERS)
 					throw new MenuChoiceException(choice);
 
 				switch(choice) {
-					case INIT_MENU.SIGNUP: controller.signUp(); break;
-					case INIT_MENU.SIGNIN: controller.signIn(); break;
-					case INIT_MENU.LOGOFF: controller.logOff(); break;
-					case INIT_MENU.ORDER: controller.order(); break;
-					case INIT_MENU.VIEW_ORDER: controller.viewOrder(); break;
-					case INIT_MENU.SHOW_USERS: controller.showUsers(); seatView(); break;
-					case INIT_MENU.EXIT:
+					case SIGNUP: controller.signUp(); break;
+					case SIGNIN: controller.signIn(); break;
+					case LOGOFF: controller.logOff(); break;
+					case ORDER: controller.order(); break;
+					case VIEW_ORDER: controller.viewOrder(); break;
+					case SHOW_USERS: controller.showUsers(); seatView(); break;
+					case MENU_EXIT:
 						controller.logOff();
 						controller.storeToFile();
 						System.out.println("프로그램을 종료합니다.");
@@ -94,7 +69,7 @@ public class MainMenu {
 		System.out.print("회원 주소 : ");
 		String address = CONSOLE.nextLine();
 		
-		User user = new User(username, phone, email, address, LOGGED.OFF,
+		User user = new User(username, phone, email, address, OFF,
 				new HashMap<String, Integer>(), null, -1);
 		return user;
 	}
@@ -127,40 +102,35 @@ public class MainMenu {
 			try {
 				MainMenu.showFoodMenu();
 				choice = CONSOLE.nextInt(); CONSOLE.nextLine();
-				if(choice < FOOD_MENU.EXIT || choice > FOOD_MENU.MILK)
-					throw new MenuChoiceException(choice);
+
+				if(choice!=MENU_EXIT) {
+					System.out.print("수량: ");
+					qty = CONSOLE.nextInt(); CONSOLE.nextLine();
+					if(qty <0)
+						throw new MenuChoiceException(qty);
+				}
 				switch(choice) {
-					case FOOD_MENU.BURGER:
-						System.out.print("수량: ");
-						qty = CONSOLE.nextInt(); CONSOLE.nextLine();
-						if(qty <0) throw new MenuChoiceException(qty);
-						orderList.put(FOOD.BURGER, qty);
-						total += FOOD_PRICE.get(FOOD.BURGER) * qty;
+					case MENU_BURGER:
+						orderList.put(BURGER, qty);
+						total += PRICE_BURGER * qty;
 						break;
-					case FOOD_MENU.CHICKEN:
-						System.out.print("수량: ");
-						qty = CONSOLE.nextInt(); CONSOLE.nextLine();
-						if(qty <0) throw new MenuChoiceException(qty);
-						orderList.put(FOOD.CHICKEN, qty);
-						total += FOOD_PRICE.get(FOOD.CHICKEN) * qty;
+					case MENU_CHICKEN:
+						orderList.put(CHICKEN, qty);
+						total += PRICE_CHICKEN * qty;
 						break;
-					case FOOD_MENU.COKE:
-						System.out.print("수량: ");
-						qty = CONSOLE.nextInt(); CONSOLE.nextLine();
-						if(qty <0) throw new MenuChoiceException(qty);
-						orderList.put(FOOD.COKE, qty);
-						total += FOOD_PRICE.get(FOOD.COKE) * qty;
+					case MENU_COKE:
+						orderList.put(COKE, qty);
+						total += PRICE_COKE * qty;
 						break;
-					case FOOD_MENU.MILK:
-						System.out.print("수량: ");
-						qty = CONSOLE.nextInt(); CONSOLE.nextLine();
-						if(qty <0) throw new MenuChoiceException(qty);
-						orderList.put(FOOD.MILK, qty);
-						total += FOOD_PRICE.get(FOOD.MILK) * qty;
+					case MENU_MILK:
+						orderList.put(MILK, qty);
+						total += PRICE_MILK * qty;
 						break;
-					case FOOD_MENU.EXIT:
+					case MENU_EXIT:
 						System.out.println("주문을 완료하였습니다.");
 						return orderList;
+					default:
+						throw new MenuChoiceException(choice);
 				}
 			} catch(MenuChoiceException e) {
 				e.showWrongChoice();
@@ -225,9 +195,7 @@ public class MainMenu {
 		return seatNo;
 	}
 	
-	//getter setter
-	public Integer[] getFoodCount() {
-		Integer[] arr = FOOD_PRICE.values().toArray(new Integer[0]);
-		return arr;
+	public int[] getFoodPrices() {
+		return new int[] {PRICE_BURGER, PRICE_CHICKEN, PRICE_COKE, PRICE_MILK};
 	}
 }

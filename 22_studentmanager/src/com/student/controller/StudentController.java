@@ -21,6 +21,7 @@ public class StudentController {
 	
 	private Student[] students = new Student[5];
 	private File file = new File("Student.stu");
+	private int studentCount;
 	
 	private MainMenu menu;
 
@@ -49,16 +50,18 @@ public class StudentController {
 				new ObjectInputStream(new FileInputStream(file))){
 
 			students = (Student[])ois.readObject();
-//			for(int i =0; i<students.length; i++)
-//				students[i] = (Student)ois.readObject();
-		}
-		catch(ClassNotFoundException e) {
-			e.printStackTrace();
+			for(int i =0; i<students.length; i++)
+				if(students[i] == null) {
+					Student.setCount(i);
+					break;
+				}
 		}
 		catch(IOException e) {
 			e.printStackTrace();
 		}
-		
+		catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void enroll() {

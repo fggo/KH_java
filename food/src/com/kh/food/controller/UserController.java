@@ -151,13 +151,13 @@ public class UserController {
 		this.reserveSeat();
 		
 		//주문총액 및 주문내역 출력
-		Integer[] foodPrice = menu.getFoodCount();
+		int[] foodPrices = menu.getFoodPrices();
 		int total = 0;
 		int index = 0;
 		for(Map.Entry<String, Integer> entry : orderList.entrySet()) {
-			total += (entry.getValue()*foodPrice[index]);
+			total += (entry.getValue()*foodPrices[index]);
 			System.out.println("\t" + entry.getKey() + " ----- " 
-					+ foodPrice[index++] +" * " + entry.getValue() + "개");
+					+ foodPrices[index++] +" * " + entry.getValue() + "개");
 		}
 
 		System.out.println("주문하신 총액은 : " + total + "원 입니다.");

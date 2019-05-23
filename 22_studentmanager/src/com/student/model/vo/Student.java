@@ -3,6 +3,7 @@ package com.student.model.vo;
 import java.io.Serializable;
 
 public class Student implements Serializable {
+	private static final long serialVersionUID = 1L;
 	/*
 	 * 1.등록,수정,조회,종료
 	 * 학생(학년, 반 ,번호, 주소)
@@ -15,10 +16,12 @@ public class Student implements Serializable {
 	private int classRoom;
 	private int num;
 	private String address;
+	//static member is ignored in serialization!
+	//-> use 'studentNum' to store 'count' value
 	private static int count = 0;
 
 	{
-		count++;
+		++count;
 	}
 
 	public Student(String name, int year, int classRoom, int num, String address) {
@@ -50,8 +53,8 @@ public class Student implements Serializable {
 	public void setNum(int num) { this.num = num; }
 	public String getAddress() { return address; }
 	public void setAddress(String address) { this.address = address; }
-
 	public static int getCount() { return count; }
+	public static void setCount(int count) {Student.count = count;}
 	public static void deleteCount() { Student.count--; }
 	
 }
