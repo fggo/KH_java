@@ -13,11 +13,11 @@ import java.util.List;
 import com.student.model.vo.Student;
 import com.student.view.MainView;
 
-
-/* view controller 窍唱究父 积己! 
+/* view, controller 窍唱究父 积己! 
  * */
 public class StudentController {
-	private List list = new ArrayList();
+	private List<Student> list = new ArrayList<Student>();
+
 	private MainView mainMenu = new MainView();
 
 	public void mainMenu() {
@@ -74,7 +74,7 @@ public class StudentController {
 			ObjectInputStream ois = null;
 			try {
 				ois = new ObjectInputStream(new FileInputStream("student.dat"));
-				this.list = (List)ois.readObject();
+				this.list = (List<Student>)ois.readObject();
 			} catch(WriteAbortedException e) {
 				
 			} catch(Exception e) {

@@ -7,7 +7,7 @@ public class Main {
 		CollectionController cc = new CollectionController();
 //		cc.listTest();
 //		cc.setTest();
-//		cc.mapTest();
+		cc.mapTest();
 		cc.propertiesTest();
 	}
 }

@@ -3,9 +3,7 @@ package com.student.model.vo;
 import java.io.Serializable;
 
 public class Student implements Serializable{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private String name;
 	private int grade;
@@ -25,8 +23,6 @@ public class Student implements Serializable{
 		this.number = number;
 		this.address = address;
 	}
-
-	
 	
 	@Override
 	public String toString() {

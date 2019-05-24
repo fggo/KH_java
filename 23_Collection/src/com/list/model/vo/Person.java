@@ -40,6 +40,11 @@ public class Person {
 		return Objects.hash(name, age, address);
 	}
 
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", age=" + age + ", address=" + address + "]";
+	}
+
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }
 	public int getAge() { return age; }

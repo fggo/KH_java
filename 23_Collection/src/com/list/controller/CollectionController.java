@@ -21,54 +21,54 @@ import com.list.model.vo.Student;
 public class CollectionController {
 	public void listTest() {
 		//ArrayList list를 구현한 클래스 ~ 배열이랑 비슷함!
-		//new 연산자를 통해 객체를 생성해서 사용!
-		List list = new ArrayList(); //배열 10개 ==Object[] list= new Object[10];
+		List<Object> list = new ArrayList<Object>(); //배열 10개 ==Object[] list= new Object[10];
 		list.add("홍길동");
-		System.out.println(list.size());
-		
 		list.add(1); //auto-boxing : int->Integer
-
-		boolean isString = (list.get(0) instanceof String);
-		boolean isInt = (list.get(1) instanceof Integer);
-		System.out.println(isString);
-		System.out.println(isInt);
-		
 		list.add(180.5);
 		list.add(new Person());
 		list.add(new Student());
+		list.add(new Employee());
+		list.add(2, "바바"); //중간에 삽입 list.add(index, Object);
 
-		System.out.println(list);
+		for(int i =0; i<list.size(); i++) {
+			if(list.get(i) instanceof String)
+				System.out.println("list.get(" +i+") = " + list.get(i) + " is a String");
+			else if (list.get(i) instanceof Integer)
+				System.out.println("list.get(" +i+") = " + list.get(i) + " is an Integer");
+			else if(list.get(i) instanceof Student)
+				System.out.println("list.get(" +i+") = " + list.get(i) + " is an instance"
+						+ " of Student");
+			else if(list.get(i) instanceof Employee)
+				System.out.println("list.get(" +i+") = " + list.get(i) + " is an instance"
+						+ " of Employee");
+		}
+			
+		System.out.println(list.size());
+		this.printList(list);
 		
-		//중간에 삽입 list.add(index, Object);
-		list.add(2, "바바");
-		
-		System.out.println(list);
-		//list.get(index)는 Object를 반환
-		//list에 사용자정의 (클래스)가 대입된 경우, 그 객체의 자료형은 Object로 형변환
-		//형변환 되어 들어감.(다형성). 실제객체에 접근하려면 그 객체로 형변환하여 접근해야함
-		((Person)list.get(4)).getName();
-
-//		List<Person> perList = new ArrayList<Person>();
-//		polymorphism can be used!!!
+		//list.get(index) Object 반환, list에 사용자정의 (클래스)가 대입된 경우,
+		//그 객체의 자료형은 Object로 형변환되어 들어감.접근하려면 그 객체로 형변환하여 접근해야함(다형성)
+		((Person)list.get(4)).getName(); //Student
 		
 		list.remove(2); //인덱스 번호도 앞으로 1씩 당겨짐
-		printList(list);
 		
-		System.out.println(list.isEmpty()); // list에 자료가 있는지 확인
+//		list.clear();
+		if(list.isEmpty())
+			System.out.println("리스트는 비어있습니다.");
+		else
+			System.out.println("리스트는 비어있지 않습니다.");
+
 		if(list.size() > 0)
 			System.out.println("list.isEmpty()는 false를 return");
-//		list.clear();
-		System.out.println(list.isEmpty());
 
-		
-		//ArrayList의 상속관계를 보면 부모: List인터ㅂ페이스
-		List list2 = new ArrayList();
+		//ArrayList는 부모 인터페이스 List를 상속
+		List<Object> list2 = new ArrayList<Object>();
+		List list3 = new ArrayList(); //Collection list3 = new ArrayList();
+		List<Object> list4;
+
 		list2.add(new Employee());
-//		Collection list3 = new ArrayList();
-		List list3 = new ArrayList();
-		
-		List list4;
-		LinkedList linkedList = new LinkedList();
+
+		LinkedList<Object> linkedList = new LinkedList<Object>();
 		list2= linkedList;
 		list.add("김태엽");
 		
@@ -90,12 +90,10 @@ public class CollectionController {
 		list3.add("김기호");
 		list3.add("서선덕");
 		System.out.println(list3);
-		//오름차순 정렬
-		Collections.sort(list3);
+		Collections.sort(list3); //오름차순 정렬
 		System.out.println(list3);
-		//내림차순 정렬 (using java8 lambda)
 		Collections.sort(list3, (i,j)->((String)j).compareTo((String)i));
-		System.out.println(list3);
+		System.out.println(list3); //내림차순 정렬 (java8 lambda)
 
 		//중복값 add 허용됨
 		list3.add("유병승");
@@ -111,16 +109,15 @@ public class CollectionController {
 	
 	public void setTest() {
 		Set set = new HashSet();
-		set.add("김태엽");
+		set.add("김태엽"); //String의 equals() 조건 만족하므로 중복해서 안들어감
 		set.add("문은철");
 		set.add("서현희");
 		set.add("정현빈");
 		set.add("김현식");
 		set.add("김현식");
 		set.add("김현식");
-		set.add("김현식");
-		set.add("김현식");
 		set.add(new Student());
+
 		//Employee는 equals() override 안했으므로, 다른값으로 계속 들어감.
 		set.add(new Employee("윤여송", 28, "부천", 10, "개발부", "웹개발자"));
 		set.add(new Employee("윤여송", 28, "부천", 10, "개발부", "웹개발자"));
@@ -131,17 +128,14 @@ public class CollectionController {
 		
 		//equals() override 했는데도, 다른 객체들로 인식함
 		//hashCode()도 override 해야함!! (주소값)
-		//hashCode(){reurn Object.hashCode(name, age,address)
+		//hashCode(){reurn Object.hashCode(name, age,address)}
 		//3개중 하나만 다르면 다른 주소값 반환
+		set.add(new Person("최장원", 26, "용인"));
+		set.add(new Person("최장원", 26, "용인"));
+		set.add(new Person("최장원", 26, "인"));
+		set.add(new Person("최장원", 26, "용인"));
+		set.add(new Person("최장원", 26, "용인"));
 
-		set.add(new Person("최장원", 26, "용인"));
-		set.add(new Person("최장원", 26, "용인"));
-		set.add(new Person("최장원", 26, "용인"));
-		set.add(new Person("최장원", 26, "용인"));
-		set.add(new Person("최장원", 26, "용인"));
-
-//		Set<String> set2 = new HashSet<String> ();
-		
 		//출력할 때는 Iterator 자동 반복검색기를 사용!
 		Iterator itr = set.iterator();
 		
@@ -176,9 +170,6 @@ public class CollectionController {
 		list = new ArrayList(set);
 		System.out.println("중복 제거 후: ");
 		System.out.println(list);
-
-		System.out.println(set.contains("김준영"));
-		System.out.println(set.contains("류별리"));
 		
 		set.remove("김준영");
 		System.out.println(set.contains("김준영"));
@@ -198,26 +189,18 @@ public class CollectionController {
 		 * */
 		//출력하는 방법
 		//get이용하는방법 get(key값)
-//		System.out.println(map.get(1));
-//		System.out.println(map.get("1"));
-//		System.out.println(map.get("병승"));
+		System.out.println(map.get(1));
+		System.out.println(map.get("1"));
+		System.out.println(map.get("병승")); //null
 		//get으로 출력할 수 있는건?? 내가 key값 을  알고 있을때
 		//map 먼저 key값을 출력 entrySet()매소드
 		//entrySet() 반환형 Set으로 반환해줌.
-		Set set=map.entrySet();
-		Iterator it=set.iterator();
-		while(it.hasNext()) {
-			Object obj=it.next();
-			System.out.println(obj+""+ map.get(obj));
-		}
-		//iterator는 한번 사용하면 재사용이 불가능함.
-		//System.out.println(it.next());
-		//map은 key값이 중복되지 않습니다.
+		//map은 key값이 중복되지 않습니다.(기존 key-value를 덮어씀)
 		map.put("1",new Employee("유병승",19,"경기도 시흥시",1000,"자바학부","강사"));
 		System.out.println("===========entrySet============");
+		Set set=map.entrySet();
+		Iterator it=set.iterator();
 		//key, value값을 한번에 보내주는것
-		set=map.entrySet();
-		it=set.iterator();
 		while(it.hasNext()) {
 			Map.Entry obj=(Map.Entry)it.next();
 			System.out.println(obj.getKey()+" : "+obj.getValue());
@@ -228,7 +211,7 @@ public class CollectionController {
 		it=set.iterator();
 		while(it.hasNext()) {
 			Object obj=it.next();
-			System.out.println(obj+""+ map.get(obj));
+			System.out.println(obj+" "+ map.get(obj));
 		}
 	}
 	
@@ -250,6 +233,7 @@ public class CollectionController {
 	}
 
 	public void printList(List list) {
+		System.out.println();
 		//각인덱스값을 출력 get(인덱스)메소드 사용
 //		for(int i =0; i<list.size(); i++)
 //			System.out.println(list.get(i));
@@ -262,9 +246,13 @@ public class CollectionController {
 			else if(obj instanceof Student) {
 				System.out.println((Student)obj);
 			}
+			else if(obj instanceof Employee) {
+				System.out.println((Employee)obj);
+			}
 			else {
 				System.out.println(obj);
 			}
 		}
+		System.out.println();
 	}
 }
