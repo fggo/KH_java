@@ -1,7 +1,9 @@
-package practice;
+package problem;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
@@ -71,7 +73,9 @@ public class Employee {
 //	3. HashMap을 이용하여 데이터를 넣고 출력해보자
 
 	public static void main(String[] args) {
+		/* use List, Set */
 //		List<Employee> list = new ArrayList<Employee>();
+		System.out.println("===== Set 이용 =====");
 		Set<Employee> set = new HashSet<Employee>();
 		set.add(new Employee("홍길동", 29, "대리", 300));
 		set.add(new Employee("이순신", 30, "과장", 500));
@@ -79,7 +83,6 @@ public class Employee {
 		set.add(new Employee("장길산", 85, "고문", 10));
 		set.add(new Employee("용석", 26, "인턴", 1));
 		
-
 		Iterator<Employee> itr = set.iterator();
 		while(itr.hasNext())
 			System.out.println(itr.next());
@@ -90,5 +93,28 @@ public class Employee {
 		itr = set.iterator();
 		while(itr.hasNext())
 			System.out.println(itr.next());
+		
+
+		/* use Map */
+		System.out.println("===== Map 이용 =====");
+		Map<Integer, Employee> map = new HashMap<Integer, Employee>();
+		int idx = 0;
+		map.put(idx++, new Employee("홍길동", 29, "대리", 300));
+		map.put(idx++, new Employee("이순신", 30, "과장", 500));
+		map.put(idx++, new Employee("유병승", 18, "사장", 1000));
+		map.put(idx++, new Employee("장길산", 85, "고문", 10));
+		map.put(idx++, new Employee("용석", 26, "인턴", 1));
+		
+		for(Map.Entry<Integer, Employee> entry : map.entrySet()) {
+//			entry.getKey();
+			System.out.println(entry.getValue());
+		}
+		map.put(2, new Employee("유병승", 18, "사장", 1000));
+		System.out.println();
+
+		for(Map.Entry<Integer, Employee> entry : map.entrySet()) {
+//			entry.getKey();
+			System.out.println(entry.getValue());
+		}
 	}
 }

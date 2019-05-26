@@ -65,6 +65,12 @@ public class StudentController {
 			oos.writeObject(list);
 		} catch(IOException e){
 			e.printStackTrace();
+		} finally {
+			try {
+				oos.close();
+			} catch(IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -79,6 +85,12 @@ public class StudentController {
 				
 			} catch(Exception e) {
 				e.printStackTrace();
+			} finally {
+				try {
+					ois.close();
+				} catch(IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
