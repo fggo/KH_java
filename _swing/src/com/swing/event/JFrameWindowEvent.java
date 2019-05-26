@@ -1,0 +1,22 @@
+package com.swing.event;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class JFrameWindowEvent {
+	public static void main(String[] args) {
+		JFrame frmOne = new JFrame("Frame One");
+		JFrame frmTwo = new JFrame("Frame Two");
+		
+		frmOne.setBounds(120, 120, 250, 150);
+		frmTwo.setBounds(380, 120, 250, 150);
+		
+		frmOne.addWindowListener(new WindowEventHandler("Frame One"));
+		frmTwo.addWindowListener(new WindowEventHandler("Frame Two"));
+		
+		frmOne.add(new JButton("Button One"));
+		frmTwo.add(new JButton("Button Two"));
+		frmOne.setVisible(true);
+		frmTwo.setVisible(true);
+	}
+}
