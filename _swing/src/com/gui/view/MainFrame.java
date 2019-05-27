@@ -8,11 +8,14 @@ import javax.swing.JFrame;
 
 public class MainFrame extends JFrame {
 
-	 public MainFrame() {
-
+	public static void main(String[] args) {
+		new MainFrame().mainFrame();
+	}
+	public void mainFrame() {
 		 setBounds(650, 300, 500, 500);
-		 setIconImage(new ImageIcon("components/images/search.png").getImage());
 		 setLayout(new BorderLayout());
+
+		 setIconImage(new ImageIcon("../../../components/images/search.png").getImage());
 		 
 		 JButton b1 = new JButton("¿ÞÂÊ");
 		 JButton b2 = new JButton("¿À¸¥ÂÊ");

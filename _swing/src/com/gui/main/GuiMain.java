@@ -11,6 +11,7 @@ public class GuiMain extends JFrame {
 
 		//생성된 창의 위치와 크기를 한번에 설정 : setSize() + setLocation()
 		setBounds(600, 200, 200, 200);
+        
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
