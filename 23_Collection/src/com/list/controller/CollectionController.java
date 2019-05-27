@@ -79,9 +79,13 @@ public class CollectionController {
 
 		list.add(new Person("유병승",19,"경기도 시흥시"));
 		//사용자 정의 객체를 찾아보자!
-		Person com=new Person("유병승",19,"경기도 시흥시");
+		Person com = new Person("유병승",19,"경기도 시흥시");
 		//equals 오버라이딩을 시켜줘야함.
+
+		System.out.println(list);
+		list.add(com);
 		System.out.println("비교"+ list.contains(com));
+		System.out.println(list);
 		
 		//sort 정렬
 		list3.add("유병승");
