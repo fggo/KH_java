@@ -11,14 +11,9 @@ import javax.swing.JPanel;
 
 public class CardFrame extends JFrame {
 	public static boolean flag=true;
-	
-	public static void main(String[] args) {
-		new CardFrame().cardFrame();
-	}
+	public CardFrame() {
 
-	public void cardFrame() {
-
-		setBounds(500, 500 ,300,300);
+		setBounds(100,100,500,500);
 		CardLayout card=new CardLayout();
 		setLayout(card);
 		
@@ -33,19 +28,18 @@ public class CardFrame extends JFrame {
 		p1.setBackground(Color.yellow);
 		p2.setBackground(Color.RED);
 		p3.setBackground(Color.CYAN);
-
 		//패널에 컴포넌트 추가
 		p1.add(new JLabel("p1"));
 		p2.add(new JLabel("p2"));
 		p3.add(new JLabel("p3"));
-
+		
 		//프레임에 패널추가
 		add(p1, "1");
 		add(p2, "2");
 		add(p3, "3");
 		
-		//MouseAdapter does not have to override all Mouse Events
-		//MouseListener has to override ALL Mouse Events
+		
+		
 		p1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -69,6 +63,7 @@ public class CardFrame extends JFrame {
 			}
 		});
 		p3.addMouseListener(new MouseAdapter() {
+			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				String name=((JPanel)e.getSource()).getName();
@@ -78,16 +73,11 @@ public class CardFrame extends JFrame {
 				}
 			}
 		});
+				
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 3
+		setDefaultCloseOperation(3);
 		setVisible(true);
 	}
 	
 }
-
-
-
-
-
-
 
