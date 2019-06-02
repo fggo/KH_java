@@ -1,0 +1,230 @@
+---시험 [요구사항 확인] p213 ~226
+개발 프로세스: 도출-분석-명세-확인
+	-자바책 뒷부분 -index
+	1. 시스템 구성 기능 interface 파악
+	2. architecture software 현황 파악
+	3. 어떤 hardware/network에서 실행 되는지 파악
+		도출 
+	4. 개발기술 환경 파악:
+			운영체제 응용소프트웨어 mediumware 등 dbms
+			dbms를 고려할 때 주의사항
+			1. 장기간 운영시 장애 발생 가능성 파악
+			2. 대용량 데이터 처리능력 파악
+			3. 안정성 파악
+			4. db사용 시 비용 파악
+				(유료 소프트웨어 오라클 등 지원회사에 지불할 금액)
+
+개발 프로세스: 도출-분석-명세-확인
+	-도출: 요구사항 찾아내기 discover
+
+	기술적 타당성 파악
+		타 시스템/기계과 호환되는지. 
+	
+	정보기술 발전 방향에 맞게
+	
+	실현 가능성(특허 장애물 파악) 파악
+	
+	IT 트렌드 파악/IT시장 성숙도, 기술 보안 여부
+	
+	성능, 용량 
+	
+	시스템간 상호 운용성 - 다른 목적을 지닌 두개의 시스템을 지닌.
+		정보시스템을 교환하면서 효과적으로 운용 가능
+
+클래스 다이어그램에 포함되는 요소들/의미 파악
+	클래스/멤버변수 등
+
+한국정보 지능원
+	정보시스템 감리 지침/감사
+		지침에 따라 분석모델 검증
+		유스케이스 검증, 개념 클래스 검증, 분석클래스 검증
+		
+		UML 클래스/활동/시스템/
+			유스케이스 다이어그램
+				사용자 등 어떻게 사용되고, actor누가 사용하는지,
+				각시스템이 무슨 기능인지
+			시퀀스 다이어그램(순서)
+			
+			활동 다이어그램
+			
+현행시스템 파악 3단계
+
+
+요구사항 식별
+	신뢰도(장기간 가능), 
+	성능 (대량 데이터 처리가능)
+	기술지원(vendor 소프트웨어가 잘 지원해주는지, open source처럼 사용자들 정보공유하는지,
+			오픈소스 라이센스인지), 
+	주변기기,
+	구축비용 (장비 비용, 응용프로그램 라이센스, 유지관리비)
+
+웹서비스
+
+	middleware (web application Server, WAS 
+		예를들어 - tomcat netty 가 동적으로 어떻게 돌아가는지,
+		개념/ 내용 )
+
+타당성검토(4가지)
+	성능및 용량 
+	시스템간 상호 운용
+	iT 트렌드 부합
+	기술 위험도, risk
+
+
+
+sql문 .properties에서 가져옴.
+MyBatis에서 가져오는것과 비슷
+
+Thread
+ mainT
+ T1
+ T2
+ thread끝나는 시점은 다를수 있음
+  
+ 교착상태(dead-lock 동시에 CPU 이용)주의
+ JVM이 메인 thread 생성
+ 
+ new 객체 : Heap영역 메모리
+ 객체.start()
+ run()오버라이드
+
+Thread 상속하면 ,다른 클래스 상속 불가(다중상속x)
+Runnable implement 해서, 다른 클래스 상속 허용
+
+
+
+---
+Java Network
+server - client
+
+ipconfig
+ip4(ip addr) globally unique
+255^4
+사설(192.168.0.x)/
+공용 네트워크
+(ips 업체) 통신선로 ->공인아이피 구매
+외부 공인아이피<->공유기(사설 아이피주소 할당)
+192.168.0.1 개인 공유기
+외부IP(공용ip)<->내부IP
+네트워크 카드에 따라 16진수로 고유번호 부여
+	(공유기 접근 가능)
+
+mac주소관리 등록후 secure wifi
+외부에서 wifi 연결 차단
+ipconfig
+기본 게이트웨이
+포트포워딩
+	domainName:ip
+	외부ip:ip
+nslookup
+	www.naver.com
+	210.89.164.90
+
+상대 ip 접근
+	INetAddress 클래스
+웹 브라우저 검색창: 공용ip입력
+
+socket programming
+
+
+---
+openjdk
+시스템 변수: 
+JAVA_HOME
+	C:\Program Files\openjdk-11.0.2_windows-x64_bin\jdk-11.0.2
+Path
+	%JAVA_HOME%\bin
+ 
+eclipse window > preference >java >installed jre
+java 버전 변경
+
+
+
+
+
+--instance method : 
+	Heap에 객체가 생성되어야 호출가능.
+new MethodTest().calculator(10, 20, '+');
+new MethodTest().calculator2(20, 30, '/');
+
+[Heap]
+	[MethodTest]
+		[calculator]
+		[su1]10
+		[su2]20
+		[op] '+'
+	[MethodTest]
+		[calculator2]
+		[su1] 20
+		[su2] 30
+		[op] '/'
+		[result] .6666...
+	[MethodTest]
+		[concatString]
+		
+[Stack] first in last out
+    calculator2
+	calculator
+	main
+
+
+--memory
+[stack]
+    call된 method가 stack에 쌓이고, 
+    return 하면 stack 메모리에서 없어짐
+    선언된 기본자료형 변수 메모리에 저장
+    int[] arr; //reference 자료형(위치; 주소 저장됨)
+
+
+[heap] gc(garbage collection 자동으로 수행)
+배열
+new int[]
+new 객체
+
+
+--oop 클래스
+1. 야구선수
+------------
+	- 팀 team
+	- 등번호 backNO
+	- 연봉 sal
+	- 포지션 postion
+	- 키 height
+	- 무게 weight 
+	- 나이 age
+	- 성별 gem
+	- 국적
+	- 승률
+	- 부상기록
+2. 결혼정보프로그램 회원객체
+	- 성별
+	- 나이
+	- 연봉 공개여부
+	- 키 몸무게 공개여부
+	- 키
+	- 몸무게
+	- 결혼 이력
+	- 자녀여부
+	- 희망 배우자 나이
+	- 희망 배우자 스타일
+3. 전화번호부
+
+생성자 : Heap 메모리에 instance를 만듦
+Object obj = new Object();
+//obj에 주소값저장됨; obj.메소드(); obj.멤버;
+
+[Stack]
+	obj (reference variable stores address from Heap)
+[Heap]
+	Object주소값 0x123 과 접근연산자 .으로 멤버 접근
+	new 로 객체 생성시 Heap 메모리에 쌓임
+	할당안하면 Stack에 주소값 저장안됨
+	프로그램 실행은 Stack에 메모리를 읽으면서 진행됨
+[Static]
+클래스 변수; 객체 생성하지 않고 쓸수있는 저장공간.
+
+프로그램 시작과 동시에 
+[static]에 static 변수들 메모리 저장됨
+    new Person() [heap]에 저장된 static 변수들은
+    [static]에 있는 static변수를 참조하게됨.
+

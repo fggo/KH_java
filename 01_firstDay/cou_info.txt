@@ -1,0 +1,15 @@
+WebShare
+    http://rclass.iptime.org:6262/
+    ID: RclassAM
+    PW: 0987
+
+java //jre
+javac //compiler
+
+Course
+    Java 6W
+    Oracle 4W
+    JDBC 3-7D
+    Frontend 4W
+    Backend  (JSP, servlet) 3W
+    Framework; Mybatis, Spring 4W
