@@ -1,6 +1,5 @@
 package contact;
 
-
 import java.util.ArrayList;
 
 public interface ContactDAO {

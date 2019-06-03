@@ -12,6 +12,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
+
 public class ContactDAOImple implements ContactDAO {
 	// Singleton 패턴 적용
 	// 1. private static 자기자신 타입 멤버 변수 선언
@@ -31,8 +32,9 @@ public class ContactDAOImple implements ContactDAO {
 		return instance;
 	}
 
+	// 멤버 변수(필드)
 	private ArrayList<ContactVO> list;
-
+	// 데이터를 저장할 폴더와 파일 이름 정의
 	private static final String DATA_DIR = "data"; // 상대 경로
 	private static final String DATA_FILE = "contact.data";
 	// 데이터 폴더와 파일을 사용하는 File 객체 선언

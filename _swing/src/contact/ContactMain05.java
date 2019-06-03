@@ -20,7 +20,6 @@ import javax.swing.border.LineBorder;
 public class ContactMain05 {
 	private static ContactDAO dao;
 	private static ContactDAOImple daoimp;
-
 	private JFrame frame;
 	private JTextField menuCategory;
 	private JTextField menuName;
@@ -28,11 +27,11 @@ public class ContactMain05 {
 	private JTextField menuPrice;
 	private JTextArea textArea;
 
-	public ContactMain05() {
-		dao = ContactDAOImple.getInstance(); // ContactDAO의 인스턴스를 호출
-		initialize();
-	}
+	/**
 
+	 * Launch the application.
+
+	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -46,6 +45,20 @@ public class ContactMain05 {
 		});
 	}
 
+	/**
+
+	 * Create the application.
+
+	 */
+	public ContactMain05() {
+		dao = ContactDAOImple.getInstance(); // ContactDAO의 인스턴스를 호출
+		initialize();
+	}
+	/**
+
+	 * Initialize the contents of the frame.
+
+	 */
 	private void initialize() {
 		frame = new JFrame(); // 메인 프레임 생성
 		frame.setBounds(100, 100, 510, 639);
@@ -187,6 +200,7 @@ public class ContactMain05 {
 		scrollPane.setViewportView(textArea);
 	} // end initialize
 
+
 	private void insert() { // 등록하는 메소드
 		String menuCategory = this.menuCategory.getText(); // 텍스트 필드에서 텍스트를 받아와 name에 저장
 		int menuNo = Integer.parseInt(this.menuNo.getText()); // 텍스트 필드에서 텍스트를 받아와 name에 저장
@@ -229,6 +243,7 @@ public class ContactMain05 {
 		textArea.setText(buffer.toString());
 	}
 
+
 	private void select() {		//부분검색 menuNo으로
 		try {
 			int menuNo = Integer.parseInt(this.menuNo.getText());
@@ -246,6 +261,7 @@ public class ContactMain05 {
 			textArea.setText("해당 인덱스가 없습니다.");
 		}
 	}
+
 
 	private void update() {
 		try {
@@ -267,7 +283,23 @@ public class ContactMain05 {
 			textArea.setText("숫자를 입력을 하세요.");
 		}
 	}
-
+//		try {
+//			String menuCategory = this.menuCategory.getText();
+//			int menuNo = Integer.parseInt(this.menuNo.getText());
+//			String menuName = this.menuName.getText();
+//			int menuPrice = Integer.parseInt(this.menuPrice.getText());
+//			ContactVO contact = new ContactVO(menuCategory, menuNo, menuName, menuPrice);
+//
+//			int result = dao.update(menuCategory, contact);
+//			if (result == 1) {
+//				textArea.setText(menuCategory + "수정 성공");
+//			} else {
+//				textArea.setText(menuCategory + "수정 실패");
+//			}
+//		} catch (NumberFormatException e) {
+//			textArea.setText("숫자를 입력하세요.");
+//		}
+//	}
 	private void delete() {
 		try {
 			int menuNo = Integer.parseInt(this.menuNo.getText());
