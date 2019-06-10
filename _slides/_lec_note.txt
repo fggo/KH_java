@@ -1,36 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 어플리케이션 개발(자바책 맨뒤 p227~)
 	개발환경 구축사항 아닌것
 
@@ -52,36 +20,35 @@ git 이라는 소스관리 프로그램
 			문서, 유스케이스 클래스 다이어그램
 			구현 산출물(ppt)문서들
 			일관성을 유지하기위한 산출물?
-			요구사항 추적 매트릭스
+                요구사항 추적 매트릭스: 프로젝트 진행단계별로 요구사항들이 어느 페이지 또는 
+                    어느 컴포넌트 등에 반영이 되었는지 매칭하는 표형식의 문서
 
 architecture 프로그램 구성 기반, 설계흐름
 	client-server acrhitecture
 	mvc architecture
-	service '' 
+	service oriented architecture
 
-소프트 architecture
-	프로세스 수행하는
-	웹서비스 restapi로 구성된 
-	bpel로 구현한 프로세스
-	orchestration
-	신속 유용하게 할 수 있는 architecture 방식
+소프트웨어 architecture
+    서비스지향 아키텍쳐(SOA : Service Oriented Architecture)
+        웹서비스나 REST 서비스로 구현된 SW 모듈을 BPEL로 구현된 프로세스이다. 
+        오케스트레이션함으로써 프로세스 변경에 따른 정보시스템의 재구성을 
+        신속 유용하게 할 수 있는 방식이다. 
 
 프로젝트 관리할때, 어떻게 하는지?
 	버젼 관리 프로그램 git
 
 어플리케이션 성능 관리: 5가지 속성
-	monitoring, 성능관련 소프트/하드웨어 요소들 측정
-	플랫폼을 구성하는 
-	트랜젝션 프로파일링
-	구성하는 소프트/하드웨어 리소스 수요 평가
-	-> 사용자 패턴 분석 성능 최적화.
+	1. 사용자환경 monitoring 및 평가 
+    2. 어플리케이션 성능관련 소프트/하드웨어 요소들 측정
+	3. 애플리케이션 전송 플랫폼을 구성하는 소프트/하드웨어에서 이동하는 사용자정의 트랜잭션 프로파일링
+    4. 플랫폼을 구성하는 소프트/하드웨어의 리소스 수요평가
+	5. 위 4가지로 사용자 패턴 분석 성능 최적화위해 필요한 조치들을 우선순위에 따라 지정
 
-수정매트릭스
+
 
 통계 : java jfreechart
 
 https://www.canva.com/design/DADb3VzYhPg/cctj8YAg2DAvd-Mrs1EhCg/edit?category=tACFasDnyEQ
-
 
 ---[요구사항 확인]시험 - 자바책 뒷부분 index-p213~226  
 
