@@ -1,3 +1,56 @@
+
+
+
+
+
+어플리케이션 개발(자바책 맨뒤 p227~)
+	개발환경 구축사항 아닌것
+
+git 이라는 소스관리 프로그램
+	형상관리, 버젼 관리
+	개발환경 구축
+
+테스트용서버 -> 실서버
+
+클라이언트 개발 요구사항 파악 아닌것?
+	클라이언트와 대화
+	요구사항 문서 받기
+	비즈니스 로직 (업무처리 로직)
+		회사 보고서 문서로 파악
+
+사용자 요구사항
+	분석 - 설계 - 구현 - 테스트
+		이과정에서 산출물들:
+			문서, 유스케이스 클래스 다이어그램
+			구현 산출물(ppt)문서들
+			일관성을 유지하기위한 산출물?
+
+architecture 프로그램 구성 기반, 설계흐름
+	client-server acrhitecture
+	mvc architecture
+	service '' 
+
+소프트 architecture
+	프로세스 수행하는
+	웹서비스 restapi로 구성된 
+	bpel로 구현한 프로세스
+	orchestration
+	신속 유용하게 할 수 있는 architecture 방식
+
+프로젝트 관리할때, 어떻게 하는지?
+	버젼 관리 프로그램 git
+
+어플리케이션 성능 관리: 5가지 속성
+	monitoring, 성능관련 소프트/하드웨어 요소들 측정
+	플랫폼을 구성하는 
+	트랜젝션 프로파일링
+	구성하는 소프트/하드웨어 리소스 수요 평가
+	-> 사용자 패턴 분석 성능 최적화.
+
+
+
+
+
 통계 : java jfreechart
 
 https://www.canva.com/design/DADb3VzYhPg/cctj8YAg2DAvd-Mrs1EhCg/edit?category=tACFasDnyEQ
