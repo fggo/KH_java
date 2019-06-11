@@ -6,7 +6,7 @@ import java.net.UnknownHostException;
 public class InetController {
 	public static void main(String[] args) throws UnknownHostException {
 		InetAddress localIp = InetAddress.getLocalHost();
-		System.out.println(localIp); //hostname/내부ip
+		System.out.println(localIp); //hostname 또는 내부ip
 
 		InetAddress naver = InetAddress.getByName("www.naver.com");
 		System.out.println("네이버: " + naver.getHostAddress());

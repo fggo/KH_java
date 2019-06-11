@@ -9,12 +9,8 @@ public class Student<T, U> {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Student(T sudentNo, U test) {
-		this.studentNo=studentNo;
+	public Student(T studentNo, U test) {
+		this.studentNo = studentNo;
 		this.test = test;
 	}
-
-//	public void setStudentNo() {
-//		
-//	}
 }

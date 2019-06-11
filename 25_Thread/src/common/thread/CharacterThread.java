@@ -15,11 +15,10 @@ public class CharacterThread extends Person implements Runnable {
 	@Override
 	public void run() {
 		for(;;) {
-			int damage = (int)(Math.random() * 35) + 1;
+			int damage = (int)(Math.random() * 25) + 1;
 			super.setHp(Math.max(super.getHp() - damage, 0));
-			System.out.println(super.getName() 
-					+ " : " + super.getHp());
-			if(super.getHp() <= 0) {
+			System.out.println(super.getName() + " : " + super.getHp());
+			if(super.getHp() == 0) {
 				System.out.println(super.getName() + " 캐릭터 사망");
 				break;
 			}
@@ -29,5 +28,6 @@ public class CharacterThread extends Person implements Runnable {
 				e.printStackTrace();
 			}
 		}
+		System.out.println(super.getName() + " 쓰레드 끝");
 	}	
 }

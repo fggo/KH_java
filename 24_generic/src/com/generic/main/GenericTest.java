@@ -15,14 +15,13 @@ public class GenericTest {
 	public static void main(String[] args) {
 
 	}
-
 }
 
 class GenericController{
 	
 	public void genericTest() {
 		
-		List<Person> list=new ArrayList();
+		List<Person> list=new ArrayList<Person>();
 		list.add(new Person("유병승",19,"경기도 시흥시"));
 		list.add(new Person("문은철",32,"서울시"));
 		list.add(new Person("서선덕",20,"경기도 오산시"));
@@ -35,7 +34,7 @@ class GenericController{
 		}
 		System.out.println(list.get(0).getName());
 		//map에 대한 제네릭 선언
-		Map<String, Person> persons=new HashMap();
+		Map<String, Person> persons=new HashMap<String, Person>();
 		
 		persons.put("병승",new Person("김기호", 26,"부모님집"));
 		persons.put("기호",new Person("박기오", 27,"분당"));
@@ -55,10 +54,6 @@ class GenericController{
 		while(it2.hasNext()) {
 			System.out.println(it2.next().getValue());
 		}
-		
-//		Student<String, Integer> s = new Student<String, Integer>("Number");
-//		Student<Integer, String> s2 = new Student<Integer, String>(1);
-
 		
 	}
 	
