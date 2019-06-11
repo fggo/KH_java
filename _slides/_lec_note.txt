@@ -1,4 +1,5 @@
 
+
 어플리케이션 개발(자바책 맨뒤 p227~)
 
 개발환경 구축사항
@@ -32,12 +33,12 @@ Architecture 프로그램 구성 기반, 설계흐름
 	service oriented architecture
 
 소프트웨어 architecture
-    서비스지향 아키텍쳐(SOA : Service Oriented Architecture)
-        웹서비스나 REST 서비스로 구현된 
+	서비스지향 아키텍쳐(SOA : Service Oriented Architecture)
+		웹서비스나 REST 서비스로 구현된 
 		SW 모듈을 BPEL로 구현된 프로세스이다. 
-        오케스트레이션함으로써 프로세스 변경에 
+		오케스트레이션 함으로써 프로세스 변경에 
 		따른 정보시스템의 재구성을 
-        신속 유용하게 할 수 있는 방식이다.
+		신속 유용하게 할 수 있는 방식이다.
 
 프로젝트 관리할때, 어떻게 하는지?
 	버젼 관리 프로그램 git
