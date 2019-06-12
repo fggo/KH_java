@@ -10,14 +10,10 @@ public class Employee {
 	private int foryears;
 	private Date enrollDate;
 
-	//default/private ACSÀÏ°æ¿ì 
-	//´Ù¸¥ package¿¡¼­ µğÆúÆ®·Î °´Ã¼ »ı¼º½Ã ¿¡·¯!
 	private Employee() {
-		//this : EmployeeÅ¬·¡½º ÁÖ¼Ò°ª¿¡ Á¢±Ù
-		System.out.println("µğÆúÆ® »ı¼ºÀÚ È£Ãâ!");
-		this.name = "¹Ù¹Ù¹Ù";
-		this.dept = "¹ÌÁöÁ¤ºÎ¼­";
-		this.job = "½ÅÀÔ";
+		this.name = "í™ê¸¸ë™";
+		this.dept = "ë¯¸ì§€ì •ë¶€ì„œ";
+		this.job = "ì‚¬ì›";
 	}
 
 	public Employee(String name, String dept, int sal, String job, int years, Date date) {

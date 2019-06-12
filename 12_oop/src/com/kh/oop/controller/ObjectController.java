@@ -7,8 +7,8 @@ import com.kh.oop.model.vo.Person;
 
 public class ObjectController {
 	public void accessTest() {
-		//1. static °ø¿ëÀ¸·Î »ç¿ë°¡´ÉÇÏ°Ô º¯¼ö¸¦ °ø°³ÇÏ´Â°Í
-		//	ÇÁ·Î±×·¥ ½ÃÀÛ°ú µ¿½Ã¿¡ static¿µ¿ª¿¡ ÀúÀåµÊ
+		//1. static ê³µìš©ìœ¼ë¡œ ì‚¬ìš©ê°€ëŠ¥í•˜ê²Œ ë³€ìˆ˜ë¥¼ ê³µê°œí•˜ëŠ”ê²ƒ
+		//	í”„ë¡œê·¸ë¨ ì‹œì‘ê³¼ ë™ì‹œì— staticì˜ì—­ì— ì €ì¥ë¨
 		new Person().printPerson(); //0x222
 		System.out.println(new Person().hashCode());
 
@@ -16,19 +16,20 @@ public class ObjectController {
 		p1.printPerson();
 		System.out.println(p1.hashCode());
 
-		//Á¢±ÙÁ¦ÇÑÀÚº° ¸â¹öº¯¼ö Á¢±Ù
+		//ì ‘ê·¼ì œí•œìë³„ ë©¤ë²„ë³€ìˆ˜ ì ‘ê·¼
 //		p1.name; //ERROR if private
+
 		//'public' static
-		Person.name = "¶ó¶ó¶ó";
-		//staticº¯¼ö´Â ÀÎ½ºÅÏ½ºº¯¼öÃ³·³ Á¢±Ù X
-		//p1.name = "0¹Ù¹Ù";
+		Person.name = "ë¼ë¼ë¼";
+		//staticë³€ìˆ˜ëŠ” ì¸ìŠ¤í„´ìŠ¤ë³€ìˆ˜ì²˜ëŸ¼ ì ‘ê·¼ X
+		//p1.name = "0ë°”ë°”";
 		
 		//static method
 		Person.getName();
 
 //		System.out.println(p1.gender);
 		System.out.println(p1);
-		Person.name = "°¡³ª´Ù";
+		Person.name = "ê°€ë‚˜ë‹¤";
 		System.out.println(Person.getName());
 	}
 	
@@ -41,7 +42,7 @@ public class ObjectController {
 
 	public void constructorTest() {
 		Employee e = Employee.getEmployee(); //when private Employee()
-		Employee e1 = new Employee("È«±æµ¿", "Àü»êºÎ", 100, "°³¹ßÀÚ", 1, new Date());
+		Employee e1 = new Employee("ë°”ë°”", "ì „ì‚°ë¶€", 100, "ê°œë°œì", 1, new Date());
 		
 		e.printEmployee();
 		e1.printEmployee();
