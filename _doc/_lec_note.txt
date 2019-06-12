@@ -1,11 +1,9 @@
 
 
-
 sqlplus
 conn system/oracle;
 show user;
-select username, account_status
-from dba_users where username='HR';
+select username, account_status from dba_users where username='HR';
 
 alter user HR account unlock;
 alter user HR identified by hr;
@@ -17,8 +15,6 @@ set pagesize 10;
 
 select * from tab;
 
-select * from employees;
-
 clear screen;
 
 conn system/oracle;
@@ -29,7 +25,6 @@ conn test/test;
 
 grant connect to TEST;
 conn test/test; --SUCCESS
-
 
 save test
 	--test.sql
@@ -50,9 +45,21 @@ host
 
 exit
 
+grant resource to kh;
+-- resource: role
+--resource 권한: 테이블 생성 수정 삭제 할 수 있는
+--권한이 모두 있는것.
+
+delete 테이블 안에 데이터 삭제
+drop 테이블 자체를 삭제
+
+데이터 조작 -> 트랜젝션 제어 COMMIT
+
+테이블 = relation (entity)
+
+foreign key: 참조하고 있는 테이블에서 primary key 컬럼
 
 ---
-
 테이블 생성시 로그인된 계정에 종속되어 생성
 각 계정에 따른 저장소가 DB에 생성됨.
 system / sys가 전체 저장공간 관리
@@ -60,7 +67,6 @@ system / sys가 전체 저장공간 관리
 	schema는 겹칠 수 없음
 	schema에 테이블 생성
 hr 교육용 계정
-
 
 
 DBMS 사용 이점
@@ -71,21 +77,6 @@ DBMS 사용 이점
 DB 서버에 oracle 11g 설치. 연습할때는 개인 pc에
 
 정보처리 기사/산업기사
-
-grant resource to kh;
--- resource: role
---resource 권한: 테이블 생성 수정 삭제 할 수 있는
---권한이 모두 있는것.
-
-delete 테이블 안에 데이터 삭제
-drop 테이블 자체를 삭제
-
-
-데이터 조작 -> 트랜젝션 제어 COMMIT
-
-테이블 = relation / entity
-
-foreign key: 참조하고 있는 테이블에서 primary key 컬럼
 
 ---
 시험: 어플리케이션 개발(자바책 맨뒤 p227~)

@@ -1,4 +1,3 @@
---자료형
 --NUMBER(p 전체자리 수, s 전체자리수 중 소숫점 수);
 
 CREATE TABLE NUMBERTEST(
@@ -12,10 +11,6 @@ CREATE TABLE NUMBERTEST(
 SELECT * FROM NUMBERTEST;
 
 INSERT INTO NUMBERTEST
-    VALUES(1234.567,
-        1234.567,
-        1234.567,
-        1234.567,
-        1234.567);
+    VALUES(1234.567, 1234.567, 1234.567, 1234.567, 1234.567);
 
-
+select * from tab;
