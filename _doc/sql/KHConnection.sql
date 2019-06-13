@@ -20,7 +20,7 @@ INSERT INTO NUMBERTEST
 --사용법 자료형 (길이)
 --char(10) 10 byte 만큼 저장이 되는 공간. 무조건 10byte 다 사용
 --	남은 공간은 whitespace로 채워짐
---varchar(10) 10 byte만큼 저장이 되는 공간, 대입되는 값의
+--varchar2(10) 10 byte만큼 저장이 되는 공간, 대입되는 값의
 --	크기에 따라 사용 공간이 정해짐
 --	오라클 express버젼에서 한글은 3byte로 처리됨
 --	한글 4글자 이상 ERROR
@@ -29,7 +29,7 @@ INSERT INTO NUMBERTEST
 
 create table chartest(
 	a char(6),
-	b varchar(6),
+	b varchar2(6),
 	c nchar(6),
 	d nvarchar2(6)
 );
@@ -40,9 +40,6 @@ insert into chartest values('abcefg','abcefg','abcdef','abcdef');
 
 --ERROR
 insert into chartest values('abcefg123','abcefg123','abcdef','abcdef');
-
---ERROR
-insert into chartest values('바바바', '바바바', '바바바', '바바바');
 
 insert into chartest values('바바', '바바', '바바바', '바바바');
 
@@ -61,12 +58,11 @@ select * from chartest;
 commit;
 
 --length
-select length(a), lengthb(a),
-	b, length(b), lengthb(b),
-	c, length(c), lengthb(c),
-	d, length(d), lengthb(d)
+select a, length(a) length_A_char, lengthb(a) lengthb_A_char,
+	b, length(b) length_B_varchar2, lengthb(b) lengthb_B_varchar2,
+	c, length(c) length_C_nchar, lengthb(c) lengthb_C_nchar,
+	d, length(d) length_D_nvarchar2, lengthb(d) lengthb_D_nvarchar2
 from chartest;
-
 
 --날짜자료형
 --현재날짜를 표시해주는 system 컬럼: sysdate
@@ -96,17 +92,17 @@ create table datetest(
 	birthday date,
 	temp timestamp);
 
-select * from datetest;
-
 insert into datetest 
 values('19/06/13', '00/02/24', '19/06/13 11:15:00');
 
 insert into datetest
 values(to_date('20190613'), to_date('19990224'),
 	to_timestamp('20190613111500'));
+    
+select * from datetest;
 
 --테이블 컬럼의 자료형을 확인하고 싶을때
-desc chartest; -- DESC TABLE_NAME;
+desc chartest;
 
 desc datetest;
 
@@ -127,45 +123,23 @@ desc member_table;
 -- 명령어 select
 -- 명령구조 select 컬럼1,...,컬럼n from 테이블명 where 검색조건
 
-select * from tab;
-
 select * from kh.employee;
 
-select emp_name, emp_id, email,
-	emp_no, 
-	salary, 
-	dept_code
-from employee;
+select dept_id, dept_title from department;
 
-select dept_id, dept_title
-from department;
-
-select emp_name, email, phone, ent_date
-from employee;
-
-select * from employee;
-
-select hire_date, emp_name, salary from employee;
+select emp_name, email, phone, ent_date from employee;
 
 --select 문에서는 산술 연산도 가능
 --연산을 하기 위해서는 연산식의 컬럼명이 들어가는 곳에서
 --연산을 해주면 그 연산 명이 컬럼명이 되고, 계산된 값이
 --각 row에 들어간다.
 
-select salary*12 annual_salary,
-    salary * (1+bonus)*12 bonus_annual_salary
-    from employee;
-
+--ERROR
 select emp_name, salary, email*12 from employee;
-
-select bonus* 12 from employee;
 
 --select bonus %12 from employee;
 --%연산자는 기본 산술연산자로 등록되어 있지 않음
 --mod라는 함수 이용
-
-select emp_name, nvl2(bonus, 'O', 'NULL')
-from employee;
 
 --nvl함수는 컬럼데이터가 null일때,
 --그 값을 대체해줄 값을 지정
@@ -185,24 +159,16 @@ select emp_name, dept_code from employee;
 select distinct dept_code from employee;
 
 --(dept_code, job_code)를 한개 데이터로 distinct인 것을 select
-select distinct dept_code, job_code
-from employee;
+select distinct dept_code, job_code from employee;
 
 --비교 연산자 : where절에서
 --where절 사용하기 : resultSet에 필요한 row들만 필터링
 --select 컬럼1,...,컬럼n from 테이블명 where 컬럼명 비교연산자 값;
-
-select * from employee
-where job_code = 'J5';
+select * from employee where job_code = 'J5';
 
 select * from tab where tname='EMPLOYEE';
 
-select emp_name, salary, hire_date 
-from employee
-where salary >= 3000000;
-
-select emp_name, salary, hire_date, phone
-from employee
+select emp_name, salary, hire_date, phone from employee
 where sal_level='S1';
 
 select emp_name, salary,
@@ -213,21 +179,12 @@ where 12*salary*(1-.03 + nvl(bonus,0)) > 50000000;
 --논리연산자 사용하기
 --AND/OR
 select * from employee
-where dept_code != 'D6'
-	AND salary >= 3000000;
+where dept_code != 'D6' AND salary >= 3000000;
 
 select emp_name, hire_date, salary from employee
-where job_code='J3'
-	OR sal_level='S5';
+where job_code='J3' OR sal_level='S5';
+
 --비교연산자를 여러개
-select * from employee
-where salary > 3000000
-	AND job_code='J3' AND dept_code='D5';
-
-select * from employee
-	where salary > 4000000
-	AND job_code ='J2';
-
 select * from employee
 where dept_code='D5'
 	AND hire_date >'02/01/01';
@@ -245,8 +202,7 @@ where salary between 3500000 and 6000000;
 
 select emp_no || emp_name || email from employee;
 
-select emp_name ||'님 안녕하세요 당신은 '|| salary
-	|| '원 만큼 받나요?' from employee;
+select emp_name ||'님 안녕하세요 당신은 '|| salary || '원 만큼 받나요?' from employee;
 
 select emp_name, hire_date, dept_code, salary from employee
 where hire_date between '90/01/01' and '01/01/01';
@@ -257,12 +213,7 @@ select emp_name, dept_code, hire_date from employee
 where salary not between 3500000 and 6000000;
 
 --LIKE 문자 패턴이용하여 검색
-select * from employee
-where emp_name like '송%';
-
 select * from employee where emp_name like '%희';
-
-select * from employee where email like '%jun%';
 
 -- 언더바는 자릿수 표시
 select * from employee where emp_name like '__희';
@@ -270,14 +221,10 @@ select * from employee where emp_name like '__희';
 -- email 세번째 자리가 'n'인 사람
 select * from employee where email like '__n%';
 
-select * from employee where emp_name like '유__';
-
 select * from employee where emp_name like '__석';
 
-select * from employee where emp_name not like '%송%';
-
 select * from employee where emp_name like '_옹_';
-
+    
 select * from employee where emp_name like '%이%';
 
 select * from employee
@@ -304,12 +251,10 @@ values('은시계', '고객만족도 99.99점을 획득한 고급시계');
 select * from tbl_escape_watch
 where description like '%99.99^%%' ESCAPE '^';
 
-
-select * from employee where emp_name like '%연';
-
 select emp_name, phone from employee
 where phone not like '010%';
 
 select * from employee
 where email like '%_____^_%' ESCAPE '^'
 and dept_code in ('D6', 'D9')
+
