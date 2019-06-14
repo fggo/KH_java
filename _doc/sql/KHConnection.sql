@@ -492,6 +492,40 @@ select add_months(to_date('20000224', 'yyyy/mm/dd'), 3) from dual;
 
 --오늘부로 군대 입대, 1년6개월 군복무 기간 가정.
 --1.제대일,2.먹을짬밥수--하루에 세끼
-select add_months(sysdate, 18) 제대일,
-(add_months(sysdate,18)- sysdate) * 3 짬밥수
+select sysdate AS 입대일, add_months(sysdate, 18) AS 제대일,
+add_months(sysdate,18) - sysdate AS 군생활일수, 
+(add_months(sysdate,18) - sysdate) * 3 AS 짬밥수
+from dual;
+
+--next_day : 지정한 날짜의 지정한 요일의 날짜를 구해줌
+--일:1 월:2 화:3 수:4 목:5 금:6 토:7
+select next_day(sysdate, '월요일') from dual;
+select next_day(sysdate, '월') from dual;
+select next_day(sysdate, 2) from dual;
+
+--로케일에 따라 대입하는 걸 다르게 해야. 한국 기준 MON 사용 불가
+select next_day(sysdate, 'MON') from dual;
+select next_day(sysdate, 'MONDAY') from dual;
+select * from V$NLS_PARAMETERS;
+
+alter session set NLS_LANGUAGE=AMERICAN;
+
+alter session set NLS_LANGUAGE=KOREAN;
+
+--LAST_DAY 전달받은 날짜가 속한 달의 마지막 날을 표시
+
+select LAST_DAY(sysdate) from dual;
+
+select LAST_DAY('00/02/24') from dual;
+
+--세달 후 마지막날
+select LAST_DAY(ADD_MONTHS(sysdate, 3)) from dual;
+
+--EXTRACT 날짜의 년 월 일을 따로 구분하여 관리
+select EXTRACT(year from sysdate) AS 년,
+	EXTRACT(month from sysdate) AS 월,
+	EXTRACT(day from sysdate) AS 일,
+	EXTRACT(hour from CAST(sysdate as timestamp)) AS 시,
+	EXTRACT(minute from CAST(sysdate as timestamp)) AS 분,
+	EXTRACT(second from CAST(sysdate as timestamp)) AS 초
 from dual;
