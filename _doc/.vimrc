@@ -9,8 +9,10 @@ if has("gui_running")
 endif
 
 syntax on
-colorscheme darkblue
+colorscheme desert
 
-set lines=60 columns=90
+set lines=45 columns=90
 
-winpos 600 30
+winpos 670 180
+
+set backspace=indent,eol,start

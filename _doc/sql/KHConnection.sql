@@ -256,5 +256,242 @@ where phone not like '010%';
 
 select * from employee
 where email like '%_____^_%' ESCAPE '^'
-and dept_code in ('D6', 'D9')
+and dept_code in ('D6', 'D9');
 
+
+--is null / is not null : null값을 찾을때 사용
+-- 사용: 컬럼명 is null or 컬럼명 is not null
+select * from employee where bonus is null;
+
+select salary + bonus AS totalPay from employee
+where bonus is not null;
+
+select emp_name, salary, dept_code from employee
+where dept_code is null;
+
+select * from employee where nvl(bonus, 0)=0;
+
+
+--subquery 썼을때, 컬럼이 한개 이상일때, 'IN' 사용
+--여러값을 or로 연결하여 동등비교하는 것!
+-- 사용: 컬럼값 in (비교값1,...,비교값n);
+
+select * from employee
+where job_code in ('J3', 'J2');
+-- job_code ='J3' or job_code='J2';
+
+select emp_name, job_code from employee
+where job_code in
+	(select job_code from employee
+		where salary > 3000000);
+
+select emp_name, dept_code, salary, sal_level from employee
+where emp_name in ('전형돈', '유재식', '이태림');
+
+--AND가 OR보다 우선시 됨!
+
+select * from employee
+where dept_code='D9' or dept_code='D6'
+	and hire_date between'99/01/01'and '00/12/01';
+
+select * from employee
+--where job_code='J7' or job_code='J2' and salary > 2000000;
+--where (job_code='J7' or job_code='J2') and salary > 2000000;
+where salary > 2000000 and job_code='J7' or job_code='J2';
+
+--order by 를 이용한 데이터 정렬
+--order by는 마지막에 작성
+--order by 컬럼명 ASC(디폴트) DESC;
+--기본적으로 primary key로 정렬
+--order by 컬럼1, 컬럼2;
+select * from employee order by emp_name desc;
+
+--null을 order by ASC 했을때 null은 맨뒤로
+select emp_name, salary, bonus from employee
+order by bonus DESC;
+
+-- null의 변경순서를 변경하고 싶을떄, nulls 옵션 사용
+select emp_name, salary, bonus from employee
+order by bonus ASC nulls first;
+
+select emp_name, salary, bonus from employee
+order by bonus nulls last;
+
+select emp_name, dept_code, job_code from employee
+order by emp_name, dept_code desc;
+
+--컬럼명이 아닌 index 번호로 정렬 가능
+select emp_name, salary, bonus from employee
+order by 2;
+--order by salary;
+--2번째 select컬럼 salary 기준으로 정렬
+
+--함수 function
+select emp_name, 
+	length(emp_name), 
+	lengthb(emp_name),
+	email, 
+	length(email),
+	lengthb(email)
+from employee;
+
+desc employee;
+
+select length('바바바') from dual;
+select lengthb('바바바') from dual;
+
+--INSTR(문자, 찾는문자, +/-방향몇칸, 몇번째문자인지)
+--매개 변수로 들어온 문자에서 특정문자의 위치를 찾을때
+select INSTR('바바바', '바') from dual;
+
+select INSTR('monkkky', 'k') from dual;
+
+select INSTR('monkkkaaakay', 'k', -4, 2) from dual;
+
+select INSTR('monkkkaaakay', 'a', 1, 1) from dual;
+
+select email, INSTR(email, '_') from employee;
+
+select email, substr(email, instr(email, '@'))
+from employee;
+
+select rpad('monkey', 10, '^') from dual;
+
+select rpad('바바', 10, '^') from dual;
+
+select rpad(emp_name, 8, '님') from employee;
+
+--LTRIM/RTRIM 문자열의 왼쪽 또는 오른쪽의 지정된 문자를 제거
+--false 조건되는 순간 TRIM 중단
+select LTRIM('     TRIM') from dual;
+
+select 'kkkkktrim', LTRIM('kkkkktrim', 'k') from dual;
+
+select LTRIM('hhhkhkhkhkhakhzzzz', 'kh') from dual;
+
+select RTRIM('kkkkahhhhtrim', 'kh') from dual;
+
+select substr('1523213213213유병승',
+	instr('1523213213213유병승', '유')) from dual;
+
+select LTRIM('321389219328913유병승', '0123456789') from dual;
+
+select RTRIM(LTRIM('32132132132유병승321321321321',
+'0123456789'), '0123456789') from dual;
+
+select SUBSTR('321312321유병승321321312',
+ INSTR('321312321유병승321321312', '유'),3)
+from dual;
+
+select '    kh    ', TRIM('     kh    ') from dual;
+
+--ERROR only one character
+select 'zzzzzzkhzzzz' , 
+	TRIM(leading 'za' from 'zzzzzkhzzzz') from dual;
+
+select 'zzzzzzkhzzzz' , 
+	TRIM(leading 'z' from 'zzzzzkhzzzz') from dual;
+select 'zzzzzzkhzzzz' , 
+	TRIM(trailing 'z' from 'zzzzzkhzzzz') from dual;
+select 'zzzzzzkhzzzz' , 
+	TRIM(both 'z' from 'zzzzzkhzzzz') from dual;
+
+--substr 특정 문자열을 잘라낸
+select substr('abcdefg', 3,2) from dual;
+
+select substr('showmethemoney', '5', '2') from dual;
+
+select substr('showmethemoney', 5) from dual;
+
+select substr('showmethemoney', -8, 3) from dual;
+
+select substr('가나다라마 바사아자차 카타', 7, 5) from dual;
+
+select distinct substr(emp_name,1,1) AS name from employee
+--order by substr(emp_name,1,1);
+--order by 1;
+--order by emp_name --ERROR
+--order by는 select문에 있는 컬럼만
+order by name;
+
+
+--영문자 대문자 소문자 camel case
+--UPPER LOWER INITCAP
+select upper('hello world'), lower('HELLO WORLD'), INITCAP('hello world')
+from dual;
+
+select INITCAP('show me the money') from dual;
+
+--CONCAT 문자열을 결합하는 함수
+select CONCAT(emp_name, hire_date) from employee;
+select emp_name || email from employee;
+
+--REPLACE 특정 문자를 변경
+select REPLACE('monkey', 'o', '@') from dual;
+
+select REPLACE(email, substr(email, instr(email,'@')), '@naver.com')
+from employee;
+
+select * from employee
+where substr(emp_no,8,1) = 1;
+
+--숫자 처리함수 ABS MOD ROUND TRUNC FLOOR CEIL
+select ABS(-3.1415) from dual;
+
+select MOD(10, 3) from dual;
+
+select ROUND(33.1415, -1) from dual;
+select ROUND(33.1415, 1) from dual;
+select ROUND(33.1415, 2) from dual;
+select ROUND(33.1415, 3) from dual;
+select ROUND(33.1415, 4) from dual;
+
+select round(nvl(bonus,0), 2) from employee;
+
+select round(sysdate-hire_date) from employee;
+
+--FLOOR 소숫점을 전부 버림
+select FLOOR(33.1415) from dual;
+
+select FLOOR(bonus) from employee;
+
+--TRUNC 특정 위치에서 소숫점을 버림
+select TRUNC(33.1415, -1) from dual;
+select TRUNC(33.1415, 1) from dual;
+select TRUNC(33.1415, 2) from dual;
+select TRUNC(33.1415, 3) from dual;
+select TRUNC(33.1415, 4) from dual;
+
+--CEIL 소숫점 전부 올림
+select CEIL(nvl(bonus,0)) from employee;
+
+create table tbl_files
+(fileno number(3), filepath varchar2(500));
+
+insert into tbl_files values(1, 'c:\abc\deft\salesinfo.xls');
+insert into tbl_files values(2, 'c:\music.mp3');
+insert into tbl_files values(3, 'c:\documents\resume.hwp');
+
+select * from tbl_files;
+
+--파일명만 출력
+--select substr(filepath, instr(filepath, '\', -1) + 1)
+--from tbl_files;
+
+
+--날짜 처리 함수
+select sysdate from dual;
+
+
+select FLOOR(months_between(sysdate, to_date('20000224', 'yyyymmdd'))) ||''
+from dual;
+
+select ROUND(months_between(sysdate, hire_date), 0) months from employee;
+
+select add_months(to_date('20000224', 'yyyy/mm/dd'), 3) from dual;
+
+--오늘부로 군대 입대, 1년6개월 군복무 기간 가정.
+--1.제대일,2.먹을짬밥수--하루에 세끼
+select add_months(sysdate, 18) 제대일,
+(add_months(sysdate,18)- sysdate) * 3 짬밥수
+from dual;
