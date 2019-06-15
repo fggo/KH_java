@@ -92,8 +92,7 @@ create table datetest(
 	birthday date,
 	temp timestamp);
 
-insert into datetest 
-values('19/06/13', '00/02/24', '19/06/13 11:15:00');
+insert into datetest values('19/06/13', '00/02/24', '19/06/13 11:15:00');
 
 insert into datetest
 values(to_date('20190613'), to_date('19990224'),
