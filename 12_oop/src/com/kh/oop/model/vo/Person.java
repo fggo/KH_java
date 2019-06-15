@@ -7,7 +7,7 @@ public class Person {
 
 	private int num;
 	private String memberId="p001";
-	private char gender = '여';
+	private char gender = '남';
 	private double height;
 	private String[] hobby;
 	
@@ -21,21 +21,21 @@ public class Person {
 	static {
 		//num = 10; //ERROR
 		pNum = 10;
-		if(pNum == 11) name= "바바";
-		else name = "부바";
+		if(pNum == 11) name= "바바바";
+		else name = "가가";
 	}
 
 	{
 		num = pNum++;
 		memberId = "000" + pNum;
-		gender ='남';
+		gender ='여';
 		switch(pNum%2) {
 			case 0: gender ='M'; break;
 			case 1: gender ='F'; break;
 		}
 	}
 
-	//setter, getter�޼ҵ�!
+	//setter, getter占쌨소듸옙!
 	public static String getName() { return Person.name; }
 	public void setMemberId(String id) { this.memberId = id; }
 	public String getMemberId() { return memberId; }
