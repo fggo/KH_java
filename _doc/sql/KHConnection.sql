@@ -17,21 +17,19 @@ INSERT INTO NUMBERTEST
 --nchar 유니코드 고정길이 (갯수로 처리) 최대 글자수 1000개
 --varchar2 가변길이 최대 4000byte
 --nvarchar2 유니코드 가변길이 최대 글자수 2000개까지
---사용법 자료형 (길이)
+--
 --char(10) 10 byte 만큼 저장이 되는 공간. 무조건 10byte 다 사용
 --	남은 공간은 whitespace로 채워짐
 --varchar2(10) 10 byte만큼 저장이 되는 공간, 대입되는 값의
 --	크기에 따라 사용 공간이 정해짐
---	오라클 express버젼에서 한글은 3byte로 처리됨
---	한글 4글자 이상 ERROR
---nchar(10) nvarchar(10) 글자수 설정 10글자 만큼 저장되는
---	공간 확보
+--	오라클 express버젼에서 한글은 3byte로 처리; 한글 4글자이상 ERROR
+--nchar(10) nvarchar(10) 글자수 설정 10글자 만큼 저장되는 공간 확보
 
 create table chartest(
-	a char(6),
-	b varchar2(6),
-	c nchar(6),
-	d nvarchar2(6)
+    a char(6),
+    b varchar2(6),
+    c nchar(6),
+    d nvarchar2(6)
 );
 
 insert into chartest values('abc','abc','abcdef','abcdef');
@@ -59,9 +57,9 @@ commit;
 
 --length
 select a, length(a) length_A_char, lengthb(a) lengthb_A_char,
-	b, length(b) length_B_varchar2, lengthb(b) lengthb_B_varchar2,
-	c, length(c) length_C_nchar, lengthb(c) lengthb_C_nchar,
-	d, length(d) length_D_nvarchar2, lengthb(d) lengthb_D_nvarchar2
+    b, length(b) length_B_varchar2, lengthb(b) lengthb_B_varchar2,
+    c, length(c) length_C_nchar, lengthb(c) lengthb_C_nchar,
+    d, length(d) length_D_nvarchar2, lengthb(d) lengthb_D_nvarchar2
 from chartest;
 
 --날짜자료형
@@ -88,15 +86,15 @@ select systimestamp from dual;
 select to_date('19990224', 'yyyy-mm-dd') from dual;
 
 create table datetest(
-	today date,
-	birthday date,
-	temp timestamp);
+    today date,
+    birthday date,
+    temp timestamp);
 
 insert into datetest values('19/06/13', '00/02/24', '19/06/13 11:15:00');
 
 insert into datetest
 values(to_date('20190613'), to_date('19990224'),
-	to_timestamp('20190613111500'));
+    to_timestamp('20190613111500'));
     
 select * from datetest;
 
@@ -106,13 +104,13 @@ desc chartest;
 desc datetest;
 
 create table member_table (
-	id CHAR(15), --변동x 6-15자리
-	password VARCHAR2(15), --8-15자리
-	name VARCHAR2(15), --한글입력
-	phone NUMBER(11), --핸드폰 -없이
-	ssn NUMBER(13), --주민번호
-	mileage NUMBER, --마일리지
-	reg_date DATE);
+    id CHAR(15), --변동x 6-15자리
+    password VARCHAR2(15), --8-15자리
+    name VARCHAR2(15), --한글입력
+    phone NUMBER(11), --핸드폰 -없이
+    ssn NUMBER(13), --주민번호
+    mileage NUMBER, --마일리지
+    reg_date DATE);
 
 select * from member_table;
 
@@ -144,10 +142,10 @@ select emp_name, salary, email*12 from employee;
 --그 값을 대체해줄 값을 지정
 --nvl(컬럼명, null 대체값)
 select emp_name 이름,
-	salary*12 AS "1년 급여(연봉)",
-	12*salary*(1+ nvl(bonus,0)) AS 총수령액,
-	12*salary*((1-.03) + nvl(bonus,0)) 실수령액,
-	'원' AS 통화
+    salary*12 AS "1년 급여(연봉)",
+    12*salary*(1+ nvl(bonus,0)) AS 총수령액,
+    12*salary*((1-.03) + nvl(bonus,0)) 실수령액,
+    '원' AS 통화
 from employee;
 
 select emp_name, sysdate-hire_date from employee;
@@ -171,7 +169,7 @@ select emp_name, salary, hire_date, phone from employee
 where sal_level='S1';
 
 select emp_name, salary,
-	12*salary*(1+nvl(bonus, 0)-.03) AS 실수령액
+    12*salary*(1+nvl(bonus, 0)-.03) AS 실수령액
 from employee
 where 12*salary*(1-.03 + nvl(bonus,0)) > 50000000;
 
@@ -186,7 +184,7 @@ where job_code='J3' OR sal_level='S5';
 --비교연산자를 여러개
 select * from employee
 where dept_code='D5'
-	AND hire_date >'02/01/01';
+    AND hire_date >'02/01/01';
 
 select distinct sal_level from employee
 --where job_code != 'J1'
@@ -231,20 +229,18 @@ where email like '___#_%' ESCAPE '#';
 
 select * from employee
 where email like '____^_%' ESCAPE '^' 
-	and dept_code in ('D6', 'D9')
-	and hire_date between '90/01/01' and '00/12/01'
-	and salary >= 2700000;
+    and dept_code in ('D6', 'D9')
+    and hire_date between '90/01/01' and '00/12/01'
+    and salary >= 2700000;
 
 create table tbl_escape_watch(
-	watchname	varchar2(40),
-	description 	varchar2(200)
+    watchname   varchar2(40),
+    description varchar2(200)
 );
 
-insert into tbl_escape_watch
-values('금시계', '순금 99.99% 함유 고급시계');
-
-insert into tbl_escape_watch
-values('은시계', '고객만족도 99.99점을 획득한 고급시계');
+insert into tbl_escape_watch values('금시계', '순금 99.99% 함유 고급시계');
+insert into tbl_escape_watch values(
+	'은시계', '고객만족도 99.99점을 획득한 고급시계');
 
 --description에 '99.99%' 라는 말이 들어가 있는 행만 추출?
 select * from tbl_escape_watch
@@ -281,8 +277,8 @@ where job_code in ('J3', 'J2');
 
 select emp_name, job_code from employee
 where job_code in
-	(select job_code from employee
-		where salary > 3000000);
+    (select job_code from employee
+        where salary > 3000000);
 
 select emp_name, dept_code, salary, sal_level from employee
 where emp_name in ('전형돈', '유재식', '이태림');
@@ -291,7 +287,7 @@ where emp_name in ('전형돈', '유재식', '이태림');
 
 select * from employee
 where dept_code='D9' or dept_code='D6'
-	and hire_date between'99/01/01'and '00/12/01';
+    and hire_date between'99/01/01'and '00/12/01';
 
 select * from employee
 --where job_code='J7' or job_code='J2' and salary > 2000000;
@@ -327,11 +323,11 @@ order by 2;
 
 --함수 function
 select emp_name, 
-	length(emp_name), 
-	lengthb(emp_name),
-	email, 
-	length(email),
-	lengthb(email)
+    length(emp_name), 
+    lengthb(emp_name),
+    email, 
+    length(email),
+    lengthb(email)
 from employee;
 
 desc employee;
@@ -346,6 +342,8 @@ select INSTR('바바바', '바') from dual;
 select INSTR('monkkky', 'k') from dual;
 
 select INSTR('monkkkaaakay', 'k', -4, 2) from dual;
+
+select INSTR('monkkkaaakay', 'a', -4, 2) from dual;
 
 select INSTR('monkkkaaakay', 'a', 1, 1) from dual;
 
@@ -371,29 +369,28 @@ select LTRIM('hhhkhkhkhkhakhzzzz', 'kh') from dual;
 select RTRIM('kkkkahhhhtrim', 'kh') from dual;
 
 select substr('1523213213213유병승',
-	instr('1523213213213유병승', '유')) from dual;
+    instr('1523213213213유병승', '유')) from dual;
 
 select LTRIM('321389219328913유병승', '0123456789') from dual;
 
 select RTRIM(LTRIM('32132132132유병승321321321321',
-'0123456789'), '0123456789') from dual;
+    '0123456789'), '0123456789') from dual;
 
 select SUBSTR('321312321유병승321321312',
- INSTR('321312321유병승321321312', '유'),3)
+    INSTR('321312321유병승321321312', '유'),3)
 from dual;
 
 select '    kh    ', TRIM('     kh    ') from dual;
 
 --ERROR only one character
-select 'zzzzzzkhzzzz' , 
-	TRIM(leading 'za' from 'zzzzzkhzzzz') from dual;
-
-select 'zzzzzzkhzzzz' , 
-	TRIM(leading 'z' from 'zzzzzkhzzzz') from dual;
-select 'zzzzzzkhzzzz' , 
-	TRIM(trailing 'z' from 'zzzzzkhzzzz') from dual;
-select 'zzzzzzkhzzzz' , 
-	TRIM(both 'z' from 'zzzzzkhzzzz') from dual;
+select 'zzzzzzkhzzzz', 
+    TRIM(leading 'za' from 'zzzzzkhzzzz') from dual;
+select 'zzzzzzkhzzzz', 
+    TRIM(leading 'z' from 'zzzzzkhzzzz') from dual;
+select 'zzzzzzkhzzzz', 
+    TRIM(trailing 'z' from 'zzzzzkhzzzz') from dual;
+select 'zzzzzzkhzzzz', 
+    TRIM(both 'z' from 'zzzzzkhzzzz') from dual;
 
 --substr 특정 문자열을 잘라낸
 select substr('abcdefg', 3,2) from dual;
@@ -464,8 +461,8 @@ select TRUNC(33.1415, 4) from dual;
 --CEIL 소숫점 전부 올림
 select CEIL(nvl(bonus,0)) from employee;
 
-create table tbl_files
-(fileno number(3), filepath varchar2(500));
+create table tbl_files(
+    fileno number(3), filepath varchar2(500));
 
 insert into tbl_files values(1, 'c:\abc\deft\salesinfo.xls');
 insert into tbl_files values(2, 'c:\music.mp3');
@@ -481,7 +478,6 @@ select * from tbl_files;
 --날짜 처리 함수
 select sysdate from dual;
 
-
 select FLOOR(months_between(sysdate, to_date('20000224', 'yyyymmdd'))) ||''
 from dual;
 
@@ -491,9 +487,10 @@ select add_months(to_date('20000224', 'yyyy/mm/dd'), 3) from dual;
 
 --오늘부로 군대 입대, 1년6개월 군복무 기간 가정.
 --1.제대일,2.먹을짬밥수--하루에 세끼
-select sysdate AS 입대일, add_months(sysdate, 18) AS 제대일,
-add_months(sysdate,18) - sysdate AS 군생활일수, 
-(add_months(sysdate,18) - sysdate) * 3 AS 짬밥수
+select sysdate AS 입대일,
+    add_months(sysdate, 18) AS 제대일,
+    add_months(sysdate,18) - sysdate AS 군생활일수, 
+    3*(add_months(sysdate,18) - sysdate) AS 짬밥수
 from dual;
 
 --next_day : 지정한 날짜의 지정한 요일의 날짜를 구해줌
@@ -505,6 +502,7 @@ select next_day(sysdate, 2) from dual;
 --로케일에 따라 대입하는 걸 다르게 해야. 한국 기준 MON 사용 불가
 select next_day(sysdate, 'MON') from dual;
 select next_day(sysdate, 'MONDAY') from dual;
+
 select * from V$NLS_PARAMETERS;
 
 alter session set NLS_LANGUAGE=AMERICAN;
@@ -522,9 +520,10 @@ select LAST_DAY(ADD_MONTHS(sysdate, 3)) from dual;
 
 --EXTRACT 날짜의 년 월 일을 따로 구분하여 관리
 select EXTRACT(year from sysdate) AS 년,
-	EXTRACT(month from sysdate) AS 월,
-	EXTRACT(day from sysdate) AS 일,
-	EXTRACT(hour from CAST(sysdate as timestamp)) AS 시,
-	EXTRACT(minute from CAST(sysdate as timestamp)) AS 분,
-	EXTRACT(second from CAST(sysdate as timestamp)) AS 초
+    EXTRACT(month from sysdate) AS 월,
+    EXTRACT(day from sysdate) AS 일,
+    EXTRACT(hour from CAST(sysdate as timestamp)) AS 시,
+    EXTRACT(minute from CAST(sysdate as timestamp)) AS 분,
+    EXTRACT(second from CAST(sysdate as timestamp)) AS 초
 from dual;
+

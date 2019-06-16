@@ -9,11 +9,17 @@ if has("gui_running")
 endif
 
 syntax on
-set background=light
-colorscheme donbass
+set background=dark
+colorscheme darth
 
 set lines=55 columns=90
 
-winpos 630 150
+winpos 610 150
 
 set backspace=indent,eol,start
+
+set nu
+
+set tabstop=4
+set shiftwidth=4
+set expandtab
