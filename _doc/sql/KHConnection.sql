@@ -743,6 +743,46 @@ select max(hire_date), min(hire_date) from employee;
 --GROUP BY
 --부서별 월급의 평균
 select dept_code, FLOOR(avg(salary)) from employee
-GROUP BY dept_code;
---HAVING dept_code='D5';
+GROUP BY dept_code
+HAVING dept_code='D5';
 
+--group by 선언하면 그 그룹으로 계산되는 그룹함수를 사용가능
+select dept_code, count(dept_code), sum(salary),
+floor(avg(salary)), min(salary)
+from employee
+GROUP BY dept_code
+HAVING dept_code IS NOT NULL
+order by dept_code;
+
+--성별컬럼으로 남여 평균월급, 합계 인원수
+select CASE WHEN substr(emp_no, 8,1)=1 then '남'
+            ELSE '여'
+       END AS GENDER,
+       COUNT(*) AS 인원수,
+       TO_CHAR(sum(salary), 'L999,999,999') AS 월급합계,
+       FLOOR(AVG(salary)) AS 월급평균
+from employee
+GROUP BY 
+        CASE WHEN substr(emp_no, 8,1)=1 THEN '남'
+        ELSE '여'
+END;
+
+--dept_code를 기준으로 salary 합계와 평균
+--WHERE절에는 그룹함수 쓸수 없음.
+--HAVING절에 그룹함수 조건 가능
+select job_code,
+    sum(salary) AS 월급총액,
+    FLOOR(avg(salary)) AS 월급평균
+from employee
+where dept_code is not NULL
+GROUP BY job_code
+HAVING sum(salary) > 9000000
+ORDER BY job_code;
+
+--부서인원수가 4명이상인 부서만
+select dept_code, count(*)
+from employee
+where dept_code is not null
+GROUP BY dept_code
+HAVING count(*) >= 4
+order by dept_code;
