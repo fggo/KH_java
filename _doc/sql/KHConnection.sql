@@ -607,7 +607,6 @@ select TO_DATE(010224, 'yy-mm-dd') from dual;
 --OK!
 select TO_DATE('010224', 'yy-mm-dd') from dual;
 
-
 --DECODE 조건문 (switch문과 비슷)
 -- 사용법: decode(조건식,
 --                  조건1, 조건1결과,
@@ -664,17 +663,17 @@ commit;
 select emp_id AS 사원번호, 
     emp_name AS 사원명,
     RPAD(substr(emp_no, 1,8), 13, '*') AS 주민번호,
-    CASE WHEN substr(emp_no, 8,1)='1' THEN '남'
-        WHEN substr(emp_no, 8,1)='2' THEN '여'
-        WHEN substr(emp_no, 8,1)='3' THEN '남'
-        WHEN substr(emp_no, 8,1)='4' THEN '여'
+    CASE WHEN substr(emp_no, 8,1) in (1,3) THEN '남'
+        WHEN substr(emp_no, 8,1) in (2,4) THEN '여'
     ELSE '?' END AS 성별,
-    EXTRACT(year from sysdate) -
-    EXTRACT(year from TO_DATE(substr(emp_no, 1,2), 'RR')) + 1 AS 나이,
-    TO_NUMBER(extract(year from sysdate))- 
-    TO_NUMBER(substr(emp_no,1,2) + 
-    CASE WHEN substr(emp_no,8,1) in(1,2) THEN 1900
-        ELSE 2000 END) + 1 AS 현재나이
+    EXTRACT(year from sysdate) 
+        - EXTRACT(year from TO_DATE(substr(emp_no, 1,2), 'RR')) + 1 AS 나이,
+    TO_NUMBER(EXTRACT(year from sysdate))- 
+        TO_NUMBER(substr(emp_no,1,2) + 
+            CASE WHEN substr(emp_no,8,1) in(1,2) THEN 1900
+                    ELSE 2000 END) + 1 AS 현재나이
+from employee
+order by 현재나이 DESC;
 -- yy는 20이 붙음(현재 세기).  rr로 변환
 -- rr은 1950 이전에 태어난 사람은 계산오류 
 --      ex) 고두미 2019 - (1947->2047) + 1 = -27
@@ -683,14 +682,14 @@ select emp_id AS 사원번호,
 --      YY: 현재 세기로 계산 (99 -> 2099)
 --      RR: 
 --    TO_CHAR(sysdate, 'yyyy')- CONCAT(19,substr(emp_no,1,2)) +1 AS 나이
-from employee
-order by 현재나이 DESC;
+
 
 --RR 변환 공식
 --현재연도   입력연도  계산연도
+-------------------------------
 --  00~49      00~49   현재세기
---  00~49      50~99   현재세기
---  50~99      00~49   현재세기
+--  00~49      50~99   전세기
+--  50~99      00~49   다음세기
 --  50~99      50~99   현재세기
 
 select TO_DATE('880101', 'RR') from dual;
@@ -699,50 +698,51 @@ select TO_DATE('880101', 'RR') from dual;
 --COUNT, MAX, SUM, AVG,
 --result 셋이 한개의 row로 되어 있기 때문에,
 --  컬럼을 선택할 수 없다.
-select emp_name, sum(salary) from employee
+select emp_name, SUM(salary) from employee
 --where substr(emp_no, 8,1) in (1,3);
 where emp_name like '유__'
-group by emp_name;
+GROUP BY emp_name;
 
-select sum(salary*12) AS 연봉,
-    sum(12*salary*(1-.03 +nvl(bonus,0))) AS 실수령액
+select SUM(salary*12) AS 연봉,
+    SUM(12*salary*(1-.03 +nvl(bonus,0))) AS 실수령액
 from employee;
 
 --null 값은 sum에서 자동으로 제외
-select sum(bonus) from employee;
+select SUM(bonus) from employee;
 
 select bonus from employee
 where bonus is not null;
 
 --null이면 보너스 합계를 나눌 사원 명수도 달라지므로
 --값에 차이가 남
-select ROUND(avg(bonus), 3), ROUND(avg(nvl(bonus, 0)),3) from employee;
+select ROUND(avg(bonus), 3), ROUND(AVG(nvl(bonus, 0)),3) from employee;
 
-select ROUND(avg(bonus), 3) from employee where bonus is not null;
+select ROUND(avg(bonus), 3) from employee
+where bonus is not null;
 
 --테이블 전체 행 수
 --count(컬럼명 or *)
-select count(*) from employee
+select COUNT(*) from employee
 where dept_code='D9';
 
-select count(*) from employee
+select COUNT(*) from employee
 where salary >= 3000000;
 
-select count(emp_name) from employee;
+select COUNT(emp_name) from employee;
 
 --dept_code null값은 빼버림
-select count(dept_code) from employee;
-select count(*) from employee where dept_code is not null;
+select COUNT(dept_code) from employee;
+select COUNT(*) from employee where dept_code is not null;
 
-select count(distinct dept_code) from employee;
+select COUNT(distinct dept_code) from employee;
 
-select max(salary), min(salary) from employee;
+select MAX(salary), MIN(salary) from employee;
 
-select max(hire_date), min(hire_date) from employee;
+select MAX(hire_date), MIN(hire_date) from employee;
 
 --GROUP BY
 --부서별 월급의 평균
-select dept_code, FLOOR(avg(salary)) from employee
+select dept_code, FLOOR(AVG(salary)) from employee
 GROUP BY dept_code
 HAVING dept_code='D5';
 
@@ -757,10 +757,10 @@ order by dept_code;
 --성별컬럼으로 남여 평균월급, 합계 인원수
 select CASE WHEN substr(emp_no, 8,1)=1 then '남'
             ELSE '여'
-       END AS GENDER,
+           END AS GENDER,
        COUNT(*) AS 인원수,
        TO_CHAR(sum(salary), 'L999,999,999') AS 월급합계,
-       FLOOR(AVG(salary)) AS 월급평균
+       TO_CHAR(FLOOR(AVG(salary)), 'L999,999,999') AS 월급평균
 from employee
 GROUP BY 
         CASE WHEN substr(emp_no, 8,1)=1 THEN '남'
@@ -781,18 +781,9 @@ ORDER BY job_code;
 
 --부서인원수가 4명이상인 부서만
 select dept_code, count(*)
-from employee
+    from employee
 where dept_code is not null
 GROUP BY dept_code
 HAVING count(*) >= 4
 order by dept_code;
 
---실습문제
-select emp_name, email, length(email) from employee;
-
-select emp_name, substr(email, 1, instr(email, '@')-1)
-from employee;
-
-select emp_name, substr(emp_no,1,2)
-from employee
-where substr(emp_no,1,1) =6
