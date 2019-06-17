@@ -527,3 +527,222 @@ select EXTRACT(year from sysdate) AS 년,
     EXTRACT(second from CAST(sysdate as timestamp)) AS 초
 from dual;
 
+
+--TO_CHAR 문자열로 변경해주는 함수
+--변경시 문자 기호
+-- yyyy, yy (연도 4자리, 2자리)
+-- month: locale 설정에 맞게 출력
+-- mm: 월을 숫자로 표현
+-- mon: 월을 알파벳으로 표현
+-- dd: 날짜를 표현
+-- d: 요일 수자로 표현
+-- dy: 요일을 약어로 표현: 월화수목금토일
+-- day: 요일 (예: 월요일)
+-- hh: 시간, hh24: 24시간, hh12: 12시간
+-- mi: 분
+-- si: 초
+select TO_CHAR(
+sysdate, 'yyyy-mm-dd day hh24:mi:ss') from dual;
+
+select TO_CHAR(
+sysdate-1, 'yyyy-mm-dd dy hh24:mi:ss') from dual;
+
+select TO_CHAR(
+sysdate+1, 'yyyy-mm-dd dy hh24:mi:ss') from dual;
+
+select emp_name,hire_date,
+TO_CHAR(hire_date, 'yyyy/mm/dd hh24:mi:ss') from employee;
+
+select emp_name, TO_CHAR(hire_date, 'yyyy-mm-dd(dy)') from employee;
+
+
+--문자열로 변경시 포멧형식
+--, comma 형식으로 변환(3째자리에 , 붙이기) : 1,900,000
+--. period 소숫점 형식으로 변환: 3.1415
+--9 해당자리의 숫자의미: 값이 없을경우 소숫점 이상은 공백, 
+--      소수점이하는 0
+--0 해당자리의 숫자의미: 값이 없을경우 0으로 무조건 표시,
+--      숫자를 고정적으로 표시할 경우
+--$ 통화 표시(돈) : 달러$ 표시
+--L 로컬통화로 표시 (예: 원화표시)
+select TO_CHAR(123456, '999,999,999') from dual; --123,456
+
+select TO_CHAR(123456, '000,000,000') from dual; --000,123,456
+
+select TO_CHAR(123456, '99,999') from dual; --#######
+
+select TO_CHAR(34.56, '$99.99') from dual;
+
+select TO_CHAR(34.56, 'L99.99') from dual;
+
+select TO_CHAR(1234.56, '99999.9999') from dual;
+
+select TO_CHAR(1234.56, '00000.0000') from dual;
+
+--1.salary를 원화표시로 쉼표 바꿔서
+--2.연봉을 계산하여 원화표시로
+select emp_name, TO_CHAR(salary, 'L999,999,999') AS 월급,
+    TO_CHAR(12*salary, 'L999,999,999,999') AS 연봉
+from employee;
+
+--TO_DATE: 날짜형식으로 변환
+-- 작성법: TO_DATE(char, format): 문자를 날짜로 변경
+--      TO_DATE(number, format): 숫자를 날짜로 변경
+--  시간까지 날짜로 변경가능
+select TO_CHAR(
+TO_DATE('19500101 15:30:20', 'yyyymmdd hh24:mi:ss'),
+'yyyymmdd hh24:mi:ss')
+    AS 생신 from dual;
+
+select TO_CHAR(hire_date, 'yyyymmdd hh24:mi:ss')
+from employee
+where hire_date > '00/01/01';
+--where hire_date > TO_DATE('20000101', 'yyyymmdd');
+
+--숫자 날짜로 전환
+select TO_DATE(19960626, 'yyyy-mm-dd') from dual;
+
+--ERROR! 주의! 앞에 0이 들어가는 연도가 나오면 안됨
+select TO_DATE(010224, 'yy-mm-dd') from dual;
+--OK!
+select TO_DATE('010224', 'yy-mm-dd') from dual;
+
+
+--DECODE 조건문 (switch문과 비슷)
+-- 사용법: decode(조건식,
+--                  조건1, 조건1결과,
+--                  ...
+--                  조건n, 조건n결과,
+--                  default)
+select emp_name, emp_no,
+    DECODE( substr(emp_no,8, 1),
+        '1', '남', '2', '여',
+        '3', '남', '4', '여') AS 성별
+from employee;
+
+--dept_code: D1이면
+select emp_name AS 사원명,
+    nvl(dept_code,'NULL') AS 부서코드,
+    DECODE(dept_code,
+        'D1', '인사관리',
+        'D2', '회계관리',
+        'D3', '마케팅',
+        'D4', '국내영업',
+        'D5', '해외영업1',
+        'D6', '해외영업2',
+        'D8', '기술지원',
+        'D9', '총무',
+        '부서없음') AS 부서명
+from employee;
+
+select emp_name AS 사원명,
+    nvl(dept_code, 'NULL') AS 부서코드,
+    CASE WHEN dept_code='D1' THEN '인사관리'
+        WHEN dept_code='D2' THEN '회계관리'
+        WHEN dept_code='D3' THEN '마케팅'
+        WHEN dept_code='D4' THEN '국내영업'
+        WHEN dept_code='D5' THEN '해외영업1'
+        WHEN dept_code='D6' THEN '해외영업2'
+        WHEN dept_code='D8' THEN '기술지원'
+        WHEN dept_code='D9' THEN '총무'
+    ELSE '부서없음' END AS 부서명
+from employee;
+
+select emp_name AS 사원명, emp_no AS 주민등록번호,
+    CASE
+        WHEN substr(emp_no, 8,1)=1 THEN '남'
+        ELSE '여' END AS 성별
+from employee;
+
+insert into employee values(
+    '250', '고두밋', '470808-2123341', 'go@kh.or.kr', 
+    null, 'D2', 'J2', 'S5', 448000, null, null, 
+    TO_DATE('94/01/20', 'rr/mm/dd'), null, 'N');
+
+commit;
+
+select emp_id AS 사원번호, 
+    emp_name AS 사원명,
+    RPAD(substr(emp_no, 1,8), 13, '*') AS 주민번호,
+    CASE WHEN substr(emp_no, 8,1)='1' THEN '남'
+        WHEN substr(emp_no, 8,1)='2' THEN '여'
+        WHEN substr(emp_no, 8,1)='3' THEN '남'
+        WHEN substr(emp_no, 8,1)='4' THEN '여'
+    ELSE '?' END AS 성별,
+    EXTRACT(year from sysdate) -
+    EXTRACT(year from TO_DATE(substr(emp_no, 1,2), 'RR')) + 1 AS 나이,
+    TO_NUMBER(extract(year from sysdate))- 
+    TO_NUMBER(substr(emp_no,1,2) + 
+    CASE WHEN substr(emp_no,8,1) in(1,2) THEN 1900
+        ELSE 2000 END) + 1 AS 현재나이
+-- yy는 20이 붙음(현재 세기).  rr로 변환
+-- rr은 1950 이전에 태어난 사람은 계산오류 
+--      ex) 고두미 2019 - (1947->2047) + 1 = -27
+--      rr은 50보다 작으면 '20xx' 50보다 크면 '19xx'
+-- 날짜의 연도는 yy 두글자만 가져올때,
+--      YY: 현재 세기로 계산 (99 -> 2099)
+--      RR: 
+--    TO_CHAR(sysdate, 'yyyy')- CONCAT(19,substr(emp_no,1,2)) +1 AS 나이
+from employee
+order by 현재나이 DESC;
+
+--RR 변환 공식
+--현재연도   입력연도  계산연도
+--  00~49      00~49   현재세기
+--  00~49      50~99   현재세기
+--  50~99      00~49   현재세기
+--  50~99      50~99   현재세기
+
+select TO_DATE('880101', 'RR') from dual;
+
+--그룹함수
+--COUNT, MAX, SUM, AVG,
+--result 셋이 한개의 row로 되어 있기 때문에,
+--  컬럼을 선택할 수 없다.
+select emp_name, sum(salary) from employee
+--where substr(emp_no, 8,1) in (1,3);
+where emp_name like '유__'
+group by emp_name;
+
+select sum(salary*12) AS 연봉,
+    sum(12*salary*(1-.03 +nvl(bonus,0))) AS 실수령액
+from employee;
+
+--null 값은 sum에서 자동으로 제외
+select sum(bonus) from employee;
+
+select bonus from employee
+where bonus is not null;
+
+--null이면 보너스 합계를 나눌 사원 명수도 달라지므로
+--값에 차이가 남
+select ROUND(avg(bonus), 3), ROUND(avg(nvl(bonus, 0)),3) from employee;
+
+select ROUND(avg(bonus), 3) from employee where bonus is not null;
+
+--테이블 전체 행 수
+--count(컬럼명 or *)
+select count(*) from employee
+where dept_code='D9';
+
+select count(*) from employee
+where salary >= 3000000;
+
+select count(emp_name) from employee;
+
+--dept_code null값은 빼버림
+select count(dept_code) from employee;
+select count(*) from employee where dept_code is not null;
+
+select count(distinct dept_code) from employee;
+
+select max(salary), min(salary) from employee;
+
+select max(hire_date), min(hire_date) from employee;
+
+--GROUP BY
+--부서별 월급의 평균
+select dept_code, FLOOR(avg(salary)) from employee
+GROUP BY dept_code;
+--HAVING dept_code='D5';
+

@@ -14,7 +14,7 @@ colorscheme darth
 
 set lines=55 columns=90
 
-winpos 610 150
+winpos 620 150
 
 set backspace=indent,eol,start
 
