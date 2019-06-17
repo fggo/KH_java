@@ -786,3 +786,13 @@ where dept_code is not null
 GROUP BY dept_code
 HAVING count(*) >= 4
 order by dept_code;
+
+--실습문제
+select emp_name, email, length(email) from employee;
+
+select emp_name, substr(email, 1, instr(email, '@')-1)
+from employee;
+
+select emp_name, substr(emp_no,1,2)
+from employee
+where substr(emp_no,1,1) =6
