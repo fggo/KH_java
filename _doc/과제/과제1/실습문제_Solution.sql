@@ -48,10 +48,15 @@ select emp_name 직원명,
     TO_CHAR(FLOOR(sysdate-hire_date), '999,999') ||'일' 근무일수
 from employee;
 
---10
+--10. 직원명, 부서코드, 생년월일, 나이(만) 조회
+--   단, 생년월일은 주민번호에서 추출해서, 
+--   ㅇㅇㅇㅇ년 ㅇㅇ월 ㅇㅇ일로 출력되게 함.
+--   나이는 주민번호에서 추출해서 날짜데이터로 변환한 다음, 계산함
+--	* 주민번호가 이상한 사람들은 제외시키고 진행 하도록(200,201,214 번 제외)
+--	* HINT : NOT IN 사용
 select emp_name AS 직원명,
     dept_code AS 부서명,
-    substr(emp_no, 1,6) AS 생년월일,
+    TO_DATE(substr(emp_no, 1,6)) AS 생년월일,
     TO_NUMBER(EXTRACT(year from sysdate))
         - TO_NUMBER(substr(emp_no,1,2)
             + CASE WHEN substr(emp_no, 8,1) in (1,2) THEN 1900
@@ -59,7 +64,8 @@ select emp_name AS 직원명,
         + TO_NUMBER( CASE WHEN REPLACE(substr(sysdate,4), '/', '')
                         - substr(emp_no, 3,4) > 0 THEN 0 ELSE -1 END)
             AS "나이(만)"
-from employee;
+from employee
+where emp_id not in (200, 201,214);
 
 --11
 select emp_name 사원명, dept_code 부서코드,

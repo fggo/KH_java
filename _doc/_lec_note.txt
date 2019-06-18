@@ -2,9 +2,8 @@
 https://docs.oracle.com/cd/E11882_01/server.112/e41084/toc.htm
 
 
-sqlplus
-conn system/oracle;
-show user;
+sqlplus system/oracle
+
 select username, account_status from dba_users where username='HR';
 
 alter user HR account unlock;
@@ -15,16 +14,11 @@ conn HR/hr;
 set linesize 300;
 set pagesize 10;
 
-select * from tab;
-
 clear screen;
 
 conn system/oracle;
 create user test identified by test;
-
-conn test/test;
-	--ERROR : lacks create session privilege
-
+conn test/test;	--ERROR : lacks create session privilege
 grant connect to TEST;
 conn test/test; --SUCCESS
 

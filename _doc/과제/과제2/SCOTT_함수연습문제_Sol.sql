@@ -42,7 +42,6 @@ select sysdate from dual;
 -- EMP 테이블로 부터 사번, 사원명, 급여 조회
 -- 단, 급여는 100단위 까지의 값만 출력 처리함.
 -- 급여 기준 내림차순 정렬함.
-
 select empno, ename, TRUNC(sal, -2) from emp order by sal desc;
 
 -- EMP 테이블로 부터 사원번호가 홀수인 사원들을 조회
