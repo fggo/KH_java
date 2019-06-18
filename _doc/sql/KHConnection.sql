@@ -787,3 +787,310 @@ GROUP BY dept_code
 HAVING count(*) >= 4
 order by dept_code;
 
+--GROUP BY로 묶인 합 뿐아니라
+--그룹집계 함수 ROLLUP CUBE로 그룹에 대한 총합계 구함
+--두개이상 컬럼을 GROUP BY 하면 CUBE는 
+
+select dept_code, sum(salary)
+from employee
+GROUP BY dept_code
+order by 1;
+
+select dept_code, sum(salary)
+from employee
+GROUP BY ROLLUP(dept_code)
+order by 1;
+
+--두개 컬럼에 대한 총계를 계산
+--합계는 앞에 있는 dept_code를 기준으로 묶음
+select dept_code, job_code, sum(salary)
+from employee
+GROUP BY ROLLUP(dept_code, job_code)
+order by 1;
+--D1 J7이 묶인 row가 한개의 그룹이 됨
+--(dept_code, job_code)가 그룹이 됨
+--job_code=null 인것은 dept_code에 대한 합계
+--다만 
+--dept_code is null: 인것은 
+--	J6	2320000
+--	J7	2890000
+
+select job_code, dept_code, sum(salary)
+from employee
+GROUP BY ROLLUP(job_code, dept_code)
+order by 1;
+
+--부서별 인원 정보를 출력하는데, 총인원까지 출력
+select dept_code, count(*) AS 인원
+from employee
+GROUP BY ROLLUP(dept_code);
+--GROUP BY CUBE(dept_code); --단일행 group 일때는 CUBE하고 같은결과
+
+--부서별, 직급별 인원수 출력하고 부서별 소계전체 총계를 출력
+select dept_code, job_code, 
+    count(*) AS 인원수,
+    sum(salary) AS 월급합계
+from employee
+GROUP BY ROLLUP(dept_code, job_code)
+order by 1;
+
+--CUBE는 한개 그룹만 처리할때는 ROLLUP과 결과 동일
+--  두개 이상 컬럼이 그룹으로 설정될 경우 추가로
+--  두번째 이상 컬럼 기준으로 합계도 전부 구함
+-- 1.job_code 기준으로 Group + 합계
+-- 2.dept_code기준 Group,
+-- 3.(job_code,dept_code) 기준 Group
+
+
+select dept_code, job_code,
+    count(*) AS 인원수, 
+    sum(salary) AS 월급합계
+from employee
+GROUP BY CUBE(dept_code, job_code)
+order by 1;
+-- (null)   J6	1	2320000  --dept_code NULL인 행
+-- (null)   J6	6	15746240 --job_code=6인 행의 합계
+
+--D1   NULL   3	7820000
+--D2   NULL   4	6968000
+--D5   NULL   6	15760000
+--D6   NULL   3	10100000
+--D8	 NULL   3	6986240
+--D9   NULL   3	17700000
+--NULL NULL   2	5210000 --DEPT_CODE=NULL인 행
+--
+--NULL J1     1	8000000
+--NULL J2     3	10148000
+--NULL J3	    3	10800000
+--NULL J4	    4	9320000
+--NULL J5	    3	8460000
+--NULL J6	    6	15746240
+--NULL J7	    4	8070000
+
+--GROUP별 함수
+select dept_code, job_code,
+count(*) AS 인원수,
+sum(salary) AS 총월급,
+CASE
+    WHEN GROUPING(dept_code)=0 AND GROUPING(job_code)=1
+        THEN '부서별합계'
+    WHEN GROUPING(dept_code)=1 AND GROUPING(job_code)=0
+        THEN '직급별합계'
+    WHEN GROUPING(dept_code)=1 AND GROUPING(job_code)=1
+        THEN '총합계'
+    WHEN GROUPING(dept_code)=0 AND GROUPING(job_code)=0
+        THEN '그룹별 합계'
+    ELSE '??' END
+  AS "GROUPING"
+from employee
+GROUP BY CUBE(dept_code, job_code)
+order by "GROUPING", 1, 2;
+
+--집합 연산자 (set operation)
+--UNION UNION ALL
+-- 1.컬럼수 일치해야 2.자료형 일치해야
+select emp_id, emp_name, dept_code, salary
+    from employee
+    where dept_code= 'D5'    
+UNION
+select emp_id, emp_name, dept_code, salary
+    from employee
+    where salary >= 3000000
+order by dept_code;
+
+--UNION
+--컬럼 데이터는 꼭 컬럼명에 요구하는
+--자료가 들어가지 않아도 됨:
+--열의 개수와 자료형만 서로 같으면 UNION 가능
+select emp_name, emp_no
+from employee
+where salary > 3000000
+UNION
+select dept_title, dept_id
+from department;
+
+--다른 컬럼들 UNION할떄 데이터 사이즈 
+--큰값으로 캐스팅 되어 들어감
+select dept_title, dept_id
+from department
+UNION
+select emp_name, emp_no
+from employee
+where salary > 3000000;
+
+--UNION ALL 중복값 모두 출력
+select emp_id, emp_name, dept_code, salary
+    from employee
+    where dept_code= 'D5'
+UNION ALL
+select emp_id, emp_name, dept_code, salary
+    from employee
+    where salary >= 3000000
+order by dept_code;
+
+--INTERSECT: 두개이상의 result set의 중복값만 출력
+select emp_id, emp_name , dept_code, salary
+from employee
+where dept_code = 'D5'
+INTERSECT
+select emp_id, emp_name , dept_code, salary
+from employee
+where salary > 3000000;
+
+--MINUS: 두개 이상의 result set에서
+--위 select 무에서 중복값을 빼버림
+select emp_id, emp_name , dept_code, salary
+from employee
+where dept_code = 'D5'
+MINUS
+select emp_id, emp_name , dept_code, salary
+from employee
+where salary > 3000000;
+
+--INTERSECT가 없으므로, 위에 select문 result 그대로 조회
+select emp_id, emp_name , dept_code, salary
+from employee
+where dept_code = 'D8'
+MINUS
+select emp_id, emp_name , dept_code, salary
+from employee
+where salary > 3000000;
+
+select dept_code
+from employee
+where dept_code = 'D8'
+MINUS
+select dept_id
+from department;
+
+--GROUPING SETS: GROUP BY 된 result 테이블을 합쳐 보여줌
+--group by GROUPING SETS
+--group by로 설정되어 있는 result set들을 결합하여 보여줌
+--GROUPING SETS는 순서 상관없음
+select dept_code, job_code, manager_id,
+    count(*) AS 인원수,
+    floor(AVG(salary))
+from employee
+group by GROUPING SETS(
+    (dept_code, job_code, manager_id),
+    (dept_code, manager_id),
+    (job_code, manager_id)
+)
+order by 1 NULLS LAST, 2 NULLS LAST, 3 NULLS LAST;
+
+--위에 GROUPING_SETS는 밑에 3개를 합친것
+select dept_code, job_code, manager_id,
+    count(*) AS 인원수,
+    floor(AVG(salary))
+from employee
+group by dept_code, job_code, manager_id
+order by 1,2;
+
+select dept_code, manager_id,
+    count(*) AS 인원수,
+    floor(AVG(salary))
+from employee
+group by dept_code, manager_id
+order by 1,2;
+
+select job_code, manager_id,
+    count(*) AS 인원수,
+    floor(AVG(salary))
+from employee
+group by job_code, manager_id
+order by 1,2;
+
+--JOIN : 두개의 테이블을 결합하여, 한개의 테이블로 출력
+--row 단위로 결합하기 때문에, 서로 맵핑되는 값이 필요함
+--대부분의 경우 : 테이블1의 FOREGIN KEY와 
+--                테이블2의 PRIMARY KEY가 연결됨
+
+--ANSI 표준 = SQL 표준
+select emp_name, e.job_code, j.job_name
+from employee e, job j
+where e.job_code = j.job_code;
+
+select e.emp_name, d.dept_id, d.dept_title
+from employee e, department d
+where dept_code = dept_id
+order by 2,1;
+
+--ANSI 표준으로 전환
+--select 컬럼1,...,컬럼n 
+--from 테이블1 JOIN 테이블2
+--  on 비교컬럼1=비교컬럼2
+--  where [조건]
+
+--INNER JOIN(or JOIN)
+--department 쿼리문을 ANSI로 작성해부세요.
+--총무부원만 출력.
+select emp_name, job_name
+from employee e JOIN job j 
+        ON e.job_code = j.job_code;
+
+select emp_name, dept_title
+from employee INNER JOIN department 
+        ON dept_code= dept_id
+where dept_title='총무부';
+
+--기준이 되는 값이랑 일치하는 값이 없으면 그 row를
+--출력하지 않음.
+--22개 출력됨: dept_code 가 null인 row 제외
+select count(*)
+    from employee JOIN department 
+        ON dept_code = dept_id;
+
+--OUTER, INER JOIN
+--한쪽컬럼이 없어도, OUTER JOIN으로
+--한쪽(left, right)기준으로 한쪽은 모두 출력
+
+--LEFT JOIN : 오른쪽 컬럼을 기준으로 
+select emp_name, e.dept_code, dept_title
+    from employee e LEFT JOIN department d
+        ON e.dept_code = d.dept_id;
+
+select emp_name, e.dept_code, dept_title
+    from department d LEFT JOIN employee e
+        ON e.dept_code = d.dept_id;
+
+--RIGHT JOIN : 오른쪽 컬럼을 기준으로 
+select emp_name, e.dept_code, dept_title
+    from employee e RIGHT JOIN department d
+        ON e.dept_code = d.dept_id;
+
+select emp_name, e.dept_code, dept_title
+    from department d RIGHT JOIN employee e
+        ON e.dept_code = d.dept_id;
+
+--오라클 OUTER 조인 방법
+
+-- +없는것이 기준: LEFT JOIN
+select emp_name, dept_code, dept_title, dept_id
+from employee, department
+where dept_code =dept_id(+);
+
+--RIGHT JOIN
+select emp_name, dept_code, dept_title, dept_id
+from employee, department
+where dept_code(+) =dept_id;
+
+--FULL JOIN : 일치되는것이 없어도
+--양쪽 테이블 데이터 모두 출력
+select emp_name, dept_code, dept_title, dept_id
+from employee FULL JOIN department 
+        ON dept_code=dept_id;
+
+--cartesian product
+--28 * 9
+select emp_name, dept_code, dept_title, dept_id
+from employee, department
+order by 1,3;
+--from employee department;
+--각각의 row기 결과됨
+
+--NON-EQUAL JOIN: 동등비교가 아니라, 값크기 비교로 조인
+select * from sal_grade;
+
+select emp_name, salary, s.sal_level, s.min_sal, s.max_sal
+from employee JOIN sal_grade s
+    ON (salary between min_sal and max_sal);
