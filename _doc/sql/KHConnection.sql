@@ -1006,7 +1006,7 @@ order by 1,2;
 --대부분의 경우 : 테이블1의 FOREGIN KEY와 
 --                테이블2의 PRIMARY KEY가 연결됨
 
---ANSI 표준 = SQL 표준
+--1. 오라클 전용 INNER JOIN(or JOIN)
 select emp_name, e.job_code, j.job_name
 from employee e, job j
 where e.job_code = j.job_code;
@@ -1016,34 +1016,39 @@ from employee e, department d
 where dept_code = dept_id
 order by 2,1;
 
---ANSI 표준으로 전환
---select 컬럼1,...,컬럼n 
---from 테이블1 JOIN 테이블2
---  on 비교컬럼1=비교컬럼2
---  where [조건]
+--2. ANSI 표준 = SQL 표준 INNER JOIN
+--(1). 컬럼명이 일치할때
+--  select 컬럼1,...,컬럼n 
+--  from 테이블1 JOIN 테이블2
+--  USING 비교컬럼
+--   where [조건]
+select emp_id, emp_name, job_code, job_name
+from employee
+JOIN JOB USING(JOB_CODE);
 
---INNER JOIN(or JOIN)
---department 쿼리문을 ANSI로 작성해부세요.
---총무부원만 출력.
+--(2). 컬럼명이 다를때
+--  select 컬럼1,...,컬럼n 
+--  from 테이블1 JOIN 테이블2
+--   on 비교컬럼1=비교컬럼2
+--  where [조건]
 select emp_name, job_name
 from employee e JOIN job j 
-        ON e.job_code = j.job_code;
+    ON e.job_code = j.job_code;
 
 select emp_name, dept_title
 from employee INNER JOIN department 
-        ON dept_code= dept_id
+    ON dept_code= dept_id
 where dept_title='총무부';
 
+--OUTER JOIN
 --기준이 되는 값이랑 일치하는 값이 없으면 그 row를
 --출력하지 않음.
 --22개 출력됨: dept_code 가 null인 row 제외
-select count(*)
-    from employee JOIN department 
-        ON dept_code = dept_id;
+select count(*) from employee
+    JOIN department ON dept_code = dept_id;
 
---OUTER, INER JOIN
---한쪽컬럼이 없어도, OUTER JOIN으로
---한쪽(left, right)기준으로 한쪽은 모두 출력
+--한쪽컬럼이 없어도(null), OUTER JOIN으로
+--한쪽(LEFT, RIGHT)기준으로 한쪽은 모두 출력가능
 
 --LEFT JOIN : 오른쪽 컬럼을 기준으로 
 select emp_name, e.dept_code, dept_title
@@ -1064,7 +1069,6 @@ select emp_name, e.dept_code, dept_title
         ON e.dept_code = d.dept_id;
 
 --오라클 OUTER 조인 방법
-
 -- +없는것이 기준: LEFT JOIN
 select emp_name, dept_code, dept_title, dept_id
 from employee, department
@@ -1081,7 +1085,7 @@ select emp_name, dept_code, dept_title, dept_id
 from employee FULL JOIN department 
         ON dept_code=dept_id;
 
---cartesian product
+--CARTESIAN product (NOT USED OFTEN)
 --28 * 9
 select emp_name, dept_code, dept_title, dept_id
 from employee, department
@@ -1095,3 +1099,318 @@ select * from sal_grade;
 select emp_name, salary, s.sal_level, s.min_sal, s.max_sal
 from employee JOIN sal_grade s
     ON (salary between min_sal and max_sal);
+
+--SELF JOIN: 본인 테이블을 본인참조하여 연결하는 것
+--  자기 테이블의 컬럼값(구분되는)을 갖고있는 컬럼이 존재해야함
+-- employee : emp_id = manager_id
+--1. SELF INNER JOIN
+select E.emp_id, 
+    E.emp_name 사원이름, 
+    E.dept_code, 
+    E.manager_ID 매니져,
+    M.emp_name AS 매니져이름
+from employee E JOIN employee M
+    ON E.manager_id = M.emp_id;
+
+--2. SELF OUTER JOIN
+--    M 매니져 데이터 NULL인것도 출력되도록
+select E.emp_id, 
+    E.emp_name 사원이름, 
+    E.dept_code, 
+    E.manager_ID 매니져,
+    M.emp_name AS 매니져이름
+from employee E LEFT JOIN employee M
+    ON E.manager_id = M.emp_id;
+--where E.emp_name = '선동일';
+
+--  manager_id가 100인 잘못된 데이터!
+--  FOREIGN_KEY로 설정하면 100 자체가 안나오게 가능
+
+--다중조인: 테이블을 두개이상 결합하는 것을 의미한다
+--  from 절에 join구문을 계속 사용하면 됨
+--  join을 할때 연결되는 컬럼이 반드시 이전에 결합된 테이블에 존재
+select E.emp_id, nvl(D.dept_title, '인턴') dept, 
+    E.dept_code,
+    J.job_name,
+    E.job_code,
+    E.emp_name,
+    L.local_name
+from employee E
+    LEFT JOIN department D ON(E.dept_code=D.dept_id)
+    JOIN location L ON D.location_id = L.local_code
+    JOIN job J ON E.job_code = J.job_code;
+--    JOIN job J USING (job_code);
+
+--직급이 대리이면서, ASIA지역에 근무하는 직원을 조회
+--사번, 이름, 직급명, 부서명, 근무지역명, 급여
+select E.emp_id, E.emp_name, J.job_name,
+    nvl(D.dept_title, '사원'), L.local_name, E.salary
+from employee E 
+    LEFT JOIN department D ON (E.dept_code=D.dept_id)
+    JOIN location L ON(D.location_id=L.local_code)
+    JOIN job J ON (E.job_code = J.job_code)
+where L.local_name = 'ASIA1';
+
+--주민번호가 1970년대 생이면서 성별이 여자이고, 성이 전씨인 직원
+--사원명, 주민번호, 부서명, 직급명
+select E.emp_name, E.emp_id, D.dept_title, J.job_name
+from employee E 
+    JOIN department D ON (E.dept_code = D.dept_id)
+    JOIN job J ON E.job_code = J.job_code;
+
+--이름에 '형'자가 들어가는 직원
+--사번, 사원명, 부서명
+select E.emp_id, E.emp_name, D.dept_title
+from employee E
+    JOIN department D ON E.dept_code = D.dept_id
+where E.emp_name like '%형%';
+
+--해외영업부에 근무하는 직원
+--사원명, 직급명, 부서코드, 부서명
+select E.emp_name, J.job_name, E.dept_code, D.dept_title
+from employee E
+    JOIN job J ON E.job_code = J.job_code
+    JOIN department D ON E.dept_code = D.dept_id
+where D.dept_title like '%해외영업%';
+    
+--보너스를 받는 직원
+--사원명, 보너스, 부서명, 근무지역명
+select E.emp_name, E.bonus, D.dept_title, L.local_name
+from employee E
+    JOIN department D ON E.dept_code = D.dept_id
+    JOIN location L ON D.location_id= L.local_code
+where E.bonus IS NOT NULL;
+
+--부서코드가 D2인 직원
+--사원명, 직급명, 부서명, 근무지역명
+select E.emp_name, J.job_name, E.dept_code, D.dept_title, L.local_name
+from employee E
+    JOIN job J ON E.job_code = J.job_code
+    JOIN department D ON E.dept_code = D.dept_id
+    JOIN location L ON D.location_id = L.local_code
+where E.dept_code = 'D2';
+
+--급여등급테이블의 최대급여(MAX_SAL)보다 많이 받는 직원들
+--사원명, 직급명, 급여, 연봉
+select E.emp_name, J.job_name, E.salary, 12*E.salary AS 연봉
+from employee E
+    JOIN job J ON E.job_code = J.job_code
+where e.salary > (select MAX(salary) from  employee);
+
+--한국(KO)와 일본(JP)에 근무하는 직원
+--사원명,부서명, 지역명, 국가명
+select E.emp_name, D.dept_title, L.local_name, L.national_code
+from employee E
+    JOIN department D ON E.dept_code = D.dept_id
+    JOIN location L ON D.location_id = L.local_code;
+
+--같은부서에 근무하는 직원(self join)
+--사원명, 부서명, 동료이름
+select distinct E1.emp_name 사원명,
+    D.dept_title 부서명,
+    E2.emp_name 동료명
+from employee E1
+    JOIN employee E2 USING(dept_code)
+    JOIN department D ON dept_code = D.dept_id
+where E1.emp_name != E2.emp_name;
+
+--보너스가 없는 직원 중 직급이 차장과 사원인 직원
+--사원명, 직급명, 급여조회 join, in 사용
+select E.emp_name, D.dept_title, J.job_name, E.salary
+from employee E
+    JOIN department D ON E.dept_code = D.dept_id
+    JOIN job J ON E.job_code = J.job_code
+where J.job_name IN ('차장', '사원');
+
+--재직중인 직원과 퇴사한 직원의 수
+select CASE WHEN ent_yn ='N'
+            THEN '재직중' ELSE '퇴사' END AS 재직여부,
+        count(*) AS "인원(명)"
+from employee
+GROUP BY CASE WHEN ent_yn ='N'
+        THEN '재직중' ELSE '퇴사' END;
+
+--SUBQUERY 서브쿼리
+
+--단일행 서브쿼리
+select dept_id, dept_title
+from department
+where dept_id=
+    (select dept_id from department where dept_title='해외영업1부');
+
+select emp_name, salary, dept_code from employee
+where salary > (select avg(salary) from employee);
+
+select emp_name, dept_code, salary
+from employee
+where dept_code = (select dept_id 
+                    from department where dept_title='총무부')
+    and salary > (select AVG(salary) from employee);
+
+--다중행 서브쿼리 : result set의 행이 여러행인 경우
+--  송중기 박나래와 같은부서인 직원들
+select emp_name, dept_code, salary
+from employee
+where dept_code in (select dept_code from employee 
+    where emp_name in ('송종기', '박나라'));
+
+
+--다중열 서브쿼리: select문에서 컬럼을 다수선택하는 경우
+--비교대상도 1:1매칭이 되야 한다.
+--  퇴사한 여직원과 같은 직급, 같은 부서인 사원
+select emp_name, emp_no, job_code, dept_code, ent_yn
+from employee 
+where (job_code, dept_code) IN
+    (select job_code, dept_code from employee where
+        substr(emp_no, 8,1) in (2,4) and ent_yn='Y');
+
+--다중열 다중서브쿼리: 서브쿼리의 result set의
+--  결과 row가 2개이상, column도 2개이상의 결과를 가지는 
+--  select문을 사용 했을때.
+--  직급별 최소급여를 받는 직원의
+--  사번 이름 직급 급여 조회
+select emp_id, emp_name, job_code, salary
+from employee where (job_code, salary) in
+    (select job_code, MIN(salary)
+        from employee group by job_code)
+order by job_code;
+
+
+--다중행 서브쿼리로 대소비교 할때 ANY, ALL
+
+
+--ALL: 서브쿼리에 결과중 하나라도 참이면 참이다.
+--  x>ANY(subquery) 어떤값보다 크기만 하면 참
+
+--최소값보다 크면 됨
+select emp_name, salary from employee 
+where salary > ANY(select min(salary) from employee);
+
+select emp_name, salary from employee 
+where salary = ANY(select salary from employee);
+
+--최대값보다만 작으면 됨
+select emp_name, salary from employee 
+where salary < ANY(select salary from employee);
+
+--ALL: 서브쿼리의 결과값 모두 참이면 참
+-- X > ALL : 서브쿼리의 모든 값보다 크면 참
+--      최대값보다 크면 참.
+-- X < ALL : 서브쿼리의 모든 값보다 작으면 참
+--      최소값보다 작으면 참.
+select emp_name, salary from employee 
+where salary > ALL(select min(salary) from employee
+                    HAVING min(salary) < 6000000);
+
+--상관 서브쿼리: MAIN select문과 subselect문이 서로 결과에 영향을 주는것
+--매니져 아이디 있는 직원만 return
+--기준값 E.manager_id에 대응되는 값이 EXIST인경우 출력 M.emp_id IS NOT NULL
+select emp_id, emp_name, manager_id
+from employee E
+where EXISTS(select * from employee M
+                where E.manager_id = M.emp_id);
+                
+--기준값 E.manager_id에 대응되는 값이 NOT EXIST인경우 출력 M.emp_id IS NULL
+select emp_id, emp_name, manager_id
+from employee E
+where NOT EXISTS(select * from employee M
+                where E.manager_id = M.emp_id);
+
+
+
+--심봉선 사원과 같은 부서의 사원의 
+--부서코드, 사원명, 월평균급여조회
+select dept_title, emp_name, dept_code
+from employee E1 
+LEFT JOIN department ON dept_code = dept_id
+where exists 
+    (select 1 from employee E2 
+        where E2.emp_name='심봉선'
+    and E1.dept_code = E2.dept_code);
+
+select dept_title, trunc(avg(salary)) 평균급여
+from employee e left join department ON dept_code = dept_id
+where exists (select 1 from employee where dept_code =e.dept_code and 
+emp_name = '심봉선')
+group by dept_title;
+
+--???
+--가장많은 급여를 받는 사원을 exists 상관서브쿼리를 이용하여 구하여라
+select emp_name, salary
+from employee E1
+where EXISTS
+(select salary from employee E2 
+where E1.salary >=E2.salary);
+
+--NONEXISTS 이용
+--윤은혜와 급여가 같은 사원들을 검색해서, 사번, 사원이름, 급여출력
+select emp_id, emp_name, salary
+from employee E1
+where exists (select * from employee E2
+            where E1.salary = E2.salary and E2.emp_name = '윤은해');
+
+--EMPLOYEE테이블에서 기본급여 제일 많은 사람과 제일적은 사람의 정보를 
+--사번,사원명,월급출력
+select emp_id, emp_name, salary
+from employee E1
+where salary in (max(salary), max(salary));
+
+--D1,D2부서에 근무하는 사원들 중에서 기본급여가 D5부서 직원들의 평균월급보다 
+--많은 사람들만 부서번호, 사번,사원명, 월급출력
+select dept_code, emp_id, emp_name, salary
+from employee 
+where dept_code in('D1','D2')
+    and salary > (select AVG(salary) from employee where dept_code='D5');
+
+--차태현 전지연 사원의 급여등급과 같은 사원의 직급명, 사원명 출력
+select job_code, emp_name, sal_level
+from employee E1 where sal_level in 
+    (select sal_level from employee E2
+        where E2.emp_name in ('차태연','전지연'));
+
+--직급이 대표, 부사장이 아닌 모든 사원을 부서별로 출력
+select emp_name, dept_code, job_code, J.job_name
+from employee E
+JOIN job J USING(job_code)
+where J.job_name Not in ('대표', '부사장')
+order by dept_code;
+
+--ASIA1지역에 근무하는 사원정보출력 부서코드, 사원명(서브쿼리이용)
+select dept_code, emp_name, location_id
+from employee
+JOIN department ON dept_code= dept_id
+where location_id =
+(select location_id from location where local_name='ASIA1');
+
+--2000년1월1일 이전 입자사중에 2000년1월1일이후 입사자보다 급여을 (가장높게
+--받는사원보다) 적게 받는 사원의 사원명과 월급여를 출력
+select emp_name, salary from employee E1
+where hire_date <TO_DATE('2000/01/01')
+    and salary < (select max(salary) from employee
+            where hire_date > TO_DATE('2000/01/01'));
+
+--'J4'직급의 사원보다 많은 급여를 받는 직급이 J5,J6,J7인 사원 출력
+select emp_name, job_code, salary from employee
+where job_code in ('J5','J6', 'J7')
+and salary > ALL(select salary from employee where job_code='J4');
+
+--D1부서의 사원(전체)보다 입사가 늧은 사원들의 정보를 검색하고, 
+--사원명, 부서번호 입사일을 출력
+select emp_name, dept_code, hire_date from employee
+where hire_date > ALL(select hire_date from employee where dept_code='D1');
+
+--인사관리부의 사원전체보다 입사가 늦은 사원들의정보를 검색, 
+--사원명, 부서명, 입사일
+select emp_name, dept_code
+from employee E Join department D ON E.dept_code = D.dept_id;
+
+
+--기술지원부이면서 급여가 2000000인 사원의 
+--사원명, 부서코드, 급여출력
+
+--부서별 최대급여를 받는 사원의 
+--사원명, 부서명, 급여를 출력
+
+--직급이 J1, J2, J3이 아닌 사원중에서 
+--자신의 부서별 평균급여보다 많은 급여를 받는 사원출력.
+-- 부서코드, 사원명, 급여, 부서별 급여평균
