@@ -1136,6 +1136,7 @@ from employee E
 
 
 --SUBQUERY 서브쿼리
+--  JOIN이 SUBQUERY보다 성능은 좋음
 
 --단일행 서브쿼리
 select dept_id, dept_title
@@ -1220,3 +1221,239 @@ select emp_id, emp_name, manager_id
 from employee E
 where NOT EXISTS(select * from employee M
                 where E.manager_id = M.emp_id);
+
+
+--직급이 J1, J2, J3이 아닌 사원중에서 
+--자신의 부서별 평균급여보다 많은 급여를 받는 사원출력.
+-- 부서코드, 사원명, 급여, 부서별 급여평균
+select E.dept_code, E.emp_name, E.salary, E2.AVG_SAL
+from employee E
+    JOIN ( select dept_code, ROUND(avg(salary)) AVG_SAL
+            from employee
+            group by dept_code) E2 ON (E.dept_code = E2.dept_code)
+where EXISTS(select E3.dept_code, avg(E3.salary) from employee E3
+        where E.dept_code = E3.dept_code
+        group by E3.dept_code
+        HAVING E.salary > avg(E3.salary))
+    and E.job_code not in ('J1','J2','J3')
+order by dept_code;
+
+
+select E1.dept_code, emp_name, salary, E2.AVG_SAL
+from employee E1
+    JOIN ( select dept_code, 
+                  round(avg(salary)) AS AVG_SAL
+            from employee
+        GROUP BY dept_code) E2 ON E1.dept_code = E2.dept_code
+where job_code NOT IN ('J1', 'J2', 'J3')
+    AND salary > E2.AVG_SAL
+order by dept_code;
+
+
+--스칼라 서브쿼리: 상관쿼리인데 그결과 result set이 무조건 한개만 있는것!
+--AVG_SAL는 where절에서 접근 못함. select문은 마지막에 실행 되므로
+--스칼라: sql에서 단일값을 갖는 데이터를 ㅡ칼라 라고 함.
+--  사용: 1. select문의 column에서 사용가능
+--        2. where절에서도 사용 가능
+--        3. order by절에서도 사용 가능
+select dept_code, emp_name, salary, 
+    (select round(avg(salary))
+        from employee E2
+      where E1.dept_code = E2.dept_code) AS AVG_SAL
+from employee E1
+where E1.job_code NOT IN ('J1', 'J2', 'J3')
+    and E1.salary > (select round(avg(salary))
+                       from employee E2
+                       where E1.dept_code = E2.dept_code)
+order by dept_code;
+
+--select문에 스칼라 서브쿼리 사용하기
+--모든사원의 사번, 이름, 관리자사번, 관리자명 조회
+select E.emp_id, E.emp_name, E.manager_id, M.emp_name
+from employee E
+    JOIN employee M ON E.mananger_id=M.emp_id;
+
+--스칼라로 변환 (차이점: manager_id null이어도 null로 출력됨)
+--(select 단일값 from 테이블)으로만 스칼라 서브쿼리 정의 가능
+select emp_id, emp_name, manager_id, 
+    nvl((select emp_id 
+        from employee M 
+      where E.manager_id = M.emp_id), '없음') AS 관리자명
+from employee E;
+
+--사원명, 부서코드, 부서명,부서별 평균임금을 서브쿼리를 이용해출력
+select emp_name, dept_code, D.dept_title, 
+    (select round(avg(salary))
+        from employee E2
+        where E2.dept_code = E1.dept_code) AS 부서별평균임금
+from employee E1
+   JOIN department D ON E1.dept_code=D.dept_id
+order by dept_code;
+
+--직급이 J1 아닌사원중 자신의 부서별 평균 급여보다 적은 급여받는 사원들
+--부서코드, 사원명, 급여, 부서별 급여평균
+select dept_code, emp_name, salary,
+    (select round(avg(salary))
+        from employee E2
+        where E1.dept_code = E2.dept_code) AS 부서별급여평균
+from employee E1
+where E1.job_code <> 'J1'
+    and E1.salary < (select round(avg(salary))
+                        from employee E2
+                        where E1.dept_code = E2.dept_code)
+order by dept_code;
+
+--스칼라 where절에 사용하기
+--자신이 속한 직급의 평균급여보다 많이 받는 직원의 
+--이름, 직급, 급여를 조회
+select emp_name, J.job_name, salary
+from  employee E1
+    JOIN job J ON E1.job_code = J.job_code
+where E1.salary > (select round(avg(salary))
+                        from employee E2
+                        where E1.job_code= E2.job_code)
+order by E1.job_code;
+
+--스칼라 서브쿼리를 order by에
+--모든 직원의 사번, 이름, 소속부서 조회후, 부서명으로 오름차순
+select emp_id, emp_name, dept_code
+from employee E
+order by (select dept_title from department D
+            where E.dept_code = D.dept_id) DESC nulls last;
+
+--서브쿼리를 FROM 절에 사용
+select emp_id, emp_name, dept_code,
+    DECODE(substr(emp_no,8,1), 1,'남', 2,'여') AS 성별
+from employee
+where substr(emp_no,8,1) in (1,3);
+
+select * 
+from (select emp_id AS 사번, emp_name AS 사원명, 
+             dept_code AS 부서코드,
+             DECODE(substr(emp_no,8,1), 1,'남', 2,'여') AS 성별
+        from employee)
+        --where emp_id like '20%');
+where 성별='남' and 사번='200'; --컬럼명이 바뀜. where에 emp_id 사용불가
+
+--INLINE VIEW
+--Employee 테이블에서 1990년도에 입사한 사원의 
+--사번, 사원명, 입사년도
+select *
+from (select emp_id, emp_name, EXTRACT(year from hire_date) AS 입사년도
+        from employee
+        where EXTRACT(year from hire_date) like '199_'
+        order by emp_id, hire_date);
+--where 입사년도 - 1990 between 0 and 9
+
+--Employee 테이블에서 사원중 30, 40대인 여자사원의 
+--사번, 부서명, 성별, 나이를 출력
+select *
+from (select emp_id, emp_name, dept_title, 
+        DECODE(substr(emp_no,8,1), 1,'남',2,'여') AS 성별, 
+        EXTRACT(year from sysdate)
+            - TO_NUMBER(DECODE(substr(emp_no,8,1),1,19,2,19,20)
+              || substr(emp_no,1,2)) + 1 AS 나이
+        from employee E
+            LEFT JOIN department D ON dept_code=dept_id)
+where 성별='여'
+    and substr(나이,1,1) in(3,4);
+--and (trunc(나이/10)) in (3,4);
+
+--WITH AS
+--서브쿼리에 별칭 부여하여 그 별칭으로 서브쿼리를 사용하는 것
+WITH TT AS(select emp_id, emp_name, salary 
+            from employee
+            order by salary desc)
+select * from TT;
+
+--RANKING 순위를 조회하는 조회문을 알아보자.
+--  월급많은 top3를 조회
+--오라클이 테이블이면 제공하는 컬럼
+--ROWNUM : 컬럼에 대해 자동으로 1~끝번까지 번호부여
+--ROWID : row를 찾아갈 수 있게 해주는 주소값!
+CREATE TABLE TEST(
+    BOARDNO NUMBER,
+    TITLE VARCHAR2(10),
+    CONTENT VARCHAR2(200),
+    WRITER VARCHAR2(10)
+);
+
+select ROWID, ROWNUM, boardno, title, content, writer from test;
+
+--ROWNUM 자동으로 숫자부여
+--부여되는 시점은 FROM
+--ORDER BY는 FROM 이후 마지막에 실행되므로
+--INLINE VIEW로 미리 넣어둠
+select ROWNUM, emp_id, emp_name, salary
+    from employee
+where ROWNUM <=3
+order by salary desc;
+
+select ROWNUM, E.*
+from (select emp_id, emp_name, salary 
+        from employee order by salary desc) E
+where ROWNUM <=3;
+
+--ERROR!
+select ROWNUM, * from employee;
+--OK!
+select ROWNUM, EMPLOYEE.* from employee;
+
+--D5부서에서 연봉 상위 3명의 정보출력
+--순위, 사번, 사원명, 연봉
+select ROWNUM, E.*
+from (select emp_id, emp_name,
+        TO_CHAR(12*salary, 'L999,999,999') AS 연봉
+        from employee 
+        where dept_code='D5' order by 연봉 DESC) E
+where ROWNUM <=3;
+
+--월급이 5등부터 10등까지
+--사원명, 월급
+--안나옴!! ROWNUM BETWEEN A and B (A=1아니면 출력안됨)
+select ROWNUM, E.*
+    from (select emp_name, salary
+            from employee order by salary DESC) E;
+
+--paging 처리시에 필수
+--INLINE VIEW를 두번 써야함
+select *
+from ( select ROWNUM RNUM, E.*
+       from (select emp_name, salary
+               from employee order by salary DESC) E
+    )
+where RNUM between 5 and 10;
+
+--계층형 쿼리
+--      조직도 구성, 메뉴, 답변형 게시판(댓글)
+--  FROM 다음에 옵션 값을 등록해서 처리함
+--  START WITH: 부모행(루트노드) 지정
+--  CONNECT BY: 부모-자식관계 설정
+--  PRIOR: START WITH 절에서 제시한 부모행의 기준컬럼을 지정
+--  LEVEL: 계층정보를 나타내는 가상의 컬럼
+-- 댓글 시스템 만들때 사용
+select LEVEL, emp_id, emp_name, manager_id
+from employee
+start with emp_id=200
+connect by prior emp_id = manager_id
+order by LEVEL;
+
+select LPAD(' ', (LEVEL-1)*5, ' ') || 
+    EMP_NAME ||NVL2(MANAGER_ID, '(' || MANAGER_ID||')', '') AS 조직도
+from employee
+start with manager_id IS NULL
+connect by prior emp_id=manager_id;
+
+--RANK() 윈도우함수: 오라클이 제공하는 순위조회 함수
+--  ROWNUM을 더 많이 씀.
+select 순위, emp_name, salary
+from (select emp_name, salary,
+            RANK() OVER(order by salary desc) AS 순위
+            from employee order by salary desc);
+--where 순위 between 1 and 3;
+
+select 순위, emp_name, salary
+from (select emp_name, salary,
+            DENSE_RANK() OVER(order by salary desc) AS 순위
+            from employee order by salary desc);
+--where 순위 between 4 and 10;

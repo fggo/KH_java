@@ -1,6 +1,57 @@
+--DB시험(책 DDL 파트, p112, p133)
+standard 기본기능. 유료but 개인용 앱개발 사용 가능
+enterprise 대규모 대용량. 기업용 유료
+express 교육용 데모 1GB이상 불가능
+
+--기본적으로 제공하는 테이블: dictionary table
+select * from dba_users;
+select * from tab;
+
+스키마 schema : 하나의 저장공간
+	외부/내부/개념 스키마
+		내부스키마: 내부적으로 물리적 하드웨어가 저장해야 영속성 사용가능
+			내부 하부적으로 움직이는 것들
+		개념스키마: 어떻게 분류, 구조 짰는지
+		외부스키마: 논리적 모델링, 스키마 안에 테이블 만드는.(1개이상 존재가능)
+			스키마 = 메타데이터(전체 스키마가 어떻게 이루어져 있는지)
+
+권한설정
+	GRANT RESOURCE TO USER;
+
+제약조건 (CONSTRAINT)
+	컬럼값 NULL이 디폴트임
+	테이블 정의할때 컬럼마다 "컬럼명 NOT NULL" 제약조건 걸수 있음
+	unique, not null 한컬럼에 여러개 지정 가능
+	primary key(unique, not null)에는 기본적으로 index가 걸려있음
+	index 유저가 정의 하여 primary key가 아닌 다른 컬럼에 정의가능
+	CHECK 제약조건. 컬럼(도메인)을 체크
+		(ex) check 성별='남'
+	
+	DEFAULT 제약조건: 
+		테이블 컬럼안에 값이 없으면 디폴트값이 들어가도록
+	
+쿼리 GROUP BY!
+
+인덱스
+	테이블 조회 속도 빠르게
+
+테이블
+	컬럼, 행 tuple(row), 테이블(객체)
+
+관리자계정 system/sys
+	사용자 권한부여/회수, 테이블 관리, DB생성,
+		OBJECT 생성 삭제
+
+DBA가 관리자 계정 이용
+
+일반 사용자들은
+	select, update, delete
+																																																																																																																																																																																															
+
+
+---
 오라클 SQL 레퍼런스
 https://docs.oracle.com/cd/E11882_01/server.112/e41084/toc.htm
-
 
 sqlplus system/oracle
 

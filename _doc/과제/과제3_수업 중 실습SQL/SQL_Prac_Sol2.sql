@@ -125,9 +125,8 @@ order by dept_title;
 --직급이 J1, J2, J3이 아닌 사원중에서 
 --자신의 부서별 평균급여보다 많은 급여를 받는 사원출력.
 -- 부서코드, 사원명, 급여, 부서별 급여평균
-select E.dept_code, E.emp_id, E.emp_name, E.salary, E2.AVG_SAL
+select E.dept_code, E.emp_name, E.salary, E2.AVG_SAL
 from employee E
-    JOIN department D on E.dept_code = D.dept_id
     JOIN ( select dept_code, ROUND(avg(salary)) AVG_SAL
             from employee
             group by dept_code) E2 ON (E.dept_code = E2.dept_code)
@@ -136,4 +135,15 @@ where EXISTS(select E3.dept_code, avg(E3.salary) from employee E3
         group by E3.dept_code
         HAVING E.salary > avg(E3.salary))
     and E.job_code not in ('J1','J2','J3')
+order by dept_code;
+
+
+select E1.dept_code, emp_name, salary, E2.AVG_SAL
+from employee E1
+    JOIN ( select dept_code, 
+                  round(avg(salary)) AS AVG_SAL
+            from employee
+        GROUP BY dept_code) E2 ON E1.dept_code = E2.dept_code
+where job_code NOT IN ('J1', 'J2', 'J3')
+    AND salary > E2.AVG_SAL
 order by dept_code;
