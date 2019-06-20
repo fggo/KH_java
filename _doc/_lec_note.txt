@@ -9,11 +9,23 @@ select * from tab;
 
 스키마 schema : 하나의 저장공간
 	외부/내부/개념 스키마
-		내부스키마: 내부적으로 물리적 하드웨어가 저장해야 영속성 사용가능
-			내부 하부적으로 움직이는 것들
-		개념스키마: 어떻게 분류, 구조 짰는지
-		외부스키마: 논리적 모델링, 스키마 안에 테이블 만드는.(1개이상 존재가능)
-			스키마 = 메타데이터(전체 스키마가 어떻게 이루어져 있는지)
+		외부스키마: 사용자나 응용프로그래머가 각 개인의 입장에서 필요로 하는 
+                 데이터베이스의 논리적 구조를 정의한 것으로 1개이상 존재가능
+                 사용자 View 관점에서의 스키마입니다.
+		내부스키마: 물리적 저장장치의 입장에서 본 데이터베이스 구조로, 물리적인 저장장치와 밀접한 계층이다.	
+                 내부적으로 물리적 하드웨어가 저장해야 영속적으로 사용가능. 내부 하부적으로 움직이는 것들
+        개념스키마: 데이터베이스의 전체적인 논리적 구조로서, 모든 응용 프로그램이나 사용자들이 필요로 하는 
+                 데이터를 종합한 조직 전체의 데이터베이스로 1개만 존재. DBA가 관리
+        
+스키마 = 메타데이터(전체 스키마가 어떻게 이루어져 있는지)
+             
+
+Technically, a schema is a collection of database objects owned by a specific user. 
+Those objects include tables, indexes, views, stored procedures, etc. 
+In Oracle, a schema requires a user to be created. But you can create a user 
+that has no schema (i.e, no objects). So in Oracle, the user is the account 
+and the schema is the objects. It is possible in other database platforms 
+to have a schema without a user.
 
 권한설정
 	GRANT RESOURCE TO USER;
@@ -26,7 +38,7 @@ select * from tab;
 	index 유저가 정의 하여 primary key가 아닌 다른 컬럼에 정의가능
 	CHECK 제약조건. 컬럼(도메인)을 체크
 		(ex) check 성별='남'
-	
+        
 	DEFAULT 제약조건: 
 		테이블 컬럼안에 값이 없으면 디폴트값이 들어가도록
 	
@@ -36,7 +48,7 @@ select * from tab;
 	테이블 조회 속도 빠르게
 
 테이블
-	컬럼, 행 tuple(row), 테이블(객체)
+	컬럼(도메인), 행 tuple(row), 테이블(객체)
 
 관리자계정 system/sys
 	사용자 권한부여/회수, 테이블 관리, DB생성,
@@ -46,7 +58,6 @@ DBA가 관리자 계정 이용
 
 일반 사용자들은
 	select, update, delete
-																																																																																																																																																																																															
 
 
 ---

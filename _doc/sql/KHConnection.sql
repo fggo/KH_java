@@ -1364,7 +1364,8 @@ where 성별='여'
 WITH TT AS(select emp_id, emp_name, salary 
             from employee
             order by salary desc)
-select * from TT;
+select TT.emp_id, TT.emp_name, TT.salary 
+    from TT;
 
 --RANKING 순위를 조회하는 조회문을 알아보자.
 --  월급많은 top3를 조회
@@ -1380,15 +1381,19 @@ CREATE TABLE TEST(
 
 select ROWID, ROWNUM, boardno, title, content, writer from test;
 
---ROWNUM 자동으로 숫자부여
---부여되는 시점은 FROM
---ORDER BY는 FROM 이후 마지막에 실행되므로
---INLINE VIEW로 미리 넣어둠
+--ROWNUM은 테이블 생성시 Insert순서대로 내부적으로 정해진 값. (변하지 않음)
+--그러므로, order by에 의해 ROWNUM이 변하지 않는다.
+--따라서 select * from (select ROWNUM R, ... from TABLE)
+--다음 결과는 order by salary가 높은 순으로 출력되지 않는다.
 select ROWNUM, emp_id, emp_name, salary
     from employee
 where ROWNUM <=3
 order by salary desc;
 
+--ROWNUM 자동으로 숫자부여. 부여되는 시점은 FROM(서브쿼리)
+--ORDER BY는 FROM 이후 마지막에 실행되므로
+--INLINE VIEW로 미리 넣어둠
+--하지만, ROWNUM은 1부터 row가 선택되면서 증가하므로, ROWNUM >=3는 결과 없음
 select ROWNUM, E.*
 from (select emp_id, emp_name, salary 
         from employee order by salary desc) E
@@ -1411,12 +1416,23 @@ where ROWNUM <=3;
 --월급이 5등부터 10등까지
 --사원명, 월급
 --안나옴!! ROWNUM BETWEEN A and B (A=1아니면 출력안됨)
+--NOT WORKING!
 select ROWNUM, E.*
     from (select emp_name, salary
-            from employee order by salary DESC) E;
+            from employee order by salary DESC) E
+where ROWNUM between 5 and 10; --NOT SHOWING ANY RESULTS
 
 --paging 처리시에 필수
 --INLINE VIEW를 두번 써야함
+--ROWNUM은쿼리결과가 selected될때 값이 부여됨,
+--즉 where절이 끝나고나서 row가 선택되면서 부여되므로,
+--row>N일때 (N>1) 
+
+--When assigning ROWNUM to a row, 
+--Oracle starts at 1 and only increments the value when a row 
+--is selected; that is, when all conditions in the WHERE clause are met. 
+--Since our condition requires that ROWNUM is greater than 2,
+--no rows are selected and ROWNUM is never incremented beyond 1.
 select *
 from ( select ROWNUM RNUM, E.*
        from (select emp_name, salary
@@ -1450,10 +1466,9 @@ select 순위, emp_name, salary
 from (select emp_name, salary,
             RANK() OVER(order by salary desc) AS 순위
             from employee order by salary desc);
---where 순위 between 1 and 3;
 
 select 순위, emp_name, salary
 from (select emp_name, salary,
             DENSE_RANK() OVER(order by salary desc) AS 순위
-            from employee order by salary desc);
---where 순위 between 4 and 10;
+            from employee order by salary desc)
+where 순위 between 15 and 25;
