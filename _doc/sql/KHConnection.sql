@@ -1472,3 +1472,8 @@ from (select emp_name, salary,
             DENSE_RANK() OVER(order by salary desc) AS 순위
             from employee order by salary desc)
 where 순위 between 15 and 25;
+
+--1. sql
+--2. java hw
+--3. jdbc
+--4. spring

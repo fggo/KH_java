@@ -99,7 +99,7 @@ where hire_date > ALL(select hire_date from employee where dept_code='D1');
 
 --인사관리부의 사원전체보다 입사가 늦은 사원들의정보를 검색, 
 --사원명, 부서명, 입사일
-select emp_name, dept_code, hire_date
+select emp_name, D.dept_title, hire_date
 from employee E 
     LEFT JOIN department D ON E.dept_code = D.dept_id
 where hire_date > ALL(select hire_date from employee E2
@@ -147,3 +147,4 @@ from employee E1
 where job_code NOT IN ('J1', 'J2', 'J3')
     AND salary > E2.AVG_SAL
 order by dept_code;
+
