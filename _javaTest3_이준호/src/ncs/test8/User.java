@@ -38,8 +38,9 @@ public class User {
 		}
 	}
 	@Override
-	protected Object clone() {
-		return this.clone();
+	public Object clone() throws CloneNotSupportedException{
+		//deep copy
+		return new User(id, password, name, age, gender, phone);
 	}
 
 	public String getId() { return id; }
