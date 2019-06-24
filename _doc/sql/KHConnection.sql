@@ -1473,7 +1473,367 @@ from (select emp_name, salary,
             from employee order by salary desc)
 where 순위 between 15 and 25;
 
---1. sql
---2. java hw
---3. jdbc
---4. spring
+--DML
+--  Manipulates Table Data
+--      INSERT: add Row(s) to table
+--      UPDATE: modify specific Row(s) and specific Column
+--      DELETE: delete specific Row(s)
+
+-- columns(1~N)
+--INSERT into TABLE_NAME(COL1,... COLN)
+--    VALUES(VAL1,...VALN);
+
+-- all columns(in order)
+--INSERT into TABLE_NAME
+--    VALUES(VAL_1,...VAL_TOTALCOLNUM);
+
+--oracle은 DEFAULT 명시해야됨, 
+--mysql은 자동으로 디폴드값 대입
+INSERT INTO employee VALUES(
+    900, '장채현', '901123-1080503', 'jang_ch@kh.or.kr', '01055569512',
+    'D1', 'J8', 'S3', 4300000, 0.2, '200', SYSDATE, DEFAULT, DEFAULT);
+
+select * from employee where emp_name='장채현';
+
+INSERT INTO employee VALUES(
+    901, '함지민', '781020-2123453', 'hamham@kh.or.kr', '01012341234',
+    'D1', 'J4', 'S3', 4500000, DEFAULT, 
+        (SELECT emp_id from employee where emp_name='이오리'), 
+        SYSDATE, DEFAULT, DEFAULT);
+
+COMMIT;
+ 
+--NOT NULL CONSTRAINTS : 
+--  "SAL_LEVEL" IS NOT NULL
+--  "JOB_CODE" IS NOT NULL
+--  "EMP_NO" IS NOT NULL
+--  "EMP_NAME" IS NOT NULL
+--  "EMP_ID" IS NOT NULL
+INSERT INTO employee(emp_id, emp_name, emp_no, email, phone,
+    dept_code, job_code, sal_level, salary, bonus, manager_id)
+VALUES(903, '유병승', '000224-3123412', 'prince0324@naver.com',
+    '01036446259', 'D2','J1','S1', '99900000', 0.8, '200');
+
+INSERT INTO employee(emp_id, emp_name, emp_no,
+    sal_level, job_code)
+VALUES(904, '서현희', '910804-2123412', 'S1', 'J3');
+
+select * from employee;
+
+commit;
+
+--INSERT문에 서브쿼리 이용하기
+CREATE TABLE emp_01(
+    EMP_ID NUMBER,
+    EMP_NAME VARCHAR2(30),
+    EMP_TITLE VARCHAR2(20));
+
+INSERT INTO emp_01 VALUES(999, '유병승', '대표이사');
+
+select * from emp_01;
+
+INSERT INTO emp_01( select emp_id, emp_name, J.job_name
+    from employee E JOIN job J ON E.job_code = J.job_code);
+
+CREATE TABLE emp_hire_date(
+    emp_id NUMBER,
+    emp_name VARCHAR2(30),
+    hire_date DATE);
+
+CREATE TABLE emp_manager(
+    emp_id NUMBER,
+    emp_name VARCHAR2(30),
+    manager_id NUMBER);
+
+--INSERT using sub-query
+INSERT INTO emp_hire_date(
+    select emp_id, emp_name, hire_date
+        from employee);
+
+INSERT INTO emp_manager(
+    select emp_id, emp_name, manager_id
+        from employee);
+
+ROLLBACK;
+COMMIT;
+--CREATE은 자동 COMMIT 됨
+select * from emp_hire_date;
+select * from emp_manager;
+
+--INSERT ALL
+INSERT ALL
+    INTO emp_hire_date VALUES(emp_id, emp_name, hire_date)
+    INTO emp_manager VALUES(emp_id, emp_name, manager_id)
+select emp_id, emp_name, hire_date, manager_id
+    from employee;
+
+--INSERT ALL 여러 테이블에 한번에 값을 삽입
+--값을 넣을때, 조건에 따라서 값을 넣을 수 있음.
+--CASE 절 과 비슷한 WHEN을 사용해서 처리함.
+CREATE TABLE emp_old(
+    emp_id NUMBER,
+    emp_name VARCHAR2(30),
+    hire_date DATE,
+    salary NUMBER);
+
+CREATE TABLE emp_new(
+    emp_id NUMBER,
+    emp_name VARCHAR2(30),
+    hire_date DATE,
+    salary NUMBER);
+
+--OLD employee테이블에서 00.01.01 이전 입사한 사원
+--NEW employee테이블에서 00.01.01 이후 입사한 사원
+INSERT INTO emp_old(
+    select emp_id , emp_name, hire_date, salary
+        from employee
+    where hire_date < '00/01/01');
+
+INSERT INTO emp_new(
+    select emp_id , emp_name, hire_date, salary
+        from employee
+    where hire_date >= '00/01/01');
+
+commit;
+rollback;
+
+select * from emp_old;
+select * from emp_new;
+
+INSERT ALL 
+WHEN hire_date <'00/01/01' 
+    THEN INTO emp_old 
+        VALUES(emp_id, emp_name, hire_date, salary)
+ WHEN hire_date >='00/01/01'
+    THEN INTO emp_new
+        VALUES(emp_id, emp_name, hire_date, salary)
+select emp_id, emp_name, hire_date, salary
+from employee;
+
+--MERGE
+
+--UPDATE 테이블의 내용을 수정하는 것
+--사용:
+--UPDATE table_name SET 변경된컬럼=변경될값;
+CREATE TABLE copy_dept 
+AS select * from department;
+
+--총무부 -> 전략기획팀
+UPDATE copy_dept SET dept_title='전략기획부',
+location_id='L1'
+where dept_id='D9';
+
+select dept_id, dept_title,location_id from copy_dept
+where dept_id= 'D9';
+
+commit;
+
+--UPDATE문도 서브쿼리를 이용할 수 있음
+CREATE table emp_salary
+AS select emp_id, emp_name, salary, bonus
+    from employee;
+
+select * from emp_salary;
+
+UPDATE emp_salary SET bonus=(
+            select bonus from emp_salary
+            where emp_name='하이유')
+    where emp_id=(
+        select emp_id from emp_salary
+        where emp_name='송종기');
+
+--부서가 회계관리부 인 사원들의 보너스를 .4로 수정
+CREATE table emp_salary1
+AS select emp_id, emp_name, dept_code,
+          salary, bonus
+    from employee;
+
+UPDATE emp_salary1
+SET bonus=.4
+where dept_code=(
+    select dept_code from department
+        where dept_title = '회계관리부');
+
+select * from emp_salary1;
+
+--총무부 사원의 월급이 100000원 증가시키기
+UPDATE emp_salary1
+SET salary = (salary+100000)
+where dept_code= (select dept_id from department
+                where dept_title='총무부');
+
+
+--다중 열 UPDATE
+select emp_name, salary, bonus from emp_salary1
+where emp_name in ('유재식', '방명수');
+
+UPDATE emp_salary1
+SET (salary, bonus) = (select salary, bonus
+from emp_salary1 where emp_name ='유재식')
+where emp_name = '방명수';
+
+CREATE table emp_local
+as select * from employee;
+
+--근무지역이 유럽인 사람 보너스를 .5
+UPDATE emp_local
+SET bonus =.5
+where dept_code = (select dept_id
+    from department JOIN location 
+        ON location_id= local_code
+        where local_name='EU');
+
+select bonus from emp_local
+    where dept_code='D8';
+
+--MERGE 두개의 테이블을합치는 작업
+--  사용: row끼리 병합
+--  MERGE INTO 테이블명 USING 합쳐질테이블명
+--      ON (결합할기준값)
+--  WHEN MATCHED THEN UPDATE구문
+--  WHEN NOT MATCHED THEN INSERT구문
+CREATE TABLE MERGE_TEST
+AS (select * from employee);
+CREATE TABLE MERGE_TEST2
+AS (select * from employee
+    where dept_code='D8');
+
+select * from merge_test;
+select * from merge_test2;
+
+INSERT INTO merge_test2
+VALUES(998, '바바', '171230-1234555','baba@b.com',
+    '01011112222', 'D2', 'J2', 'S2', 100, .1, 
+    NULL, sysdate, DEFAULT, DEFAULT);
+
+UPDATE merge_test2
+SET salary=10, bonus=20
+where dept_code='D8';
+
+MERGE INTO merge_test USING merge_test2
+ON(merge_test.emp_id = merge_test2.emp_id)
+WHEN MATCHED THEN 
+    UPDATE SET merge_test.salary = merge_test2.salary,
+           merge_test.bonus = merge_test2.bonus
+    --모든 컬럼 UPDATE SET(모든 데이터 전부 MERGE 하려면)
+WHEN NOT MATCHED THEN
+    INSERT VALUES( merge_test2.EMP_ID, merge_test2.EMP_NAME, 
+    merge_test2.EMP_NO, merge_test2.EMAIL, merge_test2.PHONE, 
+    merge_test2.DEPT_CODE, merge_test2.JOB_CODE, merge_test2.SAL_LEVEL, 
+    merge_test2.SALARY, merge_test2.BONUS, merge_test2.MANAGER_ID, 
+    merge_test2.HIRE_DATE, merge_test2.ENT_DATE, merge_test2.ENT_YN);
+
+select emp_name, dept_code, salary, bonus from merge_test
+where dept_code='D8';
+
+--where절에 pk 컬럼 주로 씀
+DELETE from merge_test where emp_name='유병승';
+
+select * from department;
+select * from employee;
+
+ALTER TABLE EMPLOYEE ADD FOREIGN KEY(dept_code)
+    REFERENCES DEPARTMENT(dept_id);
+
+--ERROR!
+--FOREIGN KEY VIOLATION
+--  ORA-02291: integrity constraint 
+--  (KH.SYS_C007055) violated - parent key not found
+INSERT INTO EMPLOYEE(emp_id, emp_name, emp_no, 
+        sal_level, dept_code, job_code)
+    VALUES(997, '루루', '990101-1311333', 'S2','D0', 'J2');
+
+INSERT INTO EMPLOYEE(emp_id, emp_name, emp_no, 
+        sal_level, dept_code, job_code)
+    VALUES(997, '루루', '990101-1311333', 'S2','D1', 'J2');
+
+--NO RESULT!
+select * from department where dept_id='D0';
+select * from department where dept_id='D1';
+select * from department where dept_id='D4';
+
+--ERROR! child record found!
+DELETE from department where dept_id='D1';
+
+--OK! Because NO CHILD RECORD!
+DELETE from department where dept_id='D4';
+
+--TRUNCATE (DELETE와 같지만, ROLLBACK 안됨)
+DELETE from merge_test;
+ROLLBACK; --OK
+
+TRUNCATE TABLE merge_test;
+ROLLBACK; --CANNOT retrieve data...
+
+--DDL
+--  CREATE 오브젝트 생성
+--  ALTER 오브젝트 수정
+--  DROP 오브젝트 삭제
+--  오브젝트: table ,view, index, sequence, user ...
+--사용: CREATE 오브젝트종류 오브젝트명칭
+CREATE TABLE member1(
+    mem_name VARCHAR2(20),
+    mem_password VARCHAR2(30),
+    mem_id VARCHAR2(20)
+);
+
+select * from member1;
+
+--테이블 컬럼에 주석달기.
+COMMENT ON COLUMN member1.mem_name IS '회원 이름';
+COMMENT ON COLUMN member1.mem_password IS '회원 비밀번호';
+COMMENT ON COLUMN member1.mem_id IS '회원 아이디';
+
+--select * from all_tab_comments where table_name='MEMBER1';
+select * from user_col_comments where table_name='MEMBER1';
+
+COMMENT ON COLUMN member1.mem_name IS '회원이름';
+
+
+--CONSTRAINTS 제약조건
+--  NOT NULL
+--  UNIQUE
+--  PRIMARY KEY(NOT NULL & UNIQUE)
+--  FOREIGN KEY
+--  CHECK
+
+--테이블에 걸린 제약조건 확인하기
+DESC user_constraints;
+DESC user_cons_columns;
+
+--CONSTRAINT_TYPE='C' CHECK 또는 NOT NULL
+--CONSTRAINT_TYPE='R' FOREIGN KEY 설정됨
+--CONSTRAINT_TYPE='P' PRIMARY KEY 설정됨
+--CONSTRAINT_TYPE='U' UNIQUE 설정됨
+select constraint_name, constraint_type from user_constraints
+    where table_name='EMPLOYEE';
+
+select * from user_cons_columns;
+
+CREATE TABLE member2(
+    MEM_NAME VARCHAR2(20) NOT NULL,
+    MEM_ID VARCHAR2(10) UNIQUE,
+    MEM_PASSWORD varchar2(20));
+
+select table_name, constraint_name, constraint_type
+from user_constraints 
+where table_name in ('MEMBER1', 'MEMBER2');
+
+--NOT NULL 특정 컬럼에 무조건 데이터를 넣어야 할 때
+--NULL에 대해 제약조건을 설정하지 않으면 무조건 NULL 허용
+CREATE TABLE user_ncons(
+    user_no NUMBER NOT NULL,
+    user_id VARCHAR2(30) NOT NULL,
+    user_pw VARCHAR2(30) NOT NULL,
+    user_name VARCHAR2(20),
+    gender VARCHAR2(30),
+    phone VARCHAR2(30),
+    email VARCHAR2(50));
+
+--ERROR! CONSTRAINTS
+INSERT INTO user_ncons
+    VALUES(1, 'admin', 1234, NULL, NULL, NULL, NULL);
+
+select * from user_ncons;
+--ID, PW, NO에는 값이 반드시 필요하기 때문에
+--NULL값이 못들어 오게 설정해보자.
