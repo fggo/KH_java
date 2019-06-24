@@ -69,8 +69,6 @@ select sysdate from dual;
 
 select length('큰언니'), lengthb('큰언니') from dual;
 
-select * from dual;
-
 --날짜의 산술 연산
 select sysdate-1 어제, sysdate 오늘, sysdate+1 내일 from dual;
 
@@ -79,6 +77,7 @@ select to_char(sysdate, 'mm-dd-yyyy hh24:mi:ss') "NOW" from dual;
 --날짜와 날짜끼리의 산술 연산
 --일수(int) 값으로 출력
 select sysdate - to_date('19990224', 'yyyymmdd') from dual;
+select sysdate - to_date('19990224') from dual;
 
 --시간까지 출력
 select systimestamp from dual;
@@ -90,18 +89,16 @@ create table datetest(
     birthday date,
     temp timestamp);
 
-insert into datetest values('19/06/13', '00/02/24', '19/06/13 11:15:00');
-
-insert into datetest
-values(to_date('20190613'), to_date('19990224'),
-    to_timestamp('20190613111500'));
+insert into datetest values(
+        '19/06/13', '00/02/24', '19/06/13 11:15:00');
+insert into datetest values(
+        to_date('20190613'), to_date('19990224'), to_timestamp('20190613111500'));
     
 select * from datetest;
 
 --테이블 컬럼의 자료형을 확인하고 싶을때
-desc chartest;
-
-desc datetest;
+DESC chartest;
+DESC datetest;
 
 create table member_table (
     id CHAR(15), --변동x 6-15자리
@@ -114,17 +111,13 @@ create table member_table (
 
 select * from member_table;
 
-desc member_table;
-
 -- 테이블에 있는 데이터 조회하기
 -- 명령어 select
 -- 명령구조 select 컬럼1,...,컬럼n from 테이블명 where 검색조건
-
-select * from kh.employee;
+select emp_name, email, ent_date from kh.employee;
+select emp_name, email, ent_date from employee;
 
 select dept_id, dept_title from department;
-
-select emp_name, email, phone, ent_date from employee;
 
 --select 문에서는 산술 연산도 가능
 --연산을 하기 위해서는 연산식의 컬럼명이 들어가는 곳에서
@@ -134,9 +127,9 @@ select emp_name, email, phone, ent_date from employee;
 --ERROR
 select emp_name, salary, email*12 from employee;
 
---select bonus %12 from employee;
---%연산자는 기본 산술연산자로 등록되어 있지 않음
---mod라는 함수 이용
+--%함수 없음. MOD이용
+--select bonus %12 from employee; --ERROR
+select MOD(salary, 12) from employee;
 
 --nvl함수는 컬럼데이터가 null일때,
 --그 값을 대체해줄 값을 지정
@@ -151,63 +144,49 @@ from employee;
 select emp_name, sysdate-hire_date from employee;
 
 --DISTINCT 중복된 값이 있으면 한번만 출력
-select emp_name, dept_code from employee;
-
 select distinct dept_code from employee;
 
 --(dept_code, job_code)를 한개 데이터로 distinct인 것을 select
 select distinct dept_code, job_code from employee;
 
---비교 연산자 : where절에서
---where절 사용하기 : resultSet에 필요한 row들만 필터링
+--비교 연산자: where clause filters resultset
 --select 컬럼1,...,컬럼n from 테이블명 where 컬럼명 비교연산자 값;
 select * from employee where job_code = 'J5';
 
-select * from tab where tname='EMPLOYEE';
-
 select emp_name, salary, hire_date, phone from employee
-where sal_level='S1';
+    where sal_level='S1';
 
 select emp_name, salary,
     12*salary*(1+nvl(bonus, 0)-.03) AS 실수령액
 from employee
 where 12*salary*(1-.03 + nvl(bonus,0)) > 50000000;
 
---논리연산자 사용하기
---AND/OR
+--논리연산자 사용하기 AND/OR
 select * from employee
-where dept_code != 'D6' AND salary >= 3000000;
+    where dept_code != 'D6' AND salary >= 3000000;
 
 select emp_name, hire_date, salary from employee
-where job_code='J3' OR sal_level='S5';
+    where job_code='J3' OR sal_level='S5';
 
 --비교연산자를 여러개
-select * from employee
-where dept_code='D5'
-    AND hire_date >'02/01/01';
+select * from employee where dept_code='D5' AND hire_date >'02/01/01';
 
 select distinct sal_level from employee
---where job_code != 'J1'
-where job_code ^= 'J1'
-group by sal_level
-order by sal_level;
+where job_code ^= 'J1'; --job_code != 'J1'
 
-select emp_name, salary
-from employee
+select emp_no || emp_name || email from employee;
+select emp_name ||'님 '|| salary || '원' from employee;
+
+select emp_name, salary from employee
 where salary between 3500000 and 6000000;
 --where salary >=3500000 and salary <= 6000000;
 
-select emp_no || emp_name || email from employee;
-
-select emp_name ||'님 안녕하세요 당신은 '|| salary || '원 만큼 받나요?' from employee;
+select emp_name, dept_code, hire_date from employee
+    where salary not between 3500000 and 6000000;
 
 select emp_name, hire_date, dept_code, salary from employee
-where hire_date between '90/01/01' and '01/01/01';
+    where hire_date between '90/01/01' and '01/01/01';
 --where hire_date >= '90/01/01' and hire_date <='01/01/01';
-
---부정연산자를 이용하고 범위 밖의 값을 출력할 수 있음
-select emp_name, dept_code, hire_date from employee
-where salary not between 3500000 and 6000000;
 
 --LIKE 문자 패턴이용하여 검색
 select * from employee where emp_name like '%희';
@@ -224,8 +203,9 @@ select * from employee where emp_name like '_옹_';
     
 select * from employee where emp_name like '%이%';
 
+--ESCAPE CHARACTER
 select * from employee
-where email like '___#_%' ESCAPE '#';
+    where email like '___#_%' ESCAPE '#';
 
 select * from employee
 where email like '____^_%' ESCAPE '^' 
@@ -242,7 +222,7 @@ insert into tbl_escape_watch values('금시계', '순금 99.99% 함유 고급시계');
 insert into tbl_escape_watch values(
 	'은시계', '고객만족도 99.99점을 획득한 고급시계');
 
---description에 '99.99%' 라는 말이 들어가 있는 행만 추출?
+--description에 '99.99%' 라는 말이 들어가 있는 행만 추출하세요
 select * from tbl_escape_watch
 where description like '%99.99^%%' ESCAPE '^';
 
@@ -271,14 +251,12 @@ select * from employee where nvl(bonus, 0)=0;
 --여러값을 or로 연결하여 동등비교하는 것!
 -- 사용: 컬럼값 in (비교값1,...,비교값n);
 
-select * from employee
-where job_code in ('J3', 'J2');
+select * from employee where job_code in ('J3', 'J2');
 -- job_code ='J3' or job_code='J2';
 
 select emp_name, job_code from employee
-where job_code in
-    (select job_code from employee
-        where salary > 3000000);
+where job_code in (select job_code from employee
+                    where salary > 3000000);
 
 select emp_name, dept_code, salary, sal_level from employee
 where emp_name in ('전형돈', '유재식', '이태림');
@@ -294,10 +272,8 @@ select * from employee
 --where (job_code='J7' or job_code='J2') and salary > 2000000;
 where salary > 2000000 and job_code='J7' or job_code='J2';
 
---order by 를 이용한 데이터 정렬
---order by는 마지막에 작성
---order by 컬럼명 ASC(디폴트) DESC;
---기본적으로 primary key로 정렬
+--order by는 마지막에 작성 ASC(디폴트), DESC;
+--기본적으로 primary key로 정렬됨
 --order by 컬럼1, 컬럼2;
 select * from employee order by emp_name desc;
 
@@ -322,35 +298,23 @@ order by 2;
 --2번째 select컬럼 salary 기준으로 정렬
 
 --함수 function
-select emp_name, 
-    length(emp_name), 
-    lengthb(emp_name),
-    email, 
-    length(email),
-    lengthb(email)
+select length(emp_name), lengthb(emp_name),
+       length(email), lengthb(email)
 from employee;
-
-desc employee;
 
 select length('바바바') from dual;
 select lengthb('바바바') from dual;
 
 --INSTR(문자, 찾는문자, +/-방향몇칸, 몇번째문자인지)
 --매개 변수로 들어온 문자에서 특정문자의 위치를 찾을때
-select INSTR('바바바', '바') from dual;
-
 select INSTR('monkkky', 'k') from dual;
-
 select INSTR('monkkkaaakay', 'k', -4, 2) from dual;
-
 select INSTR('monkkkaaakay', 'a', -4, 2) from dual;
-
 select INSTR('monkkkaaakay', 'a', 1, 1) from dual;
 
 select email, INSTR(email, '_') from employee;
 
-select email, substr(email, instr(email, '@'))
-from employee;
+select email, substr(email, 1, instr(email, '@') -1) from employee;
 
 select rpad('monkey', 10, '^') from dual;
 
@@ -1471,7 +1435,7 @@ select 순위, emp_name, salary
 from (select emp_name, salary,
             DENSE_RANK() OVER(order by salary desc) AS 순위
             from employee order by salary desc)
-where 순위 between 15 and 25;
+where 순위 between 5 and 10;
 
 --DML
 --  Manipulates Table Data
@@ -1479,27 +1443,30 @@ where 순위 between 15 and 25;
 --      UPDATE: modify specific Row(s) and specific Column
 --      DELETE: delete specific Row(s)
 
--- columns(1~N)
+-- col(1~N) or ALL col(in order)
 --INSERT into TABLE_NAME(COL1,... COLN)
 --    VALUES(VAL1,...VALN);
-
--- all columns(in order)
 --INSERT into TABLE_NAME
 --    VALUES(VAL_1,...VAL_TOTALCOLNUM);
 
 --oracle은 DEFAULT 명시해야됨, 
---mysql은 자동으로 디폴드값 대입
+--mysql은 자동으로 디폴드값 대입함
 INSERT INTO employee VALUES(
     900, '장채현', '901123-1080503', 'jang_ch@kh.or.kr', '01055569512',
     'D1', 'J8', 'S3', 4300000, 0.2, '200', SYSDATE, DEFAULT, DEFAULT);
-
-select * from employee where emp_name='장채현';
 
 INSERT INTO employee VALUES(
     901, '함지민', '781020-2123453', 'hamham@kh.or.kr', '01012341234',
     'D1', 'J4', 'S3', 4500000, DEFAULT, 
         (SELECT emp_id from employee where emp_name='이오리'), 
         SYSDATE, DEFAULT, DEFAULT);
+
+INSERT INTO employee(emp_id, emp_name, emp_no, email, phone,
+    dept_code, job_code, sal_level, salary, bonus, manager_id)
+VALUES(903, '유병승', '000224-3123412', 'prince0324@naver.com',
+        '01036446259', 'D2','J1','S1', '99900000', 0.8, '200');
+
+select * from employee where emp_name in('장채현', '함지민', '유병승');
 
 COMMIT;
  
@@ -1509,18 +1476,8 @@ COMMIT;
 --  "EMP_NO" IS NOT NULL
 --  "EMP_NAME" IS NOT NULL
 --  "EMP_ID" IS NOT NULL
-INSERT INTO employee(emp_id, emp_name, emp_no, email, phone,
-    dept_code, job_code, sal_level, salary, bonus, manager_id)
-VALUES(903, '유병승', '000224-3123412', 'prince0324@naver.com',
-    '01036446259', 'D2','J1','S1', '99900000', 0.8, '200');
-
-INSERT INTO employee(emp_id, emp_name, emp_no,
-    sal_level, job_code)
-VALUES(904, '서현희', '910804-2123412', 'S1', 'J3');
-
-select * from employee;
-
-commit;
+INSERT INTO employee(emp_id, emp_name, emp_no, sal_level, job_code)
+    VALUES(904, '서현희', '910804-2123412', 'S1', 'J3');
 
 --INSERT문에 서브쿼리 이용하기
 CREATE TABLE emp_01(
@@ -1530,11 +1487,12 @@ CREATE TABLE emp_01(
 
 INSERT INTO emp_01 VALUES(999, '유병승', '대표이사');
 
-select * from emp_01;
-
 INSERT INTO emp_01( select emp_id, emp_name, J.job_name
     from employee E JOIN job J ON E.job_code = J.job_code);
 
+select * from emp_01;
+
+--CREATE은 자동 COMMIT 됨
 CREATE TABLE emp_hire_date(
     emp_id NUMBER,
     emp_name VARCHAR2(30),
@@ -1546,19 +1504,16 @@ CREATE TABLE emp_manager(
     manager_id NUMBER);
 
 --INSERT using sub-query
-INSERT INTO emp_hire_date(
-    select emp_id, emp_name, hire_date
-        from employee);
+INSERT INTO emp_hire_date( select emp_id, emp_name, hire_date
+                            from employee);
 
-INSERT INTO emp_manager(
-    select emp_id, emp_name, manager_id
-        from employee);
+INSERT INTO emp_manager( select emp_id, emp_name, manager_id
+                            from employee);
+select * from emp_hire_date;
+select * from emp_manager;
 
 ROLLBACK;
 COMMIT;
---CREATE은 자동 COMMIT 됨
-select * from emp_hire_date;
-select * from emp_manager;
 
 --INSERT ALL
 INSERT ALL
@@ -1584,68 +1539,47 @@ CREATE TABLE emp_new(
 
 --OLD employee테이블에서 00.01.01 이전 입사한 사원
 --NEW employee테이블에서 00.01.01 이후 입사한 사원
-INSERT INTO emp_old(
-    select emp_id , emp_name, hire_date, salary
-        from employee
-    where hire_date < '00/01/01');
+INSERT INTO emp_old( select emp_id , emp_name, hire_date, salary
+                    from employee
+                    where hire_date < '00/01/01');
 
-INSERT INTO emp_new(
-    select emp_id , emp_name, hire_date, salary
-        from employee
-    where hire_date >= '00/01/01');
-
-commit;
-rollback;
-
+INSERT INTO emp_new( select emp_id , emp_name, hire_date, salary
+                    from employee
+                    where hire_date >= '00/01/01');
 select * from emp_old;
 select * from emp_new;
 
 INSERT ALL 
-WHEN hire_date <'00/01/01' 
-    THEN INTO emp_old 
-        VALUES(emp_id, emp_name, hire_date, salary)
- WHEN hire_date >='00/01/01'
-    THEN INTO emp_new
-        VALUES(emp_id, emp_name, hire_date, salary)
+    WHEN hire_date <'00/01/01' 
+        THEN INTO emp_old 
+            VALUES(emp_id, emp_name, hire_date, salary)
+    WHEN hire_date >='00/01/01'
+        THEN INTO emp_new
+            VALUES(emp_id, emp_name, hire_date, salary)
 select emp_id, emp_name, hire_date, salary
 from employee;
 
---MERGE
-
 --UPDATE 테이블의 내용을 수정하는 것
---사용:
---UPDATE table_name SET 변경된컬럼=변경될값;
+--  UPDATE table_name SET 변경된컬럼=변경될값;
 CREATE TABLE copy_dept 
-AS select * from department;
+    AS select * from department;
 
---총무부 -> 전략기획팀
-UPDATE copy_dept SET dept_title='전략기획부',
-location_id='L1'
+--총무부 -> 전략기획부
+UPDATE copy_dept SET dept_title='전략기획부', location_id='L1'
 where dept_id='D9';
-
-select dept_id, dept_title,location_id from copy_dept
-where dept_id= 'D9';
-
-commit;
 
 --UPDATE문도 서브쿼리를 이용할 수 있음
 CREATE table emp_salary
-AS select emp_id, emp_name, salary, bonus
-    from employee;
+AS select emp_id, emp_name, salary, bonus from employee;
 
-select * from emp_salary;
-
-UPDATE emp_salary SET bonus=(
-            select bonus from emp_salary
+UPDATE emp_salary SET bonus = ( select bonus from emp_salary
             where emp_name='하이유')
-    where emp_id=(
-        select emp_id from emp_salary
-        where emp_name='송종기');
+    where emp_id = ( select emp_id from emp_salary
+            where emp_name='송종기');
 
 --부서가 회계관리부 인 사원들의 보너스를 .4로 수정
 CREATE table emp_salary1
-AS select emp_id, emp_name, dept_code,
-          salary, bonus
+AS select emp_id, emp_name, dept_code, salary, bonus
     from employee;
 
 UPDATE emp_salary1
@@ -1661,7 +1595,6 @@ UPDATE emp_salary1
 SET salary = (salary+100000)
 where dept_code= (select dept_id from department
                 where dept_title='총무부');
-
 
 --다중 열 UPDATE
 select emp_name, salary, bonus from emp_salary1
@@ -1679,12 +1612,10 @@ as select * from employee;
 UPDATE emp_local
 SET bonus =.5
 where dept_code = (select dept_id
-    from department JOIN location 
-        ON location_id= local_code
+    from department JOIN location ON location_id= local_code
         where local_name='EU');
 
-select bonus from emp_local
-    where dept_code='D8';
+select bonus from emp_local where dept_code='D8';
 
 --MERGE 두개의 테이블을합치는 작업
 --  사용: row끼리 병합
@@ -1693,12 +1624,12 @@ select bonus from emp_local
 --  WHEN MATCHED THEN UPDATE구문
 --  WHEN NOT MATCHED THEN INSERT구문
 CREATE TABLE MERGE_TEST
-AS (select * from employee);
-CREATE TABLE MERGE_TEST2
-AS (select * from employee
-    where dept_code='D8');
+    AS (select * from employee);
 
-select * from merge_test;
+CREATE TABLE MERGE_TEST2
+    AS (select * from employee where dept_code='D8');
+
+select * from merge_test where dept_code ='D8';
 select * from merge_test2;
 
 INSERT INTO merge_test2
@@ -1716,21 +1647,19 @@ WHEN MATCHED THEN
     UPDATE SET merge_test.salary = merge_test2.salary,
            merge_test.bonus = merge_test2.bonus
     --모든 컬럼 UPDATE SET(모든 데이터 전부 MERGE 하려면)
+    --merge_test.emp_name = merge_test2.emp_name, ...
 WHEN NOT MATCHED THEN
     INSERT VALUES( merge_test2.EMP_ID, merge_test2.EMP_NAME, 
-    merge_test2.EMP_NO, merge_test2.EMAIL, merge_test2.PHONE, 
-    merge_test2.DEPT_CODE, merge_test2.JOB_CODE, merge_test2.SAL_LEVEL, 
-    merge_test2.SALARY, merge_test2.BONUS, merge_test2.MANAGER_ID, 
-    merge_test2.HIRE_DATE, merge_test2.ENT_DATE, merge_test2.ENT_YN);
+        merge_test2.EMP_NO, merge_test2.EMAIL, merge_test2.PHONE, 
+        merge_test2.DEPT_CODE, merge_test2.JOB_CODE, merge_test2.SAL_LEVEL, 
+        merge_test2.SALARY, merge_test2.BONUS, merge_test2.MANAGER_ID, 
+        merge_test2.HIRE_DATE, merge_test2.ENT_DATE, merge_test2.ENT_YN);
 
 select emp_name, dept_code, salary, bonus from merge_test
 where dept_code='D8';
 
---where절에 pk 컬럼 주로 씀
+--DELETE: where절에 pk 컬럼 주로 씀
 DELETE from merge_test where emp_name='유병승';
-
-select * from department;
-select * from employee;
 
 ALTER TABLE EMPLOYEE ADD FOREIGN KEY(dept_code)
     REFERENCES DEPARTMENT(dept_id);
@@ -1752,10 +1681,10 @@ select * from department where dept_id='D0';
 select * from department where dept_id='D1';
 select * from department where dept_id='D4';
 
---ERROR! child record found!
+--ERROR! - child record found!
 DELETE from department where dept_id='D1';
 
---OK! Because NO CHILD RECORD!
+--OK! Because 'D4' has NO CHILD RECORD!
 DELETE from department where dept_id='D4';
 
 --TRUNCATE (DELETE와 같지만, ROLLBACK 안됨)
@@ -1786,9 +1715,6 @@ COMMENT ON COLUMN member1.mem_id IS '회원 아이디';
 
 --select * from all_tab_comments where table_name='MEMBER1';
 select * from user_col_comments where table_name='MEMBER1';
-
-COMMENT ON COLUMN member1.mem_name IS '회원이름';
-
 
 --CONSTRAINTS 제약조건
 --  NOT NULL
@@ -1831,6 +1757,9 @@ CREATE TABLE user_ncons(
     email VARCHAR2(50));
 
 --ERROR! CONSTRAINTS
+INSERT INTO user_ncons
+    VALUES(NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+--OK!
 INSERT INTO user_ncons
     VALUES(1, 'admin', 1234, NULL, NULL, NULL, NULL);
 
