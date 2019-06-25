@@ -1,3 +1,5 @@
+
+
 --DB시험(책 DDL 파트, p112, p133)
 standard 기본기능. 유료but 개인용 앱개발 사용 가능
 enterprise 대규모 대용량. 기업용 유료

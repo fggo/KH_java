@@ -1081,7 +1081,7 @@ from employee E LEFT JOIN employee M
 --where E.emp_name = '선동일';
 
 --  manager_id가 100인 잘못된 데이터!
---  FOREIGN_KEY로 설정하면 100 자체가 안나오게 가능
+--  FOREIGN KEY로 설정하면 100 자체가 안나오게 가능
 
 --다중JOIN: 테이블을 두개이상 결합하는 것을 의미한다
 --  from 절에 join구문을 계속 사용하면 됨
@@ -1747,6 +1747,7 @@ where table_name in ('MEMBER1', 'MEMBER2');
 
 --NOT NULL 특정 컬럼에 무조건 데이터를 넣어야 할 때
 --NULL에 대해 제약조건을 설정하지 않으면 무조건 NULL 허용
+--ID, PW, NO에는 값이 반드시 필요. NULL값이 못들어 오게 설정
 CREATE TABLE user_ncons(
     user_no NUMBER NOT NULL,
     user_id VARCHAR2(30) NOT NULL,
@@ -1757,12 +1758,531 @@ CREATE TABLE user_ncons(
     email VARCHAR2(50));
 
 --ERROR! CONSTRAINTS
-INSERT INTO user_ncons
-    VALUES(NULL, NULL, NULL, NULL, NULL, NULL, NULL);
---OK!
-INSERT INTO user_ncons
-    VALUES(1, 'admin', 1234, NULL, NULL, NULL, NULL);
+INSERT INTO user_ncons(user_no, user_id, user_pw)
+    VALUES(1, NULL, NULL);
+INSERT INTO user_ncons(user_no, user_id, user_pw)
+    VALUES(1, 'admin', 1234);
 
-select * from user_ncons;
---ID, PW, NO에는 값이 반드시 필요하기 때문에
---NULL값이 못들어 오게 설정해보자.
+--UNIQUE
+CREATE TABLE user_nuni(
+    user_no NUMBER NOT NULL,
+    user_id VARCHAR2(30) NOT NULL,
+    user_pw VARCHAR2(30) NOT NULL,
+    user_name VARCHAR2(20),
+    gender VARCHAR2(30),
+    phone VARCHAR2(30),
+    email VARCHAR2(50));
+--DUPLICATES inserted
+INSERT INTO user_nuni VALUES(
+    1, 'admin', 1234, 'administrator', 'M', '01012345555', 'admin@a.com');
+INSERT INTO user_nuni VALUES(
+    2, 'admin', 1234, 'administrator2', 'F', '01012345555', 'admin@a.com');
+
+select * from user_nuni;
+
+--COLUMN LEVEL CONSTRAINTS
+CREATE TABLE user_uni(
+    user_no NUMBER NOT NULL,
+    user_id VARCHAR2(30) NOT NULL UNIQUE,
+    user_pw VARCHAR2(30) NOT NULL,
+    user_name VARCHAR2(20),
+    gender VARCHAR2(30),
+    phone VARCHAR2(30),
+    email VARCHAR2(50));
+
+INSERT INTO user_uni VALUES(
+    1, 'admin', 1234, 'administrator', 'M', '01012345555', 'admin@a.com');
+--ERROR! ORA-00001: unique constraint (KH.SYS_C007066) violated
+--user_id DUPLICATED...
+INSERT INTO user_uni VALUES(
+    2, 'admin', 1234, 'administrator2', 'F', '01012345555', 'admin@a.com');
+--NULL은 중복 취급 안됨 -> NOT NULL CONSTRAINT로 NULL insert 방지가능
+INSERT INTO user_uni VALUES(
+    3, NULL, 1234, 'administrator2', 'F', '01012345555', 'admin@a.com');
+
+select * from user_uni;
+
+select * from user_constrainst
+where table_name='USER_UNI';
+
+--TABLE LEVEL CONSTRAINTS DEFINITION - UNIQUE
+--  NOT NULL : only defined in column level definition
+--  UNIQUE, PK, FK can be used with this method
+CREATE TABLE user_uni2(
+    user_no NUMBER NOT NULL,
+    user_id VARCHAR2(30) NOT NULL,
+    user_pw VARCHAR2(30) NOT NULL,
+    user_name VARCHAR2(20),
+    gender VARCHAR2(30),
+    phone VARCHAR2(30),
+    email VARCHAR2(50),
+    UNIQUE(user_id)
+  --  UNIQUE(user_no, user_id) --unique pair
+  --  NOT NULL(user_id) --NOT ALLOWED! ERROR!
+);
+
+select * from user_constraints
+where table_name='USER_UNI2';
+
+INSERT INTO user_uni2 VALUES(
+    1, 'admin', 1234, 'administrator', 'M', '01012345555', 'admin@a.com');
+--ERROR! ORA-00001: unique constraint (KH.SYS_C007066) violated
+--user_id DUPLICATED...
+INSERT INTO user_uni2 VALUES(
+    2, 'admin', 1234, 'administrator2', 'F', '01012345555', 'admin@a.com');
+--NULL은 중복값으로 취급 안됨
+INSERT INTO user_uni2 VALUES(
+    3, NULL, 1234, 'administrator2', 'F', '01012345555', 'admin@a.com');
+
+select * from user_uni2;
+
+CREATE TABLE cons_uni_group(
+    user_no NUMBER,
+    user_id VARCHAR2(20),
+    user_pw VARCHAR2(20),
+    user_name VARCHAR2(30),
+    UNIQUE(user_no, user_id)
+);
+--OK
+INSERT INTO cons_uni_group
+VALUES(1, 'admin', '1234', 'administrator');
+INSERT INTO cons_uni_group
+VALUES(2, 'admin', '1234', 'administrator');
+INSERT INTO cons_uni_group
+VALUES(1, 'user01', '1234', 'administrator');
+
+--ERROR! unique pair
+INSERT INTO cons_uni_group
+VALUES(1, 'admin', '1234', 'administrator');
+
+select * from cons_uni_group;
+
+--PRIMARY KEY : distinguish rows
+--  not null & unique - ONLY ONE can exist in a table.
+-- INDEX is created for pk.
+CREATE TABLE user_primary (
+    user_no NUMBER PRIMARY KEY,
+    user_id VARCHAR2(20),
+    user_pw VARCHAR2(30),
+    user_name VARCHAR2(20),
+    gender VARCHAR2(30),
+    phone VARCHAR2(30),
+    email VARCHAR2(50)
+);
+--EQUIVALENT constraint deifinition
+CREATE TABLE user_primary_tb (
+    user_no NUMBER,
+    user_id VARCHAR2(20),
+    user_pw VARCHAR2(30),
+    user_name VARCHAR2(20),
+    gender VARCHAR2(30),
+    phone VARCHAR2(30),
+    email VARCHAR2(50),
+
+    PRIMARY KEY(user_no)
+);
+
+INSERT INTO user_primary VALUES(
+1, 'admin', '1234', 'administrator', 'M', '01012345555', 'admin@email.com');
+
+INSERT INTO user_primary VALUES(
+2, 'user01', '5555', 'administrator', 'F', '01012345555', 'admin@email.com');
+
+--ERROR pk
+INSERT INTO user_primary VALUES(
+NULL, 'user01', '5555', 'administrator', 'F', '01012345555', 'admin@email.com');
+--ERROR pk
+INSERT INTO user_primary VALUES(
+1, 'user01', '5555', 'administrator', 'F', '01012345555', 'admin@email.com');
+
+select * from user_primary;
+
+
+--PRIMARY KEY (복합)
+--  PRIMARY KEY 복합키는 테이블레벨로 생성
+--user(n), product(n) 이어주는 테이블로 정의 가능
+CREATE TABLE tbl_composite_key(
+    proc_no VARCHAR2(20),
+    user_id VARCHAR2(20),
+    order_date DATE,
+    order_num NUMBER,
+    PRIMARY KEY(proc_no, user_id, order_date)
+);
+--SYDATE differs every seconds - can insert repeatedly
+INSERT INTO tbl_composite_key VALUES(
+'P111', 'user01', sysdate, 10);
+
+--but it can be set as unique time (time is all 0s)
+--cannot insert duplicate!
+INSERT INTO tbl_composite_key VALUES(
+'P111', 'user01', '19/06/25', 10);
+
+select * from tbl_composite_key;
+
+--FOREIGN KEY
+--참조되는 컬럼 값 NULL 가능
+--외부 테이블에서 값을 가져오는것!
+--REFERENCE 참조할 컬럼 생략하면
+--참조하는 테이블의 primary key를 참조하게됨
+CREATE TABLE user_grade(
+    grade_no NUMBER PRIMARY KEY,
+    grade_name VARCHAR2(10)
+);
+
+INSERT INTO user_grade VALUES(10, '일반');
+INSERT INTO user_grade VALUES(20, '실버');
+INSERT INTO user_grade VALUES(30, '골드');
+
+select * from user_grade;
+
+CREATE TABLE member_foreign(
+    user_no NUMBER PRIMARY KEY,
+    user_id VARCHAR2(20) NOT NULL UNIQUE,
+    user_pw VARCHAR2(20) NOT NULL,
+    user_name VARCHAR2(20),
+    grade_no NUMBER,
+    FOREIGN KEY(grade_no) REFERENCES user_grade(grade_no)
+);
+
+--ERROR - foreign key.
+--only (10,20,30) are allowed as 'grade_no'
+INSERT INTO member_foreign VALUES(
+1, 'user01', '1234', 'baba', 50);
+--OK
+INSERT INTO member_foreign VALUES(
+1, 'user01', '1234', 'baba', 10);
+
+select * from member_foreign;
+
+--omit column name in a referenced table
+CREATE TABLE member_foreign1(
+    user_no NUMBER PRIMARY KEY,
+    user_id VARCHAR2(20) NOT NULL UNIQUE,
+    user_pw VARCHAR2(20) NOT NULL,
+    user_name VARCHAR2(20),
+    grade_no NUMBER,
+    FOREIGN KEY(grade_no) REFERENCES user_grade
+);
+--ERROR foregin key violated
+INSERT INTO member_foreign1 VALUES(
+1, 'user01', '1234', 'baba', 50);
+--OK
+INSERT INTO member_foreign1 VALUES(
+1, 'user01', '1234', 'baba', 10);
+INSERT INTO member_foreign1 VALUES(
+2, 'user02', '1234', 'baba', 30);
+
+select * from member_foreign1;
+
+CREATE TABLE member_foreign2(
+    user_no NUMBER PRIMARY KEY,
+    user_id VARCHAR2(20) NOT NULL UNIQUE,
+    user_pw VARCHAR2(20) NOT NULL,
+    user_name VARCHAR2(20),
+    grade_no NUMBER REFERENCES user_grade
+  --grade_no NUMBER REFERENCES user_grade(grade_no) --OK
+    --FOREIGN KEY(grade_no) REFERENCES user_grade
+);
+--ERROR foregin key violated
+INSERT INTO member_foreign2 VALUES(
+1, 'user01', '1234', 'baba', 50);
+--OK
+INSERT INTO member_foreign2 VALUES(
+1, 'user01', '1234', 'baba', 10);
+INSERT INTO member_foreign2 VALUES(
+2, 'user02', '1234', 'baba', 30);
+
+select * from member_foreign2;
+
+CREATE TABLE user_tbl(
+    user_id VARCHAR2(20) PRIMARY KEY,
+    user_pw VARCHAR2(20) NOT NULL,
+    user_name VARCHAR2(20) NOT NULL,
+    email VARCHAR2(30) NOT NULL
+);
+
+CREATE TABLE product_tbl(
+    pro_id VARCHAR2(20) PRIMARY KEY,
+    pro_name VARCHAR2(20),
+    price NUMBER
+);
+
+INSERT INTO user_tbl VALUES(
+'USER01', '1234', 'auauau', 'aa@rr.com');
+INSERT INTO user_tbl VALUES(
+'USER02', '1234', 'bububu', 'bb@rr.com');
+INSERT INTO user_tbl VALUES(
+'USER03', '1234', 'cucucu', 'cc@rr.com');
+
+INSERT INTO product_tbl VAlUES(
+'F01', '침대', 1000000);
+INSERT INTO product_tbl VAlUES(
+'F02', '컴퓨터', 1200000);
+INSERT INTO product_tbl VAlUES(
+'F03', '에어컨', 2000000);
+
+select * from user_tbl;
+select * from product_tbl;
+
+CREATE TABLE shop(
+    user_id VARCHAR2(20),
+    pro_id VARCHAR2(20),
+    purchaseDay DATE
+);
+
+INSERT INTO shop VALUES(
+'user03', 'f01', sysdate);
+
+select * from shop;
+
+--user_id 대소문자 달라서 못찾음
+select * from shop S LEFT JOIN user_tbl U 
+ON S.user_id = U.user_id;
+
+CREATE TABLE shop1(
+    user_id VARCHAR2(20) NOT NULL REFERENCES user_tbl(user_id),
+    pro_id VARCHAR2(20) NOT NULL REFERENCES product_tbl(pro_id),
+    purchaseDay DATE
+);
+
+--FOREIGN KEY rule violated
+INSERT INTO shop1 VALUES('user03', 'f01', sysdate);
+
+INSERT INTO shop1 VALUES('USER03', 'F01', sysdate);
+
+select * from shop1 S LEFT JOIN user_tbl U 
+ON S.user_id = U.user_id;
+
+--FOREIGN KEY에는 NULL 대입됨 막으려면 NOT NULL도 추가
+INSERT INTO shop1 VALUES(NULL, NULL, sysdate);
+
+--cannot insert NULL
+INSERT INTO shop1 VALUES(NULL, NULL, sysdate);
+
+select * from shop1;
+
+--cannot delete (fk constraint and data parent&child exist)
+delete from user_tbl where user_id = 'USER03';
+--OK
+delete from user_tbl where user_id = 'USER01';
+
+--fk로 reference 걸려있는 데이터 삭제 되도록
+--테이블 생성시 옵션 지정
+--참조키에 삭제에 대한 옵션을 설정할 수 있음
+--  ON DELETE 옵션
+--    SET NULL : NULL로 바꾸세요
+--    SET CASCADE : 부모값 지워지면 자식데이터도 같이 삭제
+select * from user_tbl;
+
+CREATE TABLE shop2(
+    user_id VARCHAR2(20) NOT NULL REFERENCES user_tbl(user_id)
+                         ON DELETE SET NULL,
+    pro_id VARCHAR2(20) NOT NULL REFERENCES product_tbl(pro_id)
+                         ON DELETE SET NULL,
+    purchaseDay DATE
+);
+
+INSERT INTO shop2 VALUES('USER02', 'F01', sysdate);
+
+select * from shop2;
+
+--ERROR
+DELETE from user_tbl where user_id='USER03';
+--OK
+DELETE from user_tbl where user_id='USER02';
+
+CREATE TABLE shop3(
+    user_id VARCHAR2(20) REFERENCES user_tbl(user_id)
+                         ON DELETE SET NULL,
+    pro_id VARCHAR2(20) REFERENCES product_tbl(pro_id)
+                         ON DELETE SET NULL,
+    purchaseDay DATE
+);
+
+INSERT INTO shop3 VALUES('USER02', 'F01', sysdate);
+
+select * from shop3;
+
+--ERROR
+DELETE from user_tbl where user_id='USER03';
+--OK
+DELETE from user_tbl where user_id='USER02';
+
+CREATE TABLE shop4(
+    user_id VARCHAR2(20) REFERENCES user_tbl(user_id)
+                         ON DELETE CASCADE,
+    pro_id VARCHAR2(20) REFERENCES product_tbl(pro_id)
+                         ON DELETE CASCADE,
+    purchaseDay DATE
+);
+INSERT INTO user_tbl VALUES(
+'USER01', '123', 'lulu','lalala@la.com');
+INSERT INTO shop4 VALUES(
+'USER03', 'F02', sysdate);
+
+DELETE from user_tbl where user_id='USER01';
+
+
+select * from user_tbl;
+select * from shop4;
+
+--CHECK 제약조건: 데이터로 들어오는값을 특정값으로 제한
+CREATE TABLE check_tbl(
+    username VARCHAR2(20),
+    gender VARCHAR2(10) CHECK(gender in ('남','여'))
+);
+INSERT INTO check_tbl VALUES('바바바', '남자'); --ERROR
+INSERT INTO check_tbl VALUES('바바바', '여'); --OK
+
+--SUBQUERY 이용한 CREATE TABLE
+CREATE TABLE employee_tbl
+AS select * from employee 
+    JOIN department ON dept_id= dept_code
+    JOIN job USING (job_code)
+    JOIN location ON local_code = location_id;
+
+select emp_name, dept_title, job_name from employee_tbl;
+
+--컬럼만 복사 WHERE 1=0
+CREATE TABLE temp AS select emp_name, salary, bonus 
+        from employee where 1=0;
+select * from temp;
+
+-- ALTER TABLE 테이블명 ADD (COL DataType);
+-- 테이블에 설정된 설정을 추가 변경, 제약 조건을 추가/변경
+select * from user_tbl;
+
+ALTER TABLE user_tbl ADD(age NUMBER);
+
+ALTER TABLE user_tbl ADD(address VARCHAR2(30));
+
+select * from user_tbl;
+
+--COLUMN 추가시 기본값 설정가능
+CREATE TABLE defaulttest(
+    age NUMBER default 10
+);
+
+INSERT INTO defaulttest VALUES(19);
+INSERT INTO defaulttest VALUES(default);
+
+select * from defaulttest;
+
+--DEFAULT -> NOT NULL
+--컬럼 추가하면서 제약조건 설정
+ALTER TABLE user_tbl ADD(
+    national VARCHAR2(20) DEFAULT '한국');
+ALTER TABLE user_tbl ADD(
+    user_no VARCHAR2(20) UNIQUE);
+ALTER TABLE user_tbl ADD(
+    gender VARCHAR2(10) DEFAULT '여' check(gender in ('남','여')));
+
+select * from user_tbl;
+
+--제약조건 테이블 생성 후에 새로 추가
+CREATE TABLE add_cons(
+    emp_no NUMBER,
+    emp_id VARCHAR2(20),
+    emp_pw VARCHAR2(20)
+);
+ALTER TABLE add_cons
+ADD CONSTRAINT pk_add_cons PRIMARY KEY (emp_no);
+ 
+--emp_id unique 제약조건 설정!
+ALTER TABLE add_cons
+ADD CONSTRAINT unq_cons UNIQUE(emp_id);
+
+--ERROR 안됨!
+--emp_pwd not null 제약조건 설정! 
+--null able 기본 제약조건이 null이 이미 설정 되어 있음
+--제약조건을 추가하는 것이 아니라, 이미 설정된
+--null -> not null;
+--ERROR
+ALTER TABLE add_cons
+ADD CONSTRAINT nn_cons NOT NULL(emp_pw);
+--OK
+ALTER TABLE add_cons
+MODIFY emp_pw CONSTRAINT nn_cons NOT NULL;
+
+--컬럼의 내용을 수정(자료형, 길이)
+ALTER TABLE add_cons
+MODIFY emp_no VARCHAR2(20);
+
+
+--emp_id 길이를 100으로 증가
+--길이를 축소할때, 데이터 존재하면 변경 불가.
+ALTER TABLE add_cons
+MODIFY emp_id VARCHAR2(100);
+
+--컬럼 삭제하기
+--ALTER TABLE 테이블명 DROP COLUMN 컬럼명
+ALTER TABLE add_cons DROP COLUMN emp_pw;
+
+select * from add_cons;
+
+--제약조건 삭제
+--ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명
+select * from user_constraints;
+--PK_ADD_CONS
+--UNQ_CONS
+
+ALTER TABLE add_cons DROP CONSTRAINT PK_ADD_CONS;
+
+--컬럼 명칭을 변경
+--ALTER TABLE 테이블명 RENAME COLUMN 대상 to 변경값
+ALTER TABLE add_cons RENAME COLUMN emp_no TO no;
+ALTER TABLE add_cons RENAME COLUMN no TO emp_no;
+
+select * from add_cons;
+
+--테이블 이름 변경
+ALTER TABLE add_cons RENAME TO add_training;
+ALTER TABLE add_training RENAME TO add_cons;
+
+select * from add_training;
+select * from add_cons;
+
+RENAME add_training TO add_cons;
+RENAME add_cons TO add_training;
+
+--테이블 삭제
+DROP TABLE add_cons;
+DROP TABLE add_training;
+DROP TABLE shop2;
+
+--사용자 삭제
+DROP USER user_name;
+
+--DCL(Data Control Language)
+--데이터에 접근, 수정, 삭제 등 데이터를 조작하는 기능을 통제
+--grant(권한부여), revoke(권한회수), 
+--commit(데이터확정), rollback(되돌리기)
+
+--GRANT 권한명(select, update, delete, ...) 
+--  || role(권한들의 모음, 그룹 패키지화 e.g. resource)
+-- TO 대상user [option]
+--  option = "with admin option"(부여받은 권한을 또 다른사람에게 부여가능)
+CONN sys/oracle
+
+select * from dba_sys_privs
+where GRANTEE='KH';  --tablespace 테이블 만들 수 있는 공간
+
+select * from dba_role_privs
+where GRANTEE='KH';
+
+GRANT select, update ON scott.emp TO KH;
+
+CONN kh/kh
+
+select * from scott.emp;
+
+UPDATE scott.emp SET comm=30 where empno=7934;
+
+select * from user_sys_privs;
+select * from user_role_privs;
+
+REVOKE update ON scott.emp FROM kh;
+
+--ROLE 부여된 권한보기
+select * from dba_sys_privs
+where grantee in ('CONNECT', 'RESOURCE');
