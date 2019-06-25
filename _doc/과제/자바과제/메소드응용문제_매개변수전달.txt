@@ -1,0 +1,13 @@
+com.method2.model.vo
+Student객체 생성
+name, grade, kor, math, eng, sum, avg
+
+com.method2.controller.StudentController
+insertStudent매소드 생성
+1. client에서 호출시 
+   이름 학년 국어, 영어, 수학성적 전달
+
+2. 전달받은 값으로 Student객체 
+생성하여 출력 * 반환값 존재!
+   * sum, avg는 전달받은값으로 
+   계산하여 필드에 입력

@@ -1,0 +1,48 @@
+package extraEx;
+
+import java.util.Scanner;
+		
+public class ChangeCal {
+
+	public void cal() {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("받으신 금액을 입력하세요 : ");
+		int income=sc.nextInt();
+		System.out.print("상품가격 : ");
+		int price=sc.nextInt();
+		//잔돈
+		int charge=income-price;
+		//지폐별 갯수 초기화
+		int fM_p=0,dM_p=0,f_p=0,o_p=0,fH=0,oH=0,fif=0,ten=0;
+		//잔돈계산
+		int extra=charge;
+		
+		if(charge<0) {
+			System.out.println("돈을 더 받아야합니다.");
+		}
+		else {
+			while(extra>0) {
+				if(50000<=extra) {fM_p=extra/50000;extra%=50000;if(extra==0)break;}
+				else if(10000<=extra) {dM_p=extra/10000;extra%=10000;if(extra==0)break;}
+				else if(5000<=extra) {f_p=extra/5000;extra%=5000;if(extra==0)break;}
+				else if(1000<=extra) {o_p=extra/1000;extra%=1000;if(extra==0)break;}
+				else if(500<=extra)	{fH=extra/500;extra%=500;if(extra==0)break;}
+				else if(100<=extra)	{oH=extra/100;extra%=100;if(extra==0)break;}
+				else if(50<=extra) {fif=extra/50;extra%=50;if(extra==0)break;}
+				else if(10<=extra) {ten=extra/10;extra%=10;if(extra==0)break;}	
+			}
+			System.out.println("========================================");
+			System.out.println("50000원권"+" 지폐 "+fM_p+"장");
+			System.out.println("10000원권"+" 지폐 "+dM_p+"장");
+			System.out.println("5000원권"+" 지폐 "+f_p+"장");
+			System.out.println("1000원권"+" 지폐 "+o_p+"장");
+			System.out.println("500원권"+" 지폐 "+fH+"개");
+			System.out.println("100원권"+" 지폐 "+oH+"개");
+			System.out.println("50원권"+" 지폐 "+fif+"개");
+			System.out.println("10원권"+" 지폐 "+ten+"개");
+			System.out.println("========================================");
+			System.out.println("거스름돈 : "+charge+"원");
+		}
+	}
+	
+}

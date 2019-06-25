@@ -1851,7 +1851,7 @@ VALUES(2, 'admin', '1234', 'administrator');
 INSERT INTO cons_uni_group
 VALUES(1, 'user01', '1234', 'administrator');
 
---ERROR! unique pair
+--ERROR! should be unique pair
 INSERT INTO cons_uni_group
 VALUES(1, 'admin', '1234', 'administrator');
 
@@ -1898,7 +1898,7 @@ INSERT INTO user_primary VALUES(
 select * from user_primary;
 
 
---PRIMARY KEY (복합)
+--PRIMARY KEY (COMPOSITE)
 --  PRIMARY KEY 복합키는 테이블레벨로 생성
 --user(n), product(n) 이어주는 테이블로 정의 가능
 CREATE TABLE tbl_composite_key(
@@ -1912,7 +1912,7 @@ CREATE TABLE tbl_composite_key(
 INSERT INTO tbl_composite_key VALUES(
 'P111', 'user01', sysdate, 10);
 
---but it can be set as unique time (time is all 0s)
+--but it can be set as fixed time (time is all 0s)
 --cannot insert duplicate!
 INSERT INTO tbl_composite_key VALUES(
 'P111', 'user01', '19/06/25', 10);
@@ -1954,7 +1954,8 @@ INSERT INTO member_foreign VALUES(
 
 select * from member_foreign;
 
---omit column name in a referenced table
+--OMIT column name in a referenced table
+--  In default, it references PK of a referenced table
 CREATE TABLE member_foreign1(
     user_no NUMBER PRIMARY KEY,
     user_id VARCHAR2(20) NOT NULL UNIQUE,
@@ -2030,8 +2031,7 @@ CREATE TABLE shop(
     purchaseDay DATE
 );
 
-INSERT INTO shop VALUES(
-'user03', 'f01', sysdate);
+INSERT INTO shop VALUES('user03', 'f01', sysdate);
 
 select * from shop;
 
@@ -2054,8 +2054,6 @@ select * from shop1 S LEFT JOIN user_tbl U
 ON S.user_id = U.user_id;
 
 --FOREIGN KEY에는 NULL 대입됨 막으려면 NOT NULL도 추가
-INSERT INTO shop1 VALUES(NULL, NULL, sysdate);
-
 --cannot insert NULL
 INSERT INTO shop1 VALUES(NULL, NULL, sysdate);
 
@@ -2086,9 +2084,11 @@ INSERT INTO shop2 VALUES('USER02', 'F01', sysdate);
 
 select * from shop2;
 
---ERROR
+--ERROR --shop1 has 'USER03'
 DELETE from user_tbl where user_id='USER03';
---OK
+--ERROR...  would be OK if NOT NULL CONSTRAINT is not set, 
+--(since ON DELETE SET NULL is specified)
+-- shop2 has 'USER02'
 DELETE from user_tbl where user_id='USER02';
 
 CREATE TABLE shop3(
@@ -2101,13 +2101,14 @@ CREATE TABLE shop3(
 
 INSERT INTO shop3 VALUES('USER02', 'F01', sysdate);
 
-select * from shop3;
-
---ERROR
+--ERROR -- shop1 has 'USER03'
 DELETE from user_tbl where user_id='USER03';
---OK
+--OK user_id set to NULL
 DELETE from user_tbl where user_id='USER02';
 
+select * from shop3;
+
+--CASCADE delete all regardless of Foreign Key references
 CREATE TABLE shop4(
     user_id VARCHAR2(20) REFERENCES user_tbl(user_id)
                          ON DELETE CASCADE,
@@ -2121,7 +2122,7 @@ INSERT INTO shop4 VALUES(
 'USER03', 'F02', sysdate);
 
 DELETE from user_tbl where user_id='USER01';
-
+DELETE from user_tbl where user_id='USER03';
 
 select * from user_tbl;
 select * from shop4;
@@ -2158,7 +2159,7 @@ ALTER TABLE user_tbl ADD(address VARCHAR2(30));
 
 select * from user_tbl;
 
---COLUMN 추가시 기본값 설정가능
+--COLUMN 추가시 DEFAULT 값 설정가능
 CREATE TABLE defaulttest(
     age NUMBER default 10
 );
@@ -2185,6 +2186,7 @@ CREATE TABLE add_cons(
     emp_id VARCHAR2(20),
     emp_pw VARCHAR2(20)
 );
+
 ALTER TABLE add_cons
 ADD CONSTRAINT pk_add_cons PRIMARY KEY (emp_no);
  
@@ -2286,3 +2288,16 @@ REVOKE update ON scott.emp FROM kh;
 --ROLE 부여된 권한보기
 select * from dba_sys_privs
 where grantee in ('CONNECT', 'RESOURCE');
+
+
+select * from tab where tname like 'TB#_%' ESCAPE '#';
+select * from TB_CLASS;
+select * from TB_CLASS_PROFESSOR;
+select * from TB_DEPARTMENT;
+select * from TB_GRADE;
+select * from TB_PROFESSOR;
+select * from TB_STUDENT;
+
+select class_no, department_no, department_name from tb_department 
+JOIN tb_class USING (department_no)
+where category ='예체능' and class_no not in (select class_no from tb_class_professor);

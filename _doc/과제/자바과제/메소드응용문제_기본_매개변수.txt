@@ -1,0 +1,18 @@
+client에게 이름, 나이, 전화번호
+를 전달 받고 그 내용을 
+String으로 
+반환 하여 출력해보세요!
+
+insertMember매소드를 만드시오
+1. Member객체생성
+ id, pw, name, email, address
+2. client에게 
+ id, pw, name, email,addr을 
+전달 받아 Member객체를 생성
+하여 출력할것 * 반환 없음
+
+
+
+
+
+

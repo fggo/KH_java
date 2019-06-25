@@ -1,0 +1,17 @@
+objectStream.vo패키지에 Student객체를 만들고
+이름, 나이, 학번, 학과, 학년
+
+objectStream.controller패키지에 StudentController
+객체를 만들어 saveData() / loadData() 메소드를 각각 students.txt파일에 저장 / 로드하는 기능을 구현
+하시오
+objectStream.run패키지에 main메소드를 구현하여 
+프로그램 실행!
+
+1. 한명의 학생만 생성하여 출력해보자. (본인)
+2. 6명의 학생을 생성하여 출력해보자.
+(프로젝트팀원들) 
+ * 힌트 : 객체를 여러개 저장하려면????? OO배열!!
+
+
+
+
