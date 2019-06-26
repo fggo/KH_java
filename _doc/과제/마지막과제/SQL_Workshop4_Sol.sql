@@ -78,5 +78,3 @@ from tb_student S
 where absence_yn ='Y';
 commit;
 rollback;
-
---9

@@ -1723,27 +1723,21 @@ select * from user_col_comments where table_name='MEMBER1';
 --  FOREIGN KEY
 --  CHECK
 
---테이블에 걸린 제약조건 확인하기
-DESC user_constraints;
-DESC user_cons_columns;
-
---CONSTRAINT_TYPE='C' CHECK 또는 NOT NULL
---CONSTRAINT_TYPE='R' FOREIGN KEY 설정됨
---CONSTRAINT_TYPE='P' PRIMARY KEY 설정됨
---CONSTRAINT_TYPE='U' UNIQUE 설정됨
-select constraint_name, constraint_type from user_constraints
-    where table_name='EMPLOYEE';
-
-select * from user_cons_columns;
-
 CREATE TABLE member2(
     MEM_NAME VARCHAR2(20) NOT NULL,
     MEM_ID VARCHAR2(10) UNIQUE,
     MEM_PASSWORD varchar2(20));
 
+--CONSTRAINT_TYPE='C' CHECK 또는 NOT NULL
+--CONSTRAINT_TYPE='R' FOREIGN KEY 설정됨
+--CONSTRAINT_TYPE='P' PRIMARY KEY 설정됨
+--CONSTRAINT_TYPE='U' UNIQUE 설정됨
+
+select * from user_cons_columns;
+select * from user_constraints;
 select table_name, constraint_name, constraint_type
-from user_constraints 
-where table_name in ('MEMBER1', 'MEMBER2');
+    from user_constraints 
+    where table_name in ('MEMBER1', 'MEMBER2');
 
 --NOT NULL 특정 컬럼에 무조건 데이터를 넣어야 할 때
 --NULL에 대해 제약조건을 설정하지 않으면 무조건 NULL 허용
@@ -1758,10 +1752,9 @@ CREATE TABLE user_ncons(
     email VARCHAR2(50));
 
 --ERROR! CONSTRAINTS
-INSERT INTO user_ncons(user_no, user_id, user_pw)
-    VALUES(1, NULL, NULL);
-INSERT INTO user_ncons(user_no, user_id, user_pw)
-    VALUES(1, 'admin', 1234);
+INSERT INTO user_ncons(user_no, user_id, user_pw) VALUES(1, NULL, NULL);
+--OK
+INSERT INTO user_ncons(user_no, user_id, user_pw) VALUES(1, 'admin', 1234);
 
 --UNIQUE
 CREATE TABLE user_nuni(
@@ -1790,24 +1783,9 @@ CREATE TABLE user_uni(
     phone VARCHAR2(30),
     email VARCHAR2(50));
 
-INSERT INTO user_uni VALUES(
-    1, 'admin', 1234, 'administrator', 'M', '01012345555', 'admin@a.com');
---ERROR! ORA-00001: unique constraint (KH.SYS_C007066) violated
---user_id DUPLICATED...
-INSERT INTO user_uni VALUES(
-    2, 'admin', 1234, 'administrator2', 'F', '01012345555', 'admin@a.com');
---NULL은 중복 취급 안됨 -> NOT NULL CONSTRAINT로 NULL insert 방지가능
-INSERT INTO user_uni VALUES(
-    3, NULL, 1234, 'administrator2', 'F', '01012345555', 'admin@a.com');
-
-select * from user_uni;
-
-select * from user_constrainst
-where table_name='USER_UNI';
-
 --TABLE LEVEL CONSTRAINTS DEFINITION - UNIQUE
---  NOT NULL : only defined in column level definition
---  UNIQUE, PK, FK can be used with this method
+--  UNIQUE, PK, FK can be defined in TABLE LEVEL
+--  NOT NULL : can only be defined in COLUMN LEVEL definition
 CREATE TABLE user_uni2(
     user_no NUMBER NOT NULL,
     user_id VARCHAR2(30) NOT NULL,
@@ -1816,24 +1794,22 @@ CREATE TABLE user_uni2(
     gender VARCHAR2(30),
     phone VARCHAR2(30),
     email VARCHAR2(50),
+
     UNIQUE(user_id)
   --  UNIQUE(user_no, user_id) --unique pair
   --  NOT NULL(user_id) --NOT ALLOWED! ERROR!
 );
 
-select * from user_constraints
-where table_name='USER_UNI2';
-
-INSERT INTO user_uni2 VALUES(
-    1, 'admin', 1234, 'administrator', 'M', '01012345555', 'admin@a.com');
+INSERT INTO user_uni VALUES(
+1, 'admin', 1234, 'administrator', 'M', '01012345555', 'admin@a.com');
 --ERROR! ORA-00001: unique constraint (KH.SYS_C007066) violated
---user_id DUPLICATED...
-INSERT INTO user_uni2 VALUES(
-    2, 'admin', 1234, 'administrator2', 'F', '01012345555', 'admin@a.com');
---NULL은 중복값으로 취급 안됨
-INSERT INTO user_uni2 VALUES(
-    3, NULL, 1234, 'administrator2', 'F', '01012345555', 'admin@a.com');
+INSERT INTO user_uni VALUES(
+2, 'admin', 1234, 'administrator2', 'F', '01012345555', 'admin@a.com');
+--OK! NULL은 중복 취급 안됨 -> NOT NULL CONSTRAINT로 NULL insert 방지해야함.
+INSERT INTO user_uni VALUES(
+3, NULL, 1234, 'administrator2', 'F', '01012345555', 'admin@a.com');
 
+select * from user_uni;
 select * from user_uni2;
 
 CREATE TABLE cons_uni_group(
@@ -1841,19 +1817,15 @@ CREATE TABLE cons_uni_group(
     user_id VARCHAR2(20),
     user_pw VARCHAR2(20),
     user_name VARCHAR2(30),
+
     UNIQUE(user_no, user_id)
 );
 --OK
-INSERT INTO cons_uni_group
-VALUES(1, 'admin', '1234', 'administrator');
-INSERT INTO cons_uni_group
-VALUES(2, 'admin', '1234', 'administrator');
-INSERT INTO cons_uni_group
-VALUES(1, 'user01', '1234', 'administrator');
-
+INSERT INTO cons_uni_group VALUES(1, 'admin', '1234', 'administrator');
+INSERT INTO cons_uni_group VALUES(2, 'admin', '1234', 'administrator');
+INSERT INTO cons_uni_group VALUES(1, 'user01', '1234', 'administrator');
 --ERROR! should be unique pair
-INSERT INTO cons_uni_group
-VALUES(1, 'admin', '1234', 'administrator');
+INSERT INTO cons_uni_group VALUES(1, 'admin', '1234', 'administrator');
 
 select * from cons_uni_group;
 
@@ -1882,21 +1854,20 @@ CREATE TABLE user_primary_tb (
     PRIMARY KEY(user_no)
 );
 
+--OK
 INSERT INTO user_primary VALUES(
 1, 'admin', '1234', 'administrator', 'M', '01012345555', 'admin@email.com');
-
 INSERT INTO user_primary VALUES(
 2, 'user01', '5555', 'administrator', 'F', '01012345555', 'admin@email.com');
 
---ERROR pk
+--ERROR pk(not null)
 INSERT INTO user_primary VALUES(
 NULL, 'user01', '5555', 'administrator', 'F', '01012345555', 'admin@email.com');
---ERROR pk
+--ERROR pk(unique)
 INSERT INTO user_primary VALUES(
 1, 'user01', '5555', 'administrator', 'F', '01012345555', 'admin@email.com');
 
 select * from user_primary;
-
 
 --PRIMARY KEY (COMPOSITE)
 --  PRIMARY KEY 복합키는 테이블레벨로 생성
@@ -1908,22 +1879,18 @@ CREATE TABLE tbl_composite_key(
     order_num NUMBER,
     PRIMARY KEY(proc_no, user_id, order_date)
 );
---SYDATE differs every seconds - can insert repeatedly
-INSERT INTO tbl_composite_key VALUES(
-'P111', 'user01', sysdate, 10);
+INSERT INTO tbl_composite_key VALUES('P111', 'user01', sysdate, 10);
+INSERT INTO tbl_composite_key VALUES('P111', 'user01', sysdate, 10); --OK! SYSDATE differs every seconds
 
---but it can be set as fixed time (time is all 0s)
---cannot insert duplicate!
-INSERT INTO tbl_composite_key VALUES(
-'P111', 'user01', '19/06/25', 10);
+INSERT INTO tbl_composite_key VALUES('P111', 'user01', '19/06/25', 10);
+INSERT INTO tbl_composite_key VALUES('P111', 'user01', '19/06/25', 10); --ERROR! DUPLICATE! fixed time(hr,min,sec all 0s)
 
 select * from tbl_composite_key;
 
---FOREIGN KEY
---참조되는 컬럼 값 NULL 가능
+
+--FOREIGN KEY : 참조되는 컬럼 값 NULL 가능
 --외부 테이블에서 값을 가져오는것!
---REFERENCE 참조할 컬럼 생략하면
---참조하는 테이블의 primary key를 참조하게됨
+--REFERENCE 참조할 컬럼 생략하면, 참조하는 테이블의 primary key를 참조!
 CREATE TABLE user_grade(
     grade_no NUMBER PRIMARY KEY,
     grade_name VARCHAR2(10)
@@ -1941,37 +1908,35 @@ CREATE TABLE member_foreign(
     user_pw VARCHAR2(20) NOT NULL,
     user_name VARCHAR2(20),
     grade_no NUMBER,
+
     FOREIGN KEY(grade_no) REFERENCES user_grade(grade_no)
 );
 
---ERROR - foreign key.
---only (10,20,30) are allowed as 'grade_no'
-INSERT INTO member_foreign VALUES(
-1, 'user01', '1234', 'baba', 50);
+--ERROR - foreign key. (10,20,30) are allowed as 'grade_no'
+INSERT INTO member_foreign VALUES(1, 'user01', '1234', 'baba', 50);
 --OK
-INSERT INTO member_foreign VALUES(
-1, 'user01', '1234', 'baba', 10);
+INSERT INTO member_foreign VALUES(1, 'user01', '1234', 'baba', 10);
 
 select * from member_foreign;
 
 --OMIT column name in a referenced table
---  In default, it references PK of a referenced table
+--  In default, it references PK COLUMN of a referenced table
 CREATE TABLE member_foreign1(
     user_no NUMBER PRIMARY KEY,
     user_id VARCHAR2(20) NOT NULL UNIQUE,
     user_pw VARCHAR2(20) NOT NULL,
     user_name VARCHAR2(20),
     grade_no NUMBER,
+
+--  references PK column(grade_no) in default
     FOREIGN KEY(grade_no) REFERENCES user_grade
+    --CONSTRAINT fk_grade_no FOREIGN KEY(grade_no) REFERENCES user_grade(grade_no)
 );
 --ERROR foregin key violated
-INSERT INTO member_foreign1 VALUES(
-1, 'user01', '1234', 'baba', 50);
+INSERT INTO member_foreign1 VALUES(1, 'user01', '1234', 'baba', 50);
 --OK
-INSERT INTO member_foreign1 VALUES(
-1, 'user01', '1234', 'baba', 10);
-INSERT INTO member_foreign1 VALUES(
-2, 'user02', '1234', 'baba', 30);
+INSERT INTO member_foreign1 VALUES(1, 'user01', '1234', 'baba', 10);
+INSERT INTO member_foreign1 VALUES(2, 'user02', '1234', 'baba', 30);
 
 select * from member_foreign1;
 
@@ -1980,20 +1945,28 @@ CREATE TABLE member_foreign2(
     user_id VARCHAR2(20) NOT NULL UNIQUE,
     user_pw VARCHAR2(20) NOT NULL,
     user_name VARCHAR2(20),
+
     grade_no NUMBER REFERENCES user_grade
   --grade_no NUMBER REFERENCES user_grade(grade_no) --OK
     --FOREIGN KEY(grade_no) REFERENCES user_grade
 );
 --ERROR foregin key violated
-INSERT INTO member_foreign2 VALUES(
-1, 'user01', '1234', 'baba', 50);
+INSERT INTO member_foreign2 VALUES(1, 'user01', '1234', 'baba', 50);
 --OK
-INSERT INTO member_foreign2 VALUES(
-1, 'user01', '1234', 'baba', 10);
-INSERT INTO member_foreign2 VALUES(
-2, 'user02', '1234', 'baba', 30);
+INSERT INTO member_foreign2 VALUES(1, 'user01', '1234', 'baba', 10);
+INSERT INTO member_foreign2 VALUES(2, 'user02', '1234', 'baba', 30);
 
 select * from member_foreign2;
+
+CREATE TABLE member_foreign3(
+    user_no NUMBER PRIMARY KEY,
+    user_id VARCHAR2(20) NOT NULL UNIQUE,
+    user_pw VARCHAR2(20) NOT NULL,
+    user_name VARCHAR2(20),
+    grade_no NUMBER,
+
+    CONSTRAINT fk_grade_no FOREIGN KEY(grade_no) REFERENCES user_grade(grade_no)
+);
 
 CREATE TABLE user_tbl(
     user_id VARCHAR2(20) PRIMARY KEY,
@@ -2008,22 +1981,13 @@ CREATE TABLE product_tbl(
     price NUMBER
 );
 
-INSERT INTO user_tbl VALUES(
-'USER01', '1234', 'auauau', 'aa@rr.com');
-INSERT INTO user_tbl VALUES(
-'USER02', '1234', 'bububu', 'bb@rr.com');
-INSERT INTO user_tbl VALUES(
-'USER03', '1234', 'cucucu', 'cc@rr.com');
+INSERT INTO user_tbl VALUES('USER01', '1234', 'auauau', 'aa@rr.com');
+INSERT INTO user_tbl VALUES('USER02', '1234', 'bububu', 'bb@rr.com');
+INSERT INTO user_tbl VALUES('USER03', '1234', 'cucucu', 'cc@rr.com');
 
-INSERT INTO product_tbl VAlUES(
-'F01', '침대', 1000000);
-INSERT INTO product_tbl VAlUES(
-'F02', '컴퓨터', 1200000);
-INSERT INTO product_tbl VAlUES(
-'F03', '에어컨', 2000000);
-
-select * from user_tbl;
-select * from product_tbl;
+INSERT INTO product_tbl VAlUES('F01', '침대', 1000000);
+INSERT INTO product_tbl VAlUES('F02', '컴퓨터', 1200000);
+INSERT INTO product_tbl VAlUES('F03', '에어컨', 2000000);
 
 CREATE TABLE shop(
     user_id VARCHAR2(20),
@@ -2036,8 +2000,8 @@ INSERT INTO shop VALUES('user03', 'f01', sysdate);
 select * from shop;
 
 --user_id 대소문자 달라서 못찾음
-select * from shop S LEFT JOIN user_tbl U 
-ON S.user_id = U.user_id;
+select * from shop S
+    LEFT JOIN user_tbl U ON S.user_id = U.user_id;
 
 CREATE TABLE shop1(
     user_id VARCHAR2(20) NOT NULL REFERENCES user_tbl(user_id),
@@ -2045,19 +2009,21 @@ CREATE TABLE shop1(
     purchaseDay DATE
 );
 
---FOREIGN KEY rule violated
+--ERROR! FOREIGN KEY rule violated
 INSERT INTO shop1 VALUES('user03', 'f01', sysdate);
-
+--OK
 INSERT INTO shop1 VALUES('USER03', 'F01', sysdate);
 
-select * from shop1 S LEFT JOIN user_tbl U 
-ON S.user_id = U.user_id;
+select * from shop1 S
+    LEFT JOIN user_tbl U ON S.user_id = U.user_id;
 
 --FOREIGN KEY에는 NULL 대입됨 막으려면 NOT NULL도 추가
---cannot insert NULL
 INSERT INTO shop1 VALUES(NULL, NULL, sysdate);
 
 select * from shop1;
+
+select * from user_tbl;
+select * from product_tbl;
 
 --cannot delete (fk constraint and data parent&child exist)
 delete from user_tbl where user_id = 'USER03';
@@ -2068,16 +2034,18 @@ delete from user_tbl where user_id = 'USER01';
 --테이블 생성시 옵션 지정
 --참조키에 삭제에 대한 옵션을 설정할 수 있음
 --  ON DELETE 옵션
---    SET NULL : NULL로 바꾸세요
+--    SET NULL : NULL로 바꿔줌(부모에reference 되어있어도 자식컬럼 NULL 변환됨)
 --    SET CASCADE : 부모값 지워지면 자식데이터도 같이 삭제
 select * from user_tbl;
 
 CREATE TABLE shop2(
-    user_id VARCHAR2(20) NOT NULL REFERENCES user_tbl(user_id)
-                         ON DELETE SET NULL,
-    pro_id VARCHAR2(20) NOT NULL REFERENCES product_tbl(pro_id)
-                         ON DELETE SET NULL,
+    user_id VARCHAR2(20) NOT NULL 
+                         REFERENCES user_tbl(user_id) ON DELETE SET NULL,
+    pro_id VARCHAR2(20) NOT NULL
+                        REFERENCES product_tbl(pro_id) ON DELETE SET NULL,
     purchaseDay DATE
+    --CONSTRAINT fk_user_id FOREIGN_KEY(user_id) REFERENCES user_tbl(user_id) ON DELETE SET NULL,
+    --CONSTRAINT fk_pro_id FOREIGN_KEY(pro_id) REFERENCES product_tbl(pro_id) ON DELETE SET NULL
 );
 
 INSERT INTO shop2 VALUES('USER02', 'F01', sysdate);
@@ -2092,10 +2060,8 @@ DELETE from user_tbl where user_id='USER03';
 DELETE from user_tbl where user_id='USER02';
 
 CREATE TABLE shop3(
-    user_id VARCHAR2(20) REFERENCES user_tbl(user_id)
-                         ON DELETE SET NULL,
-    pro_id VARCHAR2(20) REFERENCES product_tbl(pro_id)
-                         ON DELETE SET NULL,
+    user_id VARCHAR2(20) REFERENCES user_tbl(user_id) ON DELETE SET NULL,
+    pro_id VARCHAR2(20) REFERENCES product_tbl(pro_id) ON DELETE SET NULL,
     purchaseDay DATE
 );
 
@@ -2110,16 +2076,12 @@ select * from shop3;
 
 --CASCADE delete all regardless of Foreign Key references
 CREATE TABLE shop4(
-    user_id VARCHAR2(20) REFERENCES user_tbl(user_id)
-                         ON DELETE CASCADE,
-    pro_id VARCHAR2(20) REFERENCES product_tbl(pro_id)
-                         ON DELETE CASCADE,
+    user_id VARCHAR2(20) REFERENCES user_tbl(user_id) ON DELETE CASCADE,
+    pro_id VARCHAR2(20) REFERENCES product_tbl(pro_id) ON DELETE CASCADE,
     purchaseDay DATE
 );
-INSERT INTO user_tbl VALUES(
-'USER01', '123', 'lulu','lalala@la.com');
-INSERT INTO shop4 VALUES(
-'USER03', 'F02', sysdate);
+INSERT INTO user_tbl VALUES('USER01', '123', 'lulu','lalala@la.com');
+INSERT INTO shop4 VALUES('USER03', 'F02', sysdate);
 
 DELETE from user_tbl where user_id='USER01';
 DELETE from user_tbl where user_id='USER03';
@@ -2180,6 +2142,7 @@ ALTER TABLE user_tbl ADD(
 
 select * from user_tbl;
 
+
 --제약조건 테이블 생성 후에 새로 추가
 CREATE TABLE add_cons(
     emp_no NUMBER,
@@ -2199,7 +2162,7 @@ ADD CONSTRAINT unq_cons UNIQUE(emp_id);
 --null able 기본 제약조건이 null이 이미 설정 되어 있음
 --제약조건을 추가하는 것이 아니라, 이미 설정된
 --null -> not null;
---ERROR
+--ERROR!!
 ALTER TABLE add_cons
 ADD CONSTRAINT nn_cons NOT NULL(emp_pw);
 --OK
@@ -2219,8 +2182,6 @@ MODIFY emp_id VARCHAR2(100);
 --컬럼 삭제하기
 --ALTER TABLE 테이블명 DROP COLUMN 컬럼명
 ALTER TABLE add_cons DROP COLUMN emp_pw;
-
-select * from add_cons;
 
 --제약조건 삭제
 --ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명
@@ -2287,23 +2248,18 @@ REVOKE update ON scott.emp FROM kh;
 
 --ROLE 부여된 권한보기
 select * from dba_sys_privs
-where grantee in ('CONNECT', 'RESOURCE');
+    where grantee in ('CONNECT', 'RESOURCE');
 
 --VIEW 가상 테이블
---  select를 실행한 결과를 화면에 담는 객체
---  select문장 자체를 저장하여 호추랄 떄마다
---  해당쿼리 실행하여 결과를 보여준다.
+--  select 실행한 결과를 화면에 담는 객체
+--  select 문장 자체를 저장하여 호출할 때마다 해당쿼리 실행
 --  실질적으로 DB를 저장하고 있지 않음.
---  노출하고 싶지 않은 정보 조회시 제외.
-
 --  검색의 효율성: 내가 찾고자 하는 정보만 조회
---  보안성: 내가 테이블의 정보를 숨길 수 있다.
+--  보안성: 테이블의 정보를 숨길 수 있음
 --  CREATE or REPLACE VIEW view_name[col1 별칭1, col2 별칭2, ...]
---      AS (select emp_id, emp_name, dept_code
---            from employee);
+--      AS (select emp_id, emp_name, dept_code from employee);
 --  SELECT * from view_name;
---
---  VIEW 에 GRANT 권한 부여(conn system/oracle)
+--  GRANT CREATE VIEW To db_user; --VIEW 에 GRANT 권한 부여(conn system/oracle)
 CONN system/oracle
 GRANT CREATE VIEW TO KH;
 CONN kh/kh
@@ -2336,7 +2292,7 @@ select * from v_resultset_emp V where V.사번 = '205';
 --1.컬럼뿐 아니라, 산술연산 처리한 view 생성도 가능
 CREATE OR REPLACE VIEW view_emp_salary AS(
     select emp_name AS 사원명, 12*salary*(1+nvl(bonus,0)) AS 연봉
-        from employee);
+    from employee);
 
 select * from view_emp_salary;
 
@@ -2352,10 +2308,9 @@ CREATE OR REPLACE VIEW view_emp_read AS(
 select * from view_emp_read;
 
 --VIEW에서도 데이터 추가,수정,삭제가 가능
---다음 6가지 상황에서는 불가능
---1. 뷰에 정의되지 않은 컬럼을 수정
---2. 뷰에 보이지 않는 컬럼 중
---   NOT NULL 제약조건 가진 컬럼 있을경우
+-- 다음 6가지 상황에서는 불가능
+--1. 뷰에 정의되지 않은 컬럼 수정
+--2. 뷰에 보이지 않는 컬럼 중 NOT NULL 제약조건 가진 컬럼 있을경우
 --3. 산술 연산이 적용된 컬럼이 있을 경우
 --4. JOIN을 통해 여러테이블을 참조할 경우
 --    조회한 테이블의 정보 중에 기본키가 
@@ -2363,7 +2318,6 @@ select * from view_emp_read;
 --5. DISTINCT를 사용하여 실제 데이터의 내용이 명확하지 않은 경우
 --6. 그룹함수나 GROUP BY 구문을 사용해서 조회한 쿼리일 경우
 UPDATE view_emp SET emp_no='881123-2000123' where emp_id=500; 
-
 DELETE FROM view_emp where emp_id=500;
 
 select * from view_emp where emp_name='강오덩';
@@ -2372,7 +2326,6 @@ select * from view_emp where emp_name='강오덩';
 CREATE OR REPLACE VIEW V_JOB AS(
     select job_code from job);
 
-select * from v_job;
 INSERT INTO v_job VALUES('J8', '인턴'); --ERROR
 UPDATE v_job SET job_name='인턴' where job_code is null; --ERROR
 
@@ -2383,12 +2336,24 @@ UPDATE v_job SET job_name='인턴' where job_code is null; --ERROR
 --vim_emp -> emp_id, emp_name, email, phone, job_code, sal_level
 --ORA-01400: cannot insert NULL into ("KH"."EMPLOYEE"."EMP_NO")
 CREATE OR REPLACE VIEW view_emp AS (
+    select emp_id, emp_name, email, phone, job_code, sal_level
+    from employee);
+--ERROR
+INSERT INTO view_emp VALUES(500, '강오덩', 'kang@a.com', 
+            '01012345555', 'J5', 'S3');
+DROP VIEW view_emp;
+
+CREATE OR REPLACE VIEW view_emp AS (
     select emp_id, emp_no, emp_name, email, phone, job_code, sal_level
     from employee);
-
+--OK! EMPLOYEE 테이블에도 데이터가 추가됨!!!
 INSERT INTO view_emp VALUES(500, '790626-1034555', '강오덩', 'kang@a.com', 
             '01012345555', 'J5', 'S3');
 
+--주의! VIEW에 INSERT하면 TABLE 데이터도 함께 변경됨!
+DELETE FROM view_emp where emp_name='강오덩';
+DELETE FROM EMPLOYEE where emp_name='강오덩';
+select * from view_emp;
 select * from view_emp where emp_name='강오덩';
 select * from employee where emp_name='강오덩';
 
@@ -2400,84 +2365,70 @@ CREATE OR REPLACE VIEW v_emp_sal AS(
 
 --ERROR! virtual column not allowed here
 INSERT INTO v_emp_sal VALUES(901, '손흥만', 3000000,40000000);
-select * from v_emp_sal;
 
 --4. JOIN을 통해 여러테이블을 참조할 경우
 CREATE OR REPLACE VIEW v_join_emp AS(
-    select emp_id, emp_name, dept_title
-    from employee
+    select emp_id, emp_name, dept_title from employee
         LEFT JOIN department ON dept_id=dept_code);
 
-INSERT INTO v_join_emp VALUES(911, '댕댕이', '기술지원부');
-UPDATE v_join_emp SET dept_title='기술지원부' where emp_id=218;
-
-select * from v_join_emp;
+INSERT INTO v_join_emp VALUES(911, '댕댕이', '기술지원부'); --ERROR
+UPDATE v_join_emp SET dept_title='기술지원부' where emp_id=218; --ERROR
 
 --4-1 조회한 테이블의 정보 중에 기본키가 단 한개일 경우는 변경 가능
 --OK
 DELETE from v_join_emp where dept_title = '기술지원부';
+ROLLBACK;
+COMMIT;
 
 select * from v_join_emp;
 select * from department;
 select * from employee;
-ROLLBACK;
 
 --5. DISTINCT를 사용하여 실제 데이터의 내용이 명확하지 않은 경우
 CREATE OR REPLACE VIEW v_dept_emp AS (
     select distinct dept_code from employee);
-INSERT INTO v_dept_emp VALUES('D0');
---  몇개의 데이터를 지울지 distinct 때문애 불명확함.
-DELETE FROM v_dept_emp where dept_code='D9';
+INSERT INTO v_dept_emp VALUES('D0'); --ERROR
+DELETE FROM v_dept_emp where dept_code='D9'; --ERROR --  몇개의 데이터를 지울지 distinct 때문애 불명확함.
 
 select * from v_dept_emp;
 
 --6. 그룹함수나 GROUP BY 구문을 사용해서 조회한 쿼리일 경우
 CREATE OR REPLACE VIEW v_group_dept AS (
-    select dept_code, SUM(salary) AS 합계,
-           TRUNC(AVG(salary),-4) AS 평균
-    from employee
-    GROUP BY dept_code);
+    select dept_code, SUM(salary) AS 합계, TRUNC(AVG(salary),-4) AS 평균
+    from employee GROUP BY dept_code);
 --ERROR : virtual column not allowed here
 INSERT INTO v_group_dept VALUES('D10', 50000, 50000);
 UPDATE v_group_dept SET dept_code='D10' where dept_code='D5';
 DELETE FROM v_group_dept where dept_code='D6';
 
-select * from v_group_dept;
 
---VIEW생성시 설정할 수 있는 옵션
+--VIEW 생성시 설정할 수 있는 옵션
 --  OR REPLACE: 동일 한 이름 뷰를 replace(덮어씌움)
 --  FORCE / NO FORCE : 서브쿼리에 할용된
 --      테이블이 없어도 일단 VIEW를 생성(force)
---  WITH CHECK /READ ONLY:
+--  WITH CHECK / READ ONLY:
 --      CHECK: 설정한 컬럼값을 수정 못하게 막음
 --      READ ONLY: 뷰에서 어떤 컬럼도 VIEW를 통해서 변경하지 못하도록
-
 CREATE OR REPLACE FORCE VIEW v_emp AS (
     select t_code, t_name, t_content from test_table);
 
 select * from v_emp;
-
 select * from user_views where view_name = 'V_EMP';
+DROP VIEW v_emp;
 
---NO FORCE 생성시 view의 테이블이 존재 하지 않을때,
---      뷰를 생성하지 않겠다.
+--NO FORCE 생성시 view의 테이블이 존재 하지 않을때,뷰를 생성하지 않겠다.
 -- 디폴드 값이 NOFORCE
 CREATE OR REPLACE NOFORCE VIEW v_emp AS (
     select t_code, t_name, t_content from test_table);
 
 --WITH CHECK 설정 컬럼을 수정 못하게.
 CREATE OR REPLACE VIEW v_emp AS
-    select * from employee
-    WITH CHECK OPTION;
-
-select * from v_emp;
+    select * from employee WITH CHECK OPTION;
 
 --ERROR! CHECK option때문에
-INSERT INTO v_emp
-    VALUES(810, '류별리', '101010-1234567', 'ryu@kh.co.kr',
-           '01012345555', 'D1', 'J7', 'S1', 800000, .1,
-           200, SYSDATE, NULL, DEFAULT);
-
+INSERT INTO v_emp VALUES(810, '류별리', '101010-1234567',
+            'ryu@kh.co.kr', '01012345555', 'D1', 'J7', 'S1',
+            800000, .1, 200, SYSDATE, NULL, DEFAULT);
 select * from v_emp;
 
 --DELETE는 가능
@@ -2485,16 +2436,13 @@ DELETE from v_emp where emp_id=500;
 
 --WITH READ ONLY: 데이터 입력/수정/삭제 전부 막음
 CREATE OR REPLACE VIEW v_emp AS
-    select * from employee
-    WITH READ ONLY;
+    select * from employee WITH READ ONLY;
 
 --ERROR
-INSERT INTO v_emp
-    VALUES(810, '류별리', '101010-1234567', 'ryu@kh.co.kr',
-           '01012345555', 'D1', 'J7', 'S1', 800000, .1,
-           200, SYSDATE, NULL, DEFAULT);
+INSERT INTO v_emp VALUES(810, '류별리', '101010-1234567',
+            'ryu@kh.co.kr', '01012345555', 'D1', 'J7', 'S1',
+            800000, .1, 200, SYSDATE, NULL, DEFAULT);
 DELETE from v_emp where t_id=200;
-
 DELETE from v_emp where emp_id='200';
 
 --SEQUENCE
