@@ -2289,15 +2289,320 @@ REVOKE update ON scott.emp FROM kh;
 select * from dba_sys_privs
 where grantee in ('CONNECT', 'RESOURCE');
 
+--VIEW 가상 테이블
+--  select를 실행한 결과를 화면에 담는 객체
+--  select문장 자체를 저장하여 호추랄 떄마다
+--  해당쿼리 실행하여 결과를 보여준다.
+--  실질적으로 DB를 저장하고 있지 않음.
+--  노출하고 싶지 않은 정보 조회시 제외.
 
-select * from tab where tname like 'TB#_%' ESCAPE '#';
-select * from TB_CLASS;
-select * from TB_CLASS_PROFESSOR;
-select * from TB_DEPARTMENT;
-select * from TB_GRADE;
-select * from TB_PROFESSOR;
-select * from TB_STUDENT;
+--  검색의 효율성: 내가 찾고자 하는 정보만 조회
+--  보안성: 내가 테이블의 정보를 숨길 수 있다.
+--  CREATE or REPLACE VIEW view_name[col1 별칭1, col2 별칭2, ...]
+--      AS (select emp_id, emp_name, dept_code
+--            from employee);
+--  SELECT * from view_name;
+--
+--  VIEW 에 GRANT 권한 부여(conn system/oracle)
+CONN system/oracle
+GRANT CREATE VIEW TO KH;
+CONN kh/kh
 
-select class_no, department_no, department_name from tb_department 
-JOIN tb_class USING (department_no)
-where category ='예체능' and class_no not in (select class_no from tb_class_professor);
+CREATE OR REPLACE VIEW view_emp AS (
+    select emp_id, emp_name, email, phone, job_code, sal_level
+    from employee);
+
+select * from view_emp;
+
+select * from user_views where view_name='VIEW_EMP';
+
+--사번, 이름, 직급명, 부서명, 근무지역을
+--v_resultset_emp 라는 뷰에
+CREATE OR REPLACE VIEW v_resultset_emp AS(
+    select emp_id AS 사번, emp_name, J.job_name, D.dept_title, L.local_name
+        from employee E
+            LEFT JOIN job J USING (job_code)
+            LEFT JOIN department D ON E.dept_code = D.dept_id
+            LEFT JOIN location L ON D.location_id = L.local_code);
+
+select * from v_resultset_emp V where V.사번 = '205';
+
+--TABLE 변경시 VIEW에도 함께 적용됨: VIEW에도 '정중앙'
+--  VIEW에는 쿼리문이 저장되어 있으므로.
+UPDATE employee  SET emp_name='정중앙' WHERE emp_id='205';
+select * from v_resultset_emp V where V.사번 = '205';
+
+--VIEW 특징
+--1.컬럼뿐 아니라, 산술연산 처리한 view 생성도 가능
+CREATE OR REPLACE VIEW view_emp_salary AS(
+    select emp_name AS 사원명, 12*salary*(1+nvl(bonus,0)) AS 연봉
+        from employee);
+
+select * from view_emp_salary;
+
+--JOIN 을 이용한 view도 생성 가능
+--employee에서 사번, 사원이름, 직급, 부서명
+--컬럼(직급NULL -> 인턴) view_emp_read
+CREATE OR REPLACE VIEW view_emp_read AS(
+    select emp_id, emp_name, nvl(job_name, '인턴') AS 직급, dept_title
+    from employee
+        LEFT JOIN department ON dept_code= dept_id
+        LEFT JOIN job USING (job_code));
+
+select * from view_emp_read;
+
+--VIEW에서도 데이터 추가,수정,삭제가 가능
+--다음 6가지 상황에서는 불가능
+--1. 뷰에 정의되지 않은 컬럼을 수정
+--2. 뷰에 보이지 않는 컬럼 중
+--   NOT NULL 제약조건 가진 컬럼 있을경우
+--3. 산술 연산이 적용된 컬럼이 있을 경우
+--4. JOIN을 통해 여러테이블을 참조할 경우
+--    조회한 테이블의 정보 중에 기본키가 
+--    단 한개일 경우는 변경 가능
+--5. DISTINCT를 사용하여 실제 데이터의 내용이 명확하지 않은 경우
+--6. 그룹함수나 GROUP BY 구문을 사용해서 조회한 쿼리일 경우
+UPDATE view_emp SET emp_no='881123-2000123' where emp_id=500; 
+
+DELETE FROM view_emp where emp_id=500;
+
+select * from view_emp where emp_name='강오덩';
+
+--1. 뷰에 정의되지 않은 컬럼을 수정
+CREATE OR REPLACE VIEW V_JOB AS(
+    select job_code from job);
+
+select * from v_job;
+INSERT INTO v_job VALUES('J8', '인턴'); --ERROR
+UPDATE v_job SET job_name='인턴' where job_code is null; --ERROR
+
+--2. 뷰에 보이지 않는 컬럼 중
+--   NOT NULL 제약조건 가진 컬럼 있을경우
+--VIEW의 DML 사용: 생성된 VIEW를 가지고 DML 구문이 사용 가능
+--  DML 구문을 가지고 view 테이블에 내용을 변경하면 실제 테이블도 변경
+--vim_emp -> emp_id, emp_name, email, phone, job_code, sal_level
+--ORA-01400: cannot insert NULL into ("KH"."EMPLOYEE"."EMP_NO")
+CREATE OR REPLACE VIEW view_emp AS (
+    select emp_id, emp_no, emp_name, email, phone, job_code, sal_level
+    from employee);
+
+INSERT INTO view_emp VALUES(500, '790626-1034555', '강오덩', 'kang@a.com', 
+            '01012345555', 'J5', 'S3');
+
+select * from view_emp where emp_name='강오덩';
+select * from employee where emp_name='강오덩';
+
+--3. 산술 연산이 적용된 컬럼이 있을 경우
+CREATE OR REPLACE VIEW v_emp_sal AS(
+    select emp_id, emp_name, salary, 
+           12*salary*(1+nvl(bonus,0)) AS 연봉
+    from employee);
+
+--ERROR! virtual column not allowed here
+INSERT INTO v_emp_sal VALUES(901, '손흥만', 3000000,40000000);
+select * from v_emp_sal;
+
+--4. JOIN을 통해 여러테이블을 참조할 경우
+CREATE OR REPLACE VIEW v_join_emp AS(
+    select emp_id, emp_name, dept_title
+    from employee
+        LEFT JOIN department ON dept_id=dept_code);
+
+INSERT INTO v_join_emp VALUES(911, '댕댕이', '기술지원부');
+UPDATE v_join_emp SET dept_title='기술지원부' where emp_id=218;
+
+select * from v_join_emp;
+
+--4-1 조회한 테이블의 정보 중에 기본키가 단 한개일 경우는 변경 가능
+--OK
+DELETE from v_join_emp where dept_title = '기술지원부';
+
+select * from v_join_emp;
+select * from department;
+select * from employee;
+ROLLBACK;
+
+--5. DISTINCT를 사용하여 실제 데이터의 내용이 명확하지 않은 경우
+CREATE OR REPLACE VIEW v_dept_emp AS (
+    select distinct dept_code from employee);
+INSERT INTO v_dept_emp VALUES('D0');
+--  몇개의 데이터를 지울지 distinct 때문애 불명확함.
+DELETE FROM v_dept_emp where dept_code='D9';
+
+select * from v_dept_emp;
+
+--6. 그룹함수나 GROUP BY 구문을 사용해서 조회한 쿼리일 경우
+CREATE OR REPLACE VIEW v_group_dept AS (
+    select dept_code, SUM(salary) AS 합계,
+           TRUNC(AVG(salary),-4) AS 평균
+    from employee
+    GROUP BY dept_code);
+--ERROR : virtual column not allowed here
+INSERT INTO v_group_dept VALUES('D10', 50000, 50000);
+UPDATE v_group_dept SET dept_code='D10' where dept_code='D5';
+DELETE FROM v_group_dept where dept_code='D6';
+
+select * from v_group_dept;
+
+--VIEW생성시 설정할 수 있는 옵션
+--  OR REPLACE: 동일 한 이름 뷰를 replace(덮어씌움)
+--  FORCE / NO FORCE : 서브쿼리에 할용된
+--      테이블이 없어도 일단 VIEW를 생성(force)
+--  WITH CHECK /READ ONLY:
+--      CHECK: 설정한 컬럼값을 수정 못하게 막음
+--      READ ONLY: 뷰에서 어떤 컬럼도 VIEW를 통해서 변경하지 못하도록
+
+CREATE OR REPLACE FORCE VIEW v_emp AS (
+    select t_code, t_name, t_content from test_table);
+
+select * from v_emp;
+
+select * from user_views where view_name = 'V_EMP';
+
+--NO FORCE 생성시 view의 테이블이 존재 하지 않을때,
+--      뷰를 생성하지 않겠다.
+-- 디폴드 값이 NOFORCE
+CREATE OR REPLACE NOFORCE VIEW v_emp AS (
+    select t_code, t_name, t_content from test_table);
+
+--WITH CHECK 설정 컬럼을 수정 못하게.
+CREATE OR REPLACE VIEW v_emp AS
+    select * from employee
+    WITH CHECK OPTION;
+
+select * from v_emp;
+
+--ERROR! CHECK option때문에
+INSERT INTO v_emp
+    VALUES(810, '류별리', '101010-1234567', 'ryu@kh.co.kr',
+           '01012345555', 'D1', 'J7', 'S1', 800000, .1,
+           200, SYSDATE, NULL, DEFAULT);
+
+select * from v_emp;
+
+--DELETE는 가능
+DELETE from v_emp where emp_id=500;
+
+--WITH READ ONLY: 데이터 입력/수정/삭제 전부 막음
+CREATE OR REPLACE VIEW v_emp AS
+    select * from employee
+    WITH READ ONLY;
+
+--ERROR
+INSERT INTO v_emp
+    VALUES(810, '류별리', '101010-1234567', 'ryu@kh.co.kr',
+           '01012345555', 'D1', 'J7', 'S1', 800000, .1,
+           200, SYSDATE, NULL, DEFAULT);
+DELETE from v_emp where t_id=200;
+
+DELETE from v_emp where emp_id='200';
+
+--SEQUENCE
+--1,2,3,4,5 이러한 형식으로 숫자 데이터를 
+-- 자동으로 카운트 하는 객체
+--CREATE sequence 시퀀스명
+--  [INCREMENT BY 숫자] : 다음값에 대한 증감수치. 생략시, 1씩 증가
+--  INCREMENT BY 5;
+--  INCREMENT BY -5;
+--  [START WITH 숫자] : 시작값. 생략시 1씩 증가
+--  [MAX VALUE 숫자 | NOMAXVALUE] : 발생 시킬 값의 최대값 설정
+--      10^27-1 까지 가능
+--  [MIN VALUE 숫자 | NOMINVALUE] : 최소값 설정
+--      -10^26
+--  [CYCLE | NOCYCLE] 값의 순환 여부
+--  [CACHE 바이트 크기 | NOCACHE] 값을 미리 구해놓고,
+--      다음값을 반영할 떄 활용하는 설정
+--      기본값 20Byte | 최소값 2Byte
+
+CREATE SEQUENCE seq_empid
+START WITH 300
+INCREMENT BY 5
+MAXVALUE 320
+NOCYCLE
+NOCACHE;
+
+select seq_empid.nextval from dual;
+select seq_empid.currval from dual;
+
+--START WITH 시작점을 바꿀 수 없음
+ALTER SEQUENCE seq_empid
+--START WITH 300
+INCREMENT BY 10
+MAXVALUE 400
+NOCYCLE
+NOCACHE;
+
+select * from user_sequences;
+
+--SEQUENCE:
+--  SELECT 구문에서 데이터 조회시 사용가능
+--  INSERT UPDATE에서도 사용가능
+--  VIEW에서는 sequence 사용불가
+
+--시퀀스 삭제하기
+DROP SEQUENCE seq_empid;
+
+CREATE SEQUENCE seq_eid
+START WITH 300
+INCREMENT BY 1
+MAXVALUE 10000
+NOCYCLE
+NOCACHE;
+
+select seq_eid.nextval from dual;
+select seq_eid.currval from dual;
+DROP SEQUENCE seq_eid;
+select * from user_sequences;
+
+--데이터 추가
+INSERT INTO EMPLOYEE VALUES(
+    seq_eid.NEXTVAL, '송주미', '121203-1234567',
+    'song@kh.co.kr', '01012334556', 'D2', 'J7',
+    'S1', 5000000, 0.1, 200, SYSDATE, NULL, DEFAULT);
+);
+
+select emp_id, emp_name, dept_code, job_code, sal_level
+from employee where emp_name='송주미';
+
+--D9부서에 J7 직급의 사원 4명을 시퀀스를 활용하여 추가
+INSERT INTO EMPLOYEE VALUES( seq_eid.NEXTVAL, 'AGENT1', '881111-1234567',
+    'agent1@kh.co.kr', '01012334556', 'D9', 'J7',
+    'S1', 9000000, 0.1, 200, SYSDATE, NULL, DEFAULT);
+);
+INSERT INTO EMPLOYEE VALUES( seq_eid.NEXTVAL, 'AGENT2', '891111-1234567',
+    'agent2@kh.co.kr', '01012334556', 'D9', 'J7',
+    'S1', 9000000, 0.1, 200, SYSDATE, NULL, DEFAULT);
+);
+INSERT INTO EMPLOYEE VALUES( seq_eid.NEXTVAL, 'AGENT3', '821111-1234567',
+    'agent3@kh.co.kr', '01012334556', 'D9', 'J7',
+    'S1', 9000000, 0.1, 200, SYSDATE, NULL, DEFAULT);
+);
+INSERT INTO EMPLOYEE VALUES( seq_eid.NEXTVAL, 'AGENT4', '831010-1234567',
+    'agent4@kh.co.kr', '01012334556', 'D9', 'J7',
+    'S1', 9000000, 0.1, 200, SYSDATE, NULL, DEFAULT);
+);
+
+select * from employee
+where emp_name like '%AGENT%';
+
+--SEQUENCE 옵션 CYCLE/CACHE
+--  CYCLE : 시퀀스 값이 최대/최소값 도달했을때, 
+--      다시 반대 값부터 시작하는 옵션
+CREATE SEQUENCE seq_cycle
+START WITH 200
+INCREMENT BY 10
+MAXVALUE 230
+MINVALUE 15
+CYCLE
+NOCACHE;
+
+--ERROR! SEQ_CYCLE.CURRVAL is not yet defined in this session
+select seq_cycle.currval from dual;
+--after nextval executed first time
+select seq_cycle.nextval from dual;
+
+DROP SEQUENCE seq_cycle;
+
+select * from user_sequences;
+
+--CACHE / NOCACHE
