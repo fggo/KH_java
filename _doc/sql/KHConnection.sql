@@ -2554,3 +2554,411 @@ DROP SEQUENCE seq_cycle;
 select * from user_sequences;
 
 --CACHE / NOCACHE
+-- CACHE : 컴퓨터가 다음값에대한 연산들 
+--          그때그때 수행하지 않고 미리 계산해 놓는 것
+-- NOCACHE : 컴퓨터가 수행할값을 그때그때 처리 하는 것.
+--LAST_VALUE 120 미리 계산됨. CURRVAL 121되면 LAST_VALUE=140
+CREATE SEQUENCE SEQ_CACHE
+START WITH 100
+INCREMENT BY 1
+CACHE 20
+NOCYCLE;
+
+SELECT SEQ_CACHE.NEXTVAL FROM DUAL;
+
+SELECT * FROM USER_SEQUENCES;
+
+
+--INDEX
+-- SQL 명령어 조회처리속도를 향상시키기 위한 객체다.
+-- 테이블의 식별자(PK, UNIQUE Key)가 되는 컬럼값에대해
+-- 각 컬럼단위로 일정간격을 계산하여 조회속도를 향상
+--장점: 검색속도가 향샹된다.
+--단점: 인덱스가 존재하느 테이블의 내용이 자주변경되는 테이블이라면
+--      인덱스를 매번 다시 계산 => 성능 저하
+--      인덱스 저장하기 위한 별도의 공간 할당해야 함.
+--      읽기성능은 비약적으로 향상, 쓰기 성능은 비관적 하향
+-- CREATE [UNIQUE] INDEX index_name
+-- ON table_name(column_name);
+
+SELECT * FROM USER_IND_COLUMNS;
+
+--인덱스의 구조 - ROWID
+SELECT ROWID, EMP_ID, EMP_NAME FROM EMPLOYEE; --인덱스가 ROWID로 search?
+
+-- 인덱스의 종류
+-- 1. 고유인덱스( UNIQUE INDEX )
+-- 2. 비고유인덱스( NOUNIQUE INDEX )
+-- 3. 단일인덱스( SINGLE INDEX )
+-- 4. 결합인덱스 ( COMPOSITE INDEX )
+-- 5. 함수기반인덱스 ( FUNCTION BASED INDEX )
+
+--1. 고유 인덱스
+-- UNIQUE INDEX
+-- 인덱스 생성시 고유값을 기준으로 생성하는 인덱스
+-- 오라클에서 PRIMARY KEY 제약조건을 사용하면 자동으로 생성 한다.
+
+
+CREATE UNIQUE INDEX IDX_EMP_NO
+ON EMPLOYEE(EMP_NO);
+
+SELECT * FROM USER_IND_COLUMNS WHERE TABLE_NAME='EMPLOYEE';
+
+
+--테이블에 중복값 존재할 경우 고유키 생성 불가
+--emp_no가 같은 테이터 행이 존재하면 UNIQUE 인덱스 생성불가
+CREATE UNIQUE INDEX IDX_DEPT_CODE
+ON EMPLOYEE(DEPT_CODE);
+
+-- 2. 비고유 인덱스(DEFAULT)  중복된 값을 가진 컬럼에 사용 가능
+CREATE INDEX IDX_DEPT_CODE
+ON EMPLOYEE(DEPT_CODE);
+
+-- 지금까지는 컬럼 하나 -> 단일 인덱스
+
+-- 3. 결합 인덱스 : 두개 이상의 컬럼으로 인덱스를 구성하는 것
+CREATE INDEX IDX_DEPT
+ON DEPARTMENT( DEPT_ID, DEPT_TITLE );
+
+SELECT DEPT_ID, DEPT_TITLE FROM DEPARTMENT
+WHERE DEPT_ID !='D1' AND DEPT_TITLE != '기술지원부';
+
+DROP INDEX IDX_DEPT;
+
+--인덱스 확인
+SELECT * FROM USER_IND_COLUMNS;
+-- 같은이름 인덱스 2개 확인 가능 
+-- => 컬럼포지션을 확인 해보면 1,2 나누어져 있는거 확인 가능
+
+--4. 함수 기반 인덱스
+-- 조회시 자주 사용하는 함수식이 있다면
+-- 해당 함수식을 인덱스에 반영해서 검색조건을 생성한다.
+
+-- SAL*12 할때 SAL에 인덱스가 있더라도 산술계산을 하게되면
+-- SAL에 적용된 INDEX를 사용할수 없다.
+-- 이렇게 수식으로 검색하는 경우가 많다고 한다면, 
+-- 아예 수식을 함수로 만들고 그함수에 인덱스 반영
+
+CREATE INDEX IDX_EMP_SAL_CAL
+ON EMPLOYEE( 12*salary*(1+ NVL(bonus,0));
+
+SELECT EMP_ID, EMP_NAME, SALARY FROM EMPLOYEE
+WHERE 12*salary*(1+nvl(bonus,0)) >1000000;
+
+-- PL/SQL (PROCEDURAL LANGUAGE EXTENSION TO SQL)
+-- SQL에서 확장된 형태의 언어
+-- 오라클 자체에서 내장된 절차적 언어
+-- 기존 SQL의 단점 극복 하기 위해서 사용한다.
+-- 변수의 정의, 조건 처리, 반복처리, 예외를 처리등을 지원하다.
+
+-- PL/SQL의 구조
+/*
+    선언부, 실행부, 예외처리부 구성됨
+    선언부 : DECLARE, 변수, 상수 선언하는 부분
+    실행부 : BEGIN ~ END, 제어문, 반복문, 함수정의 등의 작업을 하는 부분 
+    예외처리부 : EXCEPTION, 예외 발생시 처리할 내용을 작성하는 부분
+*/
+
+/*
+    PL/SQL 작성 요령
+    1. PL/SQL 블록 내에서는 한문장을 종료할때 마다 세미콜론을 사용
+    2. END 뒤에 ;을 사용하여 하나의 블록이 끝났다는것을 명시
+    3. DELCARE 나 BEGIN 키워드로 PL/SQL블록이 시작이라는것을 알수있다.
+    4. 쿼리문 수행하기 위해서는 /가 반드시 입력 되어야 한다.
+        PL/SQL 블록은 행에 / 있으면 종결된것으로 생각한다.
+*/
+
+-- 뷰 : SELECT문을 저장해서 필요때마다 사용, 가상의 테이블
+-- 프로시저 : PL/SQL 문을 저장해서 사용, 함수
+
+-- 실행부 사용해서 간단한 문장을 출력
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('HELLO WORLD');
+    -- DBMS_OUTPUT 패키지의 PUT_LINE()프로시저를 호출
+END;
+/
+
+-- 화면에 작성한출력문이 보이도록 설정
+-- 시스템 관련 설정이다.
+-- 기본값 OFF -> ON으로 변경
+SET SERVEROUTPUT ON;
+
+-- 변수 선언
+--[1] 일반변수
+DECLARE 
+    V_ID NUMBER; 
+BEGIN
+    SELECT EMP_ID
+    INTO V_ID
+    FROM EMPLOYEE
+    WHERE EMP_NAME = '선동일';
+END;
+/
+
+
+-- 변수에 값 대입
+-- 변수명 := 값;
+DECLARE 
+    V_EMPNO NUMBER(4);
+    v_empname varchar2(10);
+    test_num number(5) := 10*20;
+BEGIN
+    V_EMPNO := 1001;
+    V_EMPNAME := '윤원택';
+    DBMS_OUTPUT.PUT_LINE('사번       이름');
+    DBMS_OUTPUT.PUT_LINE('--------------');
+    DBMS_OUTPUT.PUT_LINE(V_EMPNO ||'   '||V_EMPNAME);
+    DBMS_OUTPUT.PUT_LINE('TEST_NUM = '||TEST_NUM);
+END;
+/
+
+--[2] 레퍼런스 변수
+-- %TYPE : 한 컬럼의 자료형을 받아 올때 사용하는 자료형 타입
+DECLARE 
+    EMP_ID EMPLOYEE.EMP_ID%TYPE;
+    EMP_NAME EMPLOYEE.EMP_NAME%TYPE;
+    DEPT_CODE EMPLOYEE.DEPT_CODE%TYPE;
+    JOB_CODE EMPLOYEE.DEPT_CODE%TYPE;
+    SALARY EMPLOYEE.SALARY%TYPE;
+BEGIN
+    SELECT EMP_ID, EMP_NAME, NVL(DEPT_CODE,'-'), JOB_CODE, SALARY
+    INTO EMP_ID, EMP_NAME, DEPT_CODE, JOB_CODE, SALARY
+    FROM EMPLOYEE
+    WHERE EMP_NAME='&사원이름';
+    
+    DBMS_OUTPUT.PUT_LINE('EMP_ID : '|| EMP_ID);
+    DBMS_OUTPUT.PUT_LINE('EMP_NAME : '|| EMP_NAME);
+    DBMS_OUTPUT.PUT_LINE('DEPT_CODE : '|| DEPT_CODE);
+   
+END;
+/
+-- %ROWTYPE : 테이블의 모든 컬럼의 자료형을 참조
+-- 특정테이블의 컬럼 수나 데이터 형식을 몰라도 지정할수 있다.
+-- SELECT 문장으로 행을 검색 할때 유리하다.
+DECLARE 
+    MYROW EMPLOYEE%ROWTYPE;
+BEGIN
+    SELECT EMP_ID, EMP_NAME
+    INTO MYROW.EMP_ID, MYROW.EMP_NAME 
+    FROM EMPLOYEE
+    WHERE EMP_NAME='이';
+    
+    DBMS_OUTPUT.PUT_LINE(MYROW.EMP_ID||' '||MYROW.EMP_NAME);
+    
+    EXCEPTION 
+        WHEN NO_DATA_FOUND THEN DBMS_OUTPUT.PUT_LINE('NO DATA');
+END;
+/
+
+--제어문, 반복문 
+--IF문 --
+--1. IF ~ THEN : if(조건식){실행부}
+--               IF ~ THEN 
+/*
+    IF 조건 THEN 
+        조건만족시 처리구문;
+*/
+BEGIN
+    IF '&이름' = '서선덕' THEN
+        DBMS_OUTPUT.PUT_LINE('님이 서선덕이냐!!!');
+    END IF;
+END;
+/
+
+-- @
+-- 사원번호를 입력받아서 사원의 사번,이름급여,보너스율을 출력하자!
+-- 추가로 대표님인 경우, '대표님~~~하뚜' 
+DECLARE 
+    EMP_ID EMPLOYEE.EMP_ID%TYPE;
+    EMP_NAME EMPLOYEE.EMP_NAME%TYPE;
+    SALARY EMPLOYEE.SALARY%TYPE;
+    BONUS EMPLOYEE.BONUS%TYPE;
+    JOB_CODE EMPLOYEE.JOB_CODE%TYPE;
+BEGIN
+    SELECT EMP_ID, EMP_NAME, SALARY, NVL(BONUS,0), JOB_CODE
+    INTO EMP_ID, EMP_NAME, SALARY, BONUS, JOB_CODE
+    FROM EMPLOYEE
+    WHERE EMP_ID=&EMP_ID;
+    
+    DBMS_OUTPUT.PUT_LINE(EMP_ID);
+    DBMS_OUTPUT.PUT_LINE(EMP_NAME);
+    DBMS_OUTPUT.PUT_LINE(SALARY);
+    DBMS_OUTPUT.PUT_LINE(BONUS*100||'%');
+    
+    IF (JOB_CODE ='J1')
+    THEN DBMS_OUTPUT.PUT_LINE('대표님 하뜨~~');
+    END IF; 
+END;
+/
+
+-- 2. IF ~ THEN ~ ELSE ~ END IF
+DECLARE 
+    EMP_ID EMPLOYEE.EMP_ID%TYPE;
+    EMP_NAME EMPLOYEE.EMP_NAME%TYPE;
+    SALARY EMPLOYEE.SALARY%TYPE;
+    BONUS EMPLOYEE.BONUS%TYPE;
+    JOB_CODE EMPLOYEE.JOB_CODE%TYPE;
+    EMP_TEAM VARCHAR2(20);
+BEGIN
+    SELECT EMP_ID, EMP_NAME, SALARY, NVL(BONUS,0), JOB_CODE
+    INTO EMP_ID, EMP_NAME, SALARY, BONUS, JOB_CODE
+    FROM EMPLOYEE
+    WHERE EMP_ID=&EMP_ID;
+    
+    DBMS_OUTPUT.PUT_LINE(EMP_ID);
+    DBMS_OUTPUT.PUT_LINE(EMP_NAME);
+    DBMS_OUTPUT.PUT_LINE(SALARY);
+    DBMS_OUTPUT.PUT_LINE(BONUS*100||'%');
+    
+    IF JOB_CODE='J1' THEN EMP_TEAM :='대표';
+    ELSE EMP_TEAM :='직원';
+    END IF;
+    
+    DBMS_OUTPUT.PUT_LINE('소속 :' || EMP_TEAM); 
+END;
+/
+
+-- 3. IF ~ THEN ~ ELSIF ~ ELSE ~ END IF;
+-- ELSE IF 가 아니라 ELSIF
+/*
+    IF 조건 1 THEN
+        조건1이 만족할 경우 처리구문;
+    ELSIF 조건2 THEN
+        조건2가 만족할 경우 처리구문;
+    ELSE 
+        조건을 만족하지 않을 경우 처리
+*/
+
+--점수를 입력받아서 SCORE 변수에 저장하고
+--90점 이상은 'A'
+--75점 이상은 'B'
+--60점 이상은 'C'
+-- 그 이하는 'F'로 채첨하여
+-- 출력 ->'당신의 점수는 00이고, O학점입니다.'
+DECLARE
+    SCORE INT;
+    GRADE VARCHAR2(2);
+BEGIN
+    SCORE := '&점수';
+    
+    -- IF문 --
+    IF SCORE >=90 THEN GRADE := 'A';
+    ELSIF SCORE >=75 THEN GRADE :='B';
+    ELSIF SCORE >= 60 THEN GRADE :='C';
+    ELSE GRADE := 'F';
+    END IF;
+    
+    DBMS_OUTPUT.PUT_LINE('당신의 점수는 '||SCORE 
+            ||'점이고, 학점은 '||GRADE||'학점입니다.');
+    
+END;
+/
+
+--4. CASE 문
+--자바에서 SWITCH문
+-- CASE ~ END CASE;
+/*
+    CASE 
+        WHEN 표현식1 THEN 
+            실행문1;
+        WHEN 표현식2 THEN
+            실행문2;
+        ELSE 기본실행문3;
+*/
+
+-- 
+DECLARE 
+    INPUTVALUE NUMBER;
+BEGIN
+    INPUTVALUE := '&INPUTVALUE';
+    
+    CASE INPUTVALUE
+        WHEN 1 THEN 
+            DBMS_OUTPUT.PUT_LINE(INPUTVALUE||'입력함');    
+        WHEN 2 THEN
+            DBMS_OUTPUT.PUT_LINE(INPUTVALUE||'입력함');
+        WHEN 3 THEN 
+            DBMS_OUTPUT.PUT_LINE(INPUTVALUE||'입력함');
+        ELSE 
+            DBMS_OUTPUT.PUT_LINE('1,2,3 모두 아니야~!');
+    END CASE;
+END;
+/
+
+--사원번호를 입력받아서 직급코드로 
+--대표(J1),임원진(J2), 일반직원(나머지) 구분한 예제를
+--CASE문으로 구현
+DECLARE 
+    JOB_CODE EMPLOYEE.JOB_CODE%TYPE;
+    EMP_TEAM VARCHAR2(20);
+BEGIN
+    SELECT JOB_CODE
+    INTO JOB_CODE
+    FROM EMPLOYEE
+    WHERE EMP_ID = '&EMP_ID';
+    
+    CASE JOB_CODE
+        WHEN 'J1' THEN EMP_TEAM := '대표';
+        WHEN 'J2' THEN EMP_TEAM := '임원';
+        ELSE EMP_TEAM := '일반직원';
+    END CASE;
+    
+    DBMS_OUTPUT.PUT_LINE('소속 : '||EMP_TEAM);
+END;
+/
+
+-- 반복문
+DECLARE 
+    E EMPLOYEE%ROWTYPE;
+BEGIN
+    SELECT *
+    INTO E
+    FROM EMPLOYEE;
+    
+    DBMS_OUTPUT.PUT_LINE(E.EMP_ID);
+END;
+/
+
+-- LOOP, FOR, WHILE
+
+--일반 LOOP 문
+/*
+    LOOP
+        반복시킬 내용
+        IF 반복 종료 조건 
+            EXIT;
+        END IF;
+    END LOOP;
+*/
+
+-- 1 ~5 까지의 반복문을 수행하는 LOOP 반복문 구현
+DECLARE 
+    N INT:=1;
+BEGIN
+    LOOP
+        DBMS_OUTPUT.PUT_LINE(N);
+        N := N+1;
+        EXIT WHEN N = 6;
+    END LOOP;
+END;
+/
+-- 5 ~ 1 출력하는 LOOP문을 작성해보자
+DECLARE 
+    N INT := 5;
+BEGIN
+    LOOP
+        DBMS_OUTPUT.PUT_LINE(N);
+        N := N-1;
+        EXIT WHEN N = 0;
+    END LOOP;
+END;
+/
+
+--FOR 반복문 --
+/*
+    FOR 카운터변수 IN [REVERSE] 시작값..종료값 LOOP
+        반복할 내용
+    END LOOP;
+*/
+
+

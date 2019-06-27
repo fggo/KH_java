@@ -7,7 +7,6 @@ public class Test {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("T : ");
 		int T = sc.nextInt();
-		int num = 0;
 		int[] sums = new int[T];
 
 		String[] str = {"3 17 1 39 8 41 2 32 99 2",
