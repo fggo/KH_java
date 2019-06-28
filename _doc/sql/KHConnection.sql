@@ -2658,7 +2658,6 @@ WHERE 12*salary*(1+nvl(bonus,0)) >1000000;
     실행부 : BEGIN ~ END, 제어문, 반복문, 함수정의 등의 작업을 하는 부분 
     예외처리부 : EXCEPTION, 예외 발생시 처리할 내용을 작성하는 부분
 */
-
 /*
     PL/SQL 작성 요령
     1. PL/SQL 블록 내에서는 한문장을 종료할때 마다 세미콜론을 사용
@@ -2699,16 +2698,17 @@ END;
 -- 변수에 값 대입
 -- 변수명 := 값;
 DECLARE 
-    V_EMPNO NUMBER(4);
+    v_empno NUMBER(4);
     v_empname varchar2(10);
     test_num number(5) := 10*20;
 BEGIN
-    V_EMPNO := 1001;
-    V_EMPNAME := '윤원택';
+    v_empno := 1001;
+    v_empname := '윤원택';
+
     DBMS_OUTPUT.PUT_LINE('사번       이름');
     DBMS_OUTPUT.PUT_LINE('--------------');
-    DBMS_OUTPUT.PUT_LINE(V_EMPNO ||'   '||V_EMPNAME);
-    DBMS_OUTPUT.PUT_LINE('TEST_NUM = '||TEST_NUM);
+    DBMS_OUTPUT.PUT_LINE(v_empno ||'   '||v_empname);
+    DBMS_OUTPUT.PUT_LINE('TEST_NUM = '||test_num);
 END;
 /
 
