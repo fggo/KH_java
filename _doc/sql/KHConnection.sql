@@ -2865,7 +2865,6 @@ END;
             실행문2;
         ELSE 기본실행문3;
 */
-
 -- 
 DECLARE 
     INPUTVALUE NUMBER;
@@ -2954,11 +2953,508 @@ BEGIN
 END;
 /
 
---FOR 반복문 --
+-- - - - -REVIEW - - - - --
+--VIEW
+/*
+CREATE OR REPLACE view_name AS (
+    select col1, .. .colN
+        FROM employee);
+*/
+--SEQUENCE
+--  1,2,3... 등의 숫자를 증감시키는 객체
+/*
+CREATE SEQUENCE seq_name
+START WITH 200
+INCREMENT BY 5
+MAXVALUE 250
+CYCLE/NOCYCLE --순환여부
+NOCACHE;
+*/
+
+--INDEX
+--테이블에서 특정데이터를 검색할때, 효율적으로 검색하기 위한 객체
+--CREATE INDEX idx_name ON table_name (col1, col2,...);
+
+
+--PL/SQL procedual script language
+/*
+DECLARE
+BEGIN
+    EXCEPTION
+END;
+/
+*/
+SET SERVEROUTPUT ON;
+
+--1~10 난수 5개 출력
+--  난수발생 시키는 함수 LOW <= N <HIGH
+--  DBMS_RANDOM.VALUE(LOW, HIGH); 
+DECLARE
+    n INT :=1;
+    rand NUMBER;
+    output VARCHAR2(20) :=  '';
+BEGIN
+
+    LOOP
+        rand := TRUNC(DBMS_RANDOM.VALUE(1, 11));
+        output := (output || rand || ' ');
+        --DBMS_OUTPUT.PUT_LINE(rand);
+        n := n+1;
+        IF instr(output, rand) = 0 THEN
+            CONTINUE;
+        END IF;
+        EXIT WHEN n =5;
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE(output);
+END;
+/
+
+--FOR loop--
 /*
     FOR 카운터변수 IN [REVERSE] 시작값..종료값 LOOP
         반복할 내용
     END LOOP;
+
+    --카운터변수 ->자동선언
+    --마운트 값은 자동으로 1씩증가
+*/
+BEGIN
+    FOR N IN 1..5 LOOP
+        DBMS_OUTPUT.PUT_LINE(N);
+    END LOOP;
+
+    FOR N IN REVERSE 1..5 LOOP
+        DBMS_OUTPUT.PUT_LINE(N);
+    END LOOP;
+END;
+/
+
+--중첩 FOR LOOP
+--구구단 출력
+BEGIN
+    FOR I IN 2..9 LOOP
+        FOR J IN 1..9 LOOP
+            DBMS_OUTPUT.PUT_LINE(I || ' * ' || J ||' = '||(I*J));
+        END LOOP;
+        DBMS_OUTPUT.PUT_LINE('');
+    END LOOP;
+END;
+/
+
+--짝수 단 출력
+BEGIN
+    FOR I IN 2..9 LOOP
+        FOR J IN 1..9 LOOP
+            IF MOD(I,2) = 0 THEN
+                DBMS_OUTPUT.PUT_LINE(I||' * '||J||' = '||(I*J));
+            END IF;
+        END LOOP;
+        DBMS_OUTPUT.PUT_LINE('');
+    END LOOP;
+END;
+/
+
+DECLARE
+    RES NUMBER;
+BEGIN
+    FOR DAN IN 2..9 LOOP
+        IF  MOD(DAN,2)=0
+            THEN FOR SU IN 1..9 LOOP
+                    RES := DAN * SU;
+                    DBMS_OUTPUT.PUT_LINE(DAN ||' * '||SU||' = '||RES);
+                 END LOOP;
+            DBMS_OUTPUT.PUT_LINE('');
+        END IF;
+    END LOOP;
+END;
+/
+
+--FOR문 이용한 INSERT
+CREATE TABLE tb_test_for(
+    no NUMBER,
+    test_date DATE
+);
+
+BEGIN
+    FOR X IN 1..10 LOOP
+        INSERT INTO tb_test_for VALUES(X, sysdate+x);
+    END LOOP;
+END;
+/
+
+select * from tb_test_for;
+
+--PL/SQL FOR 반복문 이용하여 employee 테이블의
+--200부터 210번까지 사원의 아이디,이름,이메일 출력
+
+DECLARE
+    E EMPLOYEE%ROWTYPE;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('ID    NAME    EMAIL');
+    DBMS_OUTPUT.PUT_LINE('-------------------');
+    FOR I IN 0..10 LOOP
+        SELECT *
+            INTO E
+            FROM EMPLOYEE
+            WHERE emp_id=(200+I);
+        DBMS_OUTPUT.PUT_LINE(E.emp_id ||'    ' || E.emp_name ||'    '||E.email);
+    END LOOP;
+END;
+/
+
+DECLARE
+    emp_id EMPLOYEE.EMP_ID%TYPE;
+    emp_name EMPLOYEE.EMP_NAME%TYPE;
+    email EMPLOYEE.EMAIL%TYPE;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('ID    NAME    EMAIL');
+    DBMS_OUTPUT.PUT_LINE('-------------------');
+    FOR I IN 0..10 LOOP
+        SELECT emp_id, emp_name, email
+            INTO emp_id, emp_name, email 
+            FROM EMPLOYEE
+            WHERE emp_id=(200+I);
+        DBMS_OUTPUT.PUT_LINE(emp_id ||'    ' || emp_name ||'    '||email);
+    END LOOP;
+END;
+/
+
+--WHILE
+DECLARE
+    N INT := 5;
+BEGIN
+    WHILE N > 0 LOOP
+        DBMS_OUTPUT.PUT_LINE(N);
+        N := N-1;
+    END LOOP;
+END;
+/
+
+--2~9사이 수 입력 받아 구구단 출력
+DECLARE
+    DAN NUMBER;
+    N NUMBER := 2;
+BEGIN
+    DAN := &단;
+    IF DAN BETWEEN 2 AND 9 THEN
+        WHILE N <=9 LOOP
+            DBMS_OUTPUT.PUT_LINE(DAN||' * '||N||' = '||DAN*N);
+            N := N + 1;
+        END LOOP;
+    END IF;
+END;
+/
+
+--대입할 '=' '&' 두가지 사용
+--  '=' 값 직접 대입
+--  '&' 사용자 입력값 대입
+--      기존의 데이터 접근할 때, 정적인 SQL에서 벗어나서
+--      동적인 SQL을 구현
+
+--  기존 '정적' SQL
+select * from employee where emp_name='유재식';
+--  '동적' SQL
+DECLARE 
+    E EMPLOYEE%ROWTYPE;
+BEGIN
+    SELECT *
+    INTO E
+    FROM EMPLOYEE
+    WHERE emp_name = '&사원명';
+    DBMS_OUTPUT.PUT_LINE('사원번호: ' || E.emp_id);
+    DBMS_OUTPUT.PUT_LINE('사원명: ' || E.emp_name);
+    DBMS_OUTPUT.PUT_LINE('사원급여: ' || E.salary);
+END;
+/
+
+--RECORD 자료형
+--  기존 일반변수 / 참조변수
+--  %ROWTYPE이 참조할 테이블 컬럼데이터 타입을 자동으로 가져옴
+
+--  RECORD 특정 테이블의 컬럼을 각각 뽑아 별도의
+--  한행짜리 자료형 선언을 하는것.
+
+/*  사용법
+    TYPE record_type_name IS RECORD(변수명 변수타입, ...);
+    레코드객체 레코드타입명;
+*/
+DECLARE
+    TYPE my_record IS RECORD(
+        my_id EMPLOYEE.EMP_ID%TYPE,
+        my_name EMPLOYEE.EMP_NAME%TYPE
+    );
+    v_emp my_record;
+BEGIN
+    SELECT emp_id, emp_name
+    INTO v_emp
+    FROM EMPLOYEE
+    WHERE emp_name='선동일';
+
+    DBMS_OUTPUT.PUT_LINE('사번: '||v_emp.my_id);
+    DBMS_OUTPUT.PUT_LINE('사원명: ' || v_emp.my_name);
+END;
+/
+
+--사번 사원명 직급명 담을 참조변수로 송종기사원
+--사번,사원명,직급명 출력
+DECLARE
+    TYPE my_r_type IS RECORD(
+        eid EMPLOYEE.EMP_ID%TYPE,
+        ename EMPLOYEE.EMP_NAME%TYPE,
+        ejobname JOB.JOB_NAME%TYPE
+    );
+    v_emp my_r_type;
+BEGIN
+    
+    SELECT emp_id, emp_name, job_name
+    INTO v_emp
+    FROM EMPLOYEE JOIN JOB USING(job_code)
+    WHERE emp_name='송종기';
+
+    DBMS_OUTPUT.PUT_LINE('사번: '||v_emp.eid);
+    DBMS_OUTPUT.PUT_LINE('사원명: ' || v_emp.ename);
+    DBMS_OUTPUT.PUT_LINE('직급명: ' || v_emp.ejobname);
+END;
+/
+
+--EXCEPTION 예외처리: 실행부 안에서 사용
+/*
+    EXCEPTION
+        WHEN 예외명 THEN 처리문장1
+        WHEN 예외명 THEN 처리문장2
+        WHEN 예외1 OR 예외2 THEN 처리문장3
+        WHEN OTHERS THEN 처리문장4
+*/
+/*
+    오라클에서 제공하는 예외 별칭들... 몇가지만..
+    NO_DATA_FOUND : select 한 결과가 하나도 없는 경우.
+    CASE_NOT_FOUND : CASE 구문 중에 일치하는 결과가 하나도 없고,
+                ELSE로 그 이외에 내용에 대한 처리를 하지 않은 경우.
+    LOGIN_DENIED : 잘못된 아이디나 비밀번호를 입력하였을 경우
+    DUP_VAL_ON_INDEX : UNIQUE 제약 조건을 위배했을 경우
+    INVALID_NUMBER : 문자데이터를 숫자로 변경할때 변경할 수 없는
+                문자인 경우.
+*/
+BEGIN
+    UPDATE EMPLOYEE
+    SET emp_id=201
+    WHERE emp_id=200;
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        DBMS_OUTPUT.PUT_LINE('[ERROR] 이미 존재하는 사원입니다.');
+END;
+/
+
+--사용자 정의 예외처리
+--프로그래머가 정의
+--RAISE_APPLICATION_ERROR() 사용하여
+--오류코드 - 20000~20999의 범위에서 만들거나
+--RAISE(자바에서는 THROW) 사용해서 예외를 발생 시킬 수 있다.
+
+/*
+사용방법
+    RAISE_APPLICATION_ERROR (에러코드, 메시지);
+    RAISE 예외;
 */
 
+CREATE TABLE test_member(
+    mid VARCHAR2(20) PRIMARY KEY,
+    pwd VARCHAR2(30), --?
+    name VARCHAR2(15)
+);
 
+select * from test_member;
+
+DECLARE
+    v_pwd VARCHAR2(30);
+    toolong_name EXCEPTION;
+    tooshort_pwd EXCEPTION;
+    PRAGMA EXCEPTION_INIT(toolong_name, -12899);
+    PRAGMA EXCEPTION_INIT(tooshort_pwd, -20001);
+    --PRAGMA EXCEPTION_INIT(예외명, 예외번호);
+     --예외번호를 명시해서, 컴파일러에 이 예외를
+    --사용한다는 것을 알리는 역할
+BEGIN
+    v_pwd := '&비밀번호';
+    IF LENGTH(v_pwd) <8 THEN
+        RAISE tooshort_pwd;
+    END IF;
+
+    INSERT INTO test_member VALUES('USER02', v_pwd, '고길동');
+EXCEPTION
+    WHEN tooshort_pwd THEN
+        DBMS_OUTPUT.PUT_LINE('비밀번호는 8자리 이상으로!!!');
+END;
+/
+
+select * from test_member;
+
+---PL/SQL 객체들---
+--프로시져: PL/SQL을 미리 저장해놓고, 프로시저 명으로
+--          호출하여 함수처럼 동작시키는 객체.
+/*
+[사용형식]
+    CREATE [OR REPLACE] PROCEDURE 프로시저명 (
+        매개변수 1 [IN/OUT/IN OUT] 자료형,
+        매개변수 2,
+        ...
+    );
+        IN : 프로시저에서 사용할 변수값을 외부에서 넣겠다.
+        OUT : 프로시저를 실행한 결과를 외부로 추출할때(RETURN)
+        INOUT : IN과 OUT 두가지 기능 둘다 가능
+            (단, IN과 OUT 두가지 중 하나만 사용 가능 - 권장 X)
+    IS
+    DECLARE(선언부)
+    BEGIN
+        실행할 부분
+    END;
+    /
+*/
+
+--[호출방식]
+--EXECUTE 프로시저명(전달값1, 전달값2, ...)
+--EXEC    "             "
+
+--[삭제]
+--DROP PROCEDURE 프로시저명;
+
+--[프로시저를 조회]
+--  데이터사전: user_source;
+
+--직원 정보를 모두 삭제하는 프로시져 구현하기
+CREATE TABLE emp_tmp AS (select * from employee);
+
+select * from emp_tmp;
+
+select count(*) from emp_tmp;
+
+--프로시져 생성
+CREATE OR REPLACE PROCEDURE del_all_emp
+IS
+BEGIN
+    DELETE FROM emp_tmp;
+    COMMIT;
+END;
+/
+
+--프로시져 선언만 했고, 바로 실행안됨
+select count(*) from emp_tmp; --33
+
+EXEC del_all_emp;
+
+select count(*) from emp_tmp; --0
+
+DROP TABLE emp_tmp;
+
+--매개변수를 갖는 프로시져
+--  [IN]
+CREATE TABLE emp_tmp_01 AS select * from EMPLOYEE;
+
+--특정 이름을 가진 사원 삭제
+select * from emp_tmp_01
+    where emp_name like '이%';
+
+--프로시져 생성(매개변수)
+CREATE OR REPLACE PROCEDURE del_emp_name (
+    v_name in EMP_TMP_01.EMP_NAME%TYPE
+)
+IS
+BEGIN
+    DELETE FROM emp_tmp_01
+    WHERE emp_name like v_name;
+    DBMS_OUTPUT.PUT_LINE(v_name || '직원정보 삭제!!');
+    COMMIT;
+END;
+/
+
+select * from emp_tmp_01 where emp_name='이오리';
+EXEC DEL_EMP_NAME('이오리');
+select * from emp_tmp_01 where emp_name='이오리';
+
+select * from emp_tmp_01 where emp_name like '이%';
+EXEC DEL_EMP_NAME('이%');
+select * from emp_tmp_01 where emp_name like '이%';
+
+
+--[OUT]
+--  내부의 값을 외부로 전달하는 방식
+--  값을 받을 수 있게 변수 생성
+
+--  변수선언
+--  VARIABLE 변수명 자료형(바이트);
+
+--  실행
+--  EXEC 프로시져명(전달값, :전달받을 변수명);
+
+/*
+METHOD(30);
+INT NO = METHOD2();
+INT NO = METHOD3(30);
+*/
+
+--직원 정보를 조회하여 변수에 직원 정보 추가 후
+--밖으로 OUT 해보자
+CREATE OR REPLACE PROCEDURE
+emp_info(vemp_id IN EMPLOYEE.EMP_ID%TYPE, --매개변수들 선언
+         vemp_name OUT EMPLOYEE.EMP_NAME%TYPE,
+         vphone OUT EMPLOYEE.PHONE%TYPE,
+         vemail OUT EMPLOYEE.EMAIL%TYPE)
+IS
+BEGIN
+    SELECT emp_name, phone, email
+    INTO vemp_name, vphone, vemail
+    FROM EMPLOYEE
+    WHERE emp_id = vemp_id;
+END;
+/
+
+--변수선언 -> 프로시져를 통해 OUT되는 데이터를 담는다.
+VARIABLE VAR_ENAME VARCHAR2(20);
+VARIABLE VAR_PHONE VARCHAR2(20);
+VARIABLE VAR_EMAIL VARCHAR2(20);
+
+EXEC emp_info(201, :VAR_ENAME, :VAR_PHONE, :VAR_EMAIL);
+
+--변수확인
+--PRINT VAR_ENAME;
+--PRINT VAR_PHONE;
+--PRINT VAR_EMAIL;
+
+SET AUTOPRINT ON;
+--프로시져 실행하고 EXEC하면, 전부 출력됨
+
+select * from user_source;
+
+--부서코드 입력받아 해당 부서 정보 삭제후
+--삭제된 부서이름을 출력하는 프로시져
+-- 단 만약 조회한 부서 없을겨우
+-- NO_DATA_FOUND 사용하여 '해당 부서가 존재하지 않습니다.' 출력
+CREATE TABLE dept_01 AS select * from department;
+
+CREATE OR REPLACE PROCEDURE del_dept(
+    v_dept_id IN DEPT_01.DEPT_ID%TYPE,
+    v_dept_title OUT DEPT_01.DEPT_TITLE%TYPE)
+IS
+BEGIN
+    SELECT dept_title
+    INTO v_dept_title
+    FROM dept_01
+    WHERE dept_id=v_dept_id;
+
+    DELETE FROM dept_01
+    WHERE dept_id=v_dept_id;
+
+    COMMIT;
+
+    DBMS_OUTPUT.PUT_LINE(v_dept_title || ' 부서가 성공적으로 삭제되었습니다.');
+
+EXCEPTION 
+    WHEN NO_DATA_FOUND
+        THEN DBMS_OUTPUT.PUT_LINE('해당 부서가 존재하지 않습니다.');
+END;
+/
+VARIABLE dept_title VARCHAR2(35);
+select * from dept_01;
+EXEC del_dept('&부서코드', :dept_title);
+select * from dept_01;
+EXEC del_dept('D1', :dept_title);
