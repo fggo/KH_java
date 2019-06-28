@@ -3453,6 +3453,7 @@ EXCEPTION
         THEN DBMS_OUTPUT.PUT_LINE('해당 부서가 존재하지 않습니다.');
 END;
 /
+
 VARIABLE dept_title VARCHAR2(35);
 select * from dept_01;
 EXEC del_dept('&부서코드', :dept_title);

@@ -15,7 +15,16 @@ public abstract class Mobile {
 		this.batterySize = batterySize;
 		this.osType = osType;
 	}
-	
-//	+operate(int time):int // 사용
-//	+charge(int time):int // 충전
+
+
+	abstract public int operate(int time);
+	abstract public int charge(int time);
+	abstract public void showInfo();
+
+	public String getMobileName() { return mobileName; } 
+	public void setMobileName(String mobileName) { this.mobileName = mobileName; } 
+	public int getBatterySize() { return batterySize; } 
+	public void setBatterySize(int batterySize) { this.batterySize = batterySize; } 
+	public String getOsType() { return osType; } 
+	public void setOsType(String osType) { this.osType = osType; } 
 }
