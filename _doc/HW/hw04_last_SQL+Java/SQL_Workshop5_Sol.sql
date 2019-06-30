@@ -26,14 +26,14 @@ ADD CONSTRAINT pk_category PRIMARY KEY(name);
 
 --4
 ALTER TABLE tb_class_type
-MODIFY (name VARCHAR2(10) CONSTRAINT nn_name_cons NOT NULL);
+MODIFY name VARCHAR2(10) CONSTRAINT nn_name_cons NOT NULL;
 
 --5
 ALTER TABLE tb_class_type
 MODIFY (no VARCHAR2(10), name VARCHAR2(20));
 
 ALTER TABLE tb_category
-MODIFY (name VARCHAR2(20));
+MODIFY name VARCHAR2(20);
 
 --6
 ALTER TABLE tb_class_type RENAME COLUMN no TO class_type_no;

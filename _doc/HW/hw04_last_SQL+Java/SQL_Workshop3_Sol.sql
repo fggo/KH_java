@@ -93,3 +93,11 @@ from tb_department D
     JOIN tb_class C ON D.department_no = C.department_no
     LEFT JOIN tb_class_professor CP ON C.class_no = CP.class_no
 where D.category = '예체능' and CP.professor_no IS NULL;
+
+select class_name, department_name
+from tb_class C
+    JOIN tb_department USING (department_no)
+where category='예체능'
+    and NOT EXISTS(select professor_no from tb_class_professor CP
+                    where C.class_no = CP.class_no)
+order by class_name;

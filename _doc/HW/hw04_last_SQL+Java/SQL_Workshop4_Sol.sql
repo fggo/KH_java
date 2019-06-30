@@ -20,21 +20,42 @@ from tb_student S1 JOIN tb_student S2 USING(department_no)
 where S2.student_name='최경희';
 
 --18
+select student_no, student_name
+from
+   (select ROWNUM, student_no, student_name, avg(point)
+    from tb_student
+        JOIN tb_department USING (department_no)
+        JOIN tb_grade USING (student_no)
+    where department_name='국어국문학과'
+    GROUP BY ROWNUM, student_no, student_name
+    order by avg(point) desc)
+where ROWNUM =1;
+
 select student_no, student_name from(
     select DENSE_RANK() OVER (order by avg(point) desc) AS 랭킹,
-           S.student_name, S.student_no, ROUND(avg(point),2)
-    from tb_grade G
-        JOIN tb_student S ON G.student_no=S.student_no
-        JOIN tb_department D USING (department_no)
-    WHERE D.department_name = '국어국문학과'
-    GROUP BY S.student_name, S.student_no)
+           student_no, student_name, avg(point)
+    from tb_grade
+        JOIN tb_student USING (student_no)
+        JOIN tb_department USING (department_no)
+    WHERE department_name = '국어국문학과'
+    GROUP BY student_name, student_no)
 where 랭킹=1;
+
+--19
+select D1.department_name, ROUND(avg(point),1)
+from tb_department D1
+    JOIN tb_class C ON C.department_no = D1.department_no
+    JOIN tb_grade USING (class_no)
+    JOIN tb_department D2 USING (category)
+where D2.department_name='환경조경학과'
+GROUP BY D1.department_name
+order by D1.department_name;
 
 --4
 select capacity from tb_department order by capacity desc;
 
 UPDATE tb_department
-SET capacity = ROUND(capacity * 1.1, 0);
+SET capacity = ROUND(capacity * 1.1);
 
 select capacity from tb_department order by capacity desc;
 
@@ -56,14 +77,14 @@ where S.student_name='김명훈'
     and C.class_name='피부생리학';
 
 UPDATE tb_grade G
-SET G.point = 4.5
-where EXISTS (
-    select G.point
-    from tb_student S JOIN tb_class C USING (department_no)
-    where G.class_no =  C.class_no
-        and S.student_name='김명훈'
-        and G.term_no ='200501'
-        and C.class_name='피부생리학');
+SET point = 3.5
+where EXISTS (select student_no from tb_student 
+                JOIN tb_class C USING (department_no)
+                where student_no = G.student_no
+                    and C.class_no = G.class_no
+                    and C.class_name='피부생리학'
+                    and student_name='김명훈')
+    and G.term_no='200501';
 
 --8 성적 테이블(TB_GRADE) 에서 휴학생들의 성적항목을 제거하시오.
 DELETE from tb_grade G
@@ -72,9 +93,10 @@ where EXISTS (select student_no
     where absence_yn ='Y'
         and G.student_no = S.student_no);
 
-select student_no, student_name, G.point
+select student_no, student_name, absence_yn, G.point
 from tb_student S
     JOIN tb_grade G USING (student_no)
 where absence_yn ='Y';
+
 commit;
 rollback;
