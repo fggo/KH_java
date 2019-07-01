@@ -3386,9 +3386,9 @@ SET AUTOPRINT ON;
 select * from user_source;
 
 --부서코드 입력받아 해당 부서 정보 삭제후
---삭제된 부서이름을 출력하는 프로시져
--- 단 만약 조회한 부서 없을겨우
--- NO_DATA_FOUND 사용하여 '해당 부서가 존재하지 않습니다.' 출력
+--  삭제된 부서이름을 출력하는 프로시져
+--  단 만약 조회한 부서 없을겨우
+--  NO_DATA_FOUND 사용하여 '해당 부서가 존재하지 않습니다.' 출력
 CREATE TABLE dept_01 AS (select * from department);
 DROP TABLE dept_01;
 
@@ -3422,3 +3422,306 @@ select * from dept_01;
 EXEC del_dept('&부서코드', :dept_title);
 select * from dept_01;
 EXEC del_dept('D1', :dept_title);
+
+--FUNCTION
+--  similar to procedure, but has RETURN
+CREATE OR REPLACE FUNCTION bonus_cal(
+    v_empid EMPLOYEE.emp_id%TYPE)
+RETURN NUMBER
+IS
+    v_sal EMPLOYEE.salary%TYPE;
+    v_bonus EMPLOYEE.bonus%TYPE;
+    v_cal_sal NUMBER;
+BEGIN
+    SELECT salary, nvl(bonus,0)
+    INTO v_sal, v_bonus
+    FROM EMPLOYEE
+    WHERE emp_id = v_empid;
+
+    v_cal_sal := 12*v_sal*(1 + v_bonus);
+    RETURN v_cal_sal;
+END;
+/
+
+SET SERVEROUTPUT ON;
+
+select bonus_cal('&emp_id') from dual;
+
+VARIABLE var_re NUMBER;
+--EXEC procedure_name(200, :out_param1, :out_param2);
+--EXEC :out_param := procedure_name(in_param);
+EXEC :var_re := bonus_cal('&emp_id');
+PRINT var_re;
+
+--사원번호를 입력받아 성별 RETURN
+CREATE OR REPLACE FUNCTION f_gender(
+    v_emp_id EMPLOYEE.emp_id%TYPE)
+RETURN VARCHAR2
+IS
+    v_gender VARCHAR2(10);
+BEGIN
+    SELECT DECODE( substr(emp_no,8, 1),
+           '1', '남', '3', '남', '여')
+    INTO v_gender
+    FROM EMPLOYEE
+    WHERE emp_id = v_emp_id;
+
+    RETURN v_gender;
+END;
+/
+
+select f_gender('&employee_id') from dual;
+
+VARIABLE var_re VARCHAR2(10);
+EXEC :var_re := f_gender('&employee_id');
+PRINT var_re;
+
+select * from all_errors;
+
+
+--CURSOR
+--  select문 결과 여러ROW일때, 한개행씩  접근하여 처리
+--  cursor에 resultSet을 보관하고 fetch로 다음행으로 연결
+--  [사용법]
+--  cursor를 변수로 선언하고, 선언한 변수 cursor를 open으로 연다.
+--  반복문 안에서 fetch를 통해 한행씩
+--  종료가 되면, close 명령으로 cursor 닫아줌.
+--  cursor에 데이터 존재여부 확인하는 방법:
+--  %NOTFOUND : OPEN 후 FETCH 전에 NULL, FETCH된 행이 존재하면 FALSE,
+--              존재하지 않으면 TRUE
+--  %FOUND : FETCH 된 행이 존재하면 TRUE, 아니면 FALSE
+--  %ISOPEN : 최근 실행된 CURSOR가 OPEN 된 상태이면 TRUE, 아니면 FALSE
+--  %ROWCOUNT : CURSOR에 들어가 있는 ROW의 수.
+CREATE OR REPLACE PROCEDURE CURSORTEST
+IS
+    V_DEPT DEPARTMENT%ROWTYPE;
+    CURSOR C1
+    IS
+    SELECT * FROM DEPARTMENT;
+BEGIN
+ OPEN C1;
+ LOOP	
+    FETCH C1 INTO V_DEPT.DEPT_ID,
+                  V_DEPT.DEPT_TITLE,
+                  V_DEPT.LOCATION_ID;
+    EXIT WHEN C1%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE('부서코드 : '||V_DEPT.DEPT_ID
+                        ||' 부서명 : '||V_DEPT.DEPT_TITLE
+                        ||' 지역코드 : '||V_DEPT.LOCATION_ID);
+ end loop;						
+ close c1;
+end;
+/
+
+CREATE OR REPLACE PROCEDURE cursortest
+IS
+    v_dept DEPARTMENT%ROWTYPE;
+    CURSOR C1
+    IS
+    SELECT * FROM DEPARTMENT;
+BEGIN
+    OPEN C1;
+    LOOP
+        FETCH C1 INTO v_dept.dept_id,
+                      v_dept.dept_title,
+                      v_dept.location_id;
+        EXIT WHEN C1%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE('부서코드' || v_dept.dept_id
+                             ||'부서명' || v.dept.dept_title
+                             ||'지역코드'|| v.dept.location_id);
+    END LOOP;
+    CLOSE C1;
+END;
+/
+
+--9개의 행이 CURSOR C1 로 전부 들어감
+
+SET SERVEROUTPUT ON;
+EXEC cursortest;
+
+DECLARE
+    v_user EMPLOYEE%ROWTYPE;
+    CURSOR C1
+    IS
+    SELECT * FROM EMPLOYEE;
+BEGIN
+    OPEN C1;
+    LOOP
+        FETCH C1 INTO v_user;
+        EXIT WHEN C1%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE('이름 : ' || v_user.emp_name);
+    END LOOP;
+    CLOSE C1;
+END;
+/
+
+--FOR IN 을 이용하여 처리하는 방법
+--  CURSOR를 open/close 안해도 됨.
+DECLARE
+    v_det DEPARTMENT%ROWTYPE;
+    CURSOR c2
+    IS SELECT * from department;
+BEGIN
+    --OPEN c2
+    --fetch c2 into
+    FOR v_dept in C2 LOOP
+        DBMS_OUTPUT.PUT_LINE('부서코드' || v_dept.dept_id);
+    END LOOP;
+END;
+/
+
+--TRIGGER : DML(insert,update,delete)실행전,후에 발생시킨
+--  실행 구문을 정해놓고 실행시키는 것
+--  CREATE 명령어로 생성
+--  after/before 실행시점
+--  실행할 명령어를 지정
+--  행단위로 실행 할 지 여부.
+--  CREATE TRIGGER trigger_name
+--  AFTER/BEFORE 실행명령어 ON table_name
+--  FOR EACH ROW
+--  PL/SQL 구문실행 (BEGIN~END)
+--  명령어 : 
+--      new.컬럼 : 지금 수정 삽입된 자료(update,insert에만)
+--      old.컬럼 : 수정, 삭제 이전에 있던 값 (update, delete에만)
+
+-- trigger 생성하면 자동으로 돌아감
+CREATE OR REPLACE TRIGGER tg_empnew
+AFTER INSERT ON EMPLOYEE
+FOR EACH ROW
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('신입사원 등록완료!');
+END;
+/
+
+SELECT * from user_triggers;
+
+INSERT INTO employee VALUES(
+    996, '박수영', '961222-2112333', 'red@sm.co.kr', '01011223344',
+    'D1', 'J2', 'S2', 1500000, 0.3, 200, SYSDATE, DEFAULT, DEFAULT);
+INSERT INTO employee VALUES(
+    996, '박수영', '961222-2112333', 'red@sm.co.kr', '01011223344',
+    'D1', 'J2', 'S2', 1500000, 0.3, 200, SYSDATE, DEFAULT, DEFAULT);
+select * from employee;
+
+DELETE FROM employee where emp_name='박수영';
+
+COMMIT; --COMMIT해야 메시지 출력
+--AUTO COMMIT 설정시 INSERT 마다 출력
+
+--
+CREATE OR REPLACE TRIGGER tg_sal
+AFTER UPDATE ON EMPLOYEE
+FOR EACH ROW
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('변경전 값 : ' || :OLD.salary);
+    DBMS_OUTPUT.PUT_LINE('변경후 값 : ' || :NEW.salary);
+END;
+/
+
+SELECT * from user_triggers;
+
+UPDATE employee
+SET SALARY = SALARY * 3
+WHERE emp_name='유병승';
+
+select emp_name, salary from employee 
+where emp_name='유병승';
+
+ROLLBACK;
+
+--TRIGGER 적용하기
+CREATE TABLE product(
+    pcode NUMBER PRIMARY KEY,
+    pname VARCHAR2(30),
+    brand VARCHAR2(30),
+    price NUMBER,
+    stock NUMBER DEFAULT 0
+);
+--입고 출고 관리 테이블
+CREATE TABLE product_IO(
+    icode NUMBER PRIMARY KEY,
+    pcode NUMBER,
+    pdate DATE,
+    amount NUMBER,
+    status VARCHAR2(10) CHECK(status in ('입고', '출고')),
+    CONSTRAINT fk_proc_io FOREIGN KEY(pcode) REFERENCES product(pcode)
+
+);
+DROP TABLE product;
+DROP TABLE product_io;
+
+select * from product;
+select * from product_io;
+
+CREATE SEQUENCE seq_proc;
+CREATE SEQUENCE seq_proc_io;
+
+DROP SEQUENCE seq_proc;
+DROP SEQUENCE seq_proc_io;
+
+INSERT INTO product VALUES(
+    seq_proc.nextval, 'IPad', 'APPLE.INC', 1500000, DEFAULT);
+INSERT INTO product VALUES(
+    seq_proc.nextval, 'IPone', 'APPLE.INC', 1000000, DEFAULT);
+INSERT INTO product VALUES(
+    seq_proc.nextval, 'Galaxy S10', 'SAMSUNG', 190000, DEFAULT);
+
+select * from product;
+
+--TRIGGER IO테이블 값이 입력되면 입력되는 것을 기준으로
+--product 수량의 수정하는 trigger 생성
+CREATE TRIGGER tg_product
+AFTER INSERT ON PRODUCT_IO
+FOR EACH ROW
+BEGIN
+    IF :new.status='입고'
+    THEN
+        UPDATE product
+        SET stock = stock +:new.amount
+        WHERE pcode = :new.pcode;
+    ELSIF :new.status='출고'
+    THEN
+        UPDATE product
+        SET stock = stock  - :new.amount
+        WHERE pcode = :new.pcode;
+    END IF;
+END;
+/
+DROP TRIGGER tg_product;
+
+INSERT INTO product_io VALUES(
+    seq_proc_io.nextval, 1, SYSDATE, 10, '입고');
+INSERT INTO product_io VALUES(
+    seq_proc_io.nextval, 2, SYSDATE, 50, '입고');
+INSERT INTO product_io VALUES(
+    seq_proc_io.nextval, 3, SYSDATE, 100, '입고');
+
+select * from user_sequences;
+
+--EMPLOYEE 테이블에서 사원을 삭제하면 삭제테이블로 이동
+CREATE TABLE del_emp AS (select * from employee where 1=0);
+
+CREATE TRIGGER tg_del_emp
+AFTER DELETE ON EMPLOYEE
+FOR EACH ROW
+WHEN (OLD.emp_name <> '유병승')
+BEGIN
+    INSERT INTO del_emp VALUES
+    (:OLD.EMP_ID, :OLD.EMP_NAME, :OLD.EMP_NO, :OLD.EMAIL, :OLD.PHONE, 
+     :OLD.DEPT_CODE, :OLD.JOB_CODE, :OLD.SAL_LEVEL, :OLD.SALARY, :OLD.BONUS, 
+     :OLD.MANAGER_ID, :OLD.HIRE_DATE, :OLD.ENT_DATE, :OLD.ENT_YN);
+END;
+/
+
+DROP TRIGGER tg_del_emp;
+
+INSERT INTO employee VALUES(
+    995, '박수영2', '961223-2112333', 'red@sm.co.kr', '01011223344',
+    'D1', 'J2', 'S2', 1500000, 0.3, 200, SYSDATE, DEFAULT, DEFAULT);
+
+DELETE FROM EMPLOYEE WHERE  emp_name='박수영2';
+DELETE FROM EMPLOYEE WHERE  emp_name='유병승';
+ROLLBACK;
+select * from del_emp;
+
+DESC EMPLOYEE;

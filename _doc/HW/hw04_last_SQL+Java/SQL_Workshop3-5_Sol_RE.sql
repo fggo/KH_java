@@ -214,6 +214,31 @@ ALTER TABLE tb_class_type
 MODIFY name VARCHAR2(5) CONSTRAINT nn_name_cons NOT NULL;
 
 --5
+-- no VARCHAR2(10), name VARCHAR2(20)
+ALTER TABLE tb_category
+MODIFY name VARCHAR2(20);
+
+ALTER TABLE tb_class_type
+MODIFY (no VARCHAR2(10), name VARCHAR2(20));
+
+--6
+ALTER TABLE tb_category RENAME COLUMN name TO category_name;
+ALTER TABLE tb_category RENAME COLUMN use_yn TO category_use_yn;
+
+ALTER TABLE tb_class_type RENAME COLUMN no TO class_type_no;
+ALTER TABLE tb_class_type RENAME COLUMN name TO class_type_name;
+
+select * from tb_class_type;
+select * from tb_category;
+
+--7
+ALTER TABLE tb_category RENAME CONSTRAINT pk_category TO pk_category_name;
+ALTER TABLE tb_class_type RENAME CONSTRAINT SYS_C007216 TO pk_no;
+
+select * from user_constraints
+where table_name in ('TB_CLASS_TYPE', 'TB_CATEGORY');
+
+
 
 DESC tb_category;
 DESC tb_class_type;

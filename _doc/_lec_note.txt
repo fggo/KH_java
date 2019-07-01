@@ -1,5 +1,67 @@
 
 
+
+
+
+
+
+
+--DB 시험 7.2
+CREATE TABLE table_name(
+);
+
+제약조건 수정 삭제 추가
+TCL
+	COMMIT ROLLBACK
+JOIN
+
+DML
+	SELECT INSERT UPDATE DELETE
+DDL
+	CREATE ALTER DROP
+DCL
+	GRANT REVOKE
+
+TRANSACTION 한개의 작업단위
+	작업이 끝나지 않으면 멈춰 있음
+	각각 트랜젝션이 별개
+	COMMIT ROLLBACK
+
+INSERT
+
+INDEX
+	fast search
+	자동생성 PK 일때
+	인덱스가 지정된 대로 데이터 찾음
+	컬럼이 자주 수정/삭제 되면, 인덱스가
+	인덱스 걸려있는 컬럼값 변경할 때 마다, rebuild
+	해야 하므로, 비효율적.
+
+서브쿼리
+	동등비교 IN ()
+	ANY ALL ()
+	EXISTS 상관 서브쿼리
+	
+PROCEDURE (CREATE OR REPLACE)
+
+VIEW
+	보안 우수성
+	필요한 데이터만 골라 볼 수 있음
+	VIEW 입력 수정 삭제를 통한 테이블 데이터 변경 가능
+	
+	GRANT CREATE VIEW TO user;
+	
+DATA TYPE
+	INT, DATE, NVARCHAR2
+
+
+
+
+
+
+
+
+
 --DB시험(책 DDL 파트, p112, p133)
 standard 기본기능. 유료but 개인용 앱개발 사용 가능
 enterprise 대규모 대용량. 기업용 유료
