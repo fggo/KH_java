@@ -1,37 +1,39 @@
 
-
-
-
-
-
-
-
 --DB 시험 7.2
-CREATE TABLE table_name(
+CREATE TABLE table_name
+    var_1 data_type_1,
+    var_2 data_type_2,
+    ...
+    var_n datatype_n;
 );
 
-제약조건 수정 삭제 추가
-TCL
-	COMMIT ROLLBACK
-JOIN
+CONSTRAINT 제약조건 수정 삭제 추가
 
-DML
-	SELECT INSERT UPDATE DELETE
-DDL
+JOIN (INNER / LEFT OUTER / RIGHT OUTER)
+
+DDL(Data Definition Language)
 	CREATE ALTER DROP
-DCL
+    TRUNCATE
+    COMMENT
+    RENAME
+
+DML(Data Manipulation Language)
+	SELECT INSERT UPDATE DELETE
+
+DCL(Data Control Language)
 	GRANT REVOKE
 
-TRANSACTION 한개의 작업단위
-	작업이 끝나지 않으면 멈춰 있음
-	각각 트랜젝션이 별개
-	COMMIT ROLLBACK
+TCL(transaction Control Language)
+    COMMIT ROLLBACK
+    - TRANSACTION : 한개의 작업단위. 작업이 끝나지 않으면 멈춰 있음
+      각각 트랜젝션이 별개
 
-INSERT
+INSERT INTO table_name VALUES(... ... );
+INSERT INTO table_name(col_1, ... , col_n) VALUES(val_1, ... , val_n);
 
 INDEX
 	fast search
-	자동생성 PK 일때
+	자동생성 PK 혹은 UNIQUE KEY 일때
 	인덱스가 지정된 대로 데이터 찾음
 	컬럼이 자주 수정/삭제 되면, 인덱스가
 	인덱스 걸려있는 컬럼값 변경할 때 마다, rebuild
@@ -43,21 +45,18 @@ INDEX
 	EXISTS 상관 서브쿼리
 	
 PROCEDURE (CREATE OR REPLACE)
-
+    A procedure is a group of PL/SQL statements that you can call by name
+    Stored procedures offer advantages in the areas of development, integrity, 
+        security, performance, and memory allocation.
 VIEW
 	보안 우수성
 	필요한 데이터만 골라 볼 수 있음
 	VIEW 입력 수정 삭제를 통한 테이블 데이터 변경 가능
 	
-	GRANT CREATE VIEW TO user;
+	GRANT CREATE VIEW TO user_name;
 	
 DATA TYPE
 	INT, DATE, NVARCHAR2
-
-
-
-
-
 
 
 

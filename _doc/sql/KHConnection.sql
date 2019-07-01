@@ -3049,7 +3049,6 @@ select * from tb_test_for;
 
 --PL/SQL FOR 반복문 이용하여 employee 테이블의
 --200부터 210번까지 사원의 아이디,이름,이메일 출력
-
 DECLARE
     E EMPLOYEE%ROWTYPE;
 BEGIN
@@ -3369,16 +3368,16 @@ END;
 /
 
 --변수선언 -> 프로시져를 통해 OUT되는 데이터를 담는다.
-VARIABLE VAR_ENAME VARCHAR2(20);
-VARIABLE VAR_PHONE VARCHAR2(20);
-VARIABLE VAR_EMAIL VARCHAR2(20);
+VARIABLE var_ename VARCHAR2(20);
+VARIABLE var_phone VARCHAR2(20);
+VARIABLE var_email VARCHAR2(20);
 
-EXEC emp_info(201, :VAR_ENAME, :VAR_PHONE, :VAR_EMAIL);
+EXEC emp_info(201, :var_ename, :var_phone, :var_email);
 
 --변수확인
-PRINT VAR_ENAME;
-PRINT VAR_PHONE;
-PRINT VAR_EMAIL;
+PRINT var_ename;
+PRINT var_phone;
+PRINT var_email;
 
 SET AUTOPRINT ON;
 --프로시져 실행하고 EXEC하면, 전부 출력됨
@@ -3412,8 +3411,6 @@ EXCEPTION
     WHEN NO_DATA_FOUND
         THEN DBMS_OUTPUT.PUT_LINE('해당부서 ' || v_dept_id || ' 가 존재하지 않습니다.');
         RETURN;
-
-
 END;
 /
 
@@ -3421,12 +3418,19 @@ VARIABLE dept_title VARCHAR2(35);
 select * from dept_01;
 EXEC del_dept('&부서코드', :dept_title);
 select * from dept_01;
-EXEC del_dept('D1', :dept_title);
+EXEC del_dept('D2', :dept_title);
 
---FUNCTION
---  similar to procedure, but has RETURN
+PRINT dept_title;
+
+
+--FUNCTION 함수
+--  similar to procedure, 
+--  but has RETURN value.
+--  사원번호를 입력받아 1년치 연봉+보너스 계산하여
+--  반환하는 함수를 정의하세요
+
 CREATE OR REPLACE FUNCTION bonus_cal(
-    v_empid EMPLOYEE.emp_id%TYPE)
+    v_emp_id EMPLOYEE.emp_id%TYPE)
 RETURN NUMBER
 IS
     v_sal EMPLOYEE.salary%TYPE;
@@ -3436,7 +3440,7 @@ BEGIN
     SELECT salary, nvl(bonus,0)
     INTO v_sal, v_bonus
     FROM EMPLOYEE
-    WHERE emp_id = v_empid;
+    WHERE emp_id = v_emp_id;
 
     v_cal_sal := 12*v_sal*(1 + v_bonus);
     RETURN v_cal_sal;
@@ -3478,45 +3482,26 @@ PRINT var_re;
 
 select * from all_errors;
 
-
 --CURSOR
---  select문 결과 여러ROW일때, 한개행씩  접근하여 처리
---  cursor에 resultSet을 보관하고 fetch로 다음행으로 연결
+--  SELECT 문 결과 여러ROW일때, 한개 행씩  접근하여 처리
+--  CURSOR에 RESULTSET을 보관하고 FETCH로 다음행으로 연결
+--
 --  [사용법]
---  cursor를 변수로 선언하고, 선언한 변수 cursor를 open으로 연다.
---  반복문 안에서 fetch를 통해 한행씩
---  종료가 되면, close 명령으로 cursor 닫아줌.
---  cursor에 데이터 존재여부 확인하는 방법:
---  %NOTFOUND : OPEN 후 FETCH 전에 NULL, FETCH된 행이 존재하면 FALSE,
---              존재하지 않으면 TRUE
+--  CURSOR를 변수로 선언하고, 선언한 변수 CURSOR를 OPEN으로 연다.
+--  반복문 안에서 FETCH를 통해 한 행씩 종료되면, CLOSE 명령으로 CURSOR 닫음
+--
+--  [CURSOR에 데이터 존재여부 확인하는 방법]
+--  %NOTFOUND : OPEN 후 FETCH 전에 NULL, FETCH된 행이 존재하면 FALSE, 존재하지 않으면 TRUE
 --  %FOUND : FETCH 된 행이 존재하면 TRUE, 아니면 FALSE
 --  %ISOPEN : 최근 실행된 CURSOR가 OPEN 된 상태이면 TRUE, 아니면 FALSE
---  %ROWCOUNT : CURSOR에 들어가 있는 ROW의 수.
-CREATE OR REPLACE PROCEDURE CURSORTEST
-IS
-    V_DEPT DEPARTMENT%ROWTYPE;
-    CURSOR C1
-    IS
-    SELECT * FROM DEPARTMENT;
-BEGIN
- OPEN C1;
- LOOP	
-    FETCH C1 INTO V_DEPT.DEPT_ID,
-                  V_DEPT.DEPT_TITLE,
-                  V_DEPT.LOCATION_ID;
-    EXIT WHEN C1%NOTFOUND;
-    DBMS_OUTPUT.PUT_LINE('부서코드 : '||V_DEPT.DEPT_ID
-                        ||' 부서명 : '||V_DEPT.DEPT_TITLE
-                        ||' 지역코드 : '||V_DEPT.LOCATION_ID);
- end loop;						
- close c1;
-end;
-/
+--  %ROWCOUNT : CURSOR에 들어가 있는 ROW 수
 
+--  부서코드 부서명 지역코드를 모두 출력하는
+--  커서를 이용한 프로시져를 작성
 CREATE OR REPLACE PROCEDURE cursortest
 IS
     v_dept DEPARTMENT%ROWTYPE;
-    CURSOR C1
+    CURSOR C1  -- 9개의 행이 CURSOR C1 로 전부 들어감
     IS
     SELECT * FROM DEPARTMENT;
 BEGIN
@@ -3526,16 +3511,13 @@ BEGIN
                       v_dept.dept_title,
                       v_dept.location_id;
         EXIT WHEN C1%NOTFOUND;
-        DBMS_OUTPUT.PUT_LINE('부서코드' || v_dept.dept_id
-                             ||'부서명' || v.dept.dept_title
-                             ||'지역코드'|| v.dept.location_id);
+        DBMS_OUTPUT.PUT_LINE('부서코드: ' || v_dept.dept_id
+                             ||', 부서명: ' || v_dept.dept_title
+                             ||', 지역코드: '|| v_dept.location_id);
     END LOOP;
     CLOSE C1;
 END;
 /
-
---9개의 행이 CURSOR C1 로 전부 들어감
-
 SET SERVEROUTPUT ON;
 EXEC cursortest;
 
@@ -3559,12 +3541,12 @@ END;
 --  CURSOR를 open/close 안해도 됨.
 DECLARE
     v_det DEPARTMENT%ROWTYPE;
-    CURSOR c2
+    CURSOR C2
     IS SELECT * from department;
 BEGIN
-    --OPEN c2
-    --fetch c2 into
-    FOR v_dept in C2 LOOP
+    --OPEN C2
+    --FETCH C2 INTO
+    FOR v_dept IN C2 LOOP
         DBMS_OUTPUT.PUT_LINE('부서코드' || v_dept.dept_id);
     END LOOP;
 END;
@@ -3618,16 +3600,12 @@ BEGIN
 END;
 /
 
-SELECT * from user_triggers;
-
-UPDATE employee
-SET SALARY = SALARY * 3
-WHERE emp_name='유병승';
-
-select emp_name, salary from employee 
-where emp_name='유병승';
+UPDATE employee SET SALARY = SALARY * 3 WHERE emp_name='유병승';
+select emp_name, salary from employee where emp_name='유병승';
 
 ROLLBACK;
+
+SELECT * from user_triggers;
 
 --TRIGGER 적용하기
 CREATE TABLE product(
@@ -3645,7 +3623,6 @@ CREATE TABLE product_IO(
     amount NUMBER,
     status VARCHAR2(10) CHECK(status in ('입고', '출고')),
     CONSTRAINT fk_proc_io FOREIGN KEY(pcode) REFERENCES product(pcode)
-
 );
 DROP TABLE product;
 DROP TABLE product_io;
@@ -3659,12 +3636,9 @@ CREATE SEQUENCE seq_proc_io;
 DROP SEQUENCE seq_proc;
 DROP SEQUENCE seq_proc_io;
 
-INSERT INTO product VALUES(
-    seq_proc.nextval, 'IPad', 'APPLE.INC', 1500000, DEFAULT);
-INSERT INTO product VALUES(
-    seq_proc.nextval, 'IPone', 'APPLE.INC', 1000000, DEFAULT);
-INSERT INTO product VALUES(
-    seq_proc.nextval, 'Galaxy S10', 'SAMSUNG', 190000, DEFAULT);
+INSERT INTO product VALUES(seq_proc.nextval, 'IPad', 'APPLE.INC', 1500000, DEFAULT);
+INSERT INTO product VALUES(seq_proc.nextval, 'IPone', 'APPLE.INC', 1000000, DEFAULT);
+INSERT INTO product VALUES(seq_proc.nextval, 'Galaxy S10', 'SAMSUNG', 190000, DEFAULT);
 
 select * from product;
 
@@ -3674,13 +3648,11 @@ CREATE TRIGGER tg_product
 AFTER INSERT ON PRODUCT_IO
 FOR EACH ROW
 BEGIN
-    IF :new.status='입고'
-    THEN
+    IF :new.status='입고' THEN
         UPDATE product
         SET stock = stock +:new.amount
         WHERE pcode = :new.pcode;
-    ELSIF :new.status='출고'
-    THEN
+    ELSIF :new.status='출고' THEN
         UPDATE product
         SET stock = stock  - :new.amount
         WHERE pcode = :new.pcode;
@@ -3689,12 +3661,9 @@ END;
 /
 DROP TRIGGER tg_product;
 
-INSERT INTO product_io VALUES(
-    seq_proc_io.nextval, 1, SYSDATE, 10, '입고');
-INSERT INTO product_io VALUES(
-    seq_proc_io.nextval, 2, SYSDATE, 50, '입고');
-INSERT INTO product_io VALUES(
-    seq_proc_io.nextval, 3, SYSDATE, 100, '입고');
+INSERT INTO product_io VALUES(seq_proc_io.nextval, 1, SYSDATE, 10, '입고');
+INSERT INTO product_io VALUES(seq_proc_io.nextval, 2, SYSDATE, 50, '입고');
+INSERT INTO product_io VALUES(seq_proc_io.nextval, 3, SYSDATE, 100, '입고');
 
 select * from user_sequences;
 
@@ -3715,9 +3684,8 @@ END;
 
 DROP TRIGGER tg_del_emp;
 
-INSERT INTO employee VALUES(
-    995, '박수영2', '961223-2112333', 'red@sm.co.kr', '01011223344',
-    'D1', 'J2', 'S2', 1500000, 0.3, 200, SYSDATE, DEFAULT, DEFAULT);
+INSERT INTO employee VALUES( 995, '박수영2', '961223-2112333', 'red@sm.co.kr',
+    '01011223344', 'D1', 'J2', 'S2', 1500000, 0.3, 200, SYSDATE, DEFAULT, DEFAULT);
 
 DELETE FROM EMPLOYEE WHERE  emp_name='박수영2';
 DELETE FROM EMPLOYEE WHERE  emp_name='유병승';
@@ -3725,3 +3693,6 @@ ROLLBACK;
 select * from del_emp;
 
 DESC EMPLOYEE;
+
+COMMIT;
+ROLLBACK;

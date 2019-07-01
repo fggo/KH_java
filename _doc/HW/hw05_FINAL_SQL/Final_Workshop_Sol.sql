@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 SELECT * FROM TB_BOOK;
 SELECT * FROM TB_WRITER;
 SELECT * FROM TB_PUBLISHER;
@@ -50,3 +43,11 @@ where ROWNUM=1;
 select count(*) AS "ÀÛ°¡(¸í)"
 from tb_book_author
 where compose_type='¿Å±è';
+
+
+--6
+select compose_type, count(*) from tb_book_author
+GROUP BY compose_type
+HAVING count(*) >= 300;
+
+--7

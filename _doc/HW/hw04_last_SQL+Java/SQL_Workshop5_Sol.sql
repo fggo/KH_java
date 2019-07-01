@@ -83,7 +83,7 @@ CREATE OR REPLACE VIEW vw_지도면담 AS (
         JOIN tb_department USING(department_no)
         LEFT JOIN tb_professor ON (professor_no = coach_professor_no));
 
-select * from vw_학생일반정보;
+select * from vw_지도면담;
 drop view vw_지도면담;
 
 --12
@@ -152,7 +152,7 @@ CREATE TABLE tb_국어국문학과 AS (
            P.professor_name AS 교수이름
     from tb_student S
         JOIN tb_professor P ON professor_no = coach_professor_no
-        JOIN tb_department D ON P.department_no = D.department_no
+        JOIN tb_department D ON S.department_no = D.department_no
     where D.department_name='국어국문학과');
 DROP TABLE tb_국어국문학과;
 select * from tb_국어국문학과;
