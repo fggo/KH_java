@@ -50,11 +50,11 @@ hi Comment 		    guifg=#464545 gui=none
 hi Todo 		      guifg=#ffffff guibg=#AB907C gui=italic
 hi Constant 	    guifg=#C1C1C1 gui=none
 hi String 		    guifg=#FFB4A5 gui=none
-hi Identifier 	  guifg=#0D54B1 gui=none
-hi Function 	    guifg=#0D54B1 gui=none
+hi Identifier 	  guifg=#0856BC gui=none
+hi Function 	    guifg=#0856BC gui=none
 hi Type 		      guifg=#000000 gui=none
-hi Statement 	    guifg=#0D54B1 gui=none
+hi Statement 	    guifg=#0856BC gui=none
 hi Keyword		    guifg=#000000 gui=none
-hi PreProc 		    guifg=#0D54B1 gui=none
+hi PreProc 		    guifg=#0856BC gui=none
 hi Number		      guifg=#C1C1C1 gui=none
 hi Special		    guifg=#e7f6da gui=none

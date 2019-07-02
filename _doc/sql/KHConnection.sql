@@ -2422,11 +2422,11 @@ CREATE OR REPLACE NOFORCE VIEW v_emp AS (
     select t_code, t_name, t_content from test_table);
 
 --WITH CHECK 설정 컬럼을 수정 못하게.
-CREATE OR REPLACE VIEW v_emp AS
-    select * from employee WITH CHECK OPTION;
+    CREATE OR REPLACE VIEW v_emp AS
+        select * from employee WITH CHECK OPTION;
 
---ERROR! CHECK option때문에
-INSERT INTO v_emp VALUES(810, '류별리', '101010-1234567',
+    --ERROR! CHECK option때문에
+    INSERT INTO v_emp VALUES(810, '류별리', '101010-1234567',
             'ryu@kh.co.kr', '01012345555', 'D1', 'J7', 'S1',
             800000, .1, 200, SYSDATE, NULL, DEFAULT);
 select * from v_emp;
@@ -3540,7 +3540,7 @@ END;
 --FOR IN 을 이용하여 처리하는 방법
 --  CURSOR를 open/close 안해도 됨.
 DECLARE
-    v_det DEPARTMENT%ROWTYPE;
+    v_dept DEPARTMENT%ROWTYPE;
     CURSOR C2
     IS SELECT * from department;
 BEGIN
@@ -3666,7 +3666,6 @@ INSERT INTO product_io VALUES(seq_proc_io.nextval, 2, SYSDATE, 50, '입고');
 INSERT INTO product_io VALUES(seq_proc_io.nextval, 3, SYSDATE, 100, '입고');
 
 select * from user_sequences;
-
 --EMPLOYEE 테이블에서 사원을 삭제하면 삭제테이블로 이동
 CREATE TABLE del_emp AS (select * from employee where 1=0);
 
@@ -3690,6 +3689,7 @@ INSERT INTO employee VALUES( 995, '박수영2', '961223-2112333', 'red@sm.co.kr',
 DELETE FROM EMPLOYEE WHERE  emp_name='박수영2';
 DELETE FROM EMPLOYEE WHERE  emp_name='유병승';
 ROLLBACK;
+
 select * from del_emp;
 
 DESC EMPLOYEE;

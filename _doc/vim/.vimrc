@@ -10,7 +10,7 @@ endif
 
 syntax on
 set background=dark
-colorscheme darth
+colorscheme magicwb2
 
 set lines=55 columns=90
 
@@ -23,3 +23,5 @@ set nu
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+nnoremap zz :update<cr>
