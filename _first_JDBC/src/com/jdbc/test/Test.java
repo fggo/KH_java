@@ -1,4 +1,4 @@
-package jdbc;
+package com.jdbc.test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -33,12 +33,12 @@ public class Test {
 //			PreparedStatement prep_stmt
 //				= con.prepareStatement("UPDATE EMPLOYEE SET emp_name=? where emp_id=?");  
 			prep_stmt.setInt(1, 999); //1 specifies the first parameter in the query
-			prep_stmt.setString(2, "´ó´óÀÌ");
+			prep_stmt.setString(2, "ï¿½ï¿½ï¿½ï¿½ï¿½");
 			prep_stmt.setString(3, "171111-3000777");
 			prep_stmt.setString(4, "S1");
 			prep_stmt.setString(5, "J3");
 //			INSERT INTO employee(emp_id, emp_name, emp_no, sal_level, job_code)
-//		    VALUES(904, '´ó´óÀÌ', '1711111-3000777', 'S1', 'J3');
+//		    VALUES(904, 'ï¿½ï¿½ï¿½ï¿½ï¿½', '1711111-3000777', 'S1', 'J3');
 
 
 			//4. Execute Queries

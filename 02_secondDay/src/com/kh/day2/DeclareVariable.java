@@ -1,50 +1,50 @@
 package com.kh.day2;
 
 public class DeclareVariable {
-	//º¯¼ö¼±¾ð: memory °ø°£È®º¸
-	//µ¥ÀÌÅÍ ÁÖ¼Ò°ªÀ» ÄÄÇ»ÅÍ°¡ ¾Ë¼ö ¾øÀ½ -> µ¥ÀÌÅÍ ÀÌ¸§ Á¤ÀÇ
-	//º¯¼ö ¼±¾ð & µ¥ÀÌÅÍ °ª assign½Ã ¿À¸¥ÂÊ literal¿¡ default ÀÚ·áÇü ³»Àç
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: memory ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½Ç»ï¿½Í°ï¿½ ï¿½Ë¼ï¿½ ï¿½ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ assignï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ literalï¿½ï¿½ default ï¿½Ú·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//''	char
 	//""	String
 	//123	int
 	//3.14	double
 	public void addValue() {
-		//³í¸®Çü
+		//ï¿½ï¿½ï¿½ï¿½
 		boolean flag;
 		flag = true;
 		flag = false;
 //		flag = 1000; ERROR
 		System.out.println(flag);
 
-		//¹®ÀÚÇü(¹®ÀÚ, ¹®ÀÚ¿­)
-		//´ÜÀÏ¹®ÀÚ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ú¿ï¿½)
+		//ï¿½ï¿½ï¿½Ï¹ï¿½ï¿½ï¿½
 		char gender;
 		gender = 'M';
-		gender = '³²';
+		gender = 'F';
 //		gender = "M"; ERROR
 //		gender = 'AB'; ERROR
-//		gender = ³²; ERROR it looks for ³² variable
+//		gender = ï¿½ï¿½; ERROR it looks for ï¿½ï¿½ variable
 		System.out.println(gender);
 		
-		//¹®ÀÚ¿­ ""
-		String name = "¹Ù¹Ù";
-		String msg = "¾È³çÇÏ¼¼¿ä Àú´Â" + name + " ÀÔ´Ï´Ù.";
+		//ï¿½ï¿½ï¿½Ú¿ï¿½ ""
+		String name = "ï¿½Ù¹ï¿½";
+		String msg = "ï¿½È³ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½" + name + " ï¿½Ô´Ï´ï¿½.";
 		System.out.println(msg);
 		
-		//¼ýÀÚÇü(Á¤¼ö, ½Ç¼ö)
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½, ï¿½Ç¼ï¿½)
 		byte bnum1 = 10; // int -> byte
 		byte bnum2 = 20;
 //		byte bnum  = bnum1 + bnum2; //ERROR int->bnum not allowed
-		//°­Á¦Çüº¯È¯ (explicit)
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯ (explicit)
 		byte bnum  = (byte)(bnum1 + bnum2);
 
-//		bnum = 128;  ERROR; ¹üÀ§(-128~127) ¹Û
-		//90000 short°¡ Ç¥ÇöÇÒ¼ö ÀÖ´Â ¹üÀ§¸¦ ¹þ¾î³ª´Â literal°ªÀÌ±â
-		//¶§¹®¿¡, ÀÚµ¿Çüº¯È¯ ÀÏ¾î³ªÁö ¾ÊÀ½.
-		short snum = 10000; //int->short ÀÚµ¿Çüº¯È¯
+//		bnum = 128;  ERROR; ï¿½ï¿½ï¿½ï¿½(-128~127) ï¿½ï¿½
+		//90000 shortï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³ªï¿½ï¿½ literalï¿½ï¿½ï¿½Ì±ï¿½
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½È¯ ï¿½Ï¾î³ªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+		short snum = 10000; //int->short ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½È¯
 		int intNum = 90000;
-		long longNum = 900000; // int->long ÀÚµ¿Çüº¯È¯
-//		longNum = 900000000000; //ERROR int ¹üÀ§ÃÊ°ú
+		long longNum = 900000; // int->long ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½È¯
+//		longNum = 900000000000; //ERROR int ï¿½ï¿½ï¿½ï¿½ï¿½Ê°ï¿½
 		longNum = 900000000000L;
 
 		System.out.println(bnum);
@@ -52,15 +52,15 @@ public class DeclareVariable {
 		System.out.println(intNum);
 		System.out.println(longNum);
 		
-		//½Ç¼ö (float, double)
+		//ï¿½Ç¼ï¿½ (float, double)
 		float fnum;
 		double dnum;
 		fnum = 180.5f; //ERROR! if 180.5(double)
-		// double-> float ÀÚµ¿Çüº¯È¯ ºÒ°¡
+		// double-> float ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½È¯ ï¿½Ò°ï¿½
 		dnum = 65.5;
 		System.out.println(fnum);
 		System.out.println(dnum);
-		System.out.println(65.5); // ÀÚµ¿ double Çü ¸Þ¸ð¸®°ø°£¿¡ ÀúÀå
+		System.out.println(65.5); // ï¿½Úµï¿½ double ï¿½ï¿½ ï¿½Þ¸ð¸®°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		
 		long num = 9000000;
 		System.out.println(num*10);
@@ -68,32 +68,32 @@ public class DeclareVariable {
 		// ...
 		System.out.println(num*90);
 		
-		//»ó¼öÀÇ ¼±¾ð ¹× ´ëÀÔ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		final int AGE;
 		AGE = 19;
 		System.out.println(AGE);
 //		AGE = 20;// ERROR
 		
-		//¹®ÀÚ + ¼ýÀÚ = > ¹®ÀÚ
-		//¼ÚÀÚ+¼ýÀÚ + ¹®ÀÚ = > ¼ýÀÚÇÕ + ¹®ÀÚ
+		//ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ = > ï¿½ï¿½ï¿½ï¿½
+		//ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ = > ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½
 		String msg2;
-		msg2 = "¾È³ç! ³ª´Â ...";
-		msg2 = new String("¾È³ç ³­ ¾Æ¾Æ¤¿");
+		msg2 = "ï¿½È³ï¿½! ï¿½ï¿½ï¿½ï¿½ ...";
+		msg2 = new String("ï¿½È³ï¿½ ï¿½ï¿½ ï¿½Æ¾Æ¤ï¿½");
 		
-		//¹®ÀÚ¿­¿¡¼­ +±âÈ£´Â ¿¬°á¿¬»êÀ¸·Î »ç¿ë
-		msg2 = "³ª´Â " + 19 + 1+ " »ì ÀÔ´Ï´Ù."; //191
-		msg2 = "³ª´Â " + (19 + 1)+ " »ì ÀÔ´Ï´Ù."; //20
-		msg2 = 19+1 + "»ì ÀÔ´Ï´Ù."; //20
+		//ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½ +ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½á¿¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+		msg2 = "ï¿½ï¿½ï¿½ï¿½ " + 19 + 1+ " ï¿½ï¿½ ï¿½Ô´Ï´ï¿½."; //191
+		msg2 = "ï¿½ï¿½ï¿½ï¿½ " + (19 + 1)+ " ï¿½ï¿½ ï¿½Ô´Ï´ï¿½."; //20
+		msg2 = 19+1 + "ï¿½ï¿½ ï¿½Ô´Ï´ï¿½."; //20
 
 		System.out.println(msg2);
 
-		String nameOfStudent = "³ª³ª³ª";
+		String nameOfStudent = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 		int age = 19;
-		String address = "¼­¿ï";
+		String address = "ï¿½ï¿½ï¿½ï¿½";
 
-		String msg3 = "³ª´Â " + nameOfStudent + " ÀÌ´Ù."
-					+ ",\n³ª´Â " + age+ " »ìÀÌ´Ù.\n"
-					+ address + "¿¡ »ì°íÀÖ´Ù.";
+		String msg3 = "ï¿½ï¿½ï¿½ï¿½ " + nameOfStudent + " ï¿½Ì´ï¿½."
+					+ ",\nï¿½ï¿½ï¿½ï¿½ " + age+ " ï¿½ï¿½ï¿½Ì´ï¿½.\n"
+					+ address + "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½.";
 		System.out.println(msg3);
 
 		String memberName = name; //assign variable

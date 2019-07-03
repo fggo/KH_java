@@ -8,44 +8,44 @@ public class ExTest {
 
 		int n1, n2;
 
-		//¿¬»ê¿¡ »ç¿ëÇÒ ¼ýÀÚ ÀÔ·Â
-		System.out.print("¼ýÀÚ n1 ÀÔ·Â: ");
+		//ï¿½ï¿½ï¿½ê¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ n1 ï¿½Ô·ï¿½: ");
 		n1 = sc.nextInt(); sc.nextLine();
-		System.out.print("¼ýÀÚ n2 ÀÔ·Â: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ n2 ï¿½Ô·ï¿½: ");
 		n2 = sc.nextInt(); sc.hasNextLine();
 		
-		//¿¬»ê°á°ú ÀúÀå
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		int add = n1 + n2;
 		int minus = n1 - n2;
 		int multi = n1 * n2;
 		double div = (double)n1 / n2;
 		int mod = n1 % n2;
 
-		//¿¬»ê°á°ú Ãâ·Â
-		System.out.println("\n´õÇÏ±â°á°ú:\tn1 + n2 = " + add);
-		System.out.println("»©±â°á°ú:\tn1 - n2 = " + minus);
-		System.out.println("°öÇÏ±â°á°ú:\tn1 * n2 = " + multi);
-		System.out.println("³ª´©±â°á°ú:\tn1 / n2 = " + div);
-		System.out.println("³ª¸ÓÁö°ª:\tn1 % n2 = " + mod);
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+		System.out.println("\nï¿½ï¿½ï¿½Ï±ï¿½ï¿½ï¿½:\tn1 + n2 = " + add);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:\tn1 - n2 = " + minus);
+		System.out.println("ï¿½ï¿½ï¿½Ï±ï¿½ï¿½ï¿½:\tn1 * n2 = " + multi);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:\tn1 / n2 = " + div);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:\tn1 % n2 = " + mod);
 		System.out.println("");
 		
-		//ºñ±³¿¬»êÀÚ
+		//ï¿½ñ±³¿ï¿½ï¿½ï¿½ï¿½ï¿½
 		boolean b1 = n1 <= n2;
 		boolean b2 = n1 != n2;
 		boolean b3 = n1>n2;
 		boolean b4 = n1 == n2;
 
-		System.out.printf("%d <= %dÀº %b ÀÔ´Ï´Ù.\n", n1, n2, b1);
-		System.out.printf("%d != %dÀº %b ÀÔ´Ï´Ù.\n", n1, n2, b2);
-		System.out.printf("%d > %dÀº %b ÀÔ´Ï´Ù.\n", n1, n2, b3);
-		System.out.printf("%d == %dÀº %b ÀÔ´Ï´Ù.\n", n1, n2, b4);
+		System.out.printf("%d <= %dï¿½ï¿½ %b ï¿½Ô´Ï´ï¿½.\n", n1, n2, b1);
+		System.out.printf("%d != %dï¿½ï¿½ %b ï¿½Ô´Ï´ï¿½.\n", n1, n2, b2);
+		System.out.printf("%d > %dï¿½ï¿½ %b ï¿½Ô´Ï´ï¿½.\n", n1, n2, b3);
+		System.out.printf("%d == %dï¿½ï¿½ %b ï¿½Ô´Ï´ï¿½.\n", n1, n2, b4);
 		System.out.println();
 		
 		int inputNum1, inputNum2;
-		System.out.print("Á¤¼öÀÔ·Â 1: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½Ô·ï¿½ 1: ");
 		inputNum1 = sc.nextInt(); sc.nextLine();
 		
-		System.out.print("Á¤¼öÀÔ·Â 2: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½Ô·ï¿½ 2: ");
 		inputNum2 = sc.nextInt(); sc.nextLine();
 
 		boolean flagA = inputNum1 % 2 == 0;
@@ -55,16 +55,16 @@ public class ExTest {
 		System.out.println(flagB);
 
 		if(inputNum1 % 2 == 0)
-			System.out.println(inputNum1 + " Àº 2ÀÇ¹è¼öÀÔ´Ï´Ù.");
+			System.out.println(inputNum1 + " ï¿½ï¿½ 2ï¿½Ç¹ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 		else if (inputNum1 % 3 == 0)
-			System.out.println(inputNum1 + " Àº 3ÀÇ¹è¼öÀÔ´Ï´Ù.");
+			System.out.println(inputNum1 + " ï¿½ï¿½ 3ï¿½Ç¹ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 		if(inputNum2 % 2 == 0)
-			System.out.println(inputNum2 + " Àº 2ÀÇ¹è¼öÀÔ´Ï´Ù.");
+			System.out.println(inputNum2 + " ï¿½ï¿½ 2ï¿½Ç¹ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 		else if (inputNum2 % 3 == 0)
-			System.out.println(inputNum2 + " Àº 3ÀÇ¹è¼öÀÔ´Ï´Ù.");
+			System.out.println(inputNum2 + " ï¿½ï¿½ 3ï¿½Ç¹ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 		
-		//ÀÏ¹Ý³í¸® ¿¬»êÀÚ.
-		//ºñ±³¿¬»êÀÚ(³í¸®°ª)¸¦ µÎ°³ÀÌ»ó °áÇÕÇÑ °á°ú
+		//ï¿½Ï¹Ý³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+		//ï¿½ñ±³¿ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ ï¿½Î°ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		boolean flagC = true;
 		boolean flagD = false;
 
@@ -72,11 +72,11 @@ public class ExTest {
 		System.out.println(flagC || flagD);
 		
 		int age = 19;
-		char gender = '³²';
+		char gender = 'M';
 		boolean flagMili = true;
 
-		System.out.println(age > 19 && gender == '³²' && flagMili);
-		System.out.println(age > 19 || gender == '³²' && flagMili);
-		System.out.println(age > 19 && gender == '³²' || flagMili);
+		System.out.println(age > 19 && gender == 'M' && flagMili);
+		System.out.println(age > 19 || gender == 'M' && flagMili);
+		System.out.println(age > 19 && gender == 'M' || flagMili);
 	}
 }

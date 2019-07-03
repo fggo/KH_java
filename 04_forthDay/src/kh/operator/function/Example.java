@@ -10,67 +10,67 @@ public class Example {
 		int total;
 		double avg;
 		
-		System.out.print("±¹¾î Á¡¼ö: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: ");
 		kor = CONSOLE.nextInt();
-		System.out.print("¿µ¾î Á¡¼ö: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: ");
 		eng = CONSOLE.nextInt();
-		System.out.print("¼öÇÐ Á¡¼ö: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: ");
 		math = CONSOLE.nextInt(); CONSOLE.nextLine();
 	
 		total = kor + eng + math;
 		avg = total / 3.0;
-		System.out.println("Á¡¼ö ÇÕ°è: " + total);
-		System.out.println("Á¡¼ö Æò±Õ : " + avg);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½: " + total);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : " + avg);
 		
 		boolean passed = kor >= 40 && eng >= 40 && math >= 40 && avg >= 60;
-		String resultMsg = passed? "ÇÕ°ÝÀ» ÃàÇÏÇÕ´Ï´Ù!": "ºÒÇÕ°ÝÀÔ´Ï´Ù. ´ÙÀ½¿¡ µµÀüÇÏ¼¼¿ä!";
+		String resultMsg = passed? "ï¿½Õ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½!": "ï¿½ï¿½ï¿½Õ°ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½!";
 		System.out.println(resultMsg);
 	}
 	
 	public void opSample2() {
 		String name;
-		int year; // 1~6ÇÐ³â
-		int classRoom; //¹Ý (1~10)
-		int number; //¹øÈ£(1~30)
+		int year; // 1~6ï¿½Ð³ï¿½
+		int classRoom; //ï¿½ï¿½ (1~10)
+		int number; //ï¿½ï¿½È£(1~30)
 		char gender; //M/F
 		double grade;
 
-		System.out.print("ÇÐ»ýÀÌ¸§: ");
+		System.out.print("ï¿½Ð»ï¿½ï¿½Ì¸ï¿½: ");
 		name = CONSOLE.nextLine();
 
-		System.out.print("ÇÐ³â(1~6): ");
+		System.out.print("ï¿½Ð³ï¿½(1~6): ");
 		year = CONSOLE.nextInt();
 
-		System.out.print("¹Ý(1~10): ");
+		System.out.print("ï¿½ï¿½(1~10): ");
 		classRoom = CONSOLE.nextInt();
 
-		System.out.print("¹øÈ£(1~30): ");
+		System.out.print("ï¿½ï¿½È£(1~30): ");
 		number = CONSOLE.nextInt(); CONSOLE.nextLine();
 
-		System.out.print("¼ºº°(M/F): ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½(M/F): ");
 		gender = CONSOLE.nextLine().charAt(0);
-		gender = gender == 'M'? '³²': gender == 'F'? '¿©': '?';
+		gender = gender == 'M'? 'ë‚¨': gender == 'F'? 'ì—¬': '?';
 
-		System.out.print("¼ºÀû: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½: ");
 		grade = CONSOLE.nextDouble(); CONSOLE.nextLine();
 
-		System.out.printf("%dÇÐ³â %d¹Ý %d¹ø %cÇÐ»ý %sÀº ¼ºÀûÀÌ %.2fÀÌ´Ù.",
+		System.out.printf("%dï¿½Ð³ï¿½ %dï¿½ï¿½ %dï¿½ï¿½ %cï¿½Ð»ï¿½ %sï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %.2fï¿½Ì´ï¿½.",
 				year, classRoom, number, gender, name, grade);
 	}
 	
 	public void opSample3() {
-		System.out.print("Á¤¼ö ÀÔ·Â: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½: ");
 		int num = CONSOLE.nextInt(); CONSOLE.nextLine();
 		
-		String msg = num>0? "¾ç¼ö´Ù": "¾ç¼ö°¡ ¾Æ´Ï´Ù";
+		String msg = num>0? "ï¿½ï¿½ï¿½ï¿½ï¿½": "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï´ï¿½";
 		System.out.println(msg);
 	}
 	
 	public void opSample4() {
-		System.out.print("Á¤¼ö ÀÔ·Â: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½: ");
 		int num = CONSOLE.nextInt(); CONSOLE.nextLine();
 		
-		String msg = num%2 == 0? "Â¦¼ö´Ù": "È¦¼ö´Ù";
+		String msg = num%2 == 0? "Â¦ï¿½ï¿½ï¿½ï¿½": "È¦ï¿½ï¿½ï¿½ï¿½";
 		System.out.println(msg);
 	}
 }

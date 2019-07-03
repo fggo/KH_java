@@ -1,16 +1,16 @@
 package com.kh.day3.practice;
 
-//½Ç½À¿¹Á¦2
+//ï¿½Ç½ï¿½ï¿½ï¿½ï¿½ï¿½2
 public class RunPractice2 {
 	public static void main(String[] args) {
-		String[] name = {"È«µÎ±ú", "°í±æµ¿"};
+		String[] name = {"È«ï¿½Î±ï¿½", "ï¿½ï¿½æµ¿"};
 		int[] age = {19, 21};
-		char[] gender = {'³²', '¿©'};
-		String[] location = {"¼­¿ï", "°æ±â"};
+		char[] gender = {'F', 'M'};
+		String[] location = {"ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½"};
 		String[] tel = {"010-1111-1234", "010-9998-8877"};
 		String[] email = {"uululu@aaa.com", "laruru@bbb.com"};
 
-		System.out.printf("ÀÌ¸§\t³ªÀÌ\t¼ºº°\tÁö¿ª\tÀüÈ­\t\tÀÌ¸ÞÀÏ\n");
+		System.out.printf("ï¿½Ì¸ï¿½\tï¿½ï¿½ï¿½ï¿½\tï¿½ï¿½ï¿½ï¿½\tï¿½ï¿½ï¿½ï¿½\tï¿½ï¿½È­\t\tï¿½Ì¸ï¿½ï¿½ï¿½\n");
 		for(int i =0; i<2; i++) {
 			System.out.printf("%s\t%d\t%c\t%s\t%s\t%s\n",
 					name[i], age[i], gender[i], 

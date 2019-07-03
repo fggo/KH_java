@@ -1,7 +1,45 @@
-- 모델링
-    필요기능 찾기
-    필드(e.g. 아이디 비밀번호) 찾기
-    테이블 만들기
+JDBC
+- JRE System Libraries 에 추가
+	C:\Program Files\Java\jdk1.8.0_144\jre\lib\ext
+	ojdbc6.jar을 넣고 eclipse restart
+	-> build path 추가하지 않고도 jdbc 사용 가능
+	추가안될 경우 Preferences -> Java -> Installed JREs 경로 맞춰야함
+	
+- Refenced Library에 추가
+	Build Path -> configure build path -> Add External Jars (다운로드한 ojdbc6.jar)
+		-> Reference Library
+	
+프로젝트 단위별로 ojdbc6 등 external JARs추가
+	
+Preferences -> General - Editor - Spelling -> Encoding(UTF-8)
+Perferences -> General - Workspace -> Encoding(UTF-8)
+Perferences -> JSON - JSON FILE (ISO 10646 UTF_8)
+Perferences -> Web - CSS HTML JSP (ISO 10646 UTF_8)
+
+executeQuery (select)
+executeUpdate (DML)
+
+int result = stmt.executeQuery(query);
+// 몇개행 업데이트 됐는지 return
+
+CLI text 방식으로 DB에 뿌림.
+
+MVC
+
+controller ->
+view -
+
+Bean 객체
+
+
+
+
+
+
+- 모델링 프로세스
+    기능 찾기 (영화예매 기능, 음식주문 기능 등)
+    필드 찾기 (e.g. 티켓가격, 할인율, 결제일)
+    테이블 만들기 (비슷한 기능, 필드를 묶어 테이블 정의)
 
 --DB 시험 7.2
 CREATE TABLE table_name
