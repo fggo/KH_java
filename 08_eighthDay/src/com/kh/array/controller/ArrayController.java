@@ -9,34 +9,33 @@ public class ArrayController {
 	public static final Scanner CONSOLE= new Scanner(System.in);
 
 	public void arrayTest() {
-		//intArr(reference Å¸ÀÔ º¯¼ö): stack¿¡ ÁÖ¼Ò°ª ÀúÀå
-		//¿À¸¥ÂÊ ÃÊ±âÈ­ °ª(¹è¿­)Àº heap¿¡ ¸Þ¸ð¸® »ý¼º (¹è¿­ = °´Ã¼)
+		//intArr(reference Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½): stackï¿½ï¿½ ï¿½Ö¼Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½(ï¿½è¿­)ï¿½ï¿½ heapï¿½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½è¿­ = ï¿½ï¿½Ã¼)
 		int[] intArr = new int[5]; //default 0
 		for(int i =0; i<intArr.length; i++) 
 			System.out.print(intArr[i] + " ");
 
-		//ÁÖ¼Ò°ª Ãâ·Â
+		//ï¿½Ö¼Ò°ï¿½ ï¿½ï¿½ï¿½
 		System.out.println("\n" + intArr);
 
-		//¹è¿­¿¡ ÀúÀåµÈ °ª º¯°æ
+		//ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		intArr[0] = 111;
 		intArr[intArr.length - 1] = 123;
 		for(int i =0; i<intArr.length; i++) {
-			intArr[i] = (i+1)*10; //array element °ªº¯°æ
-			System.out.println(++intArr[i]); //array element °ªº¯°æ; 1Áõ°¡
+			intArr[i] = (i+1)*10; //array element ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			System.out.println(++intArr[i]); //array element ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½; 1ï¿½ï¿½ï¿½ï¿½
 		}
 
-		//¼±¾ð°ú µ¿½Ã¿¡ ÃÊ±âÈ­
-		char[] ch =  {'°¡', '³ª', '´Ù', '¶ó', '¸¶', '¹Ù'};
-		
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½Ê±ï¿½È­
+		char[] ch = {'ê°€', 'ë‚˜', 'ë‹¤'};
 		for(int i =0; i< ch.length; i++) 
-			if(ch[i] == '´Ù') ch[i] = 'ÇÏ';
+			if(ch[i] == 'ë‚˜') ch[i] = 'ë„ˆ';
 
 		System.out.println(ch);
 		
-		//ÀÔ·Â°ªÀ¸·Î ¹è¿­ ÃÊ±âÈ­
+		//ï¿½Ô·Â°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ï¿½Ê±ï¿½È­
 		for(int i =0; i<intArr.length; i++) {
-			System.out.print("¹è¿­¿¡ ÀúÀåÇÒ Á¤¼ö ÀÔ·Â:  ");
+			System.out.print("ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½:  ");
 			intArr[i] = CONSOLE.nextInt(); CONSOLE.nextLine();
 		}
 	}
@@ -57,14 +56,14 @@ public class ArrayController {
 	}
 	
 	public void findFruit() {
-		String [] fruits = {"µþ±â", "¹Ù³ª³ª", "º¹¼þ¾Æ", "Å°À§", "»ç°ú"};
+		String [] fruits = {"ï¿½ï¿½ï¿½ï¿½", "ï¿½Ù³ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "Å°ï¿½ï¿½", "ï¿½ï¿½ï¿½"};
 		for(int i =0 ;i <fruits.length; i++) {
-			if(fruits[i].equals("º¹¼þ¾Æ")) {
+			if(fruits[i].equals("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")) {
 				System.out.println(fruits[i] 
 						+ " has index " + i);
 			}
 		}
-		//°úÀÏ ¼ø¼­ ·£´ý ¸®½ºÆ® »ý¼º
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 		ArrayList<Integer> list = new ArrayList<Integer>(fruits.length);
 		String[] fruits2 = new String[5];
 
@@ -84,13 +83,13 @@ public class ArrayController {
 	public void printArrElement() {
 		char [] c = new char[5];
 		for(int i =0; i<5; i++) {
-			System.out.print((i+1) + "¹øÂ° ÀÔ·Â: ");
+			System.out.print((i+1) + "ï¿½ï¿½Â° ï¿½Ô·ï¿½: ");
 			c[i] = CONSOLE.next().charAt(0);
 		}
 
 		System.out.println(c);
-		System.out.println("Ã¹¹øÂ°: " + c[0]);
-		System.out.println("¸¶Áö¸·: " + c[c.length - 1]);
+		System.out.println("Ã¹ï¿½ï¿½Â°: " + c[0]);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: " + c[c.length - 1]);
 		
 		for(int i=c.length -1 ; i>=0; i--)
 			System.out.print(c[i]);
@@ -99,9 +98,9 @@ public class ArrayController {
 	}
 	
 	public void countLetter() {
-		System.out.print("¹®ÀÚ¿­ ÀÔ·Â: ");
+		System.out.print("ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½Ô·ï¿½: ");
 		String str = CONSOLE.nextLine();
-		System.out.print("¹®ÀÚ ÀÔ·Â: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½: ");
 		char ch = CONSOLE.nextLine().charAt(0);
 
 		char[] charArr = str.toCharArray();
@@ -111,12 +110,12 @@ public class ArrayController {
 			if (charArr[i] == ch)
 				count++;
 		}
-		System.out.println("ÀÔ·ÂÇÏ½Å ¹®ÀÚ¿­ " + str +"¿¡¼­\n"
-				+ "Ã£À¸½Ã´Â ¹®ÀÚ \'" + ch + "\'Àº " + count + "°³ ÀÔ´Ï´Ù.");
+		System.out.println("ï¿½Ô·ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ " + str +"ï¿½ï¿½ï¿½ï¿½\n"
+				+ "Ã£ï¿½ï¿½ï¿½Ã´ï¿½ ï¿½ï¿½ï¿½ï¿½ \'" + ch + "\'ï¿½ï¿½ " + count + "ï¿½ï¿½ ï¿½Ô´Ï´ï¿½.");
 	}
 	
 	public void hideID() {
-		System.out.print("ÁÖ¹Îµî·Ï ¹øÈ£ ÀÔ·Â : ");
+		System.out.print("ï¿½Ö¹Îµï¿½ï¿½ ï¿½ï¿½È£ ï¿½Ô·ï¿½ : ");
 		String id = CONSOLE.nextLine();
 
 		char[] charArr = id.toCharArray();
@@ -132,7 +131,7 @@ public class ArrayController {
 	}
 	
 	public void makeOddArray() {
-		System.out.print("È¦¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä (0º¸´Ù Å«): ");
+		System.out.print("È¦ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ (0ï¿½ï¿½ï¿½ï¿½ Å«): ");
 		int length = CONSOLE.nextInt();
 		int[] oddArray = new int[length];
 		int count = 0;
@@ -150,7 +149,7 @@ public class ArrayController {
 		int[] lottoNums = new int[7];
 		int random = 0;
 
-		//·Î¶Ç ¹øÈ£ »ý¼º
+		//ï¿½Î¶ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½
 		for(int i =0; i<lottoNums.length; i++) {
 			random = (int)(Math.random()*45 + 1);
 
@@ -164,7 +163,7 @@ public class ArrayController {
 			}
 		}
 		
-		//·Î¶Ç ¹øÈ£ ¿À¸§Â÷¼ø Á¤·Ä
+		//ï¿½Î¶ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		int temp = 0;
 		for(int i = 0; i<lottoNums.length; i++) {
 			for(int j = i ; j < lottoNums.length; j++) {
@@ -176,7 +175,7 @@ public class ArrayController {
 			}
 		}
 
-		System.out.println("·Î¶Ç ¹øÈ£ ´çÃ·°á°ú : ");
+		System.out.println("ï¿½Î¶ï¿½ ï¿½ï¿½È£ ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ : ");
 		for(int i =0; i<lottoNums.length; i++)
 			System.out.print(lottoNums[i] + " ");
 	}

@@ -17,7 +17,7 @@ public class ArraySample {
 			intArr[i] = (int)(Math.random()*100 + 1);
 			sum += intArr[i];
 		}
-		System.out.println("1~100»çÀÌ ³­¼ö  10°³ÀÇ ÇÕ: " + sum);
+		System.out.println("1~100ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  10ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½: " + sum);
 	}
 
 	public void test2() {
@@ -33,7 +33,7 @@ public class ArraySample {
 			if (intArr[i] > max) max = intArr[i];
 			if (intArr[i] < min) min = intArr[i];
 		}
-		System.out.print("ÃÖ¼Ò ³­¼ö: "+ min + ", ÃÖ´ë ³­¼ö: " + max + "\n");
+		System.out.print("ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½: "+ min + ", ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½: " + max + "\n");
 	}
 
 	public void test3() {
@@ -45,22 +45,22 @@ public class ArraySample {
 			if(intArr[i]%2 ==0)
 				sum += intArr[i];
 		}
-		System.out.println("1~100»çÀÌ Â¦¼ö³­¼öµéÀÇ ÇÕ: " + sum);
+		System.out.println("1~100ï¿½ï¿½ï¿½ï¿½ Â¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½: " + sum);
 	}
 	
 	public void test4() {
-		System.out.print("¼ýÀÚ·ÎµÈ ¹®ÀÚ¿­ ÀÔ·Â: ");
+		System.out.print("ï¿½ï¿½ï¿½Ú·Îµï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½Ô·ï¿½: ");
 		String numStr = CONSOLE.nextLine();
 		int sum = 0;
 		
 		for(int i =0; i<numStr.length(); i++) 
 			sum += Integer.valueOf(numStr.substring(i, i+1));
 			
-		System.out.println("ÇÕ°è: " + sum);
+		System.out.println("ï¿½Õ°ï¿½: " + sum);
 	}
 	
 	public void test5() {
-		System.out.print("¼ýÀÚ·ÎµÈ ¹®ÀÚ¿­ ÀÔ·Â: ");
+		System.out.print("ï¿½ï¿½ï¿½Ú·Îµï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½Ô·ï¿½: ");
 		String numStr = CONSOLE.nextLine();
 		int sum = 0;
 		
@@ -68,17 +68,17 @@ public class ArraySample {
 //			sum += Integer.valueOf(numStr.substring(i, i+1));
 			sum += numStr.charAt(i) - '0';
 		}
-		System.out.println("ÇÕ°è: " + sum);
+		System.out.println("ï¿½Õ°ï¿½: " + sum);
 	}
 	
 	public void test6() {
 		String personID = "881225-1234567";
-		//»ý³â¿ùÀÏ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		int birthYear = Integer.valueOf("19" + personID.substring(0, 2));
 		int birthMonth = Integer.valueOf(personID.substring(2, 4));
 		int birthDay = Integer.valueOf(personID.substring(4, 6));
 
-		//¿äÀÏ
+		//ï¿½ï¿½ï¿½ï¿½
 		Date dt1 = new Date();
 		try {
 			dt1 = new SimpleDateFormat("yyMMdd")
@@ -88,18 +88,18 @@ public class ArraySample {
 		}
 		String dayOfWeek = new SimpleDateFormat("EEEE").format(dt1);
 
-		//¼ºº°
-		char gender = personID.substring(7, 8).equals("1")? '³²':'¿©';
+		//ï¿½ï¿½ï¿½ï¿½
+		char gender = personID.substring(7, 8).equals("1")? 'ë‚¨':'ì—¬';
 
-		//³ªÀÌ
+		//ï¿½ï¿½ï¿½ï¿½
 		int age = Calendar.getInstance().get(Calendar.YEAR) - birthYear + 1;
 		
-		System.out.println("===== »ýÀÏ Á¤º¸ =====");
-		System.out.println("¿¬µµ: " + birthYear);
-		System.out.println("¿ù: " + birthMonth);
-		System.out.println("ÀÏ: " + birthDay);
-		System.out.println("¿äÀÏ: " + dayOfWeek);
-		System.out.println("¼ºº°: " + gender + "ÀÚ");
-		System.out.println("³ªÀÌ: " + age);
+		System.out.println("===== ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ =====");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½: " + birthYear);
+		System.out.println("ï¿½ï¿½: " + birthMonth);
+		System.out.println("ï¿½ï¿½: " + birthDay);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½: " + dayOfWeek);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½: " + gender + "ï¿½ï¿½");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½: " + age);
 	}
 }

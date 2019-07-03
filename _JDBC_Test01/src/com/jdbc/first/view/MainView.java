@@ -12,7 +12,7 @@ public class MainView {
 			System.out.println("1. 전체회원 조회");
 			System.out.println("2. 이름으로 조회");
 			System.out.println("0. 종료");
-			System.out.print("입력 ; ");
+			System.out.print("입력 : ");
 			int cho = sc.nextInt(); sc.nextLine();
 
 			switch(cho) {

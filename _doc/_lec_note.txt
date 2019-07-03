@@ -11,7 +11,7 @@ JDBC
 	
 프로젝트 단위별로 ojdbc6 등 external JARs추가
 	
-Preferences -> General - Editor - Spelling -> Encoding(UTF-8)
+Preferences -> General - Editor - Text Editors - Spelling -> Encoding(UTF-8)
 Perferences -> General - Workspace -> Encoding(UTF-8)
 Perferences -> JSON - JSON FILE (ISO 10646 UTF_8)
 Perferences -> Web - CSS HTML JSP (ISO 10646 UTF_8)

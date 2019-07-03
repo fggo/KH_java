@@ -6,56 +6,56 @@ public class ConditionTest {
 	public static final Scanner CONSOLE = new Scanner(System.in);
 	
 	public void checkGender() {
-		System.out.print("´ç½ÅÀÇ ¼ºº°Àº(³²,¿©)? ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½,ï¿½ï¿½)? ");
 		char gender = CONSOLE.next().charAt(0);
 
-		if(gender == 'M' || gender == '³²')
-			System.out.println("¿À¸¥ÂÊÀ¸·Î °¡¼¼¿ä.");
-		else if(gender == 'F' || gender == '¿©') 
-			System.out.println("¿ŞÂÊÀ¸·Î°¡¼¼¿ä.");
+		if(gender == 'M' || gender == 'ë‚¨')
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.");
+		else if(gender == 'F' || gender == 'ì—¬') 
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½ï¿½ï¿½.");
 	}
 	
 	public void checkAnimal(){
-		System.out.print("µ¿¹°ÀÎ°¡¿ä, ½Ä¹°ÀÎ°¡¿ä?");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½, ï¿½Ä¹ï¿½ï¿½Î°ï¿½ï¿½ï¿½?");
 
 		String org = CONSOLE.nextLine();
 
-		if(org.equals("µ¿¹°")) {
+		if(org.equals("ï¿½ï¿½ï¿½ï¿½")) {
 			System.out.println(org);
 		}
 	}
 	
 	public void checkAge() {
-		System.out.print("³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½: ");
 		int age = CONSOLE.nextInt();
 		
 		if (age >=19)
-			System.out.println("¼ºÀÎÀÌ³×¿ä!.");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Ì³×¿ï¿½!.");
 		else if (age >=17) 
-			System.out.println("°íµùÀÌ³×¿ä!!!");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½Ì³×¿ï¿½!!!");
 		else if(age>= 14) 
-			System.out.println("ÁßµùÀÌ³×¿ä.");
+			System.out.println("ï¿½ßµï¿½ï¿½Ì³×¿ï¿½.");
 		else if (age >= 8) 
-			System.out.println("ÃÊµùÀÌ³×¿ä!!!");
+			System.out.println("ï¿½Êµï¿½ï¿½Ì³×¿ï¿½!!!");
 		else if (age > 0)
-			System.out.println("¾Æ±â³×¿ä!");
+			System.out.println("ï¿½Æ±ï¿½×¿ï¿½!");
 		else
-			System.out.println("³ªÀÌ´Â À½¼ö°¡ ºÒ°¡´ÉÇÕ´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.");
 	}
 
 	public void checkGrade() {
 		int kor, eng, math;
-		System.out.print("±¹¾îÁ¡¼ö: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
 		kor = CONSOLE.nextInt();
-		System.out.print("¿µ¾îÁ¡¼ö: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
 		eng = CONSOLE.nextInt();
-		System.out.print("¼öÇĞÁ¡¼ö: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
 		math = CONSOLE.nextInt();
 
 		int sum = kor + eng + math;
 
 		if(sum >= 250) {
-			System.out.println("¿ì¼ö»ıÀÔ´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 		}
 		
 		double avg = sum / 3.0;
@@ -84,71 +84,71 @@ public class ConditionTest {
 					&& math >=40;
 
 		if (overForty && avg >=60) 
-			System.out.println("ÇÕ°İ!");
+			System.out.println("ï¿½Õ°ï¿½!");
 		else
-			System.out.println("ºÒÇÕ°İ!!");
+			System.out.println("ï¿½ï¿½ï¿½Õ°ï¿½!!");
 	}
 	
 	public void checkSal() {
-		System.out.println("AÀÇ ¿¬ºÀÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.println("Aï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½: ");
 		int salA = CONSOLE.nextInt();
-		System.out.println("BÀÇ ¿¬ºÀÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.println("Bï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½: ");
 		int salB = CONSOLE.nextInt();
-		System.out.println("CÀÇ ¿¬ºÀÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.println("Cï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½: ");
 		int salC = CONSOLE.nextInt();
 		
 		if(salA >= 5000)
-			System.out.println("A´Â °í¾×¿¬ºÀÀÚÀÔ´Ï´Ù.");
+			System.out.println("Aï¿½ï¿½ ï¿½ï¿½×¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 		if(salB >= 5000)
-			System.out.println("B´Â °í¾×¿¬ºÀÀÚÀÔ´Ï´Ù. ");
+			System.out.println("Bï¿½ï¿½ ï¿½ï¿½×¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ");
 		if(salC >= 5000)
-			System.out.println("C´Â °í¾×¿¬ºÀÀÚÀÔ´Ï´Ù.");
+			System.out.println("Cï¿½ï¿½ ï¿½ï¿½×¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 	}
 
 	public void modByTwo() {
-		System.out.print("Á¤¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½: ");
 		int num = CONSOLE.nextInt();
 
 		if (num% 2 == 0)
-			System.out.println("Â¦¼ö´Ù.");
+			System.out.println("Â¦ï¿½ï¿½ï¿½ï¿½.");
 		else
-			System.out.println("È¦¼ö´Ù.");
+			System.out.println("È¦ï¿½ï¿½ï¿½ï¿½.");
 	}
 
 	public void printStudentInfo() {
-		System.out.print("ÀÌ¸§: ");
+		System.out.print("ï¿½Ì¸ï¿½: ");
 		String name = CONSOLE.nextLine();
 		
-		System.out.print("ÇĞ³â: ");
+		System.out.print("ï¿½Ğ³ï¿½: ");
 		int year = CONSOLE.nextInt();
 		
-		System.out.print("¹İ: ");
+		System.out.print("ï¿½ï¿½: ");
 		int classRoom = CONSOLE.nextInt();
 	
-		System.out.print("¹øÈ£: ");
+		System.out.print("ï¿½ï¿½È£: ");
 		int number = CONSOLE.nextInt();
 		
-		System.out.print("¼ºº°(M/F): ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½(M/F): ");
 		char gender = CONSOLE.next().charAt(0);
 
-		if(gender == 'M' || gender == '³²') gender = '³²';
-		else if(gender == 'F' || gender == '¿©') gender = '¿©';
+		if(gender == 'M' || gender == 'ë‚¨') gender = 'ë‚¨';
+		else if(gender == 'F' || gender == 'ì—¬') gender = 'ì—¬';
 		else gender = '?';
 
-		System.out.print("¼ºÀû: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½: ");
 		double grade = CONSOLE.nextDouble(); CONSOLE.nextLine();
 		
-		System.out.printf("%dÇĞ³â %d¹İ %d¹ø %cÇĞ»ı %sÀº ¼ºÀûÀÌ %.2fÀÌ´Ù.",
+		System.out.printf("%dï¿½Ğ³ï¿½ %dï¿½ï¿½ %dï¿½ï¿½ %cï¿½Ğ»ï¿½ %sï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %.2fï¿½Ì´ï¿½.",
 				year, classRoom, number, gender, name, grade);
 	}
 
 	public void runCalculator() {
-		System.out.print("Á¤¼ö1: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½1: ");
 		int n1= CONSOLE.nextInt();
 
-		System.out.print("Á¤¼ö2: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½2: ");
 		int n2 = CONSOLE.nextInt();
-		System.out.print("¿¬»êÀÚ(+ - * /), : ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(+ - * /), : ");
 		char op = CONSOLE.next().charAt(0);
 
 		int result;
@@ -173,43 +173,43 @@ public class ConditionTest {
 			}
 		}
 		else {
-			System.out.println("Àß¸ø ÀÔ·Â ÇÏ¼Ì½À´Ï´Ù."); 
+			System.out.println("ï¿½ß¸ï¿½ ï¿½Ô·ï¿½ ï¿½Ï¼Ì½ï¿½ï¿½Ï´ï¿½."); 
 		}
 	}	
 		public void checkEvenNum() {
-		System.out.print("Á¤¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä (1~10): ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ (1~10): ");
 		int num = CONSOLE.nextInt();
 		
 		if(num >= 1 && num <= 10) {
 			if(num %2 == 0) 
-				System.out.println("Â¦¼öÀÔ´Ï´Ù.");
+				System.out.println("Â¦ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 			else
-				System.out.println("È¦¼öÀÔ´Ï´Ù.");
+				System.out.println("È¦ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 		}
 		else {
-			System.out.println("¼ıÀÚ°¡ 1~10»çÀÌ ¼ıÀÚ°¡ ¾Æ´Õ´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½Ú°ï¿½ 1~10ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½Æ´Õ´Ï´ï¿½.");
 		}
 	}
 
 	public void login() {
-		System.out.print("¾ÆÀÌµğÀÔ·Â: ");
+		System.out.print("ï¿½ï¿½ï¿½Ìµï¿½ï¿½Ô·ï¿½: ");
 		String id = CONSOLE.nextLine();
-		System.out.print("ÆĞ½º¿öµå ÀÔ·Â: ");
+		System.out.print("ï¿½Ğ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½: ");
 		String pw = CONSOLE.nextLine();
 		if(id.equals("admin")) {
 			if(pw.equals("1234")){
-				System.out.println("·Î±×ÀÎ¼º°ø");
-				System.out.println("====È¸¿ø°ü¸®====");
-				System.out.println("1. È¸¿øµî·Ï");
-				System.out.println("2. È¸¿ø°Ë»ö");
-				System.out.println("3. È¸¿ø»èÁ¦");
+				System.out.println("ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½");
+				System.out.println("====È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½====");
+				System.out.println("1. È¸ï¿½ï¿½ï¿½ï¿½ï¿½");
+				System.out.println("2. È¸ï¿½ï¿½ï¿½Ë»ï¿½");
+				System.out.println("3. È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			}
 			else {
-				System.out.println("ºñ¹Ğ¹øÈ£°¡ Æ²·È½À´Ï´Ù.");
+				System.out.println("ï¿½ï¿½Ğ¹ï¿½È£ï¿½ï¿½ Æ²ï¿½È½ï¿½ï¿½Ï´ï¿½.");
 			}
 		}
 		else {
-			System.out.println("¾ÆÀÌµğ°¡ Æ²·È½À´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½Ìµï¿½ Æ²ï¿½È½ï¿½ï¿½Ï´ï¿½.");
 		}
 	}
 }

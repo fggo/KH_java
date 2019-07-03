@@ -4,11 +4,11 @@ import logic.view.Menu;
 
 public class Function {
 	public void calculator() {
-		System.out.print("Ã¹¹øÂ° Á¤¼ö: ");
+		System.out.print("Ã¹ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½: ");
 		int n1 = Menu.CONSOLE.nextInt(); 
-		System.out.print("µÎ¹øÂ° Á¤¼ö: ");
+		System.out.print("ï¿½Î¹ï¿½Â° ï¿½ï¿½ï¿½ï¿½: ");
 		int n2 = Menu.CONSOLE.nextInt();
-		System.out.print("¿¬»ê¹®ÀÚ: ");
+		System.out.print("ï¿½ï¿½ï¿½ê¹®ï¿½ï¿½: ");
 		char operator= Menu.CONSOLE.next().charAt(0); 
 		
 		int result = 0;
@@ -22,14 +22,14 @@ public class Function {
 			break;
 		case '/': 
 			if (n2==0) {
-				System.out.println("0À¸·Î ³ª´­ ¼ö ¾ø½À´Ï´Ù");
+				System.out.println("0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
 				result = 0;
 			}
 			else 
 				result = n1 /n2;
 			break;
 		default:
-			System.out.println("¿¬»çÀÚ¸¦ Àß¸øÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ß¸ï¿½ï¿½Ô·ï¿½ï¿½Ï¼Ì½ï¿½ï¿½Ï´ï¿½.");
 			break;
 		}
 
@@ -37,9 +37,9 @@ public class Function {
 	}
 
 	public void totalCalculator() {
-		System.out.print("Á¤¼ö1 ÀÔ·Â: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½1 ï¿½Ô·ï¿½: ");
 		int n1 = Menu.CONSOLE.nextInt();
-		System.out.print("Á¤¼ö2 ÀÔ·Â: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½2 ï¿½Ô·ï¿½: ");
 		int n2 = Menu.CONSOLE.nextInt();
 		
 		int small = n1<n2? n1:n2;
@@ -49,53 +49,53 @@ public class Function {
 		for(int i =small; i<= big; i++) 
 			sum += i;
 		
-		System.out.println(small + "ºÎÅÍ " + big 
-				+" ±îÁöÀÇ ÇÕ°è: " + sum);
+		System.out.println(small + "ï¿½ï¿½ï¿½ï¿½ " + big 
+				+" ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½: " + sum);
 	}
 	
 	public void profile() {
 		if(Menu.CONSOLE.hasNextLine())
 			Menu.CONSOLE.nextLine();
 		
-		System.out.print("ÀÌ¸§: ");
+		System.out.print("ï¿½Ì¸ï¿½: ");
 		String name = Menu.CONSOLE.nextLine();
 
-		System.out.print("³ªÀÌ: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½: ");
 		int age = Menu.CONSOLE.nextInt(); Menu.CONSOLE.nextLine();
 
-		System.out.print("¼ºº°: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½: ");
 		String gender = Menu.CONSOLE.nextLine();
 
-		System.out.print("¼º°Ý: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½: ");
 		String personality = Menu.CONSOLE.nextLine();
 
-		System.out.println("ÀÌ¸§: " + name);
-		System.out.println("³ªÀÌ: " + age);
-		System.out.println("¼ºº°: " + gender + "ÀÚ");
-		System.out.println("¼º°Ý: " + personality );
+		System.out.println("ï¿½Ì¸ï¿½: " + name);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½: " + age);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½: " + gender + "ï¿½ï¿½");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½: " + personality );
 	}
 
 	public void sungjuk() {
 		if(Menu.CONSOLE.hasNextLine())
 			Menu.CONSOLE.nextLine();
 		
-		System.out.print("ÀÌ¸§: ");
+		System.out.print("ï¿½Ì¸ï¿½: ");
 		String name = Menu.CONSOLE.nextLine();
 
-		System.out.print("ÇÐ³â: ");
+		System.out.print("ï¿½Ð³ï¿½: ");
 		int year = Menu.CONSOLE.nextInt();
 
-		System.out.print("¹Ý: ");
+		System.out.print("ï¿½ï¿½: ");
 		int classRoom = Menu.CONSOLE.nextInt();
 
-		System.out.print("¹øÈ£: ");
+		System.out.print("ï¿½ï¿½È£: ");
 		int number = Menu.CONSOLE.nextInt();
 
-		System.out.print("¼ºº°(M/F): ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½(M/F): ");
 		char gender = Menu.CONSOLE.next().charAt(0);
-		gender = (gender =='M'? '³²': '¿©');
+		gender = (gender =='M'? 'ë‚¨': 'ì—¬');
 
-		System.out.print("¼ºÀû: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½: ");
 		double grade = Menu.CONSOLE.nextDouble();
 		
 		char letterGrade = '\u0000';
@@ -111,15 +111,15 @@ public class Function {
 		else
 			letterGrade ='F';
 
-		System.out.printf("%dÇÐ³â %d¹Ý %d¹ø %cÇÐ»ý %sÀÇ Á¡¼ö´Â %.2fÀÌ°í, %cÇÐÁ¡ÀÔ´Ï´Ù.\n",
+		System.out.printf("%dï¿½Ð³ï¿½ %dï¿½ï¿½ %dï¿½ï¿½ %cï¿½Ð»ï¿½ %sï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %.2fï¿½Ì°ï¿½, %cï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.\n",
 				year, classRoom, number, gender, name, grade, letterGrade);
 	}
 	
 	public void printStarNumber() {
-		System.out.print("¾çÀÇÁ¤¼ö¸¦ ÀÔ·Â: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½: ");
 		int num = Menu.CONSOLE.nextInt();
 		if (num <1) {
-			System.out.println("¾ç¼ö°¡ ¾Æ´Õ´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½.");
 			return;
 		}
 
@@ -136,11 +136,11 @@ public class Function {
 		for (int i =0; i<100; i++)
 			sum += (int)(Math.random()*100 + 1);
 		
-		System.out.println("1ºÎÅÍ 100±îÁö ¹ß»ýµÈ ÀÓÀÇÀÇ Á¤¼öµéÀÇ ÇÕ°è: " + sum); 
+		System.out.println("1ï¿½ï¿½ï¿½ï¿½ 100ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½: " + sum); 
 	}
 
 	public void continueGugudan() {
-		System.out.print("¾çÀÇÁ¤¼ö ÇÏ³ª ÀÔ·Â: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ ï¿½Ô·ï¿½: ");
 		int num = Menu.CONSOLE.nextInt();
 
 		for(int i =1; i<=9; i++) {
@@ -157,18 +157,18 @@ public class Function {
 
 		int n1 = 0, n2 = 0;
 		do {
-			System.out.print("ÁÖ»çÀ§ ÇÕ(2~12)À» ¿¹»óÇØÁÖ¼¼¿ä: ");
+			System.out.print("ï¿½Ö»ï¿½ï¿½ï¿½ ï¿½ï¿½(2~12)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½: ");
 			guessNum = Menu.CONSOLE.nextInt(); Menu.CONSOLE.nextLine();
 
 			n1 = (int)(Math.random()*6 + 1);
 			n2 = (int)(Math.random()*6 + 1);
 			
 			if (guessNum == n1 + n2)
-				System.out.println("¸ÂÃè½À´Ï´Ù.");
+				System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			else
-				System.out.println("Æ²·È½À´Ï´Ù.");
+				System.out.println("Æ²ï¿½È½ï¿½ï¿½Ï´ï¿½.");
 			
-			System.out.print("°è¼ÓÇÏ½Ã°Ú½À´Ï±î?(y/n): ");
+			System.out.print("ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?(y/n): ");
 			answer = Menu.CONSOLE.next().charAt(0);
 		}while(Character.toLowerCase(answer) == 'y');
 	}

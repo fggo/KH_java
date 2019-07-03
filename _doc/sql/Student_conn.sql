@@ -37,6 +37,7 @@ COMMENT ON COLUMN MEMBER.address IS '주소';
 COMMENT ON COLUMN MEMBER.hobby IS '취미';
 COMMENT ON COLUMN MEMBER.enroll_date IS '가입날짜';
 
+commit;
 
 SELECT * from member;
 SELECT * from user_constraints;

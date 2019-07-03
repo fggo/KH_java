@@ -21,8 +21,8 @@ public class Member {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Member(String memberId, String memberPwd, String memberName, char gender, int age, String email, String phone, String address,
-			String hobbby, Date enrollDate) {
+	public Member(String memberId, String memberPwd, String memberName, char gender, int age, 
+				  String email, String phone, String address, String hobbby, Date enrollDate) {
 		super();
 		this.memberId = memberId;
 		this.memberPwd = memberPwd;
@@ -38,7 +38,7 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "Member [memberId=" + memberId + ", memberPwd=" + memberPwd + ", memberName=" + memberName + ", gender=" + gender + ", age=" + age
+		return "\nMember [memberId=" + memberId + ", memberPwd=" + memberPwd + ", memberName=" + memberName + ", gender=" + gender + ", age=" + age
 				+ ", email=" + email + ", phone=" + phone + ", address=" + address + ", hobbby=" + hobbby
 				+ ", enrollDate=" + enrollDate + "]";
 	}

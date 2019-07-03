@@ -1,4 +1,4 @@
-package com.jdbc.test1.controller;
+package com.jdbc.test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,19 +14,17 @@ public class DepartmentSearch {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			conn = DriverManager.getConnection(
-							"jdbc:oracle:thin:@localhost:1521:xe", "kh","kh");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "kh","kh");
 			stmt = conn.createStatement();
 			String query = "SELECT * FROM DEPARTMENT";
 
 			rs = stmt.executeQuery(query);
 
 			while(rs.next()) {
-				System.out.print(rs.getString("DEPT_ID") + "\t");
-				System.out.print(rs.getString("DEPT_TITLE") + "\t");
-				System.out.println(rs.getString("LOCATION_ID"));
+				System.out.print(rs.getString("dept_id") + "\t");
+				System.out.print(rs.getString("dept_title") + "\t");
+				System.out.println(rs.getString("location_id"));
 			}
-			
 		} catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch(SQLException e) {
