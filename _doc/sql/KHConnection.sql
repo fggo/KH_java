@@ -1,3 +1,4 @@
+select * from employee;
 --NUMBER(p 전체자리 수, s 전체자리수 중 소숫점 수);
 
 CREATE TABLE NUMBERTEST(

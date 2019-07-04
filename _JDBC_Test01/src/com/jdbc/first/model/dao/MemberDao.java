@@ -23,8 +23,6 @@ public class MemberDao {
 		
 		List<Member> list = null;
 		try {
-			//1. 드라이버 등록
-			Class.forName("oracle.jdbc.driver.OracleDriver");
 			//3.Statement 객체 생성
 			stmt = conn.createStatement();
 			String query = "SELECT * from MEMBER";
@@ -51,9 +49,6 @@ public class MemberDao {
 
 				list.add(member);
 			}
-
-		} catch(ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -82,7 +77,6 @@ public class MemberDao {
 		List<Member> list = new ArrayList<Member>();
 		
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
 			stmt = conn.createStatement();
 			String query = "SELECT * from MEMBER WHERE member_name LIKE'%" + memberName+"%'";
 			rs = stmt.executeQuery(query);
@@ -103,8 +97,6 @@ public class MemberDao {
 				list.add(m);
 			}
 				
-		} catch(ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -128,7 +120,6 @@ public class MemberDao {
 		List<Member> list = new ArrayList<Member>();
 
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String query = "select * from member where member_id LIKE '%" + id +"%'";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(query);
@@ -147,8 +138,6 @@ public class MemberDao {
 
 				list.add(m);
 			}
-		} catch(ClassNotFoundException e){
-			e.printStackTrace();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {

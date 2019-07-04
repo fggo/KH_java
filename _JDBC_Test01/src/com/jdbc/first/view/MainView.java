@@ -1,8 +1,6 @@
 package com.jdbc.first.view;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 import com.jdbc.first.controller.MemberController;
