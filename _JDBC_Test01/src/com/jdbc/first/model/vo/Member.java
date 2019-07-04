@@ -14,7 +14,7 @@ public class Member {
 	private String email;
 	private String phone;
 	private String address;
-	private String hobbby;
+	private String hobby;
 	private Date enrollDate; //java.sql.Date
 	
 	public Member() {
@@ -22,7 +22,7 @@ public class Member {
 	}
 
 	public Member(String memberId, String memberPwd, String memberName, char gender, int age, 
-				  String email, String phone, String address, String hobbby, Date enrollDate) {
+				  String email, String phone, String address, String hobby, Date enrollDate) {
 		super();
 		this.memberId = memberId;
 		this.memberPwd = memberPwd;
@@ -32,14 +32,14 @@ public class Member {
 		this.email = email;
 		this.phone = phone;
 		this.address = address;
-		this.hobbby = hobbby;
+		this.hobby = hobby;
 		this.enrollDate = enrollDate;
 	}
 
 	@Override
 	public String toString() {
 		return "\nMember [memberId=" + memberId + ", memberPwd=" + memberPwd + ", memberName=" + memberName + ", gender=" + gender + ", age=" + age
-				+ ", email=" + email + ", phone=" + phone + ", address=" + address + ", hobbby=" + hobbby
+				+ ", email=" + email + ", phone=" + phone + ", address=" + address + ", hobby=" + hobby
 				+ ", enrollDate=" + enrollDate + "]";
 	}
 
@@ -59,8 +59,8 @@ public class Member {
 	public void setPhone(String phone) { this.phone = phone; } 
 	public String getAddress() { return address; }
 	public void setAddress(String address) { this.address = address; } 
-	public String getHobbby() { return hobbby; } 
-	public void setHobbby(String hobbby) { this.hobbby = hobbby; } 
+	public String getHobby() { return hobby; } 
+	public void setHobby(String hobby) { this.hobby = hobby; } 
 	public Date getEnrollDate() { return enrollDate; } 
 	public void setEnrollDate(Date enrollDate) { this.enrollDate = enrollDate; } 
 }

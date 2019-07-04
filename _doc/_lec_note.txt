@@ -1,3 +1,16 @@
+[07.04 HOMEWORK] KH계정에 대한 관리프로그램을 작성
+1. 전체사원 조회
+2. 조회
+	-> 서브메뉴: 1.아이디 2.이름 3.부서 4.연봉(이상)
+3. 사원 등록
+4. 사원 수정
+5. 사원 삭제
+6. 부서 관리
+	-> 서브메뉴: 1.등록 2.수정 3.삭제
+7. 직책 관리
+	-> 서브메뉴: 1.등록 2.수정 3.삭제
+
+
 JDBC
 - JRE System Libraries 에 추가
 	C:\Program Files\Java\jdk1.8.0_144\jre\lib\ext
@@ -20,7 +33,7 @@ executeQuery (select)
 executeUpdate (DML)
 
 int result = stmt.executeQuery(query);
-// 몇개행 업데이트 됐는지 return
+// 몇개 행 업데이트 됐는지 return
 
 CLI text 방식으로 DB에 뿌림.
 
@@ -31,7 +44,7 @@ view -
 
 Bean 객체
 
-
+DAO(Database Access Object)
 
 
 
