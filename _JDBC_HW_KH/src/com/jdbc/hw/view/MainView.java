@@ -1,8 +1,6 @@
 package com.jdbc.hw.view;
 
-import java.util.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Scanner;
 
 import com.jdbc.hw.controller.EmpController;
@@ -28,13 +26,16 @@ public class MainView {
 
 		do {
 			System.out.println("=== MAIN MENU ===");
+			System.out.println("=== E   M   P ===");
 			System.out.println("1. Search ALL EMP");
 			System.out.println("2. Search EMP BY ");
 			System.out.println("3. Insert EMP");
 			System.out.println("4. Update EMP");
 			System.out.println("5. Delete EMP");
+			System.out.println("=== D  E  P  T===");
 			System.out.println("6. Department SubMenu");
-			System.out.println("7. Job Menu");
+			System.out.println("=== J   O   B ===");
+			System.out.println("7. Job SubMenu");
 			System.out.println("0. Exit");
 
 			System.out.print("Menu Choice >> ");
@@ -50,7 +51,7 @@ public class MainView {
 					return;
 			}
 
-		} while(cho != 0);
+		} while(true);
 	}
 	
 	public void subMenuEmp() {
@@ -71,20 +72,16 @@ public class MainView {
 			case 4: controller.searchBySal(); break;
 		}
 	}
-	public String searchViewById() {
+	public String inputData(String type) {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("SEARCH ID : ");
-		String emp_id = sc.nextLine();
-		return emp_id;
+		if(type.equals("ID"))
+			System.out.print("ID : ");
+		else if (type.equals("NAME"))
+			System.out.print("NAME : ");
+
+		return sc.nextLine();
 	}
 	
-	public String searchViewByName() {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("SEARCH NAME : ");
-		String emp_name = sc.nextLine();
-		return emp_name;
-	}
-
 	public String searchViewByDept() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("SEARCH DEPT : ");
@@ -107,15 +104,15 @@ public class MainView {
 
 		System.out.print("ID : ");
 		String emp_id = sc.nextLine();
-		emp.setEmp_id(emp_id);
+		emp.setEmpId(emp_id);
 
 		System.out.print("NAME : ");
 		String emp_name = sc.nextLine();
-		emp.setEmp_name(emp_name);
+		emp.setEmpName(emp_name);
 
 		System.out.print("EMP NO : ");
 		String emp_no = sc.nextLine();
-		emp.setEmp_no(emp_no);
+		emp.setEmpNo(emp_no);
 
 		System.out.print("EMAIL :  ");
 		String email = sc.nextLine();
@@ -127,15 +124,15 @@ public class MainView {
 
 		System.out.print("DEPT CODE : ");
 		String dept_code = sc.nextLine();
-		emp.setDept_code(dept_code);
+		emp.setDeptCode(dept_code);
 
 		System.out.print("JOB CODE : ");
 		String job_code = sc.nextLine();
-		emp.setJob_code(job_code);
+		emp.setJobCode(job_code);
 
 		System.out.print("SAL LEVEL : ");
 		String sal_level = sc.nextLine();
-		emp.setSal_level(sal_level);
+		emp.setSalLevel(sal_level);
 
 		System.out.print("SALARY : ");
 		int salary = sc.nextInt(); sc.nextLine();
@@ -147,11 +144,32 @@ public class MainView {
 
 		System.out.print("MANAGER ID : ");
 		String manager_id = sc.nextLine();
-		emp.setManager_id(manager_id);
+		emp.setManagerId(manager_id);
 
 		return emp;
 	}
 	
+	public Employee updateViewEmp() {
+		Scanner sc = new Scanner(System.in);
+		Employee emp = new Employee();
+		
+		System.out.println("=== UPDATE EMPLOYEE ===");
+
+		System.out.print("TYPE ID BEFORE UPDATE : ");
+		String emp_id = sc.nextLine();
+		emp.setEmpId(emp_id);
+
+		System.out.print("NAME : ");
+		String emp_name = sc.nextLine();
+		emp.setEmpName(emp_name);
+
+		System.out.print("EMAIL :  ");
+		String email = sc.nextLine();
+		emp.setEmail(email);
+
+		return emp;
+	}
+
 	public String deleteViewEmp() {
 		Scanner sc = new Scanner(System.in);
 		Employee emp = new Employee();
@@ -168,24 +186,46 @@ public class MainView {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("=== DEPARTMENT SUBMENU ===");
-		System.out.println("1. Search By EMP ID");
-		System.out.println("2. Search By EMP NAME");
-		System.out.println("3. Search By EMP DEPT");
-		System.out.println("4. Search By EMP SAL");
-		System.out.print("SEACH Menu Choice >> ");
+		System.out.println("1. INSERT DEPT");
+		System.out.println("2. UPDATE DEPT");
+		System.out.println("3. DELETE DEPT");
+		System.out.print("DEPT MENU Choice >> ");
 		int cho = sc.nextInt();
 		
 		switch(cho) {
-			case 1: controller.searchById(); break;
-			case 2: controller.searchByName(); break;
-			case 3: controller.searchByDept(); break;
-			case 4: controller.searchBySal(); break;
+//			case 1: controller.insertDept(); break;
+//			case 2: controller.updateDept(); break;
+//			case 3: controller.deleteDept(); break;
 		}
-		
 	}
 	
 	public void subMenuJob() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("=== JOB SUBMENU ===");
+		System.out.println("1. INSERT JOB");
+		System.out.println("2. UPDATE JOB");
+		System.out.println("3. DELETE JOB");
+		System.out.print("JOB MENU Choice >> ");
+		int cho = sc.nextInt();
 		
+		switch(cho) {
+//			case 1: controller.insertJob(); break;
+//			case 2: controller.updateJob(); break;
+//			case 3: controller.deleteJob(); break;
+		}
 	}
 	
+	public void displayEmp(Employee e) {
+		System.out.println(e);
+	}
+
+	public void displayEmpAll(List<Employee> list) {
+		for(Employee e : list)
+			System.out.println(e);
+	}
+
+	public void displayMsg(String msg) {
+		System.out.println(msg);
+	}
 }
