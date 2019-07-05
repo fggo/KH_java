@@ -1,15 +1,22 @@
-[07.04 HOMEWORK] KH계정에 대한 관리프로그램을 작성
-1. 전체사원 조회
-2. 조회
-	-> 서브메뉴: 1.아이디 2.이름 3.부서 4.연봉(이상)
-3. 사원 등록
-4. 사원 수정
-5. 사원 삭제
-6. 부서 관리
-	-> 서브메뉴: 1.등록 2.수정 3.삭제
-7. 직책 관리
-	-> 서브메뉴: 1.등록 2.수정 3.삭제
+connection statement transaction -> model.service
+	(제대로 update 됐는지 체크, validation)
+각테이블 마다 tablename_dao. dao에서 service.getConnection불러서  사용
+	Service에서 Common 생성
+	Common에 Connection 정보(public static Connection getConnection())를 
+	넣어서 이곳에서 수정 ->전체 DAO에 적용
 
+
+[07.04 HOMEWORK] KH계정에 대한 관리프로그램을 작성
+	1. 전체사원 조회
+	2. 조회
+		-> 서브메뉴: 1.아이디 2.이름 3.부서 4.연봉(이상)
+	3. 사원 등록
+	4. 사원 수정
+	5. 사원 삭제
+	6. 부서 관리
+		-> 서브메뉴: 1.등록 2.수정 3.삭제
+	7. 직책 관리
+		-> 서브메뉴: 1.등록 2.수정 3.삭제
 
 JDBC
 - JRE System Libraries 에 추가

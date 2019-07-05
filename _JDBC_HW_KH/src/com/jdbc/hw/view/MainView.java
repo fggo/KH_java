@@ -33,7 +33,7 @@ public class MainView {
 			System.out.println("3. Insert EMP");
 			System.out.println("4. Update EMP");
 			System.out.println("5. Delete EMP");
-			System.out.println("6. Department Menu");
+			System.out.println("6. Department SubMenu");
 			System.out.println("7. Job Menu");
 			System.out.println("0. Exit");
 
@@ -44,7 +44,8 @@ public class MainView {
 				case 1: controller.searchAll(); break;
 				case 2: subMenuEmp(); break;
 				case 3: controller.insertEmp(); break;
-				case 4: controller.deleteEmp(); break;
+				case 4: controller.updateEmp(); break;
+				case 5: controller.deleteEmp(); break;
 				case 0: System.out.println("TEMINATING PROGRAM...");
 					return;
 			}
@@ -148,18 +149,6 @@ public class MainView {
 		String manager_id = sc.nextLine();
 		emp.setManager_id(manager_id);
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-		Date hire_date = null, ent_date = null;
-		try {
-			System.out.print("HIRE DATE (yyyy-MM-dd) : ");
-			hire_date = sdf.parse(sc.nextLine());
-			emp.setHire_date(hire_date);
-
-		} catch(ParseException e) {
-			e.printStackTrace();
-		}
-
 		return emp;
 	}
 	
@@ -176,6 +165,22 @@ public class MainView {
 	}
 
 	public void subMenuDept() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("=== DEPARTMENT SUBMENU ===");
+		System.out.println("1. Search By EMP ID");
+		System.out.println("2. Search By EMP NAME");
+		System.out.println("3. Search By EMP DEPT");
+		System.out.println("4. Search By EMP SAL");
+		System.out.print("SEACH Menu Choice >> ");
+		int cho = sc.nextInt();
+		
+		switch(cho) {
+			case 1: controller.searchById(); break;
+			case 2: controller.searchByName(); break;
+			case 3: controller.searchByDept(); break;
+			case 4: controller.searchBySal(); break;
+		}
 		
 	}
 	

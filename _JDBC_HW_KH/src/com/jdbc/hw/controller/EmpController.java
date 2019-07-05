@@ -61,6 +61,18 @@ public class EmpController {
 		}
 	}
 	
+	public void updateEmp() {
+//		Employee e = new MainView().updateViewEmp();
+//		int result = new EmployeeDao().updateEmp(e);
+//		
+//		if(result > 0) {
+//			System.out.println(result + " ROW(s) UPDATED!");
+//		}
+//		else
+//			System.out.println("UPDATE FAILED!");
+		
+	}
+	
 	public void deleteEmp() {
 		String emp_id = new MainView().deleteViewEmp();
 		int result = new EmployeeDao().deleteEmp(emp_id);
