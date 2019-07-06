@@ -6,7 +6,6 @@ import java.util.Scanner;
 import com.jdbc.hw.controller.EmpController;
 import com.jdbc.hw.model.vo.Employee;
 
-
 //1. 전체사원 조회
 //2. 조회
 //	-> 서브메뉴: 1.아이디 2.이름 3.부서 4.연봉(이상)
@@ -172,7 +171,6 @@ public class MainView {
 
 	public String deleteViewEmp() {
 		Scanner sc = new Scanner(System.in);
-		Employee emp = new Employee();
 		
 		System.out.println("=== DELETE EMPLOYEE ===");
 
@@ -190,8 +188,8 @@ public class MainView {
 		System.out.println("2. UPDATE DEPT");
 		System.out.println("3. DELETE DEPT");
 		System.out.print("DEPT MENU Choice >> ");
+
 		int cho = sc.nextInt();
-		
 		switch(cho) {
 //			case 1: controller.insertDept(); break;
 //			case 2: controller.updateDept(); break;
