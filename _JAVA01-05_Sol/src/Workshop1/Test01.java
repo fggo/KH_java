@@ -1,4 +1,4 @@
-package workshop1;
+package Workshop1;
 
 import java.util.Scanner;
 
@@ -10,9 +10,9 @@ public class Test01 {
 		double n2 = (double)sc.nextInt(); 
 		try {
 			if(n1 % n2 > 1)
-				System.out.println("³ª¸ÓÁö°¡ 1º¸´Ù Å©´Ù!");
+				System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½!");
 			else
-				System.out.println("³ª¸ÓÁö°¡ 1º¸´Ù ÀÛ°Å³ª °°´Ù!");
+				System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½Û°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½!");
 		} catch(ArithmeticException e) {
 			e.printStackTrace();
 			System.out.println("Can't divide by zero!");

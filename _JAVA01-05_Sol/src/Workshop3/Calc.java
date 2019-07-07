@@ -1,4 +1,4 @@
-package workshop03;
+package Workshop3;
 
 import java.util.Scanner;
 
@@ -7,15 +7,15 @@ public class Calc {
 		Scanner sc = new Scanner(System.in);
 		int sum = 0;
 		do {
-			System.out.print("Á¤¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä .(5~10) : ");
+			System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ .(5~10) : ");
 			int n = sc.nextInt();
 			if(n <5 || n>10)
-				System.out.println("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.");
+				System.out.println("ï¿½Ù½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½.");
 			for(int i =2; i<n; i++) {
 				if (i%2==0) sum += i;
 			}
 			break;
 		}while(true);
-		System.out.println("°á°ú: " + sum);
+		System.out.println("ï¿½ï¿½ï¿½: " + sum);
 	}
 }

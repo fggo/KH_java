@@ -1,4 +1,4 @@
-package workshop03;
+package Workshop3;
 
 public class Test02 {
 	public static void main(String[] args) {

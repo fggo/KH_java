@@ -1,4 +1,4 @@
-package workshop2;
+package Workshop2;
 
 import java.util.Scanner;
 
@@ -17,9 +17,9 @@ public class Test01 {
 			if(nums[i] > max) max = nums[i];
 			if(nums[i] < min) min = nums[i];
 		}
-		System.out.print("�Է°�: ");
+		System.out.print("�Է°�: ");
 		for(int i =0; i<nums.length; i++) System.out.print(nums[i] + " ");
-		System.out.println("\n�ִ밪: " + max);
-		System.out.println("�ִ밪: " + min);
+		System.out.println("\n�ִ밪: " + max);
+		System.out.println("�ִ밪: " + min);
 	}
 }

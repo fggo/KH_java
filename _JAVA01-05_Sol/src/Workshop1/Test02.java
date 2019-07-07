@@ -1,4 +1,4 @@
-package workshop1;
+package Workshop1;
 
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ public class Test02 {
 			System.out.print("Type Integer(5~10) >> ");
 			double n = (double)sc.nextInt();
 			if(n<5 || n >10) {
-				System.out.println("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.");
+				System.out.println("ï¿½Ù½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½.");
 				continue;
 			}
 			for(int i =1; i <= n; i++) {
@@ -20,9 +20,9 @@ public class Test02 {
 			}
 			avg = sum/n;
 
-			System.out.println("ÇÕ: " + sum);
-			System.out.println("°ö: " + multi);
-			System.out.println("Æò±Õ: " + avg);
+			System.out.println("ï¿½ï¿½: " + sum);
+			System.out.println("ï¿½ï¿½: " + multi);
+			System.out.println("ï¿½ï¿½ï¿½: " + avg);
 			break;
 			
 		} while(true);

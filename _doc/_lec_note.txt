@@ -1,65 +1,78 @@
-connection statement transaction -> model.service
-	(제대로 update 됐는지 체크, validation)
-각테이블 마다 tablename_dao. dao에서 service.getConnection불러서  사용
-	Service에서 Common 생성
-	Common에 Connection 정보(public static Connection getConnection())를 
-	넣어서 이곳에서 수정 ->전체 DAO에 적용
+웹코딩, 여행, 시뮬레이션 등 주제 3가지. 디자이너가 아니기때문에 기능적인부분 집중. 
+회사에 제안시 주제를 선택한이유, 기능이 유용한지에 대해 간략하게 준비
+
+1. SNS
+    facebook/twitter/instagram/ 등 비슷하게 만들기
+    
+2. 실시간 헤드라인 뉴스
+    https://hckrnews.com/
+    https://news.hoxly.com/
+    - 유저가 (제목 + 뉴스링크) 게시글 등록
+    - 웹크롤링: 웹에서 데이터를 가져옴. keyword 기준으로 뉴스 리스트를 가져옴
+    - 유저 추천수 및 댓글 기능.
+
+3. 실시간 가격비교 사이트
+    http://www.danawa.com/
+    - 웹크롤링으로 가격정보 웹에서 추출
+
+4. 웹코딩
+    https://leetcode.com/problems/two-sum/
+    - 웹상에서 코딩
+    - 자동완성 기능 / syntax 색깔넣기
+    - 프로그래밍 챌린지 quiz 및 보상 시스템
+---------------------------------------------
 
 
-[07.04 HOMEWORK] KH계정에 대한 관리프로그램을 작성
-	1. 전체사원 조회
-	2. 조회
-		-> 서브메뉴: 1.아이디 2.이름 3.부서 4.연봉(이상)
-	3. 사원 등록
-	4. 사원 수정
-	5. 사원 삭제
-	6. 부서 관리
-		-> 서브메뉴: 1.등록 2.수정 3.삭제
-	7. 직책 관리
-		-> 서브메뉴: 1.등록 2.수정 3.삭제
-
-JDBC
-- JRE System Libraries 에 추가
-	C:\Program Files\Java\jdk1.8.0_144\jre\lib\ext
-	ojdbc6.jar을 넣고 eclipse restart
-	-> build path 추가하지 않고도 jdbc 사용 가능
-	추가안될 경우 Preferences -> Java -> Installed JREs 경로 맞춰야함
-	
-- Refenced Library에 추가
-	Build Path -> configure build path -> Add External Jars (다운로드한 ojdbc6.jar)
-		-> Reference Library
-	
-프로젝트 단위별로 ojdbc6 등 external JARs추가
-	
-Preferences -> General - Editor - Text Editors - Spelling -> Encoding(UTF-8)
-Perferences -> General - Workspace -> Encoding(UTF-8)
-Perferences -> JSON - JSON FILE (ISO 10646 UTF_8)
-Perferences -> Web - CSS HTML JSP (ISO 10646 UTF_8)
-
-executeQuery (select)
-executeUpdate (DML)
-
-int result = stmt.executeQuery(query);
-// 몇개 행 업데이트 됐는지 return
-
-CLI text 방식으로 DB에 뿌림.
-
-MVC
-
-controller ->
-view -
-
-Bean 객체
-
-DAO(Database Access Object)
-
-
-
-
-- 모델링 프로세스
+- SEMI PROJECT 모델링 프로세스
     기능 찾기 (영화예매 기능, 음식주문 기능 등)
     필드 찾기 (e.g. 티켓가격, 할인율, 결제일)
     테이블 만들기 (비슷한 기능, 필드를 묶어 테이블 정의)
+
+JDBC
+    Connection Statement Transaction -> model.service
+        (제대로 update 됐는지 validation)
+    각테이블 마다 tablenameDao. dao에서 service.getConnection불러서  사용
+        Service에서 Common 생성
+        Common에 Connection 정보(public static Connection getConnection())를 
+        넣어서 이곳에서 수정 ->전체 DAO에 적용
+
+    - JRE System Libraries 에 추가
+        C:\Program Files\Java\jdk1.8.0_144\jre\lib\ext
+        ojdbc6.jar을 넣고 eclipse restart
+        -> build path 추가하지 않고도 jdbc 사용 가능
+        추가안될 경우 Preferences -> Java -> Installed JREs 경로 맞춰야함
+        
+    - Refenced Library에 추가
+        Build Path -> configure build path -> Add External Jars (다운로드한 ojdbc6.jar)
+            -> Reference Library
+	
+    프로젝트 단위별로 ojdbc6 등 external JARs추가
+	
+    Preferences -> General - Editor - Text Editors - Spelling -> Encoding(UTF-8)
+    Perferences -> General - Workspace -> Encoding(UTF-8)
+    Perferences -> JSON - JSON FILE (ISO 10646 UTF_8)
+    Perferences -> Web - CSS HTML JSP (ISO 10646 UTF_8)
+
+    executeQuery (select)
+    executeUpdate (DML)
+
+    int result = stmt.executeQuery(query);
+    // 몇개 행 업데이트 됐는지 return
+
+    CLI text 방식으로 DB에 뿌림.
+
+    MVC
+
+    controller ->
+    view -
+
+    Bean 객체
+
+    DAO(Database Access Object)
+
+
+
+
 
 --DB 시험 7.2
 CREATE TABLE table_name
@@ -460,10 +473,10 @@ socket programming
 ---
 openjdk
 시스템 변수: 
-JAVA_HOME
-	C:\Program Files\openjdk-11.0.2_windows-x64_bin\jdk-11.0.2
-Path
-	%JAVA_HOME%\bin
+    JAVA_HOME
+        C:\Program Files\openjdk-11.0.2_windows-x64_bin\jdk-11.0.2
+    Path
+        %JAVA_HOME%\bin
 
 eclipse window > preference >java >installed jre
 java 버전 변경
