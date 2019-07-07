@@ -1,26 +1,26 @@
 package com.jdbc.hw.model.vo;
 
 public class Job {
-	private String job_code;
-	private String job_name;
+	private String jobCode;
+	private String jobName;
 
 	public Job() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Job(String job_code, String job_name) {
+
+	public Job(String jobCode, String jobName) {
 		super();
-		this.job_code = job_code;
-		this.job_name = job_name;
-	}
-	
-	@Override
-	public String toString() {
-		return "Job [job_code=" + job_code + ", job_name=" + job_name + "]";
+		this.jobCode = jobCode;
+		this.jobName = jobName;
 	}
 
-	public String getJob_code() { return job_code; }
-	public void setJob_code(String job_code) { this.job_code = job_code; }
-	public String getJob_name() { return job_name; }
-	public void setJob_name(String job_name) { this.job_name = job_name; }
+	@Override
+	public String toString() {
+		return "Job [jobCode=" + jobCode + ", jobName=" + jobName + "]";
+	}
+
+	public String getJobCode() { return jobCode; } 
+	public void setJobCode(String jobCode) { this.jobCode = jobCode; } 
+	public String getJobName() { return jobName; } 
+	public void setJobName(String jobName) { this.jobName = jobName; } 
 }

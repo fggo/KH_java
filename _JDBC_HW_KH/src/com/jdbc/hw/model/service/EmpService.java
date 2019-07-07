@@ -7,11 +7,11 @@ import static com.jdbc.hw.common.JDBCTemplate.close;
 import static com.jdbc.hw.common.JDBCTemplate.commit;
 import static com.jdbc.hw.common.JDBCTemplate.rollback;
 import static com.jdbc.hw.common.JDBCTemplate.getConnection;
-import com.jdbc.hw.model.dao.EmployeeDao;
+import com.jdbc.hw.model.dao.EmpDao;
 import com.jdbc.hw.model.vo.Employee;
 
-public class EmployeeService {
-	private EmployeeDao dao = new EmployeeDao();
+public class EmpService {
+	private EmpDao dao = new EmpDao();
 	
 	public List<Employee> searchAll(){
 		Connection conn = getConnection();

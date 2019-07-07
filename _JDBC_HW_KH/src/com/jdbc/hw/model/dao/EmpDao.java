@@ -10,19 +10,20 @@ import java.util.List;
 import static com.jdbc.hw.common.JDBCTemplate.close;
 import com.jdbc.hw.model.vo.Employee;
 
-public class EmployeeDao {
+public class EmpDao {
 	public List<Employee> searchAll(Connection conn) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
+		String sql = "SELECT * FROM EMPLOYEE";
+
 		List<Employee> list = new ArrayList<Employee>();
 
 		try {
-			String sql = "SELECT * FROM EMPLOYEE";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
-			list = this.initEmployeeList(rs);
+			list = this.getEmpList(rs);
 
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -38,16 +39,17 @@ public class EmployeeDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
+		String sql = "select * from employee where emp_id=?";
+
 		Employee emp = new Employee();
 
 		try {
-			String sql = "select * from employee where emp_id=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, emp_id);
 
 			rs = pstmt.executeQuery();
 
-			emp = this.initEmployee(rs);
+			emp = this.getEmp(rs);
 			
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -62,16 +64,17 @@ public class EmployeeDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
+		String sql = "select * from employee where emp_name LIKE ?";
+
 		List<Employee> list = new ArrayList<Employee>();
 
 		try {
-			String sql = "select * from employee where emp_name LIKE ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%" + emp_name + "%");
 
 			rs = pstmt.executeQuery();
 
-			list = this.initEmployeeList(rs);
+			list = this.getEmpList(rs);
 			
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -86,15 +89,16 @@ public class EmployeeDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
+		String sql = "select * from employee where dept_code=?";
+
 		List<Employee> list = new ArrayList<Employee>();
 
 		try {
-			String sql = "select * from employee where dept_code=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dept_code);
 			rs = pstmt.executeQuery();
 
-			list = this.initEmployeeList(rs);
+			list = this.getEmpList(rs);
 			
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -110,15 +114,16 @@ public class EmployeeDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
+		String sql = "select * from employee where salary >= ?";
+
 		List<Employee> list = new ArrayList<Employee>();
 
 		try {
-			String sql = "select * from employee where salary >= ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, salary);
 			rs = pstmt.executeQuery();
 			
-			list = this.initEmployeeList(rs);
+			list = this.getEmpList(rs);
 			
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -132,11 +137,12 @@ public class EmployeeDao {
 	public int insertEmp(Connection conn, Employee emp) {
 		PreparedStatement pstmt = null;
 
+		String sql = "INSERT INTO EMPLOYEE "
+				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?, SYSDATE , NULL, DEFAULT)";
+
 		int result = 0;
 
 		try {
-			String sql = "INSERT INTO EMPLOYEE "
-					+ "VALUES(?,?,?,?,?,?,?,?,?,?,?, SYSDATE , NULL, DEFAULT)";
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, emp.getEmpId());
@@ -165,9 +171,10 @@ public class EmployeeDao {
 	public int updateEmp(Connection conn, Employee emp) {
 		PreparedStatement pstmt = null;
 		int result = 0;
+
+		String sql = "UPDATE EMPLOYEE SET emp_name=?, EMAIL=? WHERE emp_id=?";
 		
 		try {
-			String sql = "UPDATE EMPLOYEE SET emp_name=?, EMAIL=? WHERE emp_id=?";
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, emp.getEmpName());
@@ -188,10 +195,11 @@ public class EmployeeDao {
 	public int deleteEmp(Connection conn, String emp_id) {
 		PreparedStatement pstmt = null;
 
+		String sql = "DELETE FROM EMPLOYEE WHERE emp_id=?";
+
 		int result = 0;
 
 		try {
-			String sql = "DELETE FROM EMPLOYEE WHERE emp_id=?";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, emp_id);
@@ -207,7 +215,7 @@ public class EmployeeDao {
 		return result;
 	}
 
-	private Employee initEmployee(ResultSet rs) {
+	private Employee getEmp(ResultSet rs) {
 		Employee e = null;
 		
 		try {
@@ -235,7 +243,7 @@ public class EmployeeDao {
 		return e;
 	}
 
-	private List<Employee> initEmployeeList(ResultSet rs) {
+	private List<Employee> getEmpList(ResultSet rs) {
 		List<Employee> list = new ArrayList<Employee>();
 		Employee e = null;
 		

@@ -3,8 +3,12 @@ package com.jdbc.hw.view;
 import java.util.List;
 import java.util.Scanner;
 
+import com.jdbc.hw.controller.DeptController;
 import com.jdbc.hw.controller.EmpController;
+import com.jdbc.hw.controller.JobController;
+import com.jdbc.hw.model.vo.Department;
 import com.jdbc.hw.model.vo.Employee;
+import com.jdbc.hw.model.vo.Job;
 
 //1. 전체사원 조회
 //2. 조회
@@ -17,7 +21,9 @@ import com.jdbc.hw.model.vo.Employee;
 //7. 직책 관리
 //	-> 서브메뉴: 1.등록 2.수정 3.삭제
 public class MainView {
-	private EmpController controller = new EmpController();
+	private EmpController empController = new EmpController();
+	private DeptController deptController = new DeptController();
+	private JobController jobController = new JobController();
 
 	public void mainMenu() {
 		Scanner sc = new Scanner(System.in);
@@ -41,11 +47,13 @@ public class MainView {
 			cho = sc.nextInt();
 			
 			switch(cho) {
-				case 1: controller.searchAll(); break;
-				case 2: subMenuEmp(); break;
-				case 3: controller.insertEmp(); break;
-				case 4: controller.updateEmp(); break;
-				case 5: controller.deleteEmp(); break;
+				case 1: empController.searchAll(); break;
+				case 2: this.subMenuEmp(); break;
+				case 3: empController.insertEmp(); break;
+				case 4: empController.updateEmp(); break;
+				case 5: empController.deleteEmp(); break;
+				case 6: this.subMenuDept(); break;
+				case 7: this.subMenuJob(); break;
 				case 0: System.out.println("TEMINATING PROGRAM...");
 					return;
 			}
@@ -65,10 +73,10 @@ public class MainView {
 		int cho = sc.nextInt();
 		
 		switch(cho) {
-			case 1: controller.searchById(); break;
-			case 2: controller.searchByName(); break;
-			case 3: controller.searchByDept(); break;
-			case 4: controller.searchBySal(); break;
+			case 1: empController.searchById(); break;
+			case 2: empController.searchByName(); break;
+			case 3: empController.searchByDept(); break;
+			case 4: empController.searchBySal(); break;
 		}
 	}
 	public String inputData(String type) {
@@ -97,53 +105,54 @@ public class MainView {
 
 	public Employee insertViewEmp() {
 		Scanner sc = new Scanner(System.in);
-		Employee emp = new Employee();
 		
 		System.out.println("=== INSERT EMPLOYEE ===");
 
 		System.out.print("ID : ");
-		String emp_id = sc.nextLine();
-		emp.setEmpId(emp_id);
+		String empId = sc.nextLine();
 
 		System.out.print("NAME : ");
-		String emp_name = sc.nextLine();
-		emp.setEmpName(emp_name);
+		String empName = sc.nextLine();
 
-		System.out.print("EMP NO : ");
-		String emp_no = sc.nextLine();
-		emp.setEmpNo(emp_no);
+		System.out.print("EMP PERSONAL NO : ");
+		String empNo = sc.nextLine();
 
 		System.out.print("EMAIL :  ");
 		String email = sc.nextLine();
-		emp.setEmail(email);
 
 		System.out.print("PHONE :  ");
 		String phone = sc.nextLine();
-		emp.setPhone(phone);
 
 		System.out.print("DEPT CODE : ");
-		String dept_code = sc.nextLine();
-		emp.setDeptCode(dept_code);
+		String deptCode = sc.nextLine();
 
 		System.out.print("JOB CODE : ");
-		String job_code = sc.nextLine();
-		emp.setJobCode(job_code);
+		String jobCode = sc.nextLine();
 
 		System.out.print("SAL LEVEL : ");
-		String sal_level = sc.nextLine();
-		emp.setSalLevel(sal_level);
+		String salLevel = sc.nextLine();
 
 		System.out.print("SALARY : ");
 		int salary = sc.nextInt(); sc.nextLine();
-		emp.setSalary(salary);
 
 		System.out.print("BONUS : ");
 		Double bonus = sc.nextDouble(); sc.nextLine();
-		emp.setBonus(bonus);
 
 		System.out.print("MANAGER ID : ");
-		String manager_id = sc.nextLine();
-		emp.setManagerId(manager_id);
+		String managerId = sc.nextLine();
+
+		Employee emp = new Employee();
+		emp.setEmpId(empId);
+		emp.setEmpName(empName);
+		emp.setEmpNo(empNo);
+		emp.setEmail(email);
+		emp.setPhone(phone);
+		emp.setDeptCode(deptCode);
+		emp.setJobCode(jobCode);
+		emp.setSalLevel(salLevel);
+		emp.setSalary(salary);
+		emp.setBonus(bonus);
+		emp.setManagerId(managerId);
 
 		return emp;
 	}
@@ -154,7 +163,7 @@ public class MainView {
 		
 		System.out.println("=== UPDATE EMPLOYEE ===");
 
-		System.out.print("TYPE ID BEFORE UPDATE : ");
+		System.out.print("EMP ID FOR UPDATE : ");
 		String emp_id = sc.nextLine();
 		emp.setEmpId(emp_id);
 
@@ -184,43 +193,131 @@ public class MainView {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("=== DEPARTMENT SUBMENU ===");
-		System.out.println("1. INSERT DEPT");
-		System.out.println("2. UPDATE DEPT");
-		System.out.println("3. DELETE DEPT");
+		System.out.println("1. SEARCH ALL DEPT");
+		System.out.println("2. INSERT DEPT");
+		System.out.println("3. UPDATE DEPT");
+		System.out.println("4. DELETE DEPT");
 		System.out.print("DEPT MENU Choice >> ");
 
 		int cho = sc.nextInt();
 		switch(cho) {
-//			case 1: controller.insertDept(); break;
-//			case 2: controller.updateDept(); break;
-//			case 3: controller.deleteDept(); break;
+			case 1: deptController.searchAll(); break;
+			case 2: deptController.insertDept(); break;
+			case 3: deptController.updateDept(); break;
+			case 4: deptController.deleteDept(); break;
 		}
 	}
 	
+	public Department insertViewDept() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("DEPT ID : ");
+		String deptId = sc.nextLine();
+		
+		System.out.print("DEPT TITLE : ");
+		String deptTitle = sc.nextLine();
+
+		System.out.print("LOCATION ID : ");
+		String locationId = sc.nextLine();
+		
+		Department dept = new Department();
+		dept.setDeptId(deptId);
+		dept.setDeptTitle(deptTitle);
+		dept.setLocationId(locationId);
+		
+		return dept;
+	}
+
+	public Department updateViewDept() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("DEPT ID FOR UPDATE : ");
+		String deptId = sc.nextLine();
+		
+		System.out.print("DEPT TITLE : ");
+		String deptTitle = sc.nextLine();
+
+		System.out.print("LOCATION ID : ");
+		String locationId = sc.nextLine();
+		
+		Department dept = new Department();
+		dept.setDeptId(deptId);
+		dept.setDeptTitle(deptTitle);
+		dept.setLocationId(locationId);
+		
+		return dept;
+	}
+
+	public String deleteViewDept() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("DEPT ID : ");
+		String deptId = sc.nextLine();
+		
+		return deptId;
+	}
+
 	public void subMenuJob() {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("=== JOB SUBMENU ===");
-		System.out.println("1. INSERT JOB");
-		System.out.println("2. UPDATE JOB");
-		System.out.println("3. DELETE JOB");
+		System.out.println("1. SEARCH ALL JOB");
+		System.out.println("2. INSERT JOB");
+		System.out.println("3. UPDATE JOB");
+		System.out.println("4. DELETE JOB");
 		System.out.print("JOB MENU Choice >> ");
 		int cho = sc.nextInt();
 		
 		switch(cho) {
-//			case 1: controller.insertJob(); break;
-//			case 2: controller.updateJob(); break;
-//			case 3: controller.deleteJob(); break;
+			case 1: jobController.searchAll(); break;
+			case 2: jobController.insertJob(); break;
+			case 3: jobController.updateJob(); break;
+			case 4: jobController.deleteJob(); break;
 		}
 	}
 	
-	public void displayEmp(Employee e) {
-		System.out.println(e);
+	public Job insertViewJob() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("JOB CODE : ");
+		String jobCode = sc.nextLine();
+		
+		System.out.print("JOB NAME : ");
+		String jobName = sc.nextLine();
+
+		Job job = new Job();
+		job.setJobCode(jobCode);
+		job.setJobName(jobName);
+		
+		return job;
 	}
 
-	public void displayEmpAll(List<Employee> list) {
-		for(Employee e : list)
-			System.out.println(e);
+	public Job updateViewJob() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("JOB CODE FOR UPDATE : ");
+		String jobCode = sc.nextLine();
+		
+		System.out.print("JOB NAME : ");
+		String jobName = sc.nextLine();
+
+		Job job = new Job();
+		job.setJobCode(jobCode);
+		job.setJobName(jobName);
+		
+		return job;
+	}
+
+	public String deleteViewJob() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("JOB CODE : ");
+		String jobCode = sc.nextLine();
+		
+		return jobCode;
+	}
+
+	public <T> void display(T obj) {
+		System.out.println(obj);
+	}
+
+	public <T> void displayList(List<T> list) {
+		for(T obj : list)
+			System.out.println(obj);
 	}
 
 	public void displayMsg(String msg) {

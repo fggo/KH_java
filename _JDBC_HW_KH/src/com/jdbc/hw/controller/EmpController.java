@@ -2,18 +2,19 @@ package com.jdbc.hw.controller;
 
 import java.util.List;
 
-import com.jdbc.hw.model.service.EmployeeService;
+import com.jdbc.hw.model.service.EmpService;
+import com.jdbc.hw.model.vo.Department;
 import com.jdbc.hw.model.vo.Employee;
 import com.jdbc.hw.view.MainView;
 
 public class EmpController {
-	private EmployeeService service = new EmployeeService();
+	private EmpService service = new EmpService();
 
 	public void searchAll() {
 		List<Employee> list = service.searchAll();
 
 		if (list.size() > 0)
-			new MainView().displayEmpAll(list);
+			new MainView().displayList(list);
 		else
 			new MainView().displayMsg("NO EMP SEARCH RESULT...");
 	}
@@ -25,7 +26,7 @@ public class EmpController {
 		Employee e = service.searchById(emp_id);
 
 		if (e != null)
-			new MainView().displayEmp(e);
+			new MainView().display(e);
 	}
 
 	public void searchByName() { 
@@ -34,7 +35,7 @@ public class EmpController {
 		String emp_name = new MainView().inputData("NAME");
 		List<Employee> list = service.searchByName(emp_name);
 		if(list.size() > 0)
-			new MainView().displayEmpAll(list);
+			new MainView().displayList(list);
 		else
 			new MainView().displayMsg("NO EMP SEARCH RESULT...");
 	}
@@ -45,7 +46,7 @@ public class EmpController {
 		String dept_code = new MainView().searchViewByDept();
 		List<Employee> list = service.searchByDept(dept_code);
 		if(list.size() > 0)
-			new MainView().displayEmpAll(list);
+			new MainView().displayList(list);
 		else
 			new MainView().displayMsg("NO EMP SEARCH RESULT...");
 	}
@@ -57,19 +58,21 @@ public class EmpController {
 		List<Employee> list = service.searchBySal(salary);
 
 		if(list.size() > 0)
-			new MainView().displayEmpAll(list);
+			new MainView().displayList(list);
 		else
 			new MainView().displayMsg("NO EMP SEARCH RESULT...");
 	}
 	
 	public void insertEmp() {
+		this.searchAll();
+		
 		Employee e = new MainView().insertViewEmp();
 		int result = service.insertEmp(e);
 
 		if(result > 0) 
-			new MainView().displayMsg(result + " row(s) INSERT COMPLETE!");
+			new MainView().displayMsg(result + " ROW(s) INSERT COMPLETE!");
 		else 
-			new MainView().displayMsg("INSERT FAILED!");
+			new MainView().displayMsg("EMP INSERT FAILED.");
 	}
 	
 	public void updateEmp() {
@@ -82,7 +85,7 @@ public class EmpController {
 		if(result > 0)
 			new MainView().displayMsg(result + " ROW(s) UPDATED!");
 		else
-			new MainView().displayMsg("UPDATE FAILED!");
+			new MainView().displayMsg("EMP UPDATE FAILED.");
 	}
 	
 	public void deleteEmp() {
@@ -94,6 +97,6 @@ public class EmpController {
 		if(result >0)
 			new MainView().displayMsg(result + " ROW(s) DELETE COMPLETE!");
 		else
-			new MainView().displayMsg("DELETE FAILED...");
+			new MainView().displayMsg("EMP DELETE FAILED.");
 	}
 }
