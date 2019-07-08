@@ -1,16 +1,3 @@
-의존성 주입
-MainView()
-EmployeeController()
-
-	StackOverFlowError
-
-ipconfig 
-ipv4 192.168.20.238
-ipv4 192.168.20.2
-
-
-
-
 
 
 
@@ -46,7 +33,16 @@ ipv4 192.168.20.2
 
 ---------------------------------------------
 
-Connection: 플리케이션에서 한개만 존재 singleton
+의존성 주입
+MainView()
+EmployeeController()
+	StackOverFlowError
+
+ipconfig 
+ipv4 192.168.20.238
+ipv4 192.168.20.2
+
+Connection: 애플리케이션에서 한개만 존재 singleton
 
 JDBC
     Connection Statement Transaction -> model.service

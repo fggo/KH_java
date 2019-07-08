@@ -58,7 +58,7 @@ public class BoardDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, writer);
+			pstmt.setString(1, "%" + writer + "%");
 			rs = pstmt.executeQuery();
 
 			list = this.getBoardList(rs);
@@ -83,7 +83,7 @@ public class BoardDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, title);
+			pstmt.setString(1, "%" + title + "%");
 			rs = pstmt.executeQuery();
 
 			list = this.getBoardList(rs);
