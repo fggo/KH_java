@@ -8,6 +8,12 @@
             "type": "java",
             "name": "CodeLens (Launch) - Hanoi",
             "request": "launch",
+            "mainClass": "Hanoi"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Hanoi",
+            "request": "launch",
             "mainClass": "Hanoi",
             "projectName": "coding_prac_8c573e84"
         },

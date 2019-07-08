@@ -27,9 +27,10 @@ public class MainView {
 				case 1: controller.selectAll(); break;
 				case 2: controller.selectId(); break;
 				case 3: controller.selectName(); break;
-//				case 4: controller.insertEmp(); break;
-//				case 5: controller.deleteEmp(); break;
-//				case 0: this.displayMsg("TERMINATING THE PROGRAM..."); return;
+				case 4: controller.insertMember(); break;
+				case 5: controller.updateMember(); break;
+				case 6: controller.deleteMember(); break;
+				case 0: this.displayMsg("TERMINATING THE PROGRAM..."); return;
 			}
 		} while(true);
 		
@@ -44,14 +45,56 @@ public class MainView {
 			System.out.print("SEARCH NAME : ");
 		return sc.nextLine();
 	}
+	
+	public Member inputMember() {
+		Scanner sc = new Scanner(System.in);
+		Member m = new Member();
 
-	public void displayMemberAll(List<Member> list) {
-		for(Member m : list)
-			System.out.println(m);
+		System.out.print("MEMBER ID : ");
+		m.setMemberId(sc.nextLine());
+
+		System.out.print("MEMBER PWD : ");
+		m.setMemberPwd(sc.nextLine());
+
+		System.out.print("MEMBER NAME : ");
+		m.setMemberName(sc.nextLine());
+
+		System.out.print("AGE : ");
+		m.setAge(sc.nextInt()); sc.nextLine();
+
+		System.out.print("GENDER(M/F) : ");
+		m.setGender(sc.nextLine().charAt(0));
+
+		System.out.print("PHONE : ");
+		m.setPhone(sc.nextLine());
+
+		System.out.print("EMAIL : ");
+		m.setEmail(sc.nextLine());
+
+		return m;
 	}
 	
-	public void displayMember(Member m) {
-		System.out.println(m);
+	public Member updateMember(String id) {
+		Scanner sc = new Scanner(System.in);
+
+		Member m = new Member();
+		m.setMemberId(id);
+		
+		System.out.print("AGE : ");
+		m.setAge(sc.nextInt()); sc.nextLine();
+		System.out.print("EMAIL : ");
+		m.setEmail(sc.nextLine());
+		
+		return m;
+	}
+
+	public <T> void displayMemberList(List<T> list) {
+		for(T obj : list)
+			System.out.println(obj);
+	}
+	
+	public <T> void displayMember(T obj) {
+		System.out.println(obj);
 	}
 
 	public void displayMsg(String msg) {
