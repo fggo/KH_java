@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import com.jdbc.controller.BoardController;
 import com.jdbc.controller.MemberController;
+import com.jdbc.model.vo.Board;
 import com.jdbc.model.vo.Member;
 
 public class MainView {
@@ -48,9 +49,9 @@ public class MainView {
 				case 1: memberController.selectAll(); break;
 				case 2: memberController.selectId(); break;
 				case 3: memberController.selectName(); break;
-//				case 4: memberController.insertMember(); break;
-//				case 5: memberController.updateMember(); break;
-//				case 6: memberController.deleteMember(); break;
+				case 4: memberController.insertMember(); break;
+				case 5: memberController.updateMember(); break;
+				case 6: memberController.deleteMember(); break;
 				case 7: System.out.println("BACK TO MAIN MENU..."); return;
 			}
 			
@@ -138,17 +139,65 @@ public class MainView {
 			System.out.print("CHOOSE >> ");
 			cho = sc.nextInt();
 			switch(cho){
-//				case 1: boardController.selectAll(); break;
-//				case 2: boardController.insertBoard(); break;
-//				case 3: boardController.selectWriter(); break;
-//				case 4: boardController.selectTitle(); break;
-//				case 5: boardController.updateBoard(); break;
-//				case 6: boardController.deleteBoard(); break;
+				case 1: boardController.selectAll(); break;
+				case 2: boardController.insertBoard(); break;
+				case 3: boardController.selectWriter(); break;
+				case 4: boardController.selectTitle(); break;
+				case 5: boardController.updateBoard(); break;
+				case 6: boardController.deleteBoard(); break;
 				case 7: System.out.println("BACK TO MAIN MENU..."); return;
 			}
 		} while(true);
 	}
 	
+	public Board insertBoard() {
+		Scanner sc = new Scanner(System.in);
+		Board b = new Board();
+
+//		System.out.print("IDX : ");
+
+		System.out.print("DIV(공지,일반,비밀) : ");
+		b.setDiv(sc.nextLine());
+		if(!"공지일반비밀".contains(b.getDiv()))
+			return null;
+
+		System.out.print("TITLE : ");
+		b.setTitle(sc.nextLine());
+
+		System.out.print("BOARD COMMENT : ");
+		b.setBoardComment(sc.nextLine());
+
+		System.out.print("WRITER : ");
+		b.setWriter(sc.nextLine());
+
+//		System.out.print("WRITE DATE : ");
+
+		return b;
+	}
+
+	public Board updateBoard() {
+		Scanner sc = new Scanner(System.in);
+		Board b = new Board();
+
+		System.out.print("IDX : ");
+		b.setIdx(sc.nextInt()); sc.nextLine();
+
+		System.out.print("TITLE : ");
+		b.setTitle(sc.nextLine());
+
+		System.out.print("BOARD COMMENT : ");
+		b.setBoardComment(sc.nextLine());
+
+		return b;
+	}
+	
+	public int deleteBoard() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("IDX : ");
+		return sc.nextInt();
+	}
+
 	public <T> void display(T obj) {
 		System.out.println(obj);
 	}

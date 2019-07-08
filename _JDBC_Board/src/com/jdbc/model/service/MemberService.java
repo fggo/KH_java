@@ -52,6 +52,8 @@ public class MemberService {
 			commit(conn);
 		else
 			rollback(conn);
+		
+		return result;
 	}
 
 	public int updateMember(Member m) {
@@ -64,9 +66,11 @@ public class MemberService {
 			commit(conn);
 		else
 			rollback(conn);
+		
+		return result;
 	}
 	
-	public int delteMember(int idx) {
+	public int deleteMember(int idx) {
 		Connection conn = getConnection();
 		int result = dao.deleteMember(conn, idx);
 		
@@ -76,5 +80,7 @@ public class MemberService {
 			commit(conn);
 		else
 			rollback(conn);
+		
+		return result;
 	}
 }

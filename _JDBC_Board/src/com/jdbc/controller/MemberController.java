@@ -18,6 +18,8 @@ public class MemberController {
 	}
 	
 	public void selectId() {
+		this.selectAll();
+
 		String id = new MainView().inputData("ID");
 		List<Member> list = service.selectId(id);
 		
@@ -29,6 +31,8 @@ public class MemberController {
 	}
 
 	public void selectName() {
+		this.selectAll();
+
 		String name = new MainView().inputData("NAME");
 		List<Member> list = service.selectName(name);
 		
@@ -39,6 +43,8 @@ public class MemberController {
 	}
 	
 	public void insertMember() {
+		this.selectAll();
+
 		Member m = new MainView().insertMember();
 		int result = service.insertMember(m);
 
@@ -49,6 +55,8 @@ public class MemberController {
 	}
 
 	public void updateMember() {
+		this.selectAll();
+
 		Member m = new MainView().updateMember();
 		int result = service.updateMember(m);
 
@@ -59,6 +67,8 @@ public class MemberController {
 	}
 
 	public void deleteMember() {
+		this.selectAll();
+
 		int idx = Integer.valueOf(new MainView().inputData("IDX"));
 		int result = service.deleteMember(idx);
 

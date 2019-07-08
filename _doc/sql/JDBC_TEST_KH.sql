@@ -1,5 +1,15 @@
+select * from member;
+select * from board;
 
---member table
+DROP TABLE MEMBER;
+DROP TABLE BOARD;
+
+DROP SEQUENCE seq_member_idx;
+DROP SEQUENCE seq_board_idx;
+
+COMMIT;
+ROLLBACK;
+--MEMBER table
 --idx 시퀀스를 이용하여 100부터 1증가하게 하여 부여 primary key 
 --member_id varchar2(10) not null
 --member_pwd varchar2(10) not null
@@ -9,7 +19,15 @@
 --phone varchar2(10)
 --enroll_date date
 
-CREATE SEQUENCE seq_idx_member
+--BOARD table
+--idx 시퀀스를 이용 1부터 1증가하여 부여 primary key
+--div varchar2(10) '공지' '일반' '비밀' 세개의 값만 넣을수있게 설정
+--title varchar2(50) not null
+--board_comment varchar2(3000) not null
+--writer varchar2(10)
+--write_date date 
+
+CREATE SEQUENCE seq_member_idx
 START WITH 100
 INCREMENT BY 1
 NOCYCLE
@@ -25,9 +43,9 @@ CREATE TABLE MEMBER (
     phone varchar2(10),
     enroll_date date
 );
-
 COMMENT ON COLUMN KH.MEMBER.idx IS '부여번호';
 COMMENT ON COLUMN KH.MEMBER.member_id IS '아이디';
+COMMENT ON COLUMN KH.MEMBER.member_pwd IS '비밀번호';
 COMMENT ON COLUMN KH.MEMBER.member_name IS '이름';
 COMMENT ON COLUMN KH.MEMBER.email IS '이메일';
 COMMENT ON COLUMN KH.MEMBER.address  IS '주소';
@@ -35,15 +53,8 @@ COMMENT ON COLUMN KH.MEMBER.phone  IS '폰번호';
 COMMENT ON COLUMN KH.MEMBER.enroll_date  IS '등록일';
 
 
---board
---idx 시퀀스를 이용 1부터 1증가하여 부여 primary key
---div varchar2(10) '공지' '일반' '비밀' 세개의 값만 넣을수있게 설정
---title varchar2(50) not null
---board_comment varchar2(3000) not null
---writer varchar2(10)
---write_date date 
 
-CREATE SEQUENCE seq_idx_board
+CREATE SEQUENCE seq_board_idx
 START WITH 1
 INCREMENT BY 1
 NOCYCLE
@@ -57,18 +68,15 @@ CREATE TABLE BOARD (
     writer VARCHAR2(10),
     write_date DATE
 );
-
 COMMENT ON COLUMN KH.BOARD.idx IS '게시번호';
 COMMENT ON COLUMN KH.BOARD.div IS '게시판종류';
 COMMENT ON COLUMN KH.BOARD.title IS '제목';
-COMMENT ON COLUMN KH.BOARD.board_comment IS '댓글';
+COMMENT ON COLUMN KH.BOARD.board_comment IS '내용';
 COMMENT ON COLUMN KH.BOARD.writer IS '작성자';
 COMMENT ON COLUMN KH.BOARD.write_date IS '작성일';
 
-select seq_idx_member.nextval from dual;
-select seq_idx_member.currval from dual;
+select seq_member_idx.currval from dual;
+select seq_member_idx.nextval from dual;
 
-select seq_idx_board.nextval from dual;
-select seq_idx_board.currval from dual;
-
-
+select seq_board_idx.currval from dual;
+select seq_board_idx.nextval from dual;
