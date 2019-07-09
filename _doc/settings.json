@@ -3,7 +3,7 @@
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "java.configuration.checkProjectSettingsExclusions": false,
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "easy-icons",
     "editor.fontFamily": "Consolas",
     "editor.fontSize": 15,
     "window.zoomLevel": -1,
@@ -11,8 +11,77 @@
     "editor.wordWrap" : "on",
     "terminal.integrated.fontSize" : 14,
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-    "workbench.colorTheme": "MagicWB_Amiga",
     "code-runner.saveAllFilesBeforeRun": true,
     "code-runner.saveFileBeforeRun": true,
     "explorer.confirmDelete": false,
+    "java.home": "C:\\Program Files\\Java\\jdk1.8.0_201",
+    "workbench.colorTheme": "MagicWB_Amiga",
+    "explorer.confirmDragAndDrop": false,
+    "editor.tokenColorCustomizations": {
+        "[MagicWB_Amiga]": {
+             "strings": "#DFDFDF",
+            /* JAVA */
+            "textMateRules": [
+                    // constant.character { "background": "#0000FF33", "fontStyle": "", "foreground": "#FFA995" }
+                {
+                    "scope": "keyword",
+                    "settings": {
+                        "fontStyle": "bold",
+                        "foreground": "#0856BC",
+                    },
+                },
+                {
+                    "scope": "storage",
+                    "settings": {
+                        "fontStyle": "",
+                        "foreground": "#000000",
+                    },
+                },
+                {
+                    // entity.name.function { "fontStyle": "", "foreground": "#FFA995" }
+                    "scope": "entity.name.function",
+                    "settings": {
+                        "fontStyle": "italic bold",
+                        // "foreground": "#F4A897",
+                        "foreground": "#000000",
+                    }
+
+                },
+                {
+                    // variable.other { "foreground": "#FFA995" }
+                    // [magicwb2.vim]   hi Special guifg=#E7F6DA gui=none
+                    "scope": "variable.other",
+                    "settings": {
+                        "fontStyle": "",
+                        "foreground": "#000000",
+                    }
+
+                },
+                {
+                    "scope": "string",
+                    "settings": {
+                        "foreground": "#E7F6DA",
+                    }
+
+                },
+
+                /* HTML */
+                {
+                    "scope": "entity.other.attribute-name",
+                    "settings": {
+                        "fontStyle": "bold",
+                        "foreground": "#0856BC"
+                    }
+                },
+                /* settings.json */
+                {
+                    "scope": "support.type",
+                    "settings": {
+                        // "foreground": "#E7F6DA",
+                        "foreground": "#F4A897",
+                    },
+                }
+            ]
+        }
+    },
 }
