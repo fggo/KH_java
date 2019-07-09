@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'> <!-- char encoding setting -->
+        <!-- Explorer compatibility -->
+        <meta http-equiv="X_UA-Compatible" content='ie=edge'>
+
+        <!-- base : change default directory location-->
+        <base href="http://www.naver.com">
+
+        <!-- AFTER specified seconds, go to page-->
+        <meta http-equiv="refresh" content="3;https://news.ycombinator.com/">
+        <!-- <meta http-equiv="refresh" content="3;01BasicStructure.html"> 
+            : ERROR -->
+
+        <!-- use meta name to make page info-->
+        <meta name="application-name" content='html class content'>
+        <meta name="author" content="BABA">
+        <meta name="description" content="HTML test page for personal study">
+        <meta name="keywords" content="html, web, pag, webpage">
+
+        <!-- web crawling -->
+        <!-- index : allows users to search -->
+        <!-- only this page -->
+        <meta name="robots" content="index">
+        <!-- allows search for the pages linked to this page -->
+        <meta name="robots" content="follow">
+        <!-- allows search all -->
+        <meta name="robots" content="all">
+
+        <!-- don't allow linked page search -->
+        <meta name="robots" content="nofollow">
+        <!-- no search -->
+        <meta name="robots" content="noindex">
+
+        <meta name="robots" content="nofollow, noindex">
+        <meta name="robots" content="follow, index">
+
+        <!-- auto adjust size depending on types of machines -->
+        <meta name="viewport" content = "width=device-width, initial-scale=1.0"/>
+
+        <title>MY FIRST PAGE</title>
+        <script>
+            // aloows to use document interactively
+            alert("Hello World!");
+        </script>
+        <style>
+            /* style document */
+            p{
+                color:red;
+                background-color: yellow;
+            }
+        </style>
+        <!-- rel: related properties -->
+
+        <link rel="stylesheet" href="css/test.css" type="text/css">
+
+        <!-- favicon -->
+        <link rel="shortcut icon" href="https://www.amazon.com/favicon.ico">
+
+    </head>
+    <body>
+        My Tag Practice!
+        <p>My dog is 2 years old.</p>
+        <br/>
+        <h2>This is styled TEXT.</h2>
+        <hr>high light</hr>
+        <pre> pre</pre>
+        <bloockquote> pre</blockquote>
+    </body>
+
+</html>

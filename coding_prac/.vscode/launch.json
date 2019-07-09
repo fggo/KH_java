@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - TwoSum",
+            "request": "launch",
+            "mainClass": "p1.TwoSum",
+            "projectName": "coding_prac_237449c4"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Hanoi",
             "request": "launch",
             "mainClass": "Hanoi"
