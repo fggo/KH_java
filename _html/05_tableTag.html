@@ -149,9 +149,87 @@
             thead{
                 background-color: red;
             }
-            tbody{
+            /* tbody{
                 background-color: yellow;
+            } */
+            tfoot{
+                background-color: green;
             }
         </style>
+
+        <!-- colgroup/col 설정 -->
+        <table>
+            <colgroup>
+                <col style="background-color : blue"/>
+                <col/>
+                <col/>
+                <col style="background-color: seashell">
+            </colgroup>
+            <tr>
+                <td>NAME</td>
+                <td>Baba</td>
+                <td>Tom</td>
+                <td>Jerrry</td>
+                <td>Foo</td>
+            </tr>
+            <tr>
+                <td>AGE</td>
+                <td>19</td>
+                <td>25</td>
+                <td>26</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>GENDER</td>
+                <td>M</td>
+                <td>F</td>
+                <td>F</td>
+                <td>M</td>
+            </tr>
+        </table>
+
+        <table>
+            <thead>
+            <tr>
+                <th>구분</th>
+                <th>이름</th>
+                <th>나이</th>
+                <th>성별</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td rowspan="3">내용</td>
+                <td>정현빈</td>
+                <td>24</td>
+                <td>여</td>
+            </tr>
+            <tr>
+                <!-- <td>내용</td> -->
+                <td>박기오</td>
+                <td>27</td>
+                <td>남</td>
+            </tr>
+            <tr>
+                <!-- <td>내용</td> -->
+                <td>류별리</td>
+                <td>26</td>
+                <td>여</td>
+            </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">인원</td>
+                    <!-- <td></td> -->
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td colspan="3">성비</td>
+                    <!-- <td></td> -->
+                    <td>2:1</td>
+                </tr>
+            </tfoot>
+        </table>
 </body>
 </html>

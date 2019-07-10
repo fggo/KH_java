@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>리스트문제</title>
+</head>
+<body>
+    <h3>무순서 목록</h3>
+    <ul>
+        <li>Coffee</li>
+        <li>Tea
+            <ul>
+                <li>Black Tea</li>
+                <li>Green Tea</li>
+            </ul>
+        </li>
+        <li>Milk</li>
+    </ul>
+
+    <h3>순서목록</h3>
+    <ol>
+        <li>Apples</li>
+        <li>Bananas</li>
+        <li>Lemons</li>
+        <li>Oranges</li>
+    </ol>
+
+    <h3>정의형목록</h3>
+    <ul id='item'>
+        첫번째 아이템<br>
+        <li>HTML5</li>
+        두번째 아이템<br>
+        <li>CSS3</li>
+        세번째 아이템<br>
+        <li>JavaScript</li>
+    </ul>
+    <style>
+        ul#item {
+            list-style-type: none;
+            margin: 0;
+        }
+        ul#item > li {
+            /* text-indent: -5px; */
+        }
+        ul#item > li:before {
+            content: "- ";
+            /* text-indent: -5px; */
+        }
+    </style>
+    
+</body>
+</html>

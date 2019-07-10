@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>page structure (html5)</title>
+</head>
+<body>
+    <!-- 영역을 세로로 구분하는 태그는 div, span -->
+    <!-- div는 block 속성으로 한개의 행 전체를 차지
+    span은 행안에서의 일부만 영역이 설정됨 -->
+    <div id="header">
+        <!-- ul>li*4>a:link -->
+        <ul>
+            <li><a href="http://www.naver.com">NAVER</a></li>
+            <li><a href="http://www.daum.net">DAUM</a></li>
+            <li><a href="http://www.google.com">GOOGLE</a></li>
+            <li><a href="http://www.iei.or.kr">KH</a></li>
+        </ul>
+        This is a header.
+    </div>
+    <style>
+        #header, div, span {
+            border: 1px red solid;
+            width: 100%;
+            height: 200px;
+        }
+        li{
+            display : inline;
+            margin-right: 30px;
+        }
+        a{
+            text-decoration-line: none;
+            font-size: 30px;
+            color: sienna;
+            font-weight: bold;
+        }
+    </style>
+    <div id='section'>
+        This is a section;
+    </div>
+
+    <span>This is a span1</span>
+    <span>This is a span2</span>
+
+</body>
+</html>
