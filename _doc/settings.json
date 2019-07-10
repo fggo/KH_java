@@ -1,11 +1,7 @@
 {
-    "workbench.startupEditor": "newUntitledFile",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "java.configuration.checkProjectSettingsExclusions": false,
-    "workbench.iconTheme": "Monokai Pro (Filter Machine) Icons",
-    "editor.fontFamily": "Consolas",
-    "editor.fontSize": 15,
     "window.zoomLevel": -1,
     "java.home": "C:\\Program Files\\Java\\jdk1.8.0_201",
     "editor.wordWrap" : "on",
@@ -14,8 +10,17 @@
     "code-runner.saveAllFilesBeforeRun": true,
     "code-runner.saveFileBeforeRun": true,
     "explorer.confirmDelete": false,
-    "workbench.colorTheme": "MagicWB_Amiga",
     "explorer.confirmDragAndDrop": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.iconTheme": "Monokai Pro (Filter Machine) Icons",
+    "workbench.colorTheme": "MagicWB_Amiga",
+    "workbench.colorCustomizations": {
+        "editor.background": "#929792",
+        "terminal.background": "#484848",
+        "terminal.foreground": "#CBCBCB",
+    },
+    "editor.fontFamily": "Consolas",
+    "editor.fontSize": 15,
     "editor.tokenColorCustomizations": {
         "[MagicWB_Amiga]": {
              "strings": "#DFDFDF",
@@ -59,16 +64,17 @@
                 {
                     "scope": "string",
                     "settings": {
-                        "foreground": "#DAF3C4",
+                        "foreground": "#CBE9B1",
                     }
 
                 },
                 {
                     "scope": "comment",
                     "settings": {
+                        "fontStyle": "italic",
                         "foreground": "#AA0882",
                     }
-                }
+                },
                 // comment { "fontStyle": "italic", "foreground": "#8D2E75" }
 
                 /* HTML */
@@ -84,7 +90,7 @@
                     "scope": "support.type",
                     "settings": {
                         // "foreground": "#E7F6DA",
-                        "foreground": "#F9A38F",
+                        "foreground": "#000000",
                     },
                 }
             ]
