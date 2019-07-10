@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04_list_tag.html</title>
+</head>
+<body>
+    <!-- list tag -->
+    <h3>ul tags</h3>
+    <p>순서가 없고 특수기호로 각 리스트를 표현</p>
+    <!-- <ul>ul내부에 li tag 들어있음. li에 실질적인 출력내용</ul> -->
+    <ul>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+        <li>jquery</li>
+    </ul>
+
+    <!-- list tag can contain other character tags -->
+    <ul>
+        <li><b>html</b></li>
+        <li><h2>css</h2></li>
+        <li><p>javascript</p></li>
+        <li><u>jquery</u></li>
+    </ul>
+
+    <!-- ol tag has orders in (int, alphabet, roman char) 
+        ol attribute type 
+        (num, alphabet, roman num determined. default:number) -->
+    <ol>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+        <li>ddd</li>
+    </ol>
+
+    <!-- <ol type='A'>
+    <ol type='A'>
+    <ol type='a'> -->
+    <ol type='I'>
+        <li>Siheung</li>
+        <li>Seoul</li>
+        <li>Kimhae</li>
+        <li>Yongin</li>
+    </ol>
+
+    <!-- ul > li*5 -->
+    <ol type='i'>
+        <li>Going to Walk</li>
+        <li>Exercise</li>
+        <li>Gaming</li>
+        <li>TV</li>
+    </ol>
+    <ol type='가'>
+        <li>Main Menu</li>
+        <li>bulletin board</li>
+        <li>gallery</li>
+        <li>notice</li>
+    </ol>
+    <ol id="menu" type='1' start='10'>
+        <li><a href="http://www.naver.com">MAIN MENU</a></li>
+        <li>bulletin board</li>
+        <li>gallery</li>
+        <li>notice</li>
+    </ol>
+    <hr/>
+    <style>
+        #menu {
+            background-color: black;
+        }
+        #menu li{
+            display: inline;
+            margin-right: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: greenyellow;
+        }
+        #menu >li>a{
+            text-decoration-style: dotted;
+            text-decoration: none;
+            color: greenyellow;
+        }
+    </style>
+    <ol type='A' start='5'>
+        <li>Main Menu</li>
+        <li>bulletin board</li>
+        <li>gallery</li>
+        <li>notice</li>
+    </ol>
+    <ol type='I' start='5'>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+    <ol type='I' start='5'>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+    <!-- 반대로 순서를 출력하고 싶을때, reverse -->
+    <ol type='1', reversed start 3>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+
+    <!-- Definition Tag 
+    <dl> 내부 <dt> : 정의할 용어, 문구
+        <dd> : 정의한용어, 문구 설명 -->
+    <dl>
+        <dt><h3>Baba</h3></dt>
+        <dd>lives in Seoul, and 2 years old.</dd>
+    </dl>
+
+    <dl>
+        <dt><h3></h3>Baba</h3></dt>
+        <dd>lives in Seoul, and 2 years old.</dd>
+    </dl>
+    <dl>
+        <dt><b>apple</b><small>[애푸울]</small></dt>
+        <dd>lives in Seoul, and 2 years old.</dd>
+    </dl>
+
+
+</body>
+</html>

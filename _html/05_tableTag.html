@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Table Tag</h3>
+    <!-- tr: row, td: col -->
+    <h4>Create Table</h4>
+    <table border=1>
+        <tr>
+            <td>Baba</td>
+            <td>19</td>
+            <td>Incheon</td>
+        </tr>
+        <tr>
+            <td>Ali</td>
+            <td>2</td>
+            <td>Gyeonggi-do</td>
+        </tr>
+        <tr>
+            <td>DangDang</td>
+            <!-- <td></td> -->
+            <td>1</td>
+        </tr>
+
+        <!-- CREATE TABLE 4*5: table>tr*4>td*5 -->
+        <!-- <th>테이블 컬럼명</th> -->
+        <table border=1>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>성별</th>
+            </tr>
+            <tr>
+                <td>baba</td>
+                <td>19</td>
+                <td>M</td>
+            </tr>
+            <tr>
+                <td>1.2</td>
+                <td>1.4</td>
+                <td>1.1</td>
+            </tr>
+            <tr>
+                <td>1.2</td>
+                <td>1.4</td>
+                <td>1.1</td>
+            </tr>
+        </table>
+
+        <!-- PUT name(CAPTION) on TABLE 
+        inside TABLE TAG and allways display above and center of TABLE-->
+        <h3>CAPTION 사용하기</h3>
+        <table border=1>
+            <caption>신상 명세</caption>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>성별</th>
+            </tr>
+            <tr>
+                <td>baba</td>
+                <td>19</td>
+                <td>M</td>
+            </tr>
+            <tr>
+                <td>1.2</td>
+                <td>1.4</td>
+                <td>1.1</td>
+            </tr>
+            <!-- <caption>신상 명세</caption> -->
+        </table>
+
+        <!-- FIGURE CAPTION
+        image text description. one can caption TABLE using <figure> -->
+        <h3>FIGURE 사용하기</h3>
+
+        <figure> <!-- figure Caption으로 자동 들여쓰기됨 -->
+            <figcaption>신상 명세</figcaption>
+            <table border=1>
+                <!-- <caption>신상 명세</caption> -->
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                    <th>성별</th>
+                </tr>
+                <tr>
+                    <td>baba</td>
+                    <td>19</td>
+                    <td>M</td>
+                </tr>
+                <tr>
+                    <td>1.2</td>
+                    <td>1.4</td>
+                    <td>1.1</td>
+                </tr>
+            </table>
+            <figcaption>신상 명세</figcaption>
+        </figure>
+
+        <!-- TABLE구조 설정하기 
+        <thead>, <tbody>, <tfoot> 행을 기준으로 구역을 나눔 
+            외면상으로는 변경사항이 없음 -->
+        <table>
+            <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>성별</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>정현빈</td>
+                <td>24</td>
+                <td>여</td>
+            </tr>
+            <tr>
+                <td>박기오</td>
+                <td>27</td>
+                <td>남</td>
+            </tr>
+            <tr>
+                <td>류별리</td>
+                <td>26</td>
+                <td>여</td>
+            </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>인원</td>
+                    <td></td>
+                    <td>3</td>
+
+                </tr>
+                <tr>
+                    <td>성비</td>
+                    <td></td>
+                    <td>2:1</td>
+                </tr>
+            </tfoot>
+        </table>
+        <style>
+            thead{
+                background-color: red;
+            }
+            tbody{
+                background-color: yellow;
+            }
+        </style>
+</body>
+</html>
