@@ -3,7 +3,7 @@
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "java.configuration.checkProjectSettingsExclusions": false,
-    "workbench.iconTheme": "easy-icons",
+    "workbench.iconTheme": "Monokai Pro (Filter Machine) Icons",
     "editor.fontFamily": "Consolas",
     "editor.fontSize": 15,
     "window.zoomLevel": -1,
@@ -14,7 +14,6 @@
     "code-runner.saveAllFilesBeforeRun": true,
     "code-runner.saveFileBeforeRun": true,
     "explorer.confirmDelete": false,
-    "java.home": "C:\\Program Files\\Java\\jdk1.8.0_201",
     "workbench.colorTheme": "MagicWB_Amiga",
     "explorer.confirmDragAndDrop": false,
     "editor.tokenColorCustomizations": {
@@ -27,7 +26,7 @@
                     "scope": "keyword",
                     "settings": {
                         "fontStyle": "bold",
-                        "foreground": "#0856BC",
+                        "foreground": "#0355C1",
                     },
                 },
                 {
@@ -43,7 +42,7 @@
                     "settings": {
                         "fontStyle": "italic bold",
                         // "foreground": "#F4A897",
-                        "foreground": "#000000",
+                        "foreground": "#0355C1",
                     }
 
                 },
@@ -52,7 +51,7 @@
                     // [magicwb2.vim]   hi Special guifg=#E7F6DA gui=none
                     "scope": "variable.other",
                     "settings": {
-                        "fontStyle": "",
+                        "fontStyle": "italic bold",
                         "foreground": "#000000",
                     }
 
@@ -60,10 +59,17 @@
                 {
                     "scope": "string",
                     "settings": {
-                        "foreground": "#E7F6DA",
+                        "foreground": "#DAF3C4",
                     }
 
                 },
+                {
+                    "scope": "comment",
+                    "settings": {
+                        "foreground": "#AA0882",
+                    }
+                }
+                // comment { "fontStyle": "italic", "foreground": "#8D2E75" }
 
                 /* HTML */
                 {
@@ -78,10 +84,16 @@
                     "scope": "support.type",
                     "settings": {
                         // "foreground": "#E7F6DA",
-                        "foreground": "#F4A897",
+                        "foreground": "#F9A38F",
                     },
                 }
             ]
         }
+    },
+    "vim.handleKeys": {
+        "<C-w>": false,
+        "<C-f>": false,
+        "<C-n>": false,
+        "<C-s>": false,
     },
 }
