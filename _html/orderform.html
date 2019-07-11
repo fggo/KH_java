@@ -8,26 +8,46 @@
 </head>
 <body>
     <form action="" method="GET">
-        Customer Name : <input type="text" name="custName"><br>
-        Phone : <input type="text" name="phone"><br>
-        E-mail : <input type="text" name="email"><br>
+        <p>Customer Name : <input type="text" name="custName"></p>
+        <p>Phone : <input type="text" name="phone"><br></p>
+        <p>E-mail : <input type="text" name="email"><br></p>
+
         <fieldset>
             <legend>PIZZA SIZE</legend>
-            <input type="radio" name="pizzaSize" value='S'>SMALL<br>
-            <input type="radio" name="pizzaSize" value='M'>MEDIUM<br>
-            <input type="radio" name="pizzaSize" value='L'>LARGE<br>
+
+            <label for="S_pizza">
+                <input type="radio" id="S_pizza" name="pizzaSize" value='S' checked>SMALL<br>
+            </label>
+            <label for="M_pizza">
+                <input type="radio" id="M_pizza" name="pizzaSize" value='M'>MEDIUM<br>
+            </label>
+            <label for="L_pizza">
+                <input type="radio" id="L_pizza" name="pizzaSize" value='L'>LARGE<br>
+            </label>
+
         </fieldset>
 
         <fieldset>
             <legend>TOPPINGS</legend>
-            <input type="checkbox" name="toppings" value='bacon'>BACON<br>
-            <input type="checkbox" name="toppings" value='cheese'>CHEESE<br>
-            <input type="checkbox" name="toppings" value='onion'>ONION<br>
-            <input type="checkbox" name="toppings" value='mushroom'>MUSHROOM<br>
+
+            <label for="chk_bacon">
+                <input type="checkbox" id="chk_bacon" name="toppings" value='bacon'>BACON<br>
+            </label>
+            <label for="chk_cheese">
+                <input type="checkbox" id="chk_cheese" name="toppings" value='cheese'>CHEESE<br>
+            </label>
+            <label for="chk_onion">
+                <input type="checkbox" id="chk_onion" name="toppings" value='onion'>ONION<br>
+            </label>
+            <label for="chk_mushroom">
+                <input type="checkbox" id="chk_mushroom" name="toppings" value='mushroom'>MUSHROOM<br>
+            </label>
+
         </fieldset>
-        희망 배송시간: <input type="time" name="t"><br>
-        배송시 요청사항: <textarea name="request" cols="50" rows="5"></textarea><br>
-        <input type="submit" value="ORDER NOW"><br>
+
+        <p>희망 배송시간: <input type="time" name="t"><br></p>
+        <p>배송시 요청사항: <textarea name="request" cols="50" rows="5"></textarea><br></p>
+        <p><input type="submit" value="ORDER NOW"><br></p>
     </form>
 
 </body>

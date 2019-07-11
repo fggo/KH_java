@@ -1,10 +1,6 @@
 {
-    "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "java.configuration.checkProjectSettingsExclusions": false,
-    "window.zoomLevel": -1,
-    "java.home": "C:\\Program Files\\Java\\jdk1.8.0_201",
-    "editor.wordWrap" : "on",
     "terminal.integrated.fontSize" : 14,
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "code-runner.saveAllFilesBeforeRun": true,
@@ -15,10 +11,19 @@
     "workbench.iconTheme": "Monokai Pro (Filter Machine) Icons",
     "workbench.colorTheme": "MagicWB_Amiga",
     "workbench.colorCustomizations": {
-        "editor.background": "#929792",
-        "terminal.background": "#484848",
-        "terminal.foreground": "#CBCBCB",
+        "[MagicWB_Amiga]": {
+            "editor.background": "#999B99",
+            "sideBar.background": "#393C39",
+            "sideBar.foreground": "#A1A3A1",
+            "terminal.background": "#484848",
+            "terminal.foreground": "#CBCBCB",
+        },
     },
+    "window.zoomLevel": -1,
+    "java.home": "C:\\Program Files\\Java\\jdk1.8.0_201",
+    // "java.home": "C:\\Program Files\\Java\\jdk1.8.0_144",
+    "editor.suggestSelection": "first",
+    "editor.wordWrap" : "on",
     "editor.fontFamily": "Consolas",
     "editor.fontSize": 15,
     "editor.tokenColorCustomizations": {
@@ -31,7 +36,7 @@
                     "scope": "keyword",
                     "settings": {
                         "fontStyle": "bold",
-                        "foreground": "#0355C1",
+                        "foreground": "#0540D5",
                     },
                 },
                 {
@@ -45,9 +50,9 @@
                     // entity.name.function { "fontStyle": "", "foreground": "#FFA995" }
                     "scope": "entity.name.function",
                     "settings": {
-                        "fontStyle": "italic bold",
+                        "fontStyle": "italic bold underline",
                         // "foreground": "#F4A897",
-                        "foreground": "#0355C1",
+                        "foreground": "#0540D5",
                     }
 
                 },
@@ -71,8 +76,8 @@
                 {
                     "scope": "comment",
                     "settings": {
-                        "fontStyle": "italic",
-                        "foreground": "#AA0882",
+                        "fontStyle": "",
+                        "foreground": "#A2047B",
                     }
                 },
                 // comment { "fontStyle": "italic", "foreground": "#8D2E75" }

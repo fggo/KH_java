@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        #supplier, #email, #homepage, #qty{
+            color:gray;
+        }
     </style>
 </head>
 <body>
@@ -24,10 +27,11 @@
             <ul>
                 <li>상품명 : <input type="text" id="productName"></li>
                 <li>납품수량 : <input type="text" id="qty" value="최소100" min=100></li>
-                <li>납품등급 : </li>
+                <li>납품등급 : <input type="range" name="r" min=0 max=20 step=2 > </li>
                 <li>기타사항 : <textarea name="etc" id="etc" cols="30" rows="8"></textarea></li>
             </ul>
         </fieldset>
+        <br>
 
         <input type="submit" value="send message">
     </form>
