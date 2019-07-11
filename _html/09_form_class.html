@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>form태그</title>
+</head>
+<body>
+    <!--
+        form태그는 client(페이지이용자)에게 데이터를 받아 서버에 전송하는 기능
+        을 수행하는 태그, form내부에는 값을 받기 위한 input태그를 사용함
+        web에서 정보를 서버에 주는 중요한 역활을 담당함.
+
+        form태그는 기본적으로 action, method속성을 반드시 작성해야함
+        action : 입력받은 데이터를 보낼 곳(주소)
+        method : 보낼때 보내는방식을 작성(post, get) default:get
+    -->
+    <form action="08_하이퍼텍스트.html" method="get">
+        <h3>get 로그인</h3>
+        <hr/>
+        ID <input type="text" name="id" value="안녕" />
+        Password <input type="password" name="password"/>
+        <input type="submit" value="전송"/>
+        <input type="reset" value="취소"/>
+        <hr/>
+    </form>
+    <form action="08_하이퍼텍스트.html" method="post">
+        <h3>post 로그인</h3>
+        <hr/>
+        ID <input type="text" name="id" value="안녕" />
+        Password <input type="password" name="password"/>
+        <input type="submit" value="전송"/>
+        <input type="reset" value="취소"/>
+        <hr/>
+    </form>
+    <form action="08_하이퍼텍스트.html">
+        <h3>기본 로그인</h3>
+        <hr/>
+        ID <input type="text" name="id" />
+        Password <input type="password" name="password"/>
+        <!--
+            client한테 받는값이 아닌 내부적으로 
+            처리에 필요한 데이터를 보낼때 사용
+            사용자가 볼필요가 없는 데이터.
+        -->
+        <input type="hidden" name="hidden" value="요건안보이지?"/>
+        <!--
+            text는 한줄 입력창을 의미
+        -->
+        <br/>
+        <input type="text" name="comment" size="5" maxlength="5"/> 
+        <!--
+            password text랑 동일하지만 입력값을 다른사람이 볼수없게 
+            감춰주는 기능이 있음.
+        -->
+        <br/>
+        <input type="password" name="pw" minlength="7"/>
+        <!--
+            button 버튼형식으로 onclick이벤트를 처리할 수 있는것
+            javascript랑 연결하여 사용
+        -->
+        <input type="button" id="btn1" name="b1" value="btn1"
+            onclick="alert('버튼클릭')"/>
+
+        <button id="btn2" onclick="alert('버튼2클릭')">버튼</button>
+        <!-- 
+            checkbox, radio
+            checkbox : 다중선택할때 사용하는것 
+        -->
+        <label>
+            <input type="checkbox" name="ck1" value="운동"/>운동
+        </label>
+        
+        <label for="fmale">여자</label>
+
+        <input type="checkbox" name="ck1" value="게임" checked/>게임
+        <input type="checkbox" name="ck1" value="유튜브"/>유튜브
+        <input type="checkbox" name="ck1" value="체스"/>체스
+        <input type="checkbox" name="ck1" value="영화"/>영화
+        <!-- radio 다중선택이 아닌 택1 -->
+        <label>
+            <input type="radio" name="gender" value="M" checked>남자
+        </label>
+        <input id="fmale" type="radio" name="gender" value="F">
+         <br/>
+        <input type="submit" value="전송"/>
+        <input type="reset" value="취소"/>
+        <hr/>
+    </form>
+
+    <p id="p1">안녕하세요</p>
+
+    <script>
+        onload=function(){
+            var p=document.getElementById('p1');
+            p.addEventListener('click',function(){
+                p.setAttribute("style","font-size:30px;color:red");
+            })
+        }
+    </script>
+    <form action="" method="get">
+        <!--
+            file : client에서 파일(사진,동영상,문서 등등에 실제파일)을
+            전송하기 위한 태그
+            file을 전송하기 위해서는 form태그 설정도 변경을 해줘야함
+            form method는 반드시 post가 되어야함.
+            enctype="multipart/form-data"로 설정
+        -->
+        <input type="file" name="file" accept="image/*" />
+        <input type="submit" value="전송"/>
+        <input type="image" name="i1" src="http://www.wikileaks-kr.org/news/photo/201903/50922_28183_3058.jpg"
+        value="아이린"/>
+    </form>
+
+    <h1>html5 새로운 태그</h1>
+    <form action="">
+        <!--
+            color 색상표를 템플릿으로 구현을 해놓은것
+        -->
+        색상선택 <input type="color" name="chocol" value="#FF0000"/>
+        <br/>
+        날짜선택 <input type="date" name="today" min='2019-01-01' max="2019-12-31"/>
+        <br/>
+        날짜선택2 <input type="datetime" name="t1"/>
+        날짜선택3 <input type="datetime-local" name='t2'/>
+        <br/>
+        월선택 <input type="month" name="m"/>
+        주선택 <input type="week" name="w"/>
+        시간선택 <input type="time" name="t"/>
+        <br/>
+        숫자 <input type="number" name="su1" min='0' max='10' step='2'/>
+        범위 <input type="range" name="r" min='0' max='20' step='5'>
+        <br/>
+        검색 <input type="search" name="searchName"/>
+        <br/>
+        사이트 <input type="url" name="mysite"/>
+        이메일 <input type="email" name="email"/>
+        <br/>
+
+        <input type="submit" value="전송"/>
+        list형식으로 데이터 입력받기
+        <h3>select태그 사용하기</h3>
+        <fieldset>
+            <legend><h3>select, list를 이용한 입력</h3></legend>
+        사원
+        <select name="list">
+            <optgroup label="키큰사람">
+                <option value="유병승">유병승</option>
+            </optgroup>
+            <optgroup label="그외">
+                <option value="권무관">권무관</option>
+                <option value="김기호">김기호</option>
+                <option value="여동규">여동규</option>
+            </optgroup>
+        </select>
+        datalist를 이용한 추천검색
+        <input type="text" name="keyword" list='data'>
+        <datalist id="data">
+            <option value="족발">족발</option>
+            <option value="오돌뼈">오돌뼈</option>
+            <option value="곱창">곱창</option>
+            <option value="닭발">닭발</option>
+        </datalist>
+        <br/>
+        <!-- 긴글을 작성하는 태그 -->
+        <textarea name="intro" cols="50" rows="10" style="resize:none;"></textarea>
+        <!--진행도를 확인하는 태그-->
+        <progress id='pro' value="0" max="100"></progress>
+     </fieldset>
+    </form>
+    <script>
+        onload=function(){
+            var pro=document.getElementById('pro');
+            var inter=setInterval(() => {
+                var val=pro.getAttribute("value");
+                pro.setAttribute("value",Number(val)+Math.round(Math.random()*10));
+                if(val>=100){
+                    clearInterval(inter);
+                }
+            }, 1000);
+        }
+    </script>
+
+
+
+</body>
+</html>

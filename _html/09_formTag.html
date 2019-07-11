@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- form 태그는 client (페이지 이용자)에게 데이터를 받아, 서버에 전송하는
+    기능을 수행하는 태그. form 내부에는 값을 받기위한 input 태그를 사용함
+    web에서 정보를 서버에 주는 가장 중요한 역할을 담당
+    
+    form 태그는 기본적으로 action, method속성을 반드시 작성해야함
+        action: 입력받은 데이터를 보낼 곳(주소)
+        method: 보낼때 보내는 방식을 작성(post, get). default: get
+    -->
+
+    <!-- GET default method result(weak security): -->
+    <!-- file:///C:/Users/user1/KH/KH_java/_html/08_hyptertext.html?id=user01&password=user01 -->
+    <form action="08_hypertext.html" method="GET">
+        <h3>로그인</h3>
+        <hr>
+        ID<input type="text" name="id">
+        PW<input type="password" name="password">
+        <input type="submit" value="전송" >
+        <input type="reset" value="취소">
+        <hr>
+    </form>
+
+    <!-- POST method result(pw hidden): -->
+    <!-- file:///C:/Users/user1/KH/KH_java/_html/08_hyptertext.html -->
+    <form action="08_hypertext.html" method="POST">
+        <h3>로그인</h3>
+        <hr>
+        ID<input type="text" name="id">
+        PW<input type="password" name="password">
+        <input type="submit" value="전송" >
+        <input type="reset" value="취소">
+        <hr>
+    </form>
+
+    <!-- hidden -->
+    <form action="08_hyptertext.html" method="GET">
+        <h3>로그인</h3>
+        <hr>
+        ID<input type="text" name="id">
+        <!-- password text와 동일한데, 입력값을 다른사람이 볼 수 없게, 감춤. -->
+        PW<input type="password" name="password" minlength=7>
+        <!-- client에게 받는 값이 아닌 내부적으로 처리에 필요한 데이터를
+        보낼때 사용. 사용자가 볼필요가 없는 데이터 -->
+        <input type="hidden" name="hidden" value="안보이지?">
+    <!-- text 한줄 입력창을 의미 -->
+        <input type="text" name="comment" size=10 maxlength=5> <br>
+        <!-- button -->
+        <input type="button" id="btn1" name="b1" value="BTN1"
+                onclick="alert('Button1 click')"/> <br>
+        <!-- form 내부 button은 데이터 전송에 사용됨: script로 전송 막을 수 있음-->
+        <button id="btn2" height="100" width="300" style="display:inline-block"
+                onclick="alert('Button2 click')"/>BTN2</button><br>
+        <!-- checkbox 다중 선택(전송 시 배열로 넘어감) -->
+        <label for="work_out">
+            <input type="checkbox" id="work_out" name="chk" value="workout">WORKOUT <br>
+        </label>
+        <label for="g">
+        <input type="checkbox" id="g" name="chk" value="game">GAME <br>
+        </label>
+        <label id="dog_walk">
+        <input type="checkbox" id="dog_walk" name="chk" value="dogwalk" checked>DOG WALK <br>
+        </label>
+        <label id="driving">
+        <input type="checkbox" id="driving" name="chk" value="drive">DRIVE <br>
+        </label>
+        <label id="biking">
+        <input type="checkbox" id="biking" name="chk" value="bike">BIKE <br>
+        </label>
+
+        <!-- radio button(한개만 선택 가능) 
+            전송 시 value 값이 넘어감-->
+        <label>
+        <input type="radio" name="gender" value="M" checked>남자
+        </label>
+        <label>
+        <input type="radio" name="gender" value="F" >여자
+        </label>
+
+        <input type="submit" value="전송" >
+        <input type="reset" value="취소">
+        <hr>
+    </form>
+
+    <!-- id(to assign unique name) vs name -->
+    <p id="p1">HI!!!</p>
+    <script>
+        onload=function(){
+            var p = document.getElementById('p1');
+            p.addEventListener('client', function(){
+                p.setAttribute("style", "font-size: 30px; color:red")
+            })
+        }
+    </script>
+
+    <form action="07_multimedia.html" method="POST" enctype="multipart/form-data">
+    <!-- <form action="07_multimedia.html" method="GET"> -->
+        <!-- file: client에서 파일(사진, 동영상, 문서 등등에 실제 파일을)
+            전송하기 위한 태그.
+            file을 전송하기 위해서는 form 태그 설정도 변경을 해줘야함 
+                - form method는 반드시 POST가 되어야 함.
+                - enctype="multipart/form-data"로 설정 해야함.
+            accept: upload할 이미지 파일 바꿀 수 있음-->
+        <input type="file" name="file" accept="video/*" /><br>
+        <input type="file" name="file" accept="audio/*" /><br>
+        <!--여러 파일 고를 수 있음-->
+        <input type="file" name="file" accept="image/*" multiple/><br>
+        <input type="submit" value="SUBMIT!"><br>
+
+        <input type="image" name="image" src="https://www.petmd.com/sites/default/files/beautiful-dog-in-park-at-sunset-picture-id186598448.jpg"
+        width="400" height="300">
+    </form>
+
+    <h1>HTML5 NEW TAGS</h1>
+    <form action="">
+        <!-- color 색상표를 템플릿으로 구현을 해놓은 것 -->
+        색상선택<input type="color" name="choice_color" value="#FF0000"><br>
+        날짜선택1<input type="date" name="today" min='2019-01-01' max='2019-12-31'><br>
+        날짜선택2<input type="datetime" name="t1"><br>
+        날짜선택3<input type="datetime-local" name="t2"><br>
+        월선택 <input type="month" name="m"/><br>
+        주선택 <input type="week" name="w"><br>
+        시간선택 <input type="time" name="t"><br>
+        숫자선택 <input type="number" name="su1" min=0 max=10 step=.1><br>
+        범위 <input type="range" name="r" min=0 max=20 step=2> <br>
+        검색 <input type="search" name="searchName"><br> <!-- &searchName=dsadasds -->
+        사이트 <input type="url" name="mysite"><br> <!-- &mysite=http%3A%2F%2Fwww.naver.com -->
+        이메일 <input type="email" name="email"><br> <!-- &email=aaa%40gmail.com -->
+
+        <input type="submit" value="전송">
+
+        <!-- list형식으로 데이터 입력받기 -->
+        <h3>SELECT tag 사용하기</h3>
+        <fieldset>
+            <legend><h3>SELECT, LIST를 입력</h3></legend>
+            <select name="list" id="">
+                <optgroup label="ANIMAL">
+                    <option value="댕댕이">댕댕이</option>
+                </optgroup>
+                <optgroup label="HUMAN">
+                    <option value="MONK">MONK</option>
+                    <option value="AGENT1">AGENT1</option>
+                </optgroup>
+            </select><br>
+
+            <!-- datalist를 이용한 추천검색 -->
+            <input type="text" name="keyword" list='data'>
+            <datalist id="data">
+                <option value="족발">족발</option>
+                <option value="오돌뼈">오돌뼈</option>
+                <option value="곱창">곱창</option>
+                <option value="닭발">닭발</option>
+            </datalist><br>
+
+            <!-- 긴글을 작성하는 태그 -->
+            <textarea name="intro" cols="50" rows="5" style="resize: none"></textarea><br>
+            <!-- 진행도를 확인하는 태그 -->
+            <progress value="75" max="100"></progress>
+
+        </fieldset>
+    </form>
+</body>
+</html>
