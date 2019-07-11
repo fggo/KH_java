@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HYPERTEXT</title>
+</head>
+<body>
+<!-- 태그를 사용한다. 태그는 다른 페이지를 요청하여 받아오는 태그로
+페이지를 변경할때 사용함.
+href : 요청할 페이지 주소
+target : 요청할 페이지를 어디서 open할지(new, current, parent windows)
+<a> 태그는 기본적으로 글자가 파랑색으로 표시되고, 밑줄 처리됨. -->
+    <a href="https://www.iei.or.kr">KH정보교육원</a>
+    <a href="https://www.iei.or.kr" target="_self">KH정보교육원</a>
+    <a href="https://www.iei.or.kr" target="_blank">KH정보교육원</a>
+    <!-- 연결시에 이미지로 연결할 수 있음. -->
+    <a href="https://www.amazon.com">
+        <img src="http://g-ec2.images-amazon.com/images/G/01/social/api-share/amazon_logo_500500._V323939215_.png"
+            width="100" height=100 border=1>
+    </a>
+    <br>
+    <a href="#first">첫 단락</a>
+    <a href="#second">두번째 단락</a>
+    <a href="#third">세번째 단락</a>
+
+
+    <p id="first"> Spring Data for Apache Geode Reference Guide
+Costin Leau
+David Turanski
+John Blum
+Oliver Gierke
+Jay Bryant
+Version 2.2.0.RC1,
+2019-06-14
+Preface
+1. Introduction
+2. Requirements
+3. New Features
+3.1. New in the 1.2 Release
+3.2. New in the 1.3 Release
+3.3. New in the 1.4 Release
+3.4. New in the 1.5 Release
+3.5. New in the 1.6 Release
+3.6. New in the 1.7 Release
+3.7. New in the 1.8 Release
+3.8. New in the 1.9 Release
+3.9. New in the 2.0 Release
+3.10. New in the 2.1 Release
+</p>
+<p id="second">
+Reference Guide
+4. Document Structure
+5. Bootstrapping Apache Geode with the Spring Container
+6. Configuring WAN Gateways
+7. Bootstrapping Apache Geode with the Spring Container using Annotations
+8. Working with Apache Geode APIs
+9. Working with Apache Geode Serialization
+10. POJO Mapping
+11. Spring Data for Apache Geode Repositories
+12. Annotation Support for Function Execution
+13. Apache Lucene Integration
+14. Bootstrapping a Spring ApplicationContext in Apache Geode
+15. Sample Applications
+Resources
+16. Useful Links
+Appendices
+Appendix A: Namespace reference
+Appendix B: Populators namespace reference
+Appendix C: Repository query keywords
+Appendix D: Repository query return types
+Appendix E: Spring Data for Apache Geode Schema
+© 2010-2019 The original authors.
+Preface
+Spring Data for Apache Geode focuses on integrating the Spring Framework’s powerful, non-invasive programming model and concepts with Apache Geode to simplify configuration and development of Java applications when using Apache Geode as you data management solution.
+
+This document assumes you already have a basic understanding of, and some familiarity with, the core Spring Framework and Apache Geode concepts.
+
+While every effort has been made to ensure this documentation is comprehensive and complete without errors, some topics are beyond the scope of this document and may require more explanation (for example, data distribution management using partitioning with HA while still preserving consistency). Additionally, some typographical errors might have crept in. If you do spot mistakes or even more serious errors, please bring these issues to the attention of the Spring Data team by raising an appropriate issue in JIRA.
+
+</p>
+<p id="third">>
+1. Introduction
+The Spring Data for Apache Geode reference guide explains how to use the Spring Framework to configure and develop applications with Apache Geode. It presents the basic concepts and provides numerous examples to help you get started quickly.
+
+2. Requirements
+Spring Data for Apache Geode requires Java 8.0, Spring Framework 5 and Apache Geode 1.9.0.
+
+3. New Features
+As of the 1.2.0.RELEASE, this project, formerly known as Spring GemFire, has been renamed to Spring Data for Apache Geode to reflect that it is now a module of the Spring Data project and built on Apache Geode.
+3.1. New in the 1.2 Release
+Full support for Apache Geode configuration through the SDG gfe XML namespace. Now Apache Geode components may be configured completely without requiring a native cache.xml file.
+
+WAN Gateway support for Apache Geode 6.6.x. See Configuring WAN Gateways
+
+Spring Data Repository support using a dedicated SDG XML namespace, gfe-data. See Spring Data for Apache Geode Repositories
+
+gfe-data XML Namespace support for registering Apache Geode Functions. See Configuring the Function Service
+
+</p>
+
+<img src= "https://i.barkpost.com/wp-content/uploads/2015/10/reddit-dog-jokes-20.jpg?q=70&fit=crop&crop=entropy&w=808&h=808" 
+alt="" height="300" width="300" usemap="#red">
+<map name="red">
+    <area shape="rect" coords="00,00,150,300" href="https://www.google.com/search?q=funny dog pictures" alt="" target="_blank">
+    <area shape="rect" coords="150,00,300,300" href="http://www.iei.or.kr"
+        alt="" target="_blank">
+</map>
+
+    </body>
+</html>
