@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basic Selector</title>
+    <style>
+        *{
+            color: white;
+            background-color: black;
+            font-size: 25px;
+        }
+        p, h1{
+            font-size : 20px;
+            color:aquamarine;
+        }
+        #idtest{
+            font-size: 15px;
+            color:aliceblue;
+            background-color: darkgray;
+        }
+        .test{
+            background-color: bisque;
+            font-size :30px;
+        }
+        .test2{
+            font-family: "batang";
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Selector Test </h1>
+    <hr">
+    <p id="idtest">전체 선택자는 어떻게 적용될까요?</p>
+    <ul>
+        <li class="test2">HTML</li>
+        <li>CSS</li>
+        <li>JAVASCRIPT</li>
+        <li>JSP</li>
+    </ul>
+    <p >이것도 자동 적용 될까?</p>
+    <p>ALT + B를 눌러 확인해 보세요.</p>
+    <span>나는 span 태그야!</span>
+
+    <table class="test">
+        <tr>
+            <td class="test">이름</td>
+            <td class="test">나이</td>
+            <td class="test">성별</td>
+        </tr>
+        <tr>
+            <td>알리</td>
+            <td>2</td>
+            <td>M</td>
+        </tr>
+    </table>
+
+</body>
+</html>

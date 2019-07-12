@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 스타일은 마지막 줄에 정의한 rule을 따름 -->
+
+    <!-- 내부스타일 -->
+    <style>
+        h1{
+            color:red;
+            background-color: yellow;
+        }
+    </style>
+
+    <!-- 외부스타일: 
+        html 파일들에 공통적으로 적용하기 위함 -->
+    <link rel="stylesheet" href="./css/outer.css" type="text/css">
+
+</head>
+<body>
+    <!-- <style></style> 가능 하지만 <head>에 쓰는것이 일반적 -->
+    <h1>내부 스타일 적용</h1>
+    <h2>외부 스타일 적용</h2>
+    <h3 style="color: azure; background-color: aquamarine">인라인 스타일 적용</h3>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>009_부정선택자.html</title>
+</head>
+<style>
+    .test:not(h1){
+        background-color:red;
+    }
+    /* SAME RESULT AS .test:not(h1) */
+    div>*:not(h1){
+        background-color:red;
+    }
+</style>
+<body>
+    <div>
+        <h1 class="test">부정선택자</h1>
+        <p class="test">p태그1</p>
+        <h1 class="test">h1_1</h1>
+        <p class="test">p태그2</p>
+        <p class="test">p태그3</p>
+        <h1 class="test">h1_2</h1>
+        <p class="test">p태그4</p>
+    </div>
+</body>
+</html>

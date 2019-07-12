@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>005 동위선택자</title>
+    <style>
+        /* h1바로 다음에 p가 있으면 color:violet;*/
+        h1+p{
+            color:violet
+        }
+        h1+p+input{
+            color:blue;
+        }
+        input[type='text']+p{
+            color:orange;
+        }
+
+
+        /* h1~p까지 전부 바꿈 동위연산만. */
+        h1~p{
+            color : aqua;
+        }
+        /* input[type='text']~p{
+            color:brown;
+        } */
+
+    </style>
+</head>
+<body>
+    <p>난위에</p>
+    <h1></h1>
+    <p id="p1">test</p>
+    <input type="text" name="name">
+    <p>test2</p>
+    <p class="a">test3</p>
+    <h1>여러분 힘내세요!</h1>
+    <p>test4</p>
+    <div>
+        <p>testDiv</p>
+    </div>
+    
+</body>
+</html>

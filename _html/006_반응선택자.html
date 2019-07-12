@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p:active{
+            font-size: 30px;
+            color: fuchsia;
+            font-weight: bolder;
+        }
+        p:hover{
+            font-size: 50px;
+            color: lime;
+            font-weight: bolder;
+        }
+        ul{
+            background-color:azure;
+        }
+        li{
+            display:inline-block;
+            margin-right: 20px;
+        }
+        li>a:hover{
+            font-size:30px;
+        }
+        li>a{
+            text-decoration-line: none;
+            color: gray;
+        }
+        li>a:hover+div{
+            /* height:500px; */
+            border: solid 2px red;
+            display: inline;
+        }
+        div#content{
+            height: 0;
+            width: 0;
+            overflow: hidden;
+        }
+        div#submenu{
+            height:0;
+            width:0;
+            overflow:hidden;
+        }
+        div#menu:active + #submenu{
+            height:300px;
+            width:300px;
+            display:block;
+        }
+
+        input[type='text']:focus{
+            background-color:honeydew;
+        }
+        input[type='checkbox']:checked{
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    id<input type="text" name="id">
+    check<input type="checkbox" value="장문복">
+
+    <div>
+        <p>CLICK THIS</p>
+        <!-- ul>li*3>a:link -->
+        <ul>
+            <li><a href="http://">메인메뉴</a>
+                <div id="content">네이버로 이동하게됨</div>
+            </li>
+            <li><a href="http://">루루</a></li>
+            <li><a href="http://">알리</a></li>
+        </ul>
+        <div id="menu">게시판</div>
+        <div id="submenu">
+            <ul>
+                <li><a href="http://">메인메뉴</a>
+                    <div id="content">네이버로 이동하게됨</div>
+                </li>
+                <li><a href="http://">게시판</a></li>
+                <li><a href="http://">갤러리</a></li>
+            </ul>
+
+        </div>
+    </div>
+    
+</body>
+</html>

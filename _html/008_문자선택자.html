@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p::first-letter{
+            font-size: 30px;
+            color: lightblue;
+        }
+        p::first-line{
+            background-color:khaki;
+        }
+        p::before{
+            /* content: '$$$'; */
+            content:counter(i)" ";
+        }
+        p{
+            counter-increment: i;
+        }
+        p::after{
+            content: '^.~';
+        }
+        p::selection{ /* mouse drag */
+            background-color: yellowgreen;
+            color:magenta;
+        }
+
+    </style>
+</head>
+<body>
+    <p id="test">
+    Spring Data JDBC, part of the larger Spring Data family, makes it easy to implement JDBC based repositories. This module deals with enhanced support for JDBC based data access layers. It makes it easier to build Spring powered applications that use data access technologies.
+
+Spring Data JDBC aims at being conceptually easy. In order to achieve this it does NOT offer caching, lazy loading, write behind or many other features of JPA. This makes Spring Data JDBC a simple, limited, opinionated ORM.
+    </p>
+
+    <p>
+The Aggregate Root
+Spring Data repositories are inspired by the repository as described in the book Domain Driven Design by Eric Evans. One consequence of this is that you should have a repository per Aggregate Root. Aggregate Root is another concept from the same book and describes an entity which controls the lifecycle of other entities which together are an Aggregate. An Aggregate is a subset of your model which is consistent between method calls to your Aggregate Root.
+
+Spring Data JDBC tries its best to encourage modeling your domain along these ideas.
+</p>
+
+<p>
+Features
+CRUD operations for simple aggregates with customizable NamingStrategy.
+Support for @Query annotations.
+Support for MyBatis queries.
+Events.
+JavaConfig based repository configuration by introducing @EnableJdbcRepositories.
+</p> 
+
+</body>
+</html>

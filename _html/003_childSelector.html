@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Child, Descendants Selector</title>
+    <style>
+        /* 후손선택자 활용 (자손+후손)*/
+        header nav{
+            background-color: aqua;
+        }
+        /* 자손선택자 활용 */
+        header > nav{
+            background-color: orange;
+        }
+        
+
+
+        section a { /* section에 a 태그만 골라서 background-color: black */
+            background-color: black;
+            color:white;
+            text-decoration-line : none;
+        }
+        /* section > article > nav > a */
+        section nav > a{ /* nav 자손 a 태그만 골라서 */
+            background-color: green;
+            text-decoration-line: none;
+        }
+        /* nav {} */
+        * nav{
+            background-color: cadetblue;
+        }
+        #test article .c1{
+            /* font-size: 12px !important; */
+        }
+        .c1 {
+            color: salmon;
+            font-size: 30px !important; /* higher priority than outer.css*/
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="./css/outer.css" type="text/css">
+</head>
+<body>
+    <header>
+        <h1>안녕 header안 h1</h1>
+        <nav>header 안 nav</nav>
+        <ul>
+            <li>header안 ul안 li1</li>
+            <li>header안 ul안 li1</li>
+            <li>header안 ul안 li1</li>
+        </ul>
+        <div>
+            <!-- nav>a:link*4 -->
+            <nav>
+                <a href="http://www.naver.com">NAVER</a>
+                <a href="http://www.google.com">GOOGLE</a>
+                <a href="http://www.daum.net">DAUM</a>
+                <a href="http://www.youtube.com">YOUTUBE</a>
+            </nav>
+        </div>
+
+    </header>
+    <section id="test">
+        <article>
+            <nav>
+                <a href="http://#">기본1</a>
+                <a href="http://#">기본2</a>
+                <a href="http://#">기본3</a>
+                <a href="http://#">기본4</a>
+            </nav>
+        </article>
+        <article>
+            <ul>
+                <li><a class ="c1" href="http://www.naver.com">article 안 NAVER</a></li>
+                <li><a href="http://www.google.com">article 안 GOOGLE</a></li>
+                <li><a href="http://www.daum.net">article 안 DAUM</a></li>
+            </ul>
+        </article>
+    </section>
+    
+</body>
+</html>

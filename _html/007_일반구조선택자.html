@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>일반 구조 선택자</title>
+    <style>
+        /* 첫번째 p의 형제들 중에 첫번째 child 가 p가 아니므로 적용 안됨 */
+        p:first-child{
+            color: magenta;
+        }
+        p:last-child{
+            color:coral;
+        }
+        p:nth-child(2n){
+            color:blue;
+        }
+        p:nth-last-child(2n){
+            color:red;
+        }
+        /* a1-1 a1-3 background-color: green */
+        ul > li:first-child{
+            background-color: pink;
+        }
+        ul > li:first-child > a:nth-child(2n){
+            background-color:green;
+        }
+        /* 형제들 중 가장 처음에 오는 p타입 tag */
+        p:first-of-type{
+            color:magenta;
+        }
+        p:last-of-type{
+            background-color: gray;
+        }
+
+    </style>
+</head>
+<body>
+    <div>div1</div>
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <p>p4</p>
+    <p>p5</p>
+    <div>
+        <p>dp1</p>
+        <p>dp2</p>
+        <p>dp3</p>
+        <p>dp4</p>
+        <p>dp5</p>
+    </div>
+    <ul>
+        <li><a href="http://">a1-0</a>
+            <a href="http://">a1-1</a>
+            <a href="http://">a1-2</a>
+            <a href="http://">a1-3</a>
+        </li>
+        <li><a href="http://">a2-0</a>
+            <a href="http://">a2-1</a>
+        </li>
+        <li><a href="http://">a3-0</a>
+            <a href="http://">a3-1</a>
+        </li>
+        <li><a href="http://">a4-0</a>
+            <a href="http://">a4-1</a>
+        </li>
+    </ul>
+    <p>이거시 마지막이구먼!</p>
+    <span>이거시 마지막인디!</span>
+</body>
+</html>
