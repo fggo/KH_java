@@ -1,3 +1,17 @@
+
+고용노동부 인증 교육기관(KH정보교육원) 자바 FRAMEWORK 개발자 과정 팀프로젝트 개발할 어플리케이션에 사용하기 위함.
+
+문준석 wnstjr1236@naver.com
+문은철 jinparang8877@gmail.com
+최호준 94hojun@gmail.com
+
+자기 위치정보 가져오는 Geolocation API
+
+전국주차장 api보면 남은 자릿수 확인 X
+
+결제시스템 API
+API JSON 가져와서 코딩예제
+
 HTML
 https://www.w3schools.com/
 
