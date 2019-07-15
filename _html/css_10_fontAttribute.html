@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css_10_font.html</title>
+    <style>
+        p#family {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20pt;
+            font-weight: lighter;
+        }
+        p#family1{
+            font-size:20pt;
+            font-weight: bold;
+        }
+        p#family2{
+            font-size:20pt;
+            font-weight: bolder;
+        }
+        p#family3{
+            /* font 앞에서 부터 우선순위,
+            font 전부 없으면 default font로 지정됨 */
+            font-family : "병승체", "궁서체", "굴림체";
+            font-size : 20pt;
+            font-weight: 900;
+        }
+        p.variant{
+            font-variant: small-caps;
+        }
+        p.style:active{
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>글꼴 변경</h1>
+    <p>[변경전]안녕하세요! Let's change some fonts!</p>
+    <p id="family">[변경후]안녕하세요! Let's change some fonts!</p>
+    <p id="family1">[변경후]안녕하세요! Let's change some fonts!</p>
+    <p id="family2">[변경후]안녕하세요! Let's change some fonts!</p>
+    <p id="family3">[변경후]안녕하세요! Let's change some fonts!</p>
+    <p class="variant">to be or not to be</p>
+    <p class="variant">To Be Or Not To be</p>
+    <p class="variant1">To Be Or Not To be</p>
+    <p class="style">이 글자를 기울여볼까?</p>
+    <p><i>이 글자를 기울여볼까?</i></p>
+    <p id="all">font에 대한 전체설정을 한번에 해보자</p>
+    <style>
+        #all {
+            font: italic small-caps bolder 30px "포온트", "Lucida Sans Unicode";
+            /* ORDER :
+            font-style -> font-variant -> font-weight -> font-size font-family */
+        }
+        * {
+
+            /* transparancy .5 */
+            /* color: rgba(228, 63, 173, .5); */
+        }
+    </style>
+    <a id="kh" href="http://www.iei.or.kr">KH정보교육원</a>
+    <p id="copy">naver연결</a>
+    <p><u>naver연결</u></p>
+    <style>
+        #kh {
+            font-size: 20px;
+            font-variant: small-caps;
+            color: royalblue;
+            font-style: italic;
+            text-decoration: none;
+        }
+        p#copy{
+            color:blue;
+            /* text-decoration: underline; 밑줄*/
+            /* text-decoration: overline; 윗줄*/
+            text-decoration: line-through; /* 삭선 */
+        }
+    </style>
+    <p id="texttransform">no pain no gain! </p>
+    <span id="small">no gain!</span>
+    <style>
+        p#texttransform{
+            /* 첫글자 대문자 */
+            text-transform: capitalize;
+
+            /* text-transform: lowercase; */
+            /* text-transform: uppercase; */
+        }
+        span#small{
+            font-variant: small-caps;
+        }
+    </style>
+    <h3 class="shadow">KH정보교육원</h3>
+    <style>
+        .shadow{
+            color: cadetblue;
+            /* text-shadow: 5px 5px 3px magenta; */
+            /* text-shadow: -5px -5px 3px magenta; */
+            /* weight_px height_px blur_px */
+            text-shadow: -5px -5px 3px magenta,
+                          5px 5px 3px goldenrod,
+                          20px 20px 3px blue;
+            text-decoration: none;
+        }
+    </style>
+    <a href="http://www.naver.com" class="shadow">네이버 접속</a>
+
+    <p id="quiz">힘내자 R클래스 꾸미기 shadow이용</p>
+    <style>
+        p#quiz{
+            /* font-style -> font-variant -> font-weight -> font-size font-family */
+            color: yellow;
+            background: darkturquoise;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            font-style: italic;
+            font-weight: bolder;
+            font-variant: small-caps;
+            text-shadow : 5px 5px 2px cadetblue;
+        }
+    </style>
+    <a class="shadow" href="http://www.daum.net">다음페이지</a>
+
+    <div id="wrap">
+        <!-- <p id="space" class="nowrap"> -->
+        <!-- <p id="space" class="pre"> -->
+        <!-- <p id="space" class="preline"> -->
+        <p id="space" class="prewrap">
+                Official English Translation:
+        O Canada!
+        Our       home and       native       land!
+        True patriot love in all thy sons command
+
+        With glowing hearts we see thee rise,
+        The True North strong and free!
+
+        From far and wide,
+        O Canada, we stand on guard for thee.
+
+        God keep our land glorious and free!
+        O Canada, we stand on guard for thee.
+
+        O Canada, we stand on guard for thee.
+
+        O Canada!
+        Land of our forefathers,
+        Thy brow is wreathed with a glorious garland of flowers.
+        As is thy arm ready to wield the sword,
+        So also is it ready to carry the cross.
+        Thy history is an epic
+        Of the most brilliant exploits.
+        Thy valour steeped in faith
+        Will protect our homes and our rights.
+        Will protect our homes and our rights.
+
+
+        </p>
+    </div>
+    <style>
+        /* 띄어쓰기 한칸만 인정하고 한줄로 표시 */
+        .nowrap{
+            white-space: nowrap;
+        }
+        .pre{
+            white-space: pre;
+        }
+        /* 띄어쓰기는 한개만 인정, 줄개행은 다 인정 */
+        .preline{
+            white-space: pre-line;
+        }
+        /* 띄어쓰기 다인정, 줄개행 인정 */
+        .prewrap{
+            white-space: pre-wrap;
+        }
+
+        div#wrap{
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            /* overflow: hidden; */
+            /* overflow: auto; */
+        }
+    </style>
+
+    <!-- 문자간격 넓히기 -->
+
+    <p>문자간격 넓히기! letter-spacing 적용, 전후 비교해 보기</p>
+    <p class="letter">문자간격 넓히기! letter-spacing 적용, 전후 비교해 보기</p>
+    <p class="word">단어간격 넓히기! word-spacing 적용, 전후 비교해 보기</p>
+
+    <style>
+        .letter{
+            letter-spacing: 10px;
+        }
+        .word{
+            word-spacing: 10px;
+        }
+    </style>
+
+</body>
+</html>

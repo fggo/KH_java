@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>background 설정</title>
+    <style>
+        div{
+            height: 220px;
+            width: 220px;
+            /* border: 10px solid red; */
+            border: 10px dotted red;
+            /* padding: 10px; */
+            /* padding+margin */
+        }
+        .color{
+            /* background-color: rgba(153, 155, 30, .5); */
+            background-color: hsla(120, 80%, 59%, .3);
+            background-clip: border-box;
+        }
+        .padding{
+            background-color: rgba(100, 10, 100, .5);
+            background-clip: padding-box;
+        }
+        .content{
+            background-color: rgba(100, 200, 10, .5);
+            background-clip: content-box;
+        }
+        .image{
+            background-image: url("media/icon.png");
+        }
+        .repeat1{
+            background-repeat: repeat-x;
+        }
+        .repeat2{
+            background-repeat: repeat-y;
+        }
+        .repeat3{
+            background-repeat: no-repeat;
+        }
+        .imagesize{
+
+            background-size:contain;
+            background-image: url(http://www.hrising.com/img/?p=hrising/attach/201509/20150923/MXNLJ5oESqUakjOO5PIRFUE3.jpeg);
+        }
+        .imagesize2{
+
+            background-size:cover;
+            background-image: url(http://www.hrising.com/img/?p=hrising/attach/201509/20150923/MXNLJ5oESqUakjOO5PIRFUE3.jpeg);
+        }
+    </style>
+</head>
+<body>
+    <div class="color image repeat1"></div>
+    <div class="padding image repeat2 imagesize"></div>
+    <div class="content image repeat3 imagesize2"></div>
+</body>
+</html>

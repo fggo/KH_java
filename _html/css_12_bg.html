@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>background설정</title>
+    <style>
+        div{
+            height:150px;
+            width:150px;
+            border:10px dotted red;
+            padding:10px;
+        }
+        .color{
+            /* background-color:rgba(153,155,30,0.1); */
+            background-color:hsla(120,80%,50%,0.3);
+            background-clip:border-box;
+        }
+        .padding{
+            background-color:rgba(100,10,100,0.5);
+            background-clip:padding-box;
+        }
+        .content{
+            background-color:rgba(30,200,10,0.5);
+            background-clip:content-box;
+        }
+        .image{
+            background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqIV8aTTsGSFgurZop_PYY5iNGsMN0-AGzC7UE-LG-g-IuLzvV7g');
+        }
+        .repeat1{
+            background-repeat:repeat-x;
+        }
+        .repeat2{
+            background-repeat:repeat-y;
+        }
+        .repeat3{
+            background-repeat:no-repeat;
+        }
+        .imagesize{
+            background-size:contain;
+        }
+        .imagesize2{
+            background-size:cover;
+        }
+        .imagesize3{
+            background-size:100px 100px;
+        }
+        .div1{
+            height:800px;
+            width:900px;
+        }
+        .attchament{
+            background-attachment:fixed;
+            background-position:100px 200px;
+        }
+        .origin{
+            /* background-origin: border-box; */
+            /* background-origin: content-box; */
+            background-origin: padding-box;
+        }
+        .allBack{
+            background: url("media/icon.png") 
+                no-repeat scroll center border-box border-box; 
+            /* also 'cover' option */
+        }
+    </style>
+</head>
+<body>
+    <div class="color image repeat1"></div>
+    <div class="padding image repeat2"></div>
+    <div class="content image repeat3"></div>
+    <div class="div1 image repeat3 imgaesize">contian</div>
+    <div class="div1 image repeat3 imagesize2">cover</div>
+    <div class="div1 image repeat3 imagesize3 attchament"></div>
+    <div class="image repeat3 imagesize2 origin"></div>
+    <div class="allBack"></div>
+</body>
+</html>
