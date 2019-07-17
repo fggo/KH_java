@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css_19_tableStyel.html</title>
+    <style>
+        .table1{
+            border: 1px solid black;
+            width: 200px; height: 200px;
+            caption-side: bottom;
+            /* border-collapse: collapse; */
+            border-spacing: 5px;
+            empty-cells: hide;
+            table-layout: fixed;
+            word-break: break-all; /* word wrap */
+        }
+        .table1 td{
+            border: 1px solid black;
+            text-align: center;
+            vertical-align: bottom;
+            width:100px;
+        }
+    </style>
+</head>
+<body>
+    <table class="table1">
+        <caption>학생부</caption>
+        <tr>
+            <td>이름</td>
+            <td>나이</td>
+            <td>성별</td>
+        </tr>
+        <tr>
+            <td>유병승</td>
+            <td></td>
+            <td>M</td>
+        </tr>
+        <tr>
+            <td>바바</td>
+            <td>2</td>
+            <td>M</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>dsdsdsdaskdjsakdjkasjdjasldjsadjsakj</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css_16_positioning.html</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+        }
+        .content{
+            /* width=content+border */
+            box-sizing: content-box;
+
+        }
+        .borderbox{
+            /* width=content 
+            content 크기를 줄여서 given width, height를 유지*/
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h3>width height 범위를 정하는 속성 (box-sizing)</h3>
+    <div>기본</div>
+    <div class="content">content-box</div>
+    <div class="borderbox">border-box</div>
+
+
+    <!-- float: block elements 들을 한줄로 float -->
+    <div id="front">기본div1</div>
+    <div id="after">뒤에 있는 div</div>
+
+    <!-- 두번째 div들이 위로 올라가짐 -->
+    <div id="front2">기본div2</div>
+    <div id="after2">뒤에있는 div2</div>
+    <div id="changeType">다음 오는 div</div>
+    <img id="logo" src="media/amazon.jpg" width=100px height=80px>
+
+    <style>
+        #changeType{
+            display:inline;
+        }
+        #front, #after {
+            display: inline-block;
+            width: 200px;
+            margin-left: 10px;
+        }
+        /* 다른 elements 무시하고 먼저 float 정렬 */
+        #front2 {
+            float: left;
+            width: 200px;
+        }
+        #after2{
+            float:right;
+            width:100px;
+        }
+        #logo{
+            float: left;
+        }
+    </style>
+</body>
+</html>

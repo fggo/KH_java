@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css_17_positioning.html</title>
+</head>
+<body>
+    <ul>
+        <li><a href="http://">a</a></li>
+        <li id="hidden"><a href="http://">b</a></li>
+        <li><a href="http://">c</a></li>
+    </ul>
+    <style>
+        #hidden{
+            /* 웹 페이지 틀을 바꾸지 않기위해, 공간은 그대로 차지함 */
+            visibility: hidden;
+
+            /* 공간도 삭제 */
+            /* display: none; */
+        }
+    </style>
+    <button id="btn">CLICK HERE!</button>
+    <div class="wrap">
+        <div id="test1" class="z-test z-test1">test1</div>
+        <div id="test2" class="z-test z-test2">test2</div>
+        <div id="test3" class="z-test z-test3 tt">test3</div>
+    </div>
+    <script>
+        onload = function(){
+            document.getElementById("btn").
+            addEventListener("click", function(){
+                var tests = document.getElementsByClassName("z-test");
+                for(var i=0; i<3; i++){
+                    tests[i].setAttribute("style", "z-index: 1;");
+                }
+                tests[Math.floor(Math.random()*3)].setAttribute("style", "z-index: 50000;");
+            });
+        }
+    </script>
+    <style>
+        .wrap {
+            position: relative;
+        }
+        .tt:active{
+            z-index: 20000;
+        }
+        .z-test{
+            width:150px; height:100px;
+            border: 1px solid black;
+        }
+        .z-test1{
+            background-color: yellow;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            z-index: 10000;
+        }
+        .z-test2{
+            background-color: coral;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            z-index: 10000;
+        }
+        .z-test3{
+            position: absolute;
+            background-color: lime;
+            z-index: 1;
+        }
+    </style>
+</body>
+</html>

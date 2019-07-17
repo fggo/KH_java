@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>변형스타일</title>
+    <style>
+        div{
+            width:50px;height:50px;
+            background-color:orangered;
+        }
+        .trans:hover{
+            transform:translate(100px,100px);
+        }
+        .trans2:hover{
+            transform:translateX(300px);
+        }
+        .trans3:active{
+            transform:translateY(200px);
+        }
+        .trans4:active{
+            transform:perspective(500px) translateZ(100px);
+        }
+        .trans5:active{
+            transform:perspective(200px) translate3d(100px,100px,100px);
+        }
+        .scale:active{
+            transform:scale(2);
+        }
+        .scale1:active{
+            transform:scaleX(2);
+        }
+        .scale2:active{
+            transform:scaleY(2);
+        }
+        .scale3:active{
+            transform:perspective(200px) scale3d(2);
+        }
+        .rota:active{
+            transform:rotate(45deg);
+        }
+        .rota1:active{
+            transform:perspective(200px) rotateX(45deg);
+        }
+        .rota2:active{
+            transform:perspective(200px) rotateY(85deg);
+        }
+        .rota3:active{
+            transform:perspective(200px) rotateZ(45deg);
+        }
+        .rota4:active{
+            transform:perspective(200px) rotate3d(2,1.5,1.5,45deg);
+        }
+        .skew1:active{
+            transform:skew(30deg, 40deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="trans">trans</div>
+    <div class="trans2">trans2</div>
+    <div class="trans3">trans3</div>
+    <div class="trans4">trans4</div>
+    <div class="trans5">trans5</div>
+    <div class="scale">scale</div>
+    <img class="scale1" src="https://pbs.twimg.com/profile_images/935306408530100226/J2oWs_zZ_400x400.jpg"
+    width="100px" heigth="100px"/>
+    <img class="scale2" src="https://pbs.twimg.com/profile_images/935306408530100226/J2oWs_zZ_400x400.jpg"
+    width="100px" heigth="100px"/>
+    <img class="scale3" src="https://pbs.twimg.com/profile_images/935306408530100226/J2oWs_zZ_400x400.jpg"
+    width="100px" heigth="100px"/>
+    <img class="rota" src="https://pbs.twimg.com/profile_images/935306408530100226/J2oWs_zZ_400x400.jpg"
+    width="100px" heigth="100px"/>
+    <img class="rota1" src="https://pbs.twimg.com/profile_images/935306408530100226/J2oWs_zZ_400x400.jpg"
+    width="100px" heigth="100px"/>
+    <img class="rota2" src="https://pbs.twimg.com/profile_images/935306408530100226/J2oWs_zZ_400x400.jpg"
+    width="100px" heigth="100px"/>
+    <img class="rota3" src="https://pbs.twimg.com/profile_images/935306408530100226/J2oWs_zZ_400x400.jpg"
+    width="100px" heigth="100px"/>
+    <img class="rota4" src="https://pbs.twimg.com/profile_images/935306408530100226/J2oWs_zZ_400x400.jpg"
+    width="100px" heigth="100px"/> 
+    <img class="skew1" src="https://pbs.twimg.com/profile_images/935306408530100226/J2oWs_zZ_400x400.jpg"
+    width="100px" heigth="100px"/>
+    
+    <h1>origin</h1>
+    <img class="orirota" src="https://pbs.twimg.com/profile_images/935306408530100226/J2oWs_zZ_400x400.jpg"
+    width="100px" heigth="100px"/>  
+    <style>
+        .orirota:active{
+            transform-origin:left top;
+            transform:rotate(45deg);
+        }
+        .container{
+            border:1px solid black;
+            perspective: 300px;
+            margin-top:100px;
+            margin-left:100px;
+            float:left;
+        }
+        .box1{
+            background-color:aquamarine;
+            transform:rotateY(180deg);
+            /* backface-visibility: hidden; */
+        }
+        .box2{
+            background-color:yellowgreen;
+            transform:rotateX(60deg);
+            transform-origin:left top;
+        }
+        #tr-style1{
+            transform-style:flat;
+        }
+        #tr-style2{
+            transform-style:preserve-3d;
+        }
+        .dd{
+            width:200px;height:200px;
+        }
+    </style>
+    <div class="container dd">
+        <div class="box1 dd" id="tr-style1">
+            <div class="box2 dd"></div>
+        </div>
+    </div>
+    <div class="container dd">
+        <div class="box1 dd" id="tr-style2">
+            <div class="box2 dd"></div>
+        </div>
+    </div>
+    <style>
+        .trasition{
+            transition:all 3s linear;
+            clear:both;
+        }
+        .trans10:hover{
+            transform:translate(100px,100px);
+        }
+        .changeShpe:active{
+            width:300px;height:300px;
+            background-color:lightblue;
+            transform:translate(100px,100px);
+        }
+    </style>
+    <img class="trans10 trasition" src="https://pbs.twimg.com/profile_images/935306408530100226/J2oWs_zZ_400x400.jpg"
+    width="100px" heigth="100px"/> 
+    <div class="trasition changeShpe">테스트</div>
+
+    
+</body>
+</html>

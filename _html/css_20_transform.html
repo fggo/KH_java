@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css_20_transform.html</title>
+    <style>
+        div{
+            width:50px; height:50px;
+            background-color: orangered;
+        }
+        .trans:hover{
+            transform: translate(100px, 100px);
+        }
+        .trans2:hover{
+            transform: translateX(300px);
+        }
+        .trans3:active{
+            transform: translateY(200px);
+        }
+        .trans4:active{
+            transform: perspective(150px) translateZ(100px);
+        }
+        .trans5:active{
+            transform:perspective(200px) translate3d(100px, 100px, 150px);
+        }
+        .scale:active{
+            /* similar to 'translateZ' */
+            transform: scale(2);
+        }
+        .scale1:active{
+            transform: scaleX(2);
+        }
+        .scale2:active{
+            transform: scaley(2);
+        }
+        .scale3:active{
+            transform: perspective(200px) scale3d(2);
+        }
+        .rota:active{
+            transform: rotate(45deg);
+        }
+        .rota1:active{
+            transform: perspective(200px) rotateX(45deg);
+        }
+        .rota2:active{
+            transform: perspective(200px) rotateY(45deg);
+        }
+        .rota3:active{
+            transform: perspective(200px) rotateZ(45deg);
+        }
+        .rota4:active{
+            transform: perspective(200px) rotate3d(2, 1.5, 1.5, 45deg);
+        }
+        .skew:active{
+            transform: skew(30deg, 40deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="trans">trans</div>
+    <div class="trans2">trans2</div>
+    <div class="trans3">trans3</div>
+    <div class="trans4">trans4</div>
+    <div class="trans5">trans5</div>
+
+    <div class="scale">scale</div>
+    <img class="scale1" src="media/dog11.jpg" width=50px height=50px>
+    <img class="scale2" src="media/dog11.jpg" width=50px height=50px>
+    <img class="scale3" src="media/dog11.jpg" width=50px height=50px>
+    <img class="rota" src="media/dog11.jpg" width=50px height=50px>
+    <img class="rota1" src="media/dog11.jpg" width=50px height=50px>
+    <img class="rota2" src="media/dog11.jpg" width=50px height=50px>
+    <img class="rota3" src="media/dog11.jpg" width=50px height=50px>
+    <img class="rota4" src="media/dog11.jpg" width=50px height=50px>
+
+    <img class="skew" src="media/dog11.jpg" width=50px height=50px>
+
+    <h1>origin</h1>
+    <img class="orirota" src="media/dog11.jpg" width=50px height=50px>
+    <style>
+        .orirota:active{
+            transform-origin: right top;
+            transform: rotate(45deg);
+        }
+    </style>
+
+    <div class="container dd">
+        <div class="box1 dd" id="tr-style1">
+            <div class="box2 dd"></div>
+        </div>
+    </div>
+    <div class="container dd">
+        <div class="box1 dd" id="tr-style2">
+            <div class="box2 dd"></div>
+        </div>
+    </div>
+    <style>
+        .container{
+            border: 1px solid black;
+            perspective: 300px;
+            margin-top: 300px;
+            margin-left: 100px;
+            float: left;
+        }
+        .box1{
+            background-color: aquamarine;
+            /* transform: rotateY(45deg); */
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+        }
+        .box2{
+            background-color: yellowgreen;
+            transform: rotateX(45deg);
+            transform-origin: left top;
+        }
+        #tr-style1{
+            transform-style: flat;
+        }
+        #tr-style2{
+            transform-style: preserve-3d;
+        }
+        .dd{
+            width:200px; height:200px;
+        }
+    </style>
+
+    <!-- transition -->
+    <img class="transition trans10" src="media/jindo.jpg" width=100px height=100px>
+    <div class="transition changeShape">TEST</div>
+    <style>
+        .transition{
+            transition: all 3s linear;
+            clear: both;
+        }
+        .trans10:hover{
+            transform: translate(100px, 100px);
+        }
+        .changeShape:active{
+            width: 300px; height:300px;
+            background-color: lightblue;
+            transform: translate(100px, 100px);
+        }
+    </style>
+
+
+</body>
+</html>
