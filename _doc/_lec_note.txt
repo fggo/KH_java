@@ -1,7 +1,49 @@
 
+[STORYBOARD]
+Focuses on What the user would experience
+Objective is to inspire users to think, provide inputs and validate 
+    requirements
+Unlike a prototype, doesn’t require technical competency to build
+Look and feel is more important than what you see in a wireframe, 
+    but need not match the look and feel of a prototype
+More emphasis on the users, and how different views and content 
+come together to deliver what the user is looking for.
 
+[WIREFRAME] (blueprint)
+It shows the main chunks of content
+It draws the outline and the layout structure
+It depicts the most basic UI
 
+Focuses on What the interface would resemble
+Objective is to brainstorm and so wireframe need not be an exact match 
+    to end product.
+Contains one or more static, rough cut screenshots. 
+Wireframe can even be an image. Look and feel is not important.
+It focuses more on screen layout than on functionality and navigation
 
+[MOCKUP]
+A mockup is a visual way of representing a product. 
+While a wireframe mostly represents a product’s structure, 
+a mockup shows how the product is going to look like.
+...
+
+[PROTOTYPE]
+A prototype is often a high fidelity representation of the final product 
+which is meant to simulate user interaction. 
+Unlike the previous two, a prototype is clickable and thus allows 
+the user to experience content and interactions in the interface. 
+In fact, a prototype is very much like the final product itself.
+
+Focuses on What the end product would look and feel like
+Objective is to get a sign-off prior to development
+Must be built on the dashboard tool/technology of choice 
+    and so it needs technical competence.
+It may have data that is static and simulated
+It need not be connected to a data source
+The look-and-feel more or less resembles a final product than a wireframe
+It should respond to user interactions
+
+(WIREFRAME -> MOCKUP -> PROTOTYPE)
 
 1. 화면설계 gui
 유저인터페이스에 대한 것들
@@ -30,6 +72,7 @@ ui설계서 커뮤케이션을 위해서 만듬 ui설계문서에 반드시 포�
 와이어프레임 : 레이아웃을 설계하는 작업 헤더는 어디, 푸터는 어디에 위치 
 스토리보드 :  디자이너, 개발자가 창조하는  / 새로운 것(?)
 프로토타입 : 실제서비스와 비슷한 모형으로 만듬
+(wireframe -> mockup -> prototype)
 
 <ui설계시 고려할 사항>
 ui 실제 작업은 동일 
@@ -59,13 +102,10 @@ actor를 기준으로 도서 관리 전체적인 흐름을 말함
 목업 : 시각적으로 실물과 흡사한 형태
 스토리보드 : 프로세스 정책 와이어프레임 디스크립션 모두 포함된 것을 말함
 
+(wireframe -> mockup -> prototype)
+
 (ui설계시 표준항목대상 - 데이터처리규칙) - (정답)
 -------------------------------
-
-
-
-
-
 
 
 
@@ -95,7 +135,7 @@ UI 설계시 tag element 올려놓음
 	- wireframe : 화면 layout 설계
 	- mockup : 실물과 흡사한 형태 만들어 놓음
 	- storymode : wireframe, description 포함
-
+(wireframe -> mockup -> prototype)
 사용성
 
 usecase 다이어그램 actor들이 행동을 할때, 명시. 공식화 해서 그려놓음.
@@ -103,7 +143,7 @@ usecase 다이어그램 actor들이 행동을 할때, 명시. 공식화 해서 �
 	로그인을 먼저 함.
 
 로그인 관련 기능은 시스템을 이용하기 위해 log in log out 기능
-개인 정보 관리 하려면, 자신 싱상정보 관리
+개인 정보 관리 하려면, 자신 신상정보 관리
 조회 및 수정 할 수 있어야함.
 소장자료 검색 기능. (keyword로 검색가능), 구매사항 조회.
 대출 신청 기능.
@@ -118,6 +158,8 @@ UI 설계문서에 포함되어야 할 사항
 3. storymode : 디자이너와 개발자 최종 산출물
 4. workflow
 5. iaa 메뉴구성도
+
+(wireframe -> mockup -> prototype)
 
 wireframe prototype storymode!!!
 
@@ -174,10 +216,6 @@ https://github.com/liaoyu/rcapp
 
 웹코딩, 여행, 시뮬레이션 등 주제 3가지. 디자이너가 아니기때문에 기능적인부분 집중. 
 회사에 제안시 주제를 선택한이유, 기능이 유용한지에 대해 간략하게 준비
-문준석 wnstjr1236@naver.com
-문은철 jinparang8877@gmail.com
-최호준 94hojun@gmail.com
-
 
 - SEMI PROJECT 모델링 프로세스
     기능 찾기 (영화예매 기능, 음식주문 기능 등)
