@@ -1,6 +1,6 @@
 if has("gui_running")
   if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
+    set guifont=Inconsolata\ 14
   elseif has("gui_macvim")
     set guifont=Menlo\ Regular:h14
   elseif has("gui_win32")
@@ -24,9 +24,4 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-nnoremap zz :update<cr>
-
-set tenc=korea
-set enc=utf8
-set langmenu=none
-lang en
+nnoremap zz :update<CR>
