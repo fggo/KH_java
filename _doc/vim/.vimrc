@@ -25,3 +25,8 @@ set shiftwidth=4
 set expandtab
 
 nnoremap zz :update<cr>
+
+set tenc=korea
+set enc=utf8
+set langmenu=none
+lang en
