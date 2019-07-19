@@ -25,3 +25,5 @@ set shiftwidth=4
 set expandtab
 
 nnoremap zz :update<CR>
+
+set encoding=utf-8
