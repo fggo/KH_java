@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>애니메이션</title>
+    <link href="https://fonts.googleapis.com/css?family=Gugi&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> -->
+
+    <style>
+        @keyframes ani1{
+            from{
+                background-color:red;
+                border:1px solid black;
+            }
+            to{
+                background-color:yellowgreen;
+                border-radius:100px;
+                transform:translate(100px,100px) rotate(360deg);
+            }
+        }
+        @keyframes ani2{
+            0%{
+                font-size:30px;
+                font-weight: 900;
+                color:aqua;
+            }
+            30%{
+                color:lightskyblue;
+            }
+            80%{
+
+                color:magenta;
+                text-shadow:5px 5px 10px gold;
+            }
+            100%{
+
+                color:beige;
+                text-shadow:10px 10px 10px lime;
+            }
+        }
+        p{
+            font-size:30px;
+            font-family: "Gugi";
+            /* font-family: 'Roboto', sans-serif; */
+        }
+        div{
+            width:100px;
+            height:100px;
+        }
+        .anitest:hover{
+            margin:10px;
+            background-color:aquamarine;
+            animation-name:ani1;
+            animation-duration:2s;
+            animation-iteration-count:infinite;
+            animation-timing-function:ease-in-out;
+            animation-direction:normal;
+        }
+        .anitest2{
+            margin:10px;
+            animation-name:ani2;
+            animation-duration:1s;
+            animation-iteration-count:infinite;
+            animation-timing-function:ease-in-out;
+            animation-direction:alternate;
+        }
+    </style>
+</head>
+<body>
+    <p class="anitest2">여러분 오늘 금요일이에요 힘내세요~ 홈페이지 잘 만들고요!!</p>
+    <div class="anitest"></div>
+    <div class="anitest"></div>
+    <div class="anitest"></div>
+    <div class="anitest"></div>
+    <div class="anitest"></div>
+    <div class="anitest"></div>
+
+    <img src="media/jindo.jpg" class="anitest" width=200px height=150px>
+</body>
+</html>

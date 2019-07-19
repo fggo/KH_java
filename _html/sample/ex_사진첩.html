@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>갤러리 만들기</title>
+  <style>
+	#gallary{
+		border:10px solid black;
+		height:300px;
+		width:450px;
+		margin-left:auto;
+		margin-right:auto;
+		overflow:visible;
+		background:gray;
+		-webkit-box-shadow:10px 10px 20px gray;
+		box-shadow:10px 10px 20px gray;
+	}
+	#gallary ul{
+		margin-left:-30px;
+	}
+	#gallary ul li{
+		list-style:none;
+		display:inline-table;
+		padding:10px;
+	}
+	#gallary ul li .pic{
+		-webkit-transition:all 0.6s ease-in-out;
+		transition:all 0.6s easein-out;
+		width:320px;
+		height:240px;
+		opacity:0;
+		visibility:hidden;
+		position:absolute;
+		margin-top:10px;
+		margin-left:-20px;
+		-webkit-box-shadow:3px 2px 10px gray;
+		box-shadow:3px 2px 10px gray;
+	}
+	#gallary ul li .small:hover{
+		cursor:pointer;
+	}
+
+	#gallary ul li:hover .pic{
+		width:320px;
+		height:240px;
+		opacity:1;
+		visibility:visible;
+		float:right;
+	}
+
+  </style>
+ </head>
+ <body>
+  <header>
+	<h2>사진첩</h2>
+	<hr>
+  </header>
+	<article>
+		<div id="gallary">
+			<ul>
+				<li><img src="" class="samll" width=120 height=90/><img src="" class='pic'/></li>
+				<li><img src="" class="samll" width=120 height=90/><img src="" class='pic'/></li>
+				<li><img src="" class="samll" width=120 height=90/><img src="" class='pic'/></li>
+				<li><img src="" class="samll" width=120 height=90/><img src="" class='pic'/></li>
+				<li><img src="" class="samll" width=120 height=90/><img src="" class='pic'/></li>
+				<li><img src="" class="samll" width=120 height=90/><img src="" class='pic'/></li>
+			</ul>
+		</div>
+	</article>
+  </body>
+</html>

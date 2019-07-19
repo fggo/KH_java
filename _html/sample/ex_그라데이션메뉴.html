@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>그라데이션 메뉴</title>
+  <style>
+	ul.navi li{
+		list-style-type:none;
+		/*display:block;*/
+		width:8em;
+		height:3em;
+		float:left;
+		text-align:left;
+		font-family:"고딕";
+		border-right:1px solid gold;
+		-webkit-box-shadow:1px 1px 1px gray;
+		box-shadow:1px 1px 1px gray;
+		background-color:lightgray;
+		background:-webkit-gradient(linear,left top, left bottom, from(white),to(gray),color-stop(0.6,lightgray));
+	}
+	ul.navi li a{
+		display:block;
+		padding:0.8em 0.5em 0.5em 0.5em;
+		text-decoration:none;
+		color:black;
+		text-shadow:1px 1px 0px gray;
+	}
+	
+	ul.navi li:hover{
+		background-color:darkgray;
+	}
+	ul.navi li:hover >a{
+		color:white;
+		text-shadow:1px 1px 0px gray;
+	}
+	ul.navi li:first-child{
+		border-bottom-left-radius:0.5em;
+		border-top-left-radius:0.5em;
+	}
+	ul.navi li:last-child{
+		border-bottom-right-radius:0.5em;
+		border-top-right-radius:0.5em;
+	}
+  </style>
+ </head>
+ <body>
+	<header>
+		<h2> 그라데이션 메뉴</h2>
+		<hr>
+	</header>
+	<div>
+		<ul class="navi">
+			<li class="home"><a href="#">Home</a></li>
+			<li id="html"><a href="#">HTML5</a></li>
+			<li id="css"><a href="#">CSS3</a></li>
+			<li id="jQuery"><a href="#">jQuery</a></li>
+			<li id="javascript"><a href="#">JavaScript</a></li>
+		</ul>
+	</div>
+
+ </body>
+</html>

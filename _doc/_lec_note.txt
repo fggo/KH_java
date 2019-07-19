@@ -1,3 +1,6 @@
+https://fonts.google.com/?subset=korean
+
+
 1. gui 화면설계
 
 각각 기능, 이미지, 기능들의 구현
