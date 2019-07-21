@@ -11,25 +11,26 @@
         <meta http-equiv="X_UA-Compatible" content='ie=edge'>
 
         <!-- AFTER specified seconds, go to page-->
-        <meta http-equiv="refresh" content="2;https://news.ycombinator.com/">
+        <!-- <meta http-equiv="refresh" content="2;https://news.ycombinator.com/"> -->
+
         <!-- <meta http-equiv="refresh" content="2;01_BasicStructure.html">
         : ERROR! https://www.naver.com/01_BasicStructure.html (NOT DEFINED) -->
 
-        <!-- use meta name to make page info-->
+        <!-- Make PAGE INFO-->
         <meta name="application-name" content='html class content'>
         <meta name="author" content="BABA">
         <meta name="description" content="HTML test page for personal study">
         <meta name="keywords" content="html, web, pag, webpage">
 
-        <!-- web crawling -->
+        <!-- Web crawling -->
         <!-- index : allows users to search -->
+
         <!-- only this page -->
         <meta name="robots" content="index">
         <!-- allows search for the pages linked to this page -->
         <meta name="robots" content="follow">
         <!-- allows search all -->
         <meta name="robots" content="all">
-
         <!-- don't allow linked page search -->
         <meta name="robots" content="nofollow">
         <!-- no search -->
@@ -49,8 +50,8 @@
         <style>
             /* style document */
             p{
-                color:red;
-                background-color: yellow;
+                color: darkorange;
+                background-color: gray;
             }
         </style>
         <!-- rel: related properties -->
@@ -63,12 +64,24 @@
     </head>
     <body>
         My Tag Practice!
-        <p>My dog is 2 years old.</p>
-        <br/>
+        <p>My dog is 2 years old.</p> <br/>
         <h2>This is styled TEXT.</h2>
+
         <hr>high light</hr>
-        <pre> pre</pre>
-        <bloockquote> pre</blockquote>
+
+        <pre>pre        preserves spaces 
+           and
+           line
+           breaks.....
+        </pre>
+
+        <blockquote cite="https://www.huxley.net/bnw/four.html">
+            <p>Words can be like X-rays, if you use them properly—they’ll <br>
+                go through anything. You read and you’re pierced.</p>
+            <footer>—Aldous Huxley, 
+                <cite>Brave New World</cite>
+            </footer>
+</blockquote>
     </body>
 
 </html>

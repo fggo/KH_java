@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HYPERTEXT</title>
+    <style>
+        img#logo{
+            width: 120px;
+            height: 70px;
+        }
+    </style>
 </head>
 <body>
 <!-- 태그를 사용한다. 태그는 다른 페이지를 요청하여 받아오는 태그로
@@ -12,101 +18,119 @@
 href : 요청할 페이지 주소
 target : 요청할 페이지를 어디서 open할지(new, current, parent windows)
 <a> 태그는 기본적으로 글자가 파랑색으로 표시되고, 밑줄 처리됨. -->
-    <a href="https://www.iei.or.kr">KH정보교육원</a>
-    <a href="https://www.iei.or.kr" target="_self">KH정보교육원</a>
-    <a href="https://www.iei.or.kr" target="_blank">KH정보교육원</a>
+    <a href="https://www.iei.or.kr">KH정보교육원</a><br>
+    <a href="https://www.iei.or.kr" target="_self">KH정보교육원</a><br>
+    <a href="https://www.iei.or.kr" target="_blank">KH정보교육원</a><br>
     <!-- 연결시에 이미지로 연결할 수 있음. -->
     <a href="https://www.amazon.com">
-        <img src="http://g-ec2.images-amazon.com/images/G/01/social/api-share/amazon_logo_500500._V323939215_.png"
-            width="100" height=100 border=1>
-    </a>
+        <img id="logo" src="http://www.vmastoryboard.com/wp-content/uploads/2014/08/Amazon-Logo_Feature.jpg" >
     <br>
-    <a href="#first">첫 단락</a>
-    <a href="#second">두번째 단락</a>
+    <a href="#first">첫 단락</a><br>
+    <a href="#second">두번째 단락</a><br>
     <a href="#third">세번째 단락</a><br>
 
 
-    <p id="first"> Spring Data for Apache Geode Reference Guide
-    Costin Leau
-    David Turanski
-    John Blum
-    Oliver Gierke
-    Jay Bryant
-    Version 2.2.0.RC1,
-    2019-06-14
-    Preface
-    1. Introduction
-    2. Requirements
-    3. New Features
-    3.1. New in the 1.2 Release
-    3.2. New in the 1.3 Release
-    3.3. New in the 1.4 Release
-    3.4. New in the 1.5 Release
-    3.5. New in the 1.6 Release
-    3.6. New in the 1.7 Release
-    3.7. New in the 1.8 Release
-    3.8. New in the 1.9 Release
-    3.9. New in the 2.0 Release
-    3.10. New in the 2.1 Release
-</p>
-<p id="second">
-Reference Guide
-4. Document Structure
-5. Bootstrapping Apache Geode with the Spring Container
-6. Configuring WAN Gateways
-7. Bootstrapping Apache Geode with the Spring Container using Annotations
-8. Working with Apache Geode APIs
-9. Working with Apache Geode Serialization
-10. POJO Mapping
-11. Spring Data for Apache Geode Repositories
-12. Annotation Support for Function Execution
-13. Apache Lucene Integration
-14. Bootstrapping a Spring ApplicationContext in Apache Geode
-15. Sample Applications
-Resources
-16. Useful Links
-Appendices
-Appendix A: Namespace reference
-Appendix B: Populators namespace reference
-Appendix C: Repository query keywords
-Appendix D: Repository query return types
-Appendix E: Spring Data for Apache Geode Schema
-© 2010-2019 The original authors.
-Preface
-Spring Data for Apache Geode focuses on integrating the Spring Framework’s powerful, non-invasive programming model and concepts with Apache Geode to simplify configuration and development of Java applications when using Apache Geode as you data management solution.
+    
+    <p id="first">
+        TCP/IP model
+        The TCP/IP model was developed prior to the OSI model.
+        The TCP/IP model is not exactly similar to the OSI model.
+        The TCP/IP model consists of five layers: the application layer, transport layer, network layer, data link layer and physical layer.
+        The first four layers provide physical standards, network interface, internetworking, and transport functions that correspond to the first four layers of the OSI model and these four layers are represented in TCP/IP model by a single layer called the application layer.
+        TCP/IP is a hierarchical protocol made up of interactive modules, and each of them provides specific functionality.
+        Here, hierarchical means that each upper-layer protocol is supported by two or more lower-level protocols.
 
-This document assumes you already have a basic understanding of, and some familiarity with, the core Spring Framework and Apache Geode concepts.
+        Functions of TCP/IP layers:
+        TCP/IP model
+        Network Access Layer
+        A network layer is the lowest layer of the TCP/IP model.
+        A network layer is the combination of the Physical layer and Data Link layer defined in the OSI reference model.
+        It defines how the data should be sent physically through the network.
+        This layer is mainly responsible for the transmission of the data between two devices on the same network.
+        The functions carried out by this layer are encapsulating the IP datagram into frames transmitted by the network and mapping of IP addresses into physical addresses.
+        The protocols used by this layer are ethernet, token ring, FDDI, X.25, frame relay.
+        Internet Layer
+        An internet layer is the second layer of the TCP/IP model.
+        An internet layer is also known as the network layer.
+        The main responsibility of the internet layer is to send the packets from any network, and they arrive at the destination irrespective of the route they take.
+        Following are the protocols used in this layer are:
+        IP Protocol: IP protocol is used in this layer, and it is the most significant part of the entire TCP/IP suite.
 
-While every effort has been made to ensure this documentation is comprehensive and complete without errors, some topics are beyond the scope of this document and may require more explanation (for example, data distribution management using partitioning with HA while still preserving consistency). Additionally, some typographical errors might have crept in. If you do spot mistakes or even more serious errors, please bring these issues to the attention of the Spring Data team by raising an appropriate issue in JIRA.
+        Following are the responsibilities of this protocol:
 
-</p>
-<p id="third">
-1. Introduction
-The Spring Data for Apache Geode reference guide explains how to use the Spring Framework to configure and develop applications with Apache Geode. It presents the basic concepts and provides numerous examples to help you get started quickly.
+        IP Addressing: This protocol implements logical host addresses known as IP addresses. The IP addresses are used by the internet and higher layers to identify the device and to provide internetwork routing.
+        Host-to-host communication: It determines the path through which the data is to be transmitted.
+        Data Encapsulation and Formatting: An IP protocol accepts the data from the transport layer protocol. An IP protocol ensures that the data is sent and received securely, it encapsulates the data into message known as IP datagram.
+        Fragmentation and Reassembly: The limit imposed on the size of the IP datagram by data link layer protocol is known as Maximum Transmission unit (MTU). If the size of IP datagram is greater than the MTU unit, then the IP protocol splits the datagram into smaller units so that they can travel over the local network. Fragmentation can be done by the sender or intermediate router. At the receiver side, all the fragments are reassembled to form an original message.
+        Routing: When IP datagram is sent over the same local network such as LAN, MAN, WAN, it is known as direct delivery. When source and destination are on the distant network, then the IP datagram is sent indirectly. This can be accomplished by routing the IP datagram through various devices such as routers.
+    </p>
 
-2. Requirements
-Spring Data for Apache Geode requires Java 8.0, Spring Framework 5 and Apache Geode 1.9.0.
+    <p id="second">
+        ARP Protocol
 
-3. New Features
-As of the 1.2.0.RELEASE, this project, formerly known as Spring GemFire, has been renamed to Spring Data for Apache Geode to reflect that it is now a module of the Spring Data project and built on Apache Geode.
-3.1. New in the 1.2 Release
-Full support for Apache Geode configuration through the SDG gfe XML namespace. Now Apache Geode components may be configured completely without requiring a native cache.xml file.
+        ARP stands for Address Resolution Protocol.
+        ARP is a network layer protocol which is used to find the physical address from the IP address.
+        The two terms are mainly associated with the ARP Protocol:
+        ARP request: When a sender wants to know the physical address of the device, it broadcasts the ARP request to the network.
+        ARP reply: Every device attached to the network will accept the ARP request and process the request, but only recipient recognize the IP address and sends back its physical address in the form of ARP reply. The recipient adds the physical address both to its cache memory and to the datagram header
+        ICMP Protocol
 
-WAN Gateway support for Apache Geode 6.6.x. See Configuring WAN Gateways
+        ICMP stands for Internet Control Message Protocol.
+        It is a mechanism used by the hosts or routers to send notifications regarding datagram problems back to the sender.
+        A datagram travels from router-to-router until it reaches its destination. If a router is unable to route the data because of some unusual conditions such as disabled links, a device is on fire or network congestion, then the ICMP protocol is used to inform the sender that the datagram is undeliverable.
+        An ICMP protocol mainly uses two terms:
+        ICMP Test: ICMP Test is used to test whether the destination is reachable or not.
+        ICMP Reply: ICMP Reply is used to check whether the destination device is responding or not.
+        The core responsibility of the ICMP protocol is to report the problems, not correct them. The responsibility of the correction lies with the sender.
+        ICMP can send the messages only to the source, but not to the intermediate routers because the IP datagram carries the addresses of the source and destination but not of the router that it is passed to.
+        Transport Layer
+        The transport layer is responsible for the reliability, flow control, and correction of data which is being sent over the network.
 
-Spring Data Repository support using a dedicated SDG XML namespace, gfe-data. See Spring Data for Apache Geode Repositories
+        The two protocols used in the transport layer are User Datagram protocol and Transmission control protocol.
+    </p>
 
-gfe-data XML Namespace support for registering Apache Geode Functions. See Configuring the Function Service
+    <p id="third">
+        User Datagram Protocol (UDP)
+        It provides connectionless service and end-to-end delivery of transmission.
+        It is an unreliable protocol as it discovers the errors but not specify the error.
+        User Datagram Protocol discovers the error, and ICMP protocol reports the error to the sender that user datagram has been damaged.
+        UDP consists of the following fields:
+        Source port address: The source port address is the address of the application program that has created the message.
+        Destination port address: The destination port address is the address of the application program that receives the message.
+        Total length: It defines the total number of bytes of the user datagram in bytes.
+        Checksum: The checksum is a 16-bit field used in error detection.
+        UDP does not specify which packet is lost. UDP contains only checksum; it does not contain any ID of a data segment.
+        TCP/IP model
+        TCP/IP model
+        Transmission Control Protocol (TCP)
+        It provides a full transport layer services to applications.
+        It creates a virtual circuit between the sender and receiver, and it is active for the duration of the transmission.
+        TCP is a reliable protocol as it detects the error and retransmits the damaged frames. Therefore, it ensures all the segments must be received and acknowledged before the transmission is considered to be completed and a virtual circuit is discarded.
+        At the sending end, TCP divides the whole message into smaller units known as segment, and each segment contains a sequence number which is required for reordering the frames to form an original message.
+        At the receiving end, TCP collects all the segments and reorders them based on sequence numbers.
+        Application Layer
+        An application layer is the topmost layer in the TCP/IP model.
+        It is responsible for handling high-level protocols, issues of representation.
+        This layer allows the user to interact with the application.
+        When one application layer protocol wants to communicate with another application layer, it forwards its data to the transport layer.
+        There is an ambiguity occurs in the application layer. Every application cannot be placed inside the application layer except those who interact with the communication system. For example: text editor cannot be considered in application layer while web browser using HTTP protocol to interact with the network where HTTP protocol is an application layer protocol.
+        Following are the main protocols used in the application layer:
+        HTTP: HTTP stands for Hypertext transfer protocol. This protocol allows us to access the data over the world wide web. It transfers the data in the form of plain text, audio, video. It is known as a Hypertext transfer protocol as it has the efficiency to use in a hypertext environment where there are rapid jumps from one document to another.
+        SNMP: SNMP stands for Simple Network Management Protocol. It is a framework used for managing the devices on the internet by using the TCP/IP protocol suite.
+        SMTP: SMTP stands for Simple mail transfer protocol. The TCP/IP protocol that supports the e-mail is known as a Simple mail transfer protocol. This protocol is used to send the data to another e-mail address.
+        DNS: DNS stands for Domain Name System. An IP address is used to identify the connection of a host to the internet uniquely. But, people prefer to use the names instead of addresses. Therefore, the system that maps the name to the address is known as Domain Name System.
+        TELNET: It is an abbreviation for Terminal Network. It establishes the connection between the local computer and remote computer in such a way that the local terminal appears to be a terminal at the remote system.
+        FTP: FTP stands for File Transfer Protocol. FTP is a standard internet protocol used for transmitting the files from one computer to another computer.
+    </p>
 
-</p>
 
-<img src= "https://i.barkpost.com/wp-content/uploads/2015/10/reddit-dog-jokes-20.jpg?q=70&fit=crop&crop=entropy&w=808&h=808" 
-alt="" height="300" width="300" usemap="#fundog">
-<map name="fundog">
-    <area shape="rect" coords="00,00,150,300" href="https://www.google.com/search?q=funny dog pictures" alt="" target="_blank">
-    <area shape="rect" coords="150,00,300,300" href="http://www.iei.or.kr"
-        alt="" target="_blank">
-</map>
+    <img src= "https://i.barkpost.com/wp-content/uploads/2015/10/reddit-dog-jokes-20.jpg?q=70&fit=crop&crop=entropy&w=808&h=808" 
+    alt="" height="300" width="300" usemap="#fundog">
+    <map name="fundog">
+        <area shape="rect" coords="00,00,150,300" href="https://www.google.com/search?q=funny dog pictures" alt="" target="_blank">
+        <area shape="rect" coords="150,00,300,300" href="http://www.iei.or.kr"
+            alt="" target="_blank">
+    </map>
 
-    </body>
+</body>
 </html>

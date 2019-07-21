@@ -7,11 +7,42 @@
     "code-runner.saveFileBeforeRun": true,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
+    "git.decorations.enabled": true,
+    "explorer.decorations.colors": false,
+    "explorer.decorations.badges": false,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["z", "z"],
+            "commands": [
+                ":w"
+            ]
+        },
+        {
+            "before":["<C-n>"],
+            "commands": [":nohl"],
+        },
+        {
+            "before": ["leader", "w"],
+            "commands": [
+                "workbench.action.files.save",
+            ]
+        },
+        {
+            "before": ["<C-b>"],
+            "commands": [
+                "workbench.action.focusSideBar",
+            ]
+        },
+        // {
+        //     "before": ["<leader>", "d"],
+        //     "after": ["d", "d"]
+        // },
+    ],
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.iconTheme": "Monokai Pro (Filter Machine) Icons",
+    "workbench.iconTheme": "vscode-great-icons",
     "workbench.colorCustomizations": {
         "[MagicWB_Amiga]": {
-            "editor.background": "#9FA19F",
+            // "editor.background": "#9FA19F",
             "sideBar.background": "#343434",
             "sideBar.foreground": "#ABADAB",
             "terminal.background": "#484848",
@@ -24,10 +55,11 @@
     "editor.wordWrap" : "on",
     "editor.fontFamily": "Consolas",
     "editor.fontSize": 15,
+    "editor.fontLigatures": true,
     "editor.tokenColorCustomizations": {
         "[MagicWB_Amiga]": {
              "strings": "#DFDFDF",
-            /* JAVA */
+            // JAVA
             "textMateRules": [
                     // constant.character { "background": "#0000FF33", "fontStyle": "", "foreground": "#FFA995" }
                 {
@@ -48,7 +80,7 @@
                     // entity.name.function { "fontStyle": "", "foreground": "#FFA995" }
                     "scope": "entity.name.function",
                     "settings": {
-                        "fontStyle": "italic bold underline",
+                        "fontStyle": "italic bold",
                         // "foreground": "#F4A897",
                         "foreground": "#0540D5",
                     }
@@ -74,13 +106,20 @@
                 {
                     "scope": "comment",
                     "settings": {
-                        "fontStyle": "",
+                        "fontStyle": "italic",
                         "foreground": "#A2047B",
+                    }
+                },
+                {
+                    "scope": "constant.numeric",
+                    "settings": {
+                        "fontStyle": "",
+                        "foreground": "#334031",
                     }
                 },
                 // comment { "fontStyle": "italic", "foreground": "#8D2E75" }
 
-                /* HTML */
+                // HTML
                 {
                     "scope": "entity.other.attribute-name",
                     "settings": {
@@ -88,7 +127,7 @@
                         "foreground": "#0856BC"
                     }
                 },
-                /* settings.json */
+                // settings.json
                 {
                     "scope": "support.type",
                     "settings": {
@@ -105,5 +144,6 @@
         "<C-n>": false,
         "<C-s>": false,
     },
-    "workbench.colorTheme": "MagicWB_Amiga",
+    "terminal.integrated.fontFamily": "monospace",
+    "workbench.colorTheme": "Tech49 (Vivid Comments)",
 }
