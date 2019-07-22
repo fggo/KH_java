@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04_variable_prac.html</title>
+    <style>
+        div{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- * input에 작성한 내용이 div에 출력 될 수 있게 구성하세요. -->
+
+    <h1>입력한 문자열 출력하기</h1>
+    <label for="tt">
+        입력 <input type="text" id='tt'>
+    </label>
+
+    <div id='btn'>
+        <button onclick = "printText();">출력하기</button>
+        <button onclick = "clearText();">지우기</button>
+    </div>
+
+    <div id="print"></div>
+    <script>
+        function printText(){
+            var inputTxt = document.getElementById('tt').value;
+            document.getElementById('print').innerHTML += inputTxt + "<br>";
+        }
+        function clearText(){
+            document.getElementById('print').innerHTML = "";
+        }
+    </script>
+</body>
+</html>
