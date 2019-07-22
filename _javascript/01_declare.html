@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01_javascript.html 개요</title>
+</head>
+<body>
+    <!-- f12 setting preferences debugger : Disable javascript -->
+    <noscript>
+        <h2 style="color:red">
+            이 브라우저는 스크립트를 지원하지 않습니다!
+        </h2>
+    </noscript>
+
+    <h1>JAVASCRIPT 선언</h1>
+    <p>자바스크립트는 inline, internal, external 방식으로 활용할수
+        있으며,inline방식은 태그의 이벤트에서 사용하고,
+        internal방식은 script태그안에 자바스크립트 구문을 작성하는 것을 말한다
+        external은 외부파일(.js)로 만들어서 활용하는 것임
+        작성하는 위치는 페이지의 어디에나 가능하지만 body태그 맨마지막에
+        작성하는 것이 안정적이다.
+    </p>
+
+    <h3>1. inline 방식 사용</h3>
+    <p onclick="alert('inline 방식으로 p태그 클릭!');">
+        p 태그를 클릭해 보세요.
+    </p> <hr>
+
+
+    <h3>2. internal 방식 사용</h3>
+    <p onclick="internalTest();">p 태그를 클릭해 보세요(internal 활용)</p>
+    <!-- <script type="text/javascript"> -->
+    <!-- <script type="
+        vanilla 
+        react "> -->
+    <script>
+        function internalTest(){
+            alert("internal 방식으로 p태그 클릭!");
+        }
+    </script><hr>
+
+    <h3>3. external 방식 사용</h3>
+    <p onclick="externalEvent();">external Javascript 이용</p>
+    <script src="js/externalTest.js"></script>
+
+    <!-- <script src="js/externalTestWrongName.js"></script> -->
+    <!-- console: error
+    Failed to load resource: net::ERR_FILE_NOT_FOUND -->
+
+</body>
+</html>

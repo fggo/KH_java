@@ -1,5 +1,45 @@
-https://fonts.google.com/?subset=korean
+javascript 
+ajax-> request page
+(<a> <form> tag can request also but javascript can do it better)
+SERVER LANGUAGE
+	JSP: use multithread
+	Node.js: single thread
 
+Compile 언어
+	- 한방에
+INterpreted Language(light)
+	읽는 순간 기계어로 바꿈
+
+tag == OBJECT
+
+F12 - Network 
+link로 연결된 요청 및 실패 전송 (빨간색)리스트 표시
+
+Application - session cookie
+
+javscript(interal)
+	BODY 제일 밑에 <script></script> 선언권장.
+javascript(external)
+	HEAD에서 제일 밑에 <script></script>
+
+f12 setting preferences debugger : disable javascript
+
+EACH browser has an interpreter
+	- Chrome : V8(compiler, script parser) interprets .js
+				scans html -> (READ var func name -> memory)
+				hoisting allows to read all var/func 
+				and allows to execute regardless of order of declaration
+
+DATA INPUT/OUTPUT
+	data: tags
+	console.log(): for debugging
+
+
+
+
+
+
+https://fonts.google.com/?subset=korean
 
 1. gui 화면설계
 
@@ -30,7 +70,7 @@ ui 요구에대한 명세서를 요청 확인
 데이터 처리규칙
 
 6. ui설계 현황
-하나의 객체의 (태그) 설계시 여러가지 사항을 고려
+하나의 객체의 (태그) 설계시 여러가d KEY지 사항을 고려
 디자인의 표현대로만 ui측면의 기능을 구현할 수 없음
 
 7. 이해관계자(클라이언트, 웹퍼블리셔, 디자이너) 문서 작성시

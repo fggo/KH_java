@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03_getElementBy.html</title>
+
+    <!-- ERROR div id="area" 없음 -->
+    <!-- <script>
+        var divElement = document.getElementById('area');
+        console.log(divElement); // <div id="area"></div>
+
+        divElement.style.color = "magenta";
+        divElement.innerHTML = "마젠타가 좋아요?";
+    </script> 
+    미리 로드하는 기능도 있음.
+    로드 안되면 ERROR 발생 :
+        script를 body 바로 직전으로 옮겨서 해결
+    -->
+
+    <!-- chrome - f12 - elements - properties
+    모든 태그가 같은 필드를 가지고 있음. 다만 초기화 안된상태면 "" 빈값 -->
+
+</head>
+<body>
+    <h1>태그에 접근하기</h1>
+    <p> 기본적으로 html페이지의 모든 태그는 객체로 저장 되며
+        그것을 DOM(Document Object Model)이라고 부름
+        문서내의 모든 태그를 객체화하여 관리하는 것
+        document 객체에 모든것을 넣음!
+        <pre>
+        document - html
+                 - head
+                 - body
+                     - h1
+                     - p
+        </pre>
+    </p>
+
+    <!-- document 객체의 멤버 변수로 <head><body><p> 등등 -->
+        <!-- document.getElementById("아이디명");
+
+        /* 배열/HTML collection 컬렉션 방식으로 불러옴 */
+		document.getElementsByName("이름");
+		document.getElementsByClassName("클래스명");
+        document.getElementsByTagName("태그명"); -->
+    <h3>1. id로 태그에 접근하기!</h3>
+    <!-- getElementById()는 제일 위에 있는 것 한개만 가져오므로,
+        id 중복값을 피해야함 -->
+    <p id="area"></p>
+    <div id="area"></div>
+    <script>
+        var divElement = document.getElementById('area');
+        console.log(divElement); // <div id="area"></div>
+
+        divElement.style.color = "magenta";
+        divElement.innerHTML = "마젠타가 좋아요?";
+    </script>
+
+    <h3>2. 태그명으로 불러오기</h3>
+    <button onclick="testTag()">클릭하면 li 변경</button>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        function testTag(){
+            var list = document.getElementsByTagName('li');
+            console.log(list); //HTMLCollection(length)[...]
+            
+            list[0].innerHTML = '<b>이거 list[0] 바꾼것!</b>'
+            list[1].innerHTML = 'list[1]=2'
+
+            // console.log(list[0]);
+            // console.log(list[1]);
+            // console.log(list[2]);
+            // console.log(list[3]);
+
+            // console.log('리스트 길이 list.length = ' + list.length);
+
+            // document.write(list[0].tagName);
+            var size = 10;
+
+            for(var i=0; i<list.length; i++){
+                list[i].style.fontSize = size + "px";
+                size += 10;
+
+                console.log(list[i]);
+            }
+        }
+    </script>
+
+    <h3>3. name으로 태그 가져오기</h3>
+    <p>input 태그에 많이 사용이 됨.</p>
+    <form action="">
+        <fieldset>
+            <legend>취미</legend>
+            <!-- table>tr*2>td*3>input:text -->
+            <table>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="hobby" value="game">게임
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" value="read">독서
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" value="youtube">유튜브
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="hobby" value="travel">여행
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" value="movie">영화
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" value="music">음악감상
+                    </td>
+                </tr>
+            </table>
+
+        </fieldset>
+    </form>
+    <br>
+    <button onclick="checkTest()">선택한 것 출력하기</button>
+    <div id="choice"></div>
+    <script>
+        var choice;
+        function checkTest(){
+            var hobby = document.getElementsByName("hobby");
+            console.log(hobby);
+            for(var i =0; i<hobby.length; i++){
+                if(hobby[i].checked == true){
+                    console.log(hobby[i].value);
+                    document.getElementById("choice").innerHTML += (hobby[i].value+"<br>");
+                }
+            }
+        }
+    </script>
+
+    <h3>4. class로 태그 가져오기</h3>
+    <p class="test">javascript</p>
+    <p>jsp</p>
+    <p>servlet</p>
+    <p>mybatis</p>
+    <p class="test">spring</p>
+    <div class="test">FINAL PROJECT!</div>
+    <img src="../_html/media/reddit-dog-cake.jpg" width=200 height=240 alt="케이크 댕댕이" class='test'>
+    <br>
+    <button onclick="classTest();">클릭하기</button>
+    <script>
+        function classTest(){
+            var classItems = document.getElementsByClassName("test");
+            console.log(classItems);
+            for(var i=0; i<classItems.length; i++){
+                // tagName은 대문자로 비교해야함
+                if(classItems[i].tagName == "P"){
+                    classItems[i].style.backgroundColor = "darkGray";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

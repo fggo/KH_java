@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02_input_output.html</title>
+</head>
+<body>
+    <h1>내용 출력하기</h1>
+    <button onclick="docWrite()">버튼을 클릭하면?</button>
+
+    <script>
+        function docWrite(){
+            // write는 body안에 다른 element를 전부 덮어 씌움
+            // html 태그도 사용할 수 있음
+            document.write("<i>안녕하세요 function docWrite()로 출력한거에요!</i>");
+            document.write("<h3>안녕하세요 function docWrite()로 출력한거에요!</h3>");
+        }
+
+        // element(태그)를 선택하여 페이지에 출력
+        // innerHTML="출력값" innerText="출력값"
+        // document.body.innerHTML = "body태그에 출력하기; 다른 body내 element를 overwrite";
+        //<body><h1>innerHTML로 body 태그에 출력하기</h1></body>
+        document.body.innerHTML = "<h1>innerHTML의 body태그 안에 h1 태그로 출력하기</h1>";
+
+        document.body.innerText = "<h1>innerText는 body, h1 태그가 아닌 text로 인식</h1>";
+
+
+        // 선언적 함수및 변수들을 전부 load먼저하므로 windows.alert()을 실행후
+        // document.write() 화면에 출력됨
+        // window.alert('alert!!!');
+
+        // window 객체는 페이지에서 기본객체이기 때문에,
+        // 접근연산자를 사용하지 않고, 함수를 호출하면
+        // window객체에서 찾게됨.
+        // alert('alert w/o windows object');
+
+    </script>
+    <br>
+
+    <script>
+        document.write("안녕하세요 document.write()로 출력한 거에요!");
+    </script>
+
+
+
+    <!-- EXAMPLE -->
+    <h1>내용 출력하기</h1>
+    <input type="text" id="addText">
+    <button onClick="addText()">텍스트 추가</button>
+    <div id="container"></div>
+    <script>
+        function addText(){
+            document.getElementById("container").innerHTML 
+                += document.getElementById('addText').value;
+            // document.getElementById("container").innerText 
+            //     += document.getElementById('addText').value;
+        }
+    </script>
+    <!-- 입력창에
+        <h1>하하하하</h1> 텍스트 추가 시 실제로 html에 element가 추가됨
+
+        <button onClick="location.href='http://www.naver.com'">이거눌러봐랑!! 메롱!</button>
+
+        innerHTML -> innerTEXT로 바꿔서 script공격(hacking) 방지
+     -->
+
+    <!-- console.log 
+        개발자가 디버깅 출력용으로 많이 사용을 하는것
+        브라우저의 개발자도구 console에서 확인 가능함
+    -->
+    <script>
+        console.log("이얏!");
+        console.log("얍얍!");
+        var name = '바바';
+        console.log(name);
+        console.debug('디버그모드 출력?');
+        console.info('정보단계');
+        console.warn('경고단계');
+        console.error('에러출력');
+        
+        // 객체
+        var Person = {
+            name: "바바",
+            age: 19,
+            gender: 'M',
+        };
+        // directive
+        console.dir(Person); //객체형식
+        console.log(Person); //string방식
+
+        // 입력받기
+        var flag = confirm('19살 이상이니?');
+        console.log(flag); // true / false로 출력
+        document.body.innerHTML = flag;
+
+        if(flag == true){
+            document.body.innerHTML += '<h1>19살 이상 인증 되었습니다.</h1>';
+        }
+        else{
+            document.body.innerHTML += '<h1>성인이 아닙니다.</h1>';
+        }
+
+        // prompt
+        // var msg = prompt('출력할 문자를 입력하세요 >> ');
+        // console.log(msg);
+        // document.body.innerHTML += msg;
+        document.body.innerHTML += prompt('출력할 문자를 입력하세요 >> ');
+
+    </script>
+
+</body>
+</html>

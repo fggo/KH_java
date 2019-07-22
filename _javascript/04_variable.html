@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04_variable.html</title>
+</head>
+<body>
+    <script>
+        name = 'ali'; //전역변수 -> window.name
+        var age = 19; //전역변수 -> window.age
+        console.log(name);
+        console.log(age);
+
+        console.log(test); // print full test() definition (by HOISTING)
+
+        function test(){
+            var addr = "Gyeonggi-do Siheung City"; //지역변수
+            height = 180.5; //전역변수
+
+            console.log(this.addr); //undefined
+            console.log(addr);
+
+            console.log(this.name); // OK
+            console.log(age); // OK
+            console.log(height); //OK
+        }
+        test();
+        // console.log(addr); // 지역변수; undefined ERROR! (LOCAL SCOPE)
+        console.log(this.height); // 전역변수; OK! (GLOBAL SCOPE)
+        console.log(window.height); // 전역변수; OK! (GLOBAL SCOPE)
+        console.log(height); // 전역변수; OK! (GLOBAL SCOPE)
+
+        console.log(this); // window object
+        console.log(window); //window object
+
+        /* 스크립트의 독특한 특징 호이스팅! HOISTING
+           인터프리터 방식은 위에서 아래로 소스코드를 읽으면서
+           내용을 처리하는데 아래에 선언된 변수를 위에서 호출해도 에러가 발생하지 않음.
+
+           선언문만 읽어서 HOISTING.
+           대입부는 runtime에 실행
+
+           선언문은 항상 javascript engine 구동시 가장 최우선으로 해석하고,
+           할당구문은 runtime과정에서 이루어지기 때문에, 호이스팅 되지 않는다.
+        */
+
+       var c;
+       console.log(c); //undefined
+
+       // V8 engine scanning -> variable nickname
+       // is already stored in memory
+       // parsing
+       console.log(nickname); //undefined NO ERROR 변수는 있는데 값이 없을때,
+       console.log(p); // SCANNING PARSES ONLY 'var v_name=val';
+
+       var nickname="baba"; // HOISTING!
+
+       // 이코드를 읽었을때, 변수 공간을 확보해서 넣어줌(window 객체가)
+       p = 'random string...'; //NO HOISTING!!! Uncaught ERROR!!! 
+
+       console.log(nickname);
+
+    </script>
+</body>
+</html>
