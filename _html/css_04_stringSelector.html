@@ -12,7 +12,10 @@
         }
         /* radio에서 '남'을 골라서 height: 100px; */
         input[value='1']{
-            height: 100px;
+            height: 10px;
+        }
+        input[value='2']{
+            height: 10px;
         }
         /* href가 test인 것을 찾아서 color: 보라색 */
         a[href="test"]{
@@ -25,7 +28,7 @@
             background-color: skyblue;
         }
         /* 띄어쓰기 기준으로 특정 단어를 찾고 싶을때 (단어를 포함)*/
-        /* ~=value */
+        /* ~= value */
         a[href ~='naver']{
             background-color: greenyellow;
         }
@@ -52,17 +55,21 @@
 </head>
 <body>
     <p width="100">점심 맛나게 드셨나요</p>
-    <div width="100">Tired right?</div>
-    <input type="radio" name='ra1' value=1>남
-    <input type="radio" name='ra1' value=2>여
+    <div width="100">Are you tired?</div>
+
+    <label for="M">
+        <input type="radio" id="M" name='ra1' value=1 checked>남
+    </label>
+    <label for="F">
+        <input type="radio" id='F' name='ra1' value=2>여 <br>
+    </label> <br>
+
     이름<input type="text" name="name">
-    <a href="test">연결</a>
+    <a href="test">연결</a> <br>
     <a href="http://www.naver-com">네이버</a>
     <a href="naver-com">네이버 - </a>
     <a href="www-naver com">네이버 띄어쓰기1</a>
     <a href="naver  com">네이버 띄어쓰기2</a>
-    <a href=""></a>
 
-    
 </body>
 </html>
