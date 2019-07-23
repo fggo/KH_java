@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05_datatype.html</title>
+</head>
+<body>
+    <h3>Javascript - String</h3>
+    <p>문자열을 표현하는 자료형으로 '' "" 두가지 리터럴 표시함
+       내장객체이기 때문에 메소드를 가지고 있어 활용이 가능함
+    </p>
+
+    <button onclick="stringMethod()">ADD STRING</button>
+    <div id="container"></div>
+
+
+    아이디 <input type="text" name="Id">
+    <button onclick="checkId();">id길이체크</button>
+
+    <script>
+        //id입력 받은 값의 개수
+        function checkId(){
+            var value = document.getElementsByName("Id")[0].value;
+            if(value.length < 4){
+                alert("4글자 이상 입력하세요.");
+            }
+            trim();
+        }
+        function stringMethod(){
+            var str1 = "바바";
+            var str2 = 'baba';
+            document.getElementById('container').innerHTML += str1 + "<br>";
+            document.getElementById('container').innerHTML += str2 + "<br>";
+
+            // String 내장 객체
+
+            //toUpperCase() toLowerCase()
+            var alpha = "Apple Macbook pro";
+            var container = document.getElementById('container');
+
+            container.innerHTML += "<br>" + alpha;
+            container.innerHTML += "<br>" + alpha.toUpperCase();
+            container.innerHTML += "<br>" + alpha.toLowerCase() + "<br>";
+
+            //length
+            container.innerHTML += "<br>길이: " + alpha.length + "<br>";
+
+            //indexOf: 특정문자의 인덱스를 출력
+            container.innerHTML += "<br>특정문자위치 : " + alpha.indexOf("p");
+
+            //lastindexOf: 뒤에서부터 출력
+            container.innerHTML += "<br>특정문자위치 : " + alpha.lastIndexOf("p");
+
+            //charAt() returns -1 if not found
+            container.innerHTML += "<br>단일글자출력 : " + alpha.charAt(4);
+
+            //substring(시작, 끝);  index in 시작~끝 인덱스
+            container.innerHTML += "<br>일부만출력" + alpha.substring(6,10);
+            container.innerHTML += "<br>일부만출력" + alpha.substring(alpha.indexOf('M'), alpha.indexOf('k')+1);
+
+            //slice 배열에서
+            container.innerHTML += "<br>split splice : " + alpha.slice(0,6);
+
+            //include 문자열 포함 확인
+            var sentence = "r클래스 오전반은 지각이 많고, 맨날 늦게오고 속상하네요.";
+            container.innerHTML += "<br>문자 찾기" + sentence.includes("지각");
+
+            //split : 문자열을 특정구분자에 의해 배열로 전환
+            var fruit = "수박 딸기 복숭아 자두";
+            var arrfru = fruit.split(" ");
+            for(var i =0; i<arrfru.length; i++)
+                console.log(arrfru[i]);
+        }
+    </script>
+
+    <h3>Math 내장 객체</h3>
+    <p>숫자를 다루기 위한 객체</p>
+    <button onclick="fnNumber()">숫자처리</button>
+    <div id="container2"></div>
+    <script>
+        function fnNumber(){
+            //숫자형 변수선언
+            var age = 19;
+            var height = 180.5;
+            var num = -3.1415;
+
+            // abs() 절대값
+            var container = document.getElementById('container2');
+            container.innerHTML += "절대값 : " + Math.abs(num) + "<br>";
+
+            // round floor ceil : 소수점 처리에 대한 겂
+            // round: 반올림,  floor: 내림,  ceil: 올림
+            container.innerHTML += "반올림 round : " + Math.round(height) + "<br>";
+            container.innerHTML += "내림 floor : " + Math.floor(height) + "<br>";
+            container.innerHTML += "올림 ceil : " + Math.ceil(height) + "<br>";
+
+            // random
+            for(var i =0; i<4; i++){
+                console.log(Math.floor(Math.random()*10) + 1);
+            }
+        }
+    </script>
+
+    <h3>기본자료형 선언 - 기타문자, 숫자</h3>
+    <p>Boolean, undefined, Object, function, array 배열</p>
+    <script>
+        var flag = true;
+        flag = false;
+
+        console.log(flag);
+        var bs;
+        console.log(bs); //undefined
+        
+        //배열 new Array() 생성가능. [] 요로케 표현가능!
+        var arr = new Array();
+        var arr2 = [];
+        arr2 = ['baba', 'aaa', 'cccc"'];
+        console.log(arr);
+        console.log(arr2);
+
+        // 객체 ojbect key value로 맵핑 되어있는 형식
+        // {} : 객체, [] : 배열
+        var obj = {
+            name: "baaba",
+            age : 19,
+            addr : "incheon",
+            hobby : ['코딩', '독서', '운동'],
+        }
+        //  javascript object notation; JSON
+        console.log(obj);
+
+        // 함수 function : 자료형 중 하나
+        var fnA = function () {
+            alert('우와 변수에 들어갔다. 이힛.')
+        }
+        console.log(fnA);
+        fnA();
+
+        // var 라는 명칭으로 저장이됨 외부에서 봤을때,
+        // 그 자료형이 무엇인지 알수가 없음!
+        // 자바스크립에서 변수를 동적으로 자료형을 할당
+        // 변수의 자료형이 대입되는 값에 따라 대입되는 시점 변경~
+        // 1. 자료형을 학인하는 함수
+        // 2. 동적으로 자료형이 변경되는 것을 확인
+        // 자료형을 확인: typeOf(확인할 변수)
+
+        var name = '유병승';
+        console.log(name+ " : " + typeof(name));
+
+        // 자료형을 비교할 때는 문자형식으로 해줘야함 
+        if(typeof(name) == "STRING")
+            alert('들어오니?')
+        var age = 19;
+        console.log(age + " : " + typeof(age));
+
+        var flag = true;
+        console.log(flag + " : " + typeof(flag));
+
+        var obj = {name: 'yoo', age: 19};
+        console.log(obj + " : " + typeof(obj));
+
+        var arr = ["a", "b"];
+        console.log(arr + " : " + typeof(arr));
+
+        var fn = function() {alert('a')};
+        console.log(fn + " : " + typeof(fn));
+
+        var unde;
+        if(typeof(unde) == 'undefined'){
+            unde = "쉬는시간";
+        }
+        console.log(unde + " : " + typeof(unde));
+
+        // 자료형 동적할당
+        // 자바스크립트는 유동적, 유연함
+        // 자료형도 대입되는 값에 따라 유연하게 변경을 해줌
+        var temp = "바바";
+        console.log(temp + " : " + typeof(temp));
+        temp = 3.14;
+        console.log(temp + " : " + typeof(temp));
+        temp = {name: '바바', age: 2};
+        console.log(temp + " : " + typeof(temp));
+        temp = function(){};
+        console.log(temp + " : " + typeof(temp));
+
+        // 형변환 : javascript가 자동으로
+        var name = "aaa";
+        var age = 19;
+        // age = name;
+        // console.log(age); // 자동형변환(int->String) OK
+
+        console.log(name + age + " : " + typeof(name+age));
+        console.log(typeof(age) + "->" + typeof(String(age))); // 강제형변환 int->String
+        var age2 = 30;
+        console.log(age - age2); // 자동형변환 (19 - 30) OK 
+        console.log(age + age2); // 자동형변환 (19 + 30) OK 
+        // console.log(age + Number(age2)); // 자동형변환 (19 + 30) OK 
+        console.log(age * age2); // 자동형변환 (19 * 30) OK 
+        console.log(age / age2); // 자동형변환 (19 / 30) OK 
+        console.log(age % age2); // 자동형변환 (19 % 30) OK 
+    </script>
+
+</body>
+</html>
