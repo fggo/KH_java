@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06_operator.html</title>
+</head>
+<body>
+    <h1>자료형까지 비교하는 동등연산자!</h1>
+    <p> === ! == </p>
+    <script>
+        var a = 10;
+        var b = "10";
+        var c = 10;
+        console.log(a == b);
+        console.log(a == c);
+        console.log(a === b); // false 자료형까지 일치해야 
+
+        console.log(a != c);
+        console.log(a != b); //false
+        console.log(a !== b); //true 자료형 불일치
+    </script>
+
+    <h1>조건문</h1>
+    <input type="text" id="msg">
+    <button onclick="checkval()">값 확인</button>
+    <div id="area"></div>
+    <script>
+        function checkval(){
+            //msg에 있는 값을 가져오는 코드 작성
+            var msg = document.getElementById('msg').value;
+            if(msg == "ali")
+                alert("good dog");
+            else
+                alert("nah");
+            
+            var area = document.getElementById('area');
+            switch(msg){ // === 으로 비교!
+                case 'ali':
+                    area.innerHTML = 'the best dog ever';
+                    break;
+                default:
+                    area.innerHTML = 'other dog friends';
+                    break;
+            }
+        }
+
+        var su = prompt("입력!");
+        su == 10 && alert("10이다!");
+        su == 10 || alert("10이 아니다!");
+
+        var result = 0;
+        su == 10 && (result += Number(su));
+        su == 10 || (result -= su);
+        console.log(result);
+
+        var doc = document.getElementById("area");
+
+        switch(true){
+            case su<=10: doc.innerHTML = su + ' 에이 작은값이야'; break;
+            case su > 10: doc.innerHTML = su + ' 오 좀 큰데'; break;
+        }
+        su = new Date().getMinutes();
+        switch(true){
+            case su>=50 && su<=00: doc.innerHTML = su + " 쉬는시간"; break;
+            case su != 50: doc.innerHTML = su + " 공부시간"; break;
+
+        }
+
+        var date = new Date();
+        console.log(date);
+        var formatted_date = date.getFullYear() + "/" + date.getMonth() + "/"
+            + date.getDate();
+        console.log(formatted_date);
+
+        var i = 0;
+        while(true){
+            doc.innerHTML += "언제 쉬지?";
+            i++;
+            if(i==5) {
+                doc.innerHTML += "지금!"; break;
+            }
+        }
+
+        // for in 문은 object를 참조할떄 사용
+        // key & value 형식의 값을 가져올떄 사용
+        var obj = {
+            name : "유병승",
+            age : 19,
+            gender : 'M',
+            hobby : ["독서", "코딩", "클래식감상"]
+        };
+        // console.log(obj.name);
+        // console.log(obj["name"]);
+        // 데이터를 서버에서 가져왔을때, 그 데이터를 파싱하여
+        // 원하는 html 위치에 넣어줄때
+        var temp = "";
+        temp += "<table border=1>";
+        temp += "<tr><th>이름</th><th>나이</th><th>성별</th><th>취미</th></tr>";
+        temp += "<tr>";
+        for (var key in obj){
+            console.log(key + " : " + obj[key]);
+            temp += "<td>" + obj[key] + "</td>";
+        }
+        temp += "</tr>";
+        temp += "</table>";
+        doc.innerHTML += temp;
+    </script>
+</body>
+
+</html>
