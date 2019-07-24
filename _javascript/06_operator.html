@@ -46,9 +46,10 @@
             }
         }
 
-        var su = prompt("입력!");
-        su == 10 && alert("10이다!");
-        su == 10 || alert("10이 아니다!");
+        // var su = prompt("입력!");
+        var su = 22;
+        su == 10 && console.log("10이다!");
+        su == 10 || console.log("10이 아니다!");
 
         var result = 0;
         su == 10 && (result += Number(su));
@@ -70,7 +71,7 @@
 
         var date = new Date();
         console.log(date);
-        var formatted_date = date.getFullYear() + "/" + date.getMonth() + "/"
+        var formatted_date = date.getFullYear() + "/" + (date.getMonth()+1) + "/"
             + date.getDate();
         console.log(formatted_date);
 
