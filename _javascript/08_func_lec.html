@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>함수의 활용</title>
+</head>
+<body>
+    <h1>함수의 활용</h1>
+    <h3>선언적 함수</h3>
+    <p>function 함수명([매개변수...]){ }</p>
+    <button onclick="basicFun();">기본선언함수</button>
+    <p>매개변수가 있는 선언적 함수</p>
+    <button onclick="paramFun(prompt('이름'),prompt('나이'))">매개변수</button>
+    <p>매개변수가 있는 함수를 호출할때 매개변수를 안넣으면?</p>
+    <button onclick="paramFun('서현희')">매개변수안넣음</button>
+    <p>매개변수를 넘치게주면?????</p>
+    <button onclick="paramFun('서현희','류별리','서선덕','태엽언니')">매개변수안넣음</button>
+    <p>이건?</p>
+    <p>이건?</p>
+    <p>이건?</p>
+    <script>
+        function paramFun(name,age){
+            var element=document.getElementsByTagName("p")[2];
+            element.innerHTML="입력값 : "+name+" "+age;
+        }
+        var doc=document.getElementsByTagName("p");
+        for(var i=0;i<doc.length;i++){
+            doc[i].addEventListener("click",basicFun);
+        }
+        function basicFun(){
+            alert("기본선언적 함수!");
+        }
+        //함수 호출
+        basicFun();
+    </script>
+
+    <h3>익명함수</h3>
+    <p>function(){}:함수명이 없는 함수로 1회용, 변수에 대입하면 재호출가능</p>
+    <button onclick="(function(){alert('히히');})();">클릭!</button>
+    <span id="t1">t1</span>
+    <script>
+        var f1 = function(){
+               // alert('익명함수');
+            };
+        //익명함수는 callback함수로 많이 쓰임. 매개변수에 많이 넣어서 사용
+        document.getElementById('t1').addEventListener("mouseover",
+            function(){
+                //alert('마우스올라감');
+            }
+        );
+        //f1();
+        //함수의 호이스팅~! 
+        //test();
+        //test2();
+        console.log(typeof test2);
+        function test(){ alert("미리올라감")};//선언적함수
+        var test2=function(){alert("이건 안올라감");};//익명함수
+        console.log(typeof test2);
+       // test2();
+        //익명함수 매개변수
+        var test3=function(person, name){
+            console.log(person);
+            console.log(name);
+        }
+        test3({salary:2000,address:"경기도시흥시"},"유병승");
+        test3(['하하','호호','히히']);
+    </script>
+    <h3>자동실행함수</h3>
+    <p>
+        (익명함수를 사용)(); &lt;--자동실행함수
+    </p>
+    <div id="area1"></div>
+    <script>
+        (function(){
+            document.getElementById("area1").innerHTML="자동실행함수실행!";
+        })();
+        
+    </script>
+
+    <h1>매개변수를 자동으로 저장하는 객체</h1>
+    <p>
+        arguments : 내부적으로 함수를 호출할때 보내는 
+                    매개변수를 배열로 저장하는 객체
+    </p>
+    <script>
+        function test(){
+            if(arguments.length>0){
+                for(var i=0;i<arguments.length;i++){
+                    document.getElementById("area1").innerHTML+=arguments[i]+"<br>";
+                }
+            }
+            else{
+                console.log("실행");
+            }   
+            console.log(arguments);
+        }
+        test();
+    </script>
+    <h1>함수의 매개변수로 자기사진을 보내보자(태그)</h1>
+    <p>
+        자기자신을 뜻하는 this라는 예약어가 있음. 
+    </p>
+    <button onclick="test22(this);">자기자신 함수에 보내기</button>
+    <script>
+        function test22(my){
+            console.log(my);
+        }
+    </script>
+    <!-- span을 누르면 눌린 태그에 textnode 요놈이여!변경 -->
+    <span onclick="thisTest(this);">이게뭔지알어</span>
+    <span onclick="thisTest(this);">이게뭔지알어</span>
+    <span onclick="thisTest(this);">이게뭔지알어</span>
+    <span onclick="thisTest(this);">이게뭔지알어</span>
+    <span onclick="thisTest(this);">이게뭔지알어</span>
+    <style>
+        span{
+            display:block;
+            margin:10px;
+        }
+    </style>
+    <script>
+        function thisTest(obj){
+            console.log(obj);
+            if(obj!=undefined){
+             obj.innerHTML="요놈이여!";
+            }
+            console.log(this);
+        }
+    </script>
+    <h3>매개변수로 함수를 전달</h3>
+    <p>함수도 하나의 자료형으로 매개변수로 전달할 수 있음</p>
+    <button onclick="testFun22(function(){alert('전달은 나야나!함수!');});">실행</button>
+    <div id="time"></div>
+    <script>
+        function testFun22(fun){
+            console.log(fun);
+            fun();
+        }
+        function testFun33(){
+            console.log("이건 선언적 함수");
+        }
+        testFun22(testFun33);
+
+        //매개변수로 함수를 전달받는 기본 함수
+        setInterval(function(){
+            var date=new Date();
+            var hour=date.getHours();
+            var mint=date.getMinutes();
+            var sec=date.getSeconds();
+            document.getElementById("time").innerHTML=hour+" : "+mint+" : "+sec;
+        },1000);
+
+    </script>
+    <h3>return하는법</h3>
+    <p>
+         return값이 있다면 return 값; 이렇게 선언함. 
+         return값이 없으면 안쓰면됨
+    </p>
+    <div id='msg'>
+        안녕하세요, 저는 19살 유병승입니다. 
+        여러분 힘내세요 졸지말고 늦지말고, 대답좀... ㅠㅠ 
+    </div>
+    이름 <input type="text" name="name_"/>
+    나이 <input type="text" name="age"/>
+    성별 <input type="text" name="gender"/>
+    주소 <input type="text" name="address"/>
+    이메일 <input type="email" name="email"/>
+    <button onclick="objAdd();">객체로만들기</button>
+
+    <script>
+        function objAdd(){
+            var memberObj=fnaddObj();
+            console.log(memberObj);
+        }
+        function fnaddObj(){
+            var items=document.getElementsByTagName("input");
+            for(var i=0;i<items.length;i++){
+                switch(items[i].name)
+                {
+                    case 'name_': var name=items[i].value;break;
+                    case 'age': var age=items[i].value;break;
+                    case 'gender': var gender=items[i].value;break;
+                    case 'address': var address=items[i].value;break;
+                    case 'email': var email=items[i].value;break;
+                }         
+            }
+            return {name:name,age:age,gender:gender,address:address,email:email};
+        }
+        function print(){
+            var value=document.getElementById('msg').innerHTML;
+            return value;
+        }
+        var temp=print();
+        console.log(temp);
+      
+    </script>
+
+
+
+</body>
+</html>

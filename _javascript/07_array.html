@@ -307,12 +307,14 @@
         }
 
         function positionAdd(){
-            var doc = document.getElementById('print');
-            var nameItems = document.getElementsByName('foods')[0];
-            var foodvalue = nameItems.value;
-            var count = document.getElementById('position').value;
-            food.splice(count, 0, foodvalue);
-            doc.innerHTML += "음식추가" + food+ "<br>";
+            var doc=document.getElementById("print");
+            var nameItems=document.getElementsByName("foods")[0];
+            var foodvalue=nameItems.value;
+            nameItems.value=" ";
+            var count=document.getElementById("position").value;
+            document.getElementById("position").value=" ";
+            food.splice(count,0,foodvalue);
+            doc.innerHTML+="음식추가 : "+food+"<br>";
         }
 
     </script>
