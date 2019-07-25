@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Closure</h1>
+    <p>
+        함수 내부에서 사용했던 지역변수를 외부에서 사용하기 위해 사용
+
+        함수 내에서 사용한 변수를 외부에서 사용 할 수 있게 하는 기능
+        (local scope -> global scope 에서 사용)
+
+        closure 안에 선언된 변수를 해당 closure과 
+        연결지어 사용할 수 있도록 (similar to private field in Class)
+        해당 변수를 계속 유지하고 보호하고 싶을 때.
+    </p>
+    <p>function을 반환 할 수 있음</p>
+    <script>
+        /* function을 리턴 */
+        function funcA(){
+            // return func
+            return function(name){
+                alert('안녕 ' + name+ ' 리턴함수야!');
+            }
+        }
+        var returnFunc = funcA();
+        console.log(returnFunc);
+        // returnFunc('PARAM!');
+
+        // 함수안에 있는 변수는 외부에서 사용할 수 없다.!
+        function localVari(){
+            var localVal = "나 함수안 변수";
+        }
+        // alert(localVal); // ERROR!
+        var globalVari;
+
+    </script>
+
+
+    <p>
+        클로저란 참조하는 환경을 가지고 있는 함수.
+        닫힘, 폐쇄 -> 함수를 실행하는데 필요한 변수를 가지고 있는 것!
+    </p>
+    <button onclick="closureTest()">Closure TEST</button>
+    <script>
+        function closureTest(name){
+            var word = "호호호";
+            var greet = "히히히";
+            myClosure = say(name); //전역변수 windows
+            myClosure(); // myClosure()를 통해 word1 greet1 접근 O
+
+            //ERROR!
+            // console.log(word1); // word1 접근 X
+            // console.log(greet1); // greet1 접근 X
+
+            test3();
+        }
+
+        function say(name){
+            var word1 = "hohoho";
+            var greet1 = "hihihi";
+            console.log(name);
+            return function(){
+                alert(word1 + " : " + greet1);
+            }
+        }
+
+        function test3(){
+            myClosure(); // OK
+            /*
+            만약
+            function closureTest(){
+                var Closure() = say(name);
+            }
+            이면, ERROR!
+            */
+        }
+
+        function variProtected(){
+            var name = "유병승";
+            var age = 19;
+
+            getName = function(){
+                return name;
+            }
+            setName = function(name1){
+                name = name1;
+            }
+        }
+
+        variProtected();
+
+        // data protected
+        alert(getName());
+        setName("바바");
+        alert(getName());
+
+    </script>
+
+
+    <button onclick="closureTest('유병승');">클로져 테스트</button>
+
+    <h4>카운터 만들기</h4>
+    <p>전역변수를 이용한 카운터와 클로져를 이용한 카운터 비교</p>
+    <button onclick="g_doCounter();">카운터(전역변수)</button>
+    <button onclick="changeVal(prompt('변경 값'));">카운터 값 변경</button>
+    <button onclick="doCounter(prompt('수 입력'));">카운터</button>
+    <div>
+        <span id="g"></span>
+        <span id="c"></span>
+    </div>
+
+    <script>
+        var cnt = 0;
+        var g = document.getElementById('g');
+        var c = document.getElementById('c');
+
+        function changeVal(su){
+            cnt = su;
+            // count 접근 X
+        }
+
+        function g_doCounter(){
+            g.innerHTML = "<h1>" + (++cnt) + "</h1>";
+        }
+
+        function c_doCounter(){
+            var count = 0;
+            return function(su){
+                c.innerHTML = "<h1>" + (++count)+ su+ "</h1>";
+            }
+        }
+        var doCounter = c_doCounter();
+    </script>
+
+</body>
+</html>
