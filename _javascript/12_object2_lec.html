@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>객체배열</title>
+</head>
+<body>
+    <h1>객체배열활용</h1>
+    <script>
+        var ani={name:'쉐리',type:"강아지",weight:"3kg"};
+        var ani1={name:'치즈',type:"고양이",weight:"10kg"};
+        var ani2={name:'뭇국',type:"페럿",weight:"3kg"};
+
+        //배열을 활용하여 관리하기
+        var anis=[];
+        anis.push(ani);
+        anis.push(ani1);
+        anis.push(ani2);
+
+        console.log(anis);
+        for(var i=0;i<anis.length;i++){
+            var content="";
+            var f="";
+            for(var key in anis[i]){
+                content+=anis[i][key];
+            }
+            switch(anis[i]['type'])
+            {
+                case '강아지' : f=function(){return '멍멍';};break;
+                case '고양이' : f=function(){return '야옹야옹'};break;
+                case '페럿' : f=function(){return '뽀드득 너우니?'};break;
+            }
+            anis[i].bark=f;
+            console.log(i+":"+content);
+        }
+        console.log(anis[0].bark());
+        console.log(anis[1].bark());
+        console.log(anis[2].bark());
+
+        // 함수를 이용한 객체생성
+        function animal(name, type, weight){
+            var ani={
+                name:name,
+                type:type,
+                weight:weight
+            }
+            return ani;
+        }
+        anis.push(animal("돌쇠","강아지","10kg"));
+        anis[anis.length-1].bark=function(){
+
+        }
+        console.log(anis);
+        //생성자 함수를 이용한 객체생성
+        //통상 생성자 함수는 첫글자를 대문자로 해줌
+        function Animal(name,type,weight){
+            this.name=name;
+            this.type=type;
+            this.weight=weight;
+        }
+        anis.push(new Animal("슉슉이","고슴도치","2kg"));
+        console.log(anis);
+        console.log(anis[anis.length-1]['name']);
+        console.log(anis[anis.length-2] instanceof Animal);
+
+        Animal.prototype.getName=function(){
+            return "멍멍!!!";
+        }
+        Animal.prototype.setName=function(name){
+            this.name=name;
+        }
+        console.log(anis[anis.length-1]['getName']());
+        anis.push(new Animal("뽀삐","강아지","5kg"));
+        console.log(anis);
+        console.log(anis[anis.length-1]['getName']());
+
+        console.log([1,2,3,4]);
+    </script>
+
+
+</body>
+</html>

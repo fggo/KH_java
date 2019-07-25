@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12_object_prac.html</title>
+</head>
+<body>
+    <div id="table"></div>
+    <div id="rows"></div>
+
+    <button onclick="displayTable()">테이블 생성</button> <br>
+    <button onclick="displayResultRows()">결과 row 생성</button>
+
+    <script>
+        var header = ["name","java", "oracle", "html5", "css3", "javascript"];
+
+        function Student(name, java, oracle, html5, css3, javascript){
+            this.name = name;
+            this.java = java;
+            this.oracle = oracle;
+            this.html5 = html5;
+            this.css3 = css3;
+            this.javascript = javascript;
+        }
+
+        function toString(obj){
+            var clas = Object.prototype.toString.call(obj);
+            var msg = "";
+            if(obj !== undefined && obj !== null && clas === "[object Object]"){
+                for(var i=0; i<Object.keys(obj).length; i++){
+                    var key = Object.keys(obj)[i];
+                    if(i==0){
+                        msg+= "이름=" + obj[key];
+                        continue;
+                    }
+                    msg += key +"="+ obj[key];
+                    if (i < Object.keys(obj).length-1)
+                        msg += ", ";
+                    else{
+                        msg += "총점=" +  getSum(obj);
+                        msg += ", 평점=" + getSum(obj)/5;
+                    }
+                }
+
+                return msg;
+            }
+            return "";
+        }
+
+        function getSum(student){
+            var sum=0;
+            for(var i =1; i<=5; i++)
+                sum += student[header[i]];
+            return sum;
+        }
+
+        function createArray(){
+            var students = [];
+
+            students.push(new Student("김동현",90,56,56,45,34));
+            students.push(new Student("홍길동",45,76,34,33,56));
+            students.push(new Student("유관순",76,34,54,56,22));
+            students.push(new Student("임꺽정",43,77,12,76,34));
+            students.push(new Student("윤봉길",76,88,55,34,54));
+            students.push(new Student("신사임당",34,33,13,54,45));
+            students.push(new Student("세종대왕",56,56,34,77,32));
+            students.push(new Student("이순신",34,88,77,78,22));
+            students.push(new Student("이황",88,90,99,98,87));
+
+            return students;
+        }
+
+        function displayTable(){
+            var students = createArray();
+
+            var doc = document.getElementById("table");
+            var tableStr = "<table border=1>" +
+                "<tr>" +
+                    "<th>" + "이름" + "</th>" +
+                    "<th>" + "java" + "</th>" +
+                    "<th>" + "oracle" + "</th>" +
+                    "<th>" + "html5" + "</th>" +
+                    "<th>" + "css3" + "</th>" +
+                    "<th>" + "javascript" + "</th>" +
+                "</tr>";
+
+            for(var i = 0; i<students.length ;i++){
+                tableStr += "<tr>" +
+                        "<td>" + students[i]["name"] + "</td>" +
+                        "<td>" + students[i]["java"] + "</td>" +
+                        "<td>" + students[i]["oracle"] + "</td>" +
+                        "<td>" + students[i]["html5"] + "</td>" +
+                        "<td>" + students[i]["css3"] + "</td>" +
+                        "<td>" + students[i]["javascript"] + "</td>" +
+                    "</tr>";
+            }
+            doc.innerHTML += tableStr + "</table>";
+        }
+
+        function displayResultRows(){
+            var students = createArray();
+            var msg = "";
+            for(var i =0; i<students.length; i++)
+                msg += toString(students[i]) + "<br>";
+
+            var doc = document.getElementById("rows");
+            doc.innerHTML += msg;
+        }
+
+    </script>
+</body>
+</html>

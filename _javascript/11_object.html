@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11_object.html</title>
+</head>
+<body>
+    <h1>객체</h1>
+    <h3>객체의 선언과 호출</h3>
+    <p>
+        객체는 항상 키와 맵핑되어 있음. 값을 매핑된 키값으로 불러옴
+        선언은 {}; 속성 값으로는 모든 자료형 대입가능
+    </p>
+    <div id="area"></div>
+    <button onclick="test();">실행</button>
+    <script>
+        function test(){
+            //객체 선언
+            var product = {
+                pName : '빌딩',
+                type : '건물',
+                use : ['약국', '치과'],
+                "owner" : "송주미",
+                year: 2019,
+            }
+            // 객체 출력
+            console.log(product);
+            //각 key값으로 값 호출
+            var doc = document.getElementById('area');
+            doc.innerHTML += "[]호출 : " + product['pName'] + "<br>";
+            doc.innerHTML += "[]호출 : " + product['type'] + "<br>";
+            doc.innerHTML += "[]호출 : " + product['use'] + "<br>";
+            doc.innerHTML += "[]호출 : " + product['year'] + "<br>";
+
+            //객체속성이 '('use') 배열일때 출력
+            doc.innerHTML += "[]호출 : " + product['use'][0] + "<br>";
+            doc.innerHTML += "[]호출 : " + product['use'][1] + "<br>";
+            doc.innerHTML += "[]호출 : " + product['owner'] + "<br>";
+
+
+            // .으로 호출
+            doc.innerHTML += ".호출 : " + product.pName + "<br>";
+            doc.innerHTML += ".호출 : " + product.type + "<br>";
+            doc.innerHTML += ".호출 : " + product.use + "<br>";
+            doc.innerHTML += ".호출 : " + product.year + "<br>";
+            doc.innerHTML += ".호출 : " + product.owner + "<br>";
+
+
+            // .으로 속성값이 배열인 것 호출
+            doc.innerHTML += ".호출 : " + product.use[0] + "<br>";
+            doc.innerHTML += ".호출 : " + product.use[1] + "<br>";
+        }
+
+        </script>
+
+        <h2>key값 설정 테스트</h2>
+        <p>key에 모든 문자열을 사용할 수 있음(띄어쓰기, 특수기호)
+            반드시 key를 "" '' 로 표현해줘야함. 호출시에는 [] 호출방법만 이용가능
+        </p>
+        <button onclick="test2()">실행확인</button>
+        <script>
+            function test2(){
+                var obj = {
+                    // ^.~ : "윙크야",  // ERROR
+                    '^.~' : "윙크야",  // OK
+                    'i am' : "king", // OK
+                }
+                console.log(obj['^.~']);
+            }
+        </script>
+
+        <h3>객체에 메소드 넣기</h3>
+        <script>
+            var Person = {
+                name : '바바',
+                age : 19,
+                addr : 'Gyeonggi',
+                hobby : ['게임','지각','독서','코딩'],
+                toString: function(){
+                    console.log(this.name + this.age + this.addr);
+                }
+            }
+            Person.toString();
+            Person.name = '홍길동';
+            Person.toString();
+            var name='ff';
+            var age='dd';
+            var addr='cc';
+            var f= Person.toString;
+            f();
+            //내부의 this 가 window 기 때문에 undefined가 출력됨
+            // function(){this.name+this.age + this.address;}
+            var key = "name";
+            console.log(Person[key]); //홍길동
+        </script>
+
+        <h2>객체의 반복문</h2>
+        <p>
+            객체의 값을 순환할때 (전체조회) for in문을 사용함
+        </p>
+        <script>
+            console.log("----------");
+            for (var key in Person){
+                if(typeof Person[key] == 'object'){
+                    for (var i=0; i<Person[key].length; i++){
+                        console.log(Person[key][i]);
+                    }
+                }
+                console.log(key);
+                console.log(Person[key]);
+            }
+        </script>
+
+        <h2>in/with 사용하기</h2>
+        <p>
+            in : 객체 내부에 해당 속성이 있는지 확인하는 키워드
+            with : 객체값에 접근 할때 객체명 없이 접근 가능하게 하는 키워드
+        </p>
+        <script>
+            var Student = {
+                kor : 80,
+                eng : 70,
+                math : 60,
+            }
+            console.log('kor' in Student); //true
+            console.log('name' in Student); //false
+            console.log(Student.kor);
+
+            with(Student){
+                console.log(kor);
+                console.log(eng);
+                console.log(kor + eng + math);
+            }
+
+        </script>
+
+        <h1>객체에 속성 추가/삭제</h1>
+        <p>
+            없는 속성명은 key/value 추가됨, 있는 속성명의 value는 업데이트 됨
+            객체명.속성명 = 값; // 값을 대입할 때 와 같음
+            -> 속성명이 객체에 존재하면 대입, 없으면 추가됨.
+        </p>
+        <script>
+            var Employee = { };
+            console.log(Employee + typeof(Employee));
+            Employee.name = "바바";
+            console.log(Employee);
+            Employee.age = 19;
+            console.log(Employee);
+            Employee.name = '팅팅';
+            console.log(Employee);
+
+            if('name' in Employee)
+                console.log("name 키 값은 Employee에 있습니다.");
+            else
+                Employee.name="재채기";
+            
+            console.log(Employee);
+
+            Employee.salary = function(monthSal){
+                return monthSal * 12;
+            }
+            console.log(Employee);
+            console.log(Employee.salary(400));
+
+            delete Employee.name;
+            console.log(Employee);
+        </script>
+
+</body>
+</html>

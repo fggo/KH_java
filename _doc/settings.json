@@ -1,7 +1,7 @@
 {
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "java.configuration.checkProjectSettingsExclusions": false,
-    "terminal.integrated.fontSize" : 14,
+    "terminal.integrated.fontSize" : 13,
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "code-runner.saveAllFilesBeforeRun": true,
     "code-runner.saveFileBeforeRun": true,
@@ -42,7 +42,7 @@
     "workbench.iconTheme": "vscode-great-icons",
     "workbench.colorCustomizations": {
         "[MagicWB_Amiga]": {
-            // "editor.background": "#9FA19F",
+            // "editor.background": "#959795",
             "sideBar.background": "#343434",
             "sideBar.foreground": "#ABADAB",
             "terminal.background": "#484848",
@@ -57,6 +57,31 @@
     "editor.fontSize": 15,
     "editor.fontLigatures": true,
     "editor.tokenColorCustomizations": {
+        "[DuoTone Dark Forest]": {
+            "textMateRules": [
+                {
+                    // "scope": "entity.name.tag",
+                    "scope": "comment",
+                    "settings": {
+                        // "foreground": "#ddf8dd",
+                        "foreground": "#6C7D6C",
+                    }
+                },
+                {
+                    "scope": "punctuation",
+                    "settings": {
+                        "foreground": "#6C7D6C",
+                    }
+                },
+                {
+                    "scope": "meta.brace",
+                    "settings": {
+                        "foreground": "#6C7D6C",
+                    }
+                },
+            ],
+  
+        },
         "[MagicWB_Amiga]": {
              "strings": "#DFDFDF",
             // JAVA
@@ -145,5 +170,5 @@
         "<C-s>": false,
     },
     "terminal.integrated.fontFamily": "monospace",
-    "workbench.colorTheme": "Tech49 (Vivid Comments)",
+    "workbench.colorTheme": "DuoTone Dark Forest",
 }
