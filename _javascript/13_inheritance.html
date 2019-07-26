@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>13_inheritance.html</title>
+</head>
+<body>
+    <h1>Inheritance and Capsulization</h1>
+    <h3>INHERITANCE</h3>
+    <p>
+        <pre>
+        중복된 메소드를 상속을 통해서 제거해 보자 (prototype 이용)
+        생성자 함수를 통해 객체 생성시 상속을 이용할 수 있음
+        다른 객체에 있는 메소드, 변수들을 활용하는 것.
+        </pre>
+    </p>
+    <script>
+        // 생성자 함수
+        function Book(title, price, discountRate){
+            this.title = title;
+            this.price = price;
+            this.discountRate = discountRate;
+
+            //prototype에 올려놓는게 더 나음
+            // this.getSalePrice = function(){
+            //     return price * (1 - discountRate);
+            // }
+        }
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        //prototype 사용 안하면 객체 하나하나 바꿔줘야함 (비효율적)
+        // book1.getSalePrice = function(){
+        //     return this.price *(1-.5);
+        // }
+        // prototype : memory 효율 증가
+        // discountRate 바껴도, 각 book 객체마다 하나하나 수정할 필요 없음
+        // 공용객체 (상속과 조금 비슷하지만 조금 다름)
+        Book.prototype.getSalePrice = function(){
+            return this.price * (1 - this.discountRate);
+            // return this.price * (1 - .5);
+        }
+
+        var book1 = new Book('템빨', 1500, .2);
+        var book2 = new Book('java프레임워크', 3000000, .3);
+        var book3 = new Book('사랑이란 무엇인가?',15000, .5);
+
+        console.log(book1);
+        console.log(book2);
+        console.log(book3);
+
+
+        console.log(book1.title + ": " + book1.getSalePrice());
+        console.log(book2.title + ": " + book2.getSalePrice());
+        console.log(book3.title + ": " + book3.getSalePrice());
+
+    </script>
+
+    <script>
+        Book.prototype.getSalePrice = function(){
+            return this.price;
+        }
+        console.log(book1.title + ": " + book1.getSalePrice());
+        console.log(book2.title + ": " + book2.getSalePrice());
+        console.log(book3.title + ": " + book3.getSalePrice());
+
+        // prototype 부모 Book 자식은 아니지만, 비슷한 느낌
+        // prototype으로 전체 객체를 관리 용이
+        Book.prototype.printBook = function(){ 
+            return "제목 "+this.title+" 가격 "+this.price+" 할인율 "+this.discountRate;
+        }
+        console.log(book1.printBook());
+    </script>
+
+    <h3>상속들을 상속받아 처리</h3>
+    <script>
+        function Movie(title, price, discountRate, seat) {
+            this.base = Book;
+            this.base(title, price, discountRate);
+            // 객체변수(속성) 설정
+            this.seat = seat;
+        }
+
+        // inherit하면서 prototype도 넘길수 있음
+        Movie.prototype = Book.prototype;
+
+        var m1 = new Movie("Spiderman", 12000, .5, ['B-5', 'A-3']);
+        console.log(m1.title);
+        console.log(m1.price);
+        console.log(m1.discountRate);
+        console.log(m1.seat);
+
+        // inherit하면서 prototype도 넘길수 있음
+        console.log(m1);
+        console.log(m1.printBook());
+        console.log(m1.getSalePrice());
+    </script>
+
+    <h2>캡슐화 적용</h2>
+    <p>
+        자바스크립트에서 캡슐화 적용하려면 closure의 개념을 이용하면 됨.
+    </p>
+
+    <script>
+        function Person(name, age, addr){
+            this.name = name;
+            this.age = age;
+            this.addr = addr;
+
+            // closure 속성
+            this.getName = function(){
+                return name;
+            }
+            this.setName = function(name_){
+                name = name_;
+            }
+        }
+        Person.prototype.getName = function(){
+            return this.getName();
+        }
+
+        var p = new Person('알리', 2, '경기');
+        console.log(p); //데이터 지워져 버림 -> define this.getName this.setName
+        console.log(p.name);
+        console.log(p.getName());
+        p.setName('바바');
+        console.log(p.getName());
+    </script>
+
+</body>
+</html>

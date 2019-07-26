@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>15_BOM.html</title>
+</head>
+<body>
+    <h1>BOM 태그</h1>
+    <p>
+        브라우저에서 브라우저 자체에 대한 정보, 클라이언트 화면,
+        주소창에 대한 정보 등을 가지고 있는 객체들을 말함.
+    </p>
+    <button onclick='fnNavigator();'>navigator실행</button>
+    <div id="area"></div>
+    <script>
+        function fnNavigator(){
+            var doc = document.getElementById('area');
+            // for(var key in navigator){
+            //     doc.innerHTML += key + " : " + navigator[key] + "<br>";
+            // }
+            doc.innerHTML += "-----<br>";
+            doc.innerHTML += "브라우저 코드명 : " + navigator.appCodeName +"<br>";
+            doc.innerHTML += "브라우저 이름 : " + navigator.appName + "<br>";
+            doc.innerHTML += "브라우저 버전정보 : " + navigator.appVersion + "<br>";
+            doc.innerHTML += "브라우저 전체정보 : " + navigator.userAgent+ "<br>";
+            doc.innerHTML += "브라우저 언어정보 : " + navigator.language+ "<br>";
+            doc.innerHTML += "쿠키허용여부 : " + navigator.cookieEnabled+ "<br>";
+            doc.innerHTML += "사용중인 운영체제 : " + navigator.platform+ "<br>";
+        }
+    </script>
+
+    <h3>location</h3>
+    <p>
+        브라우저의 주소창에 대한 정보를 가지고 있는 객체
+        페이지에 이동시킬때 사용(href(), assign(), replace())
+    </p>
+    <button onclick="locationTest()">location실행-> console 출력</button>
+    <script>
+        function locationTest(){
+            for (var key in location){
+                console.log(key + " : " + location[key]);
+            }
+        }
+    </script>
+
+    <p>페이지 이동하는 기술</p>
+    <p>
+        <pre>
+            location.href
+            location.assign
+            location.replace
+            (location.reload --갱신)
+        </pre>
+    </p>
+
+    <button onclick='location.href="http://rclass.iptime.org:8989"' style="background-color: azure">서버접속</button><br>
+
+    <!-- assign : 뒤로가기 가능! -->
+    <button onclick='location.assign("https://www.naver.com")' style="background-color:azure">이거 누르면 이동</button><br>
+
+    <!-- replace : 뒤로가기  -->
+    <button onclick='location.replace("https://www.google.com")' style="background-color:azure">이것도 이동!</button><br>
+
+    <button onclick='location.reload()' style="background-color: azure">페이지 갱신</button>
+
+    <h3>history 객체</h3>
+    <p>브라우저 방문기록과 관련된 객체</p>
+
+    <!-- <button id="back" onclick='history.back()' style="color:blue">뒤로가기 back()</button> -->
+    <button id="back" onclick='historyTest()' style="color:blue">뒤로가기 back()</button>
+
+    <!-- <script>
+        for(var key in history){
+            console.log(history[key]);
+        }
+
+        function historyTest(){
+            // window.open("https://naver.com", "_self");
+            location.href = "https://naver.com";
+            var a = window.open("https://naver.com", "width=100 height=100");
+            setInterval(function(){
+                a.history.back();
+            }, 3000);
+
+        }
+    </script> -->
+    <script>
+        function historyTest(){
+            location.href="14_window_object_lec.html";
+            setTimeout(function(){
+                history.back();
+            }, 3000);
+        }
+    </script>
+
+    <!-- 1024 x 768 SEMI 해상도-->
+    <h2>screen 객체</h2>
+    <p>
+        웹브라우저 화면이 아닌 운영체제 화면의 속성을 가진 객체
+    </p>
+    <script>
+        for(var key in screen){
+            console.log(key + " : " + screen[key]);
+        }
+    </script>
+
+</body>
+</html>

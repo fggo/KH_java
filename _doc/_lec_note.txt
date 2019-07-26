@@ -1,5 +1,8 @@
+BOM + DOM -> web development
+채팅기능
+https://opentutorials.org/course/3084/18597
 
-
+    <!-- 1024 x 768 SEMI 해상도-->
 
 1.  기획의도(주차어플),  
 서울시에서 차량을 주차하는 일은 정말 어렵습니다.
