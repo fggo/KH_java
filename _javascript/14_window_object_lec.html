@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>14_window_object_lec.html</title>
+</head>
+<body>
+    <h2>윈도우 객체</h2>
+    <p>
+        윈도우 객체는 최상위 객체임
+        모든 객체(BOM, DOM)관리함.
+    </p>
+    <h4>window.open</h4>
+    <p>새 브라우저(창)를 생성하는 기능</p>
+    <button onclick="test();">기본새창열기</button>
+    <button onclick='test1();'>옵션창열기</button>
+    <div id="area"></div>
+    <script>
+        function test(){
+            window.open();
+        }
+        //open:매개변수
+        //1. 주소 : 새창이 열리면서 호출할 페이지
+        //2. 이름/여는방식 : 새창열기, 본인창, 생성된 윈도우 이름
+        //3. 형태 : 생성된 윈도우의 크기, 메뉴바 등 설정
+        function test1(){
+            //기본 새탭으로 주소가 열림
+            //window.open("http://rclass.iptime.org:8989");
+            //새창을 열지 않고 주소가 변경됨.
+            //window.open("http://rclass.iptime.org:8989","_self");
+
+            //opener객체는 자기 자신을 연 기존창의 window 객체를 참조
+            var sc="<script> function fnVal(){ "+
+                "var val=document.getElementsByName('msg')[0].value;"
+                +"opener.document.getElementById('area').innerHTML=val; window.close();}<";
+            var end="/script>";
+
+            var pop=window.open("", "popup","width=200, height=200, top=200, left=200");
+
+            pop.document.write("<html><body><h1>내가 쓴거</h1>"
+                                    +"<input type='text' name='msg'>"
+                                    +"<button onclick='fnVal();'>실행</button>"
+                                    + sc+end +"</body></html>");
+        }
+    </script>
+
+    <h1>window객체 timer 함수</h1>
+    <p>
+        일정시간 후 지속적으로 함수를 실행하는 함수!
+        <pre>
+            setInterval(); // 지속적
+            setTimeOut(); //한번만
+        </pre>
+    </p>
+
+    <button onclick="timeoutTest()">실행</button>
+    <script>
+        function timeoutTest(){
+            var myWin = window.open("", "","width=500 height=500");
+            myWin.document.write("<html><body><h1>이 페이지는 3초후에 종료됩니다.</h1></body></html>");
+            
+            // 3초후
+            setTimeout(function(){ myWin.close(); }, 3000); 
+
+        }
+    </script>
+
+    <!-- MY SOL -->
+    <!-- 사용자에게 입력받은 값을 5초후 새로운창에 -->
+    <div id='msg1'></div>
+    <div>
+        <input type="text" id='userInput'><br>
+        <button onclick="showInputWin()">입력완료</button>
+    </div>
+    <script>
+        // function popupwindow(url, title, w, h) {
+        //     var left = (screen.width/2)-(w/2);
+        //     var top = (screen.height/2)-(h/2);
+        //     return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+        // } 
+
+        function showInputWin(){
+            var input = document.getElementById('userInput').value;
+            var myWin = window.open("","", "width=500 height=500 "
+                + "left="+(screen.width/2) 
+                +" top=" + (screen.height/2));
+            myWin.document.write("<html><body><h1>"+input+"</h1><h3>이 페이지는 3초후에 종료됩니다.</h3></body></html>");
+
+            setTimeout(function(){ myWin.close();}, 3000);
+            var doc = document.getElementById('msg1');
+            doc.innerHTML += input;
+        }
+        
+    </script>
+
+
+    <!-- LEC SOL -->
+    <div id="msg2" style="color: blue; background-color:aquamarine">HERE!</div>
+    <p>프롬프트로 입력받은 값을 2초후에 div에 출력하기!</p>
+    <button onclick = "printPrompt()">입력</button>
+
+    <script>
+        function printPrompt(){
+            var userInput = prompt('아무거나 입력하세요.');
+            // var myWin = window.open("","", "width=500 height=500 "
+            //     + "left="+(screen.width/2) 
+            //     +" top=" + (screen.height/2));
+
+            setTimeout(function(){
+                document.getElementById('msg2').innerHTML=userInput;
+            },2000)
+
+        }
+    </script>
+
+
+
+
+    <!-- <h2>setInterval</h2>
+    <div id="time"></div> -->
+
+    <script>
+        // var doc = document.getElementById('time');
+        // setInterval(function(){
+        //     var today = new Date();
+        //     doc.innerHTML = today;
+        // }, 1000);
+        onload = function(){
+            var doc = document.getElementById('time');
+            // is run every 1 sec
+            var setInter = 
+                setInterval(function(){
+                    var today = new Date();
+                    doc.innerHTML = today;
+                    if (new Date().getSeconds() == 30){
+                        clearInterval(setInter);
+                    }
+                }, 1000);
+        }
+    </script>
+
+    <!-- ERROR doc = null;
+         to solve this use 'onload' function-->
+    <h2>setInterval</h2>
+    <div id="time"></div>
+
+    <button>일시정지</button>
+
+</body>
+</html>
