@@ -17,9 +17,10 @@
     <script>
         function fnNavigator(){
             var doc = document.getElementById('area');
-            // for(var key in navigator){
-            //     doc.innerHTML += key + " : " + navigator[key] + "<br>";
-            // }
+
+            for(var key in navigator){
+                doc.innerHTML += key + " : " + navigator[key] + "<br>";
+            }
             doc.innerHTML += "-----<br>";
             doc.innerHTML += "브라우저 코드명 : " + navigator.appCodeName +"<br>";
             doc.innerHTML += "브라우저 이름 : " + navigator.appName + "<br>";

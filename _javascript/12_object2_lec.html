@@ -39,7 +39,7 @@
         console.log(anis[1].bark());
         console.log(anis[2].bark());
 
-        // 함수를 이용한 객체생성
+        /* 1. 함수활용 객체 생성 */
         function animal(name, type, weight){
             var ani={
                 name:name,
@@ -53,10 +53,11 @@
 
         }
         console.log(anis);
-        //생성자 함수를 이용한 객체생성
-        //통상 생성자 함수는 첫글자를 대문자로 해줌
+
+        /* 2. 생성자 함수 이용 : 
+        통상 생성자 함수는 첫글자를 대문자로 해줌 */
         function Animal(name,type,weight){
-            this.name=name;
+            this.name=name; //this.객체 필드생성
             this.type=type;
             this.weight=weight;
         }
