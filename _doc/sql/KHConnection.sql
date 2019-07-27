@@ -4,58 +4,58 @@ select * from job;
 
 COMMIT;
 ROLLBACK;
---200	¼±µ¿ÀÏ	621235-1985634	sun_di@kh.or.kr	01099546325	D9	J1	S1	8000000	0.3		90/02/06
---201	¼ÛÁ¾±â	631156-1548654	song_jk@kh.or.kr	01045686656	D9	J2	S1	6000000		200	01/09/01
---202	³ë¿ËÃ¶	861015-1356452	no_hc@kh.or.kr	01066656263	D9	J2	S4	3700000		201	01/01/01
---203	¼ÛÀºÈñ	631010-2653546	song_eh@kh.or.kr	01077607879	D6	J4	S5	2800000		204	96/05/03
---204	À¯Àç½Ä	660508-1342154	yoo_js@kh.or.kr	01099999129	D6	J3	S4	3400000	0.2	200	00/12/29
---205	Á¤ÁßÇÏ	770102-1357951	jung_jh@kh.or.kr	01036654875	D6	J3	S4	3900000		204	99/09/09
---206	¹Ú³ª¶ó	630709-2054321	pack_nr@kh.or.kr	01096935222	D5	J7	S6	1800000		207	08/04/02
---207	ÇÏÀÌÀ¯	690402-2040612	ha_iy@kh.or.kr	01036654488	D5	J5	S5	2200000	0.1	200	94/07/07
---208	±èÇØ¼ú	870927-1313564	kim_hs@kh.or.kr	01078634444	D5	J5	S5	2500000		207	04/04/30
---209	½ÉºÀ¼±	750206-1325546	sim_bs@kh.or.kr	0113654485	D5	J3	S4	3500000	0.15	207	11/11/11
---210	À±ÀºÇØ	650505-2356985	youn_eh@kh.or.kr	0179964233	D5	J7	S5	2000000		207	01/02/03
---211	ÀüÇüµ·	830807-1121321	jun_hd@kh.or.kr	01044432222	D8	J6	S5	2000000		200	12/12/12
---212	ÀåÂêÀ§	780923-2234542	jang_zw@kh.or.kr	01066682224	D8	J6	S5	2550000	0.25	211	15/06/17
---213	ÇÏµ¿¿î	621111-1785463	ha_dh@kh.or.kr	01158456632		J6	S5	2320000	0.1		99/12/31
---214	¹æ¸í¼ö	856795-1313513	bang_ms@kh.or.kr	01074127545	D1	J7	S6	1380000		200	10/04/04
---215	´ëºÏÈ¥	881130-1050911	dae_bh@kh.or.kr	01088808584	D5	J5	S4	3760000			17/06/19
---216	Â÷ÅÂ¿¬	770808-1364897	cha_ty@kh.or.kr	01064643212	D1	J6	S5	2780000	0.2	214	13/03/01
---217	ÀüÁö¿¬	770808-2665412	jun_jy@kh.or.kr	01033624442	D1	J6	S4	3660000	0.3	214	07/03/20
---218	ÀÌ¿À¸®	870427-2232123	loo_or@kh.or.kr	01022306545		J7	S5	2890000			16/11/28
---219	ÀÓ½ÃÈ¯	660712-1212123	im_sw@kh.or.kr		D2	J4	S6	1550000			99/09/09
---220	ÀÌÁß¼®	770823-1113111	lee_js@kh.or.kr		D2	J4	S5	2490000			14/09/18
---221	À¯ÇÏÁø	800808-1123341	yoo_hj@kh.or.kr		D2	J4	S5	2480000			94/01/20
---222	ÀÌÅÂ¸²	760918-2854697	lee_tr@kh.or.kr	01033000002	D8	J6	S5	2436240	0.35	100	97/09/12
---904	¼­ÇöÈñ	910804-2123412				J3	S1				
+--200	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	621235-1985634	sun_di@kh.or.kr	01099546325	D9	J1	S1	8000000	0.3		90/02/06
+--201	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	631156-1548654	song_jk@kh.or.kr	01045686656	D9	J2	S1	6000000		200	01/09/01
+--202	ï¿½ï¿½ï¿½Ã¶	861015-1356452	no_hc@kh.or.kr	01066656263	D9	J2	S4	3700000		201	01/01/01
+--203	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	631010-2653546	song_eh@kh.or.kr	01077607879	D6	J4	S5	2800000		204	96/05/03
+--204	ï¿½ï¿½ï¿½ï¿½ï¿½	660508-1342154	yoo_js@kh.or.kr	01099999129	D6	J3	S4	3400000	0.2	200	00/12/29
+--205	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	770102-1357951	jung_jh@kh.or.kr	01036654875	D6	J3	S4	3900000		204	99/09/09
+--206	ï¿½Ú³ï¿½ï¿½ï¿½	630709-2054321	pack_nr@kh.or.kr	01096935222	D5	J7	S6	1800000		207	08/04/02
+--207	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	690402-2040612	ha_iy@kh.or.kr	01036654488	D5	J5	S5	2200000	0.1	200	94/07/07
+--208	ï¿½ï¿½ï¿½Ø¼ï¿½	870927-1313564	kim_hs@kh.or.kr	01078634444	D5	J5	S5	2500000		207	04/04/30
+--209	ï¿½Éºï¿½ï¿½ï¿½	750206-1325546	sim_bs@kh.or.kr	0113654485	D5	J3	S4	3500000	0.15	207	11/11/11
+--210	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	650505-2356985	youn_eh@kh.or.kr	0179964233	D5	J7	S5	2000000		207	01/02/03
+--211	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	830807-1121321	jun_hd@kh.or.kr	01044432222	D8	J6	S5	2000000		200	12/12/12
+--212	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	780923-2234542	jang_zw@kh.or.kr	01066682224	D8	J6	S5	2550000	0.25	211	15/06/17
+--213	ï¿½Ïµï¿½ï¿½ï¿½	621111-1785463	ha_dh@kh.or.kr	01158456632		J6	S5	2320000	0.1		99/12/31
+--214	ï¿½ï¿½ï¿½ï¿½ï¿½	856795-1313513	bang_ms@kh.or.kr	01074127545	D1	J7	S6	1380000		200	10/04/04
+--215	ï¿½ï¿½ï¿½È¥	881130-1050911	dae_bh@kh.or.kr	01088808584	D5	J5	S4	3760000			17/06/19
+--216	ï¿½ï¿½ï¿½Â¿ï¿½	770808-1364897	cha_ty@kh.or.kr	01064643212	D1	J6	S5	2780000	0.2	214	13/03/01
+--217	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	770808-2665412	jun_jy@kh.or.kr	01033624442	D1	J6	S4	3660000	0.3	214	07/03/20
+--218	ï¿½Ì¿ï¿½ï¿½ï¿½	870427-2232123	loo_or@kh.or.kr	01022306545		J7	S5	2890000			16/11/28
+--219	ï¿½Ó½ï¿½È¯	660712-1212123	im_sw@kh.or.kr		D2	J4	S6	1550000			99/09/09
+--220	ï¿½ï¿½ï¿½ß¼ï¿½	770823-1113111	lee_js@kh.or.kr		D2	J4	S5	2490000			14/09/18
+--221	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	800808-1123341	yoo_hj@kh.or.kr		D2	J4	S5	2480000			94/01/20
+--222	ï¿½ï¿½ï¿½Â¸ï¿½	760918-2854697	lee_tr@kh.or.kr	01033000002	D8	J6	S5	2436240	0.35	100	97/09/12
+--904	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	910804-2123412				J3	S1				
 --905	M0NK	980101-1111222	monk@bb.com	01011112222	D1	J1	S1	99822201	0.5	200	19/07/01
 --906	BABA	911111-1122333	BABA@baba.com	01011111111	D2	J2	S2	800000	0.7	201	19/07/06
 --909	abb	2929292-2     	dsadsa	1001223	O2	O2	O2	9002202	0.6	200	19/07/07
 
---D1	ÀÎ»ç°ü¸®ºÎ	L1
---D2	È¸°è°ü¸®ºÎ	L1
---D3	¸¶ÄÉÆÃºÎ	L1
---D4	±¹³»¿µ¾÷ºÎ	L1
---D5	ÇØ¿Ü¿µ¾÷1ºÎ	L2
---D6	ÇØ¿Ü¿µ¾÷2ºÎ	L3
---D7	ÇØ¿Ü¿µ¾÷3ºÎ	L4
---D8	±â¼úÁö¿øºÎ	L5
---D9	ÃÑ¹«ºÎ	L1
+--D1	ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	L1
+--D2	È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	L1
+--D3	ï¿½ï¿½ï¿½ï¿½ï¿½Ãºï¿½	L1
+--D4	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	L1
+--D5	ï¿½Ø¿Ü¿ï¿½ï¿½ï¿½1ï¿½ï¿½	L2
+--D6	ï¿½Ø¿Ü¿ï¿½ï¿½ï¿½2ï¿½ï¿½	L3
+--D7	ï¿½Ø¿Ü¿ï¿½ï¿½ï¿½3ï¿½ï¿½	L4
+--D8	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	L5
+--D9	ï¿½Ñ¹ï¿½ï¿½ï¿½	L1
 --
---J1	´ëÇ¥
---J2	ºÎ»çÀå
---J3	ºÎÀå
---J4	Â÷Àå
---J5	°úÀå
---J6	´ë¸®
---J7	»ç¿ø
+--J1	ï¿½ï¿½Ç¥
+--J2	ï¿½Î»ï¿½ï¿½ï¿½
+--J3	ï¿½ï¿½ï¿½ï¿½
+--J4	ï¿½ï¿½ï¿½ï¿½
+--J5	ï¿½ï¿½ï¿½ï¿½
+--J6	ï¿½ë¸®
+--J7	ï¿½ï¿½ï¿½
 
 
 select * from user_cons_columns where table_name='EMPLOYEE';
 select * from user_constraints where table_name='EMPLOYEE';
 
 
---NUMBER(p ÀüÃ¼ÀÚ¸® ¼ö, s ÀüÃ¼ÀÚ¸®¼ö Áß ¼Ò¼ýÁ¡ ¼ö);
+--NUMBER(p ï¿½ï¿½Ã¼ï¿½Ú¸ï¿½ ï¿½ï¿½, s ï¿½ï¿½Ã¼ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ò¼ï¿½ï¿½ï¿½ ï¿½ï¿½);
 
 CREATE TABLE NUMBERTEST(
     A NUMBER(7,3),
@@ -70,17 +70,17 @@ SELECT * FROM NUMBERTEST;
 INSERT INTO NUMBERTEST
     VALUES(1234.567, 1234.567, 1234.567, 1234.567, 1234.567);
 
---char °íÁ¤±æÀÌ ÃÖ´ë 2000byte
---nchar À¯´ÏÄÚµå °íÁ¤±æÀÌ (°¹¼ö·Î Ã³¸®) ÃÖ´ë ±ÛÀÚ¼ö 1000°³
---varchar2 °¡º¯±æÀÌ ÃÖ´ë 4000byte
---nvarchar2 À¯´ÏÄÚµå °¡º¯±æÀÌ ÃÖ´ë ±ÛÀÚ¼ö 2000°³±îÁö
+--char ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ 2000byte
+--nchar ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½) ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ú¼ï¿½ 1000ï¿½ï¿½
+--varchar2 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ 4000byte
+--nvarchar2 ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ú¼ï¿½ 2000ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 --
---char(10) 10 byte ¸¸Å­ ÀúÀåÀÌ µÇ´Â °ø°£. ¹«Á¶°Ç 10byte ´Ù »ç¿ë
---	³²Àº °ø°£Àº whitespace·Î Ã¤¿öÁü
---varchar2(10) 10 byte¸¸Å­ ÀúÀåÀÌ µÇ´Â °ø°£, ´ëÀÔµÇ´Â °ªÀÇ
---	Å©±â¿¡ µû¶ó »ç¿ë °ø°£ÀÌ Á¤ÇØÁü
---	¿À¶óÅ¬ express¹öÁ¯¿¡¼­ ÇÑ±ÛÀº 3byte·Î Ã³¸®; ÇÑ±Û 4±ÛÀÚÀÌ»ó ERROR
---nchar(10) nvarchar(10) ±ÛÀÚ¼ö ¼³Á¤ 10±ÛÀÚ ¸¸Å­ ÀúÀåµÇ´Â °ø°£ È®º¸
+--char(10) 10 byte ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 10byte ï¿½ï¿½ ï¿½ï¿½ï¿½
+--	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ whitespaceï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½
+--varchar2(10) 10 byteï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ÔµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½
+--	Å©ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--	ï¿½ï¿½ï¿½ï¿½Å¬ expressï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½ï¿½ 3byteï¿½ï¿½ Ã³ï¿½ï¿½; ï¿½Ñ±ï¿½ 4ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½ ERROR
+--nchar(10) nvarchar(10) ï¿½ï¿½ï¿½Ú¼ï¿½ ï¿½ï¿½ï¿½ï¿½ 10ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 
 create table chartest(
     a char(6),
@@ -96,19 +96,19 @@ insert into chartest values('abcefg','abcefg','abcdef','abcdef');
 --ERROR
 insert into chartest values('abcefg123','abcefg123','abcdef','abcdef');
 
-insert into chartest values('¹Ù¹Ù', '¹Ù¹Ù', '¹Ù¹Ù¹Ù', '¹Ù¹Ù¹Ù');
+insert into chartest values('ï¿½Ù¹ï¿½', 'ï¿½Ù¹ï¿½', 'ï¿½Ù¹Ù¹ï¿½', 'ï¿½Ù¹Ù¹ï¿½');
 
-insert into chartest values('¹Ù¹Ù', '¹Ù¹Ù', '¹Ù¹Ù¹ÙÃµÀç', '¹Ù¹Ù¹ÙÃµÀç');
+insert into chartest values('ï¿½Ù¹ï¿½', 'ï¿½Ù¹ï¿½', 'ï¿½Ù¹Ù¹ï¿½Ãµï¿½ï¿½', 'ï¿½Ù¹Ù¹ï¿½Ãµï¿½ï¿½');
 
 DELETE FROM CHARTEST;
 
 select * from chartest;
 
---¸Þ¸ð¸® °ø°£¿¡¼­ ÀúÀåÇÏ°í ÀÖ´Â »óÅÂ Æ®·£Á§¼Ç °ü¸®!
---commit ÇÏ±â Àü¿¡ sqlplus kh/kh·Î selectÇÏ¸é ¹Ý¿µ ¾ÈµÇ¾î ÀÖÀ½
---develop ·¥°ø°£ ¾È¿¡¸¸ µ¥ÀÌÅÍ ÀúÀåÇÏ°í select ÇÏ¸é µ¥ÀÌÅÍ ³ª¿ÀÁö¸¸
---sqlplus·Î´Â database(¿µ¼ÓÀû ÀúÀå°ø°£)¿¡¼­ Á¶È¸ÇÏ´Ï, µ¥ÀÌÅÍ ¾È³ª¿È
---commitÀ¸·Î ¿µ¼ÓÀû ÀúÀå°ø°£¿¡ Áý¾î³ÖÀ¸¸é sqlplusÁ¶È¸ °¡´É
+--ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!
+--commit ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ sqlplus kh/khï¿½ï¿½ selectï¿½Ï¸ï¿½ ï¿½Ý¿ï¿½ ï¿½ÈµÇ¾ï¿½ ï¿½ï¿½ï¿½ï¿½
+--develop ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ select ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--sqlplusï¿½Î´ï¿½ database(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ï´ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È³ï¿½ï¿½ï¿½
+--commitï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ sqlplusï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½
 
 commit;
 
@@ -119,24 +119,24 @@ select a, length(a) length_A_char, lengthb(a) lengthb_A_char,
     d, length(d) length_D_nvarchar2, lengthb(d) lengthb_D_nvarchar2
 from chartest;
 
---³¯Â¥ÀÚ·áÇü
---ÇöÀç³¯Â¥¸¦ Ç¥½ÃÇØÁÖ´Â system ÄÃ·³: sysdate
---dual: ¿À¶óÅ¬¿¡¼­ Á¦°øÇÏ´Â template Å×ÀÌºí(Å×½ºÆ®¿ë)
+--ï¿½ï¿½Â¥ï¿½Ú·ï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½ç³¯Â¥ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ system ï¿½Ã·ï¿½: sysdate
+--dual: ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ template ï¿½ï¿½ï¿½Ìºï¿½(ï¿½×½ï¿½Æ®ï¿½ï¿½)
 select sysdate from dual;
 
-select length('Å«¾ð´Ï'), lengthb('Å«¾ð´Ï') from dual;
+select length('Å«ï¿½ï¿½ï¿½'), lengthb('Å«ï¿½ï¿½ï¿½') from dual;
 
---³¯Â¥ÀÇ »ê¼ú ¿¬»ê
-select sysdate-1 ¾îÁ¦, sysdate ¿À´Ã, sysdate+1 ³»ÀÏ from dual;
+--ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+select sysdate-1 ï¿½ï¿½ï¿½ï¿½, sysdate ï¿½ï¿½ï¿½ï¿½, sysdate+1 ï¿½ï¿½ï¿½ï¿½ from dual;
 
 select to_char(sysdate, 'mm-dd-yyyy hh24:mi:ss') "NOW" from dual;
 
---³¯Â¥¿Í ³¯Â¥³¢¸®ÀÇ »ê¼ú ¿¬»ê
---ÀÏ¼ö(int) °ªÀ¸·Î Ãâ·Â
+--ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--ï¿½Ï¼ï¿½(int) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 select sysdate - to_date('19990224', 'yyyymmdd') from dual;
 select sysdate - to_date('19990224') from dual;
 
---½Ã°£±îÁö Ãâ·Â
+--ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 select systimestamp from dual;
 
 select to_date('19990224', 'yyyy-mm-dd') from dual;
@@ -153,86 +153,86 @@ insert into datetest values(
     
 select * from datetest;
 
---Å×ÀÌºí ÄÃ·³ÀÇ ÀÚ·áÇüÀ» È®ÀÎÇÏ°í ½ÍÀ»¶§
+--ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 DESC chartest;
 DESC datetest;
 
 create table member_table (
-    id CHAR(15), --º¯µ¿x 6-15ÀÚ¸®
-    password VARCHAR2(15), --8-15ÀÚ¸®
-    name VARCHAR2(15), --ÇÑ±ÛÀÔ·Â
-    phone NUMBER(11), --ÇÚµåÆù -¾øÀÌ
-    ssn NUMBER(13), --ÁÖ¹Î¹øÈ£
-    mileage NUMBER, --¸¶ÀÏ¸®Áö
+    id CHAR(15), --ï¿½ï¿½ï¿½ï¿½x 6-15ï¿½Ú¸ï¿½
+    password VARCHAR2(15), --8-15ï¿½Ú¸ï¿½
+    name VARCHAR2(15), --ï¿½Ñ±ï¿½ï¿½Ô·ï¿½
+    phone NUMBER(11), --ï¿½Úµï¿½ï¿½ï¿½ -ï¿½ï¿½ï¿½ï¿½
+    ssn NUMBER(13), --ï¿½Ö¹Î¹ï¿½È£
+    mileage NUMBER, --ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½
     reg_date DATE);
 
 select * from member_table;
 
--- Å×ÀÌºí¿¡ ÀÖ´Â µ¥ÀÌÅÍ Á¶È¸ÇÏ±â
--- ¸í·É¾î select
--- ¸í·É±¸Á¶ select ÄÃ·³1,...,ÄÃ·³n from Å×ÀÌºí¸í where °Ë»öÁ¶°Ç
+-- ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ï±ï¿½
+-- ï¿½ï¿½ï¿½É¾ï¿½ select
+-- ï¿½ï¿½ï¿½É±ï¿½ï¿½ï¿½ select ï¿½Ã·ï¿½1,...,ï¿½Ã·ï¿½n from ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ where ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½
 select emp_name, email, ent_date from kh.employee;
 select emp_name, email, ent_date from employee;
 
 select dept_id, dept_title from department;
 
---select ¹®¿¡¼­´Â »ê¼ú ¿¬»êµµ °¡´É
---¿¬»êÀ» ÇÏ±â À§ÇØ¼­´Â ¿¬»ê½ÄÀÇ ÄÃ·³¸íÀÌ µé¾î°¡´Â °÷¿¡¼­
---¿¬»êÀ» ÇØÁÖ¸é ±× ¿¬»ê ¸íÀÌ ÄÃ·³¸íÀÌ µÇ°í, °è»êµÈ °ªÀÌ
---°¢ row¿¡ µé¾î°£´Ù.
+--select ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½êµµ ï¿½ï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--ï¿½ï¿½ rowï¿½ï¿½ ï¿½ï¿½î°£ï¿½ï¿½.
 
 --ERROR
 select emp_name, salary, email*12 from employee;
 
---%ÇÔ¼ö ¾øÀ½. MODÀÌ¿ë
+--%ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½. MODï¿½Ì¿ï¿½
 --select bonus %12 from employee; --ERROR
 select MOD(salary, 12) from employee;
 
---nvlÇÔ¼ö´Â ÄÃ·³µ¥ÀÌÅÍ°¡ nullÀÏ¶§,
---±× °ªÀ» ´ëÃ¼ÇØÁÙ °ªÀ» ÁöÁ¤
---nvl(ÄÃ·³¸í, null ´ëÃ¼°ª)
-select emp_name ÀÌ¸§,
-    salary*12 AS "1³â ±Þ¿©(¿¬ºÀ)",
-    12*salary*(1+ nvl(bonus,0)) AS ÃÑ¼ö·É¾×,
-    12*salary*((1-.03) + nvl(bonus,0)) ½Ç¼ö·É¾×,
-    '¿ø' AS ÅëÈ­
+--nvlï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ nullï¿½Ï¶ï¿½,
+--ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--nvl(ï¿½Ã·ï¿½ï¿½ï¿½, null ï¿½ï¿½Ã¼ï¿½ï¿½)
+select emp_name ï¿½Ì¸ï¿½,
+    salary*12 AS "1ï¿½ï¿½ ï¿½Þ¿ï¿½(ï¿½ï¿½ï¿½ï¿½)",
+    12*salary*(1+ nvl(bonus,0)) AS ï¿½Ñ¼ï¿½ï¿½É¾ï¿½,
+    12*salary*((1-.03) + nvl(bonus,0)) ï¿½Ç¼ï¿½ï¿½É¾ï¿½,
+    'ï¿½ï¿½' AS ï¿½ï¿½È­
 from employee;
 
 select emp_name, sysdate-hire_date from employee;
 
---DISTINCT Áßº¹µÈ °ªÀÌ ÀÖÀ¸¸é ÇÑ¹ø¸¸ Ãâ·Â
+--DISTINCT ï¿½ßºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 select distinct dept_code from employee;
 
---(dept_code, job_code)¸¦ ÇÑ°³ µ¥ÀÌÅÍ·Î distinctÀÎ °ÍÀ» select
+--(dept_code, job_code)ï¿½ï¿½ ï¿½Ñ°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ distinctï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ select
 select distinct dept_code, job_code from employee;
 
---ºñ±³ ¿¬»êÀÚ: where clause filters resultset
---select ÄÃ·³1,...,ÄÃ·³n from Å×ÀÌºí¸í where ÄÃ·³¸í ºñ±³¿¬»êÀÚ °ª;
+--ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: where clause filters resultset
+--select ï¿½Ã·ï¿½1,...,ï¿½Ã·ï¿½n from ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ where ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ñ±³¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½;
 select * from employee where job_code = 'J5';
 
 select emp_name, salary, hire_date, phone from employee
     where sal_level='S1';
 
 select emp_name, salary,
-    12*salary*(1+nvl(bonus, 0)-.03) AS ½Ç¼ö·É¾×
+    12*salary*(1+nvl(bonus, 0)-.03) AS ï¿½Ç¼ï¿½ï¿½É¾ï¿½
 from employee
 where 12*salary*(1-.03 + nvl(bonus,0)) > 50000000;
 
---³í¸®¿¬»êÀÚ »ç¿ëÇÏ±â AND/OR
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ AND/OR
 select * from employee
     where dept_code != 'D6' AND salary >= 3000000;
 
 select emp_name, hire_date, salary from employee
     where job_code='J3' OR sal_level='S5';
 
---ºñ±³¿¬»êÀÚ¸¦ ¿©·¯°³
+--ï¿½ñ±³¿ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 select * from employee where dept_code='D5' AND hire_date >'02/01/01';
 
 select distinct sal_level from employee
 where job_code ^= 'J1'; --job_code != 'J1'
 
 select emp_no || emp_name || email from employee;
-select emp_name ||'´Ô '|| salary || '¿ø' from employee;
+select emp_name ||'ï¿½ï¿½ '|| salary || 'ï¿½ï¿½' from employee;
 
 select emp_name, salary from employee
 where salary between 3500000 and 6000000;
@@ -245,20 +245,20 @@ select emp_name, hire_date, dept_code, salary from employee
     where hire_date between '90/01/01' and '01/01/01';
 --where hire_date >= '90/01/01' and hire_date <='01/01/01';
 
---LIKE ¹®ÀÚ ÆÐÅÏÀÌ¿ëÇÏ¿© °Ë»ö
-select * from employee where emp_name like '%Èñ';
+--LIKE ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¿ï¿½ï¿½Ï¿ï¿½ ï¿½Ë»ï¿½
+select * from employee where emp_name like '%ï¿½ï¿½';
 
--- ¾ð´õ¹Ù´Â ÀÚ¸´¼ö Ç¥½Ã
-select * from employee where emp_name like '__Èñ';
+-- ï¿½ï¿½ï¿½ï¿½Ù´ï¿½ ï¿½Ú¸ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
+select * from employee where emp_name like '__ï¿½ï¿½';
 
--- email ¼¼¹øÂ° ÀÚ¸®°¡ 'n'ÀÎ »ç¶÷
+-- email ï¿½ï¿½ï¿½ï¿½Â° ï¿½Ú¸ï¿½ï¿½ï¿½ 'n'ï¿½ï¿½ ï¿½ï¿½ï¿½
 select * from employee where email like '__n%';
 
-select * from employee where emp_name like '__¼®';
+select * from employee where emp_name like '__ï¿½ï¿½';
 
-select * from employee where emp_name like '_¿Ë_';
+select * from employee where emp_name like '_ï¿½ï¿½_';
     
-select * from employee where emp_name like '%ÀÌ%';
+select * from employee where emp_name like '%ï¿½ï¿½%';
 
 --ESCAPE CHARACTER
 select * from employee
@@ -275,11 +275,11 @@ create table tbl_escape_watch(
     description varchar2(200)
 );
 
-insert into tbl_escape_watch values('±Ý½Ã°è', '¼ø±Ý 99.99% ÇÔÀ¯ °í±Þ½Ã°è');
+insert into tbl_escape_watch values('ï¿½Ý½Ã°ï¿½', 'ï¿½ï¿½ï¿½ï¿½ 99.99% ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Þ½Ã°ï¿½');
 insert into tbl_escape_watch values(
-	'Àº½Ã°è', '°í°´¸¸Á·µµ 99.99Á¡À» È¹µæÇÑ °í±Þ½Ã°è');
+	'ï¿½ï¿½ï¿½Ã°ï¿½', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 99.99ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Þ½Ã°ï¿½');
 
---description¿¡ '99.99%' ¶ó´Â ¸»ÀÌ µé¾î°¡ ÀÖ´Â Çà¸¸ ÃßÃâÇÏ¼¼¿ä
+--descriptionï¿½ï¿½ '99.99%' ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ ï¿½Ö´ï¿½ ï¿½à¸¸ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½
 select * from tbl_escape_watch
 where description like '%99.99^%%' ESCAPE '^';
 
@@ -291,8 +291,8 @@ where email like '%_____^_%' ESCAPE '^'
 and dept_code in ('D6', 'D9');
 
 
---is null / is not null : null°ªÀ» Ã£À»¶§ »ç¿ë
--- »ç¿ë: ÄÃ·³¸í is null or ÄÃ·³¸í is not null
+--is null / is not null : nullï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+-- ï¿½ï¿½ï¿½: ï¿½Ã·ï¿½ï¿½ï¿½ is null or ï¿½Ã·ï¿½ï¿½ï¿½ is not null
 select * from employee where bonus is null;
 
 select salary + bonus AS totalPay from employee
@@ -304,9 +304,9 @@ where dept_code is null;
 select * from employee where nvl(bonus, 0)=0;
 
 
---subquery ½èÀ»¶§, ÄÃ·³ÀÌ ÇÑ°³ ÀÌ»óÀÏ¶§, 'IN' »ç¿ë
---¿©·¯°ªÀ» or·Î ¿¬°áÇÏ¿© µ¿µîºñ±³ÇÏ´Â °Í!
--- »ç¿ë: ÄÃ·³°ª in (ºñ±³°ª1,...,ºñ±³°ªn);
+--subquery ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ ï¿½Ì»ï¿½ï¿½Ï¶ï¿½, 'IN' ï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ orï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½!
+-- ï¿½ï¿½ï¿½: ï¿½Ã·ï¿½ï¿½ï¿½ in (ï¿½ñ±³°ï¿½1,...,ï¿½ñ±³°ï¿½n);
 
 select * from employee where job_code in ('J3', 'J2');
 -- job_code ='J3' or job_code='J2';
@@ -316,9 +316,9 @@ where job_code in (select job_code from employee
                     where salary > 3000000);
 
 select emp_name, dept_code, salary, sal_level from employee
-where emp_name in ('ÀüÇüµ·', 'À¯Àç½Ä', 'ÀÌÅÂ¸²');
+where emp_name in ('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'ï¿½ï¿½ï¿½ï¿½ï¿½', 'ï¿½ï¿½ï¿½Â¸ï¿½');
 
---AND°¡ ORº¸´Ù ¿ì¼±½Ã µÊ!
+--ANDï¿½ï¿½ ORï¿½ï¿½ï¿½ï¿½ ï¿½ì¼±ï¿½ï¿½ ï¿½ï¿½!
 
 select * from employee
 where dept_code='D9' or dept_code='D6'
@@ -329,16 +329,16 @@ select * from employee
 --where (job_code='J7' or job_code='J2') and salary > 2000000;
 where salary > 2000000 and job_code='J7' or job_code='J2';
 
---order by´Â ¸¶Áö¸·¿¡ ÀÛ¼º ASC(µðÆúÆ®), DESC;
---±âº»ÀûÀ¸·Î primary key·Î Á¤·ÄµÊ
---order by ÄÃ·³1, ÄÃ·³2;
+--order byï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ ASC(ï¿½ï¿½ï¿½ï¿½Æ®), DESC;
+--ï¿½âº»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ primary keyï¿½ï¿½ ï¿½ï¿½ï¿½Äµï¿½
+--order by ï¿½Ã·ï¿½1, ï¿½Ã·ï¿½2;
 select * from employee order by emp_name desc;
 
---nullÀ» order by ASC ÇßÀ»¶§ nullÀº ¸ÇµÚ·Î
+--nullï¿½ï¿½ order by ASC ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nullï¿½ï¿½ ï¿½ÇµÚ·ï¿½
 select emp_name, salary, bonus from employee
 order by bonus DESC;
 
--- nullÀÇ º¯°æ¼ø¼­¸¦ º¯°æÇÏ°í ½ÍÀ»‹š, nulls ¿É¼Ç »ç¿ë
+-- nullï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, nulls ï¿½É¼ï¿½ ï¿½ï¿½ï¿½
 select emp_name, salary, bonus from employee
 order by bonus ASC nulls first;
 
@@ -348,22 +348,22 @@ order by bonus nulls last;
 select emp_name, dept_code, job_code from employee
 order by emp_name, dept_code desc;
 
---ÄÃ·³¸íÀÌ ¾Æ´Ñ index ¹øÈ£·Î Á¤·Ä °¡´É
+--ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ index ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 select emp_name, salary, bonus from employee
 order by 2;
 --order by salary;
---2¹øÂ° selectÄÃ·³ salary ±âÁØÀ¸·Î Á¤·Ä
+--2ï¿½ï¿½Â° selectï¿½Ã·ï¿½ salary ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
---ÇÔ¼ö function
+--ï¿½Ô¼ï¿½ function
 select length(emp_name), lengthb(emp_name),
        length(email), lengthb(email)
 from employee;
 
-select length('¹Ù¹Ù¹Ù') from dual;
-select lengthb('¹Ù¹Ù¹Ù') from dual;
+select length('ï¿½Ù¹Ù¹ï¿½') from dual;
+select lengthb('ï¿½Ù¹Ù¹ï¿½') from dual;
 
---INSTR(¹®ÀÚ, Ã£´Â¹®ÀÚ, +/-¹æÇâ¸îÄ­, ¸î¹øÂ°¹®ÀÚÀÎÁö)
---¸Å°³ º¯¼ö·Î µé¾î¿Â ¹®ÀÚ¿¡¼­ Æ¯Á¤¹®ÀÚÀÇ À§Ä¡¸¦ Ã£À»¶§
+--INSTR(ï¿½ï¿½ï¿½ï¿½, Ã£ï¿½Â¹ï¿½ï¿½ï¿½, +/-ï¿½ï¿½ï¿½ï¿½ï¿½Ä­, ï¿½ï¿½ï¿½Â°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+--ï¿½Å°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ Ã£ï¿½ï¿½ï¿½ï¿½
 select INSTR('monkkky', 'k') from dual;
 select INSTR('monkkkaaakay', 'k', -4, 2) from dual;
 select INSTR('monkkkaaakay', 'a', -4, 2) from dual;
@@ -375,12 +375,12 @@ select email, substr(email, 1, instr(email, '@') -1) from employee;
 
 select rpad('monkey', 10, '^') from dual;
 
-select rpad('¹Ù¹Ù', 10, '^') from dual;
+select rpad('ï¿½Ù¹ï¿½', 10, '^') from dual;
 
-select rpad(emp_name, 8, '´Ô') from employee;
+select rpad(emp_name, 8, 'ï¿½ï¿½') from employee;
 
---LTRIM/RTRIM ¹®ÀÚ¿­ÀÇ ¿ÞÂÊ ¶Ç´Â ¿À¸¥ÂÊÀÇ ÁöÁ¤µÈ ¹®ÀÚ¸¦ Á¦°Å
---false Á¶°ÇµÇ´Â ¼ø°£ TRIM Áß´Ü
+--LTRIM/RTRIM ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+--false ï¿½ï¿½ï¿½ÇµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ TRIM ï¿½ß´ï¿½
 select LTRIM('     TRIM') from dual;
 
 select 'kkkkktrim', LTRIM('kkkkktrim', 'k') from dual;
@@ -389,16 +389,16 @@ select LTRIM('hhhkhkhkhkhakhzzzz', 'kh') from dual;
 
 select RTRIM('kkkkahhhhtrim', 'kh') from dual;
 
-select substr('1523213213213À¯º´½Â',
-    instr('1523213213213À¯º´½Â', 'À¯')) from dual;
+select substr('1523213213213ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    instr('1523213213213ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'ï¿½ï¿½')) from dual;
 
-select LTRIM('321389219328913À¯º´½Â', '0123456789') from dual;
+select LTRIM('321389219328913ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '0123456789') from dual;
 
-select RTRIM(LTRIM('32132132132À¯º´½Â321321321321',
+select RTRIM(LTRIM('32132132132ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½321321321321',
     '0123456789'), '0123456789') from dual;
 
-select SUBSTR('321312321À¯º´½Â321321312',
-    INSTR('321312321À¯º´½Â321321312', 'À¯'),3)
+select SUBSTR('321312321ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½321321312',
+    INSTR('321312321ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½321321312', 'ï¿½ï¿½'),3)
 from dual;
 
 select '    kh    ', TRIM('     kh    ') from dual;
@@ -413,7 +413,7 @@ select 'zzzzzzkhzzzz',
 select 'zzzzzzkhzzzz', 
     TRIM(both 'z' from 'zzzzzkhzzzz') from dual;
 
---substr Æ¯Á¤ ¹®ÀÚ¿­À» Àß¶ó³½
+--substr Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ß¶ï¿½
 select substr('abcdefg', 3,2) from dual;
 
 select substr('showmethemoney', '5', '2') from dual;
@@ -422,28 +422,28 @@ select substr('showmethemoney', 5) from dual;
 
 select substr('showmethemoney', -8, 3) from dual;
 
-select substr('°¡³ª´Ù¶ó¸¶ ¹Ù»ç¾ÆÀÚÂ÷ Ä«Å¸', 7, 5) from dual;
+select substr('ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½ ï¿½Ù»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«Å¸', 7, 5) from dual;
 
 select distinct substr(emp_name,1,1) AS name from employee
 --order by substr(emp_name,1,1);
 --order by 1;
 --order by emp_name --ERROR
---order by´Â select¹®¿¡ ÀÖ´Â ÄÃ·³¸¸
+--order byï¿½ï¿½ selectï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½
 order by name;
 
 
---¿µ¹®ÀÚ ´ë¹®ÀÚ ¼Ò¹®ÀÚ camel case
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ë¹®ï¿½ï¿½ ï¿½Ò¹ï¿½ï¿½ï¿½ camel case
 --UPPER LOWER INITCAP
 select upper('hello world'), lower('HELLO WORLD'), INITCAP('hello world')
 from dual;
 
 select INITCAP('show me the money') from dual;
 
---CONCAT ¹®ÀÚ¿­À» °áÇÕÇÏ´Â ÇÔ¼ö
+--CONCAT ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
 select CONCAT(emp_name, hire_date) from employee;
 select emp_name || email from employee;
 
---REPLACE Æ¯Á¤ ¹®ÀÚ¸¦ º¯°æ
+--REPLACE Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 select REPLACE('monkey', 'o', '@') from dual;
 
 select REPLACE(email, substr(email, instr(email,'@')), '@naver.com')
@@ -452,7 +452,7 @@ from employee;
 select * from employee
 where substr(emp_no,8,1) = 1;
 
---¼ýÀÚ Ã³¸®ÇÔ¼ö ABS MOD ROUND TRUNC FLOOR CEIL
+--ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ô¼ï¿½ ABS MOD ROUND TRUNC FLOOR CEIL
 select ABS(-3.1415) from dual;
 
 select MOD(10, 3) from dual;
@@ -467,19 +467,19 @@ select round(nvl(bonus,0), 2) from employee;
 
 select round(sysdate-hire_date) from employee;
 
---FLOOR ¼Ò¼ýÁ¡À» ÀüºÎ ¹ö¸²
+--FLOOR ï¿½Ò¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 select FLOOR(33.1415) from dual;
 
 select FLOOR(bonus) from employee;
 
---TRUNC Æ¯Á¤ À§Ä¡¿¡¼­ ¼Ò¼ýÁ¡À» ¹ö¸²
+--TRUNC Æ¯ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 select TRUNC(33.1415, -1) from dual;
 select TRUNC(33.1415, 1) from dual;
 select TRUNC(33.1415, 2) from dual;
 select TRUNC(33.1415, 3) from dual;
 select TRUNC(33.1415, 4) from dual;
 
---CEIL ¼Ò¼ýÁ¡ ÀüºÎ ¿Ã¸²
+--CEIL ï¿½Ò¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½
 select CEIL(nvl(bonus,0)) from employee;
 
 create table tbl_files(
@@ -491,12 +491,12 @@ insert into tbl_files values(3, 'c:\documents\resume.hwp');
 
 select * from tbl_files;
 
---ÆÄÀÏ¸í¸¸ Ãâ·Â
+--ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 --select substr(filepath, instr(filepath, '\', -1) + 1)
 --from tbl_files;
 
 
---³¯Â¥ Ã³¸® ÇÔ¼ö
+--ï¿½ï¿½Â¥ Ã³ï¿½ï¿½ ï¿½Ô¼ï¿½
 select sysdate from dual;
 
 select FLOOR(months_between(sysdate, to_date('20000224', 'yyyymmdd'))) ||''
@@ -506,21 +506,21 @@ select ROUND(months_between(sysdate, hire_date), 0) months from employee;
 
 select add_months(to_date('20000224', 'yyyy/mm/dd'), 3) from dual;
 
---¿À´ÃºÎ·Î ±º´ë ÀÔ´ë, 1³â6°³¿ù ±ºº¹¹« ±â°£ °¡Á¤.
---1.Á¦´ëÀÏ,2.¸ÔÀ»Â«¹ä¼ö--ÇÏ·ç¿¡ ¼¼³¢
-select sysdate AS ÀÔ´ëÀÏ,
-    add_months(sysdate, 18) AS Á¦´ëÀÏ,
-    add_months(sysdate,18) - sysdate AS ±º»ýÈ°ÀÏ¼ö, 
-    3*(add_months(sysdate,18) - sysdate) AS Â«¹ä¼ö
+--ï¿½ï¿½ï¿½ÃºÎ·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´ï¿½, 1ï¿½ï¿½6ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½â°£ ï¿½ï¿½ï¿½ï¿½.
+--1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,2.ï¿½ï¿½ï¿½ï¿½Â«ï¿½ï¿½ï¿½--ï¿½Ï·ç¿¡ ï¿½ï¿½ï¿½ï¿½
+select sysdate AS ï¿½Ô´ï¿½ï¿½ï¿½,
+    add_months(sysdate, 18) AS ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,
+    add_months(sysdate,18) - sysdate AS ï¿½ï¿½ï¿½ï¿½È°ï¿½Ï¼ï¿½, 
+    3*(add_months(sysdate,18) - sysdate) AS Â«ï¿½ï¿½ï¿½
 from dual;
 
---next_day : ÁöÁ¤ÇÑ ³¯Â¥ÀÇ ÁöÁ¤ÇÑ ¿äÀÏÀÇ ³¯Â¥¸¦ ±¸ÇØÁÜ
---ÀÏ:1 ¿ù:2 È­:3 ¼ö:4 ¸ñ:5 ±Ý:6 Åä:7
-select next_day(sysdate, '¿ù¿äÀÏ') from dual;
-select next_day(sysdate, '¿ù') from dual;
+--next_day : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--ï¿½ï¿½:1 ï¿½ï¿½:2 È­:3 ï¿½ï¿½:4 ï¿½ï¿½:5 ï¿½ï¿½:6 ï¿½ï¿½:7
+select next_day(sysdate, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½') from dual;
+select next_day(sysdate, 'ï¿½ï¿½') from dual;
 select next_day(sysdate, 2) from dual;
 
---·ÎÄÉÀÏ¿¡ µû¶ó ´ëÀÔÇÏ´Â °É ´Ù¸£°Ô ÇØ¾ß. ÇÑ±¹ ±âÁØ MON »ç¿ë ºÒ°¡
+--ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½Ø¾ï¿½. ï¿½Ñ±ï¿½ ï¿½ï¿½ï¿½ï¿½ MON ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 select next_day(sysdate, 'MON') from dual;
 select next_day(sysdate, 'MONDAY') from dual;
 
@@ -530,38 +530,38 @@ alter session set NLS_LANGUAGE=AMERICAN;
 
 alter session set NLS_LANGUAGE=KOREAN;
 
---LAST_DAY Àü´Þ¹ÞÀº ³¯Â¥°¡ ¼ÓÇÑ ´ÞÀÇ ¸¶Áö¸· ³¯À» Ç¥½Ã
+--LAST_DAY ï¿½ï¿½ï¿½Þ¹ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 
 select LAST_DAY(sysdate) from dual;
 
 select LAST_DAY('00/02/24') from dual;
 
---¼¼´Þ ÈÄ ¸¶Áö¸·³¯
+--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 select LAST_DAY(ADD_MONTHS(sysdate, 3)) from dual;
 
---EXTRACT ³¯Â¥ÀÇ ³â ¿ù ÀÏÀ» µû·Î ±¸ºÐÇÏ¿© °ü¸®
-select EXTRACT(year from sysdate) AS ³â,
-    EXTRACT(month from sysdate) AS ¿ù,
-    EXTRACT(day from sysdate) AS ÀÏ,
-    EXTRACT(hour from CAST(sysdate as timestamp)) AS ½Ã,
-    EXTRACT(minute from CAST(sysdate as timestamp)) AS ºÐ,
-    EXTRACT(second from CAST(sysdate as timestamp)) AS ÃÊ
+--EXTRACT ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+select EXTRACT(year from sysdate) AS ï¿½ï¿½,
+    EXTRACT(month from sysdate) AS ï¿½ï¿½,
+    EXTRACT(day from sysdate) AS ï¿½ï¿½,
+    EXTRACT(hour from CAST(sysdate as timestamp)) AS ï¿½ï¿½,
+    EXTRACT(minute from CAST(sysdate as timestamp)) AS ï¿½ï¿½,
+    EXTRACT(second from CAST(sysdate as timestamp)) AS ï¿½ï¿½
 from dual;
 
 
---TO_CHAR ¹®ÀÚ¿­·Î º¯°æÇØÁÖ´Â ÇÔ¼ö
---º¯°æ½Ã ¹®ÀÚ ±âÈ£
--- yyyy, yy (¿¬µµ 4ÀÚ¸®, 2ÀÚ¸®)
--- month: locale ¼³Á¤¿¡ ¸Â°Ô Ãâ·Â
--- mm: ¿ùÀ» ¼ýÀÚ·Î Ç¥Çö
--- mon: ¿ùÀ» ¾ËÆÄºªÀ¸·Î Ç¥Çö
--- dd: ³¯Â¥¸¦ Ç¥Çö
--- d: ¿äÀÏ ¼öÀÚ·Î Ç¥Çö
--- dy: ¿äÀÏÀ» ¾à¾î·Î Ç¥Çö: ¿ùÈ­¼ö¸ñ±ÝÅäÀÏ
--- day: ¿äÀÏ (¿¹: ¿ù¿äÀÏ)
--- hh: ½Ã°£, hh24: 24½Ã°£, hh12: 12½Ã°£
--- mi: ºÐ
--- si: ÃÊ
+--TO_CHAR ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ô¼ï¿½
+--ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+-- yyyy, yy (ï¿½ï¿½ï¿½ï¿½ 4ï¿½Ú¸ï¿½, 2ï¿½Ú¸ï¿½)
+-- month: locale ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â°ï¿½ ï¿½ï¿½ï¿½
+-- mm: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ Ç¥ï¿½ï¿½
+-- mon: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
+-- dd: ï¿½ï¿½Â¥ï¿½ï¿½ Ç¥ï¿½ï¿½
+-- d: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ Ç¥ï¿½ï¿½
+-- dy: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½: ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+-- day: ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+-- hh: ï¿½Ã°ï¿½, hh24: 24ï¿½Ã°ï¿½, hh12: 12ï¿½Ã°ï¿½
+-- mi: ï¿½ï¿½
+-- si: ï¿½ï¿½
 select TO_CHAR(
 sysdate, 'yyyy-mm-dd day hh24:mi:ss') from dual;
 
@@ -577,15 +577,15 @@ TO_CHAR(hire_date, 'yyyy/mm/dd hh24:mi:ss') from employee;
 select emp_name, TO_CHAR(hire_date, 'yyyy-mm-dd(dy)') from employee;
 
 
---¹®ÀÚ¿­·Î º¯°æ½Ã Æ÷¸äÇü½Ä
---, comma Çü½ÄÀ¸·Î º¯È¯(3Â°ÀÚ¸®¿¡ , ºÙÀÌ±â) : 1,900,000
---. period ¼Ò¼ýÁ¡ Çü½ÄÀ¸·Î º¯È¯: 3.1415
---9 ÇØ´çÀÚ¸®ÀÇ ¼ýÀÚÀÇ¹Ì: °ªÀÌ ¾øÀ»°æ¿ì ¼Ò¼ýÁ¡ ÀÌ»óÀº °ø¹é, 
---      ¼Ò¼öÁ¡ÀÌÇÏ´Â 0
---0 ÇØ´çÀÚ¸®ÀÇ ¼ýÀÚÀÇ¹Ì: °ªÀÌ ¾øÀ»°æ¿ì 0À¸·Î ¹«Á¶°Ç Ç¥½Ã,
---      ¼ýÀÚ¸¦ °íÁ¤ÀûÀ¸·Î Ç¥½ÃÇÒ °æ¿ì
---$ ÅëÈ­ Ç¥½Ã(µ·) : ´Þ·¯$ Ç¥½Ã
---L ·ÎÄÃÅëÈ­·Î Ç¥½Ã (¿¹: ¿øÈ­Ç¥½Ã)
+--ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--, comma ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯(3Â°ï¿½Ú¸ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½Ì±ï¿½) : 1,900,000
+--. period ï¿½Ò¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯: 3.1415
+--9 ï¿½Ø´ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¹ï¿½: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¼ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, 
+--      ï¿½Ò¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ 0
+--0 ï¿½Ø´ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¹ï¿½: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½,
+--      ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+--$ ï¿½ï¿½È­ Ç¥ï¿½ï¿½(ï¿½ï¿½) : ï¿½Þ·ï¿½$ Ç¥ï¿½ï¿½
+--L ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ Ç¥ï¿½ï¿½ (ï¿½ï¿½: ï¿½ï¿½È­Ç¥ï¿½ï¿½)
 select TO_CHAR(123456, '999,999,999') from dual; --123,456
 
 select TO_CHAR(123456, '000,000,000') from dual; --000,123,456
@@ -600,149 +600,149 @@ select TO_CHAR(1234.56, '99999.9999') from dual;
 
 select TO_CHAR(1234.56, '00000.0000') from dual;
 
---1.salary¸¦ ¿øÈ­Ç¥½Ã·Î ½°Ç¥ ¹Ù²ã¼­
---2.¿¬ºÀÀ» °è»êÇÏ¿© ¿øÈ­Ç¥½Ã·Î
-select emp_name, TO_CHAR(salary, 'L999,999,999') AS ¿ù±Þ,
-    TO_CHAR(12*salary, 'L999,999,999,999') AS ¿¬ºÀ
+--1.salaryï¿½ï¿½ ï¿½ï¿½È­Ç¥ï¿½Ã·ï¿½ ï¿½ï¿½Ç¥ ï¿½Ù²ã¼­
+--2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½È­Ç¥ï¿½Ã·ï¿½
+select emp_name, TO_CHAR(salary, 'L999,999,999') AS ï¿½ï¿½ï¿½ï¿½,
+    TO_CHAR(12*salary, 'L999,999,999,999') AS ï¿½ï¿½ï¿½ï¿½
 from employee;
 
---TO_DATE: ³¯Â¥Çü½ÄÀ¸·Î º¯È¯
--- ÀÛ¼º¹ý: TO_DATE(char, format): ¹®ÀÚ¸¦ ³¯Â¥·Î º¯°æ
---      TO_DATE(number, format): ¼ýÀÚ¸¦ ³¯Â¥·Î º¯°æ
---  ½Ã°£±îÁö ³¯Â¥·Î º¯°æ°¡´É
+--TO_DATE: ï¿½ï¿½Â¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
+-- ï¿½Û¼ï¿½ï¿½ï¿½: TO_DATE(char, format): ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--      TO_DATE(number, format): ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--  ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½æ°¡ï¿½ï¿½
 select TO_CHAR(
 TO_DATE('19500101 15:30:20', 'yyyymmdd hh24:mi:ss'),
 'yyyymmdd hh24:mi:ss')
-    AS »ý½Å from dual;
+    AS ï¿½ï¿½ï¿½ï¿½ from dual;
 
 select TO_CHAR(hire_date, 'yyyymmdd hh24:mi:ss')
 from employee
 where hire_date > '00/01/01';
 --where hire_date > TO_DATE('20000101', 'yyyymmdd');
 
---¼ýÀÚ ³¯Â¥·Î ÀüÈ¯
+--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½È¯
 select TO_DATE(19960626, 'yyyy-mm-dd') from dual;
 
---ERROR! ÁÖÀÇ! ¾Õ¿¡ 0ÀÌ µé¾î°¡´Â ¿¬µµ°¡ ³ª¿À¸é ¾ÈµÊ
+--ERROR! ï¿½ï¿½ï¿½ï¿½! ï¿½Õ¿ï¿½ 0ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½
 select TO_DATE(010224, 'yy-mm-dd') from dual;
 --OK!
 select TO_DATE('010224', 'yy-mm-dd') from dual;
 
---DECODE Á¶°Ç¹® (switch¹®°ú ºñ½Á)
--- »ç¿ë¹ý: decode(Á¶°Ç½Ä,
---                  Á¶°Ç1, Á¶°Ç1°á°ú,
+--DECODE ï¿½ï¿½ï¿½Ç¹ï¿½ (switchï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½)
+-- ï¿½ï¿½ï¿½ï¿½: decode(ï¿½ï¿½ï¿½Ç½ï¿½,
+--                  ï¿½ï¿½ï¿½ï¿½1, ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½,
 --                  ...
---                  Á¶°Çn, Á¶°Çn°á°ú,
+--                  ï¿½ï¿½ï¿½ï¿½n, ï¿½ï¿½ï¿½ï¿½nï¿½ï¿½ï¿½,
 --                  default)
 select emp_name, emp_no,
     DECODE( substr(emp_no,8, 1),
-        '1', '³²', '2', '¿©',
-        '3', '³²', '4', '¿©') AS ¼ºº°
+        '1', 'ï¿½ï¿½', '2', 'ï¿½ï¿½',
+        '3', 'ï¿½ï¿½', '4', 'ï¿½ï¿½') AS ï¿½ï¿½ï¿½ï¿½
 from employee;
 
---dept_code: D1ÀÌ¸é
-select emp_name AS »ç¿ø¸í,
-    nvl(dept_code,'NULL') AS ºÎ¼­ÄÚµå,
+--dept_code: D1ï¿½Ì¸ï¿½
+select emp_name AS ï¿½ï¿½ï¿½ï¿½ï¿½,
+    nvl(dept_code,'NULL') AS ï¿½Î¼ï¿½ï¿½Úµï¿½,
     DECODE(dept_code,
-        'D1', 'ÀÎ»ç°ü¸®',
-        'D2', 'È¸°è°ü¸®',
-        'D3', '¸¶ÄÉÆÃ',
-        'D4', '±¹³»¿µ¾÷',
-        'D5', 'ÇØ¿Ü¿µ¾÷1',
-        'D6', 'ÇØ¿Ü¿µ¾÷2',
-        'D8', '±â¼úÁö¿ø',
-        'D9', 'ÃÑ¹«',
-        'ºÎ¼­¾øÀ½') AS ºÎ¼­¸í
+        'D1', 'ï¿½Î»ï¿½ï¿½ï¿½ï¿½',
+        'D2', 'È¸ï¿½ï¿½ï¿½ï¿½ï¿½',
+        'D3', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+        'D4', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+        'D5', 'ï¿½Ø¿Ü¿ï¿½ï¿½ï¿½1',
+        'D6', 'ï¿½Ø¿Ü¿ï¿½ï¿½ï¿½2',
+        'D8', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+        'D9', 'ï¿½Ñ¹ï¿½',
+        'ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½') AS ï¿½Î¼ï¿½ï¿½ï¿½
 from employee;
 
-select emp_name AS »ç¿ø¸í,
-    nvl(dept_code, 'NULL') AS ºÎ¼­ÄÚµå,
-    CASE WHEN dept_code='D1' THEN 'ÀÎ»ç°ü¸®'
-        WHEN dept_code='D2' THEN 'È¸°è°ü¸®'
-        WHEN dept_code='D3' THEN '¸¶ÄÉÆÃ'
-        WHEN dept_code='D4' THEN '±¹³»¿µ¾÷'
-        WHEN dept_code='D5' THEN 'ÇØ¿Ü¿µ¾÷1'
-        WHEN dept_code='D6' THEN 'ÇØ¿Ü¿µ¾÷2'
-        WHEN dept_code='D8' THEN '±â¼úÁö¿ø'
-        WHEN dept_code='D9' THEN 'ÃÑ¹«'
-    ELSE 'ºÎ¼­¾øÀ½' END AS ºÎ¼­¸í
+select emp_name AS ï¿½ï¿½ï¿½ï¿½ï¿½,
+    nvl(dept_code, 'NULL') AS ï¿½Î¼ï¿½ï¿½Úµï¿½,
+    CASE WHEN dept_code='D1' THEN 'ï¿½Î»ï¿½ï¿½ï¿½ï¿½'
+        WHEN dept_code='D2' THEN 'È¸ï¿½ï¿½ï¿½ï¿½ï¿½'
+        WHEN dept_code='D3' THEN 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'
+        WHEN dept_code='D4' THEN 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'
+        WHEN dept_code='D5' THEN 'ï¿½Ø¿Ü¿ï¿½ï¿½ï¿½1'
+        WHEN dept_code='D6' THEN 'ï¿½Ø¿Ü¿ï¿½ï¿½ï¿½2'
+        WHEN dept_code='D8' THEN 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'
+        WHEN dept_code='D9' THEN 'ï¿½Ñ¹ï¿½'
+    ELSE 'ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½' END AS ï¿½Î¼ï¿½ï¿½ï¿½
 from employee;
 
-select emp_name AS »ç¿ø¸í, emp_no AS ÁÖ¹Îµî·Ï¹øÈ£,
+select emp_name AS ï¿½ï¿½ï¿½ï¿½ï¿½, emp_no AS ï¿½Ö¹Îµï¿½Ï¹ï¿½È£,
     CASE
-        WHEN substr(emp_no, 8,1)=1 THEN '³²'
-        ELSE '¿©' END AS ¼ºº°
+        WHEN substr(emp_no, 8,1)=1 THEN 'ï¿½ï¿½'
+        ELSE 'ï¿½ï¿½' END AS ï¿½ï¿½ï¿½ï¿½
 from employee;
 
 insert into employee values(
-    '250', '°íµÎ¹Ô', '470808-2123341', 'go@kh.or.kr', 
+    '250', 'ï¿½ï¿½ï¿½Î¹ï¿½', '470808-2123341', 'go@kh.or.kr', 
     null, 'D2', 'J2', 'S5', 448000, null, null, 
     TO_DATE('94/01/20', 'rr/mm/dd'), null, 'N');
 
 commit;
 
-select emp_id AS »ç¿ø¹øÈ£, 
-    emp_name AS »ç¿ø¸í,
-    RPAD(substr(emp_no, 1,8), 13, '*') AS ÁÖ¹Î¹øÈ£,
-    CASE WHEN substr(emp_no, 8,1) in (1,3) THEN '³²'
-        WHEN substr(emp_no, 8,1) in (2,4) THEN '¿©'
-    ELSE '?' END AS ¼ºº°,
+select emp_id AS ï¿½ï¿½ï¿½ï¿½ï¿½È£, 
+    emp_name AS ï¿½ï¿½ï¿½ï¿½ï¿½,
+    RPAD(substr(emp_no, 1,8), 13, '*') AS ï¿½Ö¹Î¹ï¿½È£,
+    CASE WHEN substr(emp_no, 8,1) in (1,3) THEN 'ï¿½ï¿½'
+        WHEN substr(emp_no, 8,1) in (2,4) THEN 'ï¿½ï¿½'
+    ELSE '?' END AS ï¿½ï¿½ï¿½ï¿½,
     EXTRACT(year from sysdate) 
-        - EXTRACT(year from TO_DATE(substr(emp_no, 1,2), 'RR')) + 1 AS ³ªÀÌ,
+        - EXTRACT(year from TO_DATE(substr(emp_no, 1,2), 'RR')) + 1 AS ï¿½ï¿½ï¿½ï¿½,
     TO_NUMBER(EXTRACT(year from sysdate))- 
         TO_NUMBER(substr(emp_no,1,2) + 
             CASE WHEN substr(emp_no,8,1) in(1,2) THEN 1900
-                    ELSE 2000 END) + 1 AS ÇöÀç³ªÀÌ
+                    ELSE 2000 END) + 1 AS ï¿½ï¿½ï¿½ç³ªï¿½ï¿½
 from employee
-order by ÇöÀç³ªÀÌ DESC;
--- yy´Â 20ÀÌ ºÙÀ½(ÇöÀç ¼¼±â).  rr·Î º¯È¯
--- rrÀº 1950 ÀÌÀü¿¡ ÅÂ¾î³­ »ç¶÷Àº °è»ê¿À·ù 
---      ex) °íµÎ¹Ì 2019 - (1947->2047) + 1 = -27
---      rrÀº 50º¸´Ù ÀÛÀ¸¸é '20xx' 50º¸´Ù Å©¸é '19xx'
--- ³¯Â¥ÀÇ ¿¬µµ´Â yy µÎ±ÛÀÚ¸¸ °¡Á®¿Ã¶§,
---      YY: ÇöÀç ¼¼±â·Î °è»ê (99 -> 2099)
+order by ï¿½ï¿½ï¿½ç³ªï¿½ï¿½ DESC;
+-- yyï¿½ï¿½ 20ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½).  rrï¿½ï¿½ ï¿½ï¿½È¯
+-- rrï¿½ï¿½ 1950 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â¾î³­ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+--      ex) ï¿½ï¿½ï¿½Î¹ï¿½ 2019 - (1947->2047) + 1 = -27
+--      rrï¿½ï¿½ 50ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ '20xx' 50ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ '19xx'
+-- ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ yy ï¿½Î±ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½,
+--      YY: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ (99 -> 2099)
 --      RR: 
---    TO_CHAR(sysdate, 'yyyy')- CONCAT(19,substr(emp_no,1,2)) +1 AS ³ªÀÌ
+--    TO_CHAR(sysdate, 'yyyy')- CONCAT(19,substr(emp_no,1,2)) +1 AS ï¿½ï¿½ï¿½ï¿½
 
 
---RR º¯È¯ °ø½Ä
---ÇöÀç¿¬µµ   ÀÔ·Â¿¬µµ  °è»ê¿¬µµ
+--RR ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½ç¿¬ï¿½ï¿½   ï¿½Ô·Â¿ï¿½ï¿½ï¿½  ï¿½ï¿½ê¿¬ï¿½ï¿½
 -------------------------------
---  00~49      00~49   ÇöÀç¼¼±â
---  00~49      50~99   Àü¼¼±â
---  50~99      00~49   ´ÙÀ½¼¼±â
---  50~99      50~99   ÇöÀç¼¼±â
+--  00~49      00~49   ï¿½ï¿½ï¿½ç¼¼ï¿½ï¿½
+--  00~49      50~99   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--  50~99      00~49   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--  50~99      50~99   ï¿½ï¿½ï¿½ç¼¼ï¿½ï¿½
 
 select TO_DATE('880101', 'RR') from dual;
 
---±×·ìÇÔ¼ö
+--ï¿½×·ï¿½ï¿½Ô¼ï¿½
 --COUNT, MAX, SUM, AVG,
---result ¼ÂÀÌ ÇÑ°³ÀÇ row·Î µÇ¾î ÀÖ±â ¶§¹®¿¡,
---  ÄÃ·³À» ¼±ÅÃÇÒ ¼ö ¾ø´Ù.
+--result ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ rowï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,
+--  ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 select emp_name, SUM(salary) from employee
 --where substr(emp_no, 8,1) in (1,3);
-where emp_name like 'À¯__'
+where emp_name like 'ï¿½ï¿½__'
 GROUP BY emp_name;
 
-select SUM(salary*12) AS ¿¬ºÀ,
-    SUM(12*salary*(1-.03 +nvl(bonus,0))) AS ½Ç¼ö·É¾×
+select SUM(salary*12) AS ï¿½ï¿½ï¿½ï¿½,
+    SUM(12*salary*(1-.03 +nvl(bonus,0))) AS ï¿½Ç¼ï¿½ï¿½É¾ï¿½
 from employee;
 
---null °ªÀº sum¿¡¼­ ÀÚµ¿À¸·Î Á¦¿Ü
+--null ï¿½ï¿½ï¿½ï¿½ sumï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 select SUM(bonus) from employee;
 
 select bonus from employee
 where bonus is not null;
 
---nullÀÌ¸é º¸³Ê½º ÇÕ°è¸¦ ³ª´­ »ç¿ø ¸í¼öµµ ´Þ¶óÁö¹Ç·Î
---°ª¿¡ Â÷ÀÌ°¡ ³²
+--nullï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½Õ°è¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¶ï¿½ï¿½ï¿½ï¿½Ç·ï¿½
+--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½
 select ROUND(avg(bonus), 3), ROUND(AVG(nvl(bonus, 0)),3) from employee;
 
 select ROUND(avg(bonus), 3) from employee
 where bonus is not null;
 
---Å×ÀÌºí ÀüÃ¼ Çà ¼ö
---count(ÄÃ·³¸í or *)
+--ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ ï¿½ï¿½
+--count(ï¿½Ã·ï¿½ï¿½ï¿½ or *)
 select COUNT(*) from employee
 where dept_code='D9';
 
@@ -751,7 +751,7 @@ where salary >= 3000000;
 
 select COUNT(emp_name) from employee;
 
---dept_code null°ªÀº »©¹ö¸²
+--dept_code nullï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 select COUNT(dept_code) from employee;
 select COUNT(*) from employee where dept_code is not null;
 
@@ -762,12 +762,12 @@ select MAX(salary), MIN(salary) from employee;
 select MAX(hire_date), MIN(hire_date) from employee;
 
 --GROUP BY
---ºÎ¼­º° ¿ù±ÞÀÇ Æò±Õ
+--ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 select dept_code, FLOOR(AVG(salary)) from employee
 GROUP BY dept_code
 HAVING dept_code='D5';
 
---group by ¼±¾ðÇÏ¸é ±× ±×·ìÀ¸·Î °è»êµÇ´Â ±×·ìÇÔ¼ö¸¦ »ç¿ë°¡´É
+--group by ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½×·ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½
 select dept_code, count(dept_code), sum(salary),
 floor(avg(salary)), min(salary)
 from employee
@@ -775,32 +775,32 @@ GROUP BY dept_code
 HAVING dept_code IS NOT NULL
 order by dept_code;
 
---¼ºº°ÄÃ·³À¸·Î ³²¿© Æò±Õ¿ù±Þ, ÇÕ°è ÀÎ¿ø¼ö
-select CASE WHEN substr(emp_no, 8,1)=1 then '³²'
-            ELSE '¿©'
+--ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Õ¿ï¿½ï¿½ï¿½, ï¿½Õ°ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½
+select CASE WHEN substr(emp_no, 8,1)=1 then 'ï¿½ï¿½'
+            ELSE 'ï¿½ï¿½'
            END AS GENDER,
-       COUNT(*) AS ÀÎ¿ø¼ö,
-       TO_CHAR(sum(salary), 'L999,999,999') AS ¿ù±ÞÇÕ°è,
-       TO_CHAR(FLOOR(AVG(salary)), 'L999,999,999') AS ¿ù±ÞÆò±Õ
+       COUNT(*) AS ï¿½Î¿ï¿½ï¿½ï¿½,
+       TO_CHAR(sum(salary), 'L999,999,999') AS ï¿½ï¿½ï¿½ï¿½ï¿½Õ°ï¿½,
+       TO_CHAR(FLOOR(AVG(salary)), 'L999,999,999') AS ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 from employee
 GROUP BY 
-        CASE WHEN substr(emp_no, 8,1)=1 THEN '³²'
-        ELSE '¿©'
+        CASE WHEN substr(emp_no, 8,1)=1 THEN 'ï¿½ï¿½'
+        ELSE 'ï¿½ï¿½'
 END;
 
---dept_code¸¦ ±âÁØÀ¸·Î salary ÇÕ°è¿Í Æò±Õ
---WHEREÀý¿¡´Â ±×·ìÇÔ¼ö ¾µ¼ö ¾øÀ½.
---HAVINGÀý¿¡ ±×·ìÇÔ¼ö Á¶°Ç °¡´É
+--dept_codeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ salary ï¿½Õ°ï¿½ï¿½ ï¿½ï¿½ï¿½
+--WHEREï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+--HAVINGï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 select job_code,
-    sum(salary) AS ¿ù±ÞÃÑ¾×,
-    FLOOR(avg(salary)) AS ¿ù±ÞÆò±Õ
+    sum(salary) AS ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½,
+    FLOOR(avg(salary)) AS ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 from employee
 where dept_code is not NULL
 GROUP BY job_code
 HAVING sum(salary) > 9000000
 ORDER BY job_code;
 
---ºÎ¼­ÀÎ¿ø¼ö°¡ 4¸íÀÌ»óÀÎ ºÎ¼­¸¸
+--ï¿½Î¼ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½ 4ï¿½ï¿½ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½
 select dept_code, count(*)
     from employee
 where dept_code is not null
@@ -808,9 +808,9 @@ GROUP BY dept_code
 HAVING count(*) >= 4
 order by dept_code;
 
---GROUP BY·Î ¹­ÀÎ ÇÕ »Ó¾Æ´Ï¶ó
---±×·ìÁý°è ÇÔ¼ö ROLLUP CUBE·Î ±×·ì¿¡ ´ëÇÑ ÃÑÇÕ°è ±¸ÇÔ
---µÎ°³ÀÌ»ó ÄÃ·³À» GROUP BY ÇÏ¸é CUBE´Â 
+--GROUP BYï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ó¾Æ´Ï¶ï¿½
+--ï¿½×·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ ROLLUP CUBEï¿½ï¿½ ï¿½×·ì¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ°ï¿½ ï¿½ï¿½ï¿½ï¿½
+--ï¿½Î°ï¿½ï¿½Ì»ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ GROUP BY ï¿½Ï¸ï¿½ CUBEï¿½ï¿½ 
 
 select dept_code, sum(salary)
 from employee
@@ -822,17 +822,17 @@ from employee
 GROUP BY ROLLUP(dept_code)
 order by 1;
 
---µÎ°³ ÄÃ·³¿¡ ´ëÇÑ ÃÑ°è¸¦ °è»ê
---ÇÕ°è´Â ¾Õ¿¡ ÀÖ´Â dept_code¸¦ ±âÁØÀ¸·Î ¹­À½
+--ï¿½Î°ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°è¸¦ ï¿½ï¿½ï¿½
+--ï¿½Õ°ï¿½ï¿½ ï¿½Õ¿ï¿½ ï¿½Ö´ï¿½ dept_codeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 select dept_code, job_code, sum(salary)
 from employee
 GROUP BY ROLLUP(dept_code, job_code)
 order by 1;
---D1 J7ÀÌ ¹­ÀÎ row°¡ ÇÑ°³ÀÇ ±×·ìÀÌ µÊ
---(dept_code, job_code)°¡ ±×·ìÀÌ µÊ
---job_code=null ÀÎ°ÍÀº dept_code¿¡ ´ëÇÑ ÇÕ°è
---´Ù¸¸ 
---dept_code is null: ÀÎ°ÍÀº 
+--D1 J7ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ rowï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½
+--(dept_code, job_code)ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½
+--job_code=null ï¿½Î°ï¿½ï¿½ï¿½ dept_codeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½
+--ï¿½Ù¸ï¿½ 
+--dept_code is null: ï¿½Î°ï¿½ï¿½ï¿½ 
 --	J6	2320000
 --	J7	2890000
 
@@ -841,36 +841,36 @@ from employee
 GROUP BY ROLLUP(job_code, dept_code)
 order by 1;
 
---ºÎ¼­º° ÀÎ¿ø Á¤º¸¸¦ Ãâ·ÂÇÏ´Âµ¥, ÃÑÀÎ¿ø±îÁö Ãâ·Â
-select dept_code, count(*) AS ÀÎ¿ø
+--ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´Âµï¿½, ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+select dept_code, count(*) AS ï¿½Î¿ï¿½
 from employee
 GROUP BY ROLLUP(dept_code);
---GROUP BY CUBE(dept_code); --´ÜÀÏÇà group ÀÏ¶§´Â CUBEÇÏ°í °°Àº°á°ú
+--GROUP BY CUBE(dept_code); --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ group ï¿½Ï¶ï¿½ï¿½ï¿½ CUBEï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
---ºÎ¼­º°, Á÷±Þº° ÀÎ¿ø¼ö Ãâ·ÂÇÏ°í ºÎ¼­º° ¼Ò°èÀüÃ¼ ÃÑ°è¸¦ Ãâ·Â
+--ï¿½Î¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Þºï¿½ ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½Ã¼ ï¿½Ñ°è¸¦ ï¿½ï¿½ï¿½
 select dept_code, job_code, 
-    count(*) AS ÀÎ¿ø¼ö,
-    sum(salary) AS ¿ù±ÞÇÕ°è
+    count(*) AS ï¿½Î¿ï¿½ï¿½ï¿½,
+    sum(salary) AS ï¿½ï¿½ï¿½ï¿½ï¿½Õ°ï¿½
 from employee
 GROUP BY ROLLUP(dept_code, job_code)
 order by 1;
 
---CUBE´Â ÇÑ°³ ±×·ì¸¸ Ã³¸®ÇÒ¶§´Â ROLLUP°ú °á°ú µ¿ÀÏ
---  µÎ°³ ÀÌ»ó ÄÃ·³ÀÌ ±×·ìÀ¸·Î ¼³Á¤µÉ °æ¿ì Ãß°¡·Î
---  µÎ¹øÂ° ÀÌ»ó ÄÃ·³ ±âÁØÀ¸·Î ÇÕ°èµµ ÀüºÎ ±¸ÇÔ
--- 1.job_code ±âÁØÀ¸·Î Group + ÇÕ°è
--- 2.dept_code±âÁØ Group,
--- 3.(job_code,dept_code) ±âÁØ Group
+--CUBEï¿½ï¿½ ï¿½Ñ°ï¿½ ï¿½×·ì¸¸ Ã³ï¿½ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½ ROLLUPï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--  ï¿½Î°ï¿½ ï¿½Ì»ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½
+--  ï¿½Î¹ï¿½Â° ï¿½Ì»ï¿½ ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°èµµ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+-- 1.job_code ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Group + ï¿½Õ°ï¿½
+-- 2.dept_codeï¿½ï¿½ï¿½ï¿½ Group,
+-- 3.(job_code,dept_code) ï¿½ï¿½ï¿½ï¿½ Group
 
 
 select dept_code, job_code,
-    count(*) AS ÀÎ¿ø¼ö, 
-    sum(salary) AS ¿ù±ÞÇÕ°è
+    count(*) AS ï¿½Î¿ï¿½ï¿½ï¿½, 
+    sum(salary) AS ï¿½ï¿½ï¿½ï¿½ï¿½Õ°ï¿½
 from employee
 GROUP BY CUBE(dept_code, job_code)
 order by 1;
--- (null)   J6	1	2320000  --dept_code NULLÀÎ Çà
--- (null)   J6	6	15746240 --job_code=6ÀÎ ÇàÀÇ ÇÕ°è
+-- (null)   J6	1	2320000  --dept_code NULLï¿½ï¿½ ï¿½ï¿½
+-- (null)   J6	6	15746240 --job_code=6ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½
 
 --D1   NULL   3	7820000
 --D2   NULL   4	6968000
@@ -878,7 +878,7 @@ order by 1;
 --D6   NULL   3	10100000
 --D8   NULL   3	6986240
 --D9   NULL   3	17700000
---NULL NULL   2	5210000 --DEPT_CODE=NULLÀÎ Çà
+--NULL NULL   2	5210000 --DEPT_CODE=NULLï¿½ï¿½ ï¿½ï¿½
 --
 --NULL J1     1	 8000000
 --NULL J2     3	 10148000
@@ -889,28 +889,28 @@ order by 1;
 --NULL J7	  4	 8070000
 --NULL NULL   24 70544240
 
---GROUPº° ÇÔ¼ö
+--GROUPï¿½ï¿½ ï¿½Ô¼ï¿½
 select dept_code, job_code,
-count(*) AS ÀÎ¿ø¼ö,
-sum(salary) AS ÃÑ¿ù±Þ,
+count(*) AS ï¿½Î¿ï¿½ï¿½ï¿½,
+sum(salary) AS ï¿½Ñ¿ï¿½ï¿½ï¿½,
 CASE
     WHEN GROUPING(dept_code)=0 AND GROUPING(job_code)=1
-        THEN 'ºÎ¼­º°ÇÕ°è'
+        THEN 'ï¿½Î¼ï¿½ï¿½ï¿½ï¿½Õ°ï¿½'
     WHEN GROUPING(dept_code)=1 AND GROUPING(job_code)=0
-        THEN 'Á÷±Þº°ÇÕ°è'
+        THEN 'ï¿½ï¿½ï¿½Þºï¿½ï¿½Õ°ï¿½'
     WHEN GROUPING(dept_code)=1 AND GROUPING(job_code)=1
-        THEN 'ÃÑÇÕ°è'
+        THEN 'ï¿½ï¿½ï¿½Õ°ï¿½'
     WHEN GROUPING(dept_code)=0 AND GROUPING(job_code)=0
-        THEN '±×·ìº° ÇÕ°è'
+        THEN 'ï¿½×·ìº° ï¿½Õ°ï¿½'
     ELSE '??' END
   AS "GROUPING"
 from employee
 GROUP BY CUBE(dept_code, job_code)
 order by "GROUPING", 1, 2;
 
---ÁýÇÕ ¿¬»êÀÚ (set operation)
+--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (set operation)
 --UNION UNION ALL
--- 1.ÄÃ·³¼ö ÀÏÄ¡ÇØ¾ß 2.ÀÚ·áÇü ÀÏÄ¡ÇØ¾ß
+-- 1.ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ø¾ï¿½ 2.ï¿½Ú·ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ø¾ï¿½
 select emp_id, emp_name, dept_code, salary
     from employee
     where dept_code= 'D5'    
@@ -921,9 +921,9 @@ select emp_id, emp_name, dept_code, salary
 order by dept_code;
 
 --UNION
---ÄÃ·³ µ¥ÀÌÅÍ´Â ²À ÄÃ·³¸í¿¡ ¿ä±¸ÇÏ´Â
---ÀÚ·á°¡ µé¾î°¡Áö ¾Ê¾Æµµ µÊ:
---¿­ÀÇ °³¼ö¿Í ÀÚ·áÇü¸¸ ¼­·Î °°À¸¸é UNION °¡´É
+--ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ä±¸ï¿½Ï´ï¿½
+--ï¿½Ú·á°¡ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½Ê¾Æµï¿½ ï¿½ï¿½:
+--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ UNION ï¿½ï¿½ï¿½ï¿½
 select emp_name, emp_no
 from employee
 where salary > 3000000
@@ -931,8 +931,8 @@ UNION
 select dept_title, dept_id
 from department;
 
---´Ù¸¥ ÄÃ·³µé UNIONÇÒ‹š µ¥ÀÌÅÍ »çÀÌÁî 
---Å«°ªÀ¸·Î Ä³½ºÆÃ µÇ¾î µé¾î°¨
+--ï¿½Ù¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ UNIONï¿½Ò‹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+--Å«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½ï¿½î°¨
 select dept_title, dept_id
 from department
 UNION
@@ -940,7 +940,7 @@ select emp_name, emp_no
 from employee
 where salary > 3000000;
 
---UNION ALL Áßº¹°ª ¸ðµÎ Ãâ·Â
+--UNION ALL ï¿½ßºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 select emp_id, emp_name, dept_code, salary
     from employee
     where dept_code= 'D5'
@@ -950,7 +950,7 @@ select emp_id, emp_name, dept_code, salary
     where salary >= 3000000
 order by dept_code;
 
---INTERSECT: µÎ°³ÀÌ»óÀÇ result setÀÇ Áßº¹°ª¸¸ Ãâ·Â
+--INTERSECT: ï¿½Î°ï¿½ï¿½Ì»ï¿½ï¿½ï¿½ result setï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 select emp_id, emp_name , dept_code, salary
 from employee
 where dept_code = 'D5'
@@ -959,8 +959,8 @@ select emp_id, emp_name , dept_code, salary
 from employee
 where salary > 3000000;
 
---MINUS: µÎ°³ ÀÌ»óÀÇ result set¿¡¼­
---À§ select ¹«¿¡¼­ Áßº¹°ªÀ» »©¹ö¸²
+--MINUS: ï¿½Î°ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ result setï¿½ï¿½ï¿½ï¿½
+--ï¿½ï¿½ select ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 select emp_id, emp_name , dept_code, salary
 from employee
 where dept_code = 'D5'
@@ -969,7 +969,7 @@ select emp_id, emp_name , dept_code, salary
 from employee
 where salary > 3000000;
 
---INTERSECT°¡ ¾øÀ¸¹Ç·Î, À§¿¡ select¹® result ±×´ë·Î Á¶È¸
+--INTERSECTï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½, ï¿½ï¿½ï¿½ï¿½ selectï¿½ï¿½ result ï¿½×´ï¿½ï¿½ ï¿½ï¿½È¸
 select emp_id, emp_name , dept_code, salary
 from employee
 where dept_code = 'D8'
@@ -985,12 +985,12 @@ MINUS
 select dept_id
 from department;
 
---GROUPING SETS: GROUP BY µÈ result Å×ÀÌºíÀ» ÇÕÃÄ º¸¿©ÁÜ
+--GROUPING SETS: GROUP BY ï¿½ï¿½ result ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 --group by GROUPING SETS
---group by·Î ¼³Á¤µÇ¾î ÀÖ´Â result setµéÀ» °áÇÕÇÏ¿© º¸¿©ÁÜ
---GROUPING SETS´Â ¼ø¼­ »ó°ü¾øÀ½
+--group byï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½Ö´ï¿½ result setï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--GROUPING SETSï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 select dept_code, job_code, manager_id,
-    count(*) AS ÀÎ¿ø¼ö,
+    count(*) AS ï¿½Î¿ï¿½ï¿½ï¿½,
     floor(AVG(salary))
 from employee
 group by GROUPING SETS(
@@ -1000,34 +1000,34 @@ group by GROUPING SETS(
 )
 order by 1 NULLS LAST, 2 NULLS LAST, 3 NULLS LAST;
 
---À§¿¡ GROUPING_SETS´Â ¹Ø¿¡ 3°³¸¦ ÇÕÄ£°Í
+--ï¿½ï¿½ï¿½ï¿½ GROUPING_SETSï¿½ï¿½ ï¿½Ø¿ï¿½ 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä£ï¿½ï¿½
 select dept_code, job_code, manager_id,
-    count(*) AS ÀÎ¿ø¼ö,
+    count(*) AS ï¿½Î¿ï¿½ï¿½ï¿½,
     floor(AVG(salary))
 from employee
 group by dept_code, job_code, manager_id
 order by 1,2;
 
 select dept_code, manager_id,
-    count(*) AS ÀÎ¿ø¼ö,
+    count(*) AS ï¿½Î¿ï¿½ï¿½ï¿½,
     floor(AVG(salary))
 from employee
 group by dept_code, manager_id
 order by 1,2;
 
 select job_code, manager_id,
-    count(*) AS ÀÎ¿ø¼ö,
+    count(*) AS ï¿½Î¿ï¿½ï¿½ï¿½,
     floor(AVG(salary))
 from employee
 group by job_code, manager_id
 order by 1,2;
 
---JOIN : µÎ°³ÀÇ Å×ÀÌºíÀ» °áÇÕÇÏ¿©, ÇÑ°³ÀÇ Å×ÀÌºí·Î Ãâ·Â
---row ´ÜÀ§·Î °áÇÕÇÏ±â ¶§¹®¿¡, ¼­·Î ¸ÊÇÎµÇ´Â °ªÀÌ ÇÊ¿äÇÔ
---´ëºÎºÐÀÇ °æ¿ì : Å×ÀÌºí1ÀÇ FOREGIN KEY¿Í 
---                Å×ÀÌºí2ÀÇ PRIMARY KEY°¡ ¿¬°áµÊ
+--JOIN : ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½, ï¿½Ñ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+--row ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÎµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½
+--ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ìºï¿½1ï¿½ï¿½ FOREGIN KEYï¿½ï¿½ 
+--                ï¿½ï¿½ï¿½Ìºï¿½2ï¿½ï¿½ PRIMARY KEYï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 
---1. ¿À¶óÅ¬ Àü¿ë INNER JOIN(or JOIN)
+--1. ï¿½ï¿½ï¿½ï¿½Å¬ ï¿½ï¿½ï¿½ï¿½ INNER JOIN(or JOIN)
 select emp_name, e.job_code, j.job_name
 from employee e, job j
 where e.job_code = j.job_code;
@@ -1037,21 +1037,21 @@ from employee e, department d
 where dept_code = dept_id
 order by 2,1;
 
---2. ANSI Ç¥ÁØ = SQL Ç¥ÁØ INNER JOIN
---(1). ÄÃ·³¸íÀÌ ÀÏÄ¡ÇÒ¶§
---  select ÄÃ·³1,...,ÄÃ·³n 
---  from Å×ÀÌºí1 JOIN Å×ÀÌºí2
---  USING ºñ±³ÄÃ·³
---   where [Á¶°Ç]
+--2. ANSI Ç¥ï¿½ï¿½ = SQL Ç¥ï¿½ï¿½ INNER JOIN
+--(1). ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ò¶ï¿½
+--  select ï¿½Ã·ï¿½1,...,ï¿½Ã·ï¿½n 
+--  from ï¿½ï¿½ï¿½Ìºï¿½1 JOIN ï¿½ï¿½ï¿½Ìºï¿½2
+--  USING ï¿½ï¿½ï¿½Ã·ï¿½
+--   where [ï¿½ï¿½ï¿½ï¿½]
 select emp_id, emp_name, job_code, job_name
 from employee
 JOIN JOB USING(JOB_CODE);
 
---(2). ÄÃ·³¸íÀÌ ´Ù¸¦¶§
---  select ÄÃ·³1,...,ÄÃ·³n 
---  from Å×ÀÌºí1 JOIN Å×ÀÌºí2
---   on ºñ±³ÄÃ·³1=ºñ±³ÄÃ·³2
---  where [Á¶°Ç]
+--(2). ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½
+--  select ï¿½Ã·ï¿½1,...,ï¿½Ã·ï¿½n 
+--  from ï¿½ï¿½ï¿½Ìºï¿½1 JOIN ï¿½ï¿½ï¿½Ìºï¿½2
+--   on ï¿½ï¿½ï¿½Ã·ï¿½1=ï¿½ï¿½ï¿½Ã·ï¿½2
+--  where [ï¿½ï¿½ï¿½ï¿½]
 select emp_name, job_name
 from employee e JOIN job j 
     ON e.job_code = j.job_code;
@@ -1059,19 +1059,19 @@ from employee e JOIN job j
 select emp_name, dept_title
 from employee INNER JOIN department 
     ON dept_code= dept_id
-where dept_title='ÃÑ¹«ºÎ';
+where dept_title='ï¿½Ñ¹ï¿½ï¿½ï¿½';
 
 --OUTER JOIN
---±âÁØÀÌ µÇ´Â °ªÀÌ¶û ÀÏÄ¡ÇÏ´Â °ªÀÌ ¾øÀ¸¸é ±× row¸¦
---Ãâ·ÂÇÏÁö ¾ÊÀ½.
---22°³ Ãâ·ÂµÊ: dept_code °¡ nullÀÎ row Á¦¿Ü
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ rowï¿½ï¿½
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+--22ï¿½ï¿½ ï¿½ï¿½Âµï¿½: dept_code ï¿½ï¿½ nullï¿½ï¿½ row ï¿½ï¿½ï¿½ï¿½
 select count(*) from employee
     JOIN department ON dept_code = dept_id;
 
---ÇÑÂÊÄÃ·³ÀÌ ¾ø¾îµµ(null), OUTER JOINÀ¸·Î
---ÇÑÂÊ(LEFT, RIGHT)±âÁØÀ¸·Î ÇÑÂÊÀº ¸ðµÎ Ãâ·Â°¡´É
+--ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½îµµ(null), OUTER JOINï¿½ï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½ï¿½(LEFT, RIGHT)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Â°ï¿½ï¿½ï¿½
 
---LEFT JOIN : ¿À¸¥ÂÊ ÄÃ·³À» ±âÁØÀ¸·Î 
+--LEFT JOIN : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 select e.emp_name, e.dept_code, d.dept_title
     from employee e LEFT JOIN department d
         ON e.dept_code = d.dept_id;
@@ -1080,7 +1080,7 @@ select d.dept_title, e.dept_code, e.emp_name
     from department d LEFT JOIN employee e
         ON e.dept_code = d.dept_id;
 
---RIGHT JOIN : ¿À¸¥ÂÊ ÄÃ·³À» ±âÁØÀ¸·Î 
+--RIGHT JOIN : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 select e.emp_name, e.dept_code, d.dept_title
     from employee e RIGHT JOIN department d
         ON e.dept_code = d.dept_id;
@@ -1089,8 +1089,8 @@ select d.dept_title, e.emp_name, e.dept_code
     from department d RIGHT JOIN employee e
         ON e.dept_code = d.dept_id;
 
---¿À¶óÅ¬ OUTER Á¶ÀÎ ¹æ¹ý
--- +¾ø´Â°ÍÀÌ ±âÁØ: LEFT JOIN
+--ï¿½ï¿½ï¿½ï¿½Å¬ OUTER ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+-- +ï¿½ï¿½ï¿½Â°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: LEFT JOIN
 select emp_name, dept_code, dept_title, dept_id
 from employee, department
 where dept_code =dept_id(+);
@@ -1100,8 +1100,8 @@ select emp_name, dept_code, dept_title, dept_id
 from employee, department
 where dept_code(+) =dept_id;
 
---FULL JOIN : ÀÏÄ¡µÇ´Â°ÍÀÌ ¾ø¾îµµ
---¾çÂÊ Å×ÀÌºí µ¥ÀÌÅÍ ¸ðµÎ Ãâ·Â
+--FULL JOIN : ï¿½ï¿½Ä¡ï¿½Ç´Â°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½îµµ
+--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 select emp_name, dept_code, dept_title, dept_id
 from employee FULL JOIN department 
         ON dept_code=dept_id;
@@ -1112,38 +1112,38 @@ select emp_name, dept_code, dept_title, dept_id
 from employee, department
 order by 1,3;
 --from employee department;
---°¢°¢ÀÇ row±â °á°úµÊ
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ rowï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 
---NON-EQUAL JOIN: µ¿µîºñ±³°¡ ¾Æ´Ï¶ó, °ªÅ©±â ºñ±³·Î Á¶ÀÎ
+--NON-EQUAL JOIN: ï¿½ï¿½ï¿½ï¿½ñ±³°ï¿½ ï¿½Æ´Ï¶ï¿½, ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ñ±³·ï¿½ ï¿½ï¿½ï¿½ï¿½
 select emp_name, salary, s.sal_level, s.min_sal, s.max_sal
 from employee JOIN sal_grade s
     ON (salary between min_sal and max_sal);
 
---SELF JOIN: º»ÀÎ Å×ÀÌºíÀ» º»ÀÎÂüÁ¶ÇÏ¿© ¿¬°áÇÏ´Â °Í
---  ÀÚ±â Å×ÀÌºíÀÇ ÄÃ·³°ª(±¸ºÐµÇ´Â)À» °®°íÀÖ´Â ÄÃ·³ÀÌ Á¸ÀçÇØ¾ßÇÔ
+--SELF JOIN: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½
+--  ï¿½Ú±ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ÐµÇ´ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
 -- employee : emp_id = manager_id
 --1. SELF INNER JOIN
-select E.emp_id, E.emp_name »ç¿øÀÌ¸§, E.dept_code, 
-    E.manager_ID AS ¸Å´ÏÁ®ID,
-    M.emp_name AS ¸Å´ÏÁ®ÀÌ¸§
+select E.emp_id, E.emp_name ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½, E.dept_code, 
+    E.manager_ID AS ï¿½Å´ï¿½ï¿½ï¿½ID,
+    M.emp_name AS ï¿½Å´ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
 from employee E JOIN employee M
     ON E.manager_id = M.emp_id;
 
 --2. SELF OUTER JOIN
---    M ¸Å´ÏÁ® µ¥ÀÌÅÍ NULLÀÎ°Íµµ Ãâ·ÂµÇµµ·Ï
-select E.emp_id, E.emp_name »ç¿øÀÌ¸§, E.dept_code, 
-    E.manager_ID ¸Å´ÏÁ®, M.emp_name AS ¸Å´ÏÁ®ÀÌ¸§
+--    M ï¿½Å´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ NULLï¿½Î°Íµï¿½ ï¿½ï¿½ÂµÇµï¿½ï¿½ï¿½
+select E.emp_id, E.emp_name ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½, E.dept_code, 
+    E.manager_ID ï¿½Å´ï¿½ï¿½ï¿½, M.emp_name AS ï¿½Å´ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
 from employee E LEFT JOIN employee M
     ON E.manager_id = M.emp_id;
---where E.emp_name = '¼±µ¿ÀÏ';
+--where E.emp_name = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
---  manager_id°¡ 100ÀÎ Àß¸øµÈ µ¥ÀÌÅÍ!
---  FOREIGN KEY·Î ¼³Á¤ÇÏ¸é 100 ÀÚÃ¼°¡ ¾È³ª¿À°Ô °¡´É
+--  manager_idï¿½ï¿½ 100ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!
+--  FOREIGN KEYï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ 100 ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
---´ÙÁßJOIN: Å×ÀÌºíÀ» µÎ°³ÀÌ»ó °áÇÕÇÏ´Â °ÍÀ» ÀÇ¹ÌÇÑ´Ù
---  from Àý¿¡ join±¸¹®À» °è¼Ó »ç¿ëÇÏ¸é µÊ
---  joinÀ» ÇÒ¶§ ¿¬°áµÇ´Â ÄÃ·³ÀÌ ¹Ýµå½Ã ÀÌÀü¿¡ °áÇÕµÈ Å×ÀÌºí¿¡ Á¸Àç
-select E.emp_id, nvl(D.dept_title, 'ÀÎÅÏ') ºÎ¼­¸í, 
+--ï¿½ï¿½ï¿½ï¿½JOIN: ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½Î°ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½
+--  from ï¿½ï¿½ï¿½ï¿½ joinï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½
+--  joinï¿½ï¿½ ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ýµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õµï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+select E.emp_id, nvl(D.dept_title, 'ï¿½ï¿½ï¿½ï¿½') ï¿½Î¼ï¿½ï¿½ï¿½, 
     E.dept_code,
     J.job_name,
     E.job_code,
@@ -1156,14 +1156,14 @@ from employee E
 --    JOIN job J USING (job_code);
 
 
---SUBQUERY ¼­ºêÄõ¸®
---  JOINÀÌ SUBQUERYº¸´Ù ¼º´ÉÀº ÁÁÀ½
+--SUBQUERY ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--  JOINï¿½ï¿½ SUBQUERYï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
---´ÜÀÏÇà ¼­ºêÄõ¸®
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 select dept_id, dept_title
 from department
 where dept_id=
-    (select dept_id from department where dept_title='ÇØ¿Ü¿µ¾÷1ºÎ');
+    (select dept_id from department where dept_title='ï¿½Ø¿Ü¿ï¿½ï¿½ï¿½1ï¿½ï¿½');
 
 select emp_name, salary, dept_code from employee
 where salary > (select avg(salary) from employee);
@@ -1171,31 +1171,31 @@ where salary > (select avg(salary) from employee);
 select emp_name, dept_code, salary
 from employee
 where dept_code = (select dept_id 
-                    from department where dept_title='ÃÑ¹«ºÎ')
+                    from department where dept_title='ï¿½Ñ¹ï¿½ï¿½ï¿½')
     and salary > (select AVG(salary) from employee);
 
---´ÙÁßÇà ¼­ºêÄõ¸® : result setÀÇ ÇàÀÌ ¿©·¯ÇàÀÎ °æ¿ì
---  ¼ÛÁß±â ¹Ú³ª·¡¿Í °°ÀººÎ¼­ÀÎ Á÷¿øµé
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : result setï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+--  ï¿½ï¿½ï¿½ß±ï¿½ ï¿½Ú³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 select emp_name, dept_code, salary
 from employee
 where dept_code in (select dept_code from employee 
-    where emp_name in ('¼ÛÁ¾±â', '¹Ú³ª¶ó'));
+    where emp_name in ('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'ï¿½Ú³ï¿½ï¿½ï¿½'));
 
 
---´ÙÁß¿­ ¼­ºêÄõ¸®: select¹®¿¡¼­ ÄÃ·³À» ´Ù¼ö¼±ÅÃÇÏ´Â °æ¿ì
---ºñ±³´ë»óµµ 1:1¸ÅÄªÀÌ µÇ¾ß ÇÑ´Ù.
---  Åð»çÇÑ ¿©Á÷¿ø°ú °°Àº Á÷±Þ, °°Àº ºÎ¼­ÀÎ »ç¿ø
+--ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: selectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ù¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½
+--ï¿½ñ±³´ï¿½ï¿½ 1:1ï¿½ï¿½Äªï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½Ñ´ï¿½.
+--  ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 select emp_name, emp_no, job_code, dept_code, ent_yn
 from employee 
 where (job_code, dept_code) IN
     (select job_code, dept_code from employee where
         substr(emp_no, 8,1) in (2,4) and ent_yn='Y');
 
---´ÙÁß¿­ ´ÙÁß¼­ºêÄõ¸®: ¼­ºêÄõ¸®ÀÇ result setÀÇ
---  °á°ú row°¡ 2°³ÀÌ»ó, columnµµ 2°³ÀÌ»óÀÇ °á°ú¸¦ °¡Áö´Â 
---  select¹®À» »ç¿ë ÇßÀ»¶§.
---  Á÷±Þº° ÃÖ¼Ò±Þ¿©¸¦ ¹Þ´Â Á÷¿øÀÇ
---  »ç¹ø ÀÌ¸§ Á÷±Þ ±Þ¿© Á¶È¸
+--ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ result setï¿½ï¿½
+--  ï¿½ï¿½ï¿½ rowï¿½ï¿½ 2ï¿½ï¿½ï¿½Ì»ï¿½, columnï¿½ï¿½ 2ï¿½ï¿½ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+--  selectï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+--  ï¿½ï¿½ï¿½Þºï¿½ ï¿½Ö¼Ò±Þ¿ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--  ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¿ï¿½ ï¿½ï¿½È¸
 select emp_id, emp_name, job_code, salary
 from employee where (job_code, salary) in
     (select job_code, MIN(salary)
@@ -1203,50 +1203,50 @@ from employee where (job_code, salary) in
 order by job_code;
 
 
---´ÙÁßÇà ¼­ºêÄõ¸®·Î ´ë¼Òºñ±³ ÇÒ¶§ ANY, ALL
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Òºï¿½ ï¿½Ò¶ï¿½ ANY, ALL
 
 
---ALL: ¼­ºêÄõ¸®¿¡ °á°úÁß ÇÏ³ª¶óµµ ÂüÀÌ¸é ÂüÀÌ´Ù.
---  x>ANY(subquery) ¾î¶²°ªº¸´Ù Å©±â¸¸ ÇÏ¸é Âü
+--ALL: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½.
+--  x>ANY(subquery) ï¿½î¶²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½â¸¸ ï¿½Ï¸ï¿½ ï¿½ï¿½
 
---ÃÖ¼Ò°ªº¸´Ù Å©¸é µÊ
+--ï¿½Ö¼Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½
 select emp_name, salary from employee 
 where salary > ANY(select min(salary) from employee);
 
 select emp_name, salary from employee 
 where salary = ANY(select salary from employee);
 
---ÃÖ´ë°ªº¸´Ù¸¸ ÀÛÀ¸¸é µÊ
+--ï¿½Ö´ë°ªï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 select emp_name, salary from employee 
 where salary < ANY(select salary from employee);
 
---ALL: ¼­ºêÄõ¸®ÀÇ °á°ú°ª ¸ðµÎ ÂüÀÌ¸é Âü
--- X > ALL : ¼­ºêÄõ¸®ÀÇ ¸ðµç °ªº¸´Ù Å©¸é Âü
---      ÃÖ´ë°ªº¸´Ù Å©¸é Âü.
--- X < ALL : ¼­ºêÄõ¸®ÀÇ ¸ðµç °ªº¸´Ù ÀÛÀ¸¸é Âü
---      ÃÖ¼Ò°ªº¸´Ù ÀÛÀ¸¸é Âü.
+--ALL: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½
+-- X > ALL : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½
+--      ï¿½Ö´ë°ªï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½.
+-- X < ALL : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+--      ï¿½Ö¼Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
 select emp_name, salary from employee 
 where salary > ALL(select min(salary) from employee
                     HAVING min(salary) < 6000000);
 
---»ó°ü ¼­ºêÄõ¸®: MAIN select¹®°ú subselect¹®ÀÌ ¼­·Î °á°ú¿¡ ¿µÇâÀ» ÁÖ´Â°Í
---¸Å´ÏÁ® ¾ÆÀÌµð ÀÖ´Â Á÷¿ø¸¸ return
---±âÁØ°ª E.manager_id¿¡ ´ëÀÀµÇ´Â °ªÀÌ EXISTÀÎ°æ¿ì Ãâ·Â M.emp_id IS NOT NULL
+--ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: MAIN selectï¿½ï¿½ï¿½ï¿½ subselectï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â°ï¿½
+--ï¿½Å´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ return
+--ï¿½ï¿½ï¿½Ø°ï¿½ E.manager_idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ EXISTï¿½Î°ï¿½ï¿½ ï¿½ï¿½ï¿½ M.emp_id IS NOT NULL
 select emp_id, emp_name, manager_id
 from employee E
 where EXISTS(select * from employee M
                 where E.manager_id = M.emp_id);
                 
---±âÁØ°ª E.manager_id¿¡ ´ëÀÀµÇ´Â °ªÀÌ NOT EXISTÀÎ°æ¿ì Ãâ·Â M.emp_id IS NULL
+--ï¿½ï¿½ï¿½Ø°ï¿½ E.manager_idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ NOT EXISTï¿½Î°ï¿½ï¿½ ï¿½ï¿½ï¿½ M.emp_id IS NULL
 select emp_id, emp_name, manager_id
 from employee E
 where NOT EXISTS(select * from employee M
                 where E.manager_id = M.emp_id);
 
 
---Á÷±ÞÀÌ J1, J2, J3ÀÌ ¾Æ´Ñ »ç¿øÁß¿¡¼­ 
---ÀÚ½ÅÀÇ ºÎ¼­º° Æò±Õ±Þ¿©º¸´Ù ¸¹Àº ±Þ¿©¸¦ ¹Þ´Â »ç¿øÃâ·Â.
--- ºÎ¼­ÄÚµå, »ç¿ø¸í, ±Þ¿©, ºÎ¼­º° ±Þ¿©Æò±Õ
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ J1, J2, J3ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ 
+--ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½Õ±Þ¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¿ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+-- ï¿½Î¼ï¿½ï¿½Úµï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Þ¿ï¿½, ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½Þ¿ï¿½ï¿½ï¿½ï¿½
 select E.dept_code, E.emp_name, E.salary, E2.AVG_SAL
 from employee E
     JOIN ( select dept_code, ROUND(avg(salary)) AVG_SAL
@@ -1271,12 +1271,12 @@ where job_code NOT IN ('J1', 'J2', 'J3')
 order by dept_code;
 
 
---½ºÄ®¶ó ¼­ºêÄõ¸®: »ó°üÄõ¸®ÀÎµ¥ ±×°á°ú result setÀÌ ¹«Á¶°Ç ÇÑ°³¸¸ ÀÖ´Â°Í!
---AVG_SAL´Â whereÀý¿¡¼­ Á¢±Ù ¸øÇÔ. select¹®Àº ¸¶Áö¸·¿¡ ½ÇÇà µÇ¹Ç·Î
---½ºÄ®¶ó: sql¿¡¼­ ´ÜÀÏ°ªÀ» °®´Â µ¥ÀÌÅÍ¸¦ ¤ÑÄ®¶ó ¶ó°í ÇÔ.
---  »ç¿ë: 1. select¹®ÀÇ column¿¡¼­ »ç¿ë°¡´É
---        2. whereÀý¿¡¼­µµ »ç¿ë °¡´É
---        3. order byÀý¿¡¼­µµ »ç¿ë °¡´É
+--ï¿½ï¿½Ä®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ ï¿½×°ï¿½ï¿½ result setï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ ï¿½Ö´Â°ï¿½!
+--AVG_SALï¿½ï¿½ whereï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. selectï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¹Ç·ï¿½
+--ï¿½ï¿½Ä®ï¿½ï¿½: sqlï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½Ä®ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½.
+--  ï¿½ï¿½ï¿½: 1. selectï¿½ï¿½ï¿½ï¿½ columnï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½
+--        2. whereï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--        3. order byï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 select dept_code, emp_name, salary, 
     (select round(avg(salary))
         from employee E2
@@ -1288,35 +1288,35 @@ where E1.job_code NOT IN ('J1', 'J2', 'J3')
                        where E1.dept_code = E2.dept_code)
 order by dept_code;
 
---select¹®¿¡ ½ºÄ®¶ó ¼­ºêÄõ¸® »ç¿ëÇÏ±â
---¸ðµç»ç¿øÀÇ »ç¹ø, ÀÌ¸§, °ü¸®ÀÚ»ç¹ø, °ü¸®ÀÚ¸í Á¶È¸
+--selectï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ú»ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½È¸
 select E.emp_id, E.emp_name, E.manager_id, M.emp_name
 from employee E
     JOIN employee M ON E.mananger_id=M.emp_id;
 
---½ºÄ®¶ó·Î º¯È¯ (Â÷ÀÌÁ¡: manager_id nullÀÌ¾îµµ null·Î Ãâ·ÂµÊ)
---(select ´ÜÀÏ°ª from Å×ÀÌºí)À¸·Î¸¸ ½ºÄ®¶ó ¼­ºêÄõ¸® Á¤ÀÇ °¡´É
+--ï¿½ï¿½Ä®ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: manager_id nullï¿½Ì¾îµµ nullï¿½ï¿½ ï¿½ï¿½Âµï¿½)
+--(select ï¿½ï¿½ï¿½Ï°ï¿½ from ï¿½ï¿½ï¿½Ìºï¿½)ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½Ä®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 select emp_id, emp_name, manager_id, 
     nvl((select emp_id 
         from employee M 
-      where E.manager_id = M.emp_id), '¾øÀ½') AS °ü¸®ÀÚ¸í
+      where E.manager_id = M.emp_id), 'ï¿½ï¿½ï¿½ï¿½') AS ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½
 from employee E;
 
---»ç¿ø¸í, ºÎ¼­ÄÚµå, ºÎ¼­¸í,ºÎ¼­º° Æò±ÕÀÓ±ÝÀ» ¼­ºêÄõ¸®¸¦ ÀÌ¿ëÇØÃâ·Â
+--ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Î¼ï¿½ï¿½Úµï¿½, ï¿½Î¼ï¿½ï¿½ï¿½,ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ó±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 select emp_name, dept_code, D.dept_title, 
     (select round(avg(salary))
         from employee E2
-        where E2.dept_code = E1.dept_code) AS ºÎ¼­º°Æò±ÕÀÓ±Ý
+        where E2.dept_code = E1.dept_code) AS ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó±ï¿½
 from employee E1
    JOIN department D ON E1.dept_code=D.dept_id
 order by dept_code;
 
---Á÷±ÞÀÌ J1 ¾Æ´Ñ»ç¿øÁß ÀÚ½ÅÀÇ ºÎ¼­º° Æò±Õ ±Þ¿©º¸´Ù ÀûÀº ±Þ¿©¹Þ´Â »ç¿øµé
---ºÎ¼­ÄÚµå, »ç¿ø¸í, ±Þ¿©, ºÎ¼­º° ±Þ¿©Æò±Õ
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ J1 ï¿½Æ´Ñ»ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¿ï¿½ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+--ï¿½Î¼ï¿½ï¿½Úµï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Þ¿ï¿½, ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½Þ¿ï¿½ï¿½ï¿½ï¿½
 select dept_code, emp_name, salary,
     (select round(avg(salary))
         from employee E2
-        where E1.dept_code = E2.dept_code) AS ºÎ¼­º°±Þ¿©Æò±Õ
+        where E1.dept_code = E2.dept_code) AS ï¿½Î¼ï¿½ï¿½ï¿½ï¿½Þ¿ï¿½ï¿½ï¿½ï¿½
 from employee E1
 where E1.job_code <> 'J1'
     and E1.salary < (select round(avg(salary))
@@ -1324,9 +1324,9 @@ where E1.job_code <> 'J1'
                         where E1.dept_code = E2.dept_code)
 order by dept_code;
 
---½ºÄ®¶ó whereÀý¿¡ »ç¿ëÇÏ±â
---ÀÚ½ÅÀÌ ¼ÓÇÑ Á÷±ÞÀÇ Æò±Õ±Þ¿©º¸´Ù ¸¹ÀÌ ¹Þ´Â Á÷¿øÀÇ 
---ÀÌ¸§, Á÷±Þ, ±Þ¿©¸¦ Á¶È¸
+--ï¿½ï¿½Ä®ï¿½ï¿½ whereï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
+--ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Õ±Þ¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+--ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Þ¿ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 select emp_name, J.job_name, salary
 from  employee E1
     JOIN job J ON E1.job_code = J.job_code
@@ -1335,64 +1335,64 @@ where E1.salary > (select round(avg(salary))
                         where E1.job_code= E2.job_code)
 order by E1.job_code;
 
---½ºÄ®¶ó ¼­ºêÄõ¸®¸¦ order by¿¡
---¸ðµç Á÷¿øÀÇ »ç¹ø, ÀÌ¸§, ¼Ò¼ÓºÎ¼­ Á¶È¸ÈÄ, ºÎ¼­¸íÀ¸·Î ¿À¸§Â÷¼ø
+--ï¿½ï¿½Ä®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ order byï¿½ï¿½
+--ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½Ì¸ï¿½, ï¿½Ò¼ÓºÎ¼ï¿½ ï¿½ï¿½È¸ï¿½ï¿½, ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 select emp_id, emp_name, dept_code
 from employee E
 order by (select dept_title from department D
             where E.dept_code = D.dept_id) DESC nulls last;
 
---¼­ºêÄõ¸®¸¦ FROM Àý¿¡ »ç¿ë
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ FROM ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 select emp_id, emp_name, dept_code,
-    DECODE(substr(emp_no,8,1), 1,'³²', 2,'¿©') AS ¼ºº°
+    DECODE(substr(emp_no,8,1), 1,'ï¿½ï¿½', 2,'ï¿½ï¿½') AS ï¿½ï¿½ï¿½ï¿½
 from employee
 where substr(emp_no,8,1) in (1,3);
 
 select * 
-from (select emp_id AS »ç¹ø, emp_name AS »ç¿ø¸í, 
-             dept_code AS ºÎ¼­ÄÚµå,
-             DECODE(substr(emp_no,8,1), 1,'³²', 2,'¿©') AS ¼ºº°
+from (select emp_id AS ï¿½ï¿½ï¿½, emp_name AS ï¿½ï¿½ï¿½ï¿½ï¿½, 
+             dept_code AS ï¿½Î¼ï¿½ï¿½Úµï¿½,
+             DECODE(substr(emp_no,8,1), 1,'ï¿½ï¿½', 2,'ï¿½ï¿½') AS ï¿½ï¿½ï¿½ï¿½
         from employee)
         --where emp_id like '20%');
-where ¼ºº°='³²' and »ç¹ø='200'; --ÄÃ·³¸íÀÌ ¹Ù²ñ. where¿¡ emp_id »ç¿ëºÒ°¡
+where ï¿½ï¿½ï¿½ï¿½='ï¿½ï¿½' and ï¿½ï¿½ï¿½='200'; --ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½. whereï¿½ï¿½ emp_id ï¿½ï¿½ï¿½Ò°ï¿½
 
 --INLINE VIEW
---Employee Å×ÀÌºí¿¡¼­ 1990³âµµ¿¡ ÀÔ»çÇÑ »ç¿øÀÇ 
---»ç¹ø, »ç¿ø¸í, ÀÔ»ç³âµµ
+--Employee ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ 1990ï¿½âµµï¿½ï¿½ ï¿½Ô»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
+--ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ô»ï¿½âµµ
 select *
-from (select emp_id, emp_name, EXTRACT(year from hire_date) AS ÀÔ»ç³âµµ
+from (select emp_id, emp_name, EXTRACT(year from hire_date) AS ï¿½Ô»ï¿½âµµ
         from employee
         where EXTRACT(year from hire_date) like '199_'
         order by emp_id, hire_date);
---where ÀÔ»ç³âµµ - 1990 between 0 and 9
+--where ï¿½Ô»ï¿½âµµ - 1990 between 0 and 9
 
---Employee Å×ÀÌºí¿¡¼­ »ç¿øÁß 30, 40´ëÀÎ ¿©ÀÚ»ç¿øÀÇ 
---»ç¹ø, ºÎ¼­¸í, ¼ºº°, ³ªÀÌ¸¦ Ãâ·Â
+--Employee ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 30, 40ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ï¿½ 
+--ï¿½ï¿½ï¿½, ï¿½Î¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½
 select *
 from (select emp_id, emp_name, dept_title, 
-        DECODE(substr(emp_no,8,1), 1,'³²',2,'¿©') AS ¼ºº°, 
+        DECODE(substr(emp_no,8,1), 1,'ï¿½ï¿½',2,'ï¿½ï¿½') AS ï¿½ï¿½ï¿½ï¿½, 
         EXTRACT(year from sysdate)
             - TO_NUMBER(DECODE(substr(emp_no,8,1),1,19,2,19,20)
-              || substr(emp_no,1,2)) + 1 AS ³ªÀÌ
+              || substr(emp_no,1,2)) + 1 AS ï¿½ï¿½ï¿½ï¿½
         from employee E
             LEFT JOIN department D ON dept_code=dept_id)
-where ¼ºº°='¿©'
-    and substr(³ªÀÌ,1,1) in(3,4);
---and (trunc(³ªÀÌ/10)) in (3,4);
+where ï¿½ï¿½ï¿½ï¿½='ï¿½ï¿½'
+    and substr(ï¿½ï¿½ï¿½ï¿½,1,1) in(3,4);
+--and (trunc(ï¿½ï¿½ï¿½ï¿½/10)) in (3,4);
 
 --WITH AS
---¼­ºêÄõ¸®¿¡ º°Äª ºÎ¿©ÇÏ¿© ±× º°ÄªÀ¸·Î ¼­ºêÄõ¸®¸¦ »ç¿ëÇÏ´Â °Í
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Äª ï¿½Î¿ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ ï¿½ï¿½Äªï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½
 WITH TT AS(select emp_id, emp_name, salary 
             from employee
             order by salary desc)
 select TT.emp_id, TT.emp_name, TT.salary 
     from TT;
 
---RANKING ¼øÀ§¸¦ Á¶È¸ÇÏ´Â Á¶È¸¹®À» ¾Ë¾Æº¸ÀÚ.
---  ¿ù±Þ¸¹Àº top3¸¦ Á¶È¸
---¿À¶óÅ¬ÀÌ Å×ÀÌºíÀÌ¸é Á¦°øÇÏ´Â ÄÃ·³
---ROWNUM : ÄÃ·³¿¡ ´ëÇØ ÀÚµ¿À¸·Î 1~³¡¹ø±îÁö ¹øÈ£ºÎ¿©
---ROWID : row¸¦ Ã£¾Æ°¥ ¼ö ÀÖ°Ô ÇØÁÖ´Â ÁÖ¼Ò°ª!
+--RANKING ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ï´ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾Æºï¿½ï¿½ï¿½.
+--  ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½ top3ï¿½ï¿½ ï¿½ï¿½È¸
+--ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ã·ï¿½
+--ROWNUM : ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ 1~ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½Î¿ï¿½
+--ROWID : rowï¿½ï¿½ Ã£ï¿½Æ°ï¿½ ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ö¼Ò°ï¿½!
 CREATE TABLE TEST(
     BOARDNO NUMBER,
     TITLE VARCHAR2(10),
@@ -1402,19 +1402,19 @@ CREATE TABLE TEST(
 
 select ROWID, ROWNUM, boardno, title, content, writer from test;
 
---ROWNUMÀº Å×ÀÌºí »ý¼º½Ã Insert¼ø¼­´ë·Î ³»ºÎÀûÀ¸·Î Á¤ÇØÁø °ª. (º¯ÇÏÁö ¾ÊÀ½)
---±×·¯¹Ç·Î, order by¿¡ ÀÇÇØ ROWNUMÀÌ º¯ÇÏÁö ¾Ê´Â´Ù.
---µû¶ó¼­ select * from (select ROWNUM R, ... from TABLE)
---´ÙÀ½ °á°ú´Â order by salary°¡ ³ôÀº ¼øÀ¸·Î Ãâ·ÂµÇÁö ¾Ê´Â´Ù.
+--ROWNUMï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Insertï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½. (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+--ï¿½×·ï¿½ï¿½Ç·ï¿½, order byï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ROWNUMï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
+--ï¿½ï¿½ï¿½ï¿½ select * from (select ROWNUM R, ... from TABLE)
+--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ order by salaryï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Âµï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 select ROWNUM, emp_id, emp_name, salary
     from employee
 where ROWNUM <=3
 order by salary desc;
 
---ROWNUM ÀÚµ¿À¸·Î ¼ýÀÚºÎ¿©. ºÎ¿©µÇ´Â ½ÃÁ¡Àº FROM(¼­ºêÄõ¸®)
---ORDER BY´Â FROM ÀÌÈÄ ¸¶Áö¸·¿¡ ½ÇÇàµÇ¹Ç·Î
---INLINE VIEW·Î ¹Ì¸® ³Ö¾îµÒ
---ÇÏÁö¸¸, ROWNUMÀº 1ºÎÅÍ row°¡ ¼±ÅÃµÇ¸é¼­ Áõ°¡ÇÏ¹Ç·Î, ROWNUM >=3´Â °á°ú ¾øÀ½
+--ROWNUM ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÚºÎ¿ï¿½. ï¿½Î¿ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ FROM(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+--ORDER BYï¿½ï¿½ FROM ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¹Ç·ï¿½
+--INLINE VIEWï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½Ö¾ï¿½ï¿½
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ROWNUMï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ rowï¿½ï¿½ ï¿½ï¿½ï¿½ÃµÇ¸é¼­ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½, ROWNUM >=3ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 select ROWNUM, E.*
 from (select emp_id, emp_name, salary 
         from employee order by salary desc) E
@@ -1425,29 +1425,29 @@ select ROWNUM, * from employee;
 --OK!
 select ROWNUM, EMPLOYEE.* from employee;
 
---D5ºÎ¼­¿¡¼­ ¿¬ºÀ »óÀ§ 3¸íÀÇ Á¤º¸Ãâ·Â
---¼øÀ§, »ç¹ø, »ç¿ø¸í, ¿¬ºÀ
+--D5ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½
 select ROWNUM, E.*
 from (select emp_id, emp_name,
-        TO_CHAR(12*salary, 'L999,999,999') AS ¿¬ºÀ
+        TO_CHAR(12*salary, 'L999,999,999') AS ï¿½ï¿½ï¿½ï¿½
         from employee 
-        where dept_code='D5' order by ¿¬ºÀ DESC) E
+        where dept_code='D5' order by ï¿½ï¿½ï¿½ï¿½ DESC) E
 where ROWNUM <=3;
 
---¿ù±ÞÀÌ 5µîºÎÅÍ 10µî±îÁö
---»ç¿ø¸í, ¿ù±Þ
---¾È³ª¿È!! ROWNUM BETWEEN A and B (A=1¾Æ´Ï¸é Ãâ·Â¾ÈµÊ)
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ï¿½ 10ï¿½ï¿½ï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½
+--ï¿½È³ï¿½ï¿½ï¿½!! ROWNUM BETWEEN A and B (A=1ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½Â¾Èµï¿½)
 --NOT WORKING!
 select ROWNUM, E.*
     from (select emp_name, salary
             from employee order by salary DESC) E
 where ROWNUM between 5 and 10; --NOT SHOWING ANY RESULTS
 
---paging Ã³¸®½Ã¿¡ ÇÊ¼ö
---INLINE VIEW¸¦ µÎ¹ø ½á¾ßÇÔ
---ROWNUMÀºÄõ¸®°á°ú°¡ selectedµÉ¶§ °ªÀÌ ºÎ¿©µÊ,
---Áï whereÀýÀÌ ³¡³ª°í³ª¼­ row°¡ ¼±ÅÃµÇ¸é¼­ ºÎ¿©µÇ¹Ç·Î,
---row>NÀÏ¶§ (N>1) 
+--paging Ã³ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½Ê¼ï¿½
+--INLINE VIEWï¿½ï¿½ ï¿½Î¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+--ROWNUMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ selectedï¿½É¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½,
+--ï¿½ï¿½ whereï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ rowï¿½ï¿½ ï¿½ï¿½ï¿½ÃµÇ¸é¼­ ï¿½Î¿ï¿½ï¿½Ç¹Ç·ï¿½,
+--row>Nï¿½Ï¶ï¿½ (N>1) 
 
 --When assigning ROWNUM to a row, 
 --Oracle starts at 1 and only increments the value when a row 
@@ -1461,14 +1461,14 @@ from ( select ROWNUM RNUM, E.*
     )
 where RNUM between 5 and 10;
 
---°èÃþÇü Äõ¸®
---      Á¶Á÷µµ ±¸¼º, ¸Þ´º, ´äº¯Çü °Ô½ÃÆÇ(´ñ±Û)
---  FROM ´ÙÀ½¿¡ ¿É¼Ç °ªÀ» µî·ÏÇØ¼­ Ã³¸®ÇÔ
---  START WITH: ºÎ¸ðÇà(·çÆ®³ëµå) ÁöÁ¤
---  CONNECT BY: ºÎ¸ð-ÀÚ½Ä°ü°è ¼³Á¤
---  PRIOR: START WITH Àý¿¡¼­ Á¦½ÃÇÑ ºÎ¸ðÇàÀÇ ±âÁØÄÃ·³À» ÁöÁ¤
---  LEVEL: °èÃþÁ¤º¸¸¦ ³ªÅ¸³»´Â °¡»óÀÇ ÄÃ·³
--- ´ñ±Û ½Ã½ºÅÛ ¸¸µé¶§ »ç¿ë
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Þ´ï¿½, ï¿½äº¯ï¿½ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½)
+--  FROM ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½
+--  START WITH: ï¿½Î¸ï¿½ï¿½ï¿½(ï¿½ï¿½Æ®ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½
+--  CONNECT BY: ï¿½Î¸ï¿½-ï¿½Ú½Ä°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--  PRIOR: START WITH ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--  LEVEL: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½
+-- ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½é¶§ ï¿½ï¿½ï¿½
 select LEVEL, emp_id, emp_name, manager_id
 from employee
 start with emp_id=200
@@ -1476,23 +1476,23 @@ connect by prior emp_id = manager_id
 order by LEVEL;
 
 select LPAD(' ', (LEVEL-1)*5, ' ') || 
-    EMP_NAME ||NVL2(MANAGER_ID, '(' || MANAGER_ID||')', '') AS Á¶Á÷µµ
+    EMP_NAME ||NVL2(MANAGER_ID, '(' || MANAGER_ID||')', '') AS ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 from employee
 start with manager_id IS NULL
 connect by prior emp_id=manager_id;
 
---RANK() À©µµ¿ìÇÔ¼ö: ¿À¶óÅ¬ÀÌ Á¦°øÇÏ´Â ¼øÀ§Á¶È¸ ÇÔ¼ö
---  ROWNUMÀ» ´õ ¸¹ÀÌ ¾¸.
-select ¼øÀ§, emp_name, salary
+--RANK() ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½: ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ ï¿½Ô¼ï¿½
+--  ROWNUMï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+select ï¿½ï¿½ï¿½ï¿½, emp_name, salary
 from (select emp_name, salary,
-            RANK() OVER(order by salary desc) AS ¼øÀ§
+            RANK() OVER(order by salary desc) AS ï¿½ï¿½ï¿½ï¿½
             from employee order by salary desc);
 
-select ¼øÀ§, emp_name, salary
+select ï¿½ï¿½ï¿½ï¿½, emp_name, salary
 from (select emp_name, salary,
-            DENSE_RANK() OVER(order by salary desc) AS ¼øÀ§
+            DENSE_RANK() OVER(order by salary desc) AS ï¿½ï¿½ï¿½ï¿½
             from employee order by salary desc)
-where ¼øÀ§ between 5 and 10;
+where ï¿½ï¿½ï¿½ï¿½ between 5 and 10;
 
 --DML
 --  Manipulates Table Data
@@ -1506,24 +1506,24 @@ where ¼øÀ§ between 5 and 10;
 --INSERT into TABLE_NAME
 --    VALUES(VAL_1,...VAL_TOTALCOLNUM);
 
---oracleÀº DEFAULT ¸í½ÃÇØ¾ßµÊ, 
---mysqlÀº ÀÚµ¿À¸·Î µðÆúµå°ª ´ëÀÔÇÔ
+--oracleï¿½ï¿½ DEFAULT ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ßµï¿½, 
+--mysqlï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½å°ª ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 INSERT INTO employee VALUES(
-    900, 'ÀåÃ¤Çö', '901123-1080503', 'jang_ch@kh.or.kr', '01055569512',
+    900, 'ï¿½ï¿½Ã¤ï¿½ï¿½', '901123-1080503', 'jang_ch@kh.or.kr', '01055569512',
     'D1', 'J8', 'S3', 4300000, 0.2, '200', SYSDATE, DEFAULT, DEFAULT);
 
 INSERT INTO employee VALUES(
-    901, 'ÇÔÁö¹Î', '781020-2123453', 'hamham@kh.or.kr', '01012341234',
+    901, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '781020-2123453', 'hamham@kh.or.kr', '01012341234',
     'D1', 'J4', 'S3', 4500000, DEFAULT, 
-        (SELECT emp_id from employee where emp_name='ÀÌ¿À¸®'), 
+        (SELECT emp_id from employee where emp_name='ï¿½Ì¿ï¿½ï¿½ï¿½'), 
         SYSDATE, DEFAULT, DEFAULT);
 
 INSERT INTO employee(emp_id, emp_name, emp_no, email, phone,
     dept_code, job_code, sal_level, salary, bonus, manager_id)
-VALUES(903, 'À¯º´½Â', '000224-3123412', 'prince0324@naver.com',
+VALUES(903, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '000224-3123412', 'prince0324@naver.com',
         '01036446259', 'D2','J1','S1', '99900000', 0.8, '200');
 
-select * from employee where emp_name in('ÀåÃ¤Çö', 'ÇÔÁö¹Î', 'À¯º´½Â');
+select * from employee where emp_name in('ï¿½ï¿½Ã¤ï¿½ï¿½', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
 COMMIT;
  
@@ -1534,22 +1534,22 @@ COMMIT;
 --  "EMP_NAME" IS NOT NULL
 --  "EMP_ID" IS NOT NULL
 INSERT INTO employee(emp_id, emp_name, emp_no, sal_level, job_code)
-    VALUES(904, '¼­ÇöÈñ', '910804-2123412', 'S1', 'J3');
+    VALUES(904, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '910804-2123412', 'S1', 'J3');
 
---INSERT¹®¿¡ ¼­ºêÄõ¸® ÀÌ¿ëÇÏ±â
+--INSERTï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ï±ï¿½
 CREATE TABLE emp_01(
     EMP_ID NUMBER,
     EMP_NAME VARCHAR2(30),
     EMP_TITLE VARCHAR2(20));
 
-INSERT INTO emp_01 VALUES(999, 'À¯º´½Â', '´ëÇ¥ÀÌ»ç');
+INSERT INTO emp_01 VALUES(999, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'ï¿½ï¿½Ç¥ï¿½Ì»ï¿½');
 
 INSERT INTO emp_01( select emp_id, emp_name, J.job_name
     from employee E JOIN job J ON E.job_code = J.job_code);
 
 select * from emp_01;
 
---CREATEÀº ÀÚµ¿ COMMIT µÊ
+--CREATEï¿½ï¿½ ï¿½Úµï¿½ COMMIT ï¿½ï¿½
 CREATE TABLE emp_hire_date(
     emp_id NUMBER,
     emp_name VARCHAR2(30),
@@ -1579,9 +1579,9 @@ INSERT ALL
 select emp_id, emp_name, hire_date, manager_id
     from employee;
 
---INSERT ALL ¿©·¯ Å×ÀÌºí¿¡ ÇÑ¹ø¿¡ °ªÀ» »ðÀÔ
---°ªÀ» ³ÖÀ»¶§, Á¶°Ç¿¡ µû¶ó¼­ °ªÀ» ³ÖÀ» ¼ö ÀÖÀ½.
---CASE Àý °ú ºñ½ÁÇÑ WHENÀ» »ç¿ëÇØ¼­ Ã³¸®ÇÔ.
+--INSERT ALL ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+--CASE ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ WHENï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½.
 CREATE TABLE emp_old(
     emp_id NUMBER,
     emp_name VARCHAR2(30),
@@ -1594,8 +1594,8 @@ CREATE TABLE emp_new(
     hire_date DATE,
     salary NUMBER);
 
---OLD employeeÅ×ÀÌºí¿¡¼­ 00.01.01 ÀÌÀü ÀÔ»çÇÑ »ç¿ø
---NEW employeeÅ×ÀÌºí¿¡¼­ 00.01.01 ÀÌÈÄ ÀÔ»çÇÑ »ç¿ø
+--OLD employeeï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ 00.01.01 ï¿½ï¿½ï¿½ï¿½ ï¿½Ô»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+--NEW employeeï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ 00.01.01 ï¿½ï¿½ï¿½ï¿½ ï¿½Ô»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 INSERT INTO emp_old( select emp_id , emp_name, hire_date, salary
                     from employee
                     where hire_date < '00/01/01');
@@ -1616,25 +1616,25 @@ INSERT ALL
 select emp_id, emp_name, hire_date, salary
 from employee;
 
---UPDATE Å×ÀÌºíÀÇ ³»¿ëÀ» ¼öÁ¤ÇÏ´Â °Í
---  UPDATE table_name SET º¯°æµÈÄÃ·³=º¯°æµÉ°ª;
+--UPDATE ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½
+--  UPDATE table_name SET ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½=ï¿½ï¿½ï¿½ï¿½É°ï¿½;
 CREATE TABLE copy_dept 
     AS select * from department;
 
---ÃÑ¹«ºÎ -> Àü·«±âÈ¹ºÎ
-UPDATE copy_dept SET dept_title='Àü·«±âÈ¹ºÎ', location_id='L1'
+--ï¿½Ñ¹ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¹ï¿½ï¿½
+UPDATE copy_dept SET dept_title='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¹ï¿½ï¿½', location_id='L1'
 where dept_id='D9';
 
---UPDATE¹®µµ ¼­ºêÄõ¸®¸¦ ÀÌ¿ëÇÒ ¼ö ÀÖÀ½
+--UPDATEï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 CREATE table emp_salary
 AS select emp_id, emp_name, salary, bonus from employee;
 
 UPDATE emp_salary SET bonus = ( select bonus from emp_salary
-            where emp_name='ÇÏÀÌÀ¯')
+            where emp_name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½')
     where emp_id = ( select emp_id from emp_salary
-            where emp_name='¼ÛÁ¾±â');
+            where emp_name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
---ºÎ¼­°¡ È¸°è°ü¸®ºÎ ÀÎ »ç¿øµéÀÇ º¸³Ê½º¸¦ .4·Î ¼öÁ¤
+--ï¿½Î¼ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ .4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 CREATE table emp_salary1
 AS select emp_id, emp_name, dept_code, salary, bonus
     from employee;
@@ -1643,29 +1643,29 @@ UPDATE emp_salary1
 SET bonus=.4
 where dept_code=(
     select dept_code from department
-        where dept_title = 'È¸°è°ü¸®ºÎ');
+        where dept_title = 'È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
 select * from emp_salary1;
 
---ÃÑ¹«ºÎ »ç¿øÀÇ ¿ù±ÞÀÌ 100000¿ø Áõ°¡½ÃÅ°±â
+--ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 100000ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½
 UPDATE emp_salary1
 SET salary = (salary+100000)
 where dept_code= (select dept_id from department
-                where dept_title='ÃÑ¹«ºÎ');
+                where dept_title='ï¿½Ñ¹ï¿½ï¿½ï¿½');
 
---´ÙÁß ¿­ UPDATE
+--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ UPDATE
 select emp_name, salary, bonus from emp_salary1
-where emp_name in ('À¯Àç½Ä', '¹æ¸í¼ö');
+where emp_name in ('ï¿½ï¿½ï¿½ï¿½ï¿½', 'ï¿½ï¿½ï¿½ï¿½ï¿½');
 
 UPDATE emp_salary1
 SET (salary, bonus) = (select salary, bonus
-from emp_salary1 where emp_name ='À¯Àç½Ä')
-where emp_name = '¹æ¸í¼ö';
+from emp_salary1 where emp_name ='ï¿½ï¿½ï¿½ï¿½ï¿½')
+where emp_name = 'ï¿½ï¿½ï¿½ï¿½ï¿½';
 
 CREATE table emp_local
 as select * from employee;
 
---±Ù¹«Áö¿ªÀÌ À¯·´ÀÎ »ç¶÷ º¸³Ê½º¸¦ .5
+--ï¿½Ù¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ .5
 UPDATE emp_local
 SET bonus =.5
 where dept_code = (select dept_id
@@ -1674,12 +1674,12 @@ where dept_code = (select dept_id
 
 select bonus from emp_local where dept_code='D8';
 
---MERGE µÎ°³ÀÇ Å×ÀÌºíÀ»ÇÕÄ¡´Â ÀÛ¾÷
---  »ç¿ë: row³¢¸® º´ÇÕ
---  MERGE INTO Å×ÀÌºí¸í USING ÇÕÃÄÁúÅ×ÀÌºí¸í
---      ON (°áÇÕÇÒ±âÁØ°ª)
---  WHEN MATCHED THEN UPDATE±¸¹®
---  WHEN NOT MATCHED THEN INSERT±¸¹®
+--MERGE ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Û¾ï¿½
+--  ï¿½ï¿½ï¿½: rowï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--  MERGE INTO ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ USING ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½
+--      ON (ï¿½ï¿½ï¿½ï¿½ï¿½Ò±ï¿½ï¿½Ø°ï¿½)
+--  WHEN MATCHED THEN UPDATEï¿½ï¿½ï¿½ï¿½
+--  WHEN NOT MATCHED THEN INSERTï¿½ï¿½ï¿½ï¿½
 CREATE TABLE MERGE_TEST
     AS (select * from employee);
 
@@ -1690,7 +1690,7 @@ select * from merge_test where dept_code ='D8';
 select * from merge_test2;
 
 INSERT INTO merge_test2
-VALUES(998, '¹Ù¹Ù', '171230-1234555','baba@b.com',
+VALUES(998, 'ï¿½Ù¹ï¿½', '171230-1234555','baba@b.com',
     '01011112222', 'D2', 'J2', 'S2', 100, .1, 
     NULL, sysdate, DEFAULT, DEFAULT);
 
@@ -1703,7 +1703,7 @@ ON(merge_test.emp_id = merge_test2.emp_id)
 WHEN MATCHED THEN 
     UPDATE SET merge_test.salary = merge_test2.salary,
            merge_test.bonus = merge_test2.bonus
-    --¸ðµç ÄÃ·³ UPDATE SET(¸ðµç µ¥ÀÌÅÍ ÀüºÎ MERGE ÇÏ·Á¸é)
+    --ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ UPDATE SET(ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ MERGE ï¿½Ï·ï¿½ï¿½ï¿½)
     --merge_test.emp_name = merge_test2.emp_name, ...
 WHEN NOT MATCHED THEN
     INSERT VALUES( merge_test2.EMP_ID, merge_test2.EMP_NAME, 
@@ -1715,8 +1715,8 @@ WHEN NOT MATCHED THEN
 select emp_name, dept_code, salary, bonus from merge_test
 where dept_code='D8';
 
---DELETE: whereÀý¿¡ pk ÄÃ·³ ÁÖ·Î ¾¸
-DELETE from merge_test where emp_name='À¯º´½Â';
+--DELETE: whereï¿½ï¿½ï¿½ï¿½ pk ï¿½Ã·ï¿½ ï¿½Ö·ï¿½ ï¿½ï¿½
+DELETE from merge_test where emp_name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
 ALTER TABLE EMPLOYEE ADD FOREIGN KEY(dept_code)
     REFERENCES DEPARTMENT(dept_id);
@@ -1727,11 +1727,11 @@ ALTER TABLE EMPLOYEE ADD FOREIGN KEY(dept_code)
 --  (KH.SYS_C007055) violated - parent key not found
 INSERT INTO EMPLOYEE(emp_id, emp_name, emp_no, 
         sal_level, dept_code, job_code)
-    VALUES(997, '·ç·ç', '990101-1311333', 'S2','D0', 'J2');
+    VALUES(997, 'ï¿½ï¿½ï¿½', '990101-1311333', 'S2','D0', 'J2');
 
 INSERT INTO EMPLOYEE(emp_id, emp_name, emp_no, 
         sal_level, dept_code, job_code)
-    VALUES(997, '·ç·ç', '990101-1311333', 'S2','D1', 'J2');
+    VALUES(997, 'ï¿½ï¿½ï¿½', '990101-1311333', 'S2','D1', 'J2');
 
 --NO RESULT!
 select * from department where dept_id='D0';
@@ -1744,7 +1744,7 @@ DELETE from department where dept_id='D1';
 --OK! Because 'D4' has NO CHILD RECORD!
 DELETE from department where dept_id='D4';
 
---TRUNCATE (DELETE¿Í °°Áö¸¸, ROLLBACK ¾ÈµÊ)
+--TRUNCATE (DELETEï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ROLLBACK ï¿½Èµï¿½)
 DELETE from merge_test;
 ROLLBACK; --OK
 
@@ -1752,11 +1752,11 @@ TRUNCATE TABLE merge_test;
 ROLLBACK; --CANNOT retrieve data...
 
 --DDL
---  CREATE ¿ÀºêÁ§Æ® »ý¼º
---  ALTER ¿ÀºêÁ§Æ® ¼öÁ¤
---  DROP ¿ÀºêÁ§Æ® »èÁ¦
---  ¿ÀºêÁ§Æ®: table ,view, index, sequence, user ...
---»ç¿ë: CREATE ¿ÀºêÁ§Æ®Á¾·ù ¿ÀºêÁ§Æ®¸íÄª
+--  CREATE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+--  ALTER ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+--  DROP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+--  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®: table ,view, index, sequence, user ...
+--ï¿½ï¿½ï¿½: CREATE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½Äª
 CREATE TABLE member1(
     mem_name VARCHAR2(20),
     mem_password VARCHAR2(30),
@@ -1765,15 +1765,15 @@ CREATE TABLE member1(
 
 select * from member1;
 
---Å×ÀÌºí ÄÃ·³¿¡ ÁÖ¼®´Þ±â.
-COMMENT ON COLUMN member1.mem_name IS 'È¸¿ø ÀÌ¸§';
-COMMENT ON COLUMN member1.mem_password IS 'È¸¿ø ºñ¹Ð¹øÈ£';
-COMMENT ON COLUMN member1.mem_id IS 'È¸¿ø ¾ÆÀÌµð';
+--ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½Þ±ï¿½.
+COMMENT ON COLUMN member1.mem_name IS 'È¸ï¿½ï¿½ ï¿½Ì¸ï¿½';
+COMMENT ON COLUMN member1.mem_password IS 'È¸ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£';
+COMMENT ON COLUMN member1.mem_id IS 'È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½';
 
 --select * from all_tab_comments where table_name='MEMBER1';
 select * from user_col_comments where table_name='MEMBER1';
 
---CONSTRAINTS Á¦¾àÁ¶°Ç
+--CONSTRAINTS ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 --  NOT NULL
 --  UNIQUE
 --  PRIMARY KEY(NOT NULL & UNIQUE)
@@ -1785,10 +1785,10 @@ CREATE TABLE member2(
     MEM_ID VARCHAR2(10) UNIQUE,
     MEM_PASSWORD varchar2(20));
 
---CONSTRAINT_TYPE='C' CHECK ¶Ç´Â NOT NULL
---CONSTRAINT_TYPE='R' FOREIGN KEY ¼³Á¤µÊ
---CONSTRAINT_TYPE='P' PRIMARY KEY ¼³Á¤µÊ
---CONSTRAINT_TYPE='U' UNIQUE ¼³Á¤µÊ
+--CONSTRAINT_TYPE='C' CHECK ï¿½Ç´ï¿½ NOT NULL
+--CONSTRAINT_TYPE='R' FOREIGN KEY ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--CONSTRAINT_TYPE='P' PRIMARY KEY ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--CONSTRAINT_TYPE='U' UNIQUE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 select * from user_cons_columns;
 select * from user_constraints;
@@ -1796,9 +1796,9 @@ select table_name, constraint_name, constraint_type
     from user_constraints 
     where table_name in ('MEMBER1', 'MEMBER2');
 
---NOT NULL Æ¯Á¤ ÄÃ·³¿¡ ¹«Á¶°Ç µ¥ÀÌÅÍ¸¦ ³Ö¾î¾ß ÇÒ ¶§
---NULL¿¡ ´ëÇØ Á¦¾àÁ¶°ÇÀ» ¼³Á¤ÇÏÁö ¾ÊÀ¸¸é ¹«Á¶°Ç NULL Çã¿ë
---ID, PW, NO¿¡´Â °ªÀÌ ¹Ýµå½Ã ÇÊ¿ä. NULL°ªÀÌ ¸øµé¾î ¿À°Ô ¼³Á¤
+--NOT NULL Æ¯ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ö¾ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+--NULLï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ NULL ï¿½ï¿½ï¿½
+--ID, PW, NOï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ýµï¿½ï¿½ ï¿½Ê¿ï¿½. NULLï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 CREATE TABLE user_ncons(
     user_no NUMBER NOT NULL,
     user_id VARCHAR2(30) NOT NULL,
@@ -1862,7 +1862,7 @@ INSERT INTO user_uni VALUES(
 --ERROR! ORA-00001: unique constraint (KH.SYS_C007066) violated
 INSERT INTO user_uni VALUES(
 2, 'admin', 1234, 'administrator2', 'F', '01012345555', 'admin@a.com');
---OK! NULLÀº Áßº¹ Ãë±Þ ¾ÈµÊ -> NOT NULL CONSTRAINT·Î NULL insert ¹æÁöÇØ¾ßÇÔ.
+--OK! NULLï¿½ï¿½ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ ï¿½Èµï¿½ -> NOT NULL CONSTRAINTï¿½ï¿½ NULL insert ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½.
 INSERT INTO user_uni VALUES(
 3, NULL, 1234, 'administrator2', 'F', '01012345555', 'admin@a.com');
 
@@ -1927,8 +1927,8 @@ INSERT INTO user_primary VALUES(
 select * from user_primary;
 
 --PRIMARY KEY (COMPOSITE)
---  PRIMARY KEY º¹ÇÕÅ°´Â Å×ÀÌºí·¹º§·Î »ý¼º
---user(n), product(n) ÀÌ¾îÁÖ´Â Å×ÀÌºí·Î Á¤ÀÇ °¡´É
+--  PRIMARY KEY ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--user(n), product(n) ï¿½Ì¾ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 CREATE TABLE tbl_composite_key(
     proc_no VARCHAR2(20),
     user_id VARCHAR2(20),
@@ -1945,17 +1945,17 @@ INSERT INTO tbl_composite_key VALUES('P111', 'user01', '19/06/25', 10); --ERROR!
 select * from tbl_composite_key;
 
 
---FOREIGN KEY : ÂüÁ¶µÇ´Â ÄÃ·³ °ª NULL °¡´É
---¿ÜºÎ Å×ÀÌºí¿¡¼­ °ªÀ» °¡Á®¿À´Â°Í!
---REFERENCE ÂüÁ¶ÇÒ ÄÃ·³ »ý·«ÇÏ¸é, ÂüÁ¶ÇÏ´Â Å×ÀÌºíÀÇ primary key¸¦ ÂüÁ¶!
+--FOREIGN KEY : ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Ã·ï¿½ ï¿½ï¿½ NULL ï¿½ï¿½ï¿½ï¿½
+--ï¿½Üºï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½!
+--REFERENCE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ primary keyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!
 CREATE TABLE user_grade(
     grade_no NUMBER PRIMARY KEY,
     grade_name VARCHAR2(10)
 );
 
-INSERT INTO user_grade VALUES(10, 'ÀÏ¹Ý');
-INSERT INTO user_grade VALUES(20, '½Ç¹ö');
-INSERT INTO user_grade VALUES(30, '°ñµå');
+INSERT INTO user_grade VALUES(10, 'ï¿½Ï¹ï¿½');
+INSERT INTO user_grade VALUES(20, 'ï¿½Ç¹ï¿½');
+INSERT INTO user_grade VALUES(30, 'ï¿½ï¿½ï¿½');
 
 select * from user_grade;
 
@@ -2042,9 +2042,9 @@ INSERT INTO user_tbl VALUES('USER01', '1234', 'auauau', 'aa@rr.com');
 INSERT INTO user_tbl VALUES('USER02', '1234', 'bububu', 'bb@rr.com');
 INSERT INTO user_tbl VALUES('USER03', '1234', 'cucucu', 'cc@rr.com');
 
-INSERT INTO product_tbl VAlUES('F01', 'Ä§´ë', 1000000);
-INSERT INTO product_tbl VAlUES('F02', 'ÄÄÇ»ÅÍ', 1200000);
-INSERT INTO product_tbl VAlUES('F03', '¿¡¾îÄÁ', 2000000);
+INSERT INTO product_tbl VAlUES('F01', 'Ä§ï¿½ï¿½', 1000000);
+INSERT INTO product_tbl VAlUES('F02', 'ï¿½ï¿½Ç»ï¿½ï¿½', 1200000);
+INSERT INTO product_tbl VAlUES('F03', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 2000000);
 
 CREATE TABLE shop(
     user_id VARCHAR2(20),
@@ -2056,7 +2056,7 @@ INSERT INTO shop VALUES('user03', 'f01', sysdate);
 
 select * from shop;
 
---user_id ´ë¼Ò¹®ÀÚ ´Þ¶ó¼­ ¸øÃ£À½
+--user_id ï¿½ï¿½Ò¹ï¿½ï¿½ï¿½ ï¿½Þ¶ï¿½ ï¿½ï¿½Ã£ï¿½ï¿½
 select * from shop S
     LEFT JOIN user_tbl U ON S.user_id = U.user_id;
 
@@ -2074,7 +2074,7 @@ INSERT INTO shop1 VALUES('USER03', 'F01', sysdate);
 select * from shop1 S
     LEFT JOIN user_tbl U ON S.user_id = U.user_id;
 
---FOREIGN KEY¿¡´Â NULL ´ëÀÔµÊ ¸·À¸·Á¸é NOT NULLµµ Ãß°¡
+--FOREIGN KEYï¿½ï¿½ï¿½ï¿½ NULL ï¿½ï¿½ï¿½Ôµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ NOT NULLï¿½ï¿½ ï¿½ß°ï¿½
 INSERT INTO shop1 VALUES(NULL, NULL, sysdate);
 
 select * from shop1;
@@ -2087,12 +2087,12 @@ delete from user_tbl where user_id = 'USER03';
 --OK
 delete from user_tbl where user_id = 'USER01';
 
---fk·Î reference °É·ÁÀÖ´Â µ¥ÀÌÅÍ »èÁ¦ µÇµµ·Ï
---Å×ÀÌºí »ý¼º½Ã ¿É¼Ç ÁöÁ¤
---ÂüÁ¶Å°¿¡ »èÁ¦¿¡ ´ëÇÑ ¿É¼ÇÀ» ¼³Á¤ÇÒ ¼ö ÀÖÀ½
---  ON DELETE ¿É¼Ç
---    SET NULL : NULL·Î ¹Ù²ãÁÜ(ºÎ¸ð¿¡reference µÇ¾îÀÖ¾îµµ ÀÚ½ÄÄÃ·³ NULL º¯È¯µÊ)
---    SET CASCADE : ºÎ¸ð°ª Áö¿öÁö¸é ÀÚ½Äµ¥ÀÌÅÍµµ °°ÀÌ »èÁ¦
+--fkï¿½ï¿½ reference ï¿½É·ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--  ON DELETE ï¿½É¼ï¿½
+--    SET NULL : NULLï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½(ï¿½Î¸ï¿½reference ï¿½Ç¾ï¿½ï¿½Ö¾îµµ ï¿½Ú½ï¿½ï¿½Ã·ï¿½ NULL ï¿½ï¿½È¯ï¿½ï¿½)
+--    SET CASCADE : ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½Äµï¿½ï¿½ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 select * from user_tbl;
 
 CREATE TABLE shop2(
@@ -2146,15 +2146,15 @@ DELETE from user_tbl where user_id='USER03';
 select * from user_tbl;
 select * from shop4;
 
---CHECK Á¦¾àÁ¶°Ç: µ¥ÀÌÅÍ·Î µé¾î¿À´Â°ªÀ» Æ¯Á¤°ªÀ¸·Î Á¦ÇÑ
+--CHECK ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 CREATE TABLE check_tbl(
     username VARCHAR2(20),
-    gender VARCHAR2(10) CHECK(gender in ('³²','¿©'))
+    gender VARCHAR2(10) CHECK(gender in ('ï¿½ï¿½','ï¿½ï¿½'))
 );
-INSERT INTO check_tbl VALUES('¹Ù¹Ù¹Ù', '³²ÀÚ'); --ERROR
-INSERT INTO check_tbl VALUES('¹Ù¹Ù¹Ù', '¿©'); --OK
+INSERT INTO check_tbl VALUES('ï¿½Ù¹Ù¹ï¿½', 'ï¿½ï¿½ï¿½ï¿½'); --ERROR
+INSERT INTO check_tbl VALUES('ï¿½Ù¹Ù¹ï¿½', 'ï¿½ï¿½'); --OK
 
---SUBQUERY ÀÌ¿ëÇÑ CREATE TABLE
+--SUBQUERY ï¿½Ì¿ï¿½ï¿½ï¿½ CREATE TABLE
 CREATE TABLE employee_tbl
 AS select * from employee 
     JOIN department ON dept_id= dept_code
@@ -2163,13 +2163,13 @@ AS select * from employee
 
 select emp_name, dept_title, job_name from employee_tbl;
 
---ÄÃ·³¸¸ º¹»ç WHERE 1=0
+--ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ WHERE 1=0
 CREATE TABLE temp AS select emp_name, salary, bonus 
         from employee where 1=0;
 select * from temp;
 
--- ALTER TABLE Å×ÀÌºí¸í ADD (COL DataType);
--- Å×ÀÌºí¿¡ ¼³Á¤µÈ ¼³Á¤À» Ãß°¡ º¯°æ, Á¦¾à Á¶°ÇÀ» Ãß°¡/º¯°æ
+-- ALTER TABLE ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ADD (COL DataType);
+-- ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½/ï¿½ï¿½ï¿½ï¿½
 select * from user_tbl;
 
 ALTER TABLE user_tbl ADD(age NUMBER);
@@ -2178,7 +2178,7 @@ ALTER TABLE user_tbl ADD(address VARCHAR2(30));
 
 select * from user_tbl;
 
---COLUMN Ãß°¡½Ã DEFAULT °ª ¼³Á¤°¡´É
+--COLUMN ï¿½ß°ï¿½ï¿½ï¿½ DEFAULT ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 CREATE TABLE defaulttest(
     age NUMBER default 10
 );
@@ -2189,18 +2189,18 @@ INSERT INTO defaulttest VALUES(default);
 select * from defaulttest;
 
 --DEFAULT -> NOT NULL
---ÄÃ·³ Ãß°¡ÇÏ¸é¼­ Á¦¾àÁ¶°Ç ¼³Á¤
+--ï¿½Ã·ï¿½ ï¿½ß°ï¿½ï¿½Ï¸é¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 ALTER TABLE user_tbl ADD(
-    national VARCHAR2(20) DEFAULT 'ÇÑ±¹');
+    national VARCHAR2(20) DEFAULT 'ï¿½Ñ±ï¿½');
 ALTER TABLE user_tbl ADD(
     user_no VARCHAR2(20) UNIQUE);
 ALTER TABLE user_tbl ADD(
-    gender VARCHAR2(10) DEFAULT '¿©' check(gender in ('³²','¿©')));
+    gender VARCHAR2(10) DEFAULT 'ï¿½ï¿½' check(gender in ('ï¿½ï¿½','ï¿½ï¿½')));
 
 select * from user_tbl;
 
 
---Á¦¾àÁ¶°Ç Å×ÀÌºí »ý¼º ÈÄ¿¡ »õ·Î Ãß°¡
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 CREATE TABLE add_cons(
     emp_no NUMBER,
     emp_id VARCHAR2(20),
@@ -2210,14 +2210,14 @@ CREATE TABLE add_cons(
 ALTER TABLE add_cons
 ADD CONSTRAINT pk_add_cons PRIMARY KEY (emp_no);
  
---emp_id unique Á¦¾àÁ¶°Ç ¼³Á¤!
+--emp_id unique ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!
 ALTER TABLE add_cons
 ADD CONSTRAINT unq_cons UNIQUE(emp_id);
 
---ERROR ¾ÈµÊ!
---emp_pwd not null Á¦¾àÁ¶°Ç ¼³Á¤! 
---null able ±âº» Á¦¾àÁ¶°ÇÀÌ nullÀÌ ÀÌ¹Ì ¼³Á¤ µÇ¾î ÀÖÀ½
---Á¦¾àÁ¶°ÇÀ» Ãß°¡ÇÏ´Â °ÍÀÌ ¾Æ´Ï¶ó, ÀÌ¹Ì ¼³Á¤µÈ
+--ERROR ï¿½Èµï¿½!
+--emp_pwd not null ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½! 
+--null able ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nullï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½, ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 --null -> not null;
 --ERROR!!
 ALTER TABLE add_cons
@@ -2226,36 +2226,36 @@ ADD CONSTRAINT nn_cons NOT NULL(emp_pw);
 ALTER TABLE add_cons
 MODIFY emp_pw CONSTRAINT nn_cons NOT NULL;
 
---ÄÃ·³ÀÇ ³»¿ëÀ» ¼öÁ¤(ÀÚ·áÇü, ±æÀÌ)
+--ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ú·ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½)
 ALTER TABLE add_cons
 MODIFY emp_no VARCHAR2(20);
 
 
---emp_id ±æÀÌ¸¦ 100À¸·Î Áõ°¡
---±æÀÌ¸¦ Ãà¼ÒÇÒ¶§, µ¥ÀÌÅÍ Á¸ÀçÇÏ¸é º¯°æ ºÒ°¡.
+--emp_id ï¿½ï¿½ï¿½Ì¸ï¿½ 100ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½.
 ALTER TABLE add_cons
 MODIFY emp_id VARCHAR2(100);
 
---ÄÃ·³ »èÁ¦ÇÏ±â
---ALTER TABLE Å×ÀÌºí¸í DROP COLUMN ÄÃ·³¸í
+--ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
+--ALTER TABLE ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ DROP COLUMN ï¿½Ã·ï¿½ï¿½ï¿½
 ALTER TABLE add_cons DROP COLUMN emp_pw;
 
---Á¦¾àÁ¶°Ç »èÁ¦
---ALTER TABLE Å×ÀÌºí¸í DROP CONSTRAINT Á¦¾àÁ¶°Ç¸í
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--ALTER TABLE ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ DROP CONSTRAINT ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½
 select * from user_constraints;
 --PK_ADD_CONS
 --UNQ_CONS
 
 ALTER TABLE add_cons DROP CONSTRAINT PK_ADD_CONS;
 
---ÄÃ·³ ¸íÄªÀ» º¯°æ
---ALTER TABLE Å×ÀÌºí¸í RENAME COLUMN ´ë»ó to º¯°æ°ª
+--ï¿½Ã·ï¿½ ï¿½ï¿½Äªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--ALTER TABLE ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ RENAME COLUMN ï¿½ï¿½ï¿½ to ï¿½ï¿½ï¿½æ°ª
 ALTER TABLE add_cons RENAME COLUMN emp_no TO no;
 ALTER TABLE add_cons RENAME COLUMN no TO emp_no;
 
 select * from add_cons;
 
---Å×ÀÌºí ÀÌ¸§ º¯°æ
+--ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 ALTER TABLE add_cons RENAME TO add_training;
 ALTER TABLE add_training RENAME TO add_cons;
 
@@ -2265,27 +2265,27 @@ select * from add_cons;
 RENAME add_training TO add_cons;
 RENAME add_cons TO add_training;
 
---Å×ÀÌºí »èÁ¦
+--ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½
 DROP TABLE add_cons;
 DROP TABLE add_training;
 DROP TABLE shop2;
 
---»ç¿ëÀÚ »èÁ¦
+--ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 DROP USER user_name;
 
 --DCL(Data Control Language)
---µ¥ÀÌÅÍ¿¡ Á¢±Ù, ¼öÁ¤, »èÁ¦ µî µ¥ÀÌÅÍ¸¦ Á¶ÀÛÇÏ´Â ±â´ÉÀ» ÅëÁ¦
---grant(±ÇÇÑºÎ¿©), revoke(±ÇÇÑÈ¸¼ö), 
---commit(µ¥ÀÌÅÍÈ®Á¤), rollback(µÇµ¹¸®±â)
+--ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--grant(ï¿½ï¿½ï¿½ÑºÎ¿ï¿½), revoke(ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½), 
+--commit(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½), rollback(ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½)
 
---GRANT ±ÇÇÑ¸í(select, update, delete, ...) 
---  || role(±ÇÇÑµéÀÇ ¸ðÀ½, ±×·ì ÆÐÅ°ÁöÈ­ e.g. resource)
--- TO ´ë»óuser [option]
---  option = "with admin option"(ºÎ¿©¹ÞÀº ±ÇÇÑÀ» ¶Ç ´Ù¸¥»ç¶÷¿¡°Ô ºÎ¿©°¡´É)
+--GRANT ï¿½ï¿½ï¿½Ñ¸ï¿½(select, update, delete, ...) 
+--  || role(ï¿½ï¿½ï¿½Ñµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½×·ï¿½ ï¿½ï¿½Å°ï¿½ï¿½È­ e.g. resource)
+-- TO ï¿½ï¿½ï¿½user [option]
+--  option = "with admin option"(ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½)
 CONN sys/oracle
 
 select * from dba_sys_privs
-where GRANTEE='KH';  --tablespace Å×ÀÌºí ¸¸µé ¼ö ÀÖ´Â °ø°£
+where GRANTEE='KH';  --tablespace ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 select * from dba_role_privs
 where GRANTEE='KH';
@@ -2303,20 +2303,20 @@ select * from user_role_privs;
 
 REVOKE update ON scott.emp FROM kh;
 
---ROLE ºÎ¿©µÈ ±ÇÇÑº¸±â
+--ROLE ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñºï¿½ï¿½ï¿½
 select * from dba_sys_privs
     where grantee in ('CONNECT', 'RESOURCE');
 
---VIEW °¡»ó Å×ÀÌºí
---  select ½ÇÇàÇÑ °á°ú¸¦ È­¸é¿¡ ´ã´Â °´Ã¼
---  select ¹®Àå ÀÚÃ¼¸¦ ÀúÀåÇÏ¿© È£ÃâÇÒ ¶§¸¶´Ù ÇØ´çÄõ¸® ½ÇÇà
---  ½ÇÁúÀûÀ¸·Î DB¸¦ ÀúÀåÇÏ°í ÀÖÁö ¾ÊÀ½.
---  °Ë»öÀÇ È¿À²¼º: ³»°¡ Ã£°íÀÚ ÇÏ´Â Á¤º¸¸¸ Á¶È¸
---  º¸¾È¼º: Å×ÀÌºíÀÇ Á¤º¸¸¦ ¼û±æ ¼ö ÀÖÀ½
---  CREATE or REPLACE VIEW view_name[col1 º°Äª1, col2 º°Äª2, ...]
+--VIEW ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+--  select ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½é¿¡ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
+--  select ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+--  ï¿½Ë»ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+--  ï¿½ï¿½ï¿½È¼ï¿½: ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--  CREATE or REPLACE VIEW view_name[col1 ï¿½ï¿½Äª1, col2 ï¿½ï¿½Äª2, ...]
 --      AS (select emp_id, emp_name, dept_code from employee);
 --  SELECT * from view_name;
---  GRANT CREATE VIEW To db_user; --VIEW ¿¡ GRANT ±ÇÇÑ ºÎ¿©(conn system/oracle)
+--  GRANT CREATE VIEW To db_user; --VIEW ï¿½ï¿½ GRANT ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½(conn system/oracle)
 CONN system/oracle
 GRANT CREATE VIEW TO KH;
 CONN kh/kh
@@ -2329,111 +2329,111 @@ select * from view_emp;
 
 select * from user_views where view_name='VIEW_EMP';
 
---»ç¹ø, ÀÌ¸§, Á÷±Þ¸í, ºÎ¼­¸í, ±Ù¹«Áö¿ªÀ»
---v_resultset_emp ¶ó´Â ºä¿¡
+--ï¿½ï¿½ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½Þ¸ï¿½, ï¿½Î¼ï¿½ï¿½ï¿½, ï¿½Ù¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--v_resultset_emp ï¿½ï¿½ï¿½ ï¿½ä¿¡
 CREATE OR REPLACE VIEW v_resultset_emp AS(
-    select emp_id AS »ç¹ø, emp_name, J.job_name, D.dept_title, L.local_name
+    select emp_id AS ï¿½ï¿½ï¿½, emp_name, J.job_name, D.dept_title, L.local_name
         from employee E
             LEFT JOIN job J USING (job_code)
             LEFT JOIN department D ON E.dept_code = D.dept_id
             LEFT JOIN location L ON D.location_id = L.local_code);
 
-select * from v_resultset_emp V where V.»ç¹ø = '205';
+select * from v_resultset_emp V where V.ï¿½ï¿½ï¿½ = '205';
 
---TABLE º¯°æ½Ã VIEW¿¡µµ ÇÔ²² Àû¿ëµÊ: VIEW¿¡µµ 'Á¤Áß¾Ó'
---  VIEW¿¡´Â Äõ¸®¹®ÀÌ ÀúÀåµÇ¾î ÀÖÀ¸¹Ç·Î.
-UPDATE employee  SET emp_name='Á¤Áß¾Ó' WHERE emp_id='205';
-select * from v_resultset_emp V where V.»ç¹ø = '205';
+--TABLE ï¿½ï¿½ï¿½ï¿½ï¿½ VIEWï¿½ï¿½ï¿½ï¿½ ï¿½Ô²ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½: VIEWï¿½ï¿½ï¿½ï¿½ 'ï¿½ï¿½ï¿½ß¾ï¿½'
+--  VIEWï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½.
+UPDATE employee  SET emp_name='ï¿½ï¿½ï¿½ß¾ï¿½' WHERE emp_id='205';
+select * from v_resultset_emp V where V.ï¿½ï¿½ï¿½ = '205';
 
 --VIEW Æ¯Â¡
---1.ÄÃ·³»Ó ¾Æ´Ï¶ó, »ê¼ú¿¬»ê Ã³¸®ÇÑ view »ý¼ºµµ °¡´É
+--1.ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ view ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 CREATE OR REPLACE VIEW view_emp_salary AS(
-    select emp_name AS »ç¿ø¸í, 12*salary*(1+nvl(bonus,0)) AS ¿¬ºÀ
+    select emp_name AS ï¿½ï¿½ï¿½ï¿½ï¿½, 12*salary*(1+nvl(bonus,0)) AS ï¿½ï¿½ï¿½ï¿½
     from employee);
 
 select * from view_emp_salary;
 
---JOIN À» ÀÌ¿ëÇÑ viewµµ »ý¼º °¡´É
---employee¿¡¼­ »ç¹ø, »ç¿øÀÌ¸§, Á÷±Þ, ºÎ¼­¸í
---ÄÃ·³(Á÷±ÞNULL -> ÀÎÅÏ) view_emp_read
+--JOIN ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ viewï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--employeeï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Î¼ï¿½ï¿½ï¿½
+--ï¿½Ã·ï¿½(ï¿½ï¿½ï¿½ï¿½NULL -> ï¿½ï¿½ï¿½ï¿½) view_emp_read
 CREATE OR REPLACE VIEW view_emp_read AS(
-    select emp_id, emp_name, nvl(job_name, 'ÀÎÅÏ') AS Á÷±Þ, dept_title
+    select emp_id, emp_name, nvl(job_name, 'ï¿½ï¿½ï¿½ï¿½') AS ï¿½ï¿½ï¿½ï¿½, dept_title
     from employee
         LEFT JOIN department ON dept_code= dept_id
         LEFT JOIN job USING (job_code));
 
 select * from view_emp_read;
 
---VIEW¿¡¼­µµ µ¥ÀÌÅÍ Ãß°¡,¼öÁ¤,»èÁ¦°¡ °¡´É
--- ´ÙÀ½ 6°¡Áö »óÈ²¿¡¼­´Â ºÒ°¡´É
---1. ºä¿¡ Á¤ÀÇµÇÁö ¾ÊÀº ÄÃ·³ ¼öÁ¤
---2. ºä¿¡ º¸ÀÌÁö ¾Ê´Â ÄÃ·³ Áß NOT NULL Á¦¾àÁ¶°Ç °¡Áø ÄÃ·³ ÀÖÀ»°æ¿ì
---3. »ê¼ú ¿¬»êÀÌ Àû¿ëµÈ ÄÃ·³ÀÌ ÀÖÀ» °æ¿ì
---4. JOINÀ» ÅëÇØ ¿©·¯Å×ÀÌºíÀ» ÂüÁ¶ÇÒ °æ¿ì
---    Á¶È¸ÇÑ Å×ÀÌºíÀÇ Á¤º¸ Áß¿¡ ±âº»Å°°¡ 
---    ´Ü ÇÑ°³ÀÏ °æ¿ì´Â º¯°æ °¡´É
---5. DISTINCT¸¦ »ç¿ëÇÏ¿© ½ÇÁ¦ µ¥ÀÌÅÍÀÇ ³»¿ëÀÌ ¸íÈ®ÇÏÁö ¾ÊÀº °æ¿ì
---6. ±×·ìÇÔ¼ö³ª GROUP BY ±¸¹®À» »ç¿ëÇØ¼­ Á¶È¸ÇÑ Äõ¸®ÀÏ °æ¿ì
+--VIEWï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½,ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+-- ï¿½ï¿½ï¿½ï¿½ 6ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
+--1. ï¿½ä¿¡ ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½
+--2. ï¿½ä¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½Ã·ï¿½ ï¿½ï¿½ NOT NULL ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--3. ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+--4. JOINï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+--    ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ ï¿½âº»Å°ï¿½ï¿½ 
+--    ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--5. DISTINCTï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+--6. ï¿½×·ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ GROUP BY ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 UPDATE view_emp SET emp_no='881123-2000123' where emp_id=500; 
 DELETE FROM view_emp where emp_id=500;
 
-select * from view_emp where emp_name='°­¿Àµ¢';
+select * from view_emp where emp_name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
---1. ºä¿¡ Á¤ÀÇµÇÁö ¾ÊÀº ÄÃ·³À» ¼öÁ¤
+--1. ï¿½ä¿¡ ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 CREATE OR REPLACE VIEW V_JOB AS(
     select job_code from job);
 
-INSERT INTO v_job VALUES('J8', 'ÀÎÅÏ'); --ERROR
-UPDATE v_job SET job_name='ÀÎÅÏ' where job_code is null; --ERROR
+INSERT INTO v_job VALUES('J8', 'ï¿½ï¿½ï¿½ï¿½'); --ERROR
+UPDATE v_job SET job_name='ï¿½ï¿½ï¿½ï¿½' where job_code is null; --ERROR
 
---2. ºä¿¡ º¸ÀÌÁö ¾Ê´Â ÄÃ·³ Áß
---   NOT NULL Á¦¾àÁ¶°Ç °¡Áø ÄÃ·³ ÀÖÀ»°æ¿ì
---VIEWÀÇ DML »ç¿ë: »ý¼ºµÈ VIEW¸¦ °¡Áö°í DML ±¸¹®ÀÌ »ç¿ë °¡´É
---  DML ±¸¹®À» °¡Áö°í view Å×ÀÌºí¿¡ ³»¿ëÀ» º¯°æÇÏ¸é ½ÇÁ¦ Å×ÀÌºíµµ º¯°æ
+--2. ï¿½ä¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½Ã·ï¿½ ï¿½ï¿½
+--   NOT NULL ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--VIEWï¿½ï¿½ DML ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ VIEWï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DML ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--  DML ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ view ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 --vim_emp -> emp_id, emp_name, email, phone, job_code, sal_level
 --ORA-01400: cannot insert NULL into ("KH"."EMPLOYEE"."EMP_NO")
 CREATE OR REPLACE VIEW view_emp AS (
     select emp_id, emp_name, email, phone, job_code, sal_level
     from employee);
 --ERROR
-INSERT INTO view_emp VALUES(500, '°­¿Àµ¢', 'kang@a.com', 
+INSERT INTO view_emp VALUES(500, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'kang@a.com', 
             '01012345555', 'J5', 'S3');
 DROP VIEW view_emp;
 
 CREATE OR REPLACE VIEW view_emp AS (
     select emp_id, emp_no, emp_name, email, phone, job_code, sal_level
     from employee);
---OK! EMPLOYEE Å×ÀÌºí¿¡µµ µ¥ÀÌÅÍ°¡ Ãß°¡µÊ!!!
-INSERT INTO view_emp VALUES(500, '790626-1034555', '°­¿Àµ¢', 'kang@a.com', 
+--OK! EMPLOYEE ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ß°ï¿½ï¿½ï¿½!!!
+INSERT INTO view_emp VALUES(500, '790626-1034555', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'kang@a.com', 
             '01012345555', 'J5', 'S3');
 
---ÁÖÀÇ! VIEW¿¡ INSERTÇÏ¸é TABLE µ¥ÀÌÅÍµµ ÇÔ²² º¯°æµÊ!
-DELETE FROM view_emp where emp_name='°­¿Àµ¢';
-DELETE FROM EMPLOYEE where emp_name='°­¿Àµ¢';
+--ï¿½ï¿½ï¿½ï¿½! VIEWï¿½ï¿½ INSERTï¿½Ï¸ï¿½ TABLE ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ ï¿½Ô²ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½!
+DELETE FROM view_emp where emp_name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
+DELETE FROM EMPLOYEE where emp_name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 select * from view_emp;
-select * from view_emp where emp_name='°­¿Àµ¢';
-select * from employee where emp_name='°­¿Àµ¢';
+select * from view_emp where emp_name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
+select * from employee where emp_name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
---3. »ê¼ú ¿¬»êÀÌ Àû¿ëµÈ ÄÃ·³ÀÌ ÀÖÀ» °æ¿ì
+--3. ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 CREATE OR REPLACE VIEW v_emp_sal AS(
     select emp_id, emp_name, salary, 
-           12*salary*(1+nvl(bonus,0)) AS ¿¬ºÀ
+           12*salary*(1+nvl(bonus,0)) AS ï¿½ï¿½ï¿½ï¿½
     from employee);
 
 --ERROR! virtual column not allowed here
-INSERT INTO v_emp_sal VALUES(901, '¼ÕÈï¸¸', 3000000,40000000);
+INSERT INTO v_emp_sal VALUES(901, 'ï¿½ï¿½ï¿½ï¸¸', 3000000,40000000);
 
---4. JOINÀ» ÅëÇØ ¿©·¯Å×ÀÌºíÀ» ÂüÁ¶ÇÒ °æ¿ì
+--4. JOINï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 CREATE OR REPLACE VIEW v_join_emp AS(
     select emp_id, emp_name, dept_title from employee
         LEFT JOIN department ON dept_id=dept_code);
 
-INSERT INTO v_join_emp VALUES(911, '´ó´óÀÌ', '±â¼úÁö¿øºÎ'); --ERROR
-UPDATE v_join_emp SET dept_title='±â¼úÁö¿øºÎ' where emp_id=218; --ERROR
+INSERT INTO v_join_emp VALUES(911, 'ï¿½ï¿½ï¿½ï¿½ï¿½', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'); --ERROR
+UPDATE v_join_emp SET dept_title='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' where emp_id=218; --ERROR
 
---4-1 Á¶È¸ÇÑ Å×ÀÌºíÀÇ Á¤º¸ Áß¿¡ ±âº»Å°°¡ ´Ü ÇÑ°³ÀÏ °æ¿ì´Â º¯°æ °¡´É
+--4-1 ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ ï¿½âº»Å°ï¿½ï¿½ ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 --OK
-DELETE from v_join_emp where dept_title = '±â¼úÁö¿øºÎ';
+DELETE from v_join_emp where dept_title = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 ROLLBACK;
 COMMIT;
 
@@ -2441,17 +2441,17 @@ select * from v_join_emp;
 select * from department;
 select * from employee;
 
---5. DISTINCT¸¦ »ç¿ëÇÏ¿© ½ÇÁ¦ µ¥ÀÌÅÍÀÇ ³»¿ëÀÌ ¸íÈ®ÇÏÁö ¾ÊÀº °æ¿ì
+--5. DISTINCTï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 CREATE OR REPLACE VIEW v_dept_emp AS (
     select distinct dept_code from employee);
 INSERT INTO v_dept_emp VALUES('D0'); --ERROR
-DELETE FROM v_dept_emp where dept_code='D9'; --ERROR --  ¸î°³ÀÇ µ¥ÀÌÅÍ¸¦ Áö¿ïÁö distinct ¶§¹®¾Ö ºÒ¸íÈ®ÇÔ.
+DELETE FROM v_dept_emp where dept_code='D9'; --ERROR --  ï¿½î°³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ distinct ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½È®ï¿½ï¿½.
 
 select * from v_dept_emp;
 
---6. ±×·ìÇÔ¼ö³ª GROUP BY ±¸¹®À» »ç¿ëÇØ¼­ Á¶È¸ÇÑ Äõ¸®ÀÏ °æ¿ì
+--6. ï¿½×·ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ GROUP BY ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 CREATE OR REPLACE VIEW v_group_dept AS (
-    select dept_code, SUM(salary) AS ÇÕ°è, TRUNC(AVG(salary),-4) AS Æò±Õ
+    select dept_code, SUM(salary) AS ï¿½Õ°ï¿½, TRUNC(AVG(salary),-4) AS ï¿½ï¿½ï¿½
     from employee GROUP BY dept_code);
 --ERROR : virtual column not allowed here
 INSERT INTO v_group_dept VALUES('D10', 50000, 50000);
@@ -2459,13 +2459,13 @@ UPDATE v_group_dept SET dept_code='D10' where dept_code='D5';
 DELETE FROM v_group_dept where dept_code='D6';
 
 
---VIEW »ý¼º½Ã ¼³Á¤ÇÒ ¼ö ÀÖ´Â ¿É¼Ç
---  OR REPLACE: µ¿ÀÏ ÇÑ ÀÌ¸§ ºä¸¦ replace(µ¤¾î¾º¿ò)
---  FORCE / NO FORCE : ¼­ºêÄõ¸®¿¡ ÇÒ¿ëµÈ
---      Å×ÀÌºíÀÌ ¾ø¾îµµ ÀÏ´Ü VIEW¸¦ »ý¼º(force)
+--VIEW ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½É¼ï¿½
+--  OR REPLACE: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ä¸¦ replace(ï¿½ï¿½ï¿½î¾ºï¿½ï¿½)
+--  FORCE / NO FORCE : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¿ï¿½ï¿½
+--      ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½îµµ ï¿½Ï´ï¿½ VIEWï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(force)
 --  WITH CHECK / READ ONLY:
---      CHECK: ¼³Á¤ÇÑ ÄÃ·³°ªÀ» ¼öÁ¤ ¸øÇÏ°Ô ¸·À½
---      READ ONLY: ºä¿¡¼­ ¾î¶² ÄÃ·³µµ VIEW¸¦ ÅëÇØ¼­ º¯°æÇÏÁö ¸øÇÏµµ·Ï
+--      CHECK: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
+--      READ ONLY: ï¿½ä¿¡ï¿½ï¿½ ï¿½î¶² ï¿½Ã·ï¿½ï¿½ï¿½ VIEWï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½
 CREATE OR REPLACE FORCE VIEW v_emp AS (
     select t_code, t_name, t_content from test_table);
 
@@ -2473,51 +2473,51 @@ select * from v_emp;
 select * from user_views where view_name = 'V_EMP';
 DROP VIEW v_emp;
 
---NO FORCE »ý¼º½Ã viewÀÇ Å×ÀÌºíÀÌ Á¸Àç ÇÏÁö ¾ÊÀ»¶§,ºä¸¦ »ý¼ºÇÏÁö ¾Ê°Ú´Ù.
--- µðÆúµå °ªÀÌ NOFORCE
+--NO FORCE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ viewï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ä¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°Ú´ï¿½.
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ NOFORCE
 CREATE OR REPLACE NOFORCE VIEW v_emp AS (
     select t_code, t_name, t_content from test_table);
 
---WITH CHECK ¼³Á¤ ÄÃ·³À» ¼öÁ¤ ¸øÇÏ°Ô.
+--WITH CHECK ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½.
     CREATE OR REPLACE VIEW v_emp AS
         select * from employee WITH CHECK OPTION;
 
-    --ERROR! CHECK option¶§¹®¿¡
-    INSERT INTO v_emp VALUES(810, '·ùº°¸®', '101010-1234567',
+    --ERROR! CHECK optionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    INSERT INTO v_emp VALUES(810, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '101010-1234567',
             'ryu@kh.co.kr', '01012345555', 'D1', 'J7', 'S1',
             800000, .1, 200, SYSDATE, NULL, DEFAULT);
 select * from v_emp;
 
---DELETE´Â °¡´É
+--DELETEï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 DELETE from v_emp where emp_id=500;
 
---WITH READ ONLY: µ¥ÀÌÅÍ ÀÔ·Â/¼öÁ¤/»èÁ¦ ÀüºÎ ¸·À½
+--WITH READ ONLY: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½/ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 CREATE OR REPLACE VIEW v_emp AS
     select * from employee WITH READ ONLY;
 
 --ERROR
-INSERT INTO v_emp VALUES(810, '·ùº°¸®', '101010-1234567',
+INSERT INTO v_emp VALUES(810, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '101010-1234567',
             'ryu@kh.co.kr', '01012345555', 'D1', 'J7', 'S1',
             800000, .1, 200, SYSDATE, NULL, DEFAULT);
 DELETE from v_emp where t_id=200;
 DELETE from v_emp where emp_id='200';
 
 --SEQUENCE
---1,2,3,4,5 ÀÌ·¯ÇÑ Çü½ÄÀ¸·Î ¼ýÀÚ µ¥ÀÌÅÍ¸¦ 
--- ÀÚµ¿À¸·Î Ä«¿îÆ® ÇÏ´Â °´Ã¼
---CREATE sequence ½ÃÄö½º¸í
---  [INCREMENT BY ¼ýÀÚ] : ´ÙÀ½°ª¿¡ ´ëÇÑ Áõ°¨¼öÄ¡. »ý·«½Ã, 1¾¿ Áõ°¡
+--1,2,3,4,5 ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ 
+-- ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ® ï¿½Ï´ï¿½ ï¿½ï¿½Ã¼
+--CREATE sequence ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--  [INCREMENT BY ï¿½ï¿½ï¿½ï¿½] : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 --  INCREMENT BY 5;
 --  INCREMENT BY -5;
---  [START WITH ¼ýÀÚ] : ½ÃÀÛ°ª. »ý·«½Ã 1¾¿ Áõ°¡
---  [MAX VALUE ¼ýÀÚ | NOMAXVALUE] : ¹ß»ý ½ÃÅ³ °ªÀÇ ÃÖ´ë°ª ¼³Á¤
---      10^27-1 ±îÁö °¡´É
---  [MIN VALUE ¼ýÀÚ | NOMINVALUE] : ÃÖ¼Ò°ª ¼³Á¤
+--  [START WITH ï¿½ï¿½ï¿½ï¿½] : ï¿½ï¿½ï¿½Û°ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--  [MAX VALUE ï¿½ï¿½ï¿½ï¿½ | NOMAXVALUE] : ï¿½ß»ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ë°ª ï¿½ï¿½ï¿½ï¿½
+--      10^27-1 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--  [MIN VALUE ï¿½ï¿½ï¿½ï¿½ | NOMINVALUE] : ï¿½Ö¼Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
 --      -10^26
---  [CYCLE | NOCYCLE] °ªÀÇ ¼øÈ¯ ¿©ºÎ
---  [CACHE ¹ÙÀÌÆ® Å©±â | NOCACHE] °ªÀ» ¹Ì¸® ±¸ÇØ³õ°í,
---      ´ÙÀ½°ªÀ» ¹Ý¿µÇÒ ‹š È°¿ëÇÏ´Â ¼³Á¤
---      ±âº»°ª 20Byte | ÃÖ¼Ò°ª 2Byte
+--  [CYCLE | NOCYCLE] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
+--  [CACHE ï¿½ï¿½ï¿½ï¿½Æ® Å©ï¿½ï¿½ | NOCACHE] ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½,
+--      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý¿ï¿½ï¿½ï¿½ ï¿½ï¿½ È°ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
+--      ï¿½âº»ï¿½ï¿½ 20Byte | ï¿½Ö¼Ò°ï¿½ 2Byte
 
 CREATE SEQUENCE seq_empid
 START WITH 300
@@ -2529,7 +2529,7 @@ NOCACHE;
 select seq_empid.nextval from dual;
 select seq_empid.currval from dual;
 
---START WITH ½ÃÀÛÁ¡À» ¹Ù²Ü ¼ö ¾øÀ½
+--START WITH ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 ALTER SEQUENCE seq_empid
 --START WITH 300
 INCREMENT BY 10
@@ -2540,11 +2540,11 @@ NOCACHE;
 select * from user_sequences;
 
 --SEQUENCE:
---  SELECT ±¸¹®¿¡¼­ µ¥ÀÌÅÍ Á¶È¸½Ã »ç¿ë°¡´É
---  INSERT UPDATE¿¡¼­µµ »ç¿ë°¡´É
---  VIEW¿¡¼­´Â sequence »ç¿ëºÒ°¡
+--  SELECT ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½
+--  INSERT UPDATEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½
+--  VIEWï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ sequence ï¿½ï¿½ï¿½Ò°ï¿½
 
---½ÃÄö½º »èÁ¦ÇÏ±â
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 DROP SEQUENCE seq_empid;
 
 CREATE SEQUENCE seq_eid
@@ -2559,17 +2559,17 @@ select seq_eid.currval from dual;
 DROP SEQUENCE seq_eid;
 select * from user_sequences;
 
---µ¥ÀÌÅÍ Ãß°¡
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 INSERT INTO EMPLOYEE VALUES(
-    seq_eid.NEXTVAL, '¼ÛÁÖ¹Ì', '121203-1234567',
+    seq_eid.NEXTVAL, 'ï¿½ï¿½ï¿½Ö¹ï¿½', '121203-1234567',
     'song@kh.co.kr', '01012334556', 'D2', 'J7',
     'S1', 5000000, 0.1, 200, SYSDATE, NULL, DEFAULT);
 );
 
 select emp_id, emp_name, dept_code, job_code, sal_level
-from employee where emp_name='¼ÛÁÖ¹Ì';
+from employee where emp_name='ï¿½ï¿½ï¿½Ö¹ï¿½';
 
---D9ºÎ¼­¿¡ J7 Á÷±ÞÀÇ »ç¿ø 4¸íÀ» ½ÃÄö½º¸¦ È°¿ëÇÏ¿© Ãß°¡
+--D9ï¿½Î¼ï¿½ï¿½ï¿½ J7 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 4ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ß°ï¿½
 INSERT INTO EMPLOYEE VALUES( seq_eid.NEXTVAL, 'AGENT1', '881111-1234567',
     'agent1@kh.co.kr', '01012334556', 'D9', 'J7',
     'S1', 9000000, 0.1, 200, SYSDATE, NULL, DEFAULT);
@@ -2590,9 +2590,9 @@ INSERT INTO EMPLOYEE VALUES( seq_eid.NEXTVAL, 'AGENT4', '831010-1234567',
 select * from employee
 where emp_name like '%AGENT%';
 
---SEQUENCE ¿É¼Ç CYCLE/CACHE
---  CYCLE : ½ÃÄö½º °ªÀÌ ÃÖ´ë/ÃÖ¼Ò°ª µµ´ÞÇßÀ»¶§, 
---      ´Ù½Ã ¹Ý´ë °ªºÎÅÍ ½ÃÀÛÇÏ´Â ¿É¼Ç
+--SEQUENCE ï¿½É¼ï¿½ CYCLE/CACHE
+--  CYCLE : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½/ï¿½Ö¼Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, 
+--      ï¿½Ù½ï¿½ ï¿½Ý´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½É¼ï¿½
 CREATE SEQUENCE seq_cycle
 START WITH 200
 INCREMENT BY 10
@@ -2611,10 +2611,10 @@ DROP SEQUENCE seq_cycle;
 select * from user_sequences;
 
 --CACHE / NOCACHE
--- CACHE : ÄÄÇ»ÅÍ°¡ ´ÙÀ½°ª¿¡´ëÇÑ ¿¬»êµé 
---          ±×¶§±×¶§ ¼öÇàÇÏÁö ¾Ê°í ¹Ì¸® °è»êÇØ ³õ´Â °Í
--- NOCACHE : ÄÄÇ»ÅÍ°¡ ¼öÇàÇÒ°ªÀ» ±×¶§±×¶§ Ã³¸® ÇÏ´Â °Í.
---LAST_VALUE 120 ¹Ì¸® °è»êµÊ. CURRVAL 121µÇ¸é LAST_VALUE=140
+-- CACHE : ï¿½ï¿½Ç»ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
+--          ï¿½×¶ï¿½ï¿½×¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+-- NOCACHE : ï¿½ï¿½Ç»ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½×¶ï¿½ï¿½×¶ï¿½ Ã³ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½.
+--LAST_VALUE 120 ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½. CURRVAL 121ï¿½Ç¸ï¿½ LAST_VALUE=140
 CREATE SEQUENCE SEQ_CACHE
 START WITH 100
 INCREMENT BY 1
@@ -2627,33 +2627,33 @@ SELECT * FROM USER_SEQUENCES;
 
 
 --INDEX
--- SQL ¸í·É¾î Á¶È¸Ã³¸®¼Óµµ¸¦ Çâ»ó½ÃÅ°±â À§ÇÑ °´Ã¼´Ù.
--- Å×ÀÌºíÀÇ ½Äº°ÀÚ(PK, UNIQUE Key)°¡ µÇ´Â ÄÃ·³°ª¿¡´ëÇØ
--- °¢ ÄÃ·³´ÜÀ§·Î ÀÏÁ¤°£°ÝÀ» °è»êÇÏ¿© Á¶È¸¼Óµµ¸¦ Çâ»ó
---ÀåÁ¡: °Ë»ö¼Óµµ°¡ Çâ¼§µÈ´Ù.
---´ÜÁ¡: ÀÎµ¦½º°¡ Á¸ÀçÇÏ´À Å×ÀÌºíÀÇ ³»¿ëÀÌ ÀÚÁÖº¯°æµÇ´Â Å×ÀÌºíÀÌ¶ó¸é
---      ÀÎµ¦½º¸¦ ¸Å¹ø ´Ù½Ã °è»ê => ¼º´É ÀúÇÏ
---      ÀÎµ¦½º ÀúÀåÇÏ±â À§ÇÑ º°µµÀÇ °ø°£ ÇÒ´çÇØ¾ß ÇÔ.
---      ÀÐ±â¼º´ÉÀº ºñ¾àÀûÀ¸·Î Çâ»ó, ¾²±â ¼º´ÉÀº ºñ°üÀû ÇÏÇâ
+-- SQL ï¿½ï¿½ï¿½É¾ï¿½ ï¿½ï¿½È¸Ã³ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½.
+-- ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½Äºï¿½ï¿½ï¿½(PK, UNIQUE Key)ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+-- ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½È¸ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½ï¿½: ï¿½Ë»ï¿½ï¿½Óµï¿½ï¿½ï¿½ ï¿½â¼§ï¿½È´ï¿½.
+--ï¿½ï¿½ï¿½ï¿½: ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Öºï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½Ì¶ï¿½ï¿½
+--      ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¹ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ => ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--      ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Ø¾ï¿½ ï¿½ï¿½.
+--      ï¿½Ð±â¼ºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 -- CREATE [UNIQUE] INDEX index_name
 -- ON table_name(column_name);
 
 SELECT * FROM USER_IND_COLUMNS;
 
---ÀÎµ¦½ºÀÇ ±¸Á¶ - ROWID
-SELECT ROWID, EMP_ID, EMP_NAME FROM EMPLOYEE; --ÀÎµ¦½º°¡ ROWID·Î search?
+--ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ROWID
+SELECT ROWID, EMP_ID, EMP_NAME FROM EMPLOYEE; --ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ROWIDï¿½ï¿½ search?
 
--- ÀÎµ¦½ºÀÇ Á¾·ù
--- 1. °íÀ¯ÀÎµ¦½º( UNIQUE INDEX )
--- 2. ºñ°íÀ¯ÀÎµ¦½º( NOUNIQUE INDEX )
--- 3. ´ÜÀÏÀÎµ¦½º( SINGLE INDEX )
--- 4. °áÇÕÀÎµ¦½º ( COMPOSITE INDEX )
--- 5. ÇÔ¼ö±â¹ÝÀÎµ¦½º ( FUNCTION BASED INDEX )
+-- ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+-- 1. ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½( UNIQUE INDEX )
+-- 2. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½( NOUNIQUE INDEX )
+-- 3. ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½( SINGLE INDEX )
+-- 4. ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ ( COMPOSITE INDEX )
+-- 5. ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ ( FUNCTION BASED INDEX )
 
---1. °íÀ¯ ÀÎµ¦½º
+--1. ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 -- UNIQUE INDEX
--- ÀÎµ¦½º »ý¼º½Ã °íÀ¯°ªÀ» ±âÁØÀ¸·Î »ý¼ºÇÏ´Â ÀÎµ¦½º
--- ¿À¶óÅ¬¿¡¼­ PRIMARY KEY Á¦¾àÁ¶°ÇÀ» »ç¿ëÇÏ¸é ÀÚµ¿À¸·Î »ý¼º ÇÑ´Ù.
+-- ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+-- ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ PRIMARY KEY ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 
 
 CREATE UNIQUE INDEX IDX_EMP_NO
@@ -2662,39 +2662,39 @@ ON EMPLOYEE(EMP_NO);
 SELECT * FROM USER_IND_COLUMNS WHERE TABLE_NAME='EMPLOYEE';
 
 
---Å×ÀÌºí¿¡ Áßº¹°ª Á¸ÀçÇÒ °æ¿ì °íÀ¯Å° »ý¼º ºÒ°¡
---emp_no°¡ °°Àº Å×ÀÌÅÍ ÇàÀÌ Á¸ÀçÇÏ¸é UNIQUE ÀÎµ¦½º »ý¼ººÒ°¡
+--ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+--emp_noï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ UNIQUE ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½
 CREATE UNIQUE INDEX IDX_DEPT_CODE
 ON EMPLOYEE(DEPT_CODE);
 
--- 2. ºñ°íÀ¯ ÀÎµ¦½º(DEFAULT)  Áßº¹µÈ °ªÀ» °¡Áø ÄÃ·³¿¡ »ç¿ë °¡´É
+-- 2. ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½(DEFAULT)  ï¿½ßºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 CREATE INDEX IDX_DEPT_CODE
 ON EMPLOYEE(DEPT_CODE);
 
--- Áö±Ý±îÁö´Â ÄÃ·³ ÇÏ³ª -> ´ÜÀÏ ÀÎµ¦½º
+-- ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ ï¿½Ï³ï¿½ -> ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 
--- 3. °áÇÕ ÀÎµ¦½º : µÎ°³ ÀÌ»óÀÇ ÄÃ·³À¸·Î ÀÎµ¦½º¸¦ ±¸¼ºÇÏ´Â °Í
+-- 3. ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ : ï¿½Î°ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½
 CREATE INDEX IDX_DEPT
 ON DEPARTMENT( DEPT_ID, DEPT_TITLE );
 
 SELECT DEPT_ID, DEPT_TITLE FROM DEPARTMENT
-WHERE DEPT_ID !='D1' AND DEPT_TITLE != '±â¼úÁö¿øºÎ';
+WHERE DEPT_ID !='D1' AND DEPT_TITLE != 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
 DROP INDEX IDX_DEPT;
 
---ÀÎµ¦½º È®ÀÎ
+--ï¿½Îµï¿½ï¿½ï¿½ È®ï¿½ï¿½
 SELECT * FROM USER_IND_COLUMNS;
--- °°ÀºÀÌ¸§ ÀÎµ¦½º 2°³ È®ÀÎ °¡´É 
--- => ÄÃ·³Æ÷Áö¼ÇÀ» È®ÀÎ ÇØº¸¸é 1,2 ³ª´©¾îÁ® ÀÖ´Â°Å È®ÀÎ °¡´É
+-- ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Îµï¿½ï¿½ï¿½ 2ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+-- => ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½Øºï¿½ï¿½ï¿½ 1,2 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â°ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
---4. ÇÔ¼ö ±â¹Ý ÀÎµ¦½º
--- Á¶È¸½Ã ÀÚÁÖ »ç¿ëÇÏ´Â ÇÔ¼ö½ÄÀÌ ÀÖ´Ù¸é
--- ÇØ´ç ÇÔ¼ö½ÄÀ» ÀÎµ¦½º¿¡ ¹Ý¿µÇØ¼­ °Ë»öÁ¶°ÇÀ» »ý¼ºÇÑ´Ù.
+--4. ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+-- ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½
+-- ï¿½Ø´ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý¿ï¿½ï¿½Ø¼ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 
--- SAL*12 ÇÒ¶§ SAL¿¡ ÀÎµ¦½º°¡ ÀÖ´õ¶óµµ »ê¼ú°è»êÀ» ÇÏ°ÔµÇ¸é
--- SAL¿¡ Àû¿ëµÈ INDEX¸¦ »ç¿ëÇÒ¼ö ¾ø´Ù.
--- ÀÌ·¸°Ô ¼ö½ÄÀ¸·Î °Ë»öÇÏ´Â °æ¿ì°¡ ¸¹´Ù°í ÇÑ´Ù¸é, 
--- ¾Æ¿¹ ¼ö½ÄÀ» ÇÔ¼ö·Î ¸¸µé°í ±×ÇÔ¼ö¿¡ ÀÎµ¦½º ¹Ý¿µ
+-- SAL*12 ï¿½Ò¶ï¿½ SALï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï°ÔµÇ¸ï¿½
+-- SALï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ INDEXï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½.
+-- ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ì°¡ ï¿½ï¿½ï¿½Ù°ï¿½ ï¿½Ñ´Ù¸ï¿½, 
+-- ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ý¿ï¿½
 
 CREATE INDEX IDX_EMP_SAL_CAL
 ON EMPLOYEE( 12*salary*(1+ NVL(bonus,0));
@@ -2703,64 +2703,64 @@ SELECT EMP_ID, EMP_NAME, SALARY FROM EMPLOYEE
 WHERE 12*salary*(1+nvl(bonus,0)) >1000000;
 
 -- PL/SQL (PROCEDURAL LANGUAGE EXTENSION TO SQL)
--- SQL¿¡¼­ È®ÀåµÈ ÇüÅÂÀÇ ¾ð¾î
--- ¿À¶óÅ¬ ÀÚÃ¼¿¡¼­ ³»ÀåµÈ ÀýÂ÷Àû ¾ð¾î
--- ±âÁ¸ SQLÀÇ ´ÜÁ¡ ±Øº¹ ÇÏ±â À§ÇØ¼­ »ç¿ëÇÑ´Ù.
--- º¯¼öÀÇ Á¤ÀÇ, Á¶°Ç Ã³¸®, ¹Ýº¹Ã³¸®, ¿¹¿Ü¸¦ Ã³¸®µîÀ» Áö¿øÇÏ´Ù.
+-- SQLï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+-- ï¿½ï¿½ï¿½ï¿½Å¬ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+-- ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½, ï¿½Ýºï¿½Ã³ï¿½ï¿½, ï¿½ï¿½ï¿½Ü¸ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 
--- PL/SQLÀÇ ±¸Á¶
+-- PL/SQLï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /*
-    ¼±¾ðºÎ, ½ÇÇàºÎ, ¿¹¿ÜÃ³¸®ºÎ ±¸¼ºµÊ
-    ¼±¾ðºÎ : DECLARE, º¯¼ö, »ó¼ö ¼±¾ðÇÏ´Â ºÎºÐ
-    ½ÇÇàºÎ : BEGIN ~ END, Á¦¾î¹®, ¹Ýº¹¹®, ÇÔ¼öÁ¤ÀÇ µîÀÇ ÀÛ¾÷À» ÇÏ´Â ºÎºÐ 
-    ¿¹¿ÜÃ³¸®ºÎ : EXCEPTION, ¿¹¿Ü ¹ß»ý½Ã Ã³¸®ÇÒ ³»¿ëÀ» ÀÛ¼ºÇÏ´Â ºÎºÐ
+    ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    ï¿½ï¿½ï¿½ï¿½ï¿½ : DECLARE, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Îºï¿½
+    ï¿½ï¿½ï¿½ï¿½ï¿½ : BEGIN ~ END, ï¿½ï¿½ï¿½î¹®, ï¿½Ýºï¿½ï¿½ï¿½, ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½Îºï¿½ 
+    ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ : EXCEPTION, ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ï´ï¿½ ï¿½Îºï¿½
 */
 /*
-    PL/SQL ÀÛ¼º ¿ä·É
-    1. PL/SQL ºí·Ï ³»¿¡¼­´Â ÇÑ¹®ÀåÀ» Á¾·áÇÒ¶§ ¸¶´Ù ¼¼¹ÌÄÝ·ÐÀ» »ç¿ë
-    2. END µÚ¿¡ ;À» »ç¿ëÇÏ¿© ÇÏ³ªÀÇ ºí·ÏÀÌ ³¡³µ´Ù´Â°ÍÀ» ¸í½Ã
-    3. DELCARE ³ª BEGIN Å°¿öµå·Î PL/SQLºí·ÏÀÌ ½ÃÀÛÀÌ¶ó´Â°ÍÀ» ¾Ë¼öÀÖ´Ù.
-    4. Äõ¸®¹® ¼öÇàÇÏ±â À§ÇØ¼­´Â /°¡ ¹Ýµå½Ã ÀÔ·Â µÇ¾î¾ß ÇÑ´Ù.
-        PL/SQL ºí·ÏÀº Çà¿¡ / ÀÖÀ¸¸é Á¾°áµÈ°ÍÀ¸·Î »ý°¢ÇÑ´Ù.
+    PL/SQL ï¿½Û¼ï¿½ ï¿½ï¿½ï¿½
+    1. PL/SQL ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+    2. END ï¿½Ú¿ï¿½ ;ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ù´Â°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    3. DELCARE ï¿½ï¿½ BEGIN Å°ï¿½ï¿½ï¿½ï¿½ï¿½ PL/SQLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½Â°ï¿½ï¿½ï¿½ ï¿½Ë¼ï¿½ï¿½Ö´ï¿½.
+    4. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ /ï¿½ï¿½ ï¿½Ýµï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½Ç¾ï¿½ï¿½ ï¿½Ñ´ï¿½.
+        PL/SQL ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½à¿¡ / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 
--- ºä : SELECT¹®À» ÀúÀåÇØ¼­ ÇÊ¿ä¶§¸¶´Ù »ç¿ë, °¡»óÀÇ Å×ÀÌºí
--- ÇÁ·Î½ÃÀú : PL/SQL ¹®À» ÀúÀåÇØ¼­ »ç¿ë, ÇÔ¼ö
+-- ï¿½ï¿½ : SELECTï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Ê¿ä¶§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+-- ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ : PL/SQL ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½, ï¿½Ô¼ï¿½
 
--- ½ÇÇàºÎ »ç¿ëÇØ¼­ °£´ÜÇÑ ¹®ÀåÀ» Ãâ·Â
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 BEGIN
     DBMS_OUTPUT.PUT_LINE('HELLO WORLD');
-    -- DBMS_OUTPUT ÆÐÅ°ÁöÀÇ PUT_LINE()ÇÁ·Î½ÃÀú¸¦ È£Ãâ
+    -- DBMS_OUTPUT ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ PUT_LINE()ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½
 END;
 /
 
--- È­¸é¿¡ ÀÛ¼ºÇÑÃâ·Â¹®ÀÌ º¸ÀÌµµ·Ï ¼³Á¤
--- ½Ã½ºÅÛ °ü·Ã ¼³Á¤ÀÌ´Ù.
--- ±âº»°ª OFF -> ONÀ¸·Î º¯°æ
+-- È­ï¿½é¿¡ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½Â¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+-- ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
+-- ï¿½âº»ï¿½ï¿½ OFF -> ONï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 SET SERVEROUTPUT ON;
 
--- º¯¼ö ¼±¾ð
---[1] ÀÏ¹Ýº¯¼ö
+-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--[1] ï¿½Ï¹Ýºï¿½ï¿½ï¿½
 DECLARE 
     V_ID NUMBER; 
 BEGIN
     SELECT EMP_ID
     INTO V_ID
     FROM EMPLOYEE
-    WHERE EMP_NAME = '¼±µ¿ÀÏ';
+    WHERE EMP_NAME = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 END;
 /
 
--- º¯¼ö¿¡ °ª ´ëÀÔ varname := value;
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ varname := value;
 DECLARE 
     v_empno NUMBER(4);
     v_empname varchar2(10);
     test_num number(5) := 10*20;
 BEGIN
     v_empno := 1001;
-    v_empname := 'À±¿øÅÃ';
+    v_empname := 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
-    DBMS_OUTPUT.PUT_LINE('»ç¹ø       ÀÌ¸§');
+    DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½       ï¿½Ì¸ï¿½');
     DBMS_OUTPUT.PUT_LINE('--------------');
     DBMS_OUTPUT.PUT_LINE(v_empno ||'   '||v_empname);
     DBMS_OUTPUT.PUT_LINE('TEST_NUM = '||test_num);
@@ -2768,8 +2768,8 @@ END;
 /
 
 
---[2] ·¹ÆÛ·±½º º¯¼ö
--- %TYPE : ÇÑ ÄÃ·³ÀÇ ÀÚ·áÇüÀ» ¹Þ¾Æ ¿Ã¶§ »ç¿ëÇÏ´Â ÀÚ·áÇü Å¸ÀÔ
+--[2] ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+-- %TYPE : ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾ï¿½ ï¿½Ã¶ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ú·ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
 DECLARE 
     emp_id EMPLOYEE.EMP_ID%TYPE;
     emp_name EMPLOYEE.EMP_NAME%TYPE;
@@ -2780,23 +2780,23 @@ BEGIN
     SELECT EMP_ID, EMP_NAME, NVL(DEPT_CODE,'-'), JOB_CODE, SALARY
     INTO emp_id, emp_name, dept_code, job_code, salary
     FROM EMPLOYEE
-    WHERE EMP_NAME = &»ç¿øÀÌ¸§;
+    WHERE EMP_NAME = &ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½;
     
     DBMS_OUTPUT.PUT_LINE('EMP_ID : '|| EMP_ID);
     DBMS_OUTPUT.PUT_LINE('EMP_NAME : '|| EMP_NAME);
     DBMS_OUTPUT.PUT_LINE('DEPT_CODE : '|| DEPT_CODE);
 END;
 /
--- %ROWTYPE : Å×ÀÌºíÀÇ ¸ðµç ÄÃ·³ÀÇ ÀÚ·áÇüÀ» ÂüÁ¶
--- Æ¯Á¤Å×ÀÌºíÀÇ ÄÃ·³ ¼ö³ª µ¥ÀÌÅÍ Çü½ÄÀ» ¸ô¶óµµ ÁöÁ¤ÇÒ¼ö ÀÖ´Ù.
--- SELECT ¹®ÀåÀ¸·Î ÇàÀ» °Ë»ö ÇÒ¶§ À¯¸®ÇÏ´Ù.
+-- %ROWTYPE : ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+-- Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½Ö´ï¿½.
+-- SELECT ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 DECLARE 
     MYROW EMPLOYEE%ROWTYPE;
 BEGIN
     SELECT EMP_ID, EMP_NAME
     INTO MYROW.EMP_ID, MYROW.EMP_NAME 
     FROM EMPLOYEE
-    WHERE EMP_NAME='ÀÌ';
+    WHERE EMP_NAME='ï¿½ï¿½';
     
     DBMS_OUTPUT.PUT_LINE(MYROW.EMP_ID||' '||MYROW.EMP_NAME);
     
@@ -2805,24 +2805,24 @@ BEGIN
 END;
 /
 
---Á¦¾î¹®, ¹Ýº¹¹® 
---IF¹® --
---1. IF ~ THEN : if(Á¶°Ç½Ä){½ÇÇàºÎ}
+--ï¿½ï¿½ï¿½î¹®, ï¿½Ýºï¿½ï¿½ï¿½ 
+--IFï¿½ï¿½ --
+--1. IF ~ THEN : if(ï¿½ï¿½ï¿½Ç½ï¿½){ï¿½ï¿½ï¿½ï¿½ï¿½}
 --               IF ~ THEN 
 /*
-    IF Á¶°Ç THEN 
-        Á¶°Ç¸¸Á·½Ã Ã³¸®±¸¹®;
+    IF ï¿½ï¿½ï¿½ï¿½ THEN 
+        ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½;
 */
 BEGIN
-    IF '&ÀÌ¸§' = '¼­¼±´ö' THEN
-        DBMS_OUTPUT.PUT_LINE('´ÔÀÌ ¼­¼±´öÀÌ³Ä!!!');
+    IF '&ï¿½Ì¸ï¿½' = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' THEN
+        DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½!!!');
     END IF;
 END;
 /
 
 -- 2. IF ~ THEN ~ ELSE ~ END IF
---  »ç¿ø¹øÈ£¸¦ ÀÔ·Â¹Þ¾Æ¼­ »ç¿øÀÇ »ç¹ø,ÀÌ¸§,±Þ¿©,º¸³Ê½ºÀ²À» Ãâ·Â
---  Á÷±ÞÄÚµå¿¡ µû¶ó Á÷±Þ¸í(¼Ò¼Ó) Ãâ·Â 
+--  ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·Â¹Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½,ï¿½Ì¸ï¿½,ï¿½Þ¿ï¿½,ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+--  ï¿½ï¿½ï¿½ï¿½ï¿½Úµå¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Þ¸ï¿½(ï¿½Ò¼ï¿½) ï¿½ï¿½ï¿½ 
 DECLARE
     emp_id EMPLOYEE.emp_id%TYPE;
     emp_name EMPLOYEE.emp_name%TYPE;
@@ -2836,66 +2836,66 @@ BEGIN
     SELECT emp_id, emp_name, salary, nvl(bonus,0), job_code, job_name
     INTO emp_id, emp_name, salary, bonus, job_code, job_name
     FROM EMPLOYEE JOIN JOB USING (job_code)
-    WHERE emp_id = &»ç¿ø¹øÈ£;
+    WHERE emp_id = &ï¿½ï¿½ï¿½ï¿½ï¿½È£;
     
-    IF job_code = 'J1' THEN emp_position := '´ëÇ¥´Ô';
+    IF job_code = 'J1' THEN emp_position := 'ï¿½ï¿½Ç¥ï¿½ï¿½';
     ELSE emp_position :=job_name;
     END IF;
 
-    DBMS_OUTPUT.PUT_LINE('»ç¹ø: ' || emp_id);
-    DBMS_OUTPUT.PUT_LINE('ÀÌ¸§: ' || emp_name);
-    DBMS_OUTPUT.PUT_LINE('±Þ¿©: ' || salary);
-    DBMS_OUTPUT.PUT_LINE('º¸³Ê½ºÀ²: ' || bonus*100 ||'%');
-    DBMS_OUTPUT.PUT_LINE('Á÷±Þ: ' || emp_position);
+    DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½: ' || emp_id);
+    DBMS_OUTPUT.PUT_LINE('ï¿½Ì¸ï¿½: ' || emp_name);
+    DBMS_OUTPUT.PUT_LINE('ï¿½Þ¿ï¿½: ' || salary);
+    DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½: ' || bonus*100 ||'%');
+    DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½ï¿½: ' || emp_position);
 END;
 /
 
 -- 3. IF ~ THEN ~ ELSIF ~ ELSE ~ END IF;
--- ELSE IF °¡ ¾Æ´Ï¶ó ELSIF
+-- ELSE IF ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ ELSIF
 /*
-    IF Á¶°Ç 1 THEN
-        Á¶°Ç1ÀÌ ¸¸Á·ÇÒ °æ¿ì Ã³¸®±¸¹®;
-    ELSIF Á¶°Ç2 THEN
-        Á¶°Ç2°¡ ¸¸Á·ÇÒ °æ¿ì Ã³¸®±¸¹®;
+    IF ï¿½ï¿½ï¿½ï¿½ 1 THEN
+        ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½;
+    ELSIF ï¿½ï¿½ï¿½ï¿½2 THEN
+        ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½;
     ELSE 
-        Á¶°ÇÀ» ¸¸Á·ÇÏÁö ¾ÊÀ» °æ¿ì Ã³¸®
+        ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 */
 
---Á¡¼ö¸¦ ÀÔ·Â¹Þ¾Æ¼­ SCORE º¯¼ö¿¡ ÀúÀåÇÏ°í
---90Á¡ ÀÌ»óÀº 'A'
---75Á¡ ÀÌ»óÀº 'B'
---60Á¡ ÀÌ»óÀº 'C'
--- ±× ÀÌÇÏ´Â 'F'·Î Ã¤Ã·ÇÏ¿©
--- Ãâ·Â ->'´ç½ÅÀÇ Á¡¼ö´Â 00ÀÌ°í, OÇÐÁ¡ÀÔ´Ï´Ù.'
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·Â¹Þ¾Æ¼ï¿½ SCORE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
+--90ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ 'A'
+--75ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ 'B'
+--60ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ 'C'
+-- ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ 'F'ï¿½ï¿½ Ã¤Ã·ï¿½Ï¿ï¿½
+-- ï¿½ï¿½ï¿½ ->'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 00ï¿½Ì°ï¿½, Oï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.'
 DECLARE
     SCORE INT;
     GRADE VARCHAR2(2);
 BEGIN
-    SCORE := '&Á¡¼ö';
+    SCORE := '&ï¿½ï¿½ï¿½ï¿½';
     
-    -- IF¹® --
+    -- IFï¿½ï¿½ --
     IF SCORE >=90 THEN GRADE := 'A';
     ELSIF SCORE >=75 THEN GRADE :='B';
     ELSIF SCORE >= 60 THEN GRADE :='C';
     ELSE GRADE := 'F';
     END IF;
     
-    DBMS_OUTPUT.PUT_LINE('´ç½ÅÀÇ Á¡¼ö´Â '||SCORE 
-            ||'Á¡ÀÌ°í, ÇÐÁ¡Àº '||GRADE||'ÇÐÁ¡ÀÔ´Ï´Ù.');
+    DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ '||SCORE 
+            ||'ï¿½ï¿½ï¿½Ì°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ '||GRADE||'ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.');
     
 END;
 /
 
---4. CASE ¹®
---ÀÚ¹Ù¿¡¼­ SWITCH¹®
+--4. CASE ï¿½ï¿½
+--ï¿½Ú¹Ù¿ï¿½ï¿½ï¿½ SWITCHï¿½ï¿½
 -- CASE ~ END CASE;
 /*
     CASE 
-        WHEN Ç¥Çö½Ä1 THEN 
-            ½ÇÇà¹®1;
-        WHEN Ç¥Çö½Ä2 THEN
-            ½ÇÇà¹®2;
-        ELSE ±âº»½ÇÇà¹®3;
+        WHEN Ç¥ï¿½ï¿½ï¿½ï¿½1 THEN 
+            ï¿½ï¿½ï¿½à¹®1;
+        WHEN Ç¥ï¿½ï¿½ï¿½ï¿½2 THEN
+            ï¿½ï¿½ï¿½à¹®2;
+        ELSE ï¿½âº»ï¿½ï¿½ï¿½à¹®3;
 */
 -- 
 DECLARE 
@@ -2905,19 +2905,19 @@ BEGIN
     
     CASE INPUTVALUE
         WHEN 1 THEN 
-            DBMS_OUTPUT.PUT_LINE(INPUTVALUE||'ÀÔ·ÂÇÔ');    
+            DBMS_OUTPUT.PUT_LINE(INPUTVALUE||'ï¿½Ô·ï¿½ï¿½ï¿½');    
         WHEN 2 THEN
-            DBMS_OUTPUT.PUT_LINE(INPUTVALUE||'ÀÔ·ÂÇÔ');
+            DBMS_OUTPUT.PUT_LINE(INPUTVALUE||'ï¿½Ô·ï¿½ï¿½ï¿½');
         WHEN 3 THEN 
-            DBMS_OUTPUT.PUT_LINE(INPUTVALUE||'ÀÔ·ÂÇÔ');
+            DBMS_OUTPUT.PUT_LINE(INPUTVALUE||'ï¿½Ô·ï¿½ï¿½ï¿½');
         ELSE 
-            DBMS_OUTPUT.PUT_LINE('1,2,3 ¸ðµÎ ¾Æ´Ï¾ß~!');
+            DBMS_OUTPUT.PUT_LINE('1,2,3 ï¿½ï¿½ï¿½ ï¿½Æ´Ï¾ï¿½~!');
     END CASE;
 END;
 /
 
---»ç¿ø¹øÈ£¸¦ ÀÔ·Â¹Þ¾Æ¼­ Á÷±ÞÄÚµå·Î 
---´ëÇ¥(J1),ÀÓ¿øÁø(J2), ÀÏ¹ÝÁ÷¿ø(³ª¸ÓÁö) ±¸ºÐÇÑ ¿¹Á¦¸¦ CASE¹®À¸·Î ±¸Çö
+--ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·Â¹Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ 
+--ï¿½ï¿½Ç¥(J1),ï¿½Ó¿ï¿½ï¿½ï¿½(J2), ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ CASEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 DECLARE 
     JOB_CODE EMPLOYEE.JOB_CODE%TYPE;
     EMP_TEAM VARCHAR2(20);
@@ -2928,16 +2928,16 @@ BEGIN
     WHERE EMP_ID = '&EMP_ID';
     
     CASE JOB_CODE
-        WHEN 'J1' THEN EMP_TEAM := '´ëÇ¥';
-        WHEN 'J2' THEN EMP_TEAM := 'ÀÓ¿ø';
-        ELSE EMP_TEAM := 'ÀÏ¹ÝÁ÷¿ø';
+        WHEN 'J1' THEN EMP_TEAM := 'ï¿½ï¿½Ç¥';
+        WHEN 'J2' THEN EMP_TEAM := 'ï¿½Ó¿ï¿½';
+        ELSE EMP_TEAM := 'ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½';
     END CASE;
     
-    DBMS_OUTPUT.PUT_LINE('¼Ò¼Ó : '||EMP_TEAM);
+    DBMS_OUTPUT.PUT_LINE('ï¿½Ò¼ï¿½ : '||EMP_TEAM);
 END;
 /
 
--- ¹Ýº¹¹®
+-- ï¿½Ýºï¿½ï¿½ï¿½
 DECLARE 
     E EMPLOYEE%ROWTYPE;
 BEGIN
@@ -2951,20 +2951,20 @@ END;
 
 -- LOOP, FOR, WHILE
 
---ÀÏ¹Ý LOOP ¹®
+--ï¿½Ï¹ï¿½ LOOP ï¿½ï¿½
 /*
     LOOP
-        ¹Ýº¹½ÃÅ³ ³»¿ë
+        ï¿½Ýºï¿½ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
         --method1--
-        IF ¹Ýº¹ Á¾·á Á¶°Ç EXIT;
+        IF ï¿½Ýºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ EXIT;
         END IF;
 
         --method2--
-        EXIT WHEN ¹Ýº¹Á¾·áÁ¶°Ç;
+        EXIT WHEN ï¿½Ýºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½;
     END LOOP;
 */
 
--- 1 ~5 ±îÁöÀÇ ¹Ýº¹¹®À» ¼öÇàÇÏ´Â LOOP ¹Ýº¹¹® ±¸Çö
+-- 1 ~5 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ýºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ LOOP ï¿½Ýºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 DECLARE 
     N INT:=1;
 BEGIN
@@ -2975,7 +2975,7 @@ BEGIN
     END LOOP;
 END;
 /
--- 5 ~ 1 Ãâ·ÂÇÏ´Â LOOP¹®À» ÀÛ¼ºÇØº¸ÀÚ
+-- 5 ~ 1 ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ LOOPï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Øºï¿½ï¿½ï¿½
 DECLARE 
     N INT := 5;
 BEGIN
@@ -2995,18 +2995,18 @@ CREATE OR REPLACE view_name AS (
         FROM employee);
 */
 --SEQUENCE
---  1,2,3... µîÀÇ ¼ýÀÚ¸¦ Áõ°¨½ÃÅ°´Â °´Ã¼
+--  1,2,3... ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½Ã¼
 /*
 CREATE SEQUENCE seq_name
 START WITH 200
 INCREMENT BY 5
 MAXVALUE 250
-CYCLE/NOCYCLE --¼øÈ¯¿©ºÎ
+CYCLE/NOCYCLE --ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½
 NOCACHE;
 */
 
 --INDEX
---Å×ÀÌºí¿¡¼­ Æ¯Á¤µ¥ÀÌÅÍ¸¦ °Ë»öÇÒ¶§, È¿À²ÀûÀ¸·Î °Ë»öÇÏ±â À§ÇÑ °´Ã¼
+--ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ë»ï¿½ï¿½Ò¶ï¿½, È¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
 --CREATE INDEX idx_name ON table_name (col1, col2,...);
 
 --PL/SQL procedual script language
@@ -3019,7 +3019,7 @@ END;
 */
 SET SERVEROUTPUT ON;
 
---1~10 ³­¼ö 5°³ Ãâ·Â
+--1~10 ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ ï¿½ï¿½ï¿½
 --  Function that generates random number LOW <= N <HIGH
 --  DBMS_RANDOM.VALUE(LOW, HIGH);
 DECLARE
@@ -3044,11 +3044,11 @@ END;
 
 --FOR loop--
 /*
-    FOR Ä«¿îÅÍº¯¼ö IN [REVERSE] ½ÃÀÛ°ª..Á¾·á°ª LOOP
-        ¹Ýº¹ÇÒ ³»¿ë
+    FOR Ä«ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ IN [REVERSE] ï¿½ï¿½ï¿½Û°ï¿½..ï¿½ï¿½ï¿½á°ª LOOP
+        ï¿½Ýºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     END LOOP;
-    --Ä«¿îÅÍº¯¼ö ->ÀÚµ¿¼±¾ð
-    --¸¶¿îÆ® °ªÀº ÀÚµ¿À¸·Î 1¾¿Áõ°¡
+    --Ä«ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ ->ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½
+    --ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 BEGIN
     FOR N IN 1..5 LOOP
@@ -3061,8 +3061,8 @@ BEGIN
 END;
 /
 
---ÁßÃ¸ FOR LOOP
---±¸±¸´Ü Ãâ·Â
+--ï¿½ï¿½Ã¸ FOR LOOP
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 BEGIN
     FOR I IN 2..9 LOOP
         FOR J IN 1..9 LOOP
@@ -3073,7 +3073,7 @@ BEGIN
 END;
 /
 
---Â¦¼ö ´Ü Ãâ·Â
+--Â¦ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 DECLARE
     RES NUMBER;
 BEGIN
@@ -3089,7 +3089,7 @@ BEGIN
 END;
 /
 
---FOR¹® ÀÌ¿ëÇÑ INSERT
+--FORï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ INSERT
 CREATE TABLE tb_test_for(
     no NUMBER,
     test_date DATE
@@ -3104,8 +3104,8 @@ END;
 
 select * from tb_test_for;
 
---PL/SQL FOR ¹Ýº¹¹® ÀÌ¿ëÇÏ¿© employee Å×ÀÌºíÀÇ
---200ºÎÅÍ 210¹ø±îÁö »ç¿øÀÇ ¾ÆÀÌµð,ÀÌ¸§,ÀÌ¸ÞÀÏ Ãâ·Â
+--PL/SQL FOR ï¿½Ýºï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ï¿ï¿½ employee ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½
+--200ï¿½ï¿½ï¿½ï¿½ 210ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½,ï¿½Ì¸ï¿½,ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 DECLARE
     E EMPLOYEE%ROWTYPE;
 BEGIN
@@ -3156,12 +3156,12 @@ BEGIN
 END;
 /
 
---2~9»çÀÌ ¼ö ÀÔ·Â ¹Þ¾Æ ±¸±¸´Ü Ãâ·Â
+--2~9ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½Þ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 DECLARE
     DAN NUMBER;
     N NUMBER := 1;
 BEGIN
-    DAN := &´Ü;
+    DAN := &ï¿½ï¿½;
     IF DAN BETWEEN 2 AND 9 THEN
         WHILE N <=9 LOOP
             DBMS_OUTPUT.PUT_LINE(DAN||' * '||N||' = '||DAN*N);
@@ -3171,38 +3171,38 @@ BEGIN
 END;
 /
 
---´ëÀÔÇÒ '=' '&' µÎ°¡Áö »ç¿ë
---  '=' °ª Á÷Á¢ ´ëÀÔ
---  '&' »ç¿ëÀÚ ÀÔ·Â°ª ´ëÀÔ
---      ±âÁ¸ÀÇ µ¥ÀÌÅÍ Á¢±ÙÇÒ ¶§, Á¤ÀûÀÎ SQL¿¡¼­ ¹þ¾î³ª¼­
---      µ¿ÀûÀÎ SQLÀ» ±¸Çö
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ '=' '&' ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+--  '=' ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--  '&' ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·Â°ï¿½ ï¿½ï¿½ï¿½ï¿½
+--      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³ªï¿½ï¿½
+--      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
---  ±âÁ¸ 'Á¤Àû' SQL
-select * from employee where emp_name='À¯Àç½Ä';
---  'µ¿Àû' SQL
+--  ï¿½ï¿½ï¿½ï¿½ 'ï¿½ï¿½ï¿½ï¿½' SQL
+select * from employee where emp_name='ï¿½ï¿½ï¿½ï¿½ï¿½';
+--  'ï¿½ï¿½ï¿½ï¿½' SQL
 DECLARE
     E EMPLOYEE%ROWTYPE;
 BEGIN
     SELECT *
     INTO E
     FROM EMPLOYEE
-    WHERE emp_name = '&»ç¿ø¸í';
-    DBMS_OUTPUT.PUT_LINE('»ç¿ø¹øÈ£: ' || E.emp_id);
-    DBMS_OUTPUT.PUT_LINE('»ç¿ø¸í: ' || E.emp_name);
-    DBMS_OUTPUT.PUT_LINE('»ç¿ø±Þ¿©: ' || E.salary);
+    WHERE emp_name = '&ï¿½ï¿½ï¿½ï¿½ï¿½';
+    DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½ï¿½ï¿½È£: ' || E.emp_id);
+    DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½ï¿½ï¿½: ' || E.emp_name);
+    DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½ï¿½Þ¿ï¿½: ' || E.salary);
 END;
 /
 
---RECORD ÀÚ·áÇü
---  ±âÁ¸ ÀÏ¹Ýº¯¼ö / ÂüÁ¶º¯¼ö
---  %ROWTYPEÀÌ ÂüÁ¶ÇÒ Å×ÀÌºí ÄÃ·³µ¥ÀÌÅÍ Å¸ÀÔÀ» ÀÚµ¿À¸·Î °¡Á®¿È
+--RECORD ï¿½Ú·ï¿½ï¿½ï¿½
+--  ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹Ýºï¿½ï¿½ï¿½ / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--  %ROWTYPEï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
---  RECORD Æ¯Á¤ Å×ÀÌºíÀÇ ÄÃ·³À» °¢°¢ »Ì¾Æ º°µµÀÇ
---  ÇÑÇàÂ¥¸® ÀÚ·áÇü ¼±¾ðÀ» ÇÏ´Â°Í.
+--  RECORD Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--  ï¿½ï¿½ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½Ú·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´Â°ï¿½.
 
-/*  »ç¿ë¹ý
-    TYPE record_type_name IS RECORD(º¯¼ö¸í º¯¼öÅ¸ÀÔ, ...);
-    ·¹ÄÚµå°´Ã¼ ·¹ÄÚµåÅ¸ÀÔ¸í;
+/*  ï¿½ï¿½ï¿½ï¿½
+    TYPE record_type_name IS RECORD(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½, ...);
+    ï¿½ï¿½ï¿½Úµå°´Ã¼ ï¿½ï¿½ï¿½Úµï¿½Å¸ï¿½Ô¸ï¿½;
 */
 DECLARE
     TYPE my_record IS RECORD(
@@ -3214,15 +3214,15 @@ BEGIN
     SELECT emp_id, emp_name
     INTO v_emp
     FROM EMPLOYEE
-    WHERE emp_name='¼±µ¿ÀÏ';
+    WHERE emp_name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
-    DBMS_OUTPUT.PUT_LINE('»ç¹ø: '||v_emp.my_id);
-    DBMS_OUTPUT.PUT_LINE('»ç¿ø¸í: ' || v_emp.my_name);
+    DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½: '||v_emp.my_id);
+    DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½ï¿½ï¿½: ' || v_emp.my_name);
 END;
 /
 
---»ç¹ø »ç¿ø¸í Á÷±Þ¸í ´ãÀ» ÂüÁ¶º¯¼ö·Î ¼ÛÁ¾±â»ç¿ø
---»ç¹ø,»ç¿ø¸í,Á÷±Þ¸í Ãâ·Â
+--ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½
 DECLARE
     TYPE my_r_type IS RECORD(
         emp_id EMPLOYEE.emp_id%TYPE,
@@ -3234,7 +3234,7 @@ BEGIN
     SELECT emp_id, emp_name, job_name
     INTO v_emp
     FROM EMPLOYEE JOIN JOB USING (job_code)
-    WHERE emp_name = '¼ÛÁ¾±â';
+    WHERE emp_name = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
     DBMS_OUTPUT.PUT_LINE('id = ' || v_emp.emp_id);
     DBMS_OUTPUT.PUT_LINE('name = ' || v_emp.emp_name);
@@ -3242,21 +3242,21 @@ BEGIN
 END;
 /
 
---EXCEPTION ¿¹¿ÜÃ³¸®: ½ÇÇàºÎ ¾È¿¡¼­ »ç¿ë
+--EXCEPTION ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 /*
     EXCEPTION
-        WHEN ¿¹¿Ü¸í THEN Ã³¸®¹®Àå1
-        WHEN ¿¹¿Ü¸í THEN Ã³¸®¹®Àå2
-        WHEN ¿¹¿Ü1 OR ¿¹¿Ü2 THEN Ã³¸®¹®Àå3
-        WHEN OTHERS THEN Ã³¸®¹®Àå4
+        WHEN ï¿½ï¿½ï¿½Ü¸ï¿½ THEN Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1
+        WHEN ï¿½ï¿½ï¿½Ü¸ï¿½ THEN Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2
+        WHEN ï¿½ï¿½ï¿½ï¿½1 OR ï¿½ï¿½ï¿½ï¿½2 THEN Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3
+        WHEN OTHERS THEN Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4
 */
 /*
-¿À¶óÅ¬¿¡¼­ Á¦°øÇÏ´Â ¿¹¿Ü º°Äªµé... ¸î°¡Áö¸¸..
-    NO_DATA_FOUND : select ÇÑ °á°ú°¡ ÇÏ³ªµµ ¾ø´Â °æ¿ì.
-    CASE_NOT_FOUND : CASE ±¸¹® ÀÏÄ¡ÇÏ´Â °á°ú°¡ ¾ø°í, ELSE Ã³¸®¸¦ ÇÏÁö ¾ÊÀº °æ¿ì.
-    LOGIN_DENIED : Àß¸øµÈ ¾ÆÀÌµð³ª ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇÏ¿´À» °æ¿ì
-    DUP_VAL_ON_INDEX : UNIQUE Á¦¾à Á¶°ÇÀ» À§¹èÇßÀ» °æ¿ì
-    INVALID_NUMBER : ¹®ÀÚµ¥ÀÌÅÍ¸¦ ¼ýÀÚ·Î º¯°æÇÒ¶§ º¯°æÇÒ ¼ö ¾ø´Â ¹®ÀÚÀÎ °æ¿ì.
+ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Äªï¿½ï¿½... ï¿½î°¡ï¿½ï¿½ï¿½ï¿½..
+    NO_DATA_FOUND : select ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+    CASE_NOT_FOUND : CASE ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ELSE Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+    LOGIN_DENIED : ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+    DUP_VAL_ON_INDEX : UNIQUE ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+    INVALID_NUMBER : ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 */
 BEGIN
     UPDATE EMPLOYEE
@@ -3264,20 +3264,20 @@ BEGIN
     WHERE emp_id=200;
 EXCEPTION
     WHEN DUP_VAL_ON_INDEX THEN
-        DBMS_OUTPUT.PUT_LINE('ÀÌ¹Ì Á¸ÀçÇÏ´Â »ç¿øÀÔ´Ï´Ù.');
+        DBMS_OUTPUT.PUT_LINE('ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.');
 END;
 /
 
---»ç¿ëÀÚ Á¤ÀÇ ¿¹¿ÜÃ³¸®
---ÇÁ·Î±×·¡¸Ó°¡ Á¤ÀÇ
---RAISE_APPLICATION_ERROR() »ç¿ëÇÏ¿©
---¿À·ùÄÚµå -20000~-20999ÀÇ ¹üÀ§¿¡¼­ ¸¸µé°Å³ª
---RAISE(ÀÚ¹Ù¿¡¼­´Â THROW) »ç¿ëÇØ¼­ ¿¹¿Ü¸¦ ¹ß»ý ½ÃÅ³ ¼ö ÀÖ´Ù.
+--ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
+--ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½Ó°ï¿½ ï¿½ï¿½ï¿½ï¿½
+--RAISE_APPLICATION_ERROR() ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½
+--ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ -20000~-20999ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å³ï¿½
+--RAISE(ï¿½Ú¹Ù¿ï¿½ï¿½ï¿½ï¿½ï¿½ THROW) ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ü¸ï¿½ ï¿½ß»ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ ï¿½Ö´ï¿½.
 
 /*
-»ç¿ë¹æ¹ý
-    RAISE_APPLICATION_ERROR (¿¡·¯ÄÚµå, ¸Þ½ÃÁö);
-    RAISE ¿¹¿Ü;
+ï¿½ï¿½ï¿½ï¿½ï¿½
+    RAISE_APPLICATION_ERROR (ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½, ï¿½Þ½ï¿½ï¿½ï¿½);
+    RAISE ï¿½ï¿½ï¿½ï¿½;
 */
 
 CREATE TABLE test_member(
@@ -3296,61 +3296,61 @@ DECLARE
     PRAGMA EXCEPTION_INIT(toolong_name, -12899);
     PRAGMA EXCEPTION_INIT(tooshort_pwd, -20001);
     PRAGMA EXCEPTION_INIT(toolong_pwd, -20999);
-    --PRAGMA EXCEPTION_INIT(¿¹¿Ü¸í, ¿¹¿Ü¹øÈ£);
-     --¿¹¿Ü¹øÈ£¸¦ ¸í½ÃÇØ¼­, ÄÄÆÄÀÏ·¯¿¡ ÀÌ ¿¹¿Ü¸¦
-    --»ç¿ëÇÑ´Ù´Â °ÍÀ» ¾Ë¸®´Â ¿ªÇÒ
+    --PRAGMA EXCEPTION_INIT(ï¿½ï¿½ï¿½Ü¸ï¿½, ï¿½ï¿½ï¿½Ü¹ï¿½È£);
+     --ï¿½ï¿½ï¿½Ü¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ü¸ï¿½
+    --ï¿½ï¿½ï¿½ï¿½Ñ´Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 BEGIN
-    v_pwd := '&ºñ¹Ð¹øÈ£';
+    v_pwd := '&ï¿½ï¿½Ð¹ï¿½È£';
     IF LENGTH(v_pwd) <8 THEN
         RAISE tooshort_pwd;
     ELSIF LENGTH(v_pwd) > 20 THEN
         RAISE toolong_pwd;
     END IF;
 
-    INSERT INTO test_member VALUES('USER02', v_pwd, '°í±æµ¿');
+    INSERT INTO test_member VALUES('USER02', v_pwd, 'ï¿½ï¿½ï¿½æµ¿');
 EXCEPTION
     WHEN tooshort_pwd THEN
-        DBMS_OUTPUT.PUT_LINE('ºñ¹Ð¹øÈ£´Â 8ÀÚ¸® ÀÌ»óÀ¸·Î!!!');
+        DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ 8ï¿½Ú¸ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ï¿½ï¿½!!!');
     WHEN toolong_pwd THEN
-        DBMS_OUTPUT.PUT_LINE('ºñ¹Ð¹øÈ£´Â 20ÀÚ¸® ÀÌÇÏ·Î!!!');
+        DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ 20ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½Ï·ï¿½!!!');
 END;
 /
 
 --PROCEDURE
---  PL/SQLÀ» ¹Ì¸® ÀúÀåÇØ³õ°í, procedure_nameÀ¸·Î È£ÃâÇÏ¿©
---  ÇÔ¼öÃ³·³ µ¿ÀÛ½ÃÅ°´Â PL/SQL °´Ã¼
-/* [»ç¿ëÇü½Ä]
-    CREATE [OR REPLACE] PROCEDURE ÇÁ·Î½ÃÀú¸í (
-        ¸Å°³º¯¼ö 1 [IN/OUT/IN OUT] ÀÚ·áÇü,
-        ¸Å°³º¯¼ö 2,
+--  PL/SQLï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½, procedure_nameï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ï¿ï¿½
+--  ï¿½Ô¼ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½Û½ï¿½Å°ï¿½ï¿½ PL/SQL ï¿½ï¿½Ã¼
+/* [ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]
+    CREATE [OR REPLACE] PROCEDURE ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½ (
+        ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ 1 [IN/OUT/IN OUT] ï¿½Ú·ï¿½ï¿½ï¿½,
+        ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ 2,
         ...
     );
-    -- IN : ÇÁ·Î½ÃÀú¿¡¼­ »ç¿ëÇÒ º¯¼ö°ªÀ» ¿ÜºÎ¿¡¼­ ³Ö°Ú´Ù.
-    -- OUT : ÇÁ·Î½ÃÀú¸¦ ½ÇÇàÇÑ °á°ú¸¦ ¿ÜºÎ·Î ÃßÃâÇÒ¶§(RETURN)
-    -- INOUT : IN°ú OUT µÎ°¡Áö ±â´É µÑ´Ù °¡´É
-               (´Ü, IN°ú OUT µÎ°¡Áö Áß ÇÏ³ª¸¸ »ç¿ë °¡´É - ±ÇÀå X)
+    -- IN : ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ÜºÎ¿ï¿½ï¿½ï¿½ ï¿½Ö°Ú´ï¿½.
+    -- OUT : ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ÜºÎ·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½(RETURN)
+    -- INOUT : INï¿½ï¿½ OUT ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½ ï¿½ï¿½ï¿½ï¿½
+               (ï¿½ï¿½, INï¿½ï¿½ OUT ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ X)
     IS
-    DECLARE(¼±¾ðºÎ)
+    DECLARE(ï¿½ï¿½ï¿½ï¿½ï¿½)
     BEGIN
-        ½ÇÇàÇÒ ºÎºÐ
+        ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½
     END;
     /
 
-  [È£Ãâ¹æ½Ä]
+  [È£ï¿½ï¿½ï¿½ï¿½]
     EXECUTE procedure_name(param1, param2, ...);
        EXEC procedure_name(param1, param2, ...);
-  [»èÁ¦]
-    DROP PROCEDURE ÇÁ·Î½ÃÀú¸í;
+  [ï¿½ï¿½ï¿½ï¿½]
+    DROP PROCEDURE ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½;
 
-  [ÇÁ·Î½ÃÀú¸¦ Á¶È¸]
-    -- µ¥ÀÌÅÍ»çÀü: user_source;
+  [ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸]
+    -- ï¿½ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½: user_source;
     select * from user_soruce;
 */
 
---Á÷¿ø Á¤º¸¸¦ ¸ðµÎ »èÁ¦ÇÏ´Â ÇÁ·Î½ÃÁ® ±¸ÇöÇÏ±â
+--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 CREATE TABLE emp_tmp AS (select * from employee);
 
---ÇÁ·Î½ÃÁ® »ý¼º
+--ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 CREATE OR REPLACE PROCEDURE del_all_emp
 IS
 BEGIN
@@ -3359,48 +3359,48 @@ BEGIN
 END;
 /
 
---ÇÁ·Î½ÃÁ® ¼±¾ð¸¸ Çß°í, ¹Ù·Î ½ÇÇà¾ÈµÊ
+--ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½, ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½Èµï¿½
 select count(*) from emp_tmp; --33
 EXEC del_all_emp;
 select count(*) from emp_tmp; --0
 
 DROP TABLE emp_tmp;
 
---¸Å°³º¯¼ö¸¦ °®´Â ÇÁ·Î½ÃÁ®
+--ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½
 --  [IN]
 CREATE TABLE emp_tmp_01 AS (select * from EMPLOYEE);
 
---ÇÁ·Î½ÃÁ® »ý¼º(¸Å°³º¯¼ö)
+--ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½)
 CREATE OR REPLACE PROCEDURE del_emp_name (
     v_name IN EMP_TMP_01.EMP_NAME%TYPE)
 IS
 BEGIN
     DELETE FROM emp_tmp_01
     WHERE emp_name like v_name;
-    DBMS_OUTPUT.PUT_LINE(v_name || 'Á÷¿øÁ¤º¸ »èÁ¦!!');
+    DBMS_OUTPUT.PUT_LINE(v_name || 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!!');
     COMMIT;
 END;
 /
 
---Æ¯Á¤ ÀÌ¸§À» °¡Áø »ç¿ø »èÁ¦
-select * from emp_tmp_01 where emp_name='ÀÌ¿À¸®';
-EXEC DEL_EMP_NAME('ÀÌ¿À¸®');
-select * from emp_tmp_01 where emp_name='ÀÌ¿À¸®';
+--Æ¯ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+select * from emp_tmp_01 where emp_name='ï¿½Ì¿ï¿½ï¿½ï¿½';
+EXEC DEL_EMP_NAME('ï¿½Ì¿ï¿½ï¿½ï¿½');
+select * from emp_tmp_01 where emp_name='ï¿½Ì¿ï¿½ï¿½ï¿½';
 
-select * from emp_tmp_01 where emp_name like 'ÀÌ%';
-EXEC DEL_EMP_NAME('ÀÌ%');
-select * from emp_tmp_01 where emp_name like 'ÀÌ%';
+select * from emp_tmp_01 where emp_name like 'ï¿½ï¿½%';
+EXEC DEL_EMP_NAME('ï¿½ï¿½%');
+select * from emp_tmp_01 where emp_name like 'ï¿½ï¿½%';
 
 
 --[OUT]
---  ³»ºÎÀÇ °ªÀ» ¿ÜºÎ·Î Àü´ÞÇÏ´Â ¹æ½Ä
---  °ªÀ» ¹ÞÀ» ¼ö ÀÖ°Ô º¯¼ö »ý¼º
+--  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ÜºÎ·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½
+--  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
---  º¯¼ö¼±¾ð
---  VARIABLE º¯¼ö¸í ÀÚ·áÇü(¹ÙÀÌÆ®);
+--  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--  VARIABLE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Æ®);
 
---  ½ÇÇà
---  EXEC ÇÁ·Î½ÃÁ®¸í(Àü´Þ°ª, :Àü´Þ¹ÞÀ» º¯¼ö¸í);
+--  ï¿½ï¿½ï¿½ï¿½
+--  EXEC ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Þ°ï¿½, :ï¿½ï¿½ï¿½Þ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½);
 
 /*
 METHOD(30);
@@ -3408,10 +3408,10 @@ INT NO = METHOD2();
 INT NO = METHOD3(30);
 */
 
---Á÷¿ø Á¤º¸¸¦ Á¶È¸ÇÏ¿© º¯¼ö¿¡ Á÷¿ø Á¤º¸ Ãß°¡ ÈÄ
---¹ÛÀ¸·Î OUT ÇØº¸ÀÚ
+--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ OUT ï¿½Øºï¿½ï¿½ï¿½
 CREATE OR REPLACE PROCEDURE
-    emp_info(vemp_id IN EMPLOYEE.EMP_ID%TYPE, --¸Å°³º¯¼öµé ¼±¾ð
+    emp_info(vemp_id IN EMPLOYEE.EMP_ID%TYPE, --ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
              vemp_name OUT EMPLOYEE.EMP_NAME%TYPE,
              vphone OUT EMPLOYEE.PHONE%TYPE,
              vemail OUT EMPLOYEE.EMAIL%TYPE)
@@ -3424,27 +3424,27 @@ BEGIN
 END;
 /
 
---º¯¼ö¼±¾ð -> ÇÁ·Î½ÃÁ®¸¦ ÅëÇØ OUTµÇ´Â µ¥ÀÌÅÍ¸¦ ´ã´Â´Ù.
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ OUTï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½Â´ï¿½.
 VARIABLE var_ename VARCHAR2(20);
 VARIABLE var_phone VARCHAR2(20);
 VARIABLE var_email VARCHAR2(20);
 
 EXEC emp_info(201, :var_ename, :var_phone, :var_email);
 
---º¯¼öÈ®ÀÎ
+--ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½
 PRINT var_ename;
 PRINT var_phone;
 PRINT var_email;
 
 SET AUTOPRINT ON;
---ÇÁ·Î½ÃÁ® ½ÇÇàÇÏ°í EXECÇÏ¸é, ÀüºÎ Ãâ·ÂµÊ
+--ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ EXECï¿½Ï¸ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Âµï¿½
 
 select * from user_source;
 
---ºÎ¼­ÄÚµå ÀÔ·Â¹Þ¾Æ ÇØ´ç ºÎ¼­ Á¤º¸ »èÁ¦ÈÄ
---  »èÁ¦µÈ ºÎ¼­ÀÌ¸§À» Ãâ·ÂÇÏ´Â ÇÁ·Î½ÃÁ®
---  ´Ü ¸¸¾à Á¶È¸ÇÑ ºÎ¼­ ¾øÀ»°Ü¿ì
---  NO_DATA_FOUND »ç¿ëÇÏ¿© 'ÇØ´ç ºÎ¼­°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.' Ãâ·Â
+--ï¿½Î¼ï¿½ï¿½Úµï¿½ ï¿½Ô·Â¹Þ¾ï¿½ ï¿½Ø´ï¿½ ï¿½Î¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½
+--  ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½Î¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ü¿ï¿½
+--  NO_DATA_FOUND ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ 'ï¿½Ø´ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.' ï¿½ï¿½ï¿½
 CREATE TABLE dept_01 AS (select * from department);
 DROP TABLE dept_01;
 
@@ -3462,29 +3462,29 @@ BEGIN
     WHERE dept_id=v_dept_id;
 
     COMMIT;
-    DBMS_OUTPUT.PUT_LINE(v_dept_title || ' ºÎ¼­°¡ ¼º°øÀûÀ¸·Î »èÁ¦µÇ¾ú½À´Ï´Ù.');
+    DBMS_OUTPUT.PUT_LINE(v_dept_title || ' ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.');
 
 EXCEPTION 
     WHEN NO_DATA_FOUND
-        THEN DBMS_OUTPUT.PUT_LINE('ÇØ´çºÎ¼­ ' || v_dept_id || ' °¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.');
+        THEN DBMS_OUTPUT.PUT_LINE('ï¿½Ø´ï¿½Î¼ï¿½ ' || v_dept_id || ' ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.');
         RETURN;
 END;
 /
 
 VARIABLE dept_title VARCHAR2(35);
 select * from dept_01;
-EXEC del_dept('&ºÎ¼­ÄÚµå', :dept_title);
+EXEC del_dept('&ï¿½Î¼ï¿½ï¿½Úµï¿½', :dept_title);
 select * from dept_01;
 EXEC del_dept('D2', :dept_title);
 
 PRINT dept_title;
 
 
---FUNCTION ÇÔ¼ö
+--FUNCTION ï¿½Ô¼ï¿½
 --  similar to procedure, 
 --  but has RETURN value.
---  »ç¿ø¹øÈ£¸¦ ÀÔ·Â¹Þ¾Æ 1³âÄ¡ ¿¬ºÀ+º¸³Ê½º °è»êÇÏ¿©
---  ¹ÝÈ¯ÇÏ´Â ÇÔ¼ö¸¦ Á¤ÀÇÇÏ¼¼¿ä
+--  ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·Â¹Þ¾ï¿½ 1ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½
+--  ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½
 
 CREATE OR REPLACE FUNCTION bonus_cal(
     v_emp_id EMPLOYEE.emp_id%TYPE)
@@ -3514,7 +3514,7 @@ VARIABLE var_re NUMBER;
 EXEC :var_re := bonus_cal('&emp_id');
 PRINT var_re;
 
---»ç¿ø¹øÈ£¸¦ ÀÔ·Â¹Þ¾Æ ¼ºº° RETURN
+--ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·Â¹Þ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ RETURN
 CREATE OR REPLACE FUNCTION f_gender(
     v_emp_id EMPLOYEE.emp_id%TYPE)
 RETURN VARCHAR2
@@ -3522,7 +3522,7 @@ IS
     v_gender VARCHAR2(10);
 BEGIN
     SELECT DECODE( substr(emp_no,8, 1),
-           '1', '³²', '3', '³²', '¿©')
+           '1', 'ï¿½ï¿½', '3', 'ï¿½ï¿½', 'ï¿½ï¿½')
     INTO v_gender
     FROM EMPLOYEE
     WHERE emp_id = v_emp_id;
@@ -3540,25 +3540,25 @@ PRINT var_re;
 select * from all_errors;
 
 --CURSOR
---  SELECT ¹® °á°ú ¿©·¯ROWÀÏ¶§, ÇÑ°³ Çà¾¿  Á¢±ÙÇÏ¿© Ã³¸®
---  CURSOR¿¡ RESULTSETÀ» º¸°üÇÏ°í FETCH·Î ´ÙÀ½ÇàÀ¸·Î ¿¬°á
+--  SELECT ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ROWï¿½Ï¶ï¿½, ï¿½Ñ°ï¿½ ï¿½à¾¿  ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ Ã³ï¿½ï¿½
+--  CURSORï¿½ï¿½ RESULTSETï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ FETCHï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 --
---  [»ç¿ë¹ý]
---  CURSOR¸¦ º¯¼ö·Î ¼±¾ðÇÏ°í, ¼±¾ðÇÑ º¯¼ö CURSOR¸¦ OPENÀ¸·Î ¿¬´Ù.
---  ¹Ýº¹¹® ¾È¿¡¼­ FETCH¸¦ ÅëÇØ ÇÑ Çà¾¿ Á¾·áµÇ¸é, CLOSE ¸í·ÉÀ¸·Î CURSOR ´ÝÀ½
+--  [ï¿½ï¿½ï¿½ï¿½]
+--  CURSORï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ CURSORï¿½ï¿½ OPENï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+--  ï¿½Ýºï¿½ï¿½ï¿½ ï¿½È¿ï¿½ï¿½ï¿½ FETCHï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½à¾¿ ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½, CLOSE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ CURSOR ï¿½ï¿½ï¿½ï¿½
 --
---  [CURSOR¿¡ µ¥ÀÌÅÍ Á¸Àç¿©ºÎ È®ÀÎÇÏ´Â ¹æ¹ý]
---  %NOTFOUND : OPEN ÈÄ FETCH Àü¿¡ NULL, FETCHµÈ ÇàÀÌ Á¸ÀçÇÏ¸é FALSE, Á¸ÀçÇÏÁö ¾ÊÀ¸¸é TRUE
---  %FOUND : FETCH µÈ ÇàÀÌ Á¸ÀçÇÏ¸é TRUE, ¾Æ´Ï¸é FALSE
---  %ISOPEN : ÃÖ±Ù ½ÇÇàµÈ CURSOR°¡ OPEN µÈ »óÅÂÀÌ¸é TRUE, ¾Æ´Ï¸é FALSE
---  %ROWCOUNT : CURSOR¿¡ µé¾î°¡ ÀÖ´Â ROW ¼ö
+--  [CURSORï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ç¿©ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½]
+--  %NOTFOUND : OPEN ï¿½ï¿½ FETCH ï¿½ï¿½ï¿½ï¿½ NULL, FETCHï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ FALSE, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ TRUE
+--  %FOUND : FETCH ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ TRUE, ï¿½Æ´Ï¸ï¿½ FALSE
+--  %ISOPEN : ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ CURSORï¿½ï¿½ OPEN ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ TRUE, ï¿½Æ´Ï¸ï¿½ FALSE
+--  %ROWCOUNT : CURSORï¿½ï¿½ ï¿½ï¿½î°¡ ï¿½Ö´ï¿½ ROW ï¿½ï¿½
 
---  ºÎ¼­ÄÚµå ºÎ¼­¸í Áö¿ªÄÚµå¸¦ ¸ðµÎ Ãâ·ÂÇÏ´Â
---  Ä¿¼­¸¦ ÀÌ¿ëÇÑ ÇÁ·Î½ÃÁ®¸¦ ÀÛ¼º
+--  ï¿½Î¼ï¿½ï¿½Úµï¿½ ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµå¸¦ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+--  Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
 CREATE OR REPLACE PROCEDURE cursortest
 IS
     v_dept DEPARTMENT%ROWTYPE;
-    CURSOR C1  -- 9°³ÀÇ ÇàÀÌ CURSOR C1 ·Î ÀüºÎ µé¾î°¨
+    CURSOR C1  -- 9ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ CURSOR C1 ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¨
     IS
     SELECT * FROM DEPARTMENT;
 BEGIN
@@ -3568,9 +3568,9 @@ BEGIN
                       v_dept.dept_title,
                       v_dept.location_id;
         EXIT WHEN C1%NOTFOUND;
-        DBMS_OUTPUT.PUT_LINE('ºÎ¼­ÄÚµå: ' || v_dept.dept_id
-                             ||', ºÎ¼­¸í: ' || v_dept.dept_title
-                             ||', Áö¿ªÄÚµå: '|| v_dept.location_id);
+        DBMS_OUTPUT.PUT_LINE('ï¿½Î¼ï¿½ï¿½Úµï¿½: ' || v_dept.dept_id
+                             ||', ï¿½Î¼ï¿½ï¿½ï¿½: ' || v_dept.dept_title
+                             ||', ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½: '|| v_dept.location_id);
     END LOOP;
     CLOSE C1;
 END;
@@ -3588,14 +3588,14 @@ BEGIN
     LOOP
         FETCH C1 INTO v_user;
         EXIT WHEN C1%NOTFOUND;
-        DBMS_OUTPUT.PUT_LINE('ÀÌ¸§ : ' || v_user.emp_name);
+        DBMS_OUTPUT.PUT_LINE('ï¿½Ì¸ï¿½ : ' || v_user.emp_name);
     END LOOP;
     CLOSE C1;
 END;
 /
 
---FOR IN À» ÀÌ¿ëÇÏ¿© Ã³¸®ÇÏ´Â ¹æ¹ý
---  CURSOR¸¦ open/close ¾ÈÇØµµ µÊ.
+--FOR IN ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ï¿ï¿½ Ã³ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½
+--  CURSORï¿½ï¿½ open/close ï¿½ï¿½ï¿½Øµï¿½ ï¿½ï¿½.
 DECLARE
     v_dept DEPARTMENT%ROWTYPE;
     CURSOR C2
@@ -3604,67 +3604,67 @@ BEGIN
     --OPEN C2
     --FETCH C2 INTO
     FOR v_dept IN C2 LOOP
-        DBMS_OUTPUT.PUT_LINE('ºÎ¼­ÄÚµå' || v_dept.dept_id);
+        DBMS_OUTPUT.PUT_LINE('ï¿½Î¼ï¿½ï¿½Úµï¿½' || v_dept.dept_id);
     END LOOP;
 END;
 /
 
---TRIGGER : DML(insert,update,delete)½ÇÇàÀü,ÈÄ¿¡ ¹ß»ý½ÃÅ²
---  ½ÇÇà ±¸¹®À» Á¤ÇØ³õ°í ½ÇÇà½ÃÅ°´Â °Í
---  CREATE ¸í·É¾î·Î »ý¼º
---  after/before ½ÇÇà½ÃÁ¡
---  ½ÇÇàÇÒ ¸í·É¾î¸¦ ÁöÁ¤
---  Çà´ÜÀ§·Î ½ÇÇà ÇÒ Áö ¿©ºÎ.
+--TRIGGER : DML(insert,update,delete)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Ä¿ï¿½ ï¿½ß»ï¿½ï¿½ï¿½Å²
+--  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½
+--  CREATE ï¿½ï¿½ï¿½É¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--  after/before ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¾î¸¦ ï¿½ï¿½ï¿½ï¿½
+--  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 --  CREATE TRIGGER trigger_name
---  AFTER/BEFORE ½ÇÇà¸í·É¾î ON table_name
+--  AFTER/BEFORE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ ON table_name
 --  FOR EACH ROW
---  PL/SQL ±¸¹®½ÇÇà (BEGIN~END)
---  ¸í·É¾î : 
---      new.ÄÃ·³ : Áö±Ý ¼öÁ¤ »ðÀÔµÈ ÀÚ·á(update,insert¿¡¸¸)
---      old.ÄÃ·³ : ¼öÁ¤, »èÁ¦ ÀÌÀü¿¡ ÀÖ´ø °ª (update, delete¿¡¸¸)
+--  PL/SQL ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (BEGIN~END)
+--  ï¿½ï¿½ï¿½É¾ï¿½ : 
+--      new.ï¿½Ã·ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ôµï¿½ ï¿½Ú·ï¿½(update,insertï¿½ï¿½ï¿½ï¿½)
+--      old.ï¿½Ã·ï¿½ : ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ (update, deleteï¿½ï¿½ï¿½ï¿½)
 
--- trigger »ý¼ºÇÏ¸é ÀÚµ¿À¸·Î µ¹¾Æ°¨
+-- trigger ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½
 CREATE OR REPLACE TRIGGER tg_empnew
 AFTER INSERT ON EMPLOYEE
 FOR EACH ROW
 BEGIN
-    DBMS_OUTPUT.PUT_LINE('½ÅÀÔ»ç¿ø µî·Ï¿Ï·á!');
+    DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½Ô»ï¿½ï¿½ ï¿½ï¿½Ï¿Ï·ï¿½!');
 END;
 /
 
 SELECT * from user_triggers;
 
 INSERT INTO employee VALUES(
-    996, '¹Ú¼ö¿µ', '961222-2112333', 'red@sm.co.kr', '01011223344',
+    996, 'ï¿½Ú¼ï¿½ï¿½ï¿½', '961222-2112333', 'red@sm.co.kr', '01011223344',
     'D1', 'J2', 'S2', 1500000, 0.3, 200, SYSDATE, DEFAULT, DEFAULT);
 INSERT INTO employee VALUES(
-    996, '¹Ú¼ö¿µ', '961222-2112333', 'red@sm.co.kr', '01011223344',
+    996, 'ï¿½Ú¼ï¿½ï¿½ï¿½', '961222-2112333', 'red@sm.co.kr', '01011223344',
     'D1', 'J2', 'S2', 1500000, 0.3, 200, SYSDATE, DEFAULT, DEFAULT);
 select * from employee;
 
-DELETE FROM employee where emp_name='¹Ú¼ö¿µ';
+DELETE FROM employee where emp_name='ï¿½Ú¼ï¿½ï¿½ï¿½';
 
-COMMIT; --COMMITÇØ¾ß ¸Þ½ÃÁö Ãâ·Â
---AUTO COMMIT ¼³Á¤½Ã INSERT ¸¶´Ù Ãâ·Â
+COMMIT; --COMMITï¿½Ø¾ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+--AUTO COMMIT ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ INSERT ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
 --
 CREATE OR REPLACE TRIGGER tg_sal
 AFTER UPDATE ON EMPLOYEE
 FOR EACH ROW
 BEGIN
-    DBMS_OUTPUT.PUT_LINE('º¯°æÀü °ª : ' || :OLD.salary);
-    DBMS_OUTPUT.PUT_LINE('º¯°æÈÄ °ª : ' || :NEW.salary);
+    DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ : ' || :OLD.salary);
+    DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ : ' || :NEW.salary);
 END;
 /
 
-UPDATE employee SET SALARY = SALARY * 3 WHERE emp_name='À¯º´½Â';
-select emp_name, salary from employee where emp_name='À¯º´½Â';
+UPDATE employee SET SALARY = SALARY * 3 WHERE emp_name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
+select emp_name, salary from employee where emp_name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
 ROLLBACK;
 
 SELECT * from user_triggers;
 
---TRIGGER Àû¿ëÇÏ±â
+--TRIGGER ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 CREATE TABLE product(
     pcode NUMBER PRIMARY KEY,
     pname VARCHAR2(30),
@@ -3672,13 +3672,13 @@ CREATE TABLE product(
     price NUMBER,
     stock NUMBER DEFAULT 0
 );
---ÀÔ°í Ãâ°í °ü¸® Å×ÀÌºí
+--ï¿½Ô°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
 CREATE TABLE product_IO(
     icode NUMBER PRIMARY KEY,
     pcode NUMBER,
     pdate DATE,
     amount NUMBER,
-    status VARCHAR2(10) CHECK(status in ('ÀÔ°í', 'Ãâ°í')),
+    status VARCHAR2(10) CHECK(status in ('ï¿½Ô°ï¿½', 'ï¿½ï¿½ï¿½')),
     CONSTRAINT fk_proc_io FOREIGN KEY(pcode) REFERENCES product(pcode)
 );
 DROP TABLE product;
@@ -3699,17 +3699,17 @@ INSERT INTO product VALUES(seq_proc.nextval, 'Galaxy S10', 'SAMSUNG', 190000, DE
 
 select * from product;
 
---TRIGGER IOÅ×ÀÌºí °ªÀÌ ÀÔ·ÂµÇ¸é ÀÔ·ÂµÇ´Â °ÍÀ» ±âÁØÀ¸·Î
---product ¼ö·®ÀÇ ¼öÁ¤ÇÏ´Â trigger »ý¼º
+--TRIGGER IOï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ÂµÇ¸ï¿½ ï¿½Ô·ÂµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--product ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ trigger ï¿½ï¿½ï¿½ï¿½
 CREATE TRIGGER tg_product
 AFTER INSERT ON PRODUCT_IO
 FOR EACH ROW
 BEGIN
-    IF :new.status='ÀÔ°í' THEN
+    IF :new.status='ï¿½Ô°ï¿½' THEN
         UPDATE product
         SET stock = stock +:new.amount
         WHERE pcode = :new.pcode;
-    ELSIF :new.status='Ãâ°í' THEN
+    ELSIF :new.status='ï¿½ï¿½ï¿½' THEN
         UPDATE product
         SET stock = stock  - :new.amount
         WHERE pcode = :new.pcode;
@@ -3718,18 +3718,18 @@ END;
 /
 DROP TRIGGER tg_product;
 
-INSERT INTO product_io VALUES(seq_proc_io.nextval, 1, SYSDATE, 10, 'ÀÔ°í');
-INSERT INTO product_io VALUES(seq_proc_io.nextval, 2, SYSDATE, 50, 'ÀÔ°í');
-INSERT INTO product_io VALUES(seq_proc_io.nextval, 3, SYSDATE, 100, 'ÀÔ°í');
+INSERT INTO product_io VALUES(seq_proc_io.nextval, 1, SYSDATE, 10, 'ï¿½Ô°ï¿½');
+INSERT INTO product_io VALUES(seq_proc_io.nextval, 2, SYSDATE, 50, 'ï¿½Ô°ï¿½');
+INSERT INTO product_io VALUES(seq_proc_io.nextval, 3, SYSDATE, 100, 'ï¿½Ô°ï¿½');
 
 select * from user_sequences;
---EMPLOYEE Å×ÀÌºí¿¡¼­ »ç¿øÀ» »èÁ¦ÇÏ¸é »èÁ¦Å×ÀÌºí·Î ÀÌµ¿
+--EMPLOYEE ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 CREATE TABLE del_emp AS (select * from employee where 1=0);
 
 CREATE TRIGGER tg_del_emp
 AFTER DELETE ON EMPLOYEE
 FOR EACH ROW
-WHEN (OLD.emp_name <> 'À¯º´½Â')
+WHEN (OLD.emp_name <> 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½')
 BEGIN
     INSERT INTO del_emp VALUES
     (:OLD.EMP_ID, :OLD.EMP_NAME, :OLD.EMP_NO, :OLD.EMAIL, :OLD.PHONE, 
@@ -3740,11 +3740,11 @@ END;
 
 DROP TRIGGER tg_del_emp;
 
-INSERT INTO employee VALUES( 995, '¹Ú¼ö¿µ2', '961223-2112333', 'red@sm.co.kr',
+INSERT INTO employee VALUES( 995, 'ï¿½Ú¼ï¿½ï¿½ï¿½2', '961223-2112333', 'red@sm.co.kr',
     '01011223344', 'D1', 'J2', 'S2', 1500000, 0.3, 200, SYSDATE, DEFAULT, DEFAULT);
 
-DELETE FROM EMPLOYEE WHERE  emp_name='¹Ú¼ö¿µ2';
-DELETE FROM EMPLOYEE WHERE  emp_name='À¯º´½Â';
+DELETE FROM EMPLOYEE WHERE  emp_name='ï¿½Ú¼ï¿½ï¿½ï¿½2';
+DELETE FROM EMPLOYEE WHERE  emp_name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 ROLLBACK;
 
 select * from del_emp;
