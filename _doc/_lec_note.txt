@@ -1,3 +1,5 @@
+
+
 SQL DEVELOPER MS949-> UTF-8
 
 BOM + DOM -> web development
