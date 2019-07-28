@@ -1,3 +1,5 @@
+SQL DEVELOPER MS949-> UTF-8
+
 BOM + DOM -> web development
 채팅기능
 https://opentutorials.org/course/3084/18597
