@@ -1,3 +1,29 @@
+
+부트스트랩 한글번역된 페이지 있네요 (http://bootstrapk.com/getting-started/#download-cdn)
+    부트스트랩을 사용하는 이유는 간단합니다. 부트스랩이 제공하는 .css .js 파일이 있기 때문에,
+    저희가 직접 .css .js를 만들지 않고도 디자인과 레이아웃 등 수많은 템플릿을 미리 정의해 놓은것을
+    사용하기 위함 입니다.
+    즉 bootstrap에서 제공하는 css js파일을 저희 html 파일에서 <link href="">를 이용하여 
+    링크만 걸어주면 미리 정의된 클래스를 이용할 수 있습니다.
+    
+    예를들어 
+    <p class='mx-auto'>example paragraph</p>
+        는 bootstrap이 정의하는 mx-auto클래스 (margin-left 와 margin-right (x: right/left)
+        자동으로 맞춰 정렬)를 사용하여 정렬 가능 합니다.
+    
+    1. CDN 링크 (http://bootstrapk.com/getting-started/#download-cdn)
+    CDN은 .css .js 등 파일을 저장하는 공간이라고 보심됩니다. bootstrap이 만든 css js 등 소스코드 
+    CDN link를 걸어주면, bootstrap이 정의하고 있는 class를 자유롭게 사용 가능합니다.
+    호준씨는 영어잘하시니 bootstrap4 홈페이지에서 documentation 하고 example 참고하심됩니다.
+        https://getbootstrap.com/docs/4.3/getting-started/introduction/
+        https://getbootstrap.com/docs/4.3/examples/
+    
+    2. 어떻게 화면을 만드는지.
+    사실상 일일이 css 스타일을 만들고, 하기에는 시간이 없습니다.
+    위에 링크에서 예제(examples) 페이지에서 예제중 하나를 골라서 코드를 복사해서 시작하세요.
+    물론 <head>에 해당 CDN 주소를 링크 하셔야 디자인이 적용됩니다.
+    
+
 Regular Expression
 
 SQL DEVELOPER MS949-> UTF-8
