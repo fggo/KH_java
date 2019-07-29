@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>페이지 이벤트 처리하기</title>
+</head>
+<body>
+    <h3>이벤트 처리하기</h3>
+    <p>기본 이벤트 속성</p>
+    <ul>
+        <li>focus : input tag에 포커싱 되었을때</li>
+        <li>blur : input태그에서 다른 input태그로 포커싱을 옮길때
+            포커싱이 사라질때.
+        </li>
+        <li style="color:red;">
+            중요!! : 동일한 태그에 focus와 blur같이 걸면 무한 반복!
+        </li>
+        <li>change : input에 있는 내용이 변경됐을때 select등 선택했을때</li>
+        <li>click : 마우스를 클릭했을때</li>
+        <li>dblclick : 마우스 더블클릭시</li>
+        <li>mouseover : 마우스가 올라왔을때</li>
+        <li>mouseenter : 마우스가 들어왔을때</li>
+        <li>mouseleave : 마우스가 나갔을때</li>
+
+        <li>keydown : 키보드 눌렀을때</li>
+        <li>keyup : 키보드 올라왔을때</li>
+        <li>keypress : 키보가 눌렸다가 올라왔을때</li>
+
+        <li>submit : 데이터(form) 전송</li>
+        <li>reset : 데이터(form)이 초기화</li>
+
+        <li>load : 문서가 로딩된 후 </li>
+        <li>resize : 창의 크기가 변동됐을때</li>
+        <li>scroll : 스크롤 바를 조작했을대</li>
+
+    </ul>
+
+    <h3>이벤트 적용하기</h3>
+    <p>
+        페이지에서 이벤트를 적용해보자
+        모든 태그에 이벤트를 사용할 수 있음!
+        표준방식으로 설정하는것을 권고함.!
+        addEventListener("이벤트명",실행함수);
+    </p>
+    <div id=content>
+        <p id="event1">이거한번눌러봐!</p>
+    </div>
+    <script>
+        //고전방식
+        var p=document.getElementById("event1");
+        p.onmouseover=function(){
+            p.style.textShadow="3px 3px 4px pink";
+        }
+        p.onmouseleave=function(){
+            p.style.textShadow="";
+        }
+        p.onmouseover=null;
+        //표준방식
+        var count=0;
+        function dblEvent(e){
+            alert("반장님 미워요!");
+            console.log(this);
+            console.log(e);
+            console.log(e.target);
+            console.log(e.path[1]);
+            console.log(e.path[2]);
+            count++;
+            if(count==3){
+                p.removeEventListener("dblclick",dblEvent);
+            }
+        }
+        p.addEventListener("dblclick",dblEvent);
+
+        onload=function(){
+
+        }    
+    </script>
+    <form name="testSend" action="#" method="post" onsubmit="return check();">
+        <input type="text" name="msg" id="msg">
+        <input type="submit" value="전송">
+    </form>
+    <textarea cols="100" rows="5"></textarea>
+    <script>
+        //기본 submit이벤트 차단!
+        function check(){
+            if(document.getElementById("msg").value==""){
+                alert("메세지 값을 입력하세요~!");
+                return false;
+            }
+            document.testSend.submit();
+        }
+        var input=document.getElementById("msg");
+        input.addEventListener("keydown", function(e){
+            console.log(e);
+            if(e.key=="Enter"){
+                //alert("enter왜눌러!!");
+              //this.nextElementSibling.value=this.value;
+              
+              // document.testSend.submit();//제출해!
+              document.testSend.onsubmit=function(){
+                  return false;
+              };
+            }
+        });
+    
+    </script>
+
+
+
+
+
+</body>
+</html>
