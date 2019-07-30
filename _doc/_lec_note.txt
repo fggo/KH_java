@@ -1,62 +1,27 @@
-
-
-Regular Expression
+<!-- 1024 x 768 SEMI 해상도-->
 
 SQL DEVELOPER MS949-> UTF-8
 
 BOM + DOM -> web development
+
 채팅기능
-https://opentutorials.org/course/3084/18597
-
-    <!-- 1024 x 768 SEMI 해상도-->
-
-1.  기획의도(주차어플),  
-서울시에서 차량을 주차하는 일은 정말 어렵습니다.
-낯선 지역에서 주차를 해야 할 때, 유동인구가 많은 지역에 주차를 해야 할때,
-주말에 가족들과 식사할때 주차를 해야하는 순간을 마주합니다.
-저희 팀은 이런 불편함을 줄여줄 서비스의 필요성을 느꼈고, 사용자의 위치 또는 검색위치에 
-기반한 주차정보를 실시간으로 제공할 수 있는 서비스를 만들기로 의견을 모았습니다.
-
-2. 화면view별로 무슨 기능인지 
-    - 구두 설명
-
-3.사용 api: 어떻게 api 가져오는지 javacode 보여드리기(json으로 불러옴) 
-    - 샘플 코드 완성됨
-
-4. 사용 DB: MYSQL
-5. 기능에 따른 테이블 
-
--- DATABASE TABLE
-CREATE TABLE USER (...);
-
-로그인 화면
-회원 가입 (약관 terms of services)
-about
-help(justpark.com)
-기능(map)
-
-Tmap api
-
-(table id 삭제)
-
-https://www.parkwhiz.com/
-https://getbootstrap.com/docs/4.0/examples/offcanvas/?#
-https://runnable.com/docker/
+    https://opentutorials.org/course/3084/18597
 
 
 javascript 
 ajax-> request page
 (<a> <form> tag can request also but javascript can do it better)
+
 SERVER LANGUAGE
 	JSP: use multithread
 	Node.js: single thread
 
 Compile 언어
 	- 한방에
-INterpreted Language(light)
+Interpreted Language(light)
 	읽는 순간 기계어로 바꿈
 
-tag == OBJECT
+<tag> == Object
 
 F12 - Network 
 link로 연결된 요청 및 실패 전송 (빨간색)리스트 표시
@@ -79,8 +44,6 @@ EACH browser has an interpreter
 DATA INPUT/OUTPUT
 	data: tags
 	console.log(): for debugging
-
-
 
 
 
@@ -281,7 +244,6 @@ actor를 기준으로 도서 관리 전체적인 흐름을 말함
 
 (ui설계시 표준항목대상 - 데이터처리규칙) - (정답)
 -------------------------------
-
 
 
 화면설계 시험

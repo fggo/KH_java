@@ -80,11 +80,12 @@
     <!-- get으로 submit 하면 Enter 쳤을때, url에 입력값 display됨 
          post으로 submit 하면 Enter 쳤을때, url에 입력값 display안됨 -->
     <!-- <form name='testSend' action="#" method="get"> -->
-    <form name="testSend" action="#" method="post" onsubmit="return check();">
+    <form name="testSend" action="#" method="get" onsubmit="return check();">
         <input type="text" name="msg" id="msg">
         <input type="submit" value="전송">
     </form>
-    <textarea cols="100" rows="5"></textarea>
+    <!-- <textarea cols="100" rows="5"></textarea> -->
+
     <script>
         //기본 submit이벤트 차단!
         function check(){
@@ -98,17 +99,20 @@
         input.addEventListener("keydown", function(e){
             console.log(e);
             if(e.key=="Enter"){
-                //alert("enter왜눌러!!");
-              //this.nextElementSibling.value=this.value;
-              
-              // document.testSend.submit();//제출해!
-              document.testSend.onsubmit=function(){
-                  return false;
-              };
+                // alert("enter왜눌러!!");
+                // this.nextElementSibling.value=this.value;
+                
+                document.testSend.submit();//제출해!
+
+                // key 엔터 submit이벤트 차단!
+                // document.testSend.onsubmit=function(){
+                //     return false;
+                // };
             }
         });
-    
     </script>
+
+
     <h3>a태그에 대한 기본이벤트차단 </h3>
     <a href="http://www.naver.com" onclick="preventA(event);">네이버</a>
     <script>
@@ -116,6 +120,8 @@
             e.preventDefault();//기본이벤트를 막는 기능  
         }
     </script>
+
+
     <h2>버블링 처리</h2>
     <style>
         .div-test{
@@ -162,11 +168,6 @@
 
         }
     </script>
-
-
-
-
-
 
 </body>
 </html>
