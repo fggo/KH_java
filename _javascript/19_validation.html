@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>유효성검사하기</title>
+    <style>
+        table#enroll{
+            border-spacing:10px;
+        }
+        table#enroll th{
+            text-align: right;
+        }
+        .phone{
+            width:30px;
+        }
+        span.req{
+            color:red;
+        }
+        .short{
+            width:50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>유효성검사</h1>
+    <form action="">
+        <table id="enroll">
+            <tr>
+                <th>아이디<span class="req">*</span></th>
+                <td>
+                    <input type="text" name="userId" id="userId">
+                </td>
+            </tr>
+            <tr>
+                <th>비밀번호<span class="req">*</span></th>
+                <td>
+                    <input type="password" name="pwd" id="pwd">
+                </td>
+            </tr>
+            <tr>
+                <th>비밀번호확인</th>
+                <td>
+                    <input type="password" id='pwd_check'>
+                </td>
+            </tr>
+            <tr>
+                <th>이름<span class="req">*</span></th>
+                <td>
+                    <input type="text" name="userName" id="userName">
+                </td>
+            </tr>
+            <tr>
+                <th>주민번호<span class="req">*</span></th>
+                <td>
+                    <input type="text" name="ssn1" 
+                    id="ssn1" class="short"> -
+                    <input type="password" name="ssn2" class="short">
+                </td>
+            </tr>
+            <tr>
+                <th>이메일<span class="req">*</span></th>
+                <td>
+                    <input type="email" name="email" id="email">
+                </td>
+            </tr>
+            <tr>
+                <th>전화번호<span class="req">*</span></th>
+                <td>
+                    <input type="text" name="tel1" id="tel1" class="phone"> -
+                    <input type="text" name="tel2" id="tel2" class="phone"> -
+                    <input type="text" name="tel3" id="tel3" class="phone">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="가입" 
+                    onclick="return validate();">
+                    <input type="reset" value="취소">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function validate(){
+            //유효성검사는 내일!할게요!
+            //아이디는 
+            //첫글자는 반드시 영소문자로 이루어지고,
+            //숫자가 하나이상포함되어야함
+            //길이는 4~12글자이여야함.
+        }
+    </script>
+
+
+
+</body>
+</html>

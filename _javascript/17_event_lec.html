@@ -61,11 +61,11 @@
         var count=0;
         function dblEvent(e){
             alert("반장님 미워요!");
-            console.log(this);
-            console.log(e);
-            console.log(e.target);
-            console.log(e.path[1]);
-            console.log(e.path[2]);
+            console.log(this); //p (이벤트 부르는 객체)
+            console.log(e); //e (마우스이벤트가 클릭좌표 등 정보 반환)
+            console.log(e.target); //이벤트가 발생된 객체 (== p)
+            console.log(e.path[1]); // 부모
+            console.log(e.path[2]); // 조부모
             count++;
             if(count==3){
                 p.removeEventListener("dblclick",dblEvent);
@@ -73,10 +73,13 @@
         }
         p.addEventListener("dblclick",dblEvent);
 
-        onload=function(){
-
-        }    
+        //페이지가 로드되었을때 
+        onload=function(){}    
     </script>
+
+    <!-- get으로 submit 하면 Enter 쳤을때, url에 입력값 display됨 
+         post으로 submit 하면 Enter 쳤을때, url에 입력값 display안됨 -->
+    <!-- <form name='testSend' action="#" method="get"> -->
     <form name="testSend" action="#" method="post" onsubmit="return check();">
         <input type="text" name="msg" id="msg">
         <input type="submit" value="전송">
