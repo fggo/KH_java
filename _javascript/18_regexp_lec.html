@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>정규표현식 활용하기</title>
+</head>
+<body>
+    <h1>정규표현식</h1>
+    <h3>정규표현식의 객체생성</h3>
+    <button onclick="test1();">확인하기</button>
+    <div id="area"></div>
+    <script>
+        function test1(){
+            //정규표현식 객체 생성
+            //두가지방법으로 생성이 가능함
+            //1. RegExp객체생성 => new RegExp()활용
+            //2. / /표현을 활용
+            var regExp=new RegExp("script");
+            regExp=new RegExp(/script/);
+            var regExp2=/script/;
+
+            var str='javascript jquery ajax';
+
+            //정규표현식으로 대상문자열(str)을 확인하려면
+            //함수를 활용함
+            //test(), exec()
+            //1.test() -> 정규표현식의 문자가 
+                        //포함되어있으면 true, 아니면 false
+            //2.exec() -> 문자가 있으면 그문자를 반환, 없으면 null
+            var area=document.getElementById("area");
+            area.innerHTML+="대상문자: "+str+"<br>";
+            area.innerHTML+="test()함수 : "+regExp.test(str)+"<br>";
+            area.innerHTML+="exec()함수 : "+regExp2.exec(str)+"<br>";
+            
+            //String객체를 이용해서 비교가능
+            //match(), replace(), search()
+            //일치하는 문자를 배열로 반환
+            area.innerHTML+="match()함수 : "+str.match(regExp)+typeof str.match(regExp)+"<br>";
+            //정규표현식과 일치하는 문자의 시작 인덱스반환
+            area.innerHTML+="search()함수 : "+str.search(regExp)+"<br>";
+            //일치하는 문자를 원하는 문자로 변경
+            area.innerHTML+="replace()함수 : "+str.replace(regExp,"스크립트")+"<br>";
+        }
+    </script>
+    <h1>대체문자 변환해주는 문자</h1>
+    <p>
+        $& : 제일처음 일치하는 문자열<br>
+        $` : 매칭된 문자열의 앞 문자열<br>
+        $' : 매칭된 문자열의 뒤 문자열<br>
+    </p>
+    <button onclick="test2()">실행</button>
+    <div id="area2"></div>
+    <script>
+        function test2(){
+            var area=document.getElementById("area2");
+            var regExp=/as/;
+
+            var str="javascript jquery ajax sass";
+
+            area.innerHTML+="$& : "+str.replace(regExp,'($&)')+"<br>";
+            area.innerHTML+="$` : "+str.replace(regExp,'($`)')+"<br>";
+            area.innerHTML+="$' : "+str.replace(regExp,"($')")+"<br>";
+
+        }
+    </script>
+    <h2>플래그문자</h2>
+    <p>
+        문자열 검색에 대한 옵션을 정하는 것<br>
+        g : 전역비교를 수행, *설정하기 전 한개 매칭되면 검색종료!<br>
+        i : 대소문자 구문하지 않음<br>
+        m : 여러줄 검색, 개행을 기준으로 다시 시작함<br>
+    </p>
+    <button onclick="test3();">실행</button>
+    <script>
+        function test3(){
+            var regExp=/a/;
+            var regExp2=/a/g;
+            var regExp3=/a/gi;
+            var str="Javascript Jquery Ajax";
+            console.log(str.replace(regExp,'($&)'));
+            console.log(str.replace(regExp2,'($&)'));
+            console.log(str.replace(regExp3,'($&)'));
+
+        }
+    </script>
+
+</body>
+</html>
