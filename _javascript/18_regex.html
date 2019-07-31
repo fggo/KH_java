@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>정규표현식 활용하기</title>
+    <title>18_regex.html</title>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
 </head>
 <body>
     <h1>정규표현식</h1>
@@ -30,14 +34,16 @@
                         //포함되어있으면 true, 아니면 false
             //2.exec() -> 문자가 있으면 그문자를 반환, 없으면 null
             var area=document.getElementById("area");
-            area.innerHTML+="대상문자: "+str+"<br>";
+            area.innerHTML+="대상문자 str =  "+str+"<br>";
+            area.innerHTML+="regExp = new RegExp('script') = "+regExp+"<br>";
+            area.innerHTML+="regExp2 = "+regExp2+"<br>";
             area.innerHTML+="test()함수 : "+regExp.test(str)+"<br>";
             area.innerHTML+="exec()함수 : "+regExp2.exec(str)+"<br>";
             
             //String객체를 이용해서 비교가능
             //match(), replace(), search()
             //일치하는 문자를 배열로 반환
-            area.innerHTML+="match()함수 : "+str.match(regExp)+typeof str.match(regExp)+"<br>";
+            area.innerHTML+="match()함수 : "+str.match(regExp)+ " " + typeof str.match(regExp)+"<br>";
             //정규표현식과 일치하는 문자의 시작 인덱스반환
             area.innerHTML+="search()함수 : "+str.search(regExp)+"<br>";
             //일치하는 문자를 원하는 문자로 변경
@@ -73,15 +79,25 @@
         m : 여러줄 검색, 개행을 기준으로 다시 시작함<br>
     </p>
     <button onclick="test3();">실행</button>
+    <div id="area22"></div>
     <script>
         function test3(){
             var regExp=/a/;
             var regExp2=/a/g;
             var regExp3=/a/gi;
             var str="Javascript Jquery Ajax";
+
             console.log(str.replace(regExp,'($&)'));
             console.log(str.replace(regExp2,'($&)'));
             console.log(str.replace(regExp3,'($&)'));
+
+            // $("<div>" + str.replace(regExp,'($&)')+"<div>").appendTo($('#area22'));
+            // $("<div>" + str.replace(regExp2,'($&)')+"<div>").appendTo($('#area22'));
+            // $("<div>" + str.replace(regExp3,'($&)')+"<div>").appendTo($('#area22'));
+
+            $('#area22').append(str.replace(regExp,'($&)')+"<br>");
+            $('#area22').append(str.replace(regExp2,'($&)')+"<br>");
+            $('#area22').append(str.replace(regExp3,'($&)')+"<br>");
         }
     </script>
     <h2>메타문자</h2>
@@ -113,16 +129,25 @@
         예약어를 문자로 쓰고 싶을때 사용하는것 (., ^, \) 역슬레쉬를 이용함
     </p>
     <button onclick="test5();">실행</button>
+    <div id='area33'></div>
     <script>
         function test5(){
             var src="$12$ \\-\\ $25$";
             var regExp=/\$/g;
             var regExp2=/\\/g;
+            
             console.log(src);
             console.log(src.replace(/^$/,'($&)'));
             console.log(src.replace(/^\$/,'($&)'));
-            //src에 있는 $다 찾아서 ($)표현~
-            //\\이걸 찾아보자!
+            console.log(src.replace(/\$/g, "($&)"));
+            console.log(src.replace(/\\/g, "($&)")); // \ 찾기
+
+            $('#area33').append(src + "<br>");
+            $('#area33').append(src.replace(/^$/,'($&)') + "<br>");
+            $('#area33').append(src.replace(/^\$/,'($&)') + "<br>");
+
+            $('#area33').append(src.replace(/\$/g,'($&)') + "<br>"); //src에 있는 $다 찾아서 ($)표현~
+            $('#area33').append(src.replace(/\\/g,'($&)') + "<br>"); // \\이걸 찾아보자!
         }
     </script>
     <h4>포인트 .</h4>
@@ -134,23 +159,35 @@
     <script>
         function test6(){
             var area=document.getElementById("area4");
-            var regExp=/a..b/;
-            area.innerHTML+="/a.b/ : "+regExp.test('ab')+"<br>";
-            area.innerHTML+="/a.b/ : "+regExp.test('a아b')+"<br>";
-            area.innerHTML+="/a.b/ : "+regExp.test('a아싸b')+"<br>";
-            area.innerHTML+="/a.b/ : "+regExp.test('a1b')+"<br>";
-            area.innerHTML+="/a.b/ : "+regExp.test('a1 b')+"<br>";
-            var regExp3=/in.$/;
-            //in.->????
-            //in어쩌고->???
-            //두번째세번째in인고?
-            //going --> test()
-            //inner --> test()
-            //in1 -->
-            area.innerHTML+="/in.$/ going : "+regExp3.test('going')+"<br>";
-            area.innerHTML+="/in.$/ inner : "+regExp3.test('inner')+"<br>";
-            area.innerHTML+="/in.$/ in1 : "+regExp3.test('in1')+"<br>";
-            regExp=/..\./;
+            // var regExp = /a.b/;
+            var regExp = /a..b/;
+            area.innerHTML += "/a.b/ : " + regExp.test('ab') + "<br>";
+            area.innerHTML += "/a.b/ : " + regExp.test('a아b') + "<br>";
+            area.innerHTML += "/a.b/ : " + regExp.test('a아싸') + "<br>";
+            area.innerHTML += "/a.b/ : " + regExp.test('aab') + "<br>";
+            area.innerHTML += "/a.b/ : " + regExp.test('a1b') + "<br>";
+            area.innerHTML += "/a.b/ : " + regExp.test('a1 b') + "<br>";
+            /* in+마지막 한글자 인 것들 */
+            var regExp2 = /in.$/
+            area.innerHTML += "/in.$/ going : " + regExp2.test('going') + "<br>"; //true
+            area.innerHTML += "/in.$/ oina: " + regExp2.test('oina') + "<br>"; //true
+            area.innerHTML += "/in.$/ oinb: " + regExp2.test('oinb') + "<br>"; //true
+            area.innerHTML += "/in.$/ oinc : " + regExp2.test('oinc') + "<br>"; //true
+            area.innerHTML += "/in.$/ inner : " + regExp2.test('inner') + "<br>"; //false
+            area.innerHTML += "/in.$/ in1 : " + regExp2.test('in1') + "<br>"; //false
+
+            var regExp3 = /..\./
+            area.innerHTML += "/..\./ O.K. :"  + regExp3.test('O.K.') + "<br>";
+            area.innerHTML += "/..\./ K.O.R.E.A : " + regExp3.test('K.O.R.E.A') + "<br>";
+            area.innerHTML += "/..\./ 가을하늘이 높다. : " 
+                + regExp3.test('가을하늘이 높다.') + "<br>";
+            area.innerHTML += "/..\./ 99.9 : " + regExp3.test('99.9') + "<br>";
+            area.innerHTML += "/..\./ 0.9 : " + regExp3.test('0.9') + "<br>"; // false
+            // O.K.
+            // K.O.R.E.A
+            // 가을하늘이 높다.
+            // 99.9
+            // 0.9 false
         }
     </script>
     <h3>[]대괄호</h3>
@@ -164,14 +201,15 @@
         function test7(){
             var regExp=/[aj]/ig;
             var regExp2=/[^aj]/ig;
-            var str="Javascript Jquery Ajax";
-            var area=document.getElementById("area5");
-            area.innerHTML+="[aj]/ig : "+str.replace(regExp,"($&)")+"<br>";
-            area.innerHTML+="[^aj]/ig : "+str.replace(regExp2,"($&)")+"<br>";
-
             var regExp3=/[a-z]/g;
             var regExp4=/[A-Z]/g;
             var regExp5=/[0-3]/g;
+            var str="Javascript Jquery Ajax";
+            var area=document.getElementById("area5");
+
+            area.innerHTML+="[aj]/ig : "+str.replace(regExp,"($&)")+"<br>";
+            area.innerHTML+="[^aj]/ig : "+str.replace(regExp2,"($&)")+"<br>";
+
             str+="1234556101010";
             area.innerHTML+="[a-z]/ig : "+str.replace(regExp3,"($&)")+"<br>";
             area.innerHTML+="[A-Z]/ig : "+str.replace(regExp4,"($&)")+"<br>";
@@ -239,10 +277,11 @@
         function test10(){
             var str="aabc abc bc";
             var regExp=/a*b/g;
-            console.log(str.replace(regExp,'($&)'));
             var regExp2=/a+b/g;
-            console.log(str.replace(regExp2,'($&)'));
             var regExp3=/a?b/g;
+
+            console.log(str.replace(regExp,'($&)'));
+            console.log(str.replace(regExp2,'($&)'));
             console.log(str.replace(regExp3,'($&)'));
         }
     </script>
@@ -266,22 +305,31 @@
             var regExp3=/AB{3}A/g;
             console.log(str.replace(regExp3,"($&)"));
         }
-        
+    </script>
+
+
+    <h1>PRACTICE</h1>
+    <button onclick="test12();">PRAC테스트</button>
+    <script>
         //숫자로 시작하지 않으면서, 
         //xyz중 하나로 끝나는 4글자이상의 
         //문자열을 검사할 수 있도록 
         //정규표현식을 만들어 보세요.
-        var regExp=/^[^0-9]+..[xyz]{1,}$/;
-
         function test12(){
+            var regExp = /^[^0-9]+..[xyz]{1,}$/;
+            var regExp2 = /\D+..[xyz]{1,}$/;
+
+            var msg = 'a1222x';
+
             if(regExp.test(msg)){
                 alert('적합한 문자열');
-            }else{
-                alert('부적합한 문자열');
+            }
+            else{
+                alert("부적합한 문자열");
             }
         }
-
     </script>
     <input type="text" id="input"/>
+
 </body>
 </html>

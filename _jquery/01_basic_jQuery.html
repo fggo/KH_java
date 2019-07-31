@@ -6,7 +6,7 @@
     <meta http-jequiv="X-UA-Compatible" content="ie=edge">
     <title>01_basic_jQuery.html</title>
 
-    <!-- CDN 방식 -->
+    <!-- CDN 방식 (다소느림: 되도록 whitespace없는 min/slim버젼 사용)-->
     <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -35,6 +35,7 @@
     <h1>4</h1>
 
     <script>
+        // 1.jQuery
         // $(document).ready(function(){ // javascript onload 비슷
         //     // jQuery
         //     $("#test").html("내가 처음쓴 제이쿼리");
@@ -43,14 +44,15 @@
         //     $("#test").css("background-color", 'black');
         //     $("#test").css("color", 'white');
         // });
-
-        // $(document).ready(function(){ // javascript onload 비슷
-        //     // jQuery
+        // 위에 jquery를 덮어쓰지 않고 새로운 스타일이 단순히 추가됨
+        // $(document).ready(function(){
         //     $("h1").css("color", "tomato");
         // });
 
-        // javascript onload는 나중에 생성된 onlaod로 overwrite됨
-        // jQuery는 한번에 다 가능
+
+        // 2.javascript
+        // 반면에 javascript onload는 여러번 호출 시 가장 마지막 onlaod로 overwrite됨
+        // javascript: 첫번째 onload가 두번째 onload로 덮어씌워짐
         // onload = function(){
         //     // jQuery
         //     $("#test").html("내가 처음쓴 제이쿼리");
@@ -62,8 +64,6 @@
         // onload = function(){
         //     $("h1").css("color", "tomato");
         // }
-
-
 
 
         // 페이지를 다 로드한 후 실행하는 함수
@@ -78,8 +78,7 @@
             // 객체도 넣을 수 있음
             $("h1").css("color", "tomato");
         });
-        // jQuery는 통산 ready 안에 넣어
-        // 페이지가 로드된 후 실행 할 수 있게 작성
+        // jQuery는 통상 ready 안에 넣어 페이지가 로드된 후 실행 할 수 있게 작성
 
         // javascript
         // var doc = document.getElementById('test');

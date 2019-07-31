@@ -1,4 +1,17 @@
-<!-- 1024 x 768 SEMI 해상도-->
+12oz로 주문했는데, 같은 모델 14oz로 바꿀수 있을까요? 현재 배송준비중으로 뜨는거 보니,
+아직 배송시작은 안하신거죠? 12oz는 너무 가볍고, 패딩이 적어서 제가 상품을 잘못골랐네요.. 죄송합니다. 답변 부탁드려요. 
+
+        #myCarousel2 > .carousel-inner > .carousel-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100vw;
+            height: 100vh;
+            max-width: none;
+            object-fit:cover;
+            object-position:center;
+        }
+        <!-- 1024 x 768 SEMI 해상도-->
 
 SQL DEVELOPER MS949-> UTF-8
 

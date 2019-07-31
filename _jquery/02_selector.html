@@ -12,35 +12,31 @@
         //     $("p:first-child").css("background-color", "yellow");
         // });
         $(function(){
-            $('p:first').css('backgroundColor', 'aqua');
-
-            $('.b:first').css('backgroundColor', 'blue');
-            $('.b:first').css('color', 'white');
-            $('.b:odd').css('backgroundColor', 'magenta');
-
+            $('p:even').css('backgroundColor', 'aqua');
+            $('.b:odd').css('color', 'magenta');
             $('p:eq(3)').css('color', 'red'); //p[3] 4번째 p
             console.log($('p'));
+
             $('p:lt(2)').css('backgroundColor', 'yellow'); //index<2 yellow
             $('p:gt(2)').css('backgroundColor', 'gold'); //index>2 gold
             console.log($('#test'));
             console.log($('p, .b')); //해당 element들을 전부 골라서 출력
 
+            $('p:first').css('backgroundColor', 'aqua');
+            $('.b:first').css('backgroundColor', 'blue');
+            $('.b:first').css('color', 'white');
+
             //자동으로 for 문 실행됨
             $('p').each(function(item, val){
                 console.log(item);
                 // if(val.html() == )
-                // if(val.attr("id"))
-
                 // if(val.attr('id') == sdf)
                 console.log(val);
             });
         });
-    
-    
     </script>
 </head>
 <body>
-    
     <h1>선택자</h1>
     <h3>선택자:first 선택자</h3>
     <h4>선택자로 선택된 element중 첫번째 element</h4>
@@ -52,16 +48,5 @@
     <h3 class="b">h3</h3>
     <span class="b">span</span>
     <h3 id='test'></h3>
-
-
-    <p>The first paragraph in body.</p>
-    <p>The second paragraph in body.</p>
-    <p>3.The third(last) paragraph in body.</p>
-    <p class="b">p(thrid)</p>
-    <div class="b">div</div>
-    <h3 class="b">h3</h3>
-    <span class="b">span</span>
-    <h3 id="test"></h3>
-
 </body>
 </html>
