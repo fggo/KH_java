@@ -25,7 +25,7 @@
 </head>
 <body>
     <h1>유효성검사</h1>
-    <form action="">
+    <form action="" onsubmit="return validate();">
         <table id="enroll">
             <tr>
                 <th>아이디<span class="req">*</span></th>
@@ -37,6 +37,7 @@
                 <th>비밀번호<span class="req">*</span></th>
                 <td>
                     <input type="password" name="pwd" id="pwd">
+                    <span id="check"></span>
                 </td>
             </tr>
             <tr>
@@ -45,6 +46,28 @@
                     <input type="password" id='pwd_check'>
                 </td>
             </tr>
+            <script>
+                onload=function(){
+                    var pw=document.getElementById('pwd_check');
+                    pw.addEventListener("blur",function(){
+                        var oriPw=document.getElementById("pwd");
+                        var print=document.getElementById("check");
+                        if(oriPw.value==pw.value){
+                            print.innerHTML="비밀번호일치";
+                            print.style.color="green";
+                            print.style.fontWeight="bolder";
+                        }
+                        else{
+                            print.innerHTML="비밀번호불일치";
+                            print.style.color="red";
+                            print.style.fontWeight="bolder";
+                            oriPw.value="";
+                            pw.value="";
+                            oriPw.focus();
+                        }
+                    })
+                }
+            </script>
             <tr>
                 <th>이름<span class="req">*</span></th>
                 <td>
@@ -75,24 +98,61 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="submit" value="가입" 
-                    onclick="return validate();">
+                    <input type="submit" value="가입" >
+                    <!-- onclick="return validate();"> -->
                     <input type="reset" value="취소">
                 </td>
             </tr>
         </table>
     </form>
+
     <script>
         function validate(){
-            //유효성검사는 내일!할게요!
-            //아이디는 
+            //userId 유효성검사 : 아이디는 
+
             //첫글자는 반드시 영소문자로 이루어지고,
             //숫자가 하나이상포함되어야함
             //길이는 4~12글자이여야함.
+            var userId = document.getElementById('userId');
+            var regExp = /^[a-z][a-z\d]{3,11}/;
+            var regExp2 = /[\d]/;
+
+            console.log(regExp.test(userId.value));
+            console.log(regExp2.test(userId.value));
+
+            var regExp3 = /^[a-z](?=.*?[\d])[a-z\d]{3,11}/;
+            // (.*?[\d])  숫자[\d] 검색조건 세가지 (.*?)
+            // . 숫자 1개는 필수
+            // * 숫자 1개이상도 가능
+            // ? 숫자 그 이상은 있어도 되고 없어도 됨
+            console.log(regExp3.test(userId.value));
+
+            if (regExp3.test(userId.value)){
+                console.log("OK validate ID!");
+            }
+            else{
+                console.log("NO invalid ID!");
+                return false;
+            }
+
+            //pw
+            var password = document.getElementById("pwd");
+            var password_check = document.getElementById("pwd_check");
+            // Minimum eight and maximum 10 characters, at least one uppercase letter, one lowercase letter, one number and one special character:
+            var regExpPw = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if(regExpPw.test(password.value)){
+                console.log(password.value);
+                console.log("OK");
+            }
+            else{
+                console.log(password.value);
+                console.log("NO invalid Password!");
+                password.value = "";
+                password_check.value = "";
+
+                return false;
+            }
         }
     </script>
-
-
-
 </body>
 </html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04_filter_children.html</title>
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <h3>자손탐색</h3>
+    
+    <div id="wrap1">
+        <div class="type1">div 증조
+            <ul>ul 하부지
+                <li>li 부모
+                    <span>span1</span>
+                </li>
+                <li>li 부모
+                    <span>span2</span>
+                </li>
+                <p>p</p>
+                <h1>h1</h1>
+            </ul>
+        </div>
+        <div class="type1">div 하부지
+            <p>p span부모
+                <span>span3</span>
+            </p>
+        </div>
+    </div>
+    <script>
+        // 자손객체를 확인
+        // [p, li, li, ul, li, ul, prevObject: k.fn.init(4)]
+        console.log($('div.type1').children());// 자손(direct)!
+        $('div.type1').children().css("color", "blue");
+        console.log($('div.type1').children('ul'));
+        // $('div.type1').children('ul').css("color", 'lightgreen');
+        //부모 밑에 까지 변경 inherit 됨
+        $('div.type1').children('ul').children().css("color", 'lightgreen');
+        // [div.type1, div.type1, prevObject: k.fn.init(1)]
+        console.log($('div.type1').parents('div').children());
+        console.log($('div.type1').parents('div').children().eq(1)); // 두번째 자식('div 하부지')
+        // [span, prevObject: k.fn.init(1)]
+        console.log($('div.type1').parents('div').children().eq(1).children().children());
+
+        // [span, span, span, prevObject: k.fn.init(1)] span 3개 찾음
+        console.log($('#wrap1').find('span'));
+
+        // [div.type1, prevObject: k.fn.init(2)]
+        console.log($('#wrap1').find('.type1').first());
+    </script>
+
+
+    <h3>Sideways filtering</h3>
+    <div id="wrap2">
+        <p>p1</p>
+        <span>span</span>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <p>p2</p>
+    </div>
+    <script>
+        $(function(){
+            // 선택된 요소와 같은 레벨에 있는 요소리턴
+            // 자기자신은 제외
+            $('h2').siblings().css('color', 'pink');
+            // 형제들 중에 내가 원하는 요소만 선택
+            $('h3').siblings('p').css('color', 'red');
+            $('div#wrap2 > p').siblings().first().css('backgroundColor', 'blue'); // 자기자신 바꿈
+            $('div#wrap2 > p').siblings().first().html('<h1>집어넣고</h1>');
+
+            //형제들 중 선택한 요소 다음요소 한개만 선택
+            $('#wrap2>span').next().css('backgroundColor', 'violet');
+
+            //형제들 중 선택한 요소 다음요소 모든걸 선택
+            $('#wrap2>span').nextAll().css('fontSize', '1.8em');
+
+            //형제들 중 선택한 요소와 매개변수로 보낸 요소사이의 요소를 선택
+            $('#wrap2>p:first').nextUntil('p').css('backgroundColor', 'orange');
+
+            //형제들 중 상위요소(previous sibling) 한개를 선택
+            $('#wrap2>h3').prev().css('fontSize', '20px'); // h2
+
+            //형제들 중 상위요소(previous sibling) 전부 선택
+            $('#wrap2>h3').prevAll().css('fontSize', '30px'); // span h2
+
+            //형제들 중 상위요소들의 범위를 선택하여 선택
+            $('#wrap2>p').last().prevUntil('span').css('textShadow', '5px 5px 5px skyblue'); //h2 h3
+
+            //요소가 있는지 없는지 찾는 메소드!
+            //$().is(매개변수) : 선택된 요소 중 매개변수와 일치하는 요소가 있는지 확인
+            // [div#wrap1, div.type1, div.type1, div#wrap2, prevObject: k.fn.init(1)]
+            console.log($('div').children());
+            console.log($('div').children().is('.type1')); //true
+            console.log($('div').children().is('.test')); //false
+
+            if($('div').children().is('.type1'))
+                $('div').find('.type1').css('textShadow', '8px 8px 10px blue');
+
+        });
+    </script>
+</body>
+</html>

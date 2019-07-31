@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03_filtering.html</title>
+
+    <!-- CDN 방식 -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <h1>filtering Method</h1>
+    <p><pre>
+        $(선택자).first(); // 선택자에 의해 선택된 객체 리스트 중 첫번째
+        $(선택자).last(); // 선택자에 의해 선택된 객체 리스트 중 마지막
+        $(선택자).eq(); // 객체 리스트 중 숫자와 인덱스 번호가 일치하는 객체
+        $(선택자).filter(function(index, item){}); // function의 로직에 의해 선택
+        $(선택자).not();
+        </pre>
+    </p>
+    <h4>하나</h4>
+    <h4 class="test">둘 1st class=test</h4>
+    <h4 class="test">셋 2nd class=test</h4>
+    <h4 class="test">넷 3nd class=test</h4>
+    <h4>다섯</h4>
+    <h4 class="test">여섯 4th Last class=test</h4>
+    <div>
+        <p>나는야 p</p>
+        <h1>나는 h1 첫번째</h1>
+        <h1>나는 h1 두번째</h1>
+        <h1>나는 h1 세번째</h1>
+    </div>
+    <h1>외부 h1 1</h1>
+    <h1>외부 h1 2</h1>
+    <h1>외부 h1 3</h1>
+    <script>
+        // 골라진 $('h4')를 순회 traverse 하면서 first()를 찾음
+        $(function(){
+            //first()는 선택된 리스트에서 첫번째 element를 의미
+            // 전체를 검색해서 리스트에서 first를 고름
+            console.log($('h4').first());
+
+            //전체가 아닌, first만 바로 가져옴
+            console.log($('h4:first'));
+
+            $('h4.test').first().css('backgroundColor', 'orange').css('color', 'blue');
+            $('h4.test').last().css('backgroundColor', 'lightblue');
+
+            $('h4.test').last().addClass('test11');
+            // $('h4.test').last().removeClass('test11');
+
+            // eq() 선택된 리스트 중 매개변수와 동일한 인덱스를 갖는 객체
+            $('h1').eq(3).css('color', 'steelblue');
+            $('div> h1').eq(2).css('color', 'green');
+            $('h1').filter(function(i, val){
+                console.log(i+" : " + val); //인덱스와 element값이 저절로 대입되고 골라짐
+                return i%2 == 0; //짝수 객체만
+            });
+
+            $('h1').filter(function(i, val){
+                console.log(i+" : " + val); //인덱스와 element값이 저절로 대입되고 골라짐
+                return i%2 == 0; //짝수 객체만
+            }).css("backgroundColor", 'coral');
+
+            console.log($('h1').filter(function(i, val){
+                return i%2 == 0; //짝수 객체만!
+            }));
+            $('h4').not('.test').css('backgroundColor', 'red');
+        });
+    </script>
+    <style>
+        .test11{
+            font-size:30px;
+            text-shadow: 5px 5px 10px blue;
+        }
+    </style>
+
+    <h2>선택된 객체로 부터 부모 조회(ancestors)</h2>
+    <p>
+        <pre>
+        $().parent() : 선택된 객체의 바로 위 부모
+        $().parents() : 선택된 객체의 모든 부모(하부지, 고조하부지 포함)
+        $().parentsUntil() : 선택된 객체부터 매개변수의 객체까지 부모
+        </pre>
+    </p>
+    <div class="wrap">div
+        <div>div span 증조 하부지
+            <ul>ul li span 부모
+                <li>li span 부모
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        $(function(){   
+            //span의 부모 li의 style을 바꿈
+            // [li, prevObject: k.fn.init(1)]
+            console.log($('span').parent());
+            $('span').parent().css('color', 'red')
+                .css('border', '1px solid blue');
+
+            // 선택된 객체의 모든부모를 찾아서, css를 바꿀때
+            // [li, ul, div, div.wrap, body, html, prevObject: k.fn.init(1)]
+            console.log($('span').parents());
+            var parents_list = $('span').parents();
+            for(var i=0; i<parents_list.length; i++) {
+                if(parents_list[i].tagName == 'LI') {
+                    console.log(parents_list[i])
+
+                    // parents_list[i].style.fontSize = '50px'; // javascript 방법 OK
+
+                    // parents_list[i].css('fontSize', '50px'); // 잘못된 방법 ERROR!
+                    // javascript 컬렉션은 javascript방식으로만 바꿈
+                    // javascript의 element가 되어 jquery 함수를 사용하지 못함.
+                    // Uncaught TypeError: parents_list[i].css is not a function
+                    // 자료형이 script가 아니라서 못씀. 
+                    // SOLUTION :
+                    // $(parents_list[i]).css('fontSize', '50px'); // jQuery 방법 OK
+                }
+            }
+
+            // 전체 부모들중 내가 원하는 부모 객체만 부르기
+            // [ul, prevObject: k.fn.init(1)]
+            console.log($('span').parents('ul'));
+
+            // 선택되는 부모의 범위를 정하여 호출하기
+            // 부모들중 'div'이전 까지 부모만. 매개변수는 포함하지 않음
+            // [li, ul, prevObject: k.fn.init(1)]
+            console.log($('span').parentsUntil('div'));
+            // 기존의 ul li 를 <ul>하하</ul>로 overwrite함
+            // $('span').parentsUntil('div').html("하하");
+        });
+    </script>
+
+</body>
+</html>

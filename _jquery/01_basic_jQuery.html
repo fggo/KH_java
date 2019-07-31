@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-jequiv="X-UA-Compatible" content="ie=edge">
+    <title>01_basic_jQuery.html</title>
+
+    <!-- CDN 방식 -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+
+    <!-- 파일 저장후 jQuery 불러오기 -->
+    <!-- https://code.jquery.com/jquery-3.4.1.js -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+    <script>
+        $(function(){
+            $('p:first').css('backgroundColor',"aqua");
+            $('.b:last').css("color","white");
+        });
+    
+    </script>
+</head>
+<body>
+    <h1>jQuery 시작!</h1>
+
+    <div id="test"></div>
+    <h1>1</h1>
+    <h1>2</h1>
+    <h1>3</h1>
+    <h1>4</h1>
+
+    <script>
+        // $(document).ready(function(){ // javascript onload 비슷
+        //     // jQuery
+        //     $("#test").html("내가 처음쓴 제이쿼리");
+        //     $("#test").css("width", '200px');
+        //     $("#test").css("height", '200px');
+        //     $("#test").css("background-color", 'black');
+        //     $("#test").css("color", 'white');
+        // });
+
+        // $(document).ready(function(){ // javascript onload 비슷
+        //     // jQuery
+        //     $("h1").css("color", "tomato");
+        // });
+
+        // javascript onload는 나중에 생성된 onlaod로 overwrite됨
+        // jQuery는 한번에 다 가능
+        // onload = function(){
+        //     // jQuery
+        //     $("#test").html("내가 처음쓴 제이쿼리");
+        //     $("#test").css("width", '200px');
+        //     $("#test").css("height", '200px');
+        //     $("#test").css("background-color", 'black');
+        //     $("#test").css("color", 'white');
+        // }
+        // onload = function(){
+        //     $("h1").css("color", "tomato");
+        // }
+
+
+
+
+        // 페이지를 다 로드한 후 실행하는 함수
+        // 1. ready는 javascript의 onload와 비슷하지만
+        // 여러개를 선언하여 활용할 수 있음
+        $(document).ready(function(){ // javascript onload 비슷
+            $("h1").css("color", "tomato");
+        });
+
+        // 2. 간단한방식
+        $(function(){
+            // 객체도 넣을 수 있음
+            $("h1").css("color", "tomato");
+        });
+        // jQuery는 통산 ready 안에 넣어
+        // 페이지가 로드된 후 실행 할 수 있게 작성
+
+        // javascript
+        // var doc = document.getElementById('test');
+        // doc.innerHTML = "내가 처음쓴 제이쿼리";
+        // doc.setAttribute("style", "width:200px; height:200px; background-color: black; color:white;");
+
+        // 1. jQuery는 elements 속성을 한번에 다 바꿔줌
+        // $("h1").css("color", "tomato");// 리스트를 한번에 바꿀 수 있음
+        console.log($("h1"));
+        var list = $("h1");
+        list.css();
+
+        // 2. javascript는 리스트내 element를 일일이 다 바꿔줘야함
+        onload = function(){
+            var list = document.getElementsByTagName('h1');
+            for(var i=0; i< list.length; i++){
+                list[i].style.color = "tomato";
+            }
+        }
+    </script>
+    
+</body>
+</html>

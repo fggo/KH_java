@@ -48,7 +48,7 @@
         <p id="event1">이거한번눌러봐!</p>
     </div>
     <script>
-        //고전방식
+        // 1. 고전방식
         var p=document.getElementById("event1");
         p.onmouseover=function(){
             p.style.textShadow="3px 3px 4px pink";
@@ -57,12 +57,13 @@
             p.style.textShadow="";
         }
         p.onmouseover=null;
-        //표준방식
+
+        // 2. 표준방식
         var count=0;
         function dblEvent(e){
             alert("반장님 미워요!");
             console.log(this); //p (이벤트 부르는 객체)
-            console.log(e); //e (마우스이벤트가 클릭좌표 등 정보 반환)
+            console.log(e); //e (마우스 이벤트가 클릭좌표 등 정보 반환)
             console.log(e.target); //이벤트가 발생된 객체 (== p)
             console.log(e.path[1]); // 부모
             console.log(e.path[2]); // 조부모
@@ -73,8 +74,8 @@
         }
         p.addEventListener("dblclick",dblEvent);
 
-        //페이지가 로드되었을때 
-        onload=function(){}    
+        //페이지가 로드되었을때
+        onload=function(){}
     </script>
 
     <!-- get으로 submit 하면 Enter 쳤을때, url에 입력값 display됨 
