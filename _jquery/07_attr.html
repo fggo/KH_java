@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07_attr.html</title>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <div>
+        <h1>태그속성 추가</h1>
+        <button onclick="sizeImg()">크기조정</button>
+        <button onclick="descImg()">이미지 크기감소</button>
+        <button onclick="changeImg()">사진바꾸기</button>
+        <button onclick="intervalSize()">100px에서 멈추기</button>
+        <button onclick="intervalSize()">사진 삭제</button><br>
+        <img id='jindo' src='https://i.ytimg.com/vi/0iRiDrvysow/maxresdefault.jpg' alt="">
+    </div>
+
+    <script>
+        $(function(){
+            $('#jindo').attr("width", "380px");
+            $('#jindo').attr("height", "300px");
+            // $('#jindo').width('380');
+            // $('#jindo').height('300');
+
+            // $('#jindo').attr('width', $('#jindo').width());
+            // $('#jindo').attr('height', $('#jindo').height());
+        });
+
+        function sizeImg(){
+            $('#jindo').attr('width', '300px');
+            $('#jindo').attr('height', '250px');
+            
+            console.log($('#jindo').attr('width')); //300px
+            console.log($('#jindo').attr('height')); //250px
+            console.log($('#jindo').width()); //380
+            console.log($('#jindo').height()); //300
+        }
+
+        function descImg(){
+            // $('#jindo').attr("width",$('#jindo').attr('width')-10);
+            $('#jindo').attr("width",function(n,v){
+                console.log(Number(v));
+                return Number(v)-10;
+            });
+            // $('#jindo').attr("height",$('#jindo').attr('height')-10);
+            $('#jindo').attr("height",function(n,v){
+                console.log(Number(v));
+                return Number(v)-10;
+            });
+        }
+
+        function changeImg(){
+            $('#jindo').attr('src', 'https://i.ytimg.com/vi/0iRiDrvysow/maxresdefault.jpg');
+            $('#jindo').attr('width', '400px');
+            $('#jindo').attr('height', '450px');
+        }
+        function changePic(){
+            $('jindo').attr({
+                    src: 'https://i.ytimg.com/vi/0iRiDrvysow/maxresdefault.jpg',
+                    width: $('jindo').width(),
+                    height: $('jindo').height(),
+            })
+        }
+
+        function intervalSize(){
+            var inter = setInterval(function(){
+                $('jindo').attr('width', $('#jindo').width()-10);
+                $('jindo').attr('height', $('#jindo').height()-10);
+                if($('jindo').width() <= 100)
+                    clearInterval(inter);
+            }, 10);
+        }
+
+        function deletePic(){
+
+        }
+    </script>
+
+    <h3>태그 스타일 변경</h3>
+    <style>
+        .test{
+            border: 1px solid lightgray;
+            width: 100px;
+            height: 200px;
+        }
+    </style>
+    <button onclick="changeCss();">변경</button>
+    <span class="test"></span>
+    <span class="test"></span>
+    <span class="test"></span>
+    <span class="test"></span>
+    <script>
+        function changeCss(){
+            //기본 CSS적용
+            // $('.test').css('backgroundColor', 'skyblue');
+            $('.test').css('backgroundColor', function(n,v){
+                console.log(v);
+                if(n % 2==0)
+                    return 'yellow';
+                else
+                    return 'blue';
+            });
+        }
+
+        //여러스타일을 한번에 지정
+        //객체를 이용한 스타일 지정!
+        $('.test').html("FOO");
+        $('.test').css({
+            color : "white",
+            backgroundColor : "Orange",
+            textShadow : "5px 5px 3px yellow",
+            fontSize : '30px',
+        });
+        $('.test').attr('style', 'background-color: lime;');
+    </script>
+
+    <h1>TextNode 수정하기</h1>
+    <div id="test">
+        <p>test1</p>
+        <p>test2</p>
+        <p>test3</p>
+    </div>
+
+    <button onclick="test()">실행</button>
+    <script>
+        function test(){
+            // console.log($('div#test > p').html()); //1개만 나옴
+            $('#test > p').each(function(i, val){
+                console.log($(val).html());
+                $(val).html('<h1>안녕!</h1>');
+                console.log($(val).text());
+                console.log($(val).text('<h1>안녕!</h1>'));
+                console.log("=======");
+                //val ='p', n=0
+                $(val).html(function(n,v){
+                    console.log(v);
+                    return v+"여러분 이거까지만 할게요 힘내요!";
+                });
+            });
+            $('div#test>p').html(function(n,v){
+                console.log(n);
+                console.log(v);
+                if(n%2 == 1){
+                    return v + "이제끝 복습하세요~";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

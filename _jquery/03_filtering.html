@@ -57,6 +57,7 @@
             // eq() 선택된 리스트 중 매개변수와 동일한 인덱스를 갖는 객체
             $('h1').eq(3).css('color', 'steelblue');
             $('div> h1').eq(2).css('color', 'green');
+
             $('h1').filter(function(i, val){
                 console.log(i+" : " + val); //인덱스와 element값이 저절로 대입되고 골라짐
                 return i%2 == 0; //짝수 객체만
@@ -70,6 +71,7 @@
             console.log($('h1').filter(function(i, val){
                 return i%2 == 0; //짝수 객체만!
             }));
+
             $('h4').not('.test').css('backgroundColor', 'red');
         });
     </script>

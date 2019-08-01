@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>태그속성 추가/삭제</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <h1>태그속성 추가삭제</h1>
+    <img src="https://dimg.donga.com/wps/NEWS/IMAGE/2019/06/27/96193289.5.jpg"
+    />
+    <button onclick="sizeImg()">크기조정</button>
+    <button onclick="sizeImg2();">10작게 조정</button>
+    <button onclick="changePic();">사진변경</button>
+    <button onclick="intervalSize();">크기자동변경</button>
+    <button onclick="deletePic();">사진삭제</button>
+    <script>
+        var height;
+        var width;
+        $(function(){
+            width=$('img').width();
+            $('img').attr('width',width);
+            height=$('img').height()
+            $('img').attr('height',height);
+        });
+
+        function sizeImg(){
+            $('img').attr("height","200px");
+            $('img').attr("width","200px");
+            console.log($('img').attr("height"));
+        }
+        function sizeImg2(){
+            // $('img').attr("width",$('img').attr('width')-10);
+            $('img').attr("width",function(n,v){
+                return Number(v)+10;
+            });
+            // $('img').attr("height",$('img').attr('height')-10);
+            $('img').attr("height",function(n,v){
+                return Number(v)+10;
+            });
+        }
+        function changePic(){
+            // $('img').attr('width',width);
+            // $('img').attr('height',height);
+            // $('img').attr('src','jungha.jpg');
+            // 객체를 이용해서 한번에 설정
+            $('img').attr({
+                src:"jungha.jpg",
+                width:$('img').width(),
+                height:$('img').height()
+            });
+        }
+        function intervalSize(){
+            var inter=setInterval(function(){
+                $('img').attr('width',$('img').width()-10);
+                $('img').attr('height',$('img').height()-10);
+                if($('img').width()<=100){
+                    clearInterval(inter);
+                }
+            },500);
+        }
+        function deletePic(){
+            $('img').removeAttr("src");
+        }
+    </script>
+    <h3>태그 스타일 변경</h3>
+    <style>
+        .test{
+            border:1px solid red;
+            width:100px;
+            height:200px;
+        }
+    </style>
+    <div class='test'></div>
+    <div class='test'></div>
+    <div class='test'></div>
+    <div class='test'></div>
+    <button onclick="changeCss();">변경</button>
+    <script>
+        function changeCss(){
+            //기본 CSS적용
+            // $('.test').css('backgroundColor','skyblue');
+            $('.test').css('backgroundColor',function(n,v){
+                if(n%2==0) return 'hotpink';
+                else return 'rgb(123,11,231)';
+            });
+            //여러스타일을 한번에 지정
+            //객체를 이용한 스타일 지정!
+            $('.test').html("호호호 여러분은 글자그림자를 좋아해요!!!");
+            $('.test').css({
+                color:"white",
+                backgroundColor:"orange",
+                textShadow:"5px 5px 3px yellow",
+                fontSize:'10px'
+            });
+            $('.test').attr("style",'background-color:lime;');
+        }
+    </script>
+
+    <h1>textNode수정하기</h1>
+    <div id="text">
+        <p>test1</p>
+        <p>test2</p>
+        <p>test3</p>
+    </div>
+    <button onclick="test()">실행</button>
+    <script>
+        function test(){
+            console.log($('div#text>p'));
+            console.log($('div#text>p').html());
+            $('div#text>p').each(function(n,val){
+                //val=>태그 HTMLElement != jquery
+                console.log($(val).html('<h1>안녕!</h1>'));
+                console.log($(val).text());
+                console.log($(val).text('<h1>hi!</h1>'));
+                console.log("==========");
+                $(val).html(function(n,v){
+                    console.log(n);
+                    // if(n%2==1){
+                        return v+"여러분 이거까지만 할게요 힘내요!";
+                    //}
+                });
+            });
+            $('div#text>p').html(function(n,v){
+                console.log(n);
+                console.log(v);
+                if(n%2==1){
+                    return v+'이제끝~ 복습하세요!!';
+                }
+            });
+        }
+    
+    </script>
+
+
+</body>
+</html>

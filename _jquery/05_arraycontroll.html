@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05_arraycontroll.html</title>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <!-- jQuery로 반환된 배열을 each문으로 iterate 
+        배열 index value 함께 가져와 item에 넣는 function을 정의 -->
+    <h1>배열 관리하는 함수</h1>
+    <h3>
+        <pre>
+            each(): jQuery 선택자에 의해 만들어진 배열이나
+            직접만든 배열을 자동으로 0번 인덱스부터 차례로 순회하는
+            함수. 순회할때 정의한 함수를 작동시킴
+        </pre>
+    </h3>
+    <p>
+        <pre>
+            사용하는 방법
+            $.each(배열, function(idx, 값){구현로직})
+            $('선택자').each(function(idx, val){구현로직})
+        </pre>
+    </p>
+    <button onclick="eachTest()">실행</button>
+
+    <div id="result"></div>
+    <script>
+        var arr = ['강아지', '고양이', '원숭이', '닭'];
+        function eachTest(){
+            var area =$('#result');
+            $.each(arr, function(i,val){
+                if(val =='강아지' || val=="고양이"){
+                    var text = area.html(); //<div>에 있는 값을 가져옴
+                    area.html(text+val); // area.innerHTML += value;
+                }
+            });
+        }
+    </script>
+
+
+    <button onclick="addLink();">하이퍼링크 추가</button>
+    <nav id="link"></nav>
+    <script>
+        // JSON FORMAT
+        var obj=[
+            {name: '네이버', href: "https://www.naver.com"}
+            ,{name:'구글', href: "https://www.google.com"}
+            ,{name:'아마존', href: "https://www.amazon.com"}
+        ];
+        function addLink(){
+            $.each(obj, function(i,val){
+                console.log(val);
+                //각각 val에 a:link 추가하려면?
+                var aTag = "";
+                aTag= "<a href='" + val['href'] + "'>" + val['name'] + "</a><br>";
+
+                // $(aTag) 로 append해도 됨
+
+                //val.href 또는 val['href']
+                // $('#link').html(Tag);
+                $('#link').html($('#link').html() + aTag);
+            });
+
+            // for(var i =0; i<obj.length; i++)
+            //     var aTag = "<a href='" + obj[i]['href'] + ">" + val +"</a>";
+
+        }
+    </script>
+
+    <h3>jQuery 선택자(배열)를 이용 하는 법</h3>
+    <button onclick="changeStyle();">변경</button>
+    <h4></h4>
+    <h4></h4>
+    <h4></h4>
+    <h4></h4>
+    <h4></h4>
+    <h4></h4>
+    <h4></h4>
+    <style>
+        .h4change{
+            background-color: deeppink;
+            color: white;
+            font-style: italic;
+        }
+        .h4change-0{
+            background-color: red;
+        }
+        .h4change-1{
+            background-color: orange;
+        }
+        .h4change-2{
+            background-color: yellow;
+        }
+        .h4change-3{
+            background-color: green;
+        }
+        .h4change-4{
+            background-color: blue;
+        }
+        .h4change-5{
+            background-color: navy;
+        }
+        .h4change-6{
+            background-color: purple;
+        }
+    </style>
+
+    <script>
+        function changeStyle(){
+            $('h4').each(function(index,item){
+                console.log(index);
+                console.log(item);
+                // item: javascript element 객체!
+                // item.css()
+                $(item).html(index);
+                $(item).addClass('h4change h4change-'+ index);
+            });
+        }
+    </script>
+
+</body>
+</html>

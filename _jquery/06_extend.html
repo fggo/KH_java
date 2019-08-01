@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06_extend.html</title>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <h1>객체 추가하기</h1>
+    <script>
+        var character = {name: '지존준영', level:1};
+        character['MP'] = 10;
+        var item = {use: '공격', itemhp:"100"};
+        // java와 다르게 객체 변경(객체 합체)가능!
+        $.extend(character, item);
+
+        console.log(character);
+        console.log(item);
+        $.extend(character,{attack:20, defence:50, toString:function(){return this.name
+        +this.level + this.attack;}});
+        console.log(character);
+        console.log(item);
+    </script>
+
+    <h2>충돌방지!</h2>
+    <script>
+        $('h2').css('color','coral');
+        jQuery('h2').css('backgroundColor', 'lime'); // 같은 결과
+        // var T = $.noconflict();
+        // T('h2').css("fontSize", '20px');
+        // $('h2').css('fontsize', '20px');
+
+        // jQuery('h2').css('fontsize', '20px');
+        // jQuery('h2').css("backgroundColor","lime");
+        
+    </script>
+
+    <style>
+        /* 템플릿 형식으로 미리 디자인 만듦 */
+        .a{
+            color: white;
+        }
+        .b{
+            background-color: tomato;
+        }
+        .c{
+            border: 5px solid pink;
+        }
+    </style>
+
+    <div class="a">이제 시작해볼게요.</div>
+    <button onclick="change()">addClass</button>
+    <script>
+        var check= false;
+        function change(){
+            if(check == true){
+                $('div').removeClass('a b')
+                check=false;
+            }
+            else{
+                $('div').addClass('b c')
+                check=true;
+            }
+        }
+    </script>
+
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <p>p4</p>
+    <button onclick='pChange()'>p변경</button>
+    <button onclick='pRemove()'>변경내용 제거</button>
+    <button onclick='toggle()'>한번에 추가삭제</button>
+
+    <script>
+        function pChange(){
+            $('div~p').addClass(function(n){
+                console.log(n);
+                switch(n){
+                    case 0: return 'a';
+                    case 1: return 'b';
+                    case 2: return 'c';
+                    default: return 'a b c';
+                }
+                return 'a b c';
+            });
+        }
+        function pRemove(){
+            $('div~p').removeClass(function(n){
+                return 'a b c';
+            });
+        }
+        function toggle(){
+            $('div~p').toggleClass('a b c');
+        }
+    </script>
+
+</body>
+</html>
