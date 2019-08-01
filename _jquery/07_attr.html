@@ -18,52 +18,60 @@
         <button onclick="descImg()">이미지 크기감소</button>
         <button onclick="changeImg()">사진바꾸기</button>
         <button onclick="intervalSize()">100px에서 멈추기</button>
-        <button onclick="intervalSize()">사진 삭제</button><br>
-        <img id='jindo' src='https://i.ytimg.com/vi/0iRiDrvysow/maxresdefault.jpg' alt="">
+        <button onclick="deletePic()">사진 삭제</button><br>
+        <img id='jindo' src='https://i.ytimg.com/vi/86InAT67zvU/hqdefault.jpg' alt="">
     </div>
 
     <script>
         $(function(){
-            $('#jindo').attr("width", "380px");
-            $('#jindo').attr("height", "300px");
+            // $('#jindo').attr("width", "380px");
+            // $('#jindo').attr("height", "300px");
             // $('#jindo').width('380');
             // $('#jindo').height('300');
 
-            // $('#jindo').attr('width', $('#jindo').width());
-            // $('#jindo').attr('height', $('#jindo').height());
+            $('#jindo').attr('width', $('#jindo').width());
+            $('#jindo').attr('height', $('#jindo').height());
         });
 
         function sizeImg(){
             $('#jindo').attr('width', '300px');
             $('#jindo').attr('height', '250px');
             
+            // 다시 바뀐 값으로 attribute 값들 세팅해줌
+            // 처음에 document 로드시, $(function(){}); 으로 
+            // width height 초기화 한 것 처럼
+            $('#jindo').attr('width', $('#jindo').width());
+            $('#jindo').attr('height', $('#jindo').height());
+
             console.log($('#jindo').attr('width')); //300px
             console.log($('#jindo').attr('height')); //250px
-            console.log($('#jindo').width()); //380
-            console.log($('#jindo').height()); //300
+            console.log($('#jindo').width()); //300
+            console.log($('#jindo').height()); //250
         }
 
         function descImg(){
             // $('#jindo').attr("width",$('#jindo').attr('width')-10);
+            // $('#jindo').attr("height",$('#jindo').attr('height')-10);
             $('#jindo').attr("width",function(n,v){
+                console.log(n); //0 index
                 console.log(Number(v));
                 return Number(v)-10;
             });
-            // $('#jindo').attr("height",$('#jindo').attr('height')-10);
             $('#jindo').attr("height",function(n,v){
+                console.log(n); //0 index
                 console.log(Number(v));
                 return Number(v)-10;
             });
         }
 
         function changeImg(){
-            $('#jindo').attr('src', 'https://i.ytimg.com/vi/0iRiDrvysow/maxresdefault.jpg');
-            $('#jindo').attr('width', '400px');
-            $('#jindo').attr('height', '450px');
-        }
-        function changePic(){
-            $('jindo').attr({
-                    src: 'https://i.ytimg.com/vi/0iRiDrvysow/maxresdefault.jpg',
+            // $('#jindo').attr('src','https://timedotcom.files.wordpress.com/2014/10/dingo.jpeg');
+            // $('#jindo').attr('width', $('#jindo').width());
+            // $('#jindo').attr('height', $('#jindo').height());
+
+            // 객체를 이용해서 한번에 설정
+            $('#jindo').attr({
+                    src: 'https://timedotcom.files.wordpress.com/2014/10/dingo.jpeg',
                     width: $('jindo').width(),
                     height: $('jindo').height(),
             })
@@ -71,22 +79,23 @@
 
         function intervalSize(){
             var inter = setInterval(function(){
-                $('jindo').attr('width', $('#jindo').width()-10);
-                $('jindo').attr('height', $('#jindo').height()-10);
-                if($('jindo').width() <= 100)
+                $('#jindo').attr('width', $('#jindo').width()-5);
+                $('#jindo').attr('height', $('#jindo').height()-5);
+                if($('#jindo').width() <= 100 || $('#jindo').height() <= 100)
                     clearInterval(inter);
-            }, 10);
+            }, 20);
         }
 
         function deletePic(){
-
+            // $('#jindo').attr('src', "");
+            $('#jindo').removeAttr("src");
         }
     </script>
 
     <h3>태그 스타일 변경</h3>
     <style>
         .test{
-            border: 1px solid lightgray;
+            border: 3px solid lightslategrey;
             width: 100px;
             height: 200px;
         }
@@ -105,20 +114,20 @@
                 if(n % 2==0)
                     return 'yellow';
                 else
-                    return 'blue';
+                    return 'lightblue';
             });
         }
 
         //여러스타일을 한번에 지정
         //객체를 이용한 스타일 지정!
         $('.test').html("FOO");
+        $('.test').attr('style', 'background-color: lightgray;');
         $('.test').css({
-            color : "white",
-            backgroundColor : "Orange",
-            textShadow : "5px 5px 3px yellow",
-            fontSize : '30px',
+            color : "blue",
+            textShadow : "5px 5px 3px magenta",
+            fontSize : '40px',
         });
-        $('.test').attr('style', 'background-color: lime;');
+        // $('.test').attr('style', 'background-color: orange;'); // this will overwrite css
     </script>
 
     <h1>TextNode 수정하기</h1>
@@ -131,16 +140,23 @@
     <button onclick="test()">실행</button>
     <script>
         function test(){
-            // console.log($('div#test > p').html()); //1개만 나옴
+            console.log($('div#test > p')); //p Object 3개 배열
+            console.log($('div#test > p').html()); //1개만 나옴 (test1)
             $('#test > p').each(function(i, val){
-                console.log($(val).html());
-                $(val).html('<h1>안녕!</h1>');
-                console.log($(val).text());
-                console.log($(val).text('<h1>안녕!</h1>'));
+                //val=>태그 HTMLElement != jquery
+                console.log($(val).html()); //test1 test2 test3
+            });
+
+            $('#test > p').each(function(i, val){
+                console.log($(val).html('<h1>안녕!</h1>')); //p Object(length:1)
+                console.log($(val).text()); // 안녕!
+                console.log($(val).text('<h1>안녕!</h1>')); //p Object(length:1)
                 console.log("=======");
-                //val ='p', n=0
+                //val ='p', n=0, 1, 2
+            }); 
+            $('#test > p').each(function(i, val){
                 $(val).html(function(n,v){
-                    console.log(v);
+                    console.log(v); // &lt;h1&gt;안녕!&lt;/h1&gt;
                     return v+"여러분 이거까지만 할게요 힘내요!";
                 });
             });

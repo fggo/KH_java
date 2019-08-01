@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>05_arraycontroll.html</title>
+    <title>05_arraycontrol.html</title>
     <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -35,11 +35,10 @@
     <script>
         var arr = ['강아지', '고양이', '원숭이', '닭'];
         function eachTest(){
-            var area =$('#result');
-            $.each(arr, function(i,val){
+            $.each($('#result'), function(i,val){
                 if(val =='강아지' || val=="고양이"){
-                    var text = area.html(); //<div>에 있는 값을 가져옴
-                    area.html(text+val); // area.innerHTML += value;
+                    var text = $('#result').html(); //<div>에 있는 값을 가져옴
+                    $('#result').html(text+val); // area.innerHTML += value;
                 }
             });
         }
@@ -55,6 +54,7 @@
             ,{name:'구글', href: "https://www.google.com"}
             ,{name:'아마존', href: "https://www.amazon.com"}
         ];
+        // 'each' iterates array
         function addLink(){
             $.each(obj, function(i,val){
                 console.log(val);

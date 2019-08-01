@@ -17,24 +17,35 @@
         var character = {name: '지존준영', level:1};
         character['MP'] = 10;
         var item = {use: '공격', itemhp:"100"};
-        // java와 다르게 객체 변경(객체 합체)가능!
-        $.extend(character, item);
+
+        // java와 다르게 javascript에서는 jQuery를 이용한 객체 변경(합체)가능!
+        $.extend(character, item); //character = character+item (item객체는 그대로)
+        console.log($.extend(character, item));
 
         console.log(character);
         console.log(item);
-        $.extend(character,{attack:20, defence:50, toString:function(){return this.name
-        +this.level + this.attack;}});
+        $.extend(character,{attack:20, defence:50, toString:function(){return this.name +this.level + this.attack;}});
         console.log(character);
         console.log(item);
     </script>
 
-    <h2>충돌방지!</h2>
+    <h2>충돌방지!(다른 javascript library/framework와의)</h2>
     <script>
+        // $ is just an alias for jQuery
         $('h2').css('color','coral');
-        jQuery('h2').css('backgroundColor', 'lime'); // 같은 결과
-        // var T = $.noconflict();
+        jQuery('h2').css('color', 'coral'); // 같은 결과
+
+        // Create a different alias instead of jQuery to use in the rest of the script.
+        // var T = $.noConflict();
         // T('h2').css("fontSize", '20px');
+        // same result as
         // $('h2').css('fontsize', '20px');
+
+        // jQuery.noConflict();
+        // Do something with jQuery
+        // jQuery("h2").hide();
+        // Do something with another library's $()
+        // $("h2").style.display = "none";
 
         // jQuery('h2').css('fontsize', '20px');
         // jQuery('h2').css("backgroundColor","lime");
@@ -44,7 +55,7 @@
     <style>
         /* 템플릿 형식으로 미리 디자인 만듦 */
         .a{
-            color: white;
+            color: green;
         }
         .b{
             background-color: tomato;
@@ -54,18 +65,20 @@
         }
     </style>
 
-    <div class="a">이제 시작해볼게요.</div>
+
+    <h2>클래스 추가하기</h2>
+    <div id='add' class="a">이제 시작해볼게요.</div>
     <button onclick="change()">addClass</button>
     <script>
         var check= false;
         function change(){
-            if(check == true){
-                $('div').removeClass('a b')
-                check=false;
+            if(check == false){
+                $('div#add').addClass('b c')    
+                check=true;
             }
             else{
-                $('div').addClass('b c')
-                check=true;
+                $('div#add').removeClass('a b')
+                check=false;
             }
         }
     </script>
@@ -75,8 +88,8 @@
     <p>p3</p>
     <p>p4</p>
     <button onclick='pChange()'>p변경</button>
-    <button onclick='pRemove()'>변경내용 제거</button>
-    <button onclick='toggle()'>한번에 추가삭제</button>
+    <button onclick='pRemove()'>p변경 제거</button>
+    <button onclick='toggle()'>추가삭제 toggle</button>
 
     <script>
         function pChange(){

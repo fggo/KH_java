@@ -49,7 +49,6 @@
         //     $("h1").css("color", "tomato");
         // });
 
-
         // 2.javascript
         // 반면에 javascript onload는 여러번 호출 시 가장 마지막 onlaod로 overwrite됨
         // javascript: 첫번째 onload가 두번째 onload로 덮어씌워짐
@@ -65,7 +64,6 @@
         //     $("h1").css("color", "tomato");
         // }
 
-
         // 페이지를 다 로드한 후 실행하는 함수
         // 1. ready는 javascript의 onload와 비슷하지만
         // 여러개를 선언하여 활용할 수 있음
@@ -73,7 +71,7 @@
             $("h1").css("color", "tomato");
         });
 
-        // 2. 간단한방식
+        // 2. 간단한방식 (위 방법과 equivalent)
         $(function(){
             // 객체도 넣을 수 있음
             $("h1").css("color", "tomato");
@@ -89,7 +87,7 @@
         // $("h1").css("color", "tomato");// 리스트를 한번에 바꿀 수 있음
         console.log($("h1"));
         var list = $("h1");
-        list.css();
+        list.css("color", "tomato");
 
         // 2. javascript는 리스트내 element를 일일이 다 바꿔줘야함
         onload = function(){
