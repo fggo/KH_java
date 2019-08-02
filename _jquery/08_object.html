@@ -10,13 +10,24 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous">
     </script>
+    <style>
+        .basic{
+            color: gold;
+            font-family: "궁서";
+        }
+        .b{
+            font-weight: 900;
+            transform: rotate(45deg);
+        }
+    </style>
 </head>
 <body>
     <h1>객체 생성</h1>
     <p>
     <pre>
         객체를 생성하는 방법 3가지
-        1. 직접 문자열 형식으로 태그작성 $(선택자).html("&lt;p&gt;...&lt;p&gt;")
+        1. 직접 문자열 형식으로 태그작성
+            $(선택자).html("&lt;p&gt;...&lt;p&gt;")
         2. jQuery 방식으로 생성
             $('태그명') : 생성!
         3. document 객체 createElement 함수를 이용
@@ -57,16 +68,6 @@
             $('#container').append(bEl);
         }
     </script>
-    <style>
-        .basic{
-            color: gold;
-            font-family: "궁서";
-        }
-        .b{
-            font-weight: 900;
-            transform: rotate(45deg);
-        }
-    </style>
 
     <h3>객체 생성 후 배치해보자.</h3>
     <p>

@@ -141,16 +141,16 @@
     <script>
         function test(){
             console.log($('div#test > p')); //p Object 3개 배열
-            console.log($('div#test > p').html()); //1개만 나옴 (test1)
+            console.log($('div#test > p').html()); // 첫번째 element p 1개만 나옴 (test1)
             $('#test > p').each(function(i, val){
                 //val=>태그 HTMLElement != jquery
                 console.log($(val).html()); //test1 test2 test3
             });
 
             $('#test > p').each(function(i, val){
-                console.log($(val).html('<h1>안녕!</h1>')); //p Object(length:1)
+                console.log($(val).html("<h1>안녕!</h1>")); //p Object(length:1)
                 console.log($(val).text()); // 안녕!
-                console.log($(val).text('<h1>안녕!</h1>')); //p Object(length:1)
+                // console.log($(val).text('<h1>안녕!</h1>')); //p Object(length:1)
                 console.log("=======");
                 //val ='p', n=0, 1, 2
             }); 
