@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08_object_prac.html</title>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <h3>PRACTICE</h3>
+    <!-- image3개가 시간차로 계속 이동 -->
+    <img class='move' src="https://i.pinimg.com/originals/b1/ad/f0/b1adf0653481c0787e9f103fdbafefc3.jpg" alt="">
+    <img class='move' src="https://www.dogbreedinfo.com/images24/JindoDogJindosPurebredDogsAngela.JPG" alt="">
+    <img class='move' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiSMZeEIdf_qhFt47zxR8rwRkA_T4DUF_2fqnEJdfwvZc4YGiV" alt="">
+    
+    <hr>
+    <button onclick="moveImg()">사진전환</button>
+    <button onclick="addImg()">사진추가</button>
+    <button onclick="stopImg()">사진멈춤</button>
+
+
+    <script>
+        $(function(){
+            $('img.move').attr('width', '200px');
+            $('img.move').attr('height', '300px');
+        });
+        var inter = "";
+        function moveImg(){
+            inter = setInterval(function(){
+                $('.move').last().insertBefore($('.move').first());
+            }
+            , 800);
+        }
+        function addImg(){
+            var url = prompt('사진 url');
+            $('<img>').attr({'class': 'move',
+                             'src':url, 
+                             'width':'200px',
+                             'height':'300px'})
+                      .insertAfter($('.move').last());
+            // inter = setInterval(function(){
+            //     $('.move').last().insertBefore($('.move').first());
+            // }
+            // , 200);
+            // http://www.jindos.com/jindo/appearance/eyes_woody.jpg
+        }
+        function stopImg(){
+            clearInterval(inter);
+        }
+    </script>
+    
+</body>
+</html>

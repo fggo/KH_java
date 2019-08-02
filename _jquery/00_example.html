@@ -24,11 +24,11 @@
     </nav>
   </header>
   <main>
-    <h1>Korean Jindo</h1>
+    <h1 id='head2'>Korean Jindo</h1>
     <h4>From Wikipedia, the free encyclopedia</h4>
     <div>
       <img id='jindo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Peeb_the_Korea_Jindo_Dog.jpg/220px-Peeb_the_Korea_Jindo_Dog.jpg" alt="">
-      <img src="https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12200043/Jindo-History-01-e1517003339142.jpg" alt="">
+      <img id='jindo2' src="https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12200043/Jindo-History-01-e1517003339142.jpg" alt="">
     </div>
     <p>
       The Korean Jindo (진돗개) is a breed of hunting dog that originated on Jindo Island in South Korea. Brought to the United States with South Korean immigrants, it is celebrated in its native land for its fierce loyalty and brave nature. The Jindo breed became recognized by the United Kennel Club on January 1, 1998[1] and by the Fédération Cynologique Internationale in 2005.
@@ -46,7 +46,7 @@
       The KNDA also recognizes a third body type called Gakgol which is a gradually emerging combination of the two traditional types, retaining the length of body of the Hudu and the depth of chest of the Tonggol.
       
       In regards to the Jindo's body appearance, the United Kennel Club currently states, "The squarely built Jindo has a chest that is moderately deep but not too broad. At its deepest point the chest reaches to, or just above, the elbow. The brisket is well developed and the ribs are well sprung. The back is strong and straight and the loin is well muscled, taut, lean and narrower than the ribcage. There is considerable tuck up."[5]
-    </p>      
+    </p>
   </main>
   <footer>&copy; 2019</footer>
   <!-- 과제: 선택자예제 10개만들기
@@ -54,6 +54,18 @@
 	- 선택자 접근해서 css변경
 	- 웹쉐어 폴더에 제출 -->
   <script>
+      $(function(){
+          $('#jindo').attr('width', $('#jindo').width());
+          $('#jindo').attr('height', $('#jindo').height());
+          $('#jindo2').attr('width', $('#jindo').width());
+          $('#jindo2').attr('height', $('#jindo').height());
+      });
+    // 1. 첫번째 img 크기 절반으로 줄이기
+    // 2. 두번째 img 크기 첫번째 img에 맞추기
+    function halfImg(){
+    }
+
+
 
   </script>
   <div></div>

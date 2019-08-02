@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08_object_prac_lec.html</title>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <style>
+        #container > img{
+            width: 200px;
+            height: 200px;
+        }
+        .choice{
+            border: 5px solid red;
+        }
+    </style>
+</head>
+<body>
+    <button onclick='test()'>돌아라</button>
+    <input type="text" id='pic' placeholder='사진 경로를 입력하세요!'>
+    <button onclick='addImg()'>사진추가</button>
+    <button onclick="choicePic()">사진선택</button>
+    <div id='container'>
+        <img src="https://i.pinimg.com/originals/b1/ad/f0/b1adf0653481c0787e9f103fdbafefc3.jpg" alt="">
+        <img src="https://www.dogbreedinfo.com/images24/JindoDogJindosPurebredDogsAngela.JPG" alt="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiSMZeEIdf_qhFt47zxR8rwRkA_T4DUF_2fqnEJdfwvZc4YGiV" alt="">
+    </div>
+    <script>
+        var inter;
+        
+        function choicePic(){
+            clearInterval(inter);
+            var count = Math.floor(Number($('img').length)/2);
+            $('img').eq(count).addClass("choice");
+        }
+
+        function test(){
+            $('img').removeClass("choice");
+            inter = setInterval(function(){
+                $('#container').prepend($('img').last())
+            }, 200);
+        }
+
+        // http://www.jindos.com/jindo/appearance/eyes_woody.jpg
+        function addImg(){
+            var picPath = $('#pic').val();
+            var pic = $('<img>').attr({'src': picPath});
+            $('#container').append(pic);
+        }
+    </script>
+</body>
+</html>

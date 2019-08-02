@@ -1,8 +1,48 @@
+
+sky14786
+-------------------------------------
+8.5 시험
+화면구현 html css javascript
+coding VSCODE X
+button + event
+html5 semantic 구조화 시켜서 배치 관리
+	header nav section article aside footer
+
+tag별 기능/사용법
+	a ol ul ruby(윗첨자) dl form
+공백 &nbsp;
+꺽쇠 특수기호 &gt;
+show()함수 정의 alert()
+
+단일 tag
+	br hr input (name)
+
+	atribute (name, class, id)
+
+device다양화 되면서 나온 앱
+
+tag 종류 표 만들때 table
+
+Event 종류별로 어디에 해당 하는 지
+web에서 web ui를 구현하는 언어 frontend?
+
+javascript ajax svg usecase ul 
+html css 설명
+-------------------------------------
+
+
+기획안+ wireframe 
+SEMI 프로젝트에 올림
+
+- react JS
+	:html기본 layout만 만들고, javascript로
+	전부 content 넣음
+
 과제: 선택자예제 10개만들기
 	- 대표 선택자 제외(클래스, 아이디 등)
 	- 선택자 접근해서 css변경
 	- 웹쉐어 폴더에 제출
-tag,class,id 로찾는 것 제외하고
+tag,class,id로 찾는 것 제외하고
 jquery로 css 접근해서 바꾸는 예제 10개 만들기
 
 

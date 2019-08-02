@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08_object.html</title>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <h1>객체 생성</h1>
+    <p>
+    <pre>
+        객체를 생성하는 방법 3가지
+        1. 직접 문자열 형식으로 태그작성 $(선택자).html("&lt;p&gt;...&lt;p&gt;")
+        2. jQuery 방식으로 생성
+            $('태그명') : 생성!
+        3. document 객체 createElement 함수를 이용
+    </pre>
+    </p>
+    <hr>
+    <button onclick="addElement()">html()로 객체생성</button>
+    <button onclick="addElement2()">jQuery로 객체생성</button>
+    <button onclick="addEl()">축하문구 생성</button>
+
+    <div id='container'></div>
+
+    <script>
+        function addElement(){
+            $('#container').html("<h1 class='basic'>기본생성</h1>");
+            var pic = $('#container').html()
+                + "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Peeb_the_Korea_Jindo_Dog.jpg/220px-Peeb_the_Korea_Jindo_Dog.jpg'>";
+            $('#container').html(pic);
+        }
+
+        function addElement2(){
+            // $('<p></p>'); //p객체 생성해서, #container에 추가함
+            // var addEl = $('<p></p>').text('현희씨 생축!')
+            var addEl = $('<p>').text('현희씨 생축!')
+                .css({"font-size": "30px", "color": "pink", "font-family": "궁서",
+                      "text-shadow": "3px 3px 3px blue"}).addClass('b');
+
+            $('#container').append(addEl);
+        }
+        // h3태그를 생성하고 container안에 넣어주세요
+        // 문구: 현희씨 새일축하해요
+        // style: 글자색 빨간색, 그림자 노란색
+        // 클리갈때마다 계속 추가
+        function addEl(){
+            var bEl = $('<h3>').text('현희씨 생일축하해요')
+                .css({"color": "red", "text-shadow": "3px 3px 3px yellow",
+                    "font-size": "30px"});
+            $('#container').append(bEl);
+        }
+    </script>
+    <style>
+        .basic{
+            color: gold;
+            font-family: "궁서";
+        }
+        .b{
+            font-weight: 900;
+            transform: rotate(45deg);
+        }
+    </style>
+
+    <h3>객체 생성 후 배치해보자.</h3>
+    <p>
+    <pre>
+        1. 자식관계를 설정
+        
+        - 뒤에 있는 매개변수를 앞에 있는 속성에 추가.
+        $(a).append(b) : b를 a의 요소 내 뒷부분에 추가
+        $(a).prepend(b) : b를 a의 요소 내 앞부분에 추가
+
+        - 앞의 선택자에 의해 선택(생성)된 요소가 뒤 매개변수의 요소 내부에 추가
+        $(b).appendTo(a) : b를 a의 요소 내 뒷부분에 추가
+        $(b).prependTo(a) : b를 a의 요소 내 앞부분에 추가
+
+        2. 형제관계를 설정
+        $(a).after(b) : b를 a요소의 다음에(sibling 위치; 같은레벨) 추가
+        $(a).before(b) : b를 a요소의 앞에 추가
+        $(b).insertAfter(a) : b를 a요소의 다음에 추가
+        $(b).insertBefore(a) : b를 a요소의 앞에 추가
+    </pre>
+    </p>
+
+    <hr>
+
+    <button onclick="appendTest()">append</button>
+    <button onclick="prependTest()">prepend</button>
+    <button onclick="appendTest2()">append2</button>
+    <button onclick="appendToTest()">appendToTest</button>
+    <button onclick="prependToTest()">prependToTest</button>
+
+    <button onclick="afterTest()">after</button>
+    <button onclick="beforeTest()">before</button>
+
+    <button onclick="insertAfterTest()">insertAfter</button>
+    <button onclick="insertBeforeTest()">insertBefore</button>
+
+    <h1 id="test1">test1</h1>
+    <h1 id="test2">test2</h1>
+    <h1 id="test3">test3</h1>
+    <h1 id="test4">test4</h1>
+
+    <h1 class="test">test class</h1>
+    <h1 class="test">test class</h1>
+    <h1 class="test">test class</h1>
+    <h1 class="test">test class</h1>
+
+    <hr>
+
+    <script>
+        function appendTest(){
+            var addEl = $('<img>')
+                .attr({"src": "https://i.ytimg.com/vi/86InAT67zvU/hqdefault.jpg",
+                       "width": "200", "height": "200"});
+
+            $('#test1').append(addEl);
+        }
+
+        function prependTest(){
+            var addEl = $('<a>').attr({"href": "https://www.naver.com"})
+                .text('네이버');
+            $('#test1').prepend(addEl);
+        }
+
+        function appendTest2(){
+            var addEl = $('<img>')
+                .attr({"src": "https://i.ytimg.com/vi/86InAT67zvU/hqdefault.jpg",
+                       "width": "200", "height": "200"});
+            $('.test').append(addEl);
+        }
+
+        function appendToTest(){
+            var addEl = $('<span>').text("요고뒤!");
+            // $('#test2').appendTo(addEl);
+            // addEl이 지정되있지않으므로 #test2를 넣어도 추가안됨
+
+            $(addEl).appendTo($('#test2'));
+        }
+
+        function prependToTest(){
+            var addEl = $('<span>').text("요고앞!");
+            $(addEl).prependTo($('#test2'));
+        }
+
+        //h1#test3의 after 형제위치에 추가됨
+        function afterTest(){
+            var addEl = $('<a>').text("기대함 짜잔!")
+                .attr({"href": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR31fFH3Rzv2KxuCkfZnYFm3BKIWmeq6_WvbOA3v19PhqcuaXspXA"});
+            $('#test3').after(addEl);
+
+            // 이미있는 요소라 after 적용이 없어지고 before 위치로 바뀜
+            // 새로 before에 추가되지않음
+            // $('#test3').before(addEl);
+        }
+
+        function beforeTest(){
+            var addEl = $('<a>').text("기대함 짜잔!")
+                .attr({"href": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR31fFH3Rzv2KxuCkfZnYFm3BKIWmeq6_WvbOA3v19PhqcuaXspXA"});
+            $('#test3').before(addEl);
+        }
+
+        // #test4 다음 형제위치에 insert
+        function insertAfterTest(){
+            var addEl = $('<span>').text('이건어디?');
+            // $('#test4').insertAfter(addEl); //순서 바뀜
+            $(addEl).insertAfter($('#test4'));
+        }
+
+    </script>
+    <h3>객체의 이동</h3>
+    <p>
+    <pre>append/prepend, before/after 생성해서 구조에 넣는
+        기능 뿐 만 아니라, 페이지에 이미 존재하는 태그를 옮기는 기능
+    </pre>
+    </p>
+    <p id="p1">1</p>
+    <p id="p2">2</p>
+    <p id="p3">3</p>
+    <p id="p4">4</p>
+    <button onclick="moveElement()">이동</button>
+    <button onclick="moveElement()">위로이동</button>
+    <script>
+        var val;
+        //page 전부 load된 뒤에 실행
+        $(function(){
+            $('p').click(function(){
+                $(this).css('backgroundColor', 'gray');
+                val = $(this).attr('id');
+            });
+        });
+        function moveElement(){
+            //p1안에 p4가 자식으로 들어감
+            // $('#p1').append($('#p4'));
+            // $('#p1').append($(prompt('아이디 입력'))); //#p2입력시 p1안으로 p2가 들어감
+            // $('#p1').after($(prompt('아이디 입력'))); //#p3입력시 p3의 위치만 p1다음으로 바뀜
+            $('#' + val).prev().prev().after($('#' + val));
+            $('#' + val).css('backgroundColor', 'white');
+        }
+    </script>
+    <style>
+        p{
+            border: 1px solid red;
+        }
+    </style>
+
+    <h3>요소 복사하기</h3>
+    <button onclick="copyTest()">복사하기</button>
+    <div id="clone-test">
+        <div id='item1' class='item'>
+            <span>안녕</span>
+        </div>
+    </div>
+    <style>
+        .item{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 5px 5px 0px 0px;
+            line-height: 100px;
+            background-color: lime;
+        }
+        .item span{
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        .lime{
+            background-color: goldenrod;
+        }
+    </style>
+    <script>
+        $(function(){
+            $('#item1').hover(function(){
+                $(this).addClass('lime');
+            }, function(){
+                $(this).removeClass('lime');
+            })
+        });
+        function copyTest(){
+            // clone(false) event는 복사 안됨
+            // clone(true) event도 복사 됨
+            $('#item1').clone(true).appendTo($('#clone-test'));
+        }
+    </script>
+</body>
+</html>
