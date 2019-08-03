@@ -52,14 +52,10 @@
         function descImg(){
             // $('#jindo').attr("width",$('#jindo').attr('width')-10);
             // $('#jindo').attr("height",$('#jindo').attr('height')-10);
-            $('#jindo').attr("width",function(n,v){
-                console.log(n); //0 index
-                console.log(Number(v));
+            $('#jindo').attr("width",function(n,v){ // n : index(=0), v : given attribute value
                 return Number(v)-10;
             });
             $('#jindo').attr("height",function(n,v){
-                console.log(n); //0 index
-                console.log(Number(v));
                 return Number(v)-10;
             });
         }
@@ -92,7 +88,8 @@
         }
     </script>
 
-    <h3>태그 스타일 변경</h3>
+    <hr>
+    <h1>태그 스타일 변경</h1>
     <style>
         .test{
             border: 3px solid lightslategrey;
@@ -130,6 +127,7 @@
         // $('.test').attr('style', 'background-color: orange;'); // this will overwrite css
     </script>
 
+    <hr>
     <h1>TextNode 수정하기</h1>
     <div id="test">
         <p>test1</p>
@@ -142,6 +140,7 @@
         function test(){
             console.log($('div#test > p')); //p Object 3개 배열
             console.log($('div#test > p').html()); // 첫번째 element p 1개만 나옴 (test1)
+
             $('#test > p').each(function(i, val){
                 //val=>태그 HTMLElement != jquery
                 console.log($(val).html()); //test1 test2 test3

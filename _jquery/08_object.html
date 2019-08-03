@@ -43,9 +43,9 @@
     <script>
         function addElement(){
             $('#container').html("<h1 class='basic'>기본생성</h1>");
-            var pic = $('#container').html()
+            var picAdded = $('#container').html()
                 + "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Peeb_the_Korea_Jindo_Dog.jpg/220px-Peeb_the_Korea_Jindo_Dog.jpg'>";
-            $('#container').html(pic);
+            $('#container').html(picAdded);
         }
 
         function addElement2(){
@@ -175,6 +175,11 @@
             $(addEl).insertAfter($('#test4'));
         }
 
+        function insertBeforeTest(){
+            var addEl = $('<span>').text('이건어디?');
+            // $('#test4').insertAfter(addEl); //순서 바뀜
+            $(addEl).insertBefore($('#test4'));
+        }
     </script>
     <h3>객체의 이동</h3>
     <p>
@@ -186,7 +191,6 @@
     <p id="p2">2</p>
     <p id="p3">3</p>
     <p id="p4">4</p>
-    <button onclick="moveElement()">이동</button>
     <button onclick="moveElement()">위로이동</button>
     <script>
         var val;

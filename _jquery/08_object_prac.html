@@ -10,47 +10,67 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous">
     </script>
+    <style>
+        #container > img{
+            width: 200px;
+            height: 200px;
+        }
+        /* .choice{
+            border: 5px solid red;
+        } */
+        .chosen{
+            border: 5px solid red;
+        }
+    </style>
 </head>
 <body>
     <h3>PRACTICE</h3>
     <!-- image3개가 시간차로 계속 이동 -->
-    <img class='move' src="https://i.pinimg.com/originals/b1/ad/f0/b1adf0653481c0787e9f103fdbafefc3.jpg" alt="">
-    <img class='move' src="https://www.dogbreedinfo.com/images24/JindoDogJindosPurebredDogsAngela.JPG" alt="">
-    <img class='move' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiSMZeEIdf_qhFt47zxR8rwRkA_T4DUF_2fqnEJdfwvZc4YGiV" alt="">
-    
-    <hr>
     <button onclick="moveImg()">사진전환</button>
+    <input type="text" id='url' placeholder='사진 경로를 입력하세요!'>
     <button onclick="addImg()">사진추가</button>
-    <button onclick="stopImg()">사진멈춤</button>
+    <button onclick="chooseImg()">사진고르기</button>
 
+    <hr>
+    <div id="container">
+        <img class='move' src="https://i.pinimg.com/originals/b1/ad/f0/b1adf0653481c0787e9f103fdbafefc3.jpg" alt="">
+        <img class='move' src="https://www.dogbreedinfo.com/images24/JindoDogJindosPurebredDogsAngela.JPG" alt="">
+        <img class='move' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiSMZeEIdf_qhFt47zxR8rwRkA_T4DUF_2fqnEJdfwvZc4YGiV" alt="">
+    </div>
 
     <script>
         $(function(){
-            $('img.move').attr('width', '200px');
-            $('img.move').attr('height', '300px');
+            $('#url').bind("keydown", function(e){
+                if(e.key == 'Enter' && $('#url').val() != ""){
+                    addImg();
+                }
+
+            });
         });
+
         var inter = "";
+        function chooseImg(){
+            clearInterval(inter);
+            var choice = Math.floor(Number($('.move').length/2));
+            // $($('.move')[choice]).addClass('chosen');
+            $($('.move').eq(choice)).addClass('chosen');
+        }
         function moveImg(){
+            clearInterval(inter);
+            $('.move').removeClass('chosen');
             inter = setInterval(function(){
-                $('.move').last().insertBefore($('.move').first());
-            }
-            , 800);
+                // $('.move').last().insertBefore($('.move').first());
+                $('#container').prepend($('.move').last());
+            } , 500);
         }
         function addImg(){
-            var url = prompt('사진 url');
-            $('<img>').attr({'class': 'move',
-                             'src':url, 
-                             'width':'200px',
-                             'height':'300px'})
-                      .insertAfter($('.move').last());
-            // inter = setInterval(function(){
-            //     $('.move').last().insertBefore($('.move').first());
-            // }
-            // , 200);
-            // http://www.jindos.com/jindo/appearance/eyes_woody.jpg
-        }
-        function stopImg(){
-            clearInterval(inter);
+            if($('#url').val() != ""){
+                // $('<img>').attr({'class': 'move', 'src': $('#url').val(),})
+                //         .insertAfter($('.move').last());
+                var img = $('<img>').attr({'class': 'move', 'src': $('#url').val(),});
+                $('#container').append(img);
+            // https://cdn2-www.dogtime.com/assets/uploads/gallery/korean-jindo-dog-breed-pictures/profileofface-8_680-453.jpg
+            }
         }
     </script>
     
