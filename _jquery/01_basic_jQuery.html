@@ -26,6 +26,14 @@
     </script>
 </head>
 <body>
+    <!-- <button id='btn' onclick="show()">Click Me!</button> -->
+    <button id='btn'>Click Me!</button>
+    <script>
+        function show(){
+            alert($('#btn').text());
+        }
+        $('#btn').bind("click", show);
+    </script>
     <h1>jQuery 시작!</h1>
 
     <div id="test"></div>

@@ -36,6 +36,31 @@
 
 -------------------------------------
 8.5 시험
+HTML 태그는 버튼을 표시하고, 버튼을 클릭하면 show()함수 구현되도록 html작성
+1. btn id = 'btn'
+2. 보여질 글자: "Click Me!"
+3. show() 정의
+4. alert() 실행되게 한다.
+5. 출력내용은 버튼에 보여지는 글자를 읽어서 출력되게 한다.
+
+<html>
+<head>
+</head>
+
+<body>
+    <!-- <button id='btn' onclick="show()">Click Me!</button> -->
+    <button id='btn'>Click Me!</button>
+    <script>
+        function show(){
+            alert($('#btn').text());
+        }
+        $('#btn').bind("click", show);
+        $('#btn').show();
+    </script>
+</body>
+
+</html>
+
 화면구현 html css javascript
 coding VSCODE X
 button + event
@@ -43,25 +68,52 @@ html5 semantic 구조화 시켜서 배치 관리
 	header nav section article aside footer
 
 tag별 기능/사용법
-	a ol ul ruby(윗첨자) dl form
-공백 &nbsp;
-꺽쇠 특수기호 &gt;
-show()함수 정의 alert()
+	a ol ul ruby(윗첨자) 
+<ruby>
+    a <rt> 	&#x302; </rt>
+</ruby>
+dl form
+
+공백 &nbsp; A non-breaking space
+&lt; texthere &gt; brackets
+show()
+    Display the matched elements.
+alert()
+    Display an alert box
 
 단일 tag
 	br hr input (name)
 
-	atribute (name, class, id)
+	attribute (name, class, id)
 
-device다양화 되면서 나온 앱
+device 다양화 되면서 나온 앱
 
 tag 종류 표 만들때 table
 
 Event 종류별로 어디에 해당 하는 지
 web에서 web ui를 구현하는 언어 frontend?
 
-javascript ajax svg usecase ul 
-html css 설명
+Javascript AJAX svg USECASE ul html css 설명
+
+USECASE
+    a use case is a list of actions or event steps typically defining
+    the interactions between a role(known in the UML as an actor)
+    and a system to achieve a goal.
+
+AJAX(Asynchronous JavaScript And XML)
+페이지 전환하지 않고 서버에서 데이터를 받아와 사용자에게 보여줌
+AJAX is not a programming language.
+AJAX just uses a combination of:
+  - A browser built-in XMLHttpRequest object (to request data from a web server)
+  - JavaScript and HTML DOM (to display or use the data)
+HOW AJAX WORKS?
+1. An event occurs in a web page (the page is loaded, a button is clicked)
+2. An XMLHttpRequest object is created by JavaScript
+3. The XMLHttpRequest object sends a request to a web server
+4. The server processes the request
+5. The server sends a response back to the web page
+6. The response is read by JavaScript
+7. Proper action (like page update) is performed by JavaScript
 -------------------------------------
 
 
