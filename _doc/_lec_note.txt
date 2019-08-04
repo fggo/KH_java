@@ -1,3 +1,38 @@
+19-08-04(preview by jhlee before back-end curriculum)
+- server구축
+    apache tomcat download (HTTP/1.1 Port Number: 80 To avoid duplication of ORACLE port 8080)
+    eclipse - file - new - server
+    eclipse - file - new - Dynamic Web Project (illegal parking)
+                         - Default Output Folder(.class files) : web\WEB-INF\classes
+                         - Content directory: 'web'
+                         - check 'Generate web.xml deployment descriptor'
+    ENV VARIABLE (SYSTEM VARIABLE)
+        TOMCAT_HOME : C:\Program Files\Apache Software Foundation\Tomcat 9.0
+        classpath :  %TOMCAT_HOME%\lib\jsp-api.jar;
+                     %TOMCAT_HOME%\lib\servlet-api.jar;
+    
+    %TOMCAT_HOME%\conf\server.xml (Open as admin)
+        <Context path="\illegalparking" docBase="ROOT" debug="0" reloadable="true />
+        
+    %TOMCAT_HOME%\webapps\ROOT\WEB-INF\web.xml -> (copy) -> parking_KH\illegal parking\web\WEB-INF
+
+    <!-- web.xml에 추가 -->
+        <servlet>
+          <servlet-name>default</servlet-name>
+          <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+
+          <init-param>
+            <param-name>debug</param-name>
+            <param-value>0</param-value>
+          </init-param>
+          <init-param>
+            <param-name>listings</param-name>
+            <param-value>true</param-value>
+          </init-param>
+
+          <load-on-startup></load-on-startup>
+
+        </servlet>
 
 -------------------------------------
 8.5 시험
