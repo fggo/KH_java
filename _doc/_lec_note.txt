@@ -72,7 +72,15 @@ tag별 기능/사용법
 <ruby>
     a <rt> 	&#x302; </rt>
 </ruby>
-dl form
+<dl>
+	<dt>DL(Definition List)</dt>
+	<dd>정의(어떤 아이템을 규정하고 설명하는 것 의미) 리스트 표시</dd>
+	<dt>DT(Definition Term)</dt>
+	<dd>용어부분</dd>
+	<dt>DD(Definition Description)</dt>
+	<dd>설명부분</dd>
+</dl>
+form
 
 공백 &nbsp; A non-breaking space
 &lt; texthere &gt; brackets
