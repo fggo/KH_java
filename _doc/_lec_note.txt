@@ -1,4 +1,9 @@
-19-08-04(preview by jhlee before back-end curriculum)
+1. git command
+2. .jar using maven
+3. .gitignore :
+
+
+19-08-04(preview)
 - server구축
     apache tomcat download (HTTP/1.1 Port Number: 80 To avoid duplication of ORACLE port 8080)
     eclipse - file - new - server

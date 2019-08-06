@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09_jquery_event.html</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <h2>jQuery 이벤트 처리하기</h2>
+    <h3>기본이벤트 연결 (on)</h3>
+    <p id='test'>이거 눌러봐 유후!</p>
+    <div id="test1">여러이벤트 걸자!</div>
+
+    <script>
+        // 모든 element가 load된 후 에 실행
+        $(function(){
+            // 1. event 한개씩 걸기
+            $('#test').on('click',function(){
+                console.log(event);
+
+                // this == $('#test') == event.target
+                console.log(event.target); //event 발생한 객체(element)
+                console.log(this); //event.target
+                $(this).html('클릭 하셨네요! 이건 this로 설정');
+                $(event.target).html('클릭 하셨네요! 이건 event.target으로 설정');
+                $(event.target).clone(true).insertAfter($('h3'));
+                $(event.target).off(); //event 제거
+            });
+
+            // 2. 객체를 이용해서 한 element에 여러 이벤트를 연결할 수 있음
+            $('#test1').on({
+                "click": function(){
+                    $(this).css({ "fontSize":'20px', "fontWeight": '900',});
+                },
+                "mouseleave" : function(){
+                    $(this).css({ "textShadow": "3px 3px 5px red", "transform": "rotate(45deg)"});
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
