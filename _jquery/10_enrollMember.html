@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10_enrollMember.html</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+
+    <style>
+        table{width:450px;}
+        table td{padding:5px;}
+        table tr>td:nth-of-type(1){width:100px};
+        table tr>td:nth-of-type(2){width:150px};
+        table tr>td:nth-of-type(3){width:150px};
+    </style>
+</head>
+
+<body>
+    <h3>회원가입</h3>
+    <form action="">
+        <table>
+            <tr>
+                <td><label for="name">이름</label></td>
+                <td><input type="text" name='name' id='name' required></td>
+                <td><label id='nameresult'></label></td>
+            </tr>
+            <tr>
+                <td><label for="id">아이디</label></td>
+                <td><input type="text" name='id' id='id' required></td>
+                <td><button>중복확인</button></td>
+            </tr>
+            <tr>
+                <td><label for="pw">비밀번호</label></td>
+                <td><input type="password" name='pw' id='pw' required></td>
+            </tr>
+            <tr>
+                <td><label for="ckpw">비밀번호확인</label></td>
+                <td><input type="password" id='ckpw' required></td>
+            </tr>
+            <tr>
+                <td><label for="email">이메일</label></td>
+                <td><input type="email" name="email" id='email' required></td>
+            </tr>
+            <tr>
+                <td><label for="job">직업</label></td>
+                <td>
+                    <select name="job" id="job">
+                        <option value="프로그래머">프로그래머</option>
+                        <option value="강사">강사</option>
+                        <option value="백수">백수</option>
+                        <option value="건물주님">건물주</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value='가입'></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        $(function(){
+            $('#name').focus(function(){
+                $(this).css("backgroundColor", 'hotpink');
+            });
+        }).blur(function(){
+            $(this).css('color','green');
+        }).select(function(){ //drag select
+            $(this).css({'color': 'white', 'backgroundColor':'gray'});
+        });
+        $('#name').blur(function(){
+            var regExp = /^[가-힣]{2,}$/;
+            if(!regExp.test($(this).val())){
+                $('#nameresult').html('한글로 입력해 주세요.').css('color', 'red');
+                $(this).focus().css("backgroundColor", "initial");
+                $(this).val("");
+            }
+            else{
+                $('#nameresult').html("정상입력").css('color', 'green');
+                $(this).css('backgroundColor', 'initial');
+            }
+        });
+        //한번 고르면 더이상 수정 못하게
+        $('#job').change(function(){
+            $(this).attr('disabled', 'true');
+        });
+
+    </script>
+    <h3>trigger</h3>
+    <p>
+    <pre>
+        예정된 이벤트를 강제 발생 시킬때 사용.
+        한 개 이벤트 발생 시 여러이벤트를 동시에 발생 시킬떄
+        사용자 정의 이벤트를 발생 시킬때.
+
+        사용자의 이벤트 발생 없이도, 임의로 이벤트를 발생시키는 것.
+    </pre>
+    </p>
+    <div class="trg" id='trg'>
+        click me : <span id='sp'>0</span>
+    </div>
+    <button id="btn1">실행1</button>
+    <button id="btn2">실행2</button>
+    <button id="btn3">실행3</button>
+
+    <div id="area"></div>
+    <div class="increment" id="increment">click me!</div>
+    <style>
+        .trg{
+            width:100px; height:100px;
+            background-color: orange;
+            text-align : center;
+            vertical-align : middle;
+            cursor: pointer;
+        }
+        .increment{
+            background-color: black;
+            width: 100px;
+            height: 25px;
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            cursor : pointer;
+        }
+    </style>
+    <script>
+        var count=0;
+        $(function(){
+            // 'ya' 이벤트를 정의
+            $('#trg').on('ya',function(){
+                count++;
+                $('#sp').html(count);
+            });
+        });
+        // setInterval(function(){
+        //     // 1초마다 'ya' 이벤트를 trigger
+        //     $('#trg').trigger('ya');
+        // }, 1000);
+        $('#btn1').click(function(){
+            $(this).css('backgroundColor', 'rgb('
+                    + Math.floor(Math.random()*255) + ","
+                    + Math.floor(Math.random()*255) + ","
+                    + Math.floor(Math.random()*255) + ")"
+            );
+        });
+        $('#btn2').click(function(){
+            $(this).css('backgroundColor', 'rgb('
+                    + Math.floor(Math.random()*255) + ","
+                    + Math.floor(Math.random()*255) + ","
+                    + Math.floor(Math.random()*255) + ")"
+            );
+        });
+        $('#btn3').click(function(){
+            $(this).css('backgroundColor', 'rgb('
+                    + Math.floor(Math.random()*255) + ","
+                    + Math.floor(Math.random()*255) + ","
+                    + Math.floor(Math.random()*255) + ")"
+            );
+        });
+
+        // 3개 이벤트 모두 trigger 가능
+        $('#increment').click(function(){
+            // $('#btn1').click(); //click() trigger click event
+
+            $('#btn1').trigger("click");
+            $('#btn2').trigger("click");
+            $('#btn3').trigger("click");
+            $('#trg').trigger('ya');
+        });
+    </script>
+</body>
+</html>

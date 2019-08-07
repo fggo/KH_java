@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>09_jquery_event.html</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -16,6 +20,7 @@
     <h3>기본이벤트 연결 (on)</h3>
     <p id='test'>이거 눌러봐 유후!</p>
     <div id="test1">여러이벤트 걸자!</div>
+    <h1 id='test2'>지각자들...</h1>
 
     <script>
         // 모든 element가 load된 후 에 실행
@@ -43,7 +48,52 @@
                 }
             });
         });
+
+        /* on(event, {data} handler) */
+        $('#test2').on('click',{name:'유병승'}, function(e){
+            console.log(e.data);
+            $(this).append($('<p>').html(e.data.name));
+        });
     </script>
-    
+
+    <h1>one(): 이벤트 한번만 실행</h1>
+    <div id='test3'>한번만 실행해 보자</div>
+    <script>
+        $('#test3').one('click', function(){
+            var pre = $(this).html();
+            $(this).html(pre+'하하핳하하');
+
+        });
+    </script>
+
+    <h2>간편한 이벤트</h2>
+    비밀번호<input type="password" name='password' id='pw'><span id="result"></span><br>
+    비밀번호확인<input type="password" name='pwck' id='pwck'> 
+    <!-- <button id='check-btn'>check</button> -->
+    <script>
+        $('#pwck').keyup(function(e){
+            console.log($(this).val());
+            var span = $('<span>').attr('id', 'result');
+
+            var pw = $('#pw').val();
+            var chpw = $('#pwck').val();
+            
+            // if(e.key == 'Enter' && verified){
+            if(pw == chpw){
+                var img = $('<img>').attr({
+                        src: "https://img.icons8.com/color/48/000000/ok--v2.png",
+                        width:25,
+                        height:25,
+                    });
+                span.html(img);
+            }
+            else{
+                span.html('');
+            }
+
+            $('#pw').after(span);
+        });
+
+    </script>
 </body>
 </html>

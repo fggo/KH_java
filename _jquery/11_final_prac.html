@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11_final_prac.html</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <button id='btn1' onclick="addTable1();">기본테이블 생성</button>
+    <hr>
+
+    <input id='row2' type="text" placeholder='Type row #...'>
+    <input id='col2' type="text" placeholder='Type col #...'>
+    <!-- <button id='btn2'>입력받은테이블생성</button> -->
+    <button id='btn2' onclick="addTable2();">입력받은테이블 생성</button>
+    <hr>
+
+    <input id='row3' type="text" placeholder='Type row #...'>
+    <input id='col3' type="text" placeholder='Type col #...'>
+    <!-- <button id='btn2'>입력받은테이블생성</button> -->
+    <button id='btn3' onclick="addTable3();">이벤트테이블 생성</button>
+    <hr>
+
+    <div id='container'></div>
+
+    <style>
+        .paint{
+            background-color: blue;
+            color:aliceblue;
+        }
+    </style>
+    <script>
+        $(function(){
+            // var table = $('table#tbl');
+            // console.log(table);
+
+            // $('.innerBtn').click(function(){
+            //     $(this).parent().toggleClass('paint');
+            //     var colNum = $('button.paint').length;
+            //     tr = $('<tr>');
+            //     for(var i =0; i<colNum; i++){
+            //         td = $('<td>').html('안쪽로우');
+            //         tr.append(td);
+            //     }
+            //     table.append(tr);
+            // });
+        });
+
+        function addTable1(row=5, col=5){
+            var table = $('<table border=1>').attr({id: 'tbl'});
+            var tr;
+            var td;
+            for(var i=1; i<=row; i++){
+                tr = $('<tr>');
+                for(var j=1; j<=col; j++){
+                    td = $('<td>').append(i+"행 " +j+"열");
+                    tr.append(td);
+                }
+                table.append(tr);
+            }
+            $('#container').html(table);
+        }
+        function addTable2(){
+            var row = $('#row2').val();
+            var col = $('#col2').val();
+            if(row <1 || col <1) return;
+            var table = $('<table border=1>');
+            var tr;
+            var td;
+            for(var i=1; i<=row; i++){
+                tr = $('<tr>');
+                for(var j=1; j<=col; j++){
+                    td = $('<td>').append(i+"행 " +j+"열");
+                    tr.append(td);
+                }
+                table.append(tr);
+            }
+            $('#container').html(table);
+        }
+        
+        function addTable3(){
+            var row = $('#row3').val();
+            var col = $('#col3').val();
+            if(row < 1 || col < 1) return;
+            var table = $('<table border=1>');
+            var tr;
+            var td;
+            var btn;
+
+            // additional table rows at the end
+            var colspan;
+            var tr_new;
+            var td_new;
+
+            for(var i=1; i<=row; i++){
+                tr = $('<tr>');
+                for(var j=1; j<=col; j++){
+                    btn = $('<button>').attr('class', 'innerBtn').html('실행').click(function(){
+                        $(this).parent().toggleClass('paint');
+
+                        colspan = Number(col) - $('.paint').length;
+                        if(colspan < 0) return;
+                        console.log(colspan);
+                        tr_new = $('<tr>');
+                        for(var k=1; k<=$('.paint').length; k++){
+                            if(k < $('.paint').length)
+                                td_new = $('<td>').html('안쪽로우');
+                            else
+                                td_new = $('<td>').attr({'colspan': colspan}).html('안쪽로우');
+
+                            tr_new.append(td_new);
+                        }
+
+                    });
+                    td = $('<td>').append(btn).append(i+"행 " +j+"열");
+                    tr.append(td);
+                }
+                table.append(tr);
+            }
+            table.append(tr_new);
+            console.log(tr_new);
+            $('#container').html(table);
+
+        }
+    </script>
+    
+</body>
+</html>

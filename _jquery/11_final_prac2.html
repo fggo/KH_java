@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11_final_prac2.html</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <h1>테이블 생성하기</h1>
+    <button >테이블추가</button>
+
+    <form action="">
+        <fieldset>
+            <legend>댓글연습</legend>
+
+            <input id='comment' type="text">
+            <button id='comment-btn'>댓글 등록</button>
+
+            <div id='container'></div>
+
+        </fieldset>
+    </form>
+
+    <script>
+        $(function(){
+            $("form").submit(function(e){
+                e.preventDefault();
+            });
+        });
+        $('#comment-btn').click(function(){
+            var div = $('<div>').append($('#comment').val());
+            var btn = $('<button>').html('답글').click(function(){
+
+            });
+            div.append(btn);
+            $('#container').append(div);
+        });
+    </script>
+    
+</body>
+</html>

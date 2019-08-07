@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11_effect.html</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <h1>effect 효과주기</h1>
+    <p>css animation 효과를 간편하게 줄수있게 해주는 것</p>
+    <h3>보여주고, 숨기기</h3>
+    <button onclick="showTest();">보여주기</button>
+    <button onclick="hideTest();">숨기기</button>
+    <button onclick="toggleTest();">toggle</button>
+    <hr>
+    <img src="https://www.guidedogsvictoria.com.au/wp-content/themes/default/static/img/puppy.png"
+        alt="" width='200' height='200'>
+    <br>
+    <script>
+        function showTest(){
+            $('img').show(500);
+            $('h1').show(1000);
+        }
+        function hideTest(){
+            $('img').hide(500);
+            $('h1').hide(1000);
+        }
+        function toggleTest(){
+            $('img').fadeToggle(500);
+            $('h1').fadeToggle(1000);
+            // $('img').toggle(500);
+            // $('h1').toggle(1000);
+        }
+    </script>
+
+    <style>
+        div{
+            width:300px; height:30px;
+            background-color: yellowgreen;
+            color: steelblue;
+            border-radius: 10px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+        p{
+            border: 1px solid lime;
+            width: 300px; height:50px;
+            display:none;
+        }
+    </style>
+
+    <h3>slide</h3>
+    <div id="a">home</div>
+    <p id="a1">메인화면</p>
+
+    <div>게시판</div>
+    <p>게시판 입니다.</p>
+
+    <div>갤러리</div>
+    <p>갤러리 입니다.</p>
+
+    <div>자료실</div>
+    <p>자료실 입니다.</p>
+    
+    <br><br><br><br>
+
+    <script>
+        $(function(){
+            // $('#a').click(function(){
+            //     $('#a1').slideDown();
+            // });
+
+            // $('#a').hover(function(){
+            //     $('#a1').slideDown();
+            // }, function(){
+            //     $('#a1').slideUp();
+            // });
+
+            $('#a').click(function(){
+                $('#a1').slideToggle();
+            });
+
+            // for(var ele in $('#a').siblings('p')){
+            //     console.log(ele);
+            //     $(ele).click(function(){
+            //         $(ele).slideToggle();
+            //     });
+            // }
+            $('h3').siblings("div").not($('div#a').siblings("div").last()).click(function(e){
+                // $(this).next().slideToggle();
+                $(e.target).next().slideToggle();
+            });
+
+        });
+    </script>
+    
+    <h3>fadeIn/fadeOut/fadeTo/fadeToggle</h3>
+    <button id="in">fade-in</button>
+    <button id="out">fade-out</button>
+    <button id="toggle">fade-toggle</button>
+    <hr>
+    <img id='pic' src="https://www.guidedogsvictoria.com.au/wp-content/themes/default/static/img/puppy.png"
+        alt="" width='200' height='200'>
+    <script>
+        $('#in').on('click', function(){
+            // $('#pic').fadeIn(500);
+            $('#pic').fadeTo(500, .2);
+        });
+        $('#out').on('click', function(){
+            // $('#pic').fadeOut(1000);
+            $('#pic').fadeTo(1000, .5);
+        });
+        $('#toggle').on('click', function(){
+            $('#pic').fadeToggle(500);
+        });
+
+        // $('#pic').mouseenter(function(){
+        //     $('#pic').fadeTo(500, .2);
+        // }).mouseleave(function(){
+        //     $('#pic').fadeTo(1000, .5);
+        // });
+    </script>
+</body>
+</html>
