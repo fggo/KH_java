@@ -97,6 +97,7 @@
             var colspan;
             var tr_new;
             var td_new;
+            var new_col_num;
 
             for(var i=1; i<=row; i++){
                 tr = $('<tr>');
@@ -119,12 +120,17 @@
             $('.innerBtn').click(function(){
                 $(this).parent().toggleClass('paint');
 
-                colspan = Number(col) - $('.paint').length;
-                if(colspan < 0) return;
-                console.log(colspan);
+                new_col_num = $('.paint').length;
+                colspan = Number(col) - new_col_num;
+
+                if(colspan < 0) {
+                    new_col_num = Number(col);
+                    colspan = 0;
+                }
+
                 tr_new = $('<tr>');
-                for(var k=1; k<=$('.paint').length; k++){
-                    if(k < $('.paint').length)
+                for(var k=1; k <= new_col_num; k++){
+                    if(k < new_col_num)
                         td_new = $('<td>').html('안쪽로우');
                     else
                         td_new = $('<td>').attr({'colspan': colspan}).html('안쪽로우');
