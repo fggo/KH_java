@@ -19,10 +19,17 @@
         <fieldset>
             <legend>댓글연습</legend>
 
-            <input id='comment' type="text">
+            <input id='comment' type="text" required>
             <button id='comment-btn'>댓글 등록</button>
 
-            <div id='container'></div>
+            <div id='container'>
+                <div>
+                    <div>댓글내용...<button>답글</button></div>
+                    <div>답글1</div>
+                    <div>답글2</div>
+                    <div>답글3</div>
+                </div>
+            </div>
 
         </fieldset>
     </form>
@@ -34,8 +41,12 @@
             });
         });
         $('#comment-btn').click(function(){
-            var div = $('<div>').append($('#comment').val());
+            var comment = $('#comment').val();
+            if(comment == "") return;
+
+            var div = $('<div>').append(comment);
             var btn = $('<button>').html('답글').click(function(){
+                var input = $('<input>').attr({'type': 'text', 'class': 'subcomment'})
 
             });
             div.append(btn);
