@@ -172,7 +172,97 @@ C:\Users\user1\... ... \apache-tomcat-8.5.43\webapps\ROOT
 	./shutdown.bat
 
 
+--- eclipse UTF-8 workspace $TOMCAT_HOME\webapps ---
+workspace 바꿀때 마다 Encoding 설정 바꿔줘야함
 
+General Textedotpr spelling
+
+workspace UTF_8
+ANT
+
+JSON jsonfles ISO 10646 UTF-8
+css
+html
+
+server RUNTIME environment add
+	Tomcat Server name: webTestServer
+	tomcat dir: $TOMCAT_HOME (apache-8.5)
+	:eclipse에서 돌려주는 가상 tomcat server
+
+server 밑에 tab에서 add server 
+	servername(= illegalparking) 통일 시켜야 함 
+	jdk버젼도 통일해야함
+
+CMD에서 하는 방법하고 비슷함.
+CMD에서 shutdown.dat 한다음에 실행
+
+- localhost:9090 접속하면 HTTP 404 NOT FOUND
+	서버는 정상 작동 하지만(tomcat에서 응답은 받을 수 있음),
+	index.html 맵핑된 페이지를 못찾아서 뜨는 메시지
+- 정상적으로 index.html 찾으면 200코드 (성공) return
+
+server stop & double click -> server setting tab open
+server.xml gui 버젼
+	Server Option
+		serve modules without publishing check!
+		폴더 경로 없이 프로젝트 폴더에서 찾을 수 있도록
+	Ports
+		avoid oracle 8080 conflict
+	실제 port는 변경안됨. eclipse로 연결한 가상 tomcat server port만 바뀜
+
+TimeOut:
+	packet이 응답받는 시간 초과시 멈추도록
+
+	tomcat default 위치 팀원들끼리 다를때:
+		General Information > Runtime Environment 에서 
+	tomcat 서버 위치 바꿀 수 있음.
+		Open Launch > classPath (내 tomcat 위치 및 jdk 위치에서 참조함)
+			팀원들 끼리 경로에 맞춰서 수정해야함
+
+Project Exploerer -> NEW -> Dyanmic web project
+build\classes -> web\WEB-INF\classes
+Generate web.xml deployment descriptor
+
+01_firstWeb > Java Resources > src (java package + codes)
+WEB-INF에 web관련 소스
+
+Show View -> navigator
+WEB 배포시 WEB-INF만 올라가므로 이 폴더 안에 classes에
+java compile binary 폴더를 만듦
+
+
+r_click - new 했을때 목록 나오도록
+Eclipse customize perspective > shortcut > java package > package
+								         > java EE
+										 > javascript source file
+										 > web > jsp tag, satic web, web fragmep 제외 하고 chec
+
+context.xml
+	<!-- 01_firstWeb - web\WEB-INF\web.xml이 없으면 -->
+	<!-- ${catalina.base}/conf/에서 web.xml 찾음 -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+
+web.xml
+	index.html만 남김
+
+서버 가동전 Server R_click -add and remove -> (available-> configured)
+server.xml <Context> 추가 됨 서버에 배포
+server start -> 
+
+URL : http://localhost:9090/01_firstWeb/
+<Context path="/01_firstWeb>
+
+URL : http://localhost:9090/
+<Context path="/> 
+
+
+html > ctrl+ f11 ->finish( Windows -browser -chrome select)
+java src -> package
+import javax.servlet.http.HttpServlet;
+
+서버 실행시 web.xml 읽음
+---
 19-08-04(preview)
 - server구축
     apache tomcat download (HTTP/1.1 Port Number: 80 To avoid duplication of ORACLE port 8080)
