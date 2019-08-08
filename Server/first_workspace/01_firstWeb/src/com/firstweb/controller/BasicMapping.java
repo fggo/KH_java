@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+//서블릿 클래스가 되려면 HttpServlet클래스를 상속 받아야 함
 public class BasicMapping extends HttpServlet{
 
 	private static final long serialVersionUID = 6059484008332878443L;
