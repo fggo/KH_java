@@ -1,6 +1,176 @@
-1. git command
-2. .jar using maven
-3. .gitignore :
+--- Servelt / JSP ---
+
+	client -> request page to server
+	form a 
+	location href replace assign open
+WE USE : Web / DB server(Oracle)
+WAS(WEb application server)
+	: also has Web server functionality
+WAS(동적인 페이지) vs 정적인 페이지
+개인PC는 WAS 서버 + DB서버가 됨
+
+jsp(view)
+servlet : controller (page data)
+
+
+Web container:
+client request -> Container automatically run (jsp/servlet logic) 
+			      based on client request
+
+-- Web container 환경 구축
+DOWNLOAD
+apache-tomcat-8.5.43-windows-x64.zip
+
+bin: 톰켓이 구동되는데 필요한 파일 보관
+	shutdown.bat startp.bat
+conf: 톰켓이 구동되는데 필요한 환경설정 파일 xml, properties 파일
+	catalina.properties
+	context.xml 환경설정 파일을 찾아가는 기본 경로 정의
+	server.xml 네트워크 통신 할때 어떤 port 사용할지, application이 뭔지 등 환경설정
+		HTTP 통신할때 port 
+		<Connector port="8080" protocol="HTTP/1.1"
+				connectionTimeout="20000"
+				redirectPort="8443" />
+		ORACLE port와 conflict! 8080->80(ususally used for IIS port)
+
+		HTTPS 통신시 다음 부분 uncomment(인증키[유료] 받아서 입력)
+		<!--
+		<Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
+				maxThreads="150" SSLEnabled="true">
+			<SSLHostConfig>
+				<Certificate certificateKeystoreFile="conf/localhost-rsa.jks"
+							type="RSA" />
+			</SSLHostConfig>
+		</Connector>
+		-->
+		<Host name="localhost"  appBase="webapps"
+			unpackWARs="true" autoDeploy="true">
+	    어플리케이션 등록시 맨밑에 <Context> 태그 추가
+	
+        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+               prefix="localhost_access_log" suffix=".txt"
+               pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+			서버에 대한 설정
+    tomcat-users.xml
+		특정 privilege 있는 user만 접속 가능 하도록
+
+	web.xml //!important
+		web application에 대한 정보. 어떤 servlet과 연결할 건지 등 환경설정
+		// 'a' servlet 실행해
+
+		//version controll
+		<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+							http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+		version="3.1">
+		eclipse에서는 2.5로 default. 따라서 3.1을 복사해서 붙여넣음
+		<servlet> servlet container 등록
+			servlet-name 변수 web.xml에서 맵핑
+        <load-on-startup>1</load-on-startup> 제일먼저 실행
+		
+		유저가 직접 만든 servlet을 web.xml에 이런식으로 추가.
+		<servlet>
+			<servlet-name>default</servlet-name>
+			<servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+		</servlet>
+
+		서블릿 컨테이너
+		<servlet>
+			<servlet-name>default</servlet-name>
+			<servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+			<init-param>
+				<param-name>debug</param-name>
+				<param-value>0</param-value>
+			</init-param>
+			<init-param>
+				<param-name>listings</param-name>
+				<param-value>false</param-value>
+			</init-param>
+			<load-on-startup>1</load-on-startup>
+		</servlet>
+		-> JSP에 넘겨줌
+			<load-on-startup>3</load-on-startup>
+		<servlet>
+			<servlet-name>jsp</servlet-name>
+			<servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
+			<init-param>
+				<param-name>fork</param-name>
+				<param-value>false</param-value>
+			</init-param>
+			<init-param>
+				<param-name>xpoweredBy</param-name>
+				<param-value>false</param-value>
+			</init-param>
+			<load-on-startup>3</load-on-startup>
+		</servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name> url 주소와 실행되야 하는 servlet 맵핑
+			default servlet :  http://localhost:80/
+    <servlet-mapping>
+        <servlet-name>myservlet</servlet-name> url 주소와 실행되야 하는 servlet 맵핑
+			my servlet :  http://localhost:80/myservlet/
+
+
+    <servlet-mapping>
+        <servlet-name>jsp</servlet-name> url 주소와 실행되야 하는 jsp 맵핑
+		*.jsp
+
+	Filter	
+	<!--
+		<filter-mapping>
+			<filter-name>httpHeaderSecurity</filter-name>
+			<url-pattern>/*</url-pattern>
+			<dispatcher>REQUEST</dispatcher>
+		</filter-mapping>
+	-->
+		
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <mime-mapping>
+        <extension>123</extension>
+        <mime-type>application/vnd.lotus-1-2-3</mime-type>
+    </mime-mapping>
+
+	browser가 해당 파일을 자동으로 css로 인식하도록
+    <mime-mapping>
+        <extension>css</extension>
+        <mime-type>text/css</mime-type>
+    </mime-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+webapps: !important
+	tomcat 구동시 webapps > ROOT> index.jsp 실행됨
+
+	// server.xml 8080 -> 9090
+    <Connector port="9090" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443" />
+
+서버구동
+	\Server\apache-tomcat-8.5.43\bin에서 shift+R_click
+	startup.bat (WIN7)
+	./startup.bat (WIN10)
+	http://localhost:9090/
+	http://192.168.20.238:9090/
+
+다음 경로에 index.html 과 images css 디렉토리 붙여넣음
+C:\Users\user1\... ... \apache-tomcat-8.5.43\webapps\ROOT
+	http://localhost:9090/에서 해당 index.html 볼 수 있음
+
+다시 서버 닫기
+	shutdown.bat
+	./shutdown.bat
+
 
 
 19-08-04(preview)

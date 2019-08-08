@@ -1,0 +1,54 @@
+08-Aug-2019 10:53:38.484 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.43
+08-Aug-2019 10:53:38.488 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jul 4 2019 20:53:15 UTC
+08-Aug-2019 10:53:38.488 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.43.0
+08-Aug-2019 10:53:38.489 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 7
+08-Aug-2019 10:53:38.489 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.1
+08-Aug-2019 10:53:38.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+08-Aug-2019 10:53:38.490 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_144\jre
+08-Aug-2019 10:53:38.491 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_144-b01
+08-Aug-2019 10:53:38.492 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+08-Aug-2019 10:53:38.492 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43
+08-Aug-2019 10:53:38.493 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43
+08-Aug-2019 10:53:38.494 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43\conf\logging.properties
+08-Aug-2019 10:53:38.494 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+08-Aug-2019 10:53:38.495 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+08-Aug-2019 10:53:38.496 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+08-Aug-2019 10:53:38.497 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+08-Aug-2019 10:53:38.498 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43
+08-Aug-2019 10:53:38.499 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43
+08-Aug-2019 10:53:38.500 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43\temp
+08-Aug-2019 10:53:38.501 정보 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+08-Aug-2019 10:53:38.502 정보 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+08-Aug-2019 10:53:38.502 정보 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+08-Aug-2019 10:53:38.509 정보 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+08-Aug-2019 10:53:38.700 정보 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-9090"]
+08-Aug-2019 10:53:38.804 정보 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+08-Aug-2019 10:53:38.827 정보 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+08-Aug-2019 10:53:38.829 정보 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+08-Aug-2019 10:53:38.831 정보 [main] org.apache.catalina.startup.Catalina.load Initialization processed in 744 ms
+08-Aug-2019 10:53:38.865 정보 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+08-Aug-2019 10:53:38.865 정보 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.43
+08-Aug-2019 10:53:38.887 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43\webapps\docs]
+08-Aug-2019 10:53:39.189 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43\webapps\docs] has finished in [301] ms
+08-Aug-2019 10:53:39.190 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43\webapps\examples]
+08-Aug-2019 10:53:39.491 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43\webapps\examples] has finished in [301] ms
+08-Aug-2019 10:53:39.492 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43\webapps\host-manager]
+08-Aug-2019 10:53:39.540 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43\webapps\host-manager] has finished in [48] ms
+08-Aug-2019 10:53:39.541 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43\webapps\manager]
+08-Aug-2019 10:53:39.584 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43\webapps\manager] has finished in [43] ms
+08-Aug-2019 10:53:39.586 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43\webapps\ROOT]
+08-Aug-2019 10:53:39.611 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43\webapps\ROOT] has finished in [26] ms
+08-Aug-2019 10:53:39.617 정보 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9090"]
+08-Aug-2019 10:53:39.628 정보 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+08-Aug-2019 10:53:39.633 정보 [main] org.apache.catalina.startup.Catalina.start Server startup in 801 ms
+08-Aug-2019 11:08:50.090 정보 [localhost-startStop-2] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43\webapps\images]
+08-Aug-2019 11:08:50.171 정보 [localhost-startStop-2] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\user1\KH\KH_java\Server\apache-tomcat-8.5.43\webapps\images] has finished in [82] ms
+08-Aug-2019 11:09:40.697 정보 [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/images]
+08-Aug-2019 11:14:09.118 정보 [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+08-Aug-2019 11:14:09.119 정보 [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-9090"]
+08-Aug-2019 11:14:09.149 정보 [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+08-Aug-2019 11:14:09.166 정보 [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+08-Aug-2019 11:14:09.186 정보 [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-9090"]
+08-Aug-2019 11:14:09.192 정보 [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+08-Aug-2019 11:14:09.194 정보 [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-9090"]
+08-Aug-2019 11:14:09.195 정보 [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
