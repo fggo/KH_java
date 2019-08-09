@@ -1,5 +1,20 @@
---- Servelt / JSP ---
+--PRAC--
+url: info.do
+infoServlet.java
+return view:
+ 안녕하세요 저는 000입니다.
+ infoServlet.java
 
+
+servlet 생성방식
+1. class 추가 + web.xml에 servlet
+2. @WebServlet("/anno.do")
+
+sendRedirect login 제출시 url 바꿈: login하고 redirect-> main 화면 ('hi 000님')
+ vs
+dispathcer url 안바꿈 : 최초주소로 그대로
+
+--- Servelt / JSP ---
 client -> request page to server
   [e.g.] <form> <a> location href replace assign open
 WE WILL USE : 

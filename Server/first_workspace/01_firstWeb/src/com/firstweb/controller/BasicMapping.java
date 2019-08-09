@@ -15,6 +15,15 @@ public class BasicMapping extends HttpServlet{
 
 //	alt+s+v
 //	req로 보내면 packet 정보를 request response로 나눔
+//  httprequest -> (request/response 로 나눔)
+//	html form key/value 값이 request에 담김
+//	getParameter(key=name 태그)
+//	checkBox 배열로 보내짐 getParameterValues()
+//	view로 다시 넘길때 request에 전달하려는 값을 object에 넣어서 넘김 setAttribte /getAttribute
+
+//	e.g. 멤버데이터 조회시 string으로 db 조회 jtbc 데이터 
+//	-> Object에 담아서 setAttribute -> request다시 view로 넘김 -> jsp로 for문으로 display
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 데이터에 대해 인코딩 처리함

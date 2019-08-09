@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>개인취향테스트</title>
+</head>
+<body>
+	<h2>개인취향</h2>
+	<p>당신의 취향을 테스트합니다.</p>
+	<form action='/02_secondWeb/likedispatcher.do' method="post">
+	<!-- <form action='/like.do' method="get"> -->
+		<ul style="list-style:none;line-height:200%;">
+			<li>
+				이름<input type="text" name="name" size="10">
+				나이<input type="text" name="age" size="10">
+			</li>
+			<li>좋아하는 색
+				<label><input type="radio" name="color" value="빨강" id="red">빨강</label>
+				<label><input type="radio" name="color" value="파랑" id="blue">파랑</label>
+				<label><input type="radio" name="color" value="노랑" id="yellow">노랑</label>
+				<label><input type="radio" name="color" value="초록" id="green">초록</label>
+				<label><input type="radio" name="color" value="하늘" id="skyblue">하늘</label>
+			</li>
+			<li>동물
+				<select name="animal">
+					<option value="강아지">강아지</option>
+					<option value="고양이">고양이</option>
+					<option value="병아리">병아리</option>
+					<option value="기린">기린</option>
+					<option value="송아지">송아지</option>
+				</select> 
+			</li>
+			<li>좋아하는 음식
+				<label><input type="checkbox" 
+				name="foods" value="보쌈">보쌈</label>
+				<label><input type="checkbox" 
+				name="foods" value="치킨">치킨</label>
+				<label><input type="checkbox" 
+				name="foods" value="소고기">소고기</label>
+				<label><input type="checkbox" 
+				name="foods" value="캐비어">캐비어</label>
+				<label><input type="checkbox" 
+				name="foods" value="곱창">곱창</label>
+				<label><input type="checkbox" 
+				name="foods" value="회">회</label>
+			</li>
+			<li>
+				<br>
+				<input type="submit" value="전송"/>
+				<input type="reset" value="취소"/>
+			</li>
+		</ul>
+	</form>	
+
+
+
+</body>
+</html>
