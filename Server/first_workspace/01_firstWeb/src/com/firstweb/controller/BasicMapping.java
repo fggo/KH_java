@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,9 +22,13 @@ public class BasicMapping extends HttpServlet{
 //	checkBox 배열로 보내짐 getParameterValues()
 //	view로 다시 넘길때 request에 전달하려는 값을 object에 넣어서 넘김 setAttribte /getAttribute
 
-//	e.g. 멤버데이터 조회시 string으로 db 조회 jtbc 데이터 
+//	e.g. 멤버데이터 조회시 string으로 db 조회 jdbc 데이터 
 //	-> Object에 담아서 setAttribute -> request다시 view로 넘김 -> jsp로 for문으로 display
 
+	public BasicMapping() {
+		// TODO Auto-generated constructor stub
+		super();
+	}
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 데이터에 대해 인코딩 처리함
@@ -38,15 +43,25 @@ public class BasicMapping extends HttpServlet{
 		out.write("<h1>내가 처음으로 만든 servlet이야 <br>web.xml로 매핑되어있지</h1>");
 		out.write("</body>");
 		out.write("</html>");
-//		[Mapping in web.xml] mappingCheck.do -> BasicMapping.java
-//	    <servlet-class>com.firstweb.controller.BasicMapping</servlet-class>
-//	    http://localhost:9090/Parking/mappingCheck.do
-//		f12 network status code 200
+
+		/* Mapping in web.xml : 
+		 * <servlet>
+		 *   <servlet-name>firstServlet</servlet-name>
+		 *   <servlet-class>com.firstweb.controller.BasicMapping</servlet-class>
+		 * </servlet>
+		 * <servlet-mapping>
+		 *   <servlet-name>firstServlet</servlet-name>
+		 *   <url-pattern>/mappingCheck.do</url-pattern>
+		 * </servlet-mapping>
+		 * 'mappingCheck.do' maps to 'BasicMapping.java'
+	     * http://localhost:9090/Parking/mappingCheck.do
+		 * f12 network status code 200
+		 * */
 	}
 
 	@Override
-	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		super.doPut(req, resp);
+		super.doPost(req, resp);
 	}
 }

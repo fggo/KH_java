@@ -39,11 +39,6 @@ public class InfoServlet extends HttpServlet{
 		out.write("<h1>안녕하세요 저는 유병승입니다.</h1>");
 		out.write("<body>");
 		out.write("</html>");	
-//		[Mapping in web.xml]
-//		mappingCheck.do -> BasicMapping.java
-//	    <servlet-class>com.firstweb.controller.BasicMapping</servlet-class>
-//	    http://localhost:9090/Parking/mappingCheck.do
-//		f12 network status code 200
 	}
 
 	@Override

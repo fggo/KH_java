@@ -10,11 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class LifeCycleServlet extends HttpServlet{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -456727250315408285L;
-
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
