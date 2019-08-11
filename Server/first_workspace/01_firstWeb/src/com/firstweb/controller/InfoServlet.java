@@ -36,7 +36,7 @@ public class InfoServlet extends HttpServlet{
 		out.write("<script>");
 		out.write("alert('안녕 나는 스크립트);'");		
 		out.write("</script>");
-		out.write("<h1>안녕하세요 저는 유병승입니다.</h1>");
+		out.write("<h1>안녕하세요 제 이름은 'baba' 입니다.</h1>");
 		out.write("<body>");
 		out.write("</html>");	
 	}

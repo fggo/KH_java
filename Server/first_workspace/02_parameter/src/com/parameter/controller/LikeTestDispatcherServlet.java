@@ -30,7 +30,7 @@ public class LikeTestDispatcherServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("name");
-		String msg = "저희 " +name+ "님 홈페이지를 이용해주셔서 감사합니다. 생축!!!!!!!!!!";
+		String msg = "저희 " +name+ "님 dispatcher 홈페이지를 이용해주셔서 감사합니다. 생축!!!!!!!!!!";
 //		request.setAttribute(key=String, value=Object);
 //		-> 데이터를 request객체에 key/value방식으로 저장함
 		request.setAttribute("msg", msg);

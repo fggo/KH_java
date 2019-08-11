@@ -33,7 +33,6 @@ public class LikeTestRedirectServlet extends HttpServlet {
 
 //		response.sendRedirect("likeview"); //likeview.do
 //		@WebServlet('/likeview') ->response.sendRedirect("likeview");
-//		@WebServlet('/likeview.do') ->response.sendRedirect("likeview.do");
 //		ERROR!! HTTP status 500 
 //		int age에 값이 들어가지 않음 (저장할 수 있는 scope 범위를 넘어서)
 //		request -> server get메소드 끝나면 data 사라짐

@@ -2,7 +2,7 @@
     <wb-module deploy-name="02_parameter">
         <wb-resource deploy-path="/" source-path="/web" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="02_parameter"/>
         <property name="java-output-path" value="/02_parameter/web/WEB-INF/classes"/>
+        <property name="context-root" value="02_parameter"/>
     </wb-module>
 </project-modules>
