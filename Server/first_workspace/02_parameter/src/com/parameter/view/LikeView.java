@@ -34,7 +34,7 @@ public class LikeView extends HttpServlet {
 //		response.getWriter().write("send likeview");
 
 		String name = request.getParameter("name");
-		int age = Integer.parseInt(request.getParameter("age"));
+//		int age = Integer.parseInt(request.getParameter("age"));
 		String color = request.getParameter("color");
 		String animal = request.getParameter("animal");
 		String[] foods = request.getParameterValues("foods");
@@ -59,7 +59,7 @@ public class LikeView extends HttpServlet {
 		out.write("<body>");
 		out.write("<h1>" + msg+ "</h1>"); 
 		out.write("<h1>당신의 이름은" + name + " 이네요.</h1>");
-		out.write("<h2>당신의 연세는 " + age + "살 입니다.</h2>");
+//		out.write("<h2>당신의 연세는 " + age + "살 입니다.</h2>");
 		String choice = "";
 		switch(color) {
 			case "빨강": choice = "red"; break;

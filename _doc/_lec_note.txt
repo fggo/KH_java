@@ -1,31 +1,84 @@
+
+- Listenr Filter Request 예제 5개씩 -> webshare
+
+- Listener
+  servlet는 was(container)에서 생성주기 관리. container가 listener객체를 만들어 놓음
+  listener걸어서 이벤트를 실행.
+  dd(deployment decriptor 설정)
+
+
+--REVIEW--
+servlet url 관계 : 1대1로 mapping!
+1. web.xml에서 서블릿등록. url패턴등록 하는 방법
+2. annotation @WebServlet(urlPatterns = "urlpattern")을 이용하는 방법
+
+client 데이터 전송하는 객체
+HTTP Request(프로토콜) -> container가 packet을 기능별로 
+                         두가지 객체 (HttpServletRequest, HttpServletResponse) 쪼개서 보관
+HttpServletRequest : 주로 데이터 관리하는 부분
+    request객체가 가지고 있는 메소드를 이용
+    getParameter("key값"); //client가 보낸 값을 확인/출력
+    getParameterValues("key값")
+    //client가 보낸 한개의 key값에 다수의 value 확인/출력
+    request.setAttribute(key,value);
+    //는 request객체만 사용가능. value에는 모든 객체 Object 가능
+    //int double float등 기본자료형도 auto boxing으로 value에 지정가능
+
+    request.getAttribute(key);
+    //value값이 Object자료형 이므로, (Object-> MyClassType) 형 변환 필수!
+    MyClassType obj = (MyClassType)request.getAttribute("key");
+
+    request.getSession();
+    //request이용해서 Session객체를 생성/불러올 수 있음
+    //ServletContext는 HttpServlet을 extend하므로 다음이 가능
+    ServletContext context = HttpServlet.getContext();
+
+    Session, Context객체 데이터 보관 및 데이터 생존주기
+    Session : getSession() 생성 -> session. invalidate(); 소멸
+    Context : server가 올라가면 생성 -> server가 꺼지면 소멸
+
+    추가 데이터 삽입
+      setAttribute(key,value); getAttribute(key);
+
+    request생성주기
+    client에 서버에 대한 요청이 있을때 생성
+    url창의 서버주소의 mapping된 서블릿주소를 쓰면!
+    서버가 client 응답이 완료되면 소멸
+    redirect하면 url바뀌면서 기존 request소멸
+    dispathcer하면 url안바뀜 기존 request유지됨
+
+HttpServletResponse : client에게 응답해줄 내용. print/write
+
+
+
 --PRAC--
-url: info.do
-infoServlet.java
-return view:
- 안녕하세요 저는 000입니다.
- infoServlet.java
+  url: info.do
+  infoServlet.java
+  return view:
+  안녕하세요 저는 000입니다.
+  infoServlet.java
 
 
-servlet 생성방식
-1. class 추가 + web.xml에 servlet
-2. @WebServlet("/anno.do")
+  servlet 생성방식
+  1. class 추가 + web.xml에 servlet
+  2. @WebServlet("/anno.do")
 
-sendRedirect login 제출시 url 바꿈: login하고 redirect-> main 화면 ('hi 000님')
- vs
-dispathcer url 안바꿈 : 최초주소로 그대로
+  sendRedirect login 제출시 url 바꿈: login하고 redirect-> main 화면 ('hi 000님')
+  vs
+  dispathcer url 안바꿈 : 최초주소로 그대로
 
---- Servelt / JSP ---
-client -> request page to server
-  [e.g.] <form> <a> location href replace assign open
-WE WILL USE : 
-  Web server(Tomcat) & DB server(Oracle)
+  --- Servelt / JSP ---
+  client -> request page to server
+    [e.g.] <form> <a> location href replace assign open
+  WE WILL USE : 
+    Web server(Tomcat) & DB server(Oracle)
 
-WAS(WEb application server) : also has Web server functionality
-  WAS(동적인 페이지) vs 정적인 페이지
-  개인PC가 WAS 서버 + DB서버 하게 됨
+  WAS(WEb application server) : also has Web server functionality
+    WAS(동적인 페이지) vs 정적인 페이지
+    개인PC가 WAS 서버 + DB서버 하게 됨
 
-- jsp(view)
-- servlet : controller (page data)
+  - jsp(view)
+  - servlet : controller (page data)
 
 
 Web container: client request

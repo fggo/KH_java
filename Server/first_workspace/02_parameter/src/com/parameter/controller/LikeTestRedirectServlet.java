@@ -29,9 +29,10 @@ public class LikeTestRedirectServlet extends HttpServlet {
 		//데이터 관련된것은 request dispatcher. page전환시 가지고 있는 data 전달
 		//sendRedirect는 아님. 다시 browser에게 응답(response)
 		//sendRedirect(맵핑주소)-> response 
-		response.sendRedirect("index.html");
+//		response.sendRedirect("index.html");
+		response.sendRedirect("likeview"); //null 값 name
+//		response.sendRedirect("/likeview"); //ERROR!
 
-//		response.sendRedirect("likeview"); //likeview.do
 //		@WebServlet('/likeview') ->response.sendRedirect("likeview");
 //		ERROR!! HTTP status 500 
 //		int age에 값이 들어가지 않음 (저장할 수 있는 scope 범위를 넘어서)

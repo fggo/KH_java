@@ -3,10 +3,30 @@
   <display-name>02_parameter</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+
+  <!-- 서버가 시작되면 자동으로 context객체에 초기 parameter값으로 설정
+  servlet에서 getInitParameter()메소드로 호출이 가능! -->
+  
+  <!-- 
+  servlet에서 initParams = {
+				@WebInitParam(name="dir",
+						value="C:\\Users\\user1\\KH\\KH_java\\Server\\first_workspace\\02_parameter\\web")
+		}
+		하는것과 equivalent 한 method: -->
+  <servlet>
+		<servlet-name>tttt</servlet-name>
+		<servlet-class>com.asdf</servlet-class>
+		<init-param>
+		  <param-name></param-name>
+		  <param-value></param-value>
+		</init-param>
+
+  </servlet>
+
+  <context-param>
+		<param-name>admin</param-name>
+		<param-value>prince0324@naver.com</param-value>
+  </context-param>
+  
 </web-app>
