@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="04_prac_cumultative">
+    <wb-module deploy-name="_servlet_prac">
         <wb-resource deploy-path="/" source-path="/web" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="04_prac_cumultative"/>
-        <property name="java-output-path" value="/04_prac_cumultative/web/WEB-INF/classes"/>
+        <property name="java-output-path" value="/_servlet_prac/web/WEB-INF/classes"/>
+        <property name="context-root" value="_servlet_prac"/>
     </wb-module>
 </project-modules>

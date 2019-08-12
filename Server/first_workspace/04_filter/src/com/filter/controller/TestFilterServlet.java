@@ -28,10 +28,11 @@ public class TestFilterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	  String title = request.getParameter("title");
 	  String content = request.getParameter("content");
-	  System.out.println(title);
-	  System.out.println(content);
+	  System.out.println("title = " + title);
+	  System.out.println("content = " + content);
 //	  response.setContentType("text/html;charset=UTF-8"); //필요없이 filter에서 처리하도록 함!
-	  response.getWriter().print("do Filter 필터! " + title + content);
+	  //create filter mapping in 'web.xml'
+	  response.getWriter().print("filter 필터! 'title'=" + title + ", 'content'=" + content);
 	}
 
 	/**
