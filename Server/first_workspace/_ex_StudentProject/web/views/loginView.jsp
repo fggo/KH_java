@@ -20,39 +20,39 @@
 <body>
   <header>  
   <div class="head">
-            <div class="img center">
-                <img src="./images/moo.png" width="150px" height="150px">
-            </div>
-            <% if(m==null) { %>
-            <div class="login">
-                <table>
-                    <tr>
-                        <td style="float: right">ID</td>
-                        <td><input type="text" name="id" id="inputid"><br></td>
-                    </tr>
-                    <tr>
-                        <td>PASSWORD</td>
-                        <td><input type="text" name="pw" id="inputpw"></td>
-                    </tr>
+    <div class="img center">
+        <img src="./images/moo.png" width="150px" height="150px">
+    </div>
+    <% if(m==null) { %>
+    <div class="login">
+        <table>
+            <tr>
+                <td style="float: right">ID</td>
+                <td><input type="text" name="id" id="inputid"><br></td>
+            </tr>
+            <tr>
+                <td>PASSWORD</td>
+                <td><input type="text" name="pw" id="inputpw"></td>
+            </tr>
 
 
-                </table>
-                <input type="submit" value="login" id="inputlogin"><br>
-                <a href="#" class="register">회원가입</a>
-            </div>
-            <%}else{ %>
-            <div class='login'>
-              <table>
-                    <tr>
-                        <td><%=m.getMemberName() %>님 환영합니다.</td>
-                    </tr>
-                    <tr>
-                        <td><button oncick="logout();">로그아웃</button></td>
-                    </tr>
-                </table>
-            </div>
-            <%} %>
-        </div>
+        </table>
+        <input type="submit" value="login" id="inputlogin"><br>
+        <a href="#" class="register">회원가입</a>
+    </div>
+    <%}else{ %>
+    <div class='login'>
+      <table>
+            <tr>
+                <td><%=m.getMemberName() %>님 환영합니다.</td>
+            </tr>
+            <tr>
+                <td><button oncick="logout();">로그아웃</button></td>
+            </tr>
+        </table>
+    </div>
+    <%} %>
+  </div>
     <nav>
       <ul class="center">
         <li class="mainshadow"><a href="#">HOME</a></li>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.servlet.model.vo.Member;
 
+// THIS HAS BEEN REPLACED BY loginView.jsp!!!!!!!!!!
 /**
  * Servlet implementation class LogininViewServlet
  */

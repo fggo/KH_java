@@ -19,11 +19,8 @@ public class JDBCTemplate {
       prop.load(new FileReader(fileName));
       Class.forName(prop.getProperty("driver"));
       conn = DriverManager.getConnection(prop.getProperty("url"),
-          prop.getProperty("id"),
-          prop.getProperty("pw"));
-      System.out.println("heeeee");
-      System.out.println(prop.getProperty("id"));
-      System.out.println(prop.getProperty("pw"));
+                                         prop.getProperty("id"),
+                                         prop.getProperty("pw"));
       conn.setAutoCommit(false);
 
     } catch(IOException e) {

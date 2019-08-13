@@ -38,7 +38,7 @@ public class CharacterEncodingFilter implements Filter {
 	  response.setCharacterEncoding("UTF-8");
 //	  response.setContentType(""); //servlet에서 설정
 
-      chain.doFilter(request, response);
+    chain.doFilter(request, response);
 	}
 
 	/**
