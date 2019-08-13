@@ -8,16 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class TestFilterServlet
+ * Servlet implementation class TestFilter2
  */
-@WebServlet(name="firstServlet", urlPatterns="/filter.do")
-public class TestFilterServlet extends HttpServlet {
+//필터 세팅 두가지 방법
+@WebServlet(name="testFilter", urlPatterns="/filter")
+public class TestFilter2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TestFilterServlet() {
+    public TestFilter2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,11 +29,10 @@ public class TestFilterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	  String title = request.getParameter("title");
 	  String content = request.getParameter("content");
-	  System.out.println("title = " + title);
-	  System.out.println("content = " + content);
-//	  response.setContentType("text/html;charset=UTF-8"); //필요없이 filter에서 처리하도록 함!
-	  //create filter mapping in 'web.xml'
-	  response.getWriter().print("filter 필터! 'title'=" + title + ", 'content'=" + content);
+	  System.out.println(title);
+	  System.out.println(content);
+
+	  response.getWriter().append(title).append(content);
 	}
 
 	/**

@@ -5,7 +5,6 @@ CREATE USER student identified by student;
 GRANT RESOURCE TO student;
 GRANT CONNECT TO student;
 
-
 CREATE TABLE MEMBER(
     member_id VARCHAR2(15) CONSTRAINT pk_member_id PRIMARY KEY,
     member_pwd VARCHAR2(15) CONSTRAINT nn_member_pwd NOT NULL,
@@ -19,25 +18,26 @@ CREATE TABLE MEMBER(
     enroll_date DATE DEFAULT SYSDATE
 );
 
-insert into member values('admin','admin','°ü¸®ÀÚ','M', 30, 'admin@iei.or.kr', '0101234678','¼­¿ï½Ã °­³²±¸ ¿ª»ïµ¿ Å×Çì¶õ·Î 7','±âÅ¸,µ¶¼­,¿îµ¿','16/03/15');
-insert into member values('user11','pass11','È«±æµ¿','M', 23, 'hong@kh.org', '01017778888','°æ±âµµ ¼ö¿ø½Ã ÆÈ´Þ±¸ ÆÈ´Þµ¿ 77','¿îµ¿,µî»ê,±âÅ¸','17/09/21');
-insert into member values('user22','pass22','½Å»çÀÓ´ç','F', 48, 'shin50@kh.org', '01050005555','°­¿øµµ °­¸ª½Ã ¿ÀÁ×Çå 5','µ¶¼­,±×¸²,¿ä¸®','17/05/05');
-insert into member values('user77','user77','ÀÌ¼ø½Å','M', 50, 'dltnstls@naver.com', '01021226374','°æ±âµµ ½ÃÈï½Ã','À½¾Ç','17/12/08');
-insert into member values('lsj','lsj','ÀÌ¼±ÁÖ','F', 24, 'dltjswn@naver.com', '01021226377','°æ±âµµ ¾È»ê½Ã','¿îµ¿,À½¾Ç,´í½º','17/08/25');
-insert into member values('seonn','seonn','±è°øºÎ','F', 28, 'study11@naver.com', '01021226312','°æ±âµµ ¼º³²½Ã','°øºÎ,Ã¥ÀÐ±â','17/11/08');
+insert into member values('admin','admin','ì–´ë“œë¯¼','M', 30, 'admin@iei.or.kr', '0101234678','ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ïµ¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 7','ï¿½ï¿½Å¸,ï¿½ï¿½ï¿½ï¿½,ï¿½îµ¿','16/03/15');
+insert into member values('user11','pass11','È«ï¿½æµ¿','M', 23, 'hong@kh.org', '01017778888','ï¿½ï¿½âµµ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È´Þ±ï¿½ ï¿½È´Þµï¿½ 77','ï¿½îµ¿,ï¿½ï¿½ï¿½,ï¿½ï¿½Å¸','17/09/21');
+insert into member values('user22','pass22','ï¿½Å»ï¿½ï¿½Ó´ï¿½','F', 48, 'shin50@kh.org', '01050005555','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 5','ï¿½ï¿½ï¿½ï¿½,ï¿½×¸ï¿½,ï¿½ä¸®','17/05/05');
+insert into member values('user77','user77','ï¿½Ì¼ï¿½ï¿½ï¿½','M', 50, 'dltnstls@naver.com', '01021226374','ï¿½ï¿½âµµ ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½','17/12/08');
+insert into member values('lsj','lsj','ï¿½Ì¼ï¿½ï¿½ï¿½','F', 24, 'dltjswn@naver.com', '01021226377','ï¿½ï¿½âµµ ï¿½È»ï¿½ï¿½','ï¿½îµ¿,ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½','17/08/25');
+insert into member values('seonn','seonn','ï¿½ï¿½ï¿½ï¿½ï¿½','F', 28, 'study11@naver.com', '01021226312','ï¿½ï¿½âµµ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½,Ã¥ï¿½Ð±ï¿½','17/11/08');
 
-COMMENT ON COLUMN MEMBER.member_id IS 'È¸¿ø¾ÆÀÌµð';
-COMMENT ON COLUMN MEMBER.member_pwd IS 'È¸¿øºñ¹Ð¹øÈ£';
-COMMENT ON COLUMN MEMBER.member_name IS 'È¸¿øÀÌ¸§';
-COMMENT ON COLUMN MEMBER.gender IS '¼ºº°';
-COMMENT ON COLUMN MEMBER.age IS '³ªÀÌ';
-COMMENT ON COLUMN MEMBER.email IS 'ÀÌ¸ÞÀÏ';
-COMMENT ON COLUMN MEMBER.phone IS 'ÀüÈ­¹øÈ£';
-COMMENT ON COLUMN MEMBER.address IS 'ÁÖ¼Ò';
-COMMENT ON COLUMN MEMBER.hobby IS 'Ãë¹Ì';
-COMMENT ON COLUMN MEMBER.enroll_date IS '°¡ÀÔ³¯Â¥';
+COMMENT ON COLUMN MEMBER.member_id IS 'È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½';
+COMMENT ON COLUMN MEMBER.member_pwd IS 'È¸ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½È£';
+COMMENT ON COLUMN MEMBER.member_name IS 'È¸ï¿½ï¿½ï¿½Ì¸ï¿½';
+COMMENT ON COLUMN MEMBER.gender IS 'ï¿½ï¿½ï¿½ï¿½';
+COMMENT ON COLUMN MEMBER.age IS 'ï¿½ï¿½ï¿½ï¿½';
+COMMENT ON COLUMN MEMBER.email IS 'ï¿½Ì¸ï¿½ï¿½ï¿½';
+COMMENT ON COLUMN MEMBER.phone IS 'ï¿½ï¿½È­ï¿½ï¿½È£';
+COMMENT ON COLUMN MEMBER.address IS 'ï¿½Ö¼ï¿½';
+COMMENT ON COLUMN MEMBER.hobby IS 'ï¿½ï¿½ï¿½';
+COMMENT ON COLUMN MEMBER.enroll_date IS 'ï¿½ï¿½ï¿½Ô³ï¿½Â¥';
 
 commit;
 
 SELECT * from member;
 SELECT * from user_constraints;
+
