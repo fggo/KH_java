@@ -1,41 +1,26 @@
-package com.servlet.model.dao;
+package com.jsp.model.dao;
 
-import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Properties;
-
 import static common.template.JDBCTemplate.close;
 
-import com.servlet.model.vo.Member;
+import com.jsp.model.vo.Member;
 
 public class MemberDao {
-  private Properties prop = new Properties();
-
-  public MemberDao() {
-    String path = MemberDao.class.getResource("/sql/member/member-query.properties").getPath();
-    try {
-      prop.load(new FileReader(path));
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-  }
-
   public Member selectId(Connection conn, String id, String pw) {
     PreparedStatement pstmt = null;
     ResultSet rs = null;
-    String sql = prop.getProperty("selectId");
     Member m = null;
+    String sql = "select * from member where member_id=? and member_pwd=?";
+
     try {
-      pstmt= conn.prepareStatement(sql);
+      pstmt =conn.prepareStatement(sql);
       pstmt.setString(1, id);
       pstmt.setString(2, pw);
-      
       rs = pstmt.executeQuery();
-
-      if(rs.next()){
+      if(rs.next()) {
         m=new Member();
         m.setMemberId(rs.getString("member_id"));
         m.setMemberName(rs.getString("member_name"));
@@ -50,14 +35,8 @@ public class MemberDao {
     } catch(SQLException e) {
       e.printStackTrace();
     } finally {
-      try {
-        close(pstmt);
-        close(rs);
-        
-      } catch(Exception e) {
-        e.printStackTrace();
-      }
-      
+      close(rs);
+      close(pstmt);
     }
     return m;
     

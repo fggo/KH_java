@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 //	    HttpSession session = 
 	    //DB에서 가져온 값을 request에 넣기
 	    request.setAttribute("member", m);
-	    //로그인페이지로 전환  : sendRedirect / RequestDispatcher(session처리 안함)
+	    //로그인페이지로 전환  : sendRedirect / requestDispatcher(session처리 안함)
 	    RequestDispatcher rs = request.getRequestDispatcher("views/loginView.jsp");
 	    rs.forward(request, response);
 	  }
