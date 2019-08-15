@@ -1,7 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.jsp.model.vo.Member" %>
+<%
+  Member m = (Member)request.getAttribute("member");
+%>
 
-<%@ include file="../common/header2.jsp" %>
+<% if(m == null){ %>
+  <%@ include file="../common/header.jsp" %>
+<%} else{ %>
+  <%@ include file="../common/header_logged.jsp" %>
+<%} %>
+
 		<article>
 			<div class="wrap">
 				<div class="bar">
@@ -28,4 +36,4 @@
 			</div>
 
 		</article>
-<%@ include file="../common/footer2.jsp" %>
+<%@ include file="../common/footer.jsp" %>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@ include file="./common/header.jsp" %>
+<%@ include file="./common/content_header.jsp" %>
 <section>
   <h1>여기는 content 영역입니다.</h1>
   <img src="https://vignette.wikia.nocookie.net/dayshift-at-freddys/images/9/94/DoggoInfobox.png/revision/latest?cb=20181113014231"
@@ -14,4 +14,4 @@
     </ul>
   </div>
 </section>
-<%@ include file="/views/common/footer.jsp" %>
+<%@ include file="/views/common/content_footer.jsp" %>

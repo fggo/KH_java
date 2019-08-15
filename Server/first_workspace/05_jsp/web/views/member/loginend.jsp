@@ -14,7 +14,6 @@
 
 	if(m != null){
 	  RequestDispatcher rd = request.getRequestDispatcher("loginView.jsp");
-	  response.addHeader("location", "../common/header3.jsp");
 	  rd.forward(request, response);
 	} else{
 	  request.setAttribute("path", "/views/member/loginView.jsp");

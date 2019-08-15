@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList" %>
+    pageEncoding="UTF-8" import="com.jsp.model.vo.Member, java.util.ArrayList" %>
+
+<%-- <%
+  Member m = (Member)request.getAttribute("member");
+%>
+ --%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,21 +25,17 @@
         <img src="<%=request.getContextPath() %>/images/moo.png" width="150px" height="150px">
       </div>
       <div class="login">
-        <form action='loginend.jsp' method="post">
           <table>
             <tr>
-              <td style="float: right">ID</td>
-              <td><input type="text" name="id" id="inputid"><br></td>
+              <td><%=m.getMemberName() %>님 환영합니다.</td>
             </tr>
             <tr>
-              <td>PASSWORD</td>
-              <td><input type="text" name="pw" id="inputpw"></td>
-            </tr>
-            <tr>
-              <td colspan="2"><input type="submit" value="login"></td>
+              <td><button onclick="location.href='<%=request.getContextPath() %>/logout.do'">
+								로그아웃
+              </button>
+						</td>
             </tr>
           </table>
-        </form>
       
         <a href="#" class="register">회원가입</a>
       </div>
