@@ -26,4 +26,5 @@ set expandtab
 
 nnoremap zz :update<CR>
 
-set encoding=utf-8
+set enc=utf-8
+set fileencoding=utf-8

@@ -1,3 +1,46 @@
+server는 요청을 받고 응답하고 나면 stateless때문에
+이전페이지 로그인 유저 기록 없음
+    <a href="<%=request.getContextPath()%>">Home</a>클릭시,
+    로그인 안된 상태로 보여짐 (statement) page보내고 나면 그것에 대한 정보를 없애버림
+
+    1. session을 이용해서 이 데이터를 저장해서 유지하도록 함!!!
+      - server(WAS)에서 관리
+      - 페이지 이동해도 login 유지!
+      - id 주소를 보냄
+      - cookie라는 저장공간에 넣어서 보냄
+    2. cookie도 보관하는 용도
+      - server가 브라우저한테, 접속할때마다 coockie 가져오도록 함 : client에 저장
+      - hacking 위험 있음
+      - id 저장!
+      - 직접 데이터 보냄
+      - cookie라는 저장공간에 넣어서 보냄
+      
+f12 = application-Cookies -sessionID
+
+
+Client id/pw 로그인
+  -> Servlet에서 business logic(->service->dao에서 Member 객체를 받음)
+      Member m이
+      == null msg.jsp->index.jsp 이동할 때 request에 attr 담아넘김
+      !=null index.jsp
+
+web폴더:
+  view css js upload(files)
+WAS 배포 -> linux 세팅
+  WEB-INF는 dispathcer에서 접근?
+
+1. web/web사용자 계정 만들기
+  1) 로그인 view구성
+  2) 로그인 기본처리 BL처리
+
+2. content 분리하기
+  <%@ include file="">
+  지금 설정한 index.jsp header, footer 분리해서 처리!
+
+
+
+
+
 lifecycle 소멸시점
   application
   session
