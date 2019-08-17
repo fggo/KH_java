@@ -13,7 +13,7 @@
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": ["z", "z"],
-            "commands": [   
+            "commands": [
                 ":w"
             ]
         },
@@ -42,7 +42,7 @@
     "workbench.iconTheme": "vscode-great-icons",
     "workbench.colorCustomizations": {
         "[MagicWB_Amiga]": {
-            // "editor.background": "#B1B4B1",
+            // "editor.background": "#959795",
             "sideBar.background": "#343434",
             "sideBar.foreground": "#ABADAB",
             "terminal.background": "#484848",
@@ -50,18 +50,12 @@
         },
     },
     "window.zoomLevel": -1,
-    "java.home": "C:\\Program Files\\Java\\jdk1.8.0_144",
+    "java.home": "C:\\Program Files\\Java\\jdk1.8.0_211",
     "editor.suggestSelection": "first",
     "editor.wordWrap" : "on",
     "editor.fontFamily": "Consolas",
-    "editor.fontSize": 15,
+    "editor.fontSize": 14.5,
     "editor.fontLigatures": true,
-    "editor.tabSize": 4,
-    "[html]": { "editor.tabSize": 2 },
-    "[css]": { "editor.tabSize": 2 },
-    "[javascript]": { "editor.tabSize": 2 },
-    "[json]": { "editor.tabSize": 2 },
-    "editor.insertSpaces": true,
     "editor.tokenColorCustomizations": {
         "[DuoTone Dark Forest]": {
             "textMateRules": [
@@ -92,12 +86,12 @@
              "strings": "#DFDFDF",
             // JAVA
             "textMateRules": [
-                // constant.character { "background": "#0000FF33", "fontStyle": "", "foreground": "#FFA995" }
+                    // constant.character { "background": "#0000FF33", "fontStyle": "", "foreground": "#FFA995" }
                 {
                     "scope": "keyword",
                     "settings": {
-                        "fontStyle": "",
-                        "foreground": "#000fff",
+                        "fontStyle": "bold",
+                        "foreground": "#0540D5",
                     },
                 },
                 {
@@ -111,16 +105,18 @@
                     // entity.name.function { "fontStyle": "", "foreground": "#FFA995" }
                     "scope": "entity.name.function",
                     "settings": {
-                        "fontStyle": "bold underline",
+                        "fontStyle": "underline",
+                        // "foreground": "#F4A897",
                         "foreground": "#000fff",
                     }
 
                 },
                 {
                     // variable.other { "foreground": "#FFA995" }
+                    // [magicwb2.vim]   hi Special guifg=#E7F6DA gui=none
                     "scope": "variable.other",
                     "settings": {
-                        "fontStyle": "bold",
+                        "fontStyle": "italic",
                         "foreground": "#000000",
                     }
 
@@ -128,8 +124,7 @@
                 {
                     "scope": "string",
                     "settings": {
-                        "fontStyle": "bold",
-                        "foreground": "#B6E292",
+                        "foreground": "#CBE9B1",
                     }
 
                 },
@@ -147,6 +142,7 @@
                         "foreground": "#334031",
                     }
                 },
+                // comment { "fontStyle": "italic", "foreground": "#8D2E75" }
 
                 // HTML
                 {
@@ -174,5 +170,5 @@
         "<C-s>": false,
     },
     "terminal.integrated.fontFamily": "monospace",
-    "workbench.colorTheme": "Monokai Grey",
+    "workbench.colorTheme": "MagicWB_Amiga",
 }
