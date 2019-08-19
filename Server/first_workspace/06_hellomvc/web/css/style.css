@@ -90,3 +90,16 @@ div.login-container table#logged-in{
 div.login-container input[type=button]{
     border-radius: 3px;
 }
+
+/* 회원가입 */
+section#enroll-container {text-align: center;}
+section#enroll-container input{margin: 3px;}
+section#enroll-container table{margin : 0px auto;}
+section#enroll-container table th{
+  padding: 0px 10px;
+  text-align: right;
+}
+section#enroll-container table td{
+  padding: 0px 10px;
+  text-align: left;
+}

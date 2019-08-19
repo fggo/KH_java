@@ -19,6 +19,23 @@ public class Member {
     // TODO Auto-generated constructor stub
   }
   
+
+  public Member(String userId, String password, String userName, char gender, int age, String email, String phone,
+      String address, String hobby, Date enrolldate) {
+    super();
+    this.userId = userId;
+    this.password = password;
+    this.userName = userName;
+    this.gender = gender;
+    this.age = age;
+    this.email = email;
+    this.phone = phone;
+    this.address = address;
+    this.hobby = hobby;
+    this.enrolldate = enrolldate;
+  }
+
+
   @Override
   public String toString() {
     return "Member [userId=" + userId + ", password=" + password + ", userName=" + userName + ", gender=" + gender

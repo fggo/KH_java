@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -52,6 +53,26 @@ public class LoginMemberServlet extends HttpServlet {
 	    //로그인 처리
 	    //2. 로그인의 세션 처리 (로그인을 서버에서 유지하기 위함)
 	    HttpSession session = request.getSession();
+
+	    //session id값으로 요청 ->WAS에서 새 아이디값 부여(listener가 듣게됨!)
+
+	    //session life cycle:
+	    //session객체는 getSession()객체 생성 했을때 생성
+	    //session.invalidate()할때 소멸
+	    //session 유효기간 설정 가능:  WEB-INF\web.xml이 아닌
+	    //1. Server\Tomcat.xx.xx\web.xml : <server-config> WAS가 설정
+	    //2. 또는 session객체로 설정가능
+        //<session-config>
+        //    <session-timeout>30</session-timeout> //분단위
+        //</session-config>
+	    //session.setMaxInactiveInterval(interval);
+	    //일정 시간 이후 세션종료(session.invalidate()실행!)! //초단위
+	    //코드값이 우선시 됨!!!!
+	    //session.setMaxInactiveInterval(60);//session 유지 for 60 sec
+	    //e.g. bank application
+	    //session listener 설정 : session이 동작하는 event tracking
+	    //e.g. alert when session disconnect
+
 	    //request.getSession(); 매개변수 true or false
 	    //true(default) : 기존에 생성된 객체가 있으면 불러오고, 없으면 생성 해서 불러옴
 	    //false : 기존에 생성된 session객체가 있으면 불러오고, 없으면 null값
@@ -60,10 +81,36 @@ public class LoginMemberServlet extends HttpServlet {
 	    //로그인 유지를 위해 필요한 정보를 session객체에 저장
 	    //session.invalidate()할 때까지 (로그인) 유지됨
 	    session.setAttribute("loginMember", m);
+	    
+	    
+	    //쿠키에 아이디 저장하기
+	    String saveId = request.getParameter("saveId");
+	    System.out.println("saveId" + saveId);
+	    //saveId check가 되면 "on"
+	    //saveId check안되면 null
+	    if(saveId != null) {
+	      //쿠키에 저장하는 방법
+	      //1. 쿠키객체를 생성!, 생성자 매개변수: 쿠키의 명칭과 값을 대입
+	      //첫번째 매개변수: key, 두번째 매개변수 value
+	      Cookie c = new Cookie("saveId", id);
+	      //일주일 동안  id저장
+	      c.setMaxAge(7*24*60*60); //seconds 초단위
+	      //c.setPath("/"); //cookie저장 경로 지정
+	      //response(client 정보)
+	      response.addCookie(c);
+	      //f12 - application 'saveId' cookie 저장된것 확인
+	    }
+	    else {
+	      //checkbox에 check가 안되어있으면 저장된 cookie를 지워서
+	      //다음 페이지가 열릴때 반영되지 않게 설정
+	      Cookie c = new Cookie("saveId", id);
+	      c.setMaxAge(0); //기간이 존재하지 않으므로, 바로 생성과 동시에 삭제
+	      response.addCookie(c);
+	    }
+	    
 
 	    view = "/"; // 디폴트 "/" url은 index.jsp 연결~
-
-
+	    response.sendRedirect(request.getContextPath() + view);
 	  }
 	  else {
 	    //에러 처리
@@ -74,14 +121,14 @@ public class LoginMemberServlet extends HttpServlet {
 	    view = "/views/common/msg.jsp";
 	    String loc = "/"; //다시 홈으로 이동
 	    request.setAttribute("loc", loc);
+	    //데이터가 있으면 dispatcher로 전송 (에러로 넘어왔는지 또는 로그인 성공해서 넘어왔는지를)
+	    RequestDispatcher rd = request.getRequestDispatcher(view);
+	    rd.forward(request, response);
 	  }
 	  
 	  //request 객체가 Member 오브젝트를 저장함(로그인 성공한 Member instance 또는 실패해서 null)
-	  request.setAttribute("loginMember", m);
+	  //request.setAttribute("loginMember", m);
 
-	  //데이터가 있으면 dispatcher로 전송 (에러로 넘어왔는지 또는 로그인 성공해서 넘어왔는지를)
-	  RequestDispatcher rd = request.getRequestDispatcher(view);
-	  rd.forward(request, response);
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

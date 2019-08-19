@@ -5,6 +5,31 @@
   //get Member object from servlet dispatcher call
   //Member loginMember = (Member)request.getAttribute("loginMember");
   Member loginMember = (Member)session.getAttribute("loginMember");
+  
+  //cookie 쿠키값 확인해서 페이지에 반영하기
+  //cookie는 key:value형식으로 여러개 저장이 가능하기 때문에
+
+  //쿠키 객체가 배열로 저장이 됨
+  Cookie[] cookies = request.getCookies();
+  String saveId = null;
+
+  if(cookies != null){
+    for(Cookie c : cookies){
+      //내가 원하는 cookie 객체를 찾아서 값을 처리
+      //key, value를 method를 이용해서 가져올 수 있음
+      //f5 refesh 눌러도 바뀌지 않음
+      //쿠키에 session도 담김
+      String key = c.getName();
+      String value = c.getValue();
+      System.out.println("key : " + key);
+      System.out.println("value : " + value);
+
+      if(key.equals("saveId")){
+        saveId = value;
+      }
+    }
+  }
+
 %>
 
 <!DOCTYPE html>
@@ -31,14 +56,14 @@
             <tr>
               <td>
                 <input type="text" name="userId" 
-                placeholder="아이디"/ id="userId">
+                placeholder="아이디" id="userId" value='<%=saveId !=null? saveId:""%>' />
               </td>
               <td></td>
             </tr>
             <tr>
               <td>
                 <input type="password" name="password"
-                  placeholder="비밀번호"/ id="password">
+                  placeholder="비밀번호" id="password"/>
               </td>
               <td>
                 <input type="submit" value="로그인"/>
@@ -47,7 +72,7 @@
             <tr>
               <td colspan='2'>
                 <input type="checkbox" name="saveId"
-                id="saveId"/>
+                id="saveId" <%= saveId!=null? "checked":"" %> />
                 <label for="saveId">아이디저장</label>
                 <input type="button" value="회원가입"
                 onclick="location.href='<%=request.getContextPath()%>/memberEnroll'">

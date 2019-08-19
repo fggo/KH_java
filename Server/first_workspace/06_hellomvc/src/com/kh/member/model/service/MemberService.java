@@ -1,6 +1,8 @@
 package com.kh.member.model.service;
 
 import static common.template.JDBCTemplate.getConnection;
+import static common.template.JDBCTemplate.commit;
+import static common.template.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 
@@ -17,5 +19,18 @@ public class MemberService {
     Member m = dao.selectId(conn, id,pw);
     close(conn);
     return m;
+  }
+  
+  public int insertMember(Member m) {
+    Connection conn = getConnection();
+    int result = dao.insertMember(conn, m);
+    //트랜젝션 처리
+    if(result > 0)
+      commit(conn);
+    else
+      rollback(conn);
+
+    close(conn);
+    return result;
   }
 }

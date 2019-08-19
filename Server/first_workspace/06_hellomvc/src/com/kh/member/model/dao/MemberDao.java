@@ -1,5 +1,7 @@
 package com.kh.member.model.dao;
 
+import static common.template.JDBCTemplate.close;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -7,8 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
-
-import static common.template.JDBCTemplate.close;
 
 import com.kh.member.model.vo.Member;
 
@@ -57,6 +57,36 @@ public class MemberDao {
 
     return m;
   }
+  
+  public int insertMember(Connection conn, Member m) {
+    PreparedStatement pstmt = null;
+    int result = 0;
+
+    String sql = prop.getProperty("insertMember");
+
+    try {
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setString(1, m.getUserId());
+      pstmt.setString(2, m.getPassword());
+      pstmt.setString(3, m.getUserName());
+      pstmt.setString(4, String.valueOf(m.getGender()));
+      pstmt.setInt(5, m.getAge());
+      pstmt.setString(6, m.getEmail());
+      pstmt.setString(7, m.getPhone());
+      pstmt.setString(8, m.getAddress());
+      pstmt.setString(9, m.getHobby());
+
+      result = pstmt.executeUpdate();
+
+    } catch(SQLException e) {
+      e.printStackTrace();
+    } finally {
+      close(pstmt);
+    }
+    return result;
+    
+  }
+  
 
 
 }

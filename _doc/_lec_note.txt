@@ -1,3 +1,43 @@
+login session 구현 + 회원가입 homework -> webshare upload
+
+--8.20 interface 구현
+-----------------------------------------------
+  JDBCTEmplate.java
+  외부에서 load : .properties
+
+ERROR page 처리: try~catch로도 가능
+서버에서 페이지 변경 dispatcher/redirect
+  - exception 발생시 dispatcher로 보냄
+<a><form> location.href=""
+
+로그인 상태관리
+  - 저장할 수 있는 것 : Session, Cookie /web storage
+
+MVC 패턴, resource, controller 해당 안되는 것
+session 무효화 시키는 것
+  invalidate()
+  session.setMaxInactiveInterval(interval);
+  Server-xxxx\web.xml에서 session-foncig으로
+
+서블렛 response중에 stream 열수 있는
+writer / inputoutput stream
+서버가 바깥으로 보내는것 FileOutputStream
+
+servlet lifecycle
+-----------------------------------------------
+
+- session(server가 관리)
+- cookie(client 브라우저가 관리)
+  쿠키에 저장된 데이터를 clien가 관리.
+  단, 쿠키저장 지시는 server가 요청을 해서 관리를 함.
+  쿠키는 저장한도, 최대 저장크기 5kb.
+
+쿠키활용: db에 저장하기에는 중요도 낮음.
+        클라이언트가 저장한 임시저장 데이터
+        장바구니 최근본 상품, id저장(checkbox)
+        id값을 저장하고 자동으로 불러오는 기능을 쿠키로 구현
+        db혹은 web server 운영되는데 문제없는 데이터들
+
 server는 요청을 받고 응답하고 나면 stateless때문에
 이전페이지 로그인 유저 기록 없음
     <a href="<%=request.getContextPath()%>">Home</a>클릭시,
@@ -14,7 +54,7 @@ server는 요청을 받고 응답하고 나면 stateless때문에
       - id 저장!
       - 직접 데이터 보냄
       - cookie라는 저장공간에 넣어서 보냄
-      
+
 f12 = application-Cookies -sessionID
 
 
