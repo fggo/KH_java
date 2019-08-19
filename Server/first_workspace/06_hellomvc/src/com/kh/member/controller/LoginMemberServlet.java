@@ -44,6 +44,7 @@ public class LoginMemberServlet extends HttpServlet {
 	  //비즈니스 로직
 	  MemberService service = new MemberService();
 	  Member m = service.selectId(id, pw); //DB결과
+	  System.out.println(m);
 	  
 
 	  //DB결과에 따라서 view화면을 선택~
@@ -73,7 +74,7 @@ public class LoginMemberServlet extends HttpServlet {
 	    //session listener 설정 : session이 동작하는 event tracking
 	    //e.g. alert when session disconnect
 
-	    //request.getSession(); 매개변수 true or false
+	    //request.getSession(boolean); 매개변수 true or false
 	    //true(default) : 기존에 생성된 객체가 있으면 불러오고, 없으면 생성 해서 불러옴
 	    //false : 기존에 생성된 session객체가 있으면 불러오고, 없으면 null값
 	    //true(default)값으로 많이 쓰임

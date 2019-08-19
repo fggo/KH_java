@@ -2,7 +2,7 @@ login session 구현 + 회원가입 homework -> webshare upload
 
 --8.20 interface 구현
 -----------------------------------------------
-  JDBCTEmplate.java
+  JDBCTemplate.java
   외부에서 load : .properties
 
 ERROR page 처리: try~catch로도 가능
@@ -17,7 +17,7 @@ MVC 패턴, resource, controller 해당 안되는 것
 session 무효화 시키는 것
   invalidate()
   session.setMaxInactiveInterval(interval);
-  Server-xxxx\web.xml에서 session-foncig으로
+  Server-xxxx\web.xml에서 session-config으로
 
 서블렛 response중에 stream 열수 있는
 writer / inputoutput stream
@@ -49,7 +49,7 @@ server는 요청을 받고 응답하고 나면 stateless때문에
       - id 주소를 보냄
       - cookie라는 저장공간에 넣어서 보냄
     2. cookie도 보관하는 용도
-      - server가 브라우저한테, 접속할때마다 coockie 가져오도록 함 : client에 저장
+      - server가 브라우저한테, 접속할때마다 cookie 가져오도록 함 : client에 저장
       - hacking 위험 있음
       - id 저장!
       - 직접 데이터 보냄
