@@ -1,3 +1,80 @@
+
+gitignore.io
+prince2153
+
+----------------------------------------------------------------
+git 형상관리, 버전관리 프로그램!
+what! 버전관리??
+버전관리 모델:
+1. 클라이언트-서버 모델 (중앙 시스템)
+2. 분산관리 모델 : 원격 repository / local repository(본인)
+
+모델: cvs, svn(중앙관리), git(분산관리)
+
+git 중요개념
+  1. 파일 관리 상태
+    1) committed : 파일이 local 데이터베이스(하드)에 안전하게 저장된 상태
+                   --> commit 명령어로 저장한 파일
+    2) modified : 파일을 수정한 상태, commit되지 않은 상태
+    3) staged: : 수정한 파일을 commit하기 바로 전 상태
+
+  2. 파일관리 상태에 따른 영역
+    1) GitDirectory : 프로젝트의 핵심 코어부분을 저장하는 저장소
+                      (프로젝트 메타데이터, 객체 데이터베이스 등을 관리)
+                      즉, 프로젝트 자체를 저장
+                      윈도우 사용자 폴더에 .git 폴더
+    2) WorkingDirectory : gitDirectory 저장되어 있는 각 버젼별 프로젝트를 checkout하여
+                          받아오면 코어를 갖지고 프로젝트를 가져오는 저장소
+                          즉, 작업장(프로젝트 수정)
+    3) StagingArea : commit할 파일들을 모아서 관리하는 영역, index가 부여된 파일들
+
+동작 구조
+  localrepository 에서 branch로 체크아웃(branch로 이동)
+  --> git directory에 프로젝트 저장
+  --> working directory -> 프로젝트 수정, 개발
+  --> 수정, 개발 내용을 StagingArea에 넣음
+  --> commit-> gitDirectory
+
+working Directory 내부에서 파일관리
+1. tracked : git에서 관리를 하는 파일
+2. untracked : git이 관리 하지 않는 파일
+-> tracked로 바꿀려면 인덱스
+
+localgit을 사용하는 것이 아니라
+원격에 있는 서버 git 사용
+
+저장소!!! 저장소 2개로 나뉘어짐
+1. local repository 개발자 컴퓨터에 저장
+2. remote repository 서버컴퓨터의 저장소
+분산관리이기 때문에 두개다 히스토리를 가지고 있음
+로컬 vs 원격 branch 다를 수 있음
+  -> sync 할 수있음
+
+원격 repository와 localrepository에서 파일 처리 용어
+  commit: repository에 저장하는 것(git directory) (staging)
+  pull: 원격(remote) repository에서 project를 가져 오는 것
+       * merge까지 자동으로 함 (pull == fetch & merge);
+  push: local repository의 프로젝트는 remoterepository에 올리는 것!
+  fetch : remote(원격) repository에서 프로젝트를 가져오는 것.
+       * merge하지 않고 임시로 저장 하고 있음.
+         따로 관리자가 merge를 해줘야 함.
+
+1. 다양한 개발 툴 git 이용하는 것을 제공
+2. github가 제공하는 gitdesktop, sourcetree, eclipse에서 git 관리하는 플러그인 제공(e-git)
+
+  eclipse - project r_click -team -share project
+
+  project r_click - replace with - initial commit으로 돌아가도,
+  새로 생긴 directory/project는 revert안됨: 직접 delete
+
+
+
+
+
+----------------------------------------------------------------
+
+
+
 login session 구현 + 회원가입 homework -> webshare upload
 
 --8.20 interface 구현
