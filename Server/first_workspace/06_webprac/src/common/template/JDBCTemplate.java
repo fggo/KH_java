@@ -14,16 +14,15 @@ public class JDBCTemplate {
 
   public static Connection getConnection() {
     String path = JDBCTemplate.class.getResource("./driver.properties").getPath();
-
-
     Connection conn = null;
-    try{
+    try {
       prop.load(new FileReader(path));
       Class.forName(prop.getProperty("driver"));
-      conn = DriverManager.getConnection(prop.getProperty("url"), 
-                                         prop.getProperty("user"),
+      conn = DriverManager.getConnection(prop.getProperty("url"),
+                                         prop.getProperty("id"),
                                          prop.getProperty("pw"));
       conn.setAutoCommit(false);
+
     } catch(IOException e) {
       e.printStackTrace();
     } catch(ClassNotFoundException e) {
@@ -31,38 +30,40 @@ public class JDBCTemplate {
     } catch(SQLException e) {
       e.printStackTrace();
     }
-
+    
     return conn;
   }
-  
-  public static void close(Connection conn) {
-    try {
+
+  public static void close(Connection conn){
+    try{
       if(conn!=null && !conn.isClosed())
         conn.close();
-    } catch(SQLException e) {
+    } catch(SQLException e){
       e.printStackTrace();
     }
   }
-  public static void close(ResultSet rs) {
-    try {
+
+  public static void close(ResultSet rs){
+    try{
       if(rs!=null && !rs.isClosed())
         rs.close();
-    } catch(SQLException e) {
+    } catch(SQLException e){
       e.printStackTrace();
     }
   }
-  public static void close(Statement stmt) {
-    try {
+
+  public static void close(Statement stmt){
+    try{
       if(stmt!=null && !stmt.isClosed())
         stmt.close();
-    } catch(SQLException e) {
+    } catch(SQLException e){
       e.printStackTrace();
     }
   }
   
   public static void commit(Connection conn) {
     try {
-      if(conn!=null && !conn.isClosed())
+      if(conn !=null && !conn.isClosed())
         conn.commit();
     } catch(SQLException e) {
       e.printStackTrace();
@@ -71,7 +72,7 @@ public class JDBCTemplate {
 
   public static void rollback(Connection conn) {
     try {
-      if(conn!=null && !conn.isClosed())
+      if(conn !=null && !conn.isClosed())
         conn.rollback();
     } catch(SQLException e) {
       e.printStackTrace();

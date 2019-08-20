@@ -10,9 +10,17 @@
     "git.decorations.enabled": true,
     "explorer.decorations.colors": false,
     "explorer.decorations.badges": false,
+    "window.zoomLevel": -1,
+    "editor.suggestSelection": "first",
+    "editor.wordWrap" : "on",
+    "editor.fontFamily": "Consolas",
+    "editor.fontSize": 15,
+    "editor.fontLigatures": true,
+    "editor.tabSize": 4,
+    "java.home": "C:\\Program Files\\Java\\jdk1.8.0_211",
     "vim.insertModeKeyBindings": [
         {
-            "before": ["j", "h"],
+            "before": ["j", "j"],
             "after": ["<esc>"]
         },
     ],
@@ -46,22 +54,18 @@
     ],
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorCustomizations": {
+        "editorIndentGuide.activeBackground": "#108777",
+        "editorIndentGuide.background": "#1D4F0F",
+        "editorWhitespace.foreground": "#1D4F0F",
+
         "[MagicWB_Amiga]": {
-            "editor.background": "#A6A7A6",
+            "editor.background": "#B1B4B1",
             "sideBar.background": "#343434",
             "sideBar.foreground": "#ABADAB",
             "terminal.background": "#484848",
             "terminal.foreground": "#CBCBCB",
         },
     },
-    "window.zoomLevel": -1,
-    "java.home": "C:\\Program Files\\Java\\jdk1.8.0_211",
-    "editor.suggestSelection": "first",
-    "editor.wordWrap" : "on",
-    "editor.fontFamily": "Consolas",
-    "editor.fontSize": 15,
-    "editor.fontLigatures": true,
-    "editor.tabSize": 4,
     "[html]": { "editor.tabSize": 2 },
     "[css]": { "editor.tabSize": 2 },
     "[javascript]": { "editor.tabSize": 2 },
@@ -96,7 +100,7 @@
         },
         "[MagicWB_Amiga]": {
              "strings": "#DFDFDF",
-            // JAVA
+             // JAVA
             "textMateRules": [
                 // constant.character { "background": "#0000FF33", "fontStyle": "", "foreground": "#FFA995" }
                 {
@@ -137,7 +141,7 @@
                         "fontStyle": "italic",
                         "foreground": "#0A52BB",
                     }
-
+                    
                 },
                 {
                     "scope": "comment",
@@ -180,5 +184,6 @@
         "<C-s>": false,
     },
     "terminal.integrated.fontFamily": "monospace",
-    "workbench.colorTheme": "MagicWB_Amiga",
+    "workbench.colorTheme": "Solarized Dark",
+    "editor.renderWhitespace": "all",
 }

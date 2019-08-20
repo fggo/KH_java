@@ -35,7 +35,6 @@ public class Member {
     this.enrolldate = enrolldate;
   }
 
-
   @Override
   public String toString() {
     return "Member [userId=" + userId + ", password=" + password + ", userName=" + userName + ", gender=" + gender
