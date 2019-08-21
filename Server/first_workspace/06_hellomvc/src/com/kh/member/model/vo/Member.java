@@ -13,7 +13,7 @@ public class Member {
   private String phone;
   private String address;
   private String hobby;
-  private Date enrolldate;
+  private Date enrollDate;
   
   public Member() {
     // TODO Auto-generated constructor stub
@@ -21,7 +21,7 @@ public class Member {
   
 
   public Member(String userId, String password, String userName, char gender, int age, String email, String phone,
-      String address, String hobby, Date enrolldate) {
+      String address, String hobby, Date enrollDate) {
     super();
     this.userId = userId;
     this.password = password;
@@ -32,7 +32,7 @@ public class Member {
     this.phone = phone;
     this.address = address;
     this.hobby = hobby;
-    this.enrolldate = enrolldate;
+    this.enrollDate = enrollDate;
   }
 
 
@@ -40,7 +40,7 @@ public class Member {
   public String toString() {
     return "Member [userId=" + userId + ", password=" + password + ", userName=" + userName + ", gender=" + gender
         + ", age=" + age + ", email=" + email + ", phone=" + phone + ", address=" + address + ", hobby=" + hobby
-        + ", enrolldate=" + enrolldate + "]";
+        + ", enrollDate=" + enrollDate + "]";
   }
 
   public String getUserId() { return userId; } 
@@ -61,6 +61,6 @@ public class Member {
   public void setAddress(String address) { this.address = address; } 
   public String getHobby() { return hobby; } 
   public void setHobby(String hobby) { this.hobby = hobby; } 
-  public Date getEnrolldate() { return enrolldate; } 
-  public void setEnrolldate(Date enrolldate) { this.enrolldate = enrolldate; } 
+  public Date getEnrollDate() { return enrollDate; } 
+  public void setEnrollDate(Date enrollDate) { this.enrollDate = enrollDate; } 
 }

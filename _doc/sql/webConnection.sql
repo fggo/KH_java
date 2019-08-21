@@ -4,6 +4,8 @@
 
 SELECT * FROM MEMBER;
 
+--abcde	1234	아무개	M	25	abcde@naver.com	01012345678	서울시 강남구	운동,등산,독서	19/08/16
+
 DROP TABLE MEMBER;
 
 CREATE TABLE MEMBER(
@@ -24,3 +26,4 @@ INSERT INTO MEMBER VALUES ('qwerty','asdf','김말년','F',30,'qwerty@naver.com'
 INSERT INTO MEMBER VALUES ('admin','1234','관리자','F',33,'admin@naver.com','01012345678','서울시 강남구','독서',DEFAULT);
 
 COMMIT;
+

@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Properties;
 
 import com.kh.member.model.vo.Member;
@@ -22,6 +24,37 @@ public class MemberDao {
     } catch(IOException e) {
       e.printStackTrace();
     }
+  }
+
+  public Member selectMember(Connection conn, String userId) {
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    Member m =null;
+    String sql = prop.getProperty("selectCheckId");
+    try {
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setString(1, userId);
+      rs = pstmt.executeQuery();
+      if(rs.next()) {
+        m = new Member();
+  
+        m.setUserId(rs.getString("userId"));
+        m.setUserName(rs.getString("userName"));
+        m.setGender(rs.getString("gender").charAt(0));
+        m.setAge(rs.getInt("age"));
+        m.setEmail(rs.getString("email"));
+        m.setPhone(rs.getString("phone"));
+        m.setAddress(rs.getString("address"));
+        m.setHobby(rs.getString("hobby"));
+        m.setEnrollDate(rs.getDate("enrollDate"));
+      }
+    } catch(SQLException e) {
+      e.printStackTrace();
+    } finally {
+      close(rs);
+      close(pstmt);
+    }
+    return m;
   }
 
   public Member selectId(Connection conn, String id, String pw) {
@@ -46,7 +79,7 @@ public class MemberDao {
         m.setPhone(rs.getString("phone"));
         m.setAddress(rs.getString("address"));
         m.setHobby(rs.getString("hobby"));
-        m.setEnrolldate(rs.getDate("enrollDate"));
+        m.setEnrollDate(rs.getDate("enrollDate"));
       }
     } catch(SQLException e) {
       e.printStackTrace();
@@ -56,6 +89,30 @@ public class MemberDao {
     }
 
     return m;
+  }
+  
+  //아이디 중복 확인
+  public boolean selectCheckId(Connection conn, String userId) {
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    boolean result = false;
+    String sql = prop.getProperty("selectCheckId");
+
+    try {
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setString(1, userId);
+      rs = pstmt.executeQuery();
+      if(!rs.next()) {
+        result = true;
+      }
+    } catch(SQLException e) {
+      e.printStackTrace();
+    } finally {
+      close(rs);
+      close(pstmt);
+    }
+
+    return result;
   }
   
   public int insertMember(Connection conn, Member m) {
@@ -87,6 +144,41 @@ public class MemberDao {
     
   }
   
+  public int updateMember(Connection conn, Member m) {
+    PreparedStatement pstmt = null;
+    String sql = prop.getProperty("updateMember");
+    int result = 0;
+    try {
+      pstmt = conn.prepareStatement(sql);
+//        update member set userName=?,
+//            gender=?,
+//            age=?,
+//            email=?,
+//            phone=?,
+//            address=?,
+//            hobby=?,
+//            enrolldate=?
+//  where userId=?
+      pstmt.setString(1, m.getUserName());
+      pstmt.setString(2, String.valueOf(m.getGender()));
+      pstmt.setString(3, m.getEmail());
+      pstmt.setString(4, m.getPhone());
+      pstmt.setString(5, m.getAddress());
+      pstmt.setString(6, m.getHobby());
+      DateFormat df = new SimpleDateFormat("yy/MM/dd");
+      pstmt.setString(7, df.format((java.util.Date)m.getEnrollDate()));
+      pstmt.setString(8, m.getUserId());
+
+      result = pstmt.executeUpdate();
+
+    } catch(SQLException e) {
+      e.printStackTrace();
+    } finally {
+      close(pstmt);
+    }
+
+    return result;
+  }
 
 
 }

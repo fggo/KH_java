@@ -103,3 +103,8 @@ section#enroll-container table td{
   padding: 0px 10px;
   text-align: left;
 }
+
+/* 회원정보 수정 */
+section#enroll-container input[readonly]{
+  background-color: lightgray;
+}

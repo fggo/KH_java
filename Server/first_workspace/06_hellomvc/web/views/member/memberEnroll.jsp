@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
+
+<%
+  String userId = (String)request.getParameter("userId");
+%>
 <!-- 해더 풋터불러오기! -->
 <%@ include file="/views/common/header.jsp"%>
 <section id="enroll-container">
@@ -12,6 +16,7 @@
         <td>
           <input type="text" placeholder="4글자이상"
           name="userId" id="userId_" required>
+          <input type="button" value="중복검사" onclick="checkIdDuplicate();">
         </td>
       </tr>
       <tr>
@@ -95,6 +100,11 @@
     <input type="submit" value="가입"/>
     <input type="reset" value="취소"/>
   </form>
+
+  <form action="" method="post" name="checkIdDuplicateFrm">
+    <input type="hidden" name="userId">
+  </form>
+
 </section>
 <script>
   $(function(){
@@ -116,6 +126,30 @@
       return false;
     }
     return true;
+  }
+  
+  //아이디 중복검사
+  function checkIdDuplicate(){
+    var userId = $('#userId_').val().trim();
+    if(!userId || userId.length <4){
+      alert("아이디는 4글자 이상 가능합니다.")
+      return;
+    }
+    //parameter로 보냄 ?userId=userId
+    // var url = "<%=request.getContextPath() %>/checkIdDuplicate?userId="+userId;
+    var url = "<%=request.getContextPath() %>/checkIdDuplicate";
+    var title = "checkIdDuplicate";
+    var status = "left=500px, top=100px width=300px, height=200px, "
+                  + "menubar=n, status=no, scrollbars=yes";
+    // var popup = open(url, title, status);
+    // form으로도 가능 (정보 가릴 수 있음)
+    var popup = open("", title, status);
+
+    //access form
+    checkIdDuplicateFrm.userId.value = userId;
+    checkIdDuplicateFrm.target = title;
+    checkIdDuplicateFrm.action = url;
+    checkIdDuplicateFrm.submit();
   }
 
 </script>

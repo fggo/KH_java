@@ -58,7 +58,6 @@
                 <input type="text" name="userId" 
                 placeholder="아이디" id="userId" value='<%=saveId !=null? saveId:""%>' />
               </td>
-              <td></td>
             </tr>
             <tr>
               <td>
@@ -89,11 +88,11 @@
           </tr>
           <tr>
             <td>
-              <input type="button" value="내정보보기" onclick="#">
+              <input type="button" value="내정보보기" 
+                  onclick="location.href='<%=request.getContextPath()%>/mypage?userId=<%=loginMember.getUserId()%>'"/>
               <input type="button" value="로그아웃" 
-              onclick="location.href='<%=request.getContextPath()%>/logout'">
-
-            </td>
+                onclick="location.href='<%=request.getContextPath()%>/logout'"/>
+            </td> <!-- <%%> == out.write("") -->
           </tr>
         </table>
       <%} %>

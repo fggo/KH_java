@@ -36,8 +36,8 @@ public class CharacterEncodingFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
       System.out.println("Filter 실행 : doFilter()");
       request.setCharacterEncoding("UTF-8");
-      //response.setContentType("text/html;charset=UTF-8"); //이렇게 하면 모든 html css등에 다 보내버림
       response.setCharacterEncoding("UTF-8");
+      //response.setContentType("text/html;charset=UTF-8"); //이렇게 하면 모든 html css등에 다 보내버림
       chain.doFilter(request, response);
 	}
 
