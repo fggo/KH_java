@@ -40,8 +40,7 @@ public class MemberCheckId extends HttpServlet {
 	  //view결과 데이터 전송
 	  request.setAttribute("userId", userId);
 	  request.setAttribute("isUseable", isUseable);
-	  request.getRequestDispatcher("/views/member/checkIdDuplicate.jsp")
-              .forward(request, response);
+	  request.getRequestDispatcher("/views/member/checkIdDuplicate.jsp").forward(request, response);
 
 	}
 

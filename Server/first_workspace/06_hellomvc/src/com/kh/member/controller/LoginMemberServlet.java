@@ -57,30 +57,24 @@ public class LoginMemberServlet extends HttpServlet {
 
 	    //session id값으로 요청 ->WAS에서 새 아이디값 부여(listener가 듣게됨!)
 
-	    //session life cycle:
-	    //session객체는 getSession()객체 생성 했을때 생성
-	    //session.invalidate()할때 소멸
-	    //session 유효기간 설정 가능:  WEB-INF\web.xml이 아닌
-	    //1. Server\Tomcat.xx.xx\web.xml : <server-config> WAS가 설정
-	    //2. 또는 session객체로 설정가능
-        //<session-config>
-        //    <session-timeout>30</session-timeout> //분단위
-        //</session-config>
-	    //session.setMaxInactiveInterval(interval);
-	    //일정 시간 이후 세션종료(session.invalidate()실행!)! //초단위
-	    //코드값이 우선시 됨!!!!
-	    //session.setMaxInactiveInterval(60);//session 유지 for 60 sec
-	    //e.g. bank application
-	    //session listener 설정 : session이 동작하는 event tracking
-	    //e.g. alert when session disconnect
+	    //Session life cycle:
+	    //session객체는 getSession()객체 생성 했을때 생성, session.invalidate()할때 소멸
+	    //1. Server\Tomcat.xx.xx\web.xml : <session-config> WAS가 설정
+	    //<session-config>
+	    //    <session-timeout>30</session-timeout> //분단위
+	    //</session-config>
+	    //2. 또는 session객체로 설정가능 : 코드값이 web.xml 설정보다 우선시 됨!!!!
+	    //session.setMaxInactiveInterval(interval); //초단위 : 일정 시간 이후 세션종료(session.invalidate()실행!)!
+	    //session.setMaxInactiveInterval(60);//session 유지 for 60 sec //e.g. bank application
+	    //session listener 설정 : session이 동작하는 event tracking //e.g. alert when session disconnect
 
 	    //request.getSession(boolean); 매개변수 true or false
 	    //true(default) : 기존에 생성된 객체가 있으면 불러오고, 없으면 생성 해서 불러옴
 	    //false : 기존에 생성된 session객체가 있으면 불러오고, 없으면 null값
 	    //true(default)값으로 많이 쓰임
 	    
-	    //로그인 유지를 위해 필요한 정보를 session객체에 저장
 	    //session.invalidate()할 때까지 (로그인) 유지됨
+	    //로그인 유지를 위해 필요한 정보를 session객체에 저장 :
 	    session.setAttribute("loginMember", m);
 	    
 	    

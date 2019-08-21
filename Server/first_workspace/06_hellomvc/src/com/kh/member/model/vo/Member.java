@@ -18,7 +18,6 @@ public class Member {
   public Member() {
     // TODO Auto-generated constructor stub
   }
-  
 
   public Member(String userId, String password, String userName, char gender, int age, String email, String phone,
       String address, String hobby, Date enrollDate) {

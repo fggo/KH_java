@@ -28,7 +28,7 @@ public class MemberLogout extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	  //client에 보내는 값 없어도 됨!!! session객체에 있는 값임!
-	  HttpSession session = request.getSession(false); //session이 있을때만 처리!
+	  HttpSession session = request.getSession(false); //session이 있을때만 처리! session이 없으면 따로 생성하지 않음
 	  if(session != null) {
 	    session.invalidate();
 	    response.sendRedirect(request.getContextPath());

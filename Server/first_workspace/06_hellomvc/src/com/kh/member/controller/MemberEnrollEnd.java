@@ -15,7 +15,7 @@ import com.kh.member.model.vo.Member;
 /**
  * Servlet implementation class MemberEnrollEnd
  */
-@WebServlet(name="enrollEnd", urlPatterns= "/memberEnrollEnd")
+@WebServlet(urlPatterns= "/memberEnrollEnd")
 public class MemberEnrollEnd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -45,7 +45,7 @@ public class MemberEnrollEnd extends HttpServlet {
 	   String id = request.getParameter("userId");
 	   String pw = request.getParameter("password");
 	   String name = request.getParameter("userName");
-	   char gender = request.getParameter("gender").charAt(0) =='남'? 'M':'F';
+	   char gender = request.getParameter("gender").charAt(0);
 	   int age = Integer.parseInt(request.getParameter("age"));
 	   String email = request.getParameter("email");
 	   String phone = request.getParameter("phone");

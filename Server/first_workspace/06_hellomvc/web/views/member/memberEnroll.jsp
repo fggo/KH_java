@@ -101,7 +101,7 @@
     <input type="reset" value="취소"/>
   </form>
 
-  <form action="" method="post" name="checkIdDuplicateFrm">
+  <form method="post" name="checkIdDuplicateFrm">
     <input type="hidden" name="userId">
   </form>
 
