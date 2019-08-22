@@ -56,7 +56,7 @@
     function setUserId(){
       //부모객체에 값 넣어주기
       opener.document.getElementById("userId_").value = "<%=userId%>";
-      opener.document.getElementById("userId_").setAttribute("disabled", "true");
+      // opener.document.getElementById("userId_").setAttribute("disabled", "true");
       opener.document.getElementById('password_').focus();
       self.close();
     }

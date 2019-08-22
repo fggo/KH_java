@@ -121,6 +121,7 @@ public class MemberDao {
 
     String sql = prop.getProperty("insertMember");
 
+    System.out.println(m);
     try {
       pstmt = conn.prepareStatement(sql);
       pstmt.setString(1, m.getUserId());
@@ -157,16 +158,14 @@ public class MemberDao {
 //            phone=?,
 //            address=?,
 //            hobby=?,
-//            enrolldate=?
 //  where userId=?
       pstmt.setString(1, m.getUserName());
       pstmt.setString(2, String.valueOf(m.getGender()));
-      pstmt.setString(3, m.getEmail());
-      pstmt.setString(4, m.getPhone());
-      pstmt.setString(5, m.getAddress());
-      pstmt.setString(6, m.getHobby());
-      DateFormat df = new SimpleDateFormat("yy/MM/dd");
-      pstmt.setString(7, df.format((java.util.Date)m.getEnrollDate()));
+      pstmt.setInt(3, m.getAge());
+      pstmt.setString(4, m.getEmail());
+      pstmt.setString(5, m.getPhone());
+      pstmt.setString(6, m.getAddress());
+      pstmt.setString(7, m.getHobby());
       pstmt.setString(8, m.getUserId());
 
       result = pstmt.executeUpdate();
@@ -180,5 +179,23 @@ public class MemberDao {
     return result;
   }
 
+  public int deleteMember(Connection conn, String id) {
+    PreparedStatement pstmt = null;
+    String sql = prop.getProperty("deleteMember");
+    int result = 0;
+    
+    try {
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setString(1, id);
+
+      result = pstmt.executeUpdate();
+    } catch(SQLException e) {
+      e.printStackTrace();
+    } finally {
+      close(pstmt);
+    }
+
+    return result;
+  }
 
 }

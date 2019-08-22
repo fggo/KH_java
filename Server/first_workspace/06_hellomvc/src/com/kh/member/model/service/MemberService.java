@@ -53,6 +53,7 @@ public class MemberService {
   public int updateMember(Member m) {
     Connection conn = getConnection();
     int result = dao.updateMember(conn, m);
+
     if(result >0)
       commit(conn);
     else
@@ -60,6 +61,20 @@ public class MemberService {
 
     close(conn);
 
+    return result;
+  }
+  
+  public int deleteMember(String id) {
+    Connection conn = getConnection();
+    int result = dao.deleteMember(conn, id);
+    
+    if(result >0)
+      commit(conn);
+    else
+      rollback(conn);
+    
+    close(conn);
+    
     return result;
   }
   

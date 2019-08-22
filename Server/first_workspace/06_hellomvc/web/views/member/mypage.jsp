@@ -103,6 +103,7 @@
         </td>
       </tr>
     </table>
+    <input type="button" value="비밀번호 변경" onclick="updatePassword();" />
     <input type="button" value="수정" onclick="updateMember();" />
     <input type="button" value="탈퇴" onclick="deleteMember();" />
   </form>
@@ -111,9 +112,16 @@
     <input type="hidden" name="userId">
   </form>
 
+  <form action="" method="post" name="updatePasswordFrm">
+    <input type="hidden" name="pw">
+  </form>
+
 </section>
 
 <script>
+  function update_validate(){
+    return true;
+  }
   function updateMember(){
     var frm = $('#memberFrm');
     var url="<%=request.getContextPath() %>/member/memberUpdate"; //WebServlet
@@ -121,6 +129,31 @@
     frm.submit();
   }
   function deleteMember(){
+    if(confirm("정말로 삭제 하시겠습니까?")){
+      // var frm = $('#memberFrm');
+      // var url="<%=request.getContextPath() %>/member/memberDelete"; //WebServlet
+      // frm.attr("action", url);
+      // frm.submit();
+      //1.
+      // location.href="<%=request.getContextPath()%>/member/memberDelete?userId=<%=loginMember.getUserId()%>";
+      //2.
+      // location.href="<%=request.getContextPath()%>/member/memberDelete?userId=<%=loginMember.getUserId()%>";
+      //3.
+      // location.href="<%=request.getContextPath()%>/member/memberDelete?userId=<%=m.getUserId()%>";
+      //4.
+      location.href="<%=request.getContextPath()%>/member/memberDelete?userId=" + $('#userId_').val();
+    }
+    else{
+      // location.href="<%=request.getContextPath()%>/member/memberDelete?userId=<%=loginMember.getUserId()%>";
+    }
+  }
+
+  //mapping: /member/updatePassword
+  function updatePassword(){
+    var url="<%=request.getContextPath() %>/member/updatePassword?userId=<%=loginMember.getUserId() %>";
+    var title="updatePassword";
+    var status="left=500px, top=200px, width=400px, height=210px";
+    open(url,title,status);
   }
 </script>
 

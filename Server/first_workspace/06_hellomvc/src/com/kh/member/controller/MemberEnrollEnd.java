@@ -15,7 +15,7 @@ import com.kh.member.model.vo.Member;
 /**
  * Servlet implementation class MemberEnrollEnd
  */
-@WebServlet(urlPatterns= "/memberEnrollEnd")
+@WebServlet(name="MemberEnroll", urlPatterns= "/memberEnrollEnd")
 public class MemberEnrollEnd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
