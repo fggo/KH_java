@@ -8,8 +8,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Properties;
 
 import com.kh.member.model.vo.Member;
@@ -197,5 +195,22 @@ public class MemberDao {
 
     return result;
   }
+  
+  public int updatePassword(Connection conn, String id, String pwNew) {
+    PreparedStatement pstmt = null;
+    String sql = prop.getProperty("updatePassword");
+    int result = 0;
+    
+    try {
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setString(1, pwNew);
+      pstmt.setString(2, id);
+      result = pstmt.executeUpdate();
 
+    } catch(SQLException e) {
+      e.printStackTrace();
+    }
+    
+    return result;
+  }
 }

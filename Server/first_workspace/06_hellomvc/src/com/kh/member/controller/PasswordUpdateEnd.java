@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.member.model.service.MemberService;
-import com.kh.member.model.vo.Member;
 
 /**
  * Servlet implementation class PasswordUpdateEnd
@@ -33,9 +32,14 @@ public class PasswordUpdateEnd extends HttpServlet {
 	  String id = request.getParameter("userId");
 	  String pwNew = request.getParameter("passwordNew");
 	  
-	  Member m = new MemberService().selectMember(id);
-	  
+	  int result = new MemberService().updatePassword(id, pwNew);
 
+	  String msg = result > 0? "비밀번호를 성공적으로 변경했습니다." : "비밀번호 변경에 실패했습니다.";
+	  String loc = "/views/member/mypage.jsp";
+	  
+	  request.setAttribute("msg", msg);
+	  request.setAttribute("loc", loc);
+	  request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 	}
 
 	/**
