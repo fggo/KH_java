@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 
-<%
-  String userId = (String)request.getParameter("userId");
-%>
 <!-- 해더 풋터불러오기! -->
 <%@ include file="/views/common/header.jsp"%>
 <section id="enroll-container">
@@ -101,7 +98,7 @@
     <input type="reset" value="취소"/>
   </form>
 
-  <form method="post" name="checkIdDuplicateFrm">
+  <form method="post" name="checkIdDuplicateHiddenFrm">
     <input type="hidden" name="userId">
   </form>
 
@@ -135,21 +132,22 @@
       alert("아이디는 4글자 이상 가능합니다.")
       return;
     }
-    //parameter로 보냄 ?userId=userId
-    // var url = "<%=request.getContextPath() %>/checkIdDuplicate?userId="+userId;
-    var url = "<%=request.getContextPath() %>/checkIdDuplicate";
-    var title = "checkIdDuplicate";
-    var status = "left=500px, top=100px width=300px, height=200px, "
-                  + "menubar=n, status=no, scrollbars=yes";
-    // var popup = open(url, title, status);
-    // form으로도 가능 (정보 가릴 수 있음)
-    var popup = open("", title, status);
 
-    //access form
-    checkIdDuplicateFrm.userId.value = userId;
-    checkIdDuplicateFrm.target = title;
-    checkIdDuplicateFrm.action = url;
-    checkIdDuplicateFrm.submit();
+    //---Method1 : form으로 (정보 가릴 수 있음)
+    var title = "checkIdDuplicate";
+    var status = "left=500px, top=100px width=300px, height=200px, menubar=n, status=no, scrollbars=yes";
+    var popup = open("", title, status); // window.open()
+    var url = "<%=request.getContextPath() %>/checkIdDuplicate";
+    checkIdDuplicateHiddenFrm.action = url; //access form
+    checkIdDuplicateHiddenFrm.userId.value = userId;
+    checkIdDuplicateHiddenFrm.target = title;
+    checkIdDuplicateHiddenFrm.submit();
+
+    //---Method2 : parameter로 보냄 ?userId=userId (유저정보 노출 위험)
+    // var url = "<%=request.getContextPath() %>/checkIdDuplicate?userId="+userId;
+    // var title = "checkIdDuplicate";
+    // var status = "left=500px, top=100px width=300px, height=200px, menubar=n, status=no, scrollbars=yes";
+    // var popup = open(url,title, status);
   }
 
 </script>

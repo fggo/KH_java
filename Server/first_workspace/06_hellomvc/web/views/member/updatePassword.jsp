@@ -24,7 +24,7 @@
 <body>
   <div id="updatePassword-container">
     <!-- form[name="updatePwdFrm"] action= -->
-    <form name="updatePwdFrm" action="<%=request.getConextPath() %>/passwordUpdateEnd" method="post">
+    <form name="updatePwdFrm" action="<%=request.getContextPath() %>/passwordUpdateEnd" method="post">
       <table>
         <tr>
           <th>현재 비밀번호</th>
@@ -53,7 +53,9 @@
           </td>
         </tr>
       </table>
+
       <input type="hidden" name="userId" value="<%=(String)request.getAttribute("userId") %>">
+
     </form>
   </div>
   <script>
