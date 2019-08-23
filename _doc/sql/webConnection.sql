@@ -2,10 +2,10 @@
 --create user web identified by web;
 --grant resource, connect to web;
 SELECT * FROM MEMBER;
-
 --abcde	1234	아무개	M	25	abcde@naver.com	01012345678	서울시 강남구	운동,등산,독서	19/08/16
 
 --DROP TABLE MEMBER;
+--DELETE FROM MEMBER WHERE USERID='admin';
 
 CREATE TABLE MEMBER(
    USERID VARCHAR2(30) PRIMARY KEY

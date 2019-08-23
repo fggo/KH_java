@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import com.kh.member.model.vo.Member;
@@ -196,21 +198,54 @@ public class MemberDao {
     return result;
   }
   
-  public int updatePassword(Connection conn, String id, String pwNew) {
+  public int updatePassword(Connection conn, String userId, String passwordNew) {
     PreparedStatement pstmt = null;
     String sql = prop.getProperty("updatePassword");
     int result = 0;
-    
     try {
-      pstmt = conn.prepareStatement(sql);
-      pstmt.setString(1, pwNew);
-      pstmt.setString(2, id);
+      pstmt=conn.prepareStatement(sql);
+      pstmt.setString(1, passwordNew);
+      pstmt.setString(2, userId);
       result = pstmt.executeUpdate();
-
     } catch(SQLException e) {
       e.printStackTrace();
+    } finally {
+      close(pstmt);
+    }
+    return result;
+  }
+  
+  public List<Member> selectList(Connection conn){
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    List<Member> list = new ArrayList<Member>();
+    String sql = prop.getProperty("selectList");
+
+    try {
+      pstmt = conn.prepareStatement(sql);
+      rs = pstmt.executeQuery();
+      while(rs.next()) {
+        Member m = new Member();
+  
+        m.setUserId(rs.getString("userId"));
+        m.setUserName(rs.getString("userName"));
+        m.setGender(rs.getString("gender").charAt(0));
+        m.setAge(rs.getInt("age"));
+        m.setEmail(rs.getString("email"));
+        m.setPhone(rs.getString("phone"));
+        m.setAddress(rs.getString("address"));
+        m.setHobby(rs.getString("hobby"));
+        m.setEnrollDate(rs.getDate("enrollDate"));
+
+        list.add(m);
+      }
+    } catch(SQLException e) {
+      e.printStackTrace();
+    } finally {
+      close(rs);
+      close(pstmt);
     }
     
-    return result;
+    return list;
   }
 }

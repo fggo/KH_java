@@ -3,6 +3,7 @@
 <%
   String msg = (String)request.getAttribute("msg");
   String loc = (String)request.getAttribute("loc");
+  String script = (String)request.getAttribute("script");
 %>
 <!DOCTYPE html>
 <html>
@@ -14,6 +15,12 @@
   <script>
 /* 스크립트릿에서 작성한 코드는 반드시 표현식 방식으로 처리 */
     alert('<%=msg%>');
+
+    //script가 있으면 페이지 닫기
+
+    <%=script!=null? script:"" %>
+
+    //메이화면으로 이동!!!
 
     //페이지 이동 방법 3가지
     // 1.location : location.href="url"; 브라우저에서 주소창 url로 반환

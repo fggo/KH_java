@@ -24,7 +24,7 @@
 <body>
   <div id="updatePassword-container">
     <!-- form[name="updatePwdFrm"] action= -->
-    <form name="updatePwdFrm" action="<%=request.getContextPath() %>/passwordUpdateEnd" method="post">
+    <form name="updatePwdFrm" action="<%=request.getContextPath() %>/member/updatePasswordEnd" method="post">
       <table>
         <tr>
           <th>현재 비밀번호</th>

@@ -111,6 +111,15 @@
         <li>
           <a href="#">사진게시판</a>
         </li>
+
+        <!-- 관리자페이지 -->
+        <% if(loginMember!= null && loginMember.getUserId().equals("admin")){ %>
+          <li id="admin-member">
+            <a href="<%=request.getContextPath() %>/admin/memberList">회원관리
+              <span class="animate_line"></span>
+            </a>
+          </li>
+        <% } %>
       </ul>
     </nav>
   </header>
