@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.prac.model.vo.Member" %>
-
-<%
-  Member m = (Member)session.getAttribute("loginMember");
-%>
+    pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,11 +35,22 @@
       <div class="navbar-collapse offcanvas-collapse" id="">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
+            <a class="nav-link" href="<%=request.getContextPath() %>/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">공지사항</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">게시판</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">사진게시판</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">관리자</a>
           </li>
         </ul>
 
-        <% if(m == null){ %>
           <form class="form-inline my-2 my-lg-0" action ="<%=request.getContextPath()%>/login">
             
             <label for="id" class="text-white">ID&nbsp;
@@ -57,8 +64,7 @@
               <input type="checkbox" name="rememberId" id="rememberId"> &nbsp;Remember Me&nbsp;
             </label>
           </form>
-        <%} else { %>
-          <table>
+<%--           <table>
             <tr>
               <td>
                 <p class="text-white">Hello! <%=m.getUserName() %></p>
@@ -68,7 +74,7 @@
               </td>
             </tr>
           </table>
-        <%} %>
+ --%>        
       </div>
     </nav>
   </header>
