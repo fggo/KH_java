@@ -52,6 +52,7 @@
         //     "after": ["d", "d"]
         // },
     ],
+    "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorCustomizations": {
         "editorIndentGuide.activeBackground": "#108777",
@@ -184,6 +185,6 @@
         "<C-s>": false,
     },
     "terminal.integrated.fontFamily": "monospace",
-    "workbench.colorTheme": "Solarized Dark",
+    "workbench.colorTheme": "Monokai Grey",
     "editor.renderWhitespace": "all",
 }

@@ -98,7 +98,7 @@
     <input type="reset" value="취소"/>
   </form>
 
-  <form method="post" name="checkIdDuplicateHiddenFrm">
+  <form method="post" name="checkEmailFrm">
     <input type="hidden" name="userId">
   </form>
 
@@ -135,13 +135,13 @@
 
     //---Method1 : form으로 (정보 가릴 수 있음)
     var title = "checkIdDuplicate";
-    var status = "left=500px, top=100px width=300px, height=200px, menubar=n, status=no, scrollbars=yes";
+    var status = "left=500px, top=100px, width=300px, height=200px, menubar=n, status=no, scrollbars=yes";
     var popup = open("", title, status); // window.open()
     var url = "<%=request.getContextPath() %>/checkIdDuplicate";
-    checkIdDuplicateHiddenFrm.action = url; //access form
-    checkIdDuplicateHiddenFrm.userId.value = userId;
-    checkIdDuplicateHiddenFrm.target = title;
-    checkIdDuplicateHiddenFrm.submit();
+    checkEmailFrm.action = url; //access form
+    checkEmailFrm.userId.value = userId;
+    checkEmailFrm.target = title;
+    checkEmailFrm.submit();
 
     //---Method2 : parameter로 보냄 ?userId=userId (유저정보 노출 위험)
     // var url = "<%=request.getContextPath() %>/checkIdDuplicate?userId="+userId;

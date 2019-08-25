@@ -7,7 +7,7 @@ SELECT * FROM MEMBER;
 --DROP TABLE MEMBER;
 --DELETE FROM MEMBER WHERE USERID='admin';
 --DELETE FROM MEMBER;
-
+   
 CREATE TABLE MEMBER(
    USERID VARCHAR2(30) PRIMARY KEY
    ,PASSWORD VARCHAR2(300) NOT NULL
@@ -33,5 +33,20 @@ CREATE TABLE MEMBER(
 --where userid='abcde';
 --update member set password='9Du2VRw2a+O15KTtu3OLCsyhPpnVweZa3F0x9TMpxPh82gnMszYpiRFIgVcldByT5pUpdtqgRLJgrSYGM64LFw=='
 --where userid='user04';
+
+select id, pw, created_date, 
+    TO_DATE(created_date),
+    TO_CHAR(created_date, 'yyyy-MM-dd hh24:mi:ss')
+  from test;
+
+CREATE TABLE test(
+   id VARCHAR2(30) PRIMARY KEY,
+   pw VARCHAR2(300) NOT NULL,
+   created_date date default sysdate   
+);
+insert into test values('aaa', '1234',Default);
+insert into test values('bbb', '1234',Default);
+commit;
+
 
 COMMIT;
