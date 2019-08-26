@@ -7,7 +7,7 @@ pageEncoding="UTF-8"%>
   //나중에는 JSON객체로 넘김
   // getParameter (key-value)
   // getParameterValues(array 같은 다중값)
-	List<Member> members=(List)request.getAttribute("members");
+	List<Member> members=(ArrayList<Member>)request.getAttribute("members");
 	int cPage=(int)request.getAttribute("cPage");
 	String searchType=(String)request.getAttribute("searchType");
 	String searchKey=(String)request.getAttribute("searchKeyword");
@@ -116,26 +116,27 @@ pageEncoding="UTF-8"%>
 		<div id="pageBar">
 			<%=request.getAttribute("pageBar")%>
 		</div>
-	<script>
-		$(function(){
-			var sid=$("#search-userId");
-			var sname=$("#search-userName");
-			var sgender=$("#search-gender");
-			var searchType=$("#searchType");
-			searchType.change(function(){
-				sid.hide();
-				sname.hide();
-				sgender.hide();
-				$("#search-"+this.value).css("display","inline-block");
+		<script>
+			$(function(){
+				var sid=$("#search-userId");
+				var sname=$("#search-userName");
+				var sgender=$("#search-gender");
+				var searchType=$("#searchType"); //<select>
+
+				searchType.change(function(){
+					sid.hide();
+					sname.hide();
+					sgender.hide();
+					$("#search-"+this.value).css("display","inline-block");
+				});
+
+				$("#searchType").trigger('change');
+
 			});
-			$("#searchType").trigger('change');
-		});
+		</script>
 	
-	</script>
-		
-		
-		
 	</section>
+
 <%@ include file="/views/common/footer.jsp"%>
 
 
