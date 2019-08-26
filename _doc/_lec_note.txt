@@ -1,3 +1,42 @@
+페이징 처리할 떄 필요한 변수들
+cPage : 현재 클라이언트가 보고 있는 페이지
+numPerPage : 페이지당 출력될 데이터 수
+totalPage : pagebar에 있는 총 페이지번호 개수 ==  (데이터num/ numPerPage)
+            전체 페이지 수. pagebar [1 2 3 ... n] 링크 걸음
+            1번 클릭식 1~numPerPage 개수 만큼만 db에서 select
+            [ex] 5개 출력할 때 100개의 자료가 있다면 전체 페이지수 totalPage=20
+totaldata : DB에 있는 전체 데이터 select * from table_name;
+pageBarSize : [1 2 3 4 다음] 20페이지 있어도 4개 페이지만 표현 == pageBarSize=4
+              pageBar 표현 숫자 갯수
+pageNo : 페이지 번호를 만들어 주는 변수
+         [ex] 1 2 3 4 5 | 6 7 8 9 10 |
+
+페이징 처리 공식 
+totalPage구하는 공식 : totalData/numPerPage (올림 처리)
+  ** 소숫점이 나오면 무조건 올림 할 것!
+     올림하지 않으면 나머지 자료를 평생 볼 수 없음!
+
+자료를 선택해서 가져오는 공식(Database에서); ROWNUM 이용 공식
+  시작,끝 = (cPage-1)*numPerPage + 1, cPage*numPerPage
+  [e.g]
+  WHERE ROWNUM between (cPage-1)*numPerPage + 1 and  cPage*numPerPage
+
+pageBar를 구성할 때 pageBarSize에 의해
+1~5 5~10 : (cPage-1/numPerPage)*numPerPage + 1
+
+
+
+select * from member;
+--순서를 정한 query문 작성하기!
+--rownum! from 이 정해지는 순간 row에 번호를 부여.
+select ROWNUM, a.* from member a
+  where ROWNUM between 1 and 5;
+
+select ROWNUM, a.* from member a --안나옴!!!
+  where ROWNUM between 6 and 10; --안나옴!!!
+
+
+---------------------------------
 eclipse preference - web - template
 
 

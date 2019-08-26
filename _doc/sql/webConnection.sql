@@ -1,13 +1,55 @@
 --sqlplus oracle/system
 --create user web identified by web;
 --grant resource, connect to web;
+
+
+--페이징 처리!!!
+select * from member;
+--순서를 정한 query문 작성하기!
+--rownum! from 이 정해지는 순간 row에 번호를 부여.
+select ROWNUM, a.* from member a
+  where ROWNUM between 1 and 5;
+
+select ROWNUM, a.* from member a --안나옴!!!
+  where ROWNUM between 6 and 10; --안나옴!!!
+
+
+--SOL
+SELECT * FROM (
+  SELECT ROWNUM AS RNUM, A.* FROM MEMBER A)
+WHERE RNUM BETWEEN 6 AND 10;
+
+--순서를 정렬 했을 때 문제 발생! rNum 뒤죽박죽
+--NOT WORKING
+SELECT * FROM (
+  SELECT ROWNUM AS RNUM, A.* FROM MEMBER A ORDER BY AGE);
+
+--OK!
+select rownum, a.* from (
+  select * from member order by age)a;
+
+
+--안나옴
+select rownum, a.* from (
+  select * from member order by age)a
+where rnum between 11 and 20;
+
+--OK!
+select *
+  from ( select rownum as rnum, a.* from (
+          select * from member order by age)a)
+        where rnum between 11 and 20;
+
+
+
+
 SELECT * FROM MEMBER;
 --abcde	1234	아무개	M	25	abcde@naver.com	01012345678	서울시 강남구	운동,등산,독서	19/08/16
 
 --DROP TABLE MEMBER;
 --DELETE FROM MEMBER WHERE USERID='admin';
 --DELETE FROM MEMBER;
-   
+
 CREATE TABLE MEMBER(
    USERID VARCHAR2(30) PRIMARY KEY
    ,PASSWORD VARCHAR2(300) NOT NULL

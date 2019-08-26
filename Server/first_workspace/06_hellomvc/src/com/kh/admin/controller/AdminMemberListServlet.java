@@ -13,11 +13,11 @@ import com.kh.member.model.service.MemberService;
 import com.kh.member.model.vo.Member;
 
 /**
- * Servlet implementation class AdminPageServlet
+ * Servlet implementation class AdminMemberListServlet
  */
 @WebServlet("/admin/memberList")
 public class AdminMemberListServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -27,31 +27,85 @@ public class AdminMemberListServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	  //admin아니더라도 url만 쳐도 memberList 보는것 막기!!!
-	  Member loginMember = (Member)request.getSession().getAttribute("loginMember");
-	  if(loginMember == null || !loginMember.getUserId().equals("admin")) {
-	    request.setAttribute("msg", "잘못된 경로로 접근 하셨습니다.");
-	    request.setAttribute("loc", "/");
-	    request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
-	    return;
-	  }
-	  
-	  List<Member> list = new MemberService().selectList();
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        Member loginMember=(Member)request.getSession().getAttribute("loginMember");
+        if(loginMember==null || 
+                !loginMember.getUserId().equals("admin")) {
+            request.setAttribute("msg","잘못된 경로로 접근하셨습니다.");
+            request.setAttribute("loc", "/");
+            request.getRequestDispatcher("/views/common/msg.jsp")
+            .forward(request, response);
+            return;
+        }
+        //페이징처리 추가하기
+        int cPage;//현재보고있는 페이지
+        try {
+            cPage=Integer.parseInt(request.getParameter("cPage"));
+        }catch(NumberFormatException e) {
+            cPage=1;
+        }
+        
+        int numPerPage=5;//페이지당 출력할 데이터
+        //DB에서 데이터 현황(총수), 필요한 데이터 만큼만 조회해서
+        //가져옴(공식에 의해)
+        int totalMember=new MemberService().selectCountMember();
+                
+//      List<Member> list=new MemberService().selectList();
+        List<Member> list=new MemberService().selectListPage(cPage,numPerPage);
+        
+        //pageBar구성! 구성하는 문자열작성(코드)
+        int totalPage=(int)Math.ceil((double)totalMember/numPerPage);
+        String pageBar="";
+        int pageSizeBar=5;
+        System.out.println("cpage : "+cPage);
+        int pageNo=((cPage-1)/pageSizeBar)*pageSizeBar+1;
+        System.out.println("pageNo : "+(cPage-1)/pageSizeBar*pageSizeBar);
+        int pageEnd=pageNo+pageSizeBar-1;
+        if(pageNo==1) {
+            pageBar+="<span>[이전]</span>";
+        }
+        else {
+            pageBar+="<a href="+request.getContextPath()+"/admin/memberList?cPage="+(pageNo-1)+">[이전]</a>";
+        }
+        while(!(pageNo>pageEnd||pageNo>totalPage)) {
+            if(pageNo==cPage) {
+                pageBar+="<span class='cPage'>"+pageNo+"</span>";
+            }
+            else {
+                pageBar+="<a href="+request.getContextPath()+"/admin/memberList?cPage="+pageNo+">"+pageNo+"</a>";
+            }
+            pageNo++;
+        }
+        if(pageNo>totalPage) {
+            pageBar+="<span>[다음]</span>";
+        }
+        else {
+            pageBar+="<a href="+request.getContextPath()+
+            "/admin/memberList?cPage="+(pageNo)+">[다음]</a>";
+        }
+        
+                
+        //view페이지에 데이터 전송
+        request.setAttribute("pageBar", pageBar);
+        request.setAttribute("cPage", cPage);
+        request.setAttribute("members",list);
+        request.getRequestDispatcher("/views/admin/memberList.jsp")
+        .forward(request, response);
+    
+    
+    
+    }
 
-	  request.setAttribute("members", list);
-	  request.getRequestDispatcher("/views/admin/memberList.jsp").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        doGet(request, response);
+    }
 
 }

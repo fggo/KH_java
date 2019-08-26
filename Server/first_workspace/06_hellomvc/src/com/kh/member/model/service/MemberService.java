@@ -117,4 +117,38 @@ public class MemberService {
 
     return list;
   }
+  
+//페이징처리를 위한 데이터 전체갯수확인
+  public int selectCountMember() {
+      Connection conn=getConnection();
+      int count=dao.selectCountMember(conn);
+      close(conn);
+      return count;
+  }
+  
+  //페이지 데이터 가져오기
+  public List<Member> selectListPage(int cPage,int numPerPage){
+      Connection conn=getConnection();
+      List<Member> list=dao.selectListPage(conn,cPage,numPerPage);
+      close(conn);
+      return list;
+      
+  }
+  
+  //회원검색처리하기
+  public int selectCountMember(String type, String key) {
+      Connection conn=getConnection();
+      int result=dao.selectCountMember(conn,type,key);
+      close(conn);
+      return result;
+      
+  }
+  
+  public List<Member> selectMemberList(String type,String key, int cPage,int numPerPage){
+      Connection conn=getConnection();
+      List<Member> list=dao.selectMemberList(conn,type,key,cPage,numPerPage);
+      close(conn);
+      return list;
+  }
 }
+  
