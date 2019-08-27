@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@ page import="com.kh.notice.model.vo.Notice" %>
-
-<%
-  Notice n = (Notice)request.getAttribute("notice");
-%>
 
 <%@ include file="/views/common/header.jsp" %>
 
@@ -47,7 +42,7 @@
       <tr>
         <td colspan='2'>
           <input type="button" value="수정하기" onclick="" />
-          <input type="button" value="삭제하기" onclick="" />
+          <input type="reset" value="취소하기" onclick="" />
         </td>
       </tr>
 
@@ -55,10 +50,6 @@
   </section>
 
   <script>
-    function updateNotice(){
-      var url = "";
-      var status="";
-    }
   </script>
   
 <%@ include file="/views/common/footer.jsp" %>
