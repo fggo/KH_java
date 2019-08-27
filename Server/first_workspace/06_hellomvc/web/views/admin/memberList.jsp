@@ -99,7 +99,10 @@ pageEncoding="UTF-8"%>
 				<%if(members!=null&&!members.isEmpty()){
 					for(Member m: members){ %>
 					<tr>
-						<td><%=m.getUserId()%></td>
+						<td>
+							<a href="<%=request.getContextPath() %>/mypage?userId=<%=m.getUserId()%>">
+							<%=m.getUserId()%></td>
+						</a>
 						<td><%=m.getUserName()%></td>
 						<td><%=m.getGender()=='M'?"남":"여"%></td>
 						<td><%=m.getAge()%></td>
@@ -138,12 +141,3 @@ pageEncoding="UTF-8"%>
 	</section>
 
 <%@ include file="/views/common/footer.jsp"%>
-
-
-
-
-
-
-
-
-

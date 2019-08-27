@@ -18,7 +18,7 @@
   }
 %>
 
-<%@ include  file="/views/common/header.jsp" %>
+<%@ include file="/views/common/header.jsp" %>
 <section id="enroll-container">
   <h2>회원가입 정보수정</h2>
   <form id="memberFrm" action="<%=request.getContextPath()%>/" method="post" 

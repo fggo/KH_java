@@ -1,3 +1,14 @@
+**********************************************
+HW!!!!!!!!!!!!!!!!
+filter로 /admin/memberList 접근 못하도록 해보기
+
+DB에서 delete 한 다음에 history에 지운 기록 넣으려면 trigger이용
+
+http://www.servlets.com/cos/
+cos.jar -> WEB-INF > lib
+  for file upload/download
+
+**********************************************
 페이징 처리할 떄 필요한 변수들
 cPage : 현재 클라이언트가 보고 있는 페이지
 numPerPage : 페이지당 출력될 데이터 수

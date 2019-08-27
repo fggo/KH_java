@@ -1,8 +1,26 @@
 --sqlplus oracle/system
 --create user web identified by web;
 --grant resource, connect to web;
+select * from notice;
+--drop table notice;
+--drop sequence SEQ_NOTICE_NO;
+CREATE TABLE NOTICE(
+        NOTICE_NO NUMBER PRIMARY KEY,
+        NOTICE_TITLE VARCHAR2(100) NOT NULL,
+        NOTICE_WRITER VARCHAR2(15) NOT NULL,
+        NOTICE_CONTENT VARCHAR2(4000) NOT NULL,
+        NOTICE_DATE DATE DEFAULT SYSDATE,
+        FILEPATH VARCHAR2(300),
+        STATUS VARCHAR2(1) DEFAULT 'Y',
+        constraint fk_notice_writer FOREIGN KEY (NOTICE_WRITER) REFERENCES MEMBER (USERID)
+    );
 
+CREATE SEQUENCE SEQ_NOTICE_NO;
+INSERT INTO NOTICE VALUES(SEQ_NOTICE_NO.NEXTVAL,'공지사항테스트','admin','공지사항테스트입니다',default,null,default);
+INSERT INTO NOTICE VALUES(SEQ_NOTICE_NO.NEXTVAL,'회식공지','admin','7/11일 수료후 전체회식입니다.',default,null,default);
+INSERT INTO NOTICE VALUES(SEQ_NOTICE_NO.NEXTVAL,'라라라','admin','테스트 공지', default, 'testfilepath', default);
 
+COMMIT;
 --페이징 처리!!!
 select * from member;
 --순서를 정한 query문 작성하기!
@@ -73,6 +91,5 @@ CREATE TABLE MEMBER(
 --where userid='abcde';
 --update member set password='9Du2VRw2a+O15KTtu3OLCsyhPpnVweZa3F0x9TMpxPh82gnMszYpiRFIgVcldByT5pUpdtqgRLJgrSYGM64LFw=='
 --where userid='user04';
-
 
 COMMIT;
