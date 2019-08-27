@@ -87,12 +87,7 @@ public class AdminMemberSearchServlet extends HttpServlet {
     request.setAttribute("searchKeyword",keyword);
     request.setAttribute("cPage",cPage);
     request.setAttribute("members",list);
-    request.getRequestDispatcher("/views/admin/memberList.jsp")
-    .forward(request, response);
-  
-  
-  
-  
+    request.getRequestDispatcher("/views/admin/memberList.jsp").forward(request, response);
   
   }
 

@@ -37,7 +37,7 @@ pageEncoding="UTF-8"%>
    section#memberList-container form#numPerPageFrm{display:inline;}
 </style>
 
-<%@ include file="/views/common/header.jsp"%>    
+<%@ include file="/views/common/header.jsp"%>
 	<section id="memberList-container">
 		<h2>회원관리</h2>
 		<div id="neck-container">
