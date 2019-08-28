@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -126,5 +127,50 @@ public class BoardDao {
     }
     
     return b;
+  }
+  
+  public int selectSeqBoard(Connection conn, Board b) {
+    Statement stmt = null;
+    ResultSet rs = null;
+    int result = 0;
+    String sql="select seq_board_no.currval from dual";
+    try {
+      stmt = conn.createStatement();
+      rs = stmt.executeQuery(sql);
+      
+      if(rs.next()) {
+        result = rs.getInt(1);
+      }
+    }catch(SQLException e) {
+      e.printStackTrace();
+    }finally {
+      close(rs);
+      close(stmt);
+    }
+    return result;
+  }
+
+  public int insertBoard(Connection conn, Board b)
+  {
+    PreparedStatement pstmt = null;
+    int result = 0;
+    String sql = prop.getProperty("insertBoard");
+    try
+    {
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setString(1, b.getBoardTitle());
+      pstmt.setString(2, b.getBoardWriter());
+      pstmt.setString(3, b.getBoardContent());
+      pstmt.setString(4, b.getBoardOriginalFilename());
+      pstmt.setString(5, b.getBoardRenamedFilename());
+      result= pstmt.executeUpdate();
+    }catch(SQLException e)
+    {
+      e.printStackTrace();
+    }finally
+    {
+      close(pstmt);
+    }
+    return result;
   }
 }

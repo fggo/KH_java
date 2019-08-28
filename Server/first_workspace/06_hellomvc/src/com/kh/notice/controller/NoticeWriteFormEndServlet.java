@@ -38,8 +38,6 @@ public class NoticeWriteFormEndServlet extends HttpServlet {
     //1.enctype="multipart/form-data" <-- 로 보내야 파일 관련 처리가능
     //client가 데이터를 multipart/form-data로  보냈는지 확인
     if(!ServletFileUpload.isMultipartContent(request)) {
-      //처리 할 수 없는 내용으로 페이지 전환 시킴
-      //경고문 페이지로...
       request.setAttribute("msg", "공지사항 에러!![form: enctype 관리자에게 문의하세요...");
       request.setAttribute("loc", "/");
       request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
@@ -84,6 +82,8 @@ public class NoticeWriteFormEndServlet extends HttpServlet {
     String content = mr.getParameter("content");
     //file명 가져오기!
     String fileName = mr.getFilesystemName("up_file");
+    System.out.println();
+    fileName = mr.getOriginalFileName("up_file");
     //sequence로 어차피 notice_no 들어가므로 아무 값이나 넣음(=0)
     Notice n = new Notice(0, title, writer, content, null, fileName);
     System.out.println(n);

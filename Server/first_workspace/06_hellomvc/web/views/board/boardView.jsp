@@ -16,10 +16,7 @@
     table#tbl-board td {border:1px solid; padding: 5px 0 5px 10px; text-align:left;}
   </style>
   <section id="board-container">
-  <h2>게시판</h2>
-    <% if(loginMember != null && loginMember.getUserId().equals("admin")){ %>
-      <input type="button" value="글쓰기" id="btn-add" onclick="writeBoard();">
-    <%} %>
+  <h2>게시판 보기</h2>
 		<table id="tbl-board">
 			<tr>
 				<th>글번호</th>
@@ -39,15 +36,16 @@
 			</tr>
 			<tr>
 				<th>첨부파일</th>
-        </td>
-          <% if(b.getFilePath() != null){ %>
+        <td>
+          <% if(b.getBoardOriginalFilename() != null){ %>
             <!-- click to Download! -->
-            <!-- <a href="<%=request.getContextPath()%>/notice/noticeFileDown?fileName=<%=n.getFilePath()%>" > -->
+            <!-- <a href="<%=request.getContextPath()%>/board/boardFileDown?fileName=<%=b.getBoardOriginalFilename() %>" > -->
 
             <!-- encoding 처리해서 보낼수 있음 -->
             <!-- a태그에 옵션이 걸리면 실행 -->
-              <a href="javascript:fn_filedown('<%=b.getFilePath()%>')"></a>
-              <img src="<%=request.getContextPath()%>/images/file.png" alt="" width='16px'>
+              <a href="javascript:fn_filedown('<%=b.getBoardOriginalFilename() %>')">
+                <img src="<%=request.getContextPath()%>/images/file.png" alt="" width='16px'>
+              </a>
             <!-- </a> -->
             <script>
               function fn_filedown(filename){
@@ -75,13 +73,8 @@
 		</table>
     <%--글작성자/관리자인경우 수정삭제 가능  --%>
    
-    <form >
-      <input  />
-      <input  />
-    </form>
     <script>
       function writeBoard(){
-
       }
 
       function fn_updateBoard(){

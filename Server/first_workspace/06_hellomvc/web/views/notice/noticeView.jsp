@@ -45,8 +45,9 @@
 
             <!-- encoding 처리해서 보낼수 있음 -->
             <!-- a태그에 옵션이 걸리면 실행 -->
-              <a href="javascript:fn_filedown('<%=n.getFilePath()%>')"></a>
-              <img src="<%=request.getContextPath()%>/images/file.png" alt="" width='16px'>
+              <a href="javascript:fn_filedown('<%=n.getFilePath()%>')">
+                <img src="<%=request.getContextPath()%>/images/file.png" alt="" width='16px'>
+              </a>
             <!-- </a> -->
             <script>
               function fn_filedown(filename){

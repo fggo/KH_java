@@ -13,7 +13,7 @@ import com.kh.board.model.service.BoardService;
 import com.kh.board.model.vo.Board;
 
 /**
- * Servlet implementation class BoardListViewServlet
+ * Servlet implementation class BoardListServlet
  */
 @WebServlet("/board/boardList")
 public class BoardListServlet extends HttpServlet {
@@ -31,55 +31,57 @@ public class BoardListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	  int cPage = 0;
-	  try {
-	    cPage = Integer.parseInt(request.getParameter("cPage"));
-	  } catch(NumberFormatException e) {
-	    cPage = 1;
-	  }
-	  
-	  int numPerPage=5;
-	  int pageBarSize= 5;
-
-	  int totalBoard  = new BoardService().selectCountBoard();
-	  List<Board> list = new BoardService().selectBoardList(cPage, numPerPage);
-
-	  int pageNo = ((cPage-1)/pageBarSize)*pageBarSize +1;
-	  int totalPage = (int)Math.ceil((double)totalBoard/numPerPage);
-	  int pageEnd = pageNo + pageBarSize - 1;
-	  String pageBar = "";
-	  
-	  if(pageNo==1) {
-	    pageBar += "<span>[prev]</span>";
-	  }
-	  else {
-        pageBar += "<a href='"+request.getContextPath()
-                 + "/board/boardList?cPage="+ (pageNo-1) + "'>[prev] </a>";
-	  }
-	  while(!(pageNo > pageEnd || pageNo >totalPage)) {
-	    if(pageNo == cPage) {
-	      pageBar += "<span>" + pageNo + "</span>";
+	   int cPage;
+	    try
+	    {
+	      cPage = Integer.parseInt(request.getParameter("cPage"));
+	    }catch(NumberFormatException e)
+	    {
+	      cPage = 1;
+	    }
+	    int numPerPage = 10;
+	    
+	    int totalBoard = new BoardService().selectCountBoard();
+	    List<Board> list = new BoardService().selectBoardList(cPage,numPerPage);
+	    
+	    int totalPage=(int)Math.ceil((double)totalBoard/numPerPage);
+	    
+	    String pageBar="";
+	    int pageSizeBar=5;
+	    int pageNo=((cPage-1)/pageSizeBar)*pageSizeBar+1;
+	    int pageEnd=pageNo+pageSizeBar-1;
+	    
+	    if(pageNo==1) {
+	      pageBar+="<span>[이전]</span>";
+	    }else {
+	      pageBar+="<a href='"+request.getContextPath()
+	      +"/board/boardList?cPage="+(pageNo-1)+"'>[이전]</a>";
+	    }
+	    
+	    while(!(pageNo>pageEnd||pageNo>totalPage)) {
+	      if(pageNo==cPage) {
+	        pageBar+="<span>"+pageNo+"</span>";
+	      }
+	      else {
+	        pageBar+="<a href='"+request.getContextPath()
+	        +"/board/boardList?cPage="+pageNo+"'>"+pageNo+"</a>";
+	      }
+	      pageNo++;
+	    }
+	    
+	    if(pageNo>totalPage) {
+	      pageBar+="<span>[다음]</span>";
 	    }
 	    else {
-          pageBar += "<a href='"+request.getContextPath()
-                   +"/board/boardList?cPage=" + pageNo + "'>" +pageNo + "</a>";
+	      pageBar+="<a href='"+request.getContextPath()
+	      +"/board/boardList?cPage="+(pageNo)+"'>[다음]</a>";
 	    }
-	    pageNo++;
-	  }
-
-	  if(pageNo > totalPage) {
-	    pageBar += "<span> [next]</span>";
-	  }
-	  else { //pageEnd < pageNo <= totalPage
-	    pageBar += "<a href='" + request.getContextPath()
-	             + "/board/boardList?cPage=" + pageNo + "'> [next] </a>";
-	  }
-	  
-	  request.setAttribute("cPage", cPage);
-	  request.setAttribute("pageBar", pageBar);
-	  request.setAttribute("list", list);
-
-	  request.getRequestDispatcher("/views/board/boardList.jsp").forward(request,response);
+	    
+	    request.setAttribute("pageBar",pageBar);
+	    request.setAttribute("cPage",cPage);
+	    request.setAttribute("list",list);
+	    
+	    request.getRequestDispatcher("/views/board/boardList.jsp").forward(request, response);
 	}
 
 	/**

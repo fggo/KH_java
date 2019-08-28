@@ -9,6 +9,7 @@
     table#tbl-notice td {border:1px solid; padding: 5px 0 5px 10px; text-align:left;}
   </style>
   <section id="notice-container">
+    <h2 style="text-align:center;">공지사항 작성</h2>
     <form action="<%=request.getContextPath() %>/notice/noticeFormEnd"
       method="post" enctype="multipart/form-data">
       <!-- enctype="multipart/form-date" 

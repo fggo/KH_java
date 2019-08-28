@@ -37,7 +37,7 @@
         <tr>
           <td><%=b.getBoardNo()%></td>
           <td>
-            <a href="<%=request.getContextPath()%>/board/boardView?no=<%=b.getBoardNo()%>">
+            <a href="<%=request.getContextPath() %>/board/boardView?no=<%=b.getBoardNo() %>">
               <%=b.getBoardTitle()%>
             </a>
           </td>

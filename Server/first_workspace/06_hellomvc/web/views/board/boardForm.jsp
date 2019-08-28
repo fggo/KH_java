@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 
-<%@ include file="/views/common/footer.jsp" %>
+<%@ include file="/views/common/header.jsp" %>
 
   <style>
     div#board-container{width:600px; margin:0 auto; text-align:center;}
@@ -11,8 +11,8 @@
     table#tbl-board td {border:1px solid; padding: 5px 0 5px 10px; text-align:left;}
   </style>
   <section id="board-container">
-  <h2>게시판 작성</h2>
-    <form >
+  <h2 style="text-align:center;">게시판 작성</h2>
+    <form action="<%=request.getContextPath() %>/board/boardFormEnd" enctype="multipart/form-data" method="post">
       <table id="tbl-board">
         <tr>
           <th>제 목</th>
@@ -20,7 +20,7 @@
         </tr>
         <tr>
           <th>작성자</th>
-          <td><input type="text" name="writer" value= readonly required/></td>
+          <td><input type="text" name="writer" value="<%=loginMember.getUserId() %>" readonly required/></td>
         </tr>
         <tr>
           <th>첨부파일</th>
@@ -38,4 +38,9 @@
       </table>
     </form>
   </section>
+  <script>
+    function validate(){
+      return true;
+    }
+  </script>
 <%@ include file="/views/common/footer.jsp" %>

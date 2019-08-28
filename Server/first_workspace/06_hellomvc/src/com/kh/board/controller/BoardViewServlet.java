@@ -30,9 +30,10 @@ public class BoardViewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	  int no = Integer.parseInt(request.getParameter("no"));
-	  Board n = new BoardService().selectBoardOne(no);
-	  request.setAttribute("board", n);
+	  int boardNo = Integer.parseInt(request.getParameter("no"));
+	  
+	  Board b = new BoardService().selectBoardOne(boardNo);
+	  request.setAttribute("board", b);
 	  request.getRequestDispatcher("/views/board/boardView.jsp").forward(request, response);
 	}
 
