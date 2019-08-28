@@ -95,7 +95,8 @@ public class NoticeWriteFormEndServlet extends HttpServlet {
 
     if(result > 0) {
       msg = "공지사항 등록완료";
-      loc="/notice/noticeList";
+//      loc="/notice/noticeList";
+      loc="/notice/noticeView?no="+result;
     }
     else{
       msg = "공지사항 등록실패";

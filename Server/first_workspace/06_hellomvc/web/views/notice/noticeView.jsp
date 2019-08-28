@@ -40,12 +40,26 @@
         <th>첨부파일</th>
         <td>
           <% if(n.getFilePath() != null){ %>
-            <img src="<%=request.getContextPath()%>/images/file.png" alt="" width='16px'>
+            <!-- click to Download! -->
+            <!-- <a href="<%=request.getContextPath()%>/notice/noticeFileDown?fileName=<%=n.getFilePath()%>" > -->
+
+            <!-- encoding 처리해서 보낼수 있음 -->
+            <!-- a태그에 옵션이 걸리면 실행 -->
+              <a href="javascript:fn_filedown('<%=n.getFilePath()%>')"></a>
+              <img src="<%=request.getContextPath()%>/images/file.png" alt="" width='16px'>
+            <!-- </a> -->
+            <script>
+              function fn_filedown(filename){
+                //미리 한글로 바꿀 수 있음
+                var file=encodeURIComponent(filename);
+                location.href="<%=request.getContextPath()%>/notice/noticeFileDown?fileName="+ file;
+              }
+            </script>
           <% } %>
         </td>
       </tr>
       <tr>
-        <td colspan='2'>
+        <td colspan='2' style="text-align: center;">
           <input type="button" value="수정하기" onclick="" />
           <input type="button" value="삭제하기" onclick="" />
         </td>

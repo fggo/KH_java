@@ -72,6 +72,7 @@
   </section>
   <script>
     function writeNotice(){
+      //change location (does not need parameters)
       location.href = "<%=request.getContextPath() %>/notice/noticeForm";
     }
   </script>

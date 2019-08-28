@@ -1,3 +1,13 @@
+SERVER 주소
+  rclass.iptime.org:9999/프로젝트명
+DB 디벨로퍼 접속해서 new connection >
+    사용자계정: parking
+    비밀번호: 1234
+    호스트명: rclass.iptime.org
+    포트:9879
+
+mr.getOriginalFileName(file parameter);
+
 **********************************************
 HW!!!!!!!!!!!!!!!!
 filter로 /admin/memberList 접근 못하도록 해보기

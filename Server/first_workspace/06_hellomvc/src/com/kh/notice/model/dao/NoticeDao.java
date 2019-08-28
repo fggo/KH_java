@@ -1,18 +1,19 @@
 package com.kh.notice.model.dao;
 
+import static common.template.JDBCTemplate.close;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
 import com.kh.notice.model.vo.Notice;
-
-import static common.template.JDBCTemplate.close;
 
 public class NoticeDao {
   private Properties prop = new Properties();
@@ -130,6 +131,28 @@ public class NoticeDao {
       close(pstmt);
     }
     
+    return result;
+  }
+  public int selectSeqNotice(Connection conn) {
+    Statement stmt = null;
+    ResultSet rs = null;
+
+    int result = 0;
+    String sql = "select seq_notice_no.currval from dual";
+
+    try {
+      stmt = conn.createStatement();
+      rs = stmt.executeQuery(sql);
+      if(rs.next()) {
+        result = rs.getInt(1);
+      }
+    } catch(SQLException e) {
+      e.printStackTrace();
+    } finally {
+      close(rs);
+      close(stmt);
+    }
+
     return result;
   }
   
