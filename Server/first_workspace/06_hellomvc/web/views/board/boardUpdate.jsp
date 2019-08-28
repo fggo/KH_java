@@ -16,15 +16,19 @@
     table#tbl-board td {border:1px solid; padding: 5px 0 5px 10px; text-align:left;}
   </style>
   <section id="board-container">
-  <h2>게시판 보기</h2>
+  <h2>게시판 수정</h2>
 		<table id="tbl-board">
 			<tr>
 				<th>글번호</th>
-				<td><%=b.getBoardNo()%></td>
+				<td>
+          <input type="number" value="<%=b.getBoardNo()%>" readonly>
+        </td>
 			</tr>
 			<tr>
 				<th>제 목</th>
-				<td><%=b.getBoardTitle()%></td>
+				<td>
+          <input type="text" value="<%=b.getBoardTitle()%>" readonly>
+        </td>
 			</tr>
 			<tr>
 				<th>작성자</th>
