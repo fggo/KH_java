@@ -16,6 +16,16 @@ public class Board {
     // TODO Auto-generated constructor stub
   }
   
+  //클라이언트가 보내준 값을 DB에 저장
+  public Board(String boardTitle, String boardWriter, String boardContent, String boardOriginalFilename,
+      String boardRenamedFilename) {
+    this.boardTitle = boardTitle;
+    this.boardWriter = boardWriter;
+    this.boardContent = boardContent;
+    this.boardOriginalFilename = boardOriginalFilename;
+    this.boardRenamedFilename = boardRenamedFilename;
+  }
+
   public Board(int boardNo, String boardTitle, String boardWriter, String boardContent, String boardOriginalFilename,
       String boardRenamedFilename, Date boardDate, int boardReadcount) {
     super();

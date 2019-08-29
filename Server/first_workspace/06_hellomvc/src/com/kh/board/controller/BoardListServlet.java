@@ -31,58 +31,54 @@ public class BoardListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	   int cPage;
-	    try
-	    {
-	      cPage = Integer.parseInt(request.getParameter("cPage"));
-	    }catch(NumberFormatException e)
-	    {
-	      cPage = 1;
-	    }
-	    int numPerPage = 10;
-	    
-	    int totalBoard = new BoardService().selectCountBoard();
-	    List<Board> list = new BoardService().selectBoardList(cPage,numPerPage);
-	    
-	    int totalPage=(int)Math.ceil((double)totalBoard/numPerPage);
-	    
-	    String pageBar="";
-	    int pageSizeBar=5;
-	    int pageNo=((cPage-1)/pageSizeBar)*pageSizeBar+1;
-	    int pageEnd=pageNo+pageSizeBar-1;
-	    
-	    if(pageNo==1) {
-	      pageBar+="<span>[이전]</span>";
-	    }else {
-	      pageBar+="<a href='"+request.getContextPath()
-	      +"/board/boardList?cPage="+(pageNo-1)+"'>[이전]</a>";
-	    }
-	    
-	    while(!(pageNo>pageEnd||pageNo>totalPage)) {
-	      if(pageNo==cPage) {
-	        pageBar+="<span>"+pageNo+"</span>";
-	      }
-	      else {
-	        pageBar+="<a href='"+request.getContextPath()
-	        +"/board/boardList?cPage="+pageNo+"'>"+pageNo+"</a>";
-	      }
-	      pageNo++;
-	    }
-	    
-	    if(pageNo>totalPage) {
-	      pageBar+="<span>[다음]</span>";
-	    }
-	    else {
-	      pageBar+="<a href='"+request.getContextPath()
-	      +"/board/boardList?cPage="+(pageNo)+"'>[다음]</a>";
-	    }
-	    
-	    request.setAttribute("pageBar",pageBar);
-	    request.setAttribute("cPage",cPage);
-	    request.setAttribute("list",list);
-	    
-	    request.getRequestDispatcher("/views/board/boardList.jsp").forward(request, response);
+      int cPage = 0;
+      try {
+        cPage = Integer.parseInt(request.getParameter("cPage"));
+      } catch(NumberFormatException e) {
+        cPage = 1;
+      }
+      
+      int numPerPage = 10;
+      int totalNotice = new BoardService().selectCountBoard();
+      List<Board> list = new BoardService().selectBoardList(cPage, numPerPage);
+      
+      int totalPage = (int)Math.ceil((double)totalNotice/numPerPage);
+      int pageBarSize = 5;
+      int pageNo = ((cPage-1)/pageBarSize)*pageBarSize + 1;
+      int pageEnd = pageNo + pageBarSize - 1;
+      
+      // pageBar
+      String pageBar = "";
+      if(pageNo == 1) {
+        pageBar += "<span>[이전]</span>";
+      }
+      else {
+        pageBar += "<a href="+request.getContextPath()+"/board/boardList?cPage=" + (pageNo -1) + ">[이전]</a>";
+      }
+      while(!(pageNo >pageEnd || pageNo > totalPage)) {
+        if(pageNo == cPage) {
+          pageBar += "<span>" + pageNo+ "</span>";
+        }
+        else {
+          pageBar += "<a href="+request.getContextPath()
+                     +"/board/boardList?cPage=" + pageNo + "'>" +pageNo + "</a>";
+        }
+        pageNo++;
+      }
+      if(pageNo > totalPage) {
+        pageBar += "<span>[다음]</span>";
+      }
+      else {
+        pageBar += "<a href="+request.getContextPath()
+                 +"/board/boardList?cPage=" + (pageNo) + ">[다음]</a>";
+      }
+      request.setAttribute("pageBar", pageBar);
+      request.setAttribute("cPage",  cPage);
+      request.setAttribute("list", list);
+
+      request.getRequestDispatcher("/views/board/boardList.jsp").forward(request, response);
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

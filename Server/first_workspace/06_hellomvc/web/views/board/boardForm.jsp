@@ -4,6 +4,7 @@
 <%@ include file="/views/common/header.jsp" %>
 
   <style>
+    h2{ text-align:center; }
     div#board-container{width:600px; margin:0 auto; text-align:center;}
     div#board-container h2{margin:10px 0;}
     table#tbl-board{width:500px; margin:0 auto; border:1px solid black; border-collapse:collapse;}
@@ -11,7 +12,7 @@
     table#tbl-board td {border:1px solid; padding: 5px 0 5px 10px; text-align:left;}
   </style>
   <section id="board-container">
-  <h2 style="text-align:center;">게시판 작성</h2>
+  <h2>게시판 작성</h2>
     <form action="<%=request.getContextPath() %>/board/boardFormEnd" enctype="multipart/form-data" method="post">
       <table id="tbl-board">
         <tr>

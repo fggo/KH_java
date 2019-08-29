@@ -81,7 +81,7 @@ public class NoticeFileDownloadServlet extends HttpServlet {
 	  //크롬에서 파일 다운시 밑에 다운로드바 바로 다운 되거나, 다운로드 창 뜨게됨 
 	  //IE에서는 'inline' 세팅으로 바꾸면, 사진 창url 으로 넘어감
 	  //file 전송
-	  int read = 1;
+	  int read = -1;
 	  while((read=bis.read())!= -1) {
 	    bos.write(read);
 	  }

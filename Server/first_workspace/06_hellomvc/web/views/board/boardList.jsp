@@ -21,7 +21,7 @@
    </style>
    <section id="board-container">
      <h2>게시판</h2>
-      <% if(loginMember != null && loginMember.getUserId().equals("admin")){ %>
+      <% if(loginMember != null){ %>
         <input type="button" value="글쓰기" id="btn-add" onclick="writeBoard();">
       <%} %>
 
@@ -42,7 +42,11 @@
             </a>
           </td>
           <td><%=b.getBoardWriter()%></td>
-          <td><%=b.getBoardOriginalFilename()%></td>
+          <td>
+            <% if(b.getBoardOriginalFilename() != null){ %>
+              <img src="<%=request.getContextPath() %>/images/file.png" width="16px">
+            <% } %>
+          </td>
           <td><%=b.getBoardReadcount()%></td>
         </tr>
       <% } %>

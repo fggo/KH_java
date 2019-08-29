@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Properties;
 
 import com.kh.board.model.vo.Board;
+import com.kh.board.model.vo.BoardComment;
 
 public class BoardDao {
   private Properties prop = new Properties();
@@ -155,22 +156,61 @@ public class BoardDao {
     PreparedStatement pstmt = null;
     int result = 0;
     String sql = prop.getProperty("insertBoard");
-    try
-    {
+
+    try {
       pstmt = conn.prepareStatement(sql);
       pstmt.setString(1, b.getBoardTitle());
       pstmt.setString(2, b.getBoardWriter());
       pstmt.setString(3, b.getBoardContent());
       pstmt.setString(4, b.getBoardOriginalFilename());
       pstmt.setString(5, b.getBoardRenamedFilename());
+
       result= pstmt.executeUpdate();
-    }catch(SQLException e)
-    {
+    }catch(SQLException e) {
       e.printStackTrace();
-    }finally
-    {
+    }finally {
       close(pstmt);
     }
+    return result;
+  }
+  
+  public int updateCount(Connection conn, int no) {
+    Statement stmt = null;
+    int result = 0;
+    String sql = "update board set board_readcount=board_readcount+1"
+        + " where board_no=" + no;
+
+    try {
+      stmt = conn.createStatement();
+      result = stmt.executeUpdate(sql);
+    } catch(SQLException e) {
+      e.printStackTrace();
+    } finally {
+      close(stmt);
+    }
+    return result;
+  }
+  
+  public int insertComment(Connection conn, BoardComment bc) {
+    PreparedStatement pstmt = null;
+    int result = 0;
+    String sql = prop.getProperty("insertComment");
+    try {
+      pstmt= conn.prepareStatement(sql);
+      pstmt.setInt(1, bc.getBoardCommentLevel());
+      pstmt.setString(2, bc.getBoardCommentWriter());
+      pstmt.setString(3, bc.getBoardCommentContent());
+      pstmt.setInt(4, bc.getBoardRef());
+      pstmt.setString(5, bc.getBoardCommentRef()==0? null:String.valueOf(bc.getBoardCommentRef()));
+
+      result = pstmt.executeUpdate();
+
+    } catch(SQLException e) {
+      e.printStackTrace();
+    } finally {
+      close(pstmt);
+    }
+
     return result;
   }
 }
