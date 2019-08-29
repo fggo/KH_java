@@ -5,6 +5,7 @@
 select * from member;
 select * from member where userid='admin';
 select * from board;
+select * from board_comment;
 --update board set board_original_filename='chris-leipelt-176595.jpg' where board_writer='admin';
 
 select * from notice;

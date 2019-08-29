@@ -36,11 +36,11 @@ public class BoardCommentWriteServlet extends HttpServlet {
 	  int level = Integer.parseInt(request.getParameter("boardCommentLevel"));
 	  int commentRef = Integer.parseInt(request.getParameter("boardCommentRef"));
 	  
-	  BoardComment bc = new BoardComment(level, writer, content, boardRef, 0);
+	  BoardComment bc = new BoardComment(level, writer, content, boardRef, commentRef);
 	  int result = new BoardService().insertComment(bc);
 
 	  String msg = result >0? "댓글등록 성공" : "댓글등록 실패";
-	  String loc = "/board/boardView?boardNo=" + boardRef;
+	  String loc = "/board/boardView?no=" + boardRef;
 
 	  String view = "/views/common/msg.jsp";
 	  
