@@ -42,7 +42,7 @@ public class BoardWriteFormEndServlet extends HttpServlet {
 	    request.setAttribute("loc", "/");
 	    request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 	  }
-	    
+	  
 	  //1.실제파일 업로드 경로 가져오기   //저장할 경로 "/upload/board"
 	  String saveDir = getServletContext().getRealPath(File.separator + "upload/board");
 	  File dir = new File(saveDir);

@@ -17,19 +17,18 @@
   </style>
   <section id="board-container">
   <h2>게시판 수정</h2>
-    <form action="<%=request.getContextPath() %>/board/boardUpdateEnd" enctype="multipart/form-data">
+    <form action="<%=request.getContextPath() %>/board/boardUpdateEnd" enctype="multipart/form-data"
+          method="post" >
 
       <table id="tbl-board">
         <tr>
           <th>글번호</th>
-          <td>
-            <input type="number" name="no" value="<%=b.getBoardNo()%>" readonly>
-          </td>
+          <td><%=b.getBoardNo() %></td>
         </tr>
         <tr>
           <th>제 목</th>
           <td>
-            <input type="text" name="title" value="<%=b.getBoardTitle()%>" >
+            <input type="text" name="title" value="<%=b.getBoardTitle()%>">
           </td>
         </tr>
         <tr>
@@ -43,24 +42,9 @@
         <tr>
           <th>첨부파일</th>
           <td>
-            <% if(b.getBoardOriginalFilename() != null){ %>
-              <!-- click to Download! -->
-              <!-- <a href="<%=request.getContextPath()%>/board/boardFileDown?fileName=<%=b.getBoardOriginalFilename() %>" > -->
-
-              <!-- encoding 처리해서 보낼수 있음 -->
-              <!-- a태그에 옵션이 걸리면 실행 -->
-                <a href="javascript:fn_filedown('<%=b.getBoardOriginalFilename() %>')">
-                  <img src="<%=request.getContextPath()%>/images/file.png" alt="" width='16px'>
-                </a>
-              <!-- </a> -->
-              <script>
-                function fn_filedown(filename){
-                  //미리 한글로 바꿀 수 있음
-                  var file=encodeURIComponent(filename);
-                  location.href="<%=request.getContextPath()%>/board/boardFileDown?fileName="+ file;
-                }
-              </script>
-            <% } %>
+            <span><%=b.getBoardRenamedFilename())== null? b.getBoardOriginalFilename() :b.getBoardRenamedFileName() %></span>
+            <input type="file" name="up_file" value="파일수정하기">
+            <input type="hidden" name="up_file" value="">
           </td>
         </tr>
         <tr>
@@ -73,8 +57,7 @@
         
         <tr>
           <th colspan="2">
-            <input type="submit" value="수정 완료" onclick="">
-            <input type="hidden" name="originalFile" value="<%= b.getBoardOriginalFilename() %>">
+            <input type="submit" value="수정 완료">
             <!-- "up_file"에 올라온게 없으면 수정안하고 hidden input에 있는 original file로 유지! -->
           </th>
         </tr>

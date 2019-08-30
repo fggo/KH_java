@@ -7,6 +7,8 @@ select * from member where userid='admin';
 select * from board;
 select * from board_comment;
 --update board set board_original_filename='chris-leipelt-176595.jpg' where board_writer='admin';
+--          board_ref & board_comment_No=" + $(this).val();
+--delete from board_comment where board_ref=? and board_comment_no=?
 
 select * from notice;
 select count(*) as cnt from board;
@@ -17,16 +19,32 @@ drop sequence SEQ_BOARD_NO;
 drop table notice;
 drop sequence SEQ_NOTICE_NO;
 DROP TABLE MEMBER;
+
 select * from (select rownum as rnum, a.* from 
                 (select * from board order by board_date desc) a) 
              where rnum between 1 and 5;
 
+select * from board_comment;
+-- 계층형 쿼리!
+select lpad('  ', (level-1)*5) || board_comment_content, a.*
+  from board_comment a
+where board_ref=34
+start with board_comment_level=1
+connect by prior board_comment_no=board_comment_ref
+order siblings by board_comment_date desc;
+
+select * from board_comment
+where board_ref=27
+start with board_comment_level=1
+connect by prior board_comment_no=board_comment_ref;
 
 select * from notice;
 select seq_notice_no.nextval from dual;
 select seq_notice_no.currval from dual;
 --drop table notice;
 --drop sequence SEQ_NOTICE_NO;
+--DROP TABLE BOARD_COMMENT;
+--DROP SEQUENCE SEQ_BOARD_COMMENT_NO;
 
 CREATE TABLE BOARD_COMMENT(
     "BOARD_COMMENT_NO" NUMBER,
@@ -35,7 +53,7 @@ CREATE TABLE BOARD_COMMENT(
     "BOARD_COMMENT_CONTENT" VARCHAR2(2000), 
     "BOARD_REF" NUMBER, --PK
     "BOARD_COMMENT_REF" NUMBER, --referring PK(above 1 level) --FK 2개(board, board_comment를 참조함)
-    --board_comment_ref가 없으면 답글 / 있으면 댓글
+    --board_comment_ref가 없으면 댓글 / 있으면 답글(댓글에 대한 댓글)
     "BOARD_COMMENT_DATE" DATE DEFAULT SYSDATE, 
     CONSTRAINT PK_BOARD_COMMENT_NO PRIMARY KEY(BOARD_COMMENT_NO),
     CONSTRAINT FK_BOARD_COMMENT_WRITER FOREIGN KEY(BOARD_COMMENT_WRITER) REFERENCES MEMBER(USERID) ON DELETE SET NULL,

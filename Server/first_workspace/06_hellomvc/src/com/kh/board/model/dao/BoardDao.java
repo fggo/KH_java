@@ -213,4 +213,58 @@ public class BoardDao {
 
     return result;
   }
+  
+  public List<BoardComment> selectBoardComment(Connection conn, int boardNo){
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    List<BoardComment> list = new ArrayList<BoardComment>();
+    BoardComment bc = null;
+    String sql = prop.getProperty("selectBoardComment");
+    
+    try {
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setInt(1, boardNo);
+      rs = pstmt.executeQuery();
+
+      while(rs.next()) {
+        bc = new BoardComment();
+
+        bc.setBoardCommentNo(rs.getInt("board_comment_no"));
+        bc.setBoardCommentLevel(rs.getInt("board_comment_level"));
+        bc.setBoardCommentWriter(rs.getString("board_comment_writer"));
+        bc.setBoardCommentContent(rs.getString("board_comment_content"));
+        bc.setBoardRef(rs.getInt("board_ref"));
+        bc.setBoardCommentRef(rs.getInt("board_comment_ref"));
+        bc.setBoardCommentDate(rs.getDate("board_comment_date"));
+
+        list.add(bc);
+      }
+    } catch(SQLException e) {
+      e.printStackTrace();
+    } finally {
+      close(rs);
+      close(pstmt);
+    }
+    return list;
+  }
+
+  public int deleteComment(Connection conn, int boardRef, int commentNo) {
+    PreparedStatement pstmt = null;
+    int result = 0;
+    String sql = prop.getProperty("deleteComment");
+    
+    try {
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setInt(1, boardRef);
+      pstmt.setInt(2, commentNo);
+      
+      result = pstmt.executeUpdate();
+    } catch(SQLException e) {
+      e.printStackTrace();
+    } finally {
+      close(pstmt);
+    }
+    
+    return result;
+  }
 }
