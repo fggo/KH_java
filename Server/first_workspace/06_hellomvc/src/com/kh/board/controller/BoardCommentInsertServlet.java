@@ -15,13 +15,13 @@ import com.kh.board.model.vo.BoardComment;
  * Servlet implementation class BoardCommentWriteServlet
  */
 @WebServlet("/boardcomment/commentInsert")
-public class BoardCommentWriteServlet extends HttpServlet {
+public class BoardCommentInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardCommentWriteServlet() {
+    public BoardCommentInsertServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,10 +30,10 @@ public class BoardCommentWriteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	  String content = request.getParameter("boardCommentContent");
 	  int boardRef = Integer.parseInt(request.getParameter("boardRef"));
 	  String writer = request.getParameter("boardCommentWriter");
 	  int level = Integer.parseInt(request.getParameter("boardCommentLevel"));
+	  String content = request.getParameter("boardCommentContent");
 	  int commentRef = Integer.parseInt(request.getParameter("boardCommentRef"));
 	  
 	  BoardComment bc = new BoardComment(level, writer, content, boardRef, commentRef);

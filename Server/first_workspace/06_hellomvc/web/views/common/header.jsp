@@ -44,7 +44,11 @@
 </head>
 <body>
   <header>
-    <h1>HelloMVC</h1>
+    <h1>
+      <a href="<%=request.getContextPath() %>" style="text-decoration: none; color:black;">
+      HelloMVC
+      </a>
+    </h1>
     <!--로그인 메뉴-->
     <div class="login-container">
       <% if(loginMember == null) {%>

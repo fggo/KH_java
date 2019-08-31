@@ -14,13 +14,13 @@ import com.kh.board.model.service.BoardService;
  * Servlet implementation class BoardCommentDelete
  */
 @WebServlet("/board/boardCommentDelete")
-public class BoardCommentDelete extends HttpServlet {
+public class BoardCommentDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardCommentDelete() {
+    public BoardCommentDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

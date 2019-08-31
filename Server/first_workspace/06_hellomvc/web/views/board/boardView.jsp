@@ -28,8 +28,10 @@
     table#tbl-comment tr td:first-of-type{padding: 5px 5px 5px 50px;}
     table#tbl-comment tr td:last-of-type {text-align:right; width: 100px;}
     table#tbl-comment button.btn-reply{display:none;}
+    table#tbl-comment button.btn-delete{display:none;}
     table#tbl-comment tr:hover {background:lightgray;}
     table#tbl-comment tr:hover button.btn-reply{display:inline;}
+    table#tbl-comment tr:hover button.btn-delete{display:inline;}
     table#tbl-comment tr.level2 {color:gray; font-size: 14px;}
     table#tbl-comment sub.comment-writer {color:navy; font-size:14px}
     table#tbl-comment sub.comment-date {color:tomato; font-size:10px}
@@ -166,6 +168,13 @@
               <%=bc.getBoardCommentContent() %>
             </td>
             <td>
+              <% if(loginMember != null
+                && ("admin".equals(loginMember.getUserId())
+                    || bc.getBoardCommentWriter().equals(loginMember.getUserId()))){ %>
+                <button class="btn-delete" value="<%=bc.getBoardCommentNo() %>">
+                  삭제
+                </button>
+              <% } %>
             </td>
           </tr>
         <% }
@@ -182,8 +191,14 @@
           $("#userId").focus();
         }
       });
+
+      //prevent null value submit
       $('#btn-insert').click(function(){
-        //prevent null value submit
+        if($('textarea[name=boardCommentContent]').val().trim() == ""){
+          alert('댓글 내용을 입력하세요!');
+          return false;
+        }
+        return true;
       });
 
       $('.btn-delete').click(function(){
@@ -202,27 +217,27 @@
 					var tr=$('<tr>');
 					var td=$("<td>").css({"display":"none","text-align":"left"}).attr("colspan",2);
 					var form=$("<form>").attr({
-								"action":"<%=request.getContextPath()%>/board/boardCommentInsert",
+								"action":"<%=request.getContextPath()%>/boardcomment/commentInsert",
 								"method":"post"
 							});
 					var boardRef=$("<input>").attr({
-							"type":"hidden","name":"board_ref",
+							"type":"hidden","name":"boardRef",
 							"value":"<%=b.getBoardNo()%>"
 						});
 					var writer=$("<input>").attr({
-							"type":"hidden","name":"writer",
+							"type":"hidden","name":"boardCommentWriter",
 							"value": '<%=loginMember!=null? loginMember.getUserId(): "" %>'
 						});
 					var level=$("<input>").attr({
-						"type":"hidden","name":"level",
+						"type":"hidden","name":"boardCommentLevel",
 						"value":"2"
 						});
 					var commentRef=$("<input>").attr({
-							"type":"hidden","name":"commentRef",
+							"type":"hidden","name":"boardCommentRef",
 							"value": $(this).val(),
 						});
 					var content=$("<textarea>").attr({
-							"name":"content","cols":"60","rows":"2"
+							"name":"boardCommentContent","cols":"60","rows":"2"
 						});
 					var btn=$("<button>").attr({
 							"type":"submit","class":"btn-insert2"
