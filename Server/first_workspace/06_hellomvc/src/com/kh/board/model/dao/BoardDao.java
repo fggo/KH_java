@@ -292,4 +292,24 @@ public class BoardDao {
     
     return result;
   }
+
+  public int deleteBoard(Connection conn, int no) {
+    PreparedStatement pstmt = null;
+    int result = 0;
+    String sql = prop.getProperty("deleteBoard");
+    
+    try {
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setInt(1, no);
+
+      result = pstmt.executeUpdate();
+
+    } catch(SQLException e) {
+      e.printStackTrace();
+    } finally {
+      close(pstmt);
+    }
+    
+    return result;
+  }
 }

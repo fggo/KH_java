@@ -60,9 +60,12 @@ public class BoardUpdateEndServlet extends HttpServlet {
 	      "UTF-8",
 	      new MyFileRenamePolicy()); //new DefaultRenamePolicy() 대신 커스텀 rename policy
 
+
 	  String boardNo = mr.getParameter("no");
 	  String title = mr.getParameter("title");
-	  String old_re = mr.getParameter("old_up_file");
+
+	  String old_ori = mr.getParameter("old_up_file_ori");
+	  String old_re = mr.getParameter("old_up_file_re");
 	  String new_ori = mr.getOriginalFileName("new_up_file");
 	  String new_re = mr.getFilesystemName("new_up_file");
 	  String content = mr.getParameter("content");
@@ -70,8 +73,8 @@ public class BoardUpdateEndServlet extends HttpServlet {
 	  Map<String, String> newAttr = new HashMap<String, String>();
 	  newAttr.put("boardNo", boardNo);
 	  newAttr.put("title", title);
-	  newAttr.put("ori", new_ori);
-	  newAttr.put("re", new_re);
+	  newAttr.put("ori", new_ori ==null? old_ori : new_ori);
+	  newAttr.put("re", new_re == null? old_re : new_re);
 	  newAttr.put("content", content);
 
 	  Board boardOld = new BoardService().selectBoardOne(Integer.parseInt(boardNo), false);
@@ -82,9 +85,11 @@ public class BoardUpdateEndServlet extends HttpServlet {
 	  String view = "/views/common/msg.jsp";
 
 	  if(result>0) {
-	    //update 성공하여 이전 파일 삭제
-	    File remove = new File(saveDir + "/" + old_re);
-	    remove.delete();
+	    //update 성공하여 이전 파일 삭제 (update할 새로운 파일을 지정한 경우에만 삭제)
+	    if(new_ori!=null && new_re != null) { 
+        File remove = new File(saveDir + "/" + old_re);
+        remove.delete();
+	    }
 
 	    msg = "게시글을 성공적으로 업데이트 했습니다.";
 	    loc = "/board/boardView?no=" + boardNo;

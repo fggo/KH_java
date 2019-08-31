@@ -137,4 +137,19 @@ public class BoardService {
 
     return result;
   }
+  
+  public int deleteBoard(int no) {
+    Connection conn = getConnection();
+    
+    int result = dao.deleteBoard(conn, no);
+    
+    if(result > 0)
+      commit(conn);
+    else
+      rollback(conn);
+
+    close(conn);
+
+    return result;
+  }
 }

@@ -44,7 +44,8 @@
           <td>
             <input type="file" name="new_up_file" >
           <% if(b.getBoardOriginalFilename()!= null ) { %>
-            <input type="hidden" name="old_up_file" value="<%=b.getBoardRenamedFilename() %>"><br>
+            <input type="hidden" name="old_up_file_ori" value="<%=b.getBoardOriginalFilename() %>"><br>
+            <input type="hidden" name="old_up_file_re" value="<%=b.getBoardRenamedFilename() %>"><br>
             <span>[Old file] <%=b.getBoardOriginalFilename() %></span>
           <% } else{ %>
             <input type="hidden" name="old_up_file" value="" >
