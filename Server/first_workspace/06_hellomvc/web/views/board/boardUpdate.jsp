@@ -17,8 +17,8 @@
   </style>
   <section id="board-container">
   <h2>게시판 수정</h2>
-    <form action="<%=request.getContextPath() %>/board/boardUpdateEnd" enctype="multipart/form-data"
-          method="post" >
+    <form action="<%=request.getContextPath() %>/board/boardUpdateEnd?no=<%=b.getBoardNo() %>"
+          enctype="multipart/form-data" method="post" >
 
       <table id="tbl-board">
         <tr>
@@ -42,9 +42,13 @@
         <tr>
           <th>첨부파일</th>
           <td>
-            <span><%=b.getBoardRenamedFilename())== null? b.getBoardOriginalFilename() :b.getBoardRenamedFileName() %></span>
-            <input type="file" name="up_file" value="파일수정하기">
-            <input type="hidden" name="up_file" value="">
+            <input type="file" name="new_up_file" >
+          <% if(b.getBoardOriginalFilename()!= null ) { %>
+            <input type="hidden" name="old_up_file" value="<%=b.getBoardRenamedFilename() %>"><br>
+            <span>[Old file] <%=b.getBoardOriginalFilename() %></span>
+          <% } else{ %>
+            <input type="hidden" name="old_up_file" value="" >
+          <% } %>
           </td>
         </tr>
         <tr>

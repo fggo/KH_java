@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import com.kh.board.model.vo.Board;
@@ -259,6 +260,30 @@ public class BoardDao {
       pstmt.setInt(2, commentNo);
       
       result = pstmt.executeUpdate();
+    } catch(SQLException e) {
+      e.printStackTrace();
+    } finally {
+      close(pstmt);
+    }
+    
+    return result;
+  }
+  
+  public int updateBoard(Connection conn, Board b, Map<String, String> newAttr) {
+    PreparedStatement pstmt = null;
+    int result = 0;
+    String sql = prop.getProperty("updateBoard");
+    
+    try {
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setString(1, newAttr.get("title"));
+      pstmt.setString(2, newAttr.get("ori"));
+      pstmt.setString(3, newAttr.get("re"));
+      pstmt.setString(4, newAttr.get("content"));
+      pstmt.setInt(5, Integer.parseInt(newAttr.get("boardNo")));
+
+      result = pstmt.executeUpdate();
+
     } catch(SQLException e) {
       e.printStackTrace();
     } finally {

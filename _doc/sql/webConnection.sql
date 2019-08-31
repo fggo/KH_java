@@ -14,11 +14,11 @@ select * from notice;
 select count(*) as cnt from board;
 select * from tab;
 commit;
-drop table board;
-drop sequence SEQ_BOARD_NO;
-drop table notice;
-drop sequence SEQ_NOTICE_NO;
-DROP TABLE MEMBER;
+--drop table board;
+--drop sequence SEQ_BOARD_NO;
+--drop table notice;
+--drop sequence SEQ_NOTICE_NO;
+--DROP TABLE MEMBER;
 
 select * from (select rownum as rnum, a.* from 
                 (select * from board order by board_date desc) a) 

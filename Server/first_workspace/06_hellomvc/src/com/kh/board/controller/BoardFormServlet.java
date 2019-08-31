@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class BoardWriteFormServlet
  */
 @WebServlet("/board/boardForm")
-public class BoardWriteFormServlet extends HttpServlet {
+public class BoardFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardWriteFormServlet() {
+    public BoardFormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

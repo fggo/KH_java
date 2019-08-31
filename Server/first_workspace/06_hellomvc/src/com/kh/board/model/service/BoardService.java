@@ -7,6 +7,7 @@ import static common.template.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.List;
+import java.util.Map;
 
 import com.kh.board.model.dao.BoardDao;
 import com.kh.board.model.vo.Board;
@@ -36,22 +37,22 @@ public class BoardService {
     return list;
   }
   
-  public Board selectBoardOne(int no) {
-    Connection conn = getConnection();
-    
-    Board b = dao.selectBoardOne(conn, no);
-    if(b!=null) {
-      int result = dao.updateCount(conn, no);
+//  public Board selectBoardOne(int no) {
+//    Connection conn = getConnection();
+//    
+//    Board b = dao.selectBoardOne(conn, no);
+//    if(b!=null) {
+//      int result = dao.updateCount(conn, no);
+//
+//      if(result>0) {commit(conn);}
+//      else {rollback(conn);}  
+//    }
+//    
+//    close(conn);
+//
+//    return b;
+//  }
 
-      if(result>0) {commit(conn);}
-      else {rollback(conn);}  
-    }
-    
-    close(conn);
-
-    return b;
-  }
-  
   public Board selectBoardOne(int no, boolean hasRead) {
     Connection conn = getConnection();
     
@@ -118,6 +119,22 @@ public class BoardService {
     
     close(conn);
     
+    return result;
+  }
+  
+  
+  public int updateBoard(Board b, Map<String, String> newAttr) {
+    Connection conn = getConnection();
+    
+    int result = dao.updateBoard(conn, b, newAttr);
+    
+    if(result > 0)
+      commit(conn);
+    else
+      rollback(conn);
+
+    close(conn);
+
     return result;
   }
 }

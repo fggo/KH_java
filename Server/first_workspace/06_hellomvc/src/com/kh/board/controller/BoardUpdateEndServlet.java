@@ -2,6 +2,8 @@ package com.kh.board.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
+import com.kh.board.model.service.BoardService;
+import com.kh.board.model.vo.Board;
 import com.oreilly.servlet.MultipartRequest;
 
 import common.file.rename.MyFileRenamePolicy;
@@ -40,7 +44,7 @@ public class BoardUpdateEndServlet extends HttpServlet {
 	    request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 	  }
 	  
-	  String saveDir = getServletContext().getRealPath(File.separator + "upload/board");
+	  String saveDir = getServletContext().getRealPath(File.separator + "upload" + File.separator + "board");
 	  File dir = new File(saveDir);
 	  if(!dir.exists()) {
 	    dir.mkdirs(); //mkdirs 서브 dir 경로까지 전부
@@ -55,11 +59,48 @@ public class BoardUpdateEndServlet extends HttpServlet {
 	      maxSize,
 	      "UTF-8",
 	      new MyFileRenamePolicy()); //new DefaultRenamePolicy() 대신 커스텀 rename policy
-	  int boardNo = Integer.parseInt(request.getParameter("no"));
-	  
-	  String newTitle = request.getParameter("title");
-	  String newContent = request.getParameter("content");
 
+	  String boardNo = mr.getParameter("no");
+	  String title = mr.getParameter("title");
+	  String old_re = mr.getParameter("old_up_file");
+	  String new_ori = mr.getOriginalFileName("new_up_file");
+	  String new_re = mr.getFilesystemName("new_up_file");
+	  String content = mr.getParameter("content");
+	  
+	  Map<String, String> newAttr = new HashMap<String, String>();
+	  newAttr.put("boardNo", boardNo);
+	  newAttr.put("title", title);
+	  newAttr.put("ori", new_ori);
+	  newAttr.put("re", new_re);
+	  newAttr.put("content", content);
+
+	  Board boardOld = new BoardService().selectBoardOne(Integer.parseInt(boardNo), false);
+	  int result = new BoardService().updateBoard(boardOld, newAttr);
+
+	  String msg = "";
+	  String loc = "";
+	  String view = "/views/common/msg.jsp";
+
+	  if(result>0) {
+	    //update 성공하여 이전 파일 삭제
+	    File remove = new File(saveDir + "/" + old_re);
+	    remove.delete();
+
+	    msg = "게시글을 성공적으로 업데이트 했습니다.";
+	    loc = "/board/boardView?no=" + boardNo;
+	  } else {
+	    //update 실패했으니 MultipartRequest로 생성된 파일을 지워줌
+	    File remove = new File(saveDir + "/" + new_re);
+	    remove.delete();
+
+	    msg = "게시글 업데이트에 실패했습니다.";
+	    loc = "/board/boardUpdate?no=" + boardNo;
+	  }
+
+	  request.setAttribute("msg", msg);
+	  request.setAttribute("loc", loc);
+
+	  request.getRequestDispatcher(view).forward(request, response);
 	}
 
 	/**

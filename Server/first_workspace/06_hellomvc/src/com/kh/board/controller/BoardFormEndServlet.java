@@ -21,13 +21,13 @@ import common.file.rename.MyFileRenamePolicy;
  * Servlet implementation class BoardWriteFormEnd
  */
 @WebServlet("/board/boardFormEnd")
-public class BoardWriteFormEndServlet extends HttpServlet {
+public class BoardFormEndServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardWriteFormEndServlet() {
+    public BoardFormEndServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
