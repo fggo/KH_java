@@ -31,22 +31,23 @@ public class BoardListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      int cPage = 0;
+      int cPage;
       try {
         cPage = Integer.parseInt(request.getParameter("cPage"));
       } catch(NumberFormatException e) {
         cPage = 1;
       }
       
+      int totalBoard = new BoardService().selectCountBoard();
       int numPerPage = 10;
-      int totalNotice = new BoardService().selectCountBoard();
-      List<Board> list = new BoardService().selectBoardList(cPage, numPerPage);
-      
-      int totalPage = (int)Math.ceil((double)totalNotice/numPerPage);
       int pageBarSize = 5;
+      int totalPage = (int)Math.ceil((double)totalBoard/numPerPage);
       int pageNo = ((cPage-1)/pageBarSize)*pageBarSize + 1;
       int pageEnd = pageNo + pageBarSize - 1;
       
+      //list
+      List<Board> list = new BoardService().selectBoardList(cPage, numPerPage);
+
       // pageBar
       String pageBar = "";
       if(pageNo == 1) {
@@ -65,6 +66,7 @@ public class BoardListServlet extends HttpServlet {
         }
         pageNo++;
       }
+
       if(pageNo > totalPage) {
         pageBar += "<span>[다음]</span>";
       }
