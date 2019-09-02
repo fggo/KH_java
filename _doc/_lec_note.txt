@@ -1,3 +1,11 @@
+AJAX
+page를 바꾸는것이 아닌 event받아 페이지 일부분만 변경
+SPA(single page application)
+e.g. Facebook
+
+
+
+--------------
 paging 처리 template : cPage, numPerPage
 SERVER 주소
   rclass.iptime.org:9999/프로젝트명

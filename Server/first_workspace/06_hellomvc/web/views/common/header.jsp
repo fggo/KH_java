@@ -34,10 +34,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
-<!-- jQuery -->
-<script src="<%=request.getContextPath()%>/js/jquery-3.4.1.min.js"></script>
-<!-- JS -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <!-- JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <meta charset="UTF-8">
 <title>Hello MVC!</title>
@@ -122,6 +124,23 @@
               <span class="animate_line"></span>
             </a>
           </li>
+          <li id="admin-member" class="ajaxTest" onclick="requestList();">회원관리 Ajax
+              <span class="animate_line"></span>
+          </li>
+          <script>
+            function requestList(){
+              var xhr = new XMLHttpRequest();
+              xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                  if(xhr.status == 200){
+                    document.getElementById("content").innerHTML = xhr.responseText;
+                  }
+                }
+              }
+              xhr.open("get", "<%=request.getContextPath() %>/admin/memberListAjax");
+              xhr.send();
+            }
+          </script>
         <% } %>
       </ul>
     </nav>
