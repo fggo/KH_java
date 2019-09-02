@@ -78,10 +78,10 @@
             //새로운 페이지로 넘어가는것이 아니라, 기존 index.jsp 페이지에서 element만 변경됨
           }
         }
-      }
+      } /* onreadystatechange function 끝! */
       xhr.open("get", "<%=request.getContextPath()%>/js/test?name=yoo&age=19");
       xhr.send();//전송!
-    } /* onreadystatechange function 끝! */
+    }
   </script>
 
   <h2>csv방식으로 불러오기</h2>
