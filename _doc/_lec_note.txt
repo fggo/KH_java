@@ -28,6 +28,37 @@ was에 프로젝트 추가 -> source code 작성 -> server 실행
 sequence diagram 흐름을 설계 ->logic 처리(e.g. 로그인 로직)
 servlet처리하는 구조 상세히 작성
 
+  # server connection info
+  # driver.properties
+  driver=oracle.jdbc.driver.OracleDriver
+  url=jdbc:oracle:thin:@13.209.48.36:1521:xe
+  id=parking
+  pw=1234
+
+  /* JDBCTemplate.java */
+  public static Connection getConnection() {
+    Connection conn = null;
+    String path = JDBCTemplate.class.getResource("./driver.properties").getPath();
+
+    try {
+      prop.load(new FileReader(path)); //reads a property list (key, value pairs)
+      Class.forName(prop.getProperty("driver")); //register driver class(oracle.jdbc.driver.OracleDriver)
+      conn = DriverManager.getConnection(prop.getProperty("url"), //establish connection with the database
+                                         prop.getProperty("id"),
+                                         prop.getProperty("pw"));
+      conn.setAutoCommit(false);
+
+    } catch(IOException e) {
+      e.printStackTrace();
+    } catch(ClassNotFoundException e) {
+      e.printStackTrace();
+    } catch(SQLException e) {
+      e.printStackTrace();
+    }
+
+    return conn;
+  }
+
 id + pw
 request.getParameter("id")
 new MemberService().select...(); //DB에서 데이터 받기
