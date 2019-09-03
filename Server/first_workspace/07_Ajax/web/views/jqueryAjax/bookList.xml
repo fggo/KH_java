@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<books>
+  <book>
+      <subject>소설</subject>
+      <title>마션</title>
+      <author>앤디위어</author>
+  </book>
+  <book>
+      <subject>소설</subject>
+      <title>어린왕자</title>
+      <author>생떽쥐베리</author>
+  </book>
+  <book>
+      <subject>소설</subject>
+      <title>당신</title>
+      <author>박범신</author>
+  </book>
+  <book>
+      <subject>프로그래밍</subject>
+      <title>Oracle</title>
+      <author>이순신</author>
+  </book>
+  <book>
+      <subject>프로그래밍</subject>
+      <title>자바</title>
+      <author>안중근</author>
+  </book>
+  <book>
+      <subject>프로그래밍</subject>
+      <title><![CDATA[JSP&Servlet<자바서버프로그래밍>]]></title>
+      <!-- 예약어 & < > 사용불가능
+          escape하는 법: <![CDATA[예약어 포함된 문자열]]> -->
+      <author>세종대왕</author>
+  </book>
+</books>

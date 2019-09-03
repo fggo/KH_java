@@ -1,3 +1,73 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+09.04 시험
+server프로그램 개발환경 구축
+java se - eclipse - tomcat server - eclipse 연동 ->프로젝트생성
+was에 프로젝트 추가 -> source code 작성 -> server 실행 
+- JDBCTemplate
+
+sequence diagram 흐름을 설계 ->logic 처리(e.g. 로그인 로직)
+servlet처리하는 구조 상세히 작성
+
+id + pw
+request.getParameter("id")
+new MemberService().select...(); //DB에서 데이터 받기
+Member loginMember;
+로그인 성공시  (loginMember != null)
+session에 등록
+session.setAtribute(loginMember);
+
+response.sendRedirect("url");
+
+Cookie cookie;
+90일 지났을때 id저장 중단
+
+개발환경 구축 시 프로그램 설치
+java se - eclipse - was - project - test code
+
+공통모듈로 인터페이스 구현
+ - insert, update -> @return Object (int 뿐 아니라, 다른 object type도 적용 가능)
+ - select -> @return Object
+ public Object selectOne(String){
+   return new MyObject();
+ }
+ - selectList -> @return List<Object>
+
+
+getConnection() 메소드 close commit rollback 매개변수/return 값 체크하기
+
+batch프로그램 .sh(activeX와 무관)
+
+jdbc 연결드라이버 외우기 oracle mysql
+서버프로그램 구현에 사용되는 기술들
+ - jsp javascript filter php servlet listener wrapper oracle
+
+ResultSet
+int ?? = executeUpdate(); / rs = executeQuery();
+
+데이터 전송/공유 객체 프론트로 보낼때
+서버내려갔을때 없어지고 서버 시작시 다시 생김 ServletContext / session 
+
+--------------------------------------
 AJAX
 page를 바꾸는것이 아닌 event받아 페이지 일부분만 변경
 SPA(single page application)

@@ -12,7 +12,7 @@
 
   </head>
   <body>
-      <h2>jQueryAjax - text파일 - </h2>
+      <h2>jQueryAjax - txt파일</h2>
       <button id="btn">test.txt 내용 불러오기</button>
       <div id="content"></div>
       <script>
@@ -24,8 +24,7 @@
             $.ajax({
               url: "test.txt", //요청주소 /url/to/test.txt
               type: "GET", //요청방식
-              dataType: "text", //응답데이터 형
-              // dataType 종류: text(csv), html, script, xml, json
+              dataType: "text", //응답데이터 형 : text(csv), html(jsp), script, xml, json
               success: function(data){
                 console.log(data);
                 var tag = $("<h3>").html(data).css("color", "blue");
