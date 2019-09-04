@@ -84,7 +84,6 @@
     }
   </script>
 
-  <h2>csv방식으로 불러오기</h2>
 
 </body>
 </html>

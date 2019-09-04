@@ -24,22 +24,22 @@
         type: "POST",
         dataType: "json",
         success: function(data){
-          console.log(data);
-          console.log(typeof data);
-          for(var d in data){
-            console.log(data[d]);
-            console.log(typeof data[d]);
-            // var table = createTable(data);
-            // $('#area').html(table);
-            var table = createListTable(data);
-            $('#area').html(table);
-          }
+          // console.log(data);
+          // console.log(typeof data);
+          // for(var d in data){
+          //   console.log(data[d]);
+          //   console.log(typeof data[d]);
+          //   var table = createTable(data);
+          //   $('#area').html(table);
+          // }
+          var table = createListTable(data);
+          $('#area').html(table);
         }
       });
     }
 
     function createListTable(source){
-      var table=$("<table>");
+      var table=$("<table border=1>");
       var th=$("<tr>");
       var thDat="<th>번호</th><th>아이디</th><th>이름</th><th>주소</th>";
       th.html(thDat);

@@ -14,16 +14,16 @@
   <title>ajax로 파일 업로드하기</title>
 </head>
 <body>
-  <form name="ajaxFile" method="post"
-        enctype="multipart/form-data">
-        <input type="file" name="ajaxFileTest" multiple/>
-        <!-- multiple attribute : 파일 여러개 선택가능 -->
-        <button type="button" id="btn">업로드</button>
+  <form name="ajaxFile" enctype="multipart/form-data" method="post" >
+    <!-- multiple : 파일 여러개 업로드 가능 -->
+    <input type="file" name="ajaxFileTest" multiple/>
+    <button type="button" id="btn">업로드</button>
   </form>
   <div id="image"></div>
   <script>
     $(function(){
       //div에 이미지 출력하기
+      //파일선택하게되면 change 이벤트 발생!
       $("[name=ajaxFileTest]").change(function(){
         // var reader = new FileReader();
         // reader.onload = function(e){ //e.target.result: 변환주소
@@ -37,16 +37,20 @@
 
         //multiple files
         //item: image files[0]...[n]
+
+        //선택한 파일들을 loop으로 돌면서 화면 출력 로직 수행
         $.each($(this)[0].files, function(i, item){
           var reader = new FileReader();
 
+          //'onload' event occurs when reader.readAsDataURL(item);
           reader.onload = function(e){
             var img = $('<img>').attr("src", e.target.result)
                                 .css({"width": "100px", "height": "100px"});
             $('#image').append(img);
           };
 
-          reader.readAsDataURL(item); // $(this)[0].files[i];
+          //this incurs "reader.onload"
+          reader.readAsDataURL(item);
         });
       });
     });
@@ -55,11 +59,12 @@
       //보낼 데이터 -> 업로드파일 설정
       var fd = new FormData();
       //업로드 파일을 formData에 추가함.
-      // fd.append("bs", ajaxFile.ajaxFileTest.files[0]); //parameter "bs"
+      // fd.append("bs", ajaxFile.ajaxFileTest.files[i]);
+      // fd.append("bs", $(this)[0].files[i]);
 
       //여러개 파일을 업로드
       $.each(ajaxFile.ajaxFileTest.files, function(i, item){
-        fd.append("bs" + i, item);
+        fd.append("bs"+i, item);
       });
       $.ajax({
         url: "<%=request.getContextPath() %>/ajaxUpload",

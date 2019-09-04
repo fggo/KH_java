@@ -34,11 +34,11 @@
           type: "GET",
           dataType: "xml", //text xml json html
           success: function(data){
+            var root = $(data).find(":root"); //<root> 데이터 불러옴
+            var book = root.find("book"); //<book>
+
             console.log(data);
-            //root태그를 불러옴
-            var root = $(data).find(":root");
             console.log(root);
-            var book = root.find("book");
             console.log(book);
 
             var fic = "<tr><th>제목</th><th>저자</th></tr>";

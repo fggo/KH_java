@@ -22,7 +22,7 @@
             //jquery방식으로 요청할때는 %.ajax()함수를 호출하고,
             //호출시에 객체 형식으로 속성값을 초기화해 주면 됨.
             $.ajax({
-              url: "test.txt", //요청주소 /url/to/test.txt
+              url: "./test.txt", //요청주소 /url/to/test.txt
               type: "GET", //요청방식
               dataType: "text", //응답데이터 형 : text(csv), html(jsp), script, xml, json
               success: function(data){
@@ -62,7 +62,7 @@
 
       <h2>csv 방식으로 불러오기</h2>
       <!-- | == \n -->
-      csv : 이름,유병승,나이,19|이름,유병승,나이,29
+      csv : 이름,유병승,나이,19 | 이름,유병승,나이,29
       <button id='btn3'>csv가져오기</button>
       <div id='content3'></div>
       <script>

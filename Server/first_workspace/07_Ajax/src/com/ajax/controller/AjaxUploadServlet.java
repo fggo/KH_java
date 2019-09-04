@@ -44,8 +44,8 @@ public class AjaxUploadServlet extends HttpServlet {
 	  //파일 최대 크기
 	  int maxSize = 1024*1024*1024; //1GB
 	  MultipartRequest mr = new MultipartRequest(request,
-	      saveDir, maxSize, "UTF-8", new DefaultFileRenamePolicy());
-	  
+                                      saveDir, maxSize, "UTF-8",
+                                      new DefaultFileRenamePolicy());
 
 	  //여러개 파일 업로드시 여러개 파일 받아오기
 	  Enumeration<String> e = mr.getFileNames();
