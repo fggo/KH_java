@@ -1,5 +1,50 @@
+# Web Socket
+http://192.168.20.26:9090/JspWebsocket/views/progrmaTest.jsp
+웹소켓(protocol): RFC6455 등록코드 표준화 되어있음
+
+웹소켓 구현방식
+  1. socket.io library -> node.js 연결
+     node서버 구현.tomcat과 정보 주고받을 수 없음
+     node서버 + mongoDB
+  2. java기본 API JSR 356
 
 
+
+javaAPI를 이용하여 웹소켓구현
+  - javax.websocket.server 패키지
+      : 서버를 구현할 때 필요한 객체
+  - javax.websocket 패키지
+      : 공통적인 부분, client 구현시 필요한 객체
+
+기본적인 설정
+  1. server 설정 -> class 생성!
+    서버설정 시에는 두가지 방법
+      1) annotation으로 설정 (선언적 방식)
+         @Endpoint
+         public class ChattingServer{
+           @OnMessage
+           function(){}
+         }
+      2) programatic 프로그램 소스코드 작성
+         public class ChattingServer extends Endpoint{
+           @Override
+           function(){}
+         }
+  2. 기능을 하는 이벤트 메소드를 등록
+    onOpen //session부여되는 순간
+    onMessage //
+    onClose //session연결 끊어질때
+    onError
+
+  Client측 설정
+    html로 되어 있음. HTML5에서 웹소켓을 표준으로 지정
+    javascript에서 websocket 사용이 가능
+    기본 WebSocket 객체를 생성해서 이용!
+    new WebSocket("ws://서버주소/매핑값");
+    //서버와 자동으로 연결(Session값을 받아옴.)
+
+    이벤트처리 메소드를 등록
+    onOpen, onMessage, onClose, onError
 
 
 
