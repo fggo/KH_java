@@ -10,7 +10,7 @@ endif
 
 syntax on
 set background=dark
-colorscheme solarized8
+colorscheme molokai
 
 set lines=55 columns=90
 
@@ -22,8 +22,9 @@ set nu
 
 nnoremap zz :update<CR>
 
-set encoding=utf-8
-set fileencoding=utf-8
+set encoding=cp949
+set fileencodings=utf-8,cp949
+set langmenu=cp949
 
 set tabstop=2
 set shiftwidth=2
