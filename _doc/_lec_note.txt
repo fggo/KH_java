@@ -1,3 +1,22 @@
+
+
+
+
+
+
+<직무 설명회>
+
+
+
+
+
+
+
+
+
+
+
+
 # Web Socket
 http://192.168.20.26:9090/JspWebsocket/views/progrmaTest.jsp
 웹소켓(protocol): RFC6455 등록코드 표준화 되어있음
