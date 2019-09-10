@@ -41,9 +41,9 @@ public class MemberSearchServlet extends HttpServlet {
         Class.forName("oracle.jdbc.driver.OracleDriver");
         Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","web","web");
         Statement stmt=conn.createStatement();
-        ResultSet rs=stmt.executeQuery("select userName from member where userName like '%"+key+"%'");
+        ResultSet rs=stmt.executeQuery("select userid from member where userid like '%"+key+"%'");
         while(rs.next()) {
-            list.add(rs.getString("userName"));
+            list.add(rs.getString("userid"));
         }
     }catch(Exception e) {
         e.printStackTrace();
