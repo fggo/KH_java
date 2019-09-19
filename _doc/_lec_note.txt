@@ -4,7 +4,6 @@
 
 
 
-<직무 설명회>
 
 
 
@@ -14,6 +13,53 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Server 배포
+원격으로 서버에 접속하여 배포
+telnet(보안 프로토콜 x) putty
+putty로 서버 관리
+pscp.exe : file upload(ftp)
+
+프로젝트 파일을 배포용으로 만들기 -> war!!
+프로젝트 -> .war 파일변환하고 -> putty를 이용해서 file upload(pscp.exe)
+
+Eclispe project r_click - export WAR file
+  - destination: war file 어디에 저장할지 e.g. C:users/user11
+  - WAR 이름이 project root dir됨(request.getContextPath())
+  - 실행시 .java source file없이 .class만 필요함
+
+
+war파일 올리는 명령어
+pscp 파일명(경로까지 포함) 서버계정명@서버주소:서버상톰캣주소/webapps/
+$ pscp .\Parking.war team1@rclass.iptime.org:/home/apache-tomcat-8.5.45/webapps/
+    password: team11
+ls /home/apache-tomcat-8.5.45/webapps/
+
+new tomcat 버젼에서는 서버 재실행 안해도 업데이트 됨
+shutdown.sh
+start.sh
+
+rclass.iptime.org:9999/HelloMVC/
 
 
 
