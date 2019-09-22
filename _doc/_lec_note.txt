@@ -1,33 +1,36 @@
 
+<div class="d-flex bd-highlight mb-3">
+  <div class="mr-auto p-2 bd-highlight">Logo</div>
+  <div class="mx-3 p-2 bd-highlight">searchBar</div>
+  <div class="p-2 bd-highlight">Flex item</div>
+  <div class="p-2 bd-highlight">Flex item</div>
+  <div class="p-2 bd-highlight">Flex item</div>
+  <div class="p-2 bd-highlight">Sign Out</div>
+  <div class="p-2 bd-highlight">Sign In</div>k
+  <div class="p-2 bd-highlight">Sign Up</div>
+</div>
 
 
+$('.input').keypress(function (e) {
+  if (e.which == 13) {
+    $('form#login').submit();
+    return false;    //<---- Add this line
+  }
+});
 
 
+$('#dSuggest').keypress(function() {
+    var dInput = this.value;
+    console.log(dInput);
+    $(".dDimension:contains('" + dInput + "')").css("display","block");
+});
 
+This parking space is very clean and the service is good. They even allow me to reserve a spot. They also provide coupons!
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Ive never seen such a clean parking lot before... I will use this place often! It was a delight experience
+It was alright. I was about to pick up my family and I had to park my car at least for one hour. Luckily, I found this Parking app which provided me with the realtime parking locations around me. But it was way too expensive. So I give you 1 star ;)
+This parking space is very clean and the service is good. They even allow me to reserve a spot. They also provide coupons!
+The guy working there is rude. He yelled at me and tried to charge me 200 bucks per second. Definitely not worth your time and money!
 
 
 
