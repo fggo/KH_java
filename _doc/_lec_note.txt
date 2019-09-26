@@ -1,3 +1,9 @@
+1. jsp -> 다른jsp로 include /forward 할때 <% request.setCharacterEncoding("EUC-KR"); %> 하는이유?
+  원래는 서블릿<->jsp에서는 필터를 이용하여 자동 encoding 했지만,  jsp<->jsp 이기 때문에 encoding을 지정해줘야 한글을 읽을수있어서
+
+3. taglibs.*.jar (compat/impl/jstlel/spec)
+
+2. tag library descriptor -> web.xml(where??)
 
 <div class="d-flex bd-highlight mb-3">
   <div class="mr-auto p-2 bd-highlight">Logo</div>
