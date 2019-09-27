@@ -1,11 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="jsp_new" deleted="false" description="JSP with html 5 markup" enabled="true" id="org.eclipse.jst.jsp.ui.templates.jsphtml5" name="New JSP File (html 5)">&lt;%@ page language="java" contentType="text/html; charset=UTF-8"&#13;
-    pageEncoding="UTF-8"%&gt;&#13;
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="jsp_new" deleted="false" description="JSP with html 5 markup" enabled="true" id="org.eclipse.jst.jsp.ui.templates.jsphtml5" name="New JSP File (html 5)">&lt;%@ page language="java" contentType="text/html; charset=${encoding}"&#13;
+    pageEncoding="${encoding}"%&gt;&#13;
+&lt;%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %&gt;&#13;
+&lt;%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %&gt;&#13;
+&lt;%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %&gt;&#13;
 &#13;
-&lt;%@ include file="/views/common/header.jsp" %&gt;&#13;
+&lt;c:set var="path" value="$${pageContext.request.contextPath}" /&gt;&#13;
 &#13;
 &lt;!DOCTYPE html&gt;&#13;
 &lt;html&gt;&#13;
 &lt;head&gt;&#13;
+  &lt;meta charset="${encoding}"&gt;&#13;
   &lt;!-- CSS --&gt;&#13;
   &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"&gt;&#13;
   &lt;link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"&gt;&#13;
@@ -15,7 +19,6 @@
   &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"&gt;&lt;/script&gt;&#13;
 &lt;/head&gt;&#13;
 &lt;body&gt;&#13;
-&#13;
+  &#13;
 &lt;/body&gt;&#13;
-&lt;/html&gt;&#13;
-&lt;%@ include file="/views/common/footer.jsp" %&gt;</template></templates>
+&lt;/html&gt;</template></templates>
