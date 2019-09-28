@@ -14,9 +14,10 @@
   request.setAttribute("result",result);
 %>
 
-<!-- 페이지 전환 
-  페이지 전환시 파라미터 값을 전송!
--->
+<!-- 페이지 전환 forward  -->
+<%-- <jsp:forward page="resultView.jsp/"> --%>
+
+<!-- 페이지 전환 forward시 파라미터 값 전송 가능! -->
 <jsp:forward page="resultView.jsp">
   <jsp:param name="that" value="가니?"/>
 </jsp:forward>

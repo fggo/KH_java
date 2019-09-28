@@ -5,6 +5,7 @@
 <!-- action태그를 이용한 페이지 불러오는 방식 
   jsp:param을 통해서 불러오는 페이지에  값을 전달할 수 있음!
 -->
+<%-- <jsp:include page="header.jsp" /> --%>
 <%
   request.setCharacterEncoding("utf-8");
 %>

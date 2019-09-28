@@ -10,21 +10,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+  <!-- JQUERY -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!-- JAVASCRIPT -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
+  <div class="container card my-5 col-md-6 jumbotron">
+
   <h2>1. JSTL출력하기</h2>
-  <p>c:out태그 이용하여 원하는 데이터를 페이지에 출력할 수 있음.
+  <pre>c:out태그 이용하여 원하는 데이터를 페이지에 출력할 수 있음.
     태그 속성으로는 value가 있음.
     value에 있는 값을 출력하게 되는 로직
     value=리터럴값(문자)|EL표현식*표현시에는 "",''감싸줘야함
-  </p>
+  </pre>
 
   <h3> <c:out value="첫 출력 ! 와우"></c:out> </h3>
   태그요소 텍스트노드
+
   <%-- <c:out>이거는될까요</c:out>   완전한 태그는 아니라서 오류. 이렇게 쓰면안됌 --%>
 
-  <c:out value="<h3>여러분힘내고 건강관리하세요</h>"/>
+  <c:out value="<h3>여러분힘내고 건강관리하세요</h3>"/>
   <!-- c:out escapeXml속성 : value에 있는 html구문을 해석여부 결정  
     escapeXml 속성 : true -> html구문을 해석하지 않는것 false => 해석함
    -->
@@ -36,13 +45,15 @@
   <c:out value="${20*30}"/>
   <c:out value="${20<30}"/>
 
+  
+  <h1>3. c: set태그를 이용 </h1>
   <h4>변수생성 값대입</h4>
-
-  <h1>3. c: set태그를 이용 
+  <pre>
     속성 : var, value
     var -> 변수명이랑 동일하다고 보면됨, EL이 이명칭으로 호출하게됨.
     value -> var명칭에 들어갈 값
-  </h1>
+  </pre>
+
   <c:set var="name" value="류별리 완죤지각"/>
   <!-- page객체 안에 name key값을 만들고 value를 저장  -->
   <h1>${name}</h1>
@@ -95,5 +106,6 @@
   <c:out value="지운값 : ${sessionScope.age}" /> <br/>
   
   
+  </div>
 </body>
 </html>

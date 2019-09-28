@@ -11,7 +11,6 @@
 </head>
 <body>
   <h2>bean을 활용한 데이터 저장 하기</h2>
-
   <!-- 1.jsp:useBean태그를 이용 객체를 페이지에서 만듦 -->
   <jsp:useBean id="p1" class="action.model.vo.Person" scope="request" />
 
@@ -28,9 +27,9 @@
   나이 : <jsp:getProperty property="age" name="p2"/>
   성별 : <jsp:getProperty property="gender" name="p2"/>
 
-  <!-- 직접 데이터를 객체에 넣기  -->
-  
-  <h2>파라미터로 보낸 '객체' 데이터 저장하기(서블릿 setAttribute("p2") O) form으로 보낸 데이터도 받음</h2>
+  <!-- 직접 데이터를 객체에 넣기 jsp:setProperty -->
+
+  <h2>파라미터로 보낸 '객체' 데이터 저장하기(서블릿 setAttribute("p3") O) form으로 보낸 데이터도 받음</h2>
   <jsp:useBean id="p3" class="action.model.vo.Person" scope="request" />
 
   <%--<jsp:setProperty property="name" name="p3" value='<%=((action.model.voPerson)request.getAttribute("p3")).getName()%>'/>--%>
@@ -42,7 +41,7 @@
   나이 : <jsp:getProperty property="age" name="p3"/>
   성별 : <jsp:getProperty property="gender" name="p3"/>
 
-  <h2>파라미터로 보낸 '객체' 데이터 저장하기(서블릿 setAttribute("p3") X) form으로 보낸 데이터도 받음</h2>
+  <h2>파라미터로 보낸 '객체' 데이터 저장하기(서블릿 setAttribute("p4") X) form으로 보낸 데이터도 받음</h2>
   <jsp:useBean id="p4" class="action.model.vo.Person" scope="request" />
 
   <jsp:setProperty property="name" name="p4" param="name" />

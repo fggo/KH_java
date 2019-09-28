@@ -19,11 +19,20 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <a href="${path }/firstMybatis">첫 마이바티스활용</a>
-  <form action="${path}"/paramMybatis" method="post" >
-  	학생번호: <input type="text" name="no" />
-  	<input type="submit" value="전송" />
-  </form>
-  
+
+  <div class="container card my-3 px-3 py-3 col-md-6 jumbotron">
+
+    <span>
+      <a href="${path }/firstMybatis">마이바티스 활용 : 첫 INSERT</a>
+    </span>
+
+    <form action="${path}/paramMybatis" method="post" class="form form-inline" >
+      <label for="no" class="input-group-prepend mx-2">학생번호 : </label>
+      <input type="text" id="no" name="no" class="form-control my-2 mx-2" />
+      <input type="submit" value="전송" class="form-control btn btn-sm btn-outline-info input-group-append" />
+    </form>
+
+  </div>
+
 </body>
 </html>

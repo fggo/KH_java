@@ -21,6 +21,7 @@
    에러발생후!<br/>
  </c:catch>
  <c:out value="${e}"/>
+<br>   에러발생후!<br/>
 
 </body>
 </html>

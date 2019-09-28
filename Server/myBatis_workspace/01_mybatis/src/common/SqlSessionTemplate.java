@@ -8,28 +8,27 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class SqlSessionTemplate {
-	//1. mybatis-config.xml ÆÄÀÏÀ» ºÒ·¯¿Â´Ù.
-	public static SqlSession getSession() {
-		String resource = "/mybatis-config.xml";
-		//resources Æú´õ´Â °°Àº ·çÆ®·Î ÀÎ½Ä
-		SqlSession session = null;
+  //1. mybatis-config.xml íŒŒì¼ì„ ë¶ˆëŸ¬ì˜¨ë‹¤.
+  public static SqlSession getSession() {
+    String resource = "/mybatis-config.xml";
+    SqlSession session = null;
 
-		try {
-			InputStream is = Resources.getResourceAsStream(resource); //Resources: mybatis°¡ Á¦°øÇÏ´Â °´Ã¼
+    try {
+      InputStream is = Resources.getResourceAsStream(resource); //Resources: mybatis
 
-			//false: Æ®·»Á§¼ÇÀ» ÀÚµ¿À¸·Î ÇÏÁö ¾ÊÀ½(auto commit false¿Í ºñ½Á)
-			//sessionÀÌ commit rollback¸ğµÎ ¼öÇà
+      //false: (auto commit false)
+      //session commit rollback
 
-//			SqlSessionFactoryBuilder fbuilder = new SqlSessionFactoryBuilder();
-//			SqlSessionFactory factory = fbuilder.build(is);
-//			session = factory.openSession(false);
+//      SqlSessionFactoryBuilder fbuilder = new SqlSessionFactoryBuilder();
+//      SqlSessionFactory factory = fbuilder.build(is);
+//      session = factory.openSession(false);//íŠ¸ëœì ì…˜ì„ ìë™ìœ¼ë¡œ í•˜ì§€ ì•ŠìŒ
 
-			session = new SqlSessionFactoryBuilder().build(is).openSession(false);
+      session = new SqlSessionFactoryBuilder().build(is).openSession(false);
 
-		} catch(IOException e) {
-			e.printStackTrace();
-		}
+    } catch(IOException e) {
+      e.printStackTrace();
+    }
 
-		return session;
-	}
+    return session;
+  }
 }

@@ -1,9 +1,31 @@
-1. jsp -> 다른jsp로 include /forward 할때 <% request.setCharacterEncoding("EUC-KR"); %> 하는이유?
-  원래는 서블릿<->jsp에서는 필터를 이용하여 자동 encoding 했지만,  jsp<->jsp 이기 때문에 encoding을 지정해줘야 한글을 읽을수있어서
 
-3. taglibs.*.jar (compat/impl/jstlel/spec)
+Server 배포
+원격으로 서버에 접속하여 배포
+telnet(보안 프로토콜 x) putty
+putty로 서버 관리
+pscp.exe : file upload(ftp)
 
-2. tag library descriptor -> web.xml(where??)
+프로젝트 파일을 배포용으로 만들기 -> war!!
+프로젝트 -> .war 파일변환하고 -> putty를 이용해서 file upload(pscp.exe)
+
+Eclispe project r_click - export WAR file
+  - destination: war file 어디에 저장할지 e.g. C:users/user11
+  - WAR 이름이 project root dir됨(request.getContextPath())
+  - 실행시 .java source file없이 .class만 필요함
+
+
+war파일 올리는 명령어
+pscp 파일명(경로까지 포함) 서버계정명@서버주소:서버상톰캣주소/webapps/
+$ pscp .\Parking.war team1@rclass.iptime.org:/home/apache-tomcat-8.5.45/webapps/
+    password: team11
+ls /home/apache-tomcat-8.5.45/webapps/
+
+new tomcat 버젼에서는 서버 재실행 안해도 업데이트 됨
+shutdown.sh
+start.sh
+
+rclass.iptime.org:9999/HelloMVC/
+
 
 <div class="d-flex bd-highlight mb-3">
   <div class="mr-auto p-2 bd-highlight">Logo</div>
@@ -41,34 +63,6 @@ The guy working there is rude. He yelled at me and tried to charge me 200 bucks 
 
 
 
-
-
-Server 배포
-원격으로 서버에 접속하여 배포
-telnet(보안 프로토콜 x) putty
-putty로 서버 관리
-pscp.exe : file upload(ftp)
-
-프로젝트 파일을 배포용으로 만들기 -> war!!
-프로젝트 -> .war 파일변환하고 -> putty를 이용해서 file upload(pscp.exe)
-
-Eclispe project r_click - export WAR file
-  - destination: war file 어디에 저장할지 e.g. C:users/user11
-  - WAR 이름이 project root dir됨(request.getContextPath())
-  - 실행시 .java source file없이 .class만 필요함
-
-
-war파일 올리는 명령어
-pscp 파일명(경로까지 포함) 서버계정명@서버주소:서버상톰캣주소/webapps/
-$ pscp .\Parking.war team1@rclass.iptime.org:/home/apache-tomcat-8.5.45/webapps/
-    password: team11
-ls /home/apache-tomcat-8.5.45/webapps/
-
-new tomcat 버젼에서는 서버 재실행 안해도 업데이트 됨
-shutdown.sh
-start.sh
-
-rclass.iptime.org:9999/HelloMVC/
 
 
 

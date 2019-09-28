@@ -17,7 +17,7 @@
 </head>
 <body>
 
-  <div class="container card my-3 mx-3 py-3 px-3 col-md-6">
+  <div class="container card my-3 jumbotron py-3 px-3 col-md-6">
 
     <h2>기본숫자 표현하기</h2>
     <c:set var="numtest" value="1234501987" />
@@ -39,18 +39,20 @@
       groupingUsed사용 X: <fmt:formatNumber value="${numtest}" groupingUsed="false" />
     </pre>
     <hr>
-    <h2>화폐표시하기</h2>
-    <p>화폐는 기본적으로 톰켓이 가지고 있는 locale값을 기준으로 설정됨.<br>
-      currencySymbol="기호($, \)" 설정을 변경할 수 있음<br>
-      지역설정을 변경하는 것도 가능. fmt:setLocale태그 이용<br>
-      화폐를 표시할때, type속성 -> currency으로 설정
-    </p>
-    <p>기본통화설정 : <fmt:formatNumber value="${numtest}" type="currency"/>원</p>
-    <p>현재 locale : <%=request.getLocale() %> (톰캣 locale설정은 바뀌지 않음) </p>
 
+    <h2>화폐표시하기</h2>
+    <pre>
+      화폐는 기본적으로 톰켓이 가지고 있는 locale값을 기준으로 설정됨.
+      currencySymbol="화폐기호($, \)" 설정을 변경할 수 있음
+      지역설정을 변경하는 것도 가능. fmt:setLocale태그 이용
+      화폐를 표시할때, type속성 -> currency으로 설정
+    </pre>
+    <p>기본통화설정 : <fmt:formatNumber value="${numtest}" type="currency"/>원</p>
+    <p>현재 locale : <%=request.getLocale() %> (톰캣 locale설정값(=request.getLocale()) 은 바뀌지 않음) </p>
 
     <fmt:setLocale value="en_US" />
     <p>locale변경 후 통화 : <fmt:formatNumber value="${numtest}" type="currency"/> 달러</p>
+    <p>현재 locale : <%=request.getLocale() %> (톰캣 locale설정값(=request.getLocale()) 은 바뀌지 않음) </p>
 
     <p>직접 통화 정의 <fmt:formatNumber value="${numtest}" type="currency" currencySymbol="**"/></p>
 
@@ -87,8 +89,8 @@
       minFractionDigit : 최소 소수점 자리수
       maxFractionDigit : 최대 소수점 자리수 반올림
     </pre>
-    <p>최소소수점 자리수 : <fmt:formatNumber value="${numtest4}" minFractionDigits="5" pattern="#,###.####" /> </p>
-    <p>최대소수점 자리수 : <fmt:formatNumber value="${numtest4}" maxFractionDigits="2" pattern="#,###.####" /> </p>
+    <p>최소소수점 자리수(5) : <fmt:formatNumber value="${numtest4}" minFractionDigits="5" pattern="#,###.####" /> </p>
+    <p>최대소수점 자리수(2) : <fmt:formatNumber value="${numtest4}" maxFractionDigits="2" pattern="#,###.####" /> </p>
 
   </div>
 

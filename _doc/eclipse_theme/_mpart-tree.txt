@@ -1,2 +1,0 @@
-C:\Users\username\eclipse\jee-2019-03\eclipse\configuration\org.eclipse.e4.ui.css.swt.theme
-Create: e4_default_win.css

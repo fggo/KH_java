@@ -15,7 +15,7 @@ import com.mybatis.model.service.MybatisService;
  */
 @WebServlet("/firstMybatis")
 public class FirstMybatisServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -25,22 +25,23 @@ public class FirstMybatisServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int result = new MybatisService().insertStudent();
-		String msg = result >0? "ÀÔ·Â¼º°ø":"ÀÔ·Â½ÇÆÐ";
-		response.setContentType("text/html;charset=UTF-8");
-		response.getWriter().print(msg);
-	}
+  /**
+   * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+   */
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    int result = new MybatisService().insertStudent();
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+    String msg = result >0? "ìž…ë ¥ì„±ê³µ":"ìž…ë ¥ì‹¤íŒ¨";
+    response.setContentType("text/html;charset=UTF-8");
+    response.getWriter().print(msg);
+  }
+
+  /**
+   * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+   */
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    // TODO Auto-generated method stub
+    doGet(request, response);
+  }
 
 }
