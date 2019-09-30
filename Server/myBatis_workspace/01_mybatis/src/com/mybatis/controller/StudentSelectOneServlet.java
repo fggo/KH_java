@@ -10,20 +10,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mybatis.model.service.MybatisService;
 import com.mybatis.model.service.MybatisServiceImpl;
+import com.mybatis.model.vo.Student2;
 
 /**
- * Servlet implementation class FirstMybatisServlet
+ * Servlet implementation class StudentSelectOneServlet
  */
-@WebServlet("/firstMybatis")
-public class FirstMybatisServlet extends HttpServlet {
+@WebServlet("/student/selectOne.do")
+public class StudentSelectOneServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
-  
-  MybatisService service = new MybatisServiceImpl();
        
+  private MybatisService service = new MybatisServiceImpl();
+
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FirstMybatisServlet() {
+    public StudentSelectOneServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,11 +33,12 @@ public class FirstMybatisServlet extends HttpServlet {
    * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    int result = service.insertStudent();
-
-    String msg = result >0? "입력성공":"입력실패";
-    response.setContentType("text/html;charset=UTF-8");
-    response.getWriter().print(msg);
+    int no = Integer.parseInt(request.getParameter("no"));
+    Student2 s = service.selectOne(no);
+    int count = service.selectCount();
+    request.setAttribute("count", count);
+    request.setAttribute("student", s);
+    request.getRequestDispatcher("/views/selectOne.jsp").forward(request, response);
   }
 
   /**

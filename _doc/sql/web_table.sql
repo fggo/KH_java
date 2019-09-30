@@ -27,7 +27,7 @@
     NOMAXVALUE
     NOCYCLE
     NOCACHE;
-    
+    select * from member;
     
 CREATE TABLE MEMBER(
    USERID VARCHAR2(30) PRIMARY KEY

@@ -1,33 +1,17 @@
 package com.mybatis.model.service;
 
+import java.util.Map;
 
-import org.apache.ibatis.session.SqlSession;
+import com.mybatis.model.vo.Student;
+import com.mybatis.model.vo.Student2;
 
-import com.mybatis.model.dao.MybatisDao;
-
-import common.SqlSessionTemplate;
-
-public class MybatisService {
-  private MybatisDao dao = new MybatisDao();
-//  JDBC Connection  Mybatis sqlsession
-  public int insertStudent() {
-    SqlSession session = SqlSessionTemplate.getSession();
-    int result = dao.insertStudent(session);
-    if(result > 0) session.commit();
-    else session.rollback();
-    session.close();
-
-    return result;
-  }
-
-  public int insertStudent2(int no) {
-    SqlSession session = SqlSessionTemplate.getSession();
-    int result = dao.insertStudent2(session, no);
-    if(result > 0) session.commit();
-    else session.rollback();
-
-    session.close();
-
-    return result;
-  }
+public interface MybatisService {
+  int insertStudent();
+  int insertStudent2(int no);
+  int insertName(String name);
+  int insertStudentAll(Student s);
+  int insertStudentAll(Map<String, String> s);
+  int selectCount();
+//  Student selectOne(int no);
+  Student2 selectOne(int no);
 }

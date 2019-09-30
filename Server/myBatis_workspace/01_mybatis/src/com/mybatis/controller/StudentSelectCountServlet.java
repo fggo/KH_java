@@ -12,18 +12,18 @@ import com.mybatis.model.service.MybatisService;
 import com.mybatis.model.service.MybatisServiceImpl;
 
 /**
- * Servlet implementation class FirstMybatisServlet
+ * Servlet implementation class StudentSelectCountServlet
  */
-@WebServlet("/firstMybatis")
-public class FirstMybatisServlet extends HttpServlet {
+@WebServlet("/selectCount")
+public class StudentSelectCountServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
-  
-  MybatisService service = new MybatisServiceImpl();
        
+  private MybatisService service = new MybatisServiceImpl();
+
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FirstMybatisServlet() {
+    public StudentSelectCountServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,11 +32,12 @@ public class FirstMybatisServlet extends HttpServlet {
    * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    int result = service.insertStudent();
 
-    String msg = result >0? "입력성공":"입력실패";
-    response.setContentType("text/html;charset=UTF-8");
-    response.getWriter().print(msg);
+    int result = service.selectCount();
+
+    request.setAttribute("count", result);
+    request.getRequestDispatcher("/views/selectOne.jsp")
+      .forward(request, response);
   }
 
   /**

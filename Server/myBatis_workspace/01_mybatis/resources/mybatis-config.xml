@@ -3,6 +3,11 @@
 
 <configuration>
 
+  <!-- select할때 컬럼명을 맞추기위해 -->
+  <typeAliases>
+    <typeAlias type="com.mybatis.model.vo.Student2" alias="student"/>
+  </typeAliases>
+  
   <!-- 서버 구동하면 xml 등록됨 -->
   <environments default="dev">
     <environment id="dev">
@@ -20,5 +25,5 @@
   <mappers>
     <mapper resource="/mappers/student/student-mapper.xml" />
   </mappers>
-
+  
 </configuration>

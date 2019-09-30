@@ -13,3 +13,7 @@ CREATE TABLE STUDENT(
   REG_DATE DATE DEFAULT SYSDATE
 );
 COMMIT;
+
+CREATE sequence seq_student
+start with 10;
+

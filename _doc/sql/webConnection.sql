@@ -1,7 +1,7 @@
 --sqlplus oracle/system
 --create user web identified by web;
 --grant resource, connect to web;
-
+select * from tab;
 select * from member;
 select * from member where userid='admin';
 select * from board;

@@ -1,19 +1,19 @@
 package com.mybatis.model.dao;
 
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 
-public class MybatisDao {
-  public int insertStudent(SqlSession session) {
-//    <mapper namespace="student">
-//    <insert id="insertStudent">
-    int result = session.insert("student.insertStudent");
+import com.mybatis.model.vo.Student;
+import com.mybatis.model.vo.Student2;
 
-    return result;
-  }
-
-  public int insertStudent2(SqlSession session, int no) {
-    int result = session.insert("student.insertStudent2", no);
-
-    return result;
-  }
+public interface MybatisDao {
+  int insertStudent(SqlSession session);
+  int insertStudent2(SqlSession session, int no);
+  int insertName(SqlSession session, String name);
+  int insertStudentAll(SqlSession session, Student s);
+  int insertStudentAll(SqlSession session, Map<String, String> s);
+  int selectCount(SqlSession session);
+//  Student selectOne(SqlSession session, int no);
+  Student2 selectOne(SqlSession session, int no);
 }

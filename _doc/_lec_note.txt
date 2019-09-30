@@ -1,4 +1,10 @@
 
+<resultMap type="package.ClassName">
+  <id property="member var name" column="db_col_name" /> <!-- PK -->
+</resultMap>
+insert delete update
+  parameter 2개이상이면 parameterType="객체"
+
 Server 배포
 원격으로 서버에 접속하여 배포
 telnet(보안 프로토콜 x) putty
