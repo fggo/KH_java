@@ -9,6 +9,7 @@ public class MybatisDaoImpl implements MybatisDao {
   @Override
   public int insertMemberAll(SqlSession session, Member m) {
     session.insert("insertMemberAll", m);
+    return 0;
   }
 
 }
