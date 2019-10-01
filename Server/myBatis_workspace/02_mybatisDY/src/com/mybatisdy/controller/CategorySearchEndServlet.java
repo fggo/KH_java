@@ -34,11 +34,13 @@ public class CategorySearchEndServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	  request.setCharacterEncoding("utf-8");
+
 	  String type = request.getParameter("searchType");
-	  String keyword = request.getParameter("keyword");
+	  String key = request.getParameter("keyword");
+
 	  Map<String, String> param = new HashMap<String, String>();
 	  param.put("type", type);
-	  param.put("key", keyword);
+	  param.put("key", key);
 	  
 	  List<Map> list = service.selectSearch1(param);
 
