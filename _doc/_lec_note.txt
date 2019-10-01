@@ -1,4 +1,8 @@
 
+
+
+동적쿼리: runtime에 쿼리문이 if 조건에 따라 바뀜
+
 <resultMap type="package.ClassName">
   <id property="member var name" column="db_col_name" /> <!-- PK -->
 </resultMap>

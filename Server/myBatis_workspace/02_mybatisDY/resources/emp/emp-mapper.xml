@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="emp">
+
+  <select id="selectSearch1" parameterType="map" resultType="map">
+    <!-- # : set get -->
+    <!-- $ : literal value is simply replaced -->
+    <!-- 카테고리(리터럴값)에 의한 동적쿼리 실행 -->
+    SELECT * FROM EMPLOYEE
+    WHERE ${type} LIKE '%'||#{key}||'%'
+  </select>
+
+</mapper>

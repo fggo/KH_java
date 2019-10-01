@@ -32,6 +32,8 @@ public class Student2 {
         + "]";
   }
 
+  public int getStudentNo() { return studentNo; } 
+  public void setStudentNo(int studentNo) { this.studentNo = studentNo; } 
   public String getStudentName() { return studentName; }
   public void setStudentName(String studentName) { this.studentName = studentName; }
   public String getStudentTel() { return studentTel; }
@@ -40,8 +42,6 @@ public class Student2 {
   public void setStudentEmail(String studentEmail) { this.studentEmail = studentEmail; }
   public String getStudentAddr() { return studentAddr; }
   public void setStudentAddr(String studentAddr) { this.studentAddr = studentAddr; } 
-  public int getStudentNo() { return studentNo; } 
-  public void setStudentNo(int studentNo) { this.studentNo = studentNo; } 
   public Date getStudentRegDate() { return studentRegDate; } 
   public void setStudentRegDate(Date studentRegDate) { this.studentRegDate = studentRegDate; } 
 }

@@ -2,6 +2,7 @@ package com.mybatis.model.service;
 
 import static common.SqlSessionTemplate.getSession;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -99,13 +100,102 @@ public class MybatisServiceImpl implements MybatisService {
 //    return s;
 //  }
 
+//  @Override
+//  public Student2 selectOne(int no) {
+//    SqlSession session = getSession();
+//    Student2 s = dao.selectOne(session, no);
+//
+//    session.close();
+//
+//    return s;
+//  }
+  
   @Override
-  public Student2 selectOne(int no) {
+  public Map selectOne(int no) {
     SqlSession session = getSession();
-    Student2 s = dao.selectOne(session, no);
+    Map s = dao.selectOne(session, no);
 
     session.close();
 
     return s;
   }
+
+  @Override
+  public List<Student> selectListStudent() {
+    SqlSession session = getSession();
+    List<Student> list = dao.selectListStudent(session);
+
+    session.close();
+
+    return list;
+  }
+
+  @Override
+  public List<Student2> selectListStudent2() {
+    SqlSession session = getSession();
+    List<Student2> list = dao.selectListStudent2(session);
+
+    session.close();
+
+    return list;
+  }
+
+  @Override
+  public List<Map> selectListMap() {
+    SqlSession session = getSession();
+    List<Map> list = dao.selectListMap(session);
+
+    session.close();
+
+    return list;
+  }
+
+  @Override
+  public List<Map> selectSearchName(String name) {
+    SqlSession session = getSession();
+    List<Map> list = dao.selectSearchName(session, name);
+    
+    session.close();
+
+    return list;
+  }
+
+  @Override
+  public List<Map> selectSearchMulti(Map<String, String> params) {
+    SqlSession session = getSession();
+    List<Map> list = dao.selectSearchMulti(session, params);
+    
+    session.close();
+
+    return list;
+  }
+
+  @Override
+  public int updateStudent(Map<String, Object> param) {
+    SqlSession session = getSession();
+    int result = dao.updateStudent(session, param);
+
+    if(result >0) session.commit();
+    else session.rollback();
+    
+    session.close();
+
+    return result;
+  }
+
+  @Override
+  public int deleteStudent(int no) {
+    SqlSession session = getSession();
+    int result = dao.deleteStudent(session, no);
+
+    if(result >0) session.commit();
+    else session.rollback();
+    
+    session.close();
+
+    return result;
+  }
+  
+  
+  
 }

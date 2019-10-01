@@ -30,16 +30,13 @@
     resultType에 vo객체를 선언할 때 패키지명 까지 다 적어야함.
     mybatis-config 파일에 typeAlias로 vo객체를 지정하면
     별칭으로 사용이 가능~! -->
-  <select id="selectCount" resultType="_int">
-    select count(*) from student
-  </select>
+  <select id="selectCount" resultType="_int"> select count(*) from student </select>
 
   <!-- 
   <select id="selectOne" parameterType="_int" resultType="com.mybatis.model.vo.Student">
     select * from student where student_no= #{no}
   </select>
    -->
-
   <!--  이렇게 하면 null return함
   <select id="selectOne" parameterType="_int" resultType="com.mybatis.model.vo.Student2">
     select * from student where student_no= #{studentNo}
@@ -50,17 +47,9 @@
   <!-- resultMap이용한 객체 맵핑하기 -->
   <select id="selectOne" parameterType="_int" resultType="com.mybatis.model.vo.Student2"
     resultMap="resultStudent">
-<!--     select student_no as studentNo,
-           student_name as studentName,
-           student_tel as studentTel,
-           student_email as studentEmail,
-           student_addr as studentAddr,
-           reg_date as regDate
-         from student where student_no= #{no}
- -->
    select * from student where student_no = #{studentNo}
  </select>
-
+ 
   <!-- type aliases type == 별칭 id==변수명 -->
   <resultMap type="student" id="resultStudent">
     <result property="studentNo" column="student_no" />
@@ -70,5 +59,40 @@
     <result property="studentAddr" column="student_addr" />
     <result property="studentRegDate" column="reg_date" />
   </resultMap>
+
+  <!-- map객체를 이용해서 조회결과 가져오기 -->
+  <select id="selectOneMap" resultType="map" parameterType="_int">
+    select * from student where student_no = #{no}
+  </select>
+
+  <!-- resultType: Student 각 행의 type -->
+  <!--   <select id="selectListStudent" resultType="com.mybatis.model.vo.Student"> -->
+  <!-- typealias stu 등록 -->
+  <select id="selectListStudent" resultType="stu"> select * from student </select>
+
+  <!-- 안됨 : <select id="selectListStudent2" resultType="student"> -->
+  <select id="selectListStudent2" resultMap="resultStudent"> select * from student </select>
+
+  <select id="selectListMap" resultType="map"> select * from student </select>
+
+  <select id="selectSearchName" resultType="map" parameterType="string">
+    select * from student where student_name like '%'||#{name}||'%'
+  </select>
+
+  <select id="selectSearchMulti" resultType="map" parameterType="map">
+    select * from student
+      where student_name like'%'||#{name}||'%'
+        and student_email like '%'||#{email}||'%'
+  </select>
+  
+  <update id="updateStudent" parameterType="map">
+    update student set student_name = #{name},
+                       student_email = #{email}
+                   where student_no = #{no}
+  </update>
+  
+  <delete id="deleteStudent" parameterType="_int">
+    delete from student where student_no = #{no}
+  </delete>
 
 </mapper>

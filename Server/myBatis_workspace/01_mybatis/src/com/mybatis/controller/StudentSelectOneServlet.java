@@ -1,6 +1,7 @@
 package com.mybatis.controller;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mybatis.model.service.MybatisService;
 import com.mybatis.model.service.MybatisServiceImpl;
-import com.mybatis.model.vo.Student2;
 
 /**
  * Servlet implementation class StudentSelectOneServlet
@@ -34,7 +34,14 @@ public class StudentSelectOneServlet extends HttpServlet {
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     int no = Integer.parseInt(request.getParameter("no"));
-    Student2 s = service.selectOne(no);
+//    1.컬럼명과 객체 멤버변수명이 일치
+//    Student s = service.selectOne(no);
+//    2.컬럼명과 객체 멤버변수명이 불일치
+//    Student2 s = service.selectOne(no);
+//    3.vo객체 없이 조회하기
+    Map s = service.selectOne(no);
+    System.out.println(s);
+
     int count = service.selectCount();
     request.setAttribute("count", count);
     request.setAttribute("student", s);

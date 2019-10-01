@@ -5,6 +5,7 @@
 
   <!-- select할때 컬럼명을 맞추기위해 -->
   <typeAliases>
+    <typeAlias type="com.mybatis.model.vo.Student" alias="stu"/>
     <typeAlias type="com.mybatis.model.vo.Student2" alias="student"/>
   </typeAliases>
   

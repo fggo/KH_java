@@ -19,7 +19,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div class="container card my-5 col-md-8 jumbotron" id="student-container">
+  <div class="container card my-5 col-md-10 jumbotron" id="student-container">
     <h3>학생정보 검색</h3>
     <p>총학생수는 <c:out value="${count }"/>명 입니다.</p>
     <!-- <p>총학생수는 ${count }명 입니다.</p> -->
@@ -40,12 +40,24 @@
         </tr>
         <%-- <c:forEach var="item" items="${student}" varStatus="i"> --%>
         <tr>
+          <%--
           <td><c:out value='${student["studentNo"]}'/></td>
           <td><c:out value='${student["studentName"]}'/></td>
           <td><c:out value='${student["studentTel"]}'/></td>
           <td><c:out value='${student["studentEmail"]}'/></td>
           <td><c:out value='${student["studentAddr"]}'/></td>
           <td><c:out value='${student["studentRegDate"]}'/></td>
+          --%>
+
+          <!-- 대소문자 구분해야함!!! 무조건 대문자로 넘어옴! 
+            대문자로 받기 싫으면 resultMap에서 대문자->소문자 type=HashMap
+          -->
+          <td><c:out value='${student["STUDENT_NO"]}'/></td>
+          <td><c:out value='${student["STUDENT_NAME"]}'/></td>
+          <td><c:out value='${student["STUDENT_TEL"]}'/></td>
+          <td><c:out value='${student["STUDENT_EMAIL"]}'/></td>
+          <td><c:out value='${student["STUDENT_ADDR"]}'/></td>
+          <td><c:out value='${student["REG_DATE"]}'/></td>
         </tr>
         <%-- </c:forEach> --%>
         
