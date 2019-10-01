@@ -36,7 +36,7 @@ public class StudentDeleteServlet extends HttpServlet {
 	  int result = service.deleteStudent(no);
 	  
 	  response.setContentType("text/html;charset=utf-8");
-	  response.getWriter().append(result>0? "»èÁ¦¼º°ø": "»èÁ¦½ÇÆÐ");
+	  response.getWriter().append(result>0? "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½": "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	}
 
 	/**

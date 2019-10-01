@@ -22,7 +22,7 @@ import com.mybatis.model.vo.Student2;
 public class StudentSelectListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	//D.I ÀÇÁ¸¼º ÁÖÀÔÀ¸·Î spring¿¡¼­´Â ÀÚµ¿À¸·Î µé¾î°¨
+	//D.I ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ springï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¨
 	private MybatisService service = new MybatisServiceImpl();
 
     /**
@@ -37,13 +37,13 @@ public class StudentSelectListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	  /* ±âº»vo°´Ã¼ÀÌ¿ëÇØ¼­ Á¶È¸ÇÏ±â */
+	  /* ï¿½âº»voï¿½ï¿½Ã¼ï¿½Ì¿ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½È¸ï¿½Ï±ï¿½ */
 	  List<Student> list = service.selectListStudent();
 
-	  /* resultMapÀ» ÀÌ¿ëÇØ¼­ ¸®½ºÆ® Á¶È¸ÇÏ±â */
+	  /* resultMapï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¸ï¿½Ï±ï¿½ */
 	  List<Student2> list2 = service.selectListStudent2();
 
-	  /* mapÀ» ÀÌ¿ëÇØ¼­ vo¾øÀÌ ¸®½ºÆ® Á¶È¸ÇÏ±â */
+	  /* mapï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ø¼ï¿½ voï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¸ï¿½Ï±ï¿½ */
 	  List<Map> list3 = service.selectListMap();
 
 	  request.setAttribute("list", list);

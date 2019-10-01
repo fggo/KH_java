@@ -44,7 +44,7 @@ public class UpdateEndServlet extends HttpServlet {
 	  param.put("email", email);
 	  
 	  int result = service.updateStudent(param);
-	  String msg = result>0? "¼öÁ¤¼º°ø":"¼öÁ¤½ÇÆÐ";
+	  String msg = result>0? "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½":"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 	  response.setContentType("application/json;charset=utf-8");
 	  response.getWriter().write(msg);
