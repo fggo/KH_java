@@ -6,6 +6,7 @@ STS Spring Tool Suite : 이클립스 재단; 이클립스와 거의 비슷
 
 https://spring.io/tools3/sts/all
 
+http://mirror.navercorp.com/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.zip
 
 동적쿼리: runtime에 쿼리문이 if 조건에 따라 바뀜
 
