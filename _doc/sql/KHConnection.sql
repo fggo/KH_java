@@ -1,6 +1,7 @@
 select * from employee;
 select * from department;
 select * from job;
+select count(*) from employee;
 
 COMMIT;
 ROLLBACK;

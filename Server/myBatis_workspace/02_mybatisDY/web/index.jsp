@@ -20,7 +20,9 @@
 </head>
 <body>
   <div class="container card my-5 col-md-8 jumbotron">
-    <a href="${path }/empSearch1.do">항목별 검색하기</a>
+    <a href="${path }/empSearch1.do">항목 별 검색하기 ($사용)</a>
+    <a href="${path }/empSearch2.do">조건 별 검색하기 (if, choose, forEach)</a>
+    <a href="${path }/paging.do">페이징 처리하기</a>
   </div>
 </body>
 </html>

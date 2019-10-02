@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
 <mapper namespace="emp">
 
   <select id="selectSearch1" parameterType="map" resultType="map">
@@ -7,7 +8,68 @@
     <!-- $ : literal value is simply replaced -->
     <!-- 카테고리(리터럴값)에 의한 동적쿼리 실행 -->
     SELECT * FROM EMPLOYEE
-    WHERE ${type} LIKE '%'||#{key}||'%'
+      WHERE ${type} LIKE '%'||#{key}||'%'
   </select>
+
+  <select id="selectSearch2" parameterType="map" resultType="map">
+    SELECT * FROM
+      (SELECT A.*,
+         CASE WHEN SUBSTR(EMP_NO, 8,1) IN ('1','3')
+           THEN '남' ELSE '여' END AS GENDER
+         FROM EMPLOYEE A)
+     WHERE 1=1
+     <if test="type != null and type != ''">
+       AND ${type} LIKE '%'||#{key}||'%'
+     </if>
+     <if test="gender != null and gender != ''">
+      AND GENDER = #{gender}
+    </if>
+    <if test="salary != null and salary != ''">
+      
+       <!-- <if test="flag eq 'ge'">
+         AND SALARY <![CDATA[>=]]> #{salary}
+       </if>
+       <if test="flag eq 'le'">
+         AND SALARY <![CDATA[<=]]> #{salary}
+       </if> -->
+      <choose>
+        <when test="flag eq 'ge'">
+          AND SALARY <![CDATA[>=]]> #{salary}
+        </when>
+        <when test="flag eq 'le'">
+          AND SALARY <![CDATA[<=]]> #{salary}
+        </when>
+      </choose>
+    </if>
+    <if test="hireDate !=null and hireDate != ''">
+      <choose>
+        <when test="hireFlag eq 'ge'">
+          AND TO_DATE(TO_CHAR(HIRE_DATE, 'yyyy-MM-dd'), 'yyyy-MM-dd')
+            <![CDATA[>=]]> TO_DATE(#{hireDate} , 'yyyy-MM-dd')
+        </when>
+        <when test="hireFlag eq 'le'">
+          AND TO_DATE(TO_CHAR(HIRE_DATE, 'yyyy-MM-dd'), 'yyyy-MM-dd')
+            <![CDATA[<=]]> TO_DATE(#{hireDate} , 'yyyy-MM-dd')
+          <!-- AND HIRE_DATE <![CDATA[<=]]> TO_DATE(#{hireDate} , 'YYYY-MM-DD') -->
+        </when>
+      </choose>
+    </if>
+    <!-- 다중 값을 비교할 때 -->
+    <!-- 1.job_code == 'J1' or job_code=='J2'
+    2.job_code IN ('J1', 'J2',...) --> -->
+    <if test="jobs != null and jobs != '' ">
+      AND JOB_CODE IN
+      <foreach collection="jobs" item="item"
+        index="i" open="(" separator="," close=")"> <!-- ('J1', 'J2',...) -->
+        #{item}
+      </foreach>
+    </if>
+  </select>
+
+  <select id="selectEmpList" resultType="map">
+    select * from employee
+  </select>
+
+  <select id="selectEmpCount" resultType="_int"> select count(*) from employee </select>
 
 </mapper>

@@ -1,4 +1,10 @@
+Spring
+  maven - manage modules automatically
 
+스프링 IDE 다운로드
+STS Spring Tool Suite : 이클립스 재단; 이클립스와 거의 비슷
+
+https://spring.io/tools3/sts/all
 
 
 동적쿼리: runtime에 쿼리문이 if 조건에 따라 바뀜
