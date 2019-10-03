@@ -19,7 +19,10 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div class="container card my-5 col-md-11 jumbotron">
+  <div class="text-left container col-md-11 py-3 my-1">
+    <a href="${path }/index.jsp">index</a>
+  </div>
+  <div class="container card mb-3 py-2 col-md-11 jumbotron">
     <div id="search-container">
 
       <form action="${path }/categorySearchEnd2.do" method="post" class="form form-inline mb-2">
@@ -91,6 +94,11 @@
          </tr>
         </table>
       </form>
+      <script>
+        $(function(){
+          $('input').addClass("mx-2");
+        });
+      </script>
 
     </div>
     <c:if test="${not empty list}">

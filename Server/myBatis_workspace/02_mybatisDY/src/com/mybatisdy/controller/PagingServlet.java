@@ -43,11 +43,9 @@ public class PagingServlet extends HttpServlet {
 	    cPage = 1;
 	  }
 	  
-	  //rowbounds로 여러개 parameters 받을수 있음 selectList로
+	  // variable RowBounds w/ constructor with parameters (offset,limit)
+	  // is passed as a param to selectList(,,RowBounds)
 	  List<Map<String, String>> list = service.selectEmpList(cPage, numPerPage);
-
-	  System.out.println(list);
-	  System.out.println(list.size());
 
 	  int totalCount = service.selectEmpCount();
 
@@ -61,7 +59,7 @@ public class PagingServlet extends HttpServlet {
             + "justify-content-center pagination-sm'>";
 	   if(pageNo==1) {
 	     pageBar+="<li class='page-item disabled'>";
-	     pageBar+="<a class='page-link' href='#' tabindex='-1'>Next</a>";
+	     pageBar+="<a class='page-link' href='#' tabindex='-1'>Prev</a>";
 	     pageBar+="</li>";
 	   }else {
 	     pageBar+="<li class='page-item'>";
@@ -89,7 +87,7 @@ public class PagingServlet extends HttpServlet {
 	    }else {
 	      pageBar+="<li class='page-item'>";
 	      pageBar+="<a class='page-link' href='javascript:void(0);' "
-	          + "onclick='fn_paging("+(pageNo)+");'>"+pageNo+"</a>";
+	          + "onclick='fn_paging("+(pageNo)+");'>Next</a>";
 	      pageBar+="</li>";
 	    }
 	    pageBar+="</ul>";

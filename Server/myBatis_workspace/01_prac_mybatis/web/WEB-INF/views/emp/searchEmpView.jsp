@@ -19,7 +19,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div class="container card my-2 col-md-8" id="insertContainer">
+  <div class="container card my-2 col-md-8" id="searchContainer">
     <div id="insertFrm">
       <div class="form-inline">
         <label for="id" class="col-md-3">Emp ID</label>
@@ -81,7 +81,7 @@
       </div>
 
       <div class="form-inline">
-        <label for="bonus" class="col-md-3">bonus(%)</label>
+        <label for="bonus" class="col-md-3">bonus(0.0 ~ 1.0)</label>
         <input type="number" class="form-control" id="bonus" name="bonus" step=.01 placeholder="%" />
       </div>
 
@@ -91,11 +91,11 @@
       </div>
 
       <div class="form-inline justify-content-center my-2">
-        <button id="insertBtn" class="btn btn-sm btn-info">회원추가</button>
+        <button id="searchBtn" class="btn btn-sm btn-info">회원검색</button>
       </div>
       <script>
         $(function(){
-          $('#insertBtn').click(function(){
+          $('#searchBtn').click(function(){
             console.log("aaa");
             console.log($('#id').val());
             console.log($('#name').val());
@@ -109,7 +109,7 @@
             console.log($('#mgrId').val());
             $.ajax({
               type: "POST",
-              url: "${path }/insertEmpEnd.do",
+              url: "${path }/searchEmpEnd",
               dataType: "text",
               data: { "id": $('#id').val(),
                       "name": $('#name').val(),
@@ -127,7 +127,7 @@
                 alert(data);
               },
               error: function(request, status, error){
-                alert("insertEmpEnd.do ajax ERROR!");
+                alert("searchEmpEnd ajax ERROR!");
               }
 
 

@@ -19,9 +19,12 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div class="container card my-5 col-md-10 jumbotron">
+  <div class="text-left container col-md-10 py-3 my-1">
+    <a href="${path }/index.jsp">index</a>
+  </div>
+  <div class="container card my-2 py-3 col-md-10 jumbotron">
     <div id="search-container">
-      <form action="${path }/categorySearchEnd.do" method="post" class="form form-inline mb-2">
+      <form action="${path }/categorySearchEnd.do" method="post" class="form form-inline my-2">
         <select name="searchType" class="form-control mx-1" required >
           <option value='' disabled selected>검색타입</option>
           <option value="emp_id" <c:if test="${'emp_id' eq param.searchType }"> selected</c:if>>사번</option>
@@ -51,20 +54,22 @@
             <th>입사일</th>
           </tr>
           <c:forEach var="e" items="${list }">
-            <td><c:out value="${e['EMP_ID']}" /></td>
-            <td><c:out value="${e['EMP_NAME']}" /></td>
-            <td><c:out value="${e['EMP_NO']}" /></td>
-            <td><c:out value="${e['EMAIL']}" /></td>
-            <td><c:out value="${e['PHONE']}" /></td>
-            <td><c:out value="${e['DEPT_CODE']}" /></td>
-            <td><c:out value="${e['JOB_CODE']}" /></td>
-            <td><c:out value="${e['SAL_LEVEL']}" /></td>
-            <td><fmt:formatNumber value="${e['SALARY']}" type="currency" /></td>
-            <td><fmt:formatNumber value="${e['BONUS']}" type="percent" /></td>
-            <td><c:out value="${e['MANAGER_ID']}" /></td>
-            <td><fmt:formatDate value="${e['HIRE_DATE']}"
-                                type="date"
-                                pattern="yyyy-MM-dd" /></td>
+            <tr>
+              <td><c:out value="${e['EMP_ID']}" /></td>
+              <td><c:out value="${e['EMP_NAME']}" /></td>
+              <td><c:out value="${e['EMP_NO']}" /></td>
+              <td><c:out value="${e['EMAIL']}" /></td>
+              <td><c:out value="${e['PHONE']}" /></td>
+              <td><c:out value="${e['DEPT_CODE']}" /></td>
+              <td><c:out value="${e['JOB_CODE']}" /></td>
+              <td><c:out value="${e['SAL_LEVEL']}" /></td>
+              <td><fmt:formatNumber value="${e['SALARY']}" type="currency" /></td>
+              <td><fmt:formatNumber value="${e['BONUS']}" type="percent" /></td>
+              <td><c:out value="${e['MANAGER_ID']}" /></td>
+              <td><fmt:formatDate value="${e['HIRE_DATE']}"
+                                  type="date"
+                                  pattern="yyyy-MM-dd" /></td>
+            </tr>
           </c:forEach>
         </table>
 

@@ -4,8 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<c:set var="path" value="${pageContext.request.contextPath}" />
-
+<c:set var="path" value="${pageContext.request.contextPath}" /> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,10 +29,13 @@
   </style>
 </head>
 <body>
-  <div class="container card my-5 col-md-10 jumbotron">
+  <div class="text-left container col-md-10 py-3 my-1">
+    <a href="${path }/index.jsp">index</a>
+  </div>
+  <div class="container card mb-3 col-md-10 jumbotron">
     <div id="search-container">
       <c:if test="${not empty list }">
-         <table>
+         <table class="table table-sm container">
          <tr>
             <th>사번</th>
             <th>사원명</th>
@@ -67,7 +69,14 @@
                <td><c:out value="${e['MANAGER_ID'] }"/></td>
                <%-- <td><c:out value="${e['HIRE_DATE'] }"/></td> --%>
                <td><fmt:formatDate value="${e['HIRE_DATE'] }" type="date" pattern="yyyy/MM/dd"/></td>
-               <td><c:out value="${e['GENDER'] }"/></td>
+               <%-- <td><c:out value="${e['GENDER'] }"/></td> --%>
+               <td>
+                  <c:set var="gender" value="${fn:substring(e['EMP_NO'],7,8)}" />
+                  <c:choose>
+                    <c:when test="${gender == '1' }">남</c:when>
+                    <c:when test="${gender == '2' }">여</c:when>
+                  </c:choose>
+               </td>
             </tr>
             </c:forEach>
          </table>

@@ -70,6 +70,8 @@
     select * from employee
   </select>
 
-  <select id="selectEmpCount" resultType="_int"> select count(*) from employee </select>
+  <select id="selectEmpCount" resultType="_int">
+    select count(*) from employee
+  </select>
 
 </mapper>

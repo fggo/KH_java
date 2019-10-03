@@ -26,7 +26,7 @@ public class EmpSearch2Servlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	  //sendRedirect 쓸수 없음; WEB-INF에 접근 X
+	  //using sendRedirect causes 404 ERROR. cannot access WEB-INF
 	  request.getRequestDispatcher("/WEB-INF/views/search2.jsp")
 	    .forward(request, response);
 	}

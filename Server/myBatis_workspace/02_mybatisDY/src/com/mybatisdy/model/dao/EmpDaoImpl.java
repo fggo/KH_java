@@ -10,7 +10,7 @@ public class EmpDaoImpl implements EmpDao {
 
   @Override
   public List<Map> selectSearch1(SqlSession session, Map<String, String> param) {
-    //¿©±â¼­ case¹® ¾µÇÊ¿ä ¾øÀÌ mapper.xml¿¡¼­ <if> <when> µîÀ¸·Î Á¶°Ç¹® ¾¸
+    //case mapper.xml : <if> <when>
     return session.selectList("emp.selectSearch1", param);
   }
 
@@ -21,12 +21,12 @@ public class EmpDaoImpl implements EmpDao {
 
   @Override
   public List<Map<String,String>> selectEmpList(SqlSession session, int cPage, int numPerPage) {
-    // 1.¸¶ÀÌ¹ÙÆ¼½º¿¡¼­ ÆäÀÌÂ¡Ã³¸®¸¦ ÇÏ±â À§ÇØ¼­´Â RowBounds°´Ã¼¸¦ ÀÌ¿ë
-    //RowBounds°´Ã¼¸¦ »ý¼ºÇØ¼­ ¸Å°³º¯¼ö·Î ´ëÀÔÀ» ÇØÁÖ¸é ÀÚµ¿À¸·Î
-    //RowBoundsÀÇ °ª¿¡ ÀÇÇØ ¼³Á¤µÈ °ªÀ¸·Î ÆäÀÌÂ¡ Ã³¸®¸¦ ÇÏ°ÔµÊ.
-    //»ý¼ºÀÚÀÇ ¸Å°³º¯¼ö: offset, limit
-    //  offset : ¸î°³ÀÇ ÀÚ·á¸¦(row) °¡Á®¿ÃÁö(°Ç³Ê¶ÛÁö) == ½ÃÀÛ °ª
-    //  limit : ÇÑ ÆäÀÌÁö ´ç °Ô½Ã¹° ¼ö == ¸¶Áö¸· °ª
+    // 1. ë§ˆì´ë°”í‹°ìŠ¤ì—ì„œ íŽ˜ì´ì§•ì²˜ë¦¬ë¥¼ í•˜ê¸° ìœ„í•´ì„œëŠ” RowBoundsê°ì²´ë¥¼ ì´ìš©
+    // RowBoundsê°ì²´ë¥¼ ìƒì„±í•´ì„œ ë§¤ê°œë³€ìˆ˜ë¡œ ëŒ€ìž…ì„ í•´ì£¼ë©´ 
+    // RowBounds ê°’ì˜ ì˜í•´ ì„¤ì •ëœ ê°’ì„ íŽ˜ì´ì§• ì²˜ë¦¬ë¥¼ í•˜ê²Œë¨
+    // ìƒì„±ìžì˜ ë§¤ê°œë³€ìˆ˜ : offset, limit ë‘ê°œì˜ ê°’ì„ ë°›ìŒ
+    // offset : ëª‡ê°œì˜ ìžë£Œë¥¼ (row)ê°€ì ¸ì˜¬ì§€(ê±´ë„ˆ ë›¸ì§€)
+    // limit : í•œíŽ˜ì´ì§€ë‹¹ ê²Œì‹œë¬¼ìˆ˜ -> ë§ˆì§€ë§‰
     RowBounds row = new RowBounds((cPage - 1)*numPerPage, numPerPage);
 
     return session.selectList("emp.selectEmpList", null, row);

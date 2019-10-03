@@ -17,7 +17,7 @@
   </environments>
   
   <mappers>
-    <mapper resource="/emp/emp-mapper.xml"/>
+    <mapper resource="/mappers/emp/emp-mapper.xml"/>
   </mappers>
   
 </configuration>

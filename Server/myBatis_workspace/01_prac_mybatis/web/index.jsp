@@ -19,23 +19,55 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div class="container card my-5 col-md-10 jumbotron">
-    <a href="javascript:;" id="createInsert"></a>
-    <div id="insertEmp"></div>
+  <div class="container card my-5 col-md-8 jumbotron">
+    <a href="javascript:;" id="toggleInsert">Insert Employee</a>
+    <div id="insertEmp" class="container"></div>
+    <a href="javascript:;" id="toggleSearch">Search Employee</a>
+    <div id="searchEmp" class="container"></div>
   </div>
 
   <script>
+    var isInsertToggled = "false";
     $(function(){
-      $('#createInsert').click(function(){
+      $('#toggleInsert').click(function(){
+        isInsertToggled = !isInsertToggled;
+        if(isInsertToggled){
+          $('#insertEmp').html("");
+          return;
+        }
         $.ajax({
-          url: "${path }/insertEmp",
+          type: "POST",
+          url: "${path }/insertEmp.do",
           dataType: "html",
-          // data: {""},
           success: function(data){
-            $('#insertEmp').
+            html = $('<div>').html(data);
+            $('#insertEmp').html(html.find('div#insertFrm'));
           },
-          error: function(data){
-            alert("createInsert click ajax ERROR!");
+          error: function(request, status, error){
+            alert("insertEmp.do ajax ERROR!");
+          }
+        });
+      });
+    });
+
+    var isSeachToggled = "false";
+    $(function(){
+      $('#toggleSearch').click(function(){
+        isSearchToggled = !isSearchToggled;
+        if(isSearchToggled){
+          $('#searchEmp').html("");
+          return;
+        }
+        $.ajax({
+          type: "POST",
+          url: "${path }/searchEmp",
+          dataType: "html",
+          success: function(data){
+            html = $('<div>').html(data);
+            $('#searchEmp').html(html.find('div#searchFrm'));
+          },
+          error: function(request, status, error){
+            alert("searchEmp ajax ERROR!");
           }
         });
       });
