@@ -1,5 +1,42 @@
+
+마지막 패키지 : root context
+jar 파일 폴더 경로 바꾸기 -> C:maven
+pom.xml maven environmental setting: allows to downloads .jar file
+preference > Maven > user settings
+
+http://localhost:9090/spring
+pom.xml 파일에 있는 version으로 MAven jar파일이 다운로드 됨
+
+ContextListener classnotfound error -> project deployment dependency
+-> add -> add java build path entry(maven dependency)
+project r_click maven-> maven project update
+
 Spring
   maven - manage modules automatically
+
+
+mvnrepository.com
+mybatis 3.4.6
+mybatis spring 
+
+
+ojdbc6 mvnrepository not working. -> lib폴더에 ojdbc6.jar 복붙
+
+
+database connection pool
+Commons DBCP
+
+
+필요한 jar파일 -> pom.xml에 등록 후 자동 다운로드
+FRAMEWORK에서 지원하는 버전으로 내려서 맞춰야함.
+web.xml 2.5 -> web-appversion 3.1 ( server/tomcat-xxx-/web.xml)
+
+
+
+
+
+
+
 
 스프링 IDE 다운로드
 STS Spring Tool Suite : 이클립스 재단; 이클립스와 거의 비슷

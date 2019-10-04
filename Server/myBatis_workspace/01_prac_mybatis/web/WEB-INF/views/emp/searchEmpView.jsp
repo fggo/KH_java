@@ -20,7 +20,7 @@
 </head>
 <body>
   <div class="container card my-2 col-md-8" id="searchContainer">
-    <div id="insertFrm">
+    <div id="searchFrm">
       <div class="form-inline">
         <label for="id" class="col-md-3">Emp ID</label>
         <input type="number" class="form-control" id="id" name="id" min="1" max="999" step="1" required />
@@ -32,18 +32,8 @@
       </div>
 
       <div class="form-inline">
-        <label for="no" class="col-md-3">NO('-')</label>
-        <input type="text" class="form-control" id="no" name="no" placeholder="yymmdd-xxxxxx" required />
-      </div>
-
-      <div class="form-inline">
         <label for="email" class="col-md-3">Email</label>
         <input type="text" class="form-control" id="email"  name="email" placeholder="example@mail.com" required />
-      </div>
-
-      <div class="form-inline">
-        <label for="phone" class="col-md-3">Phone</label>
-        <input type="text" class="form-control" id="phone" name="phone" placeholder="010-xxxx-xxxx" required />
       </div>
 
       <div class="form-inline">
@@ -83,6 +73,8 @@
       <div class="form-inline">
         <label for="bonus" class="col-md-3">bonus(0.0 ~ 1.0)</label>
         <input type="number" class="form-control" id="bonus" name="bonus" step=.01 placeholder="%" />
+        <label for="bonus-le">이하 <input type="radio" name="bonus-le-ge" id="bonus-le" /> </label>
+        <label for="bonus-ge">이상 <input type="radio" name="bonus-le-ge" id="bonus-ge" /> </label>
       </div>
 
       <div class="form-inline">
