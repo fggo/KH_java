@@ -16,11 +16,13 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
 <jsp:include page="/WEB-INF/views/common/header.jsp">
-  <jsp:param name="pageTitle" value="DemoPage" />
+<jsp:param name="pageTitle" value="DemoPage" />
 </jsp:include>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/ >
 
+
+<!-- views 밑에 demo/demo.jsp 생성 -->
 <section id="content">
   <div id="demo-container">
     <h2>Parameter Test</h2>
@@ -68,13 +70,20 @@
         </div>
       </div>
       <div class="list-group">
-        <button type="button" onclick="" class="list-group-item list-group-item-action">HttpServlet 파라미터 이용 전송</button>
+        <button type="button" onclick="demo1();" class="list-group-item list-group-item-action">HttpServlet 파라미터 이용 전송</button>
 
       </div>
     </form>
 
   </div>
 </section>
+
+<script>
+  function demo1(){
+    $('#devFrm').attr({"action" : "${path }/demo/demo1.do" } );
+    $('#devFrm').submit();
+  }
+</script>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
