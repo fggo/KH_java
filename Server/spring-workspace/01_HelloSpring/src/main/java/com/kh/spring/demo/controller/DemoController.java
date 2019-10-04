@@ -1,4 +1,10 @@
+package com.kh.spring.demo.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 //bean 등록(import stereotype) 
 @Controller
@@ -34,11 +40,12 @@ public class DemoController{
     int  devAge = Integer.parseInt(req.getParameter("devName"));
     String  devEmail = req.getParameter("devEmail");
     String  devGender = req.getParameter("devGender");
-    String [] devLangs = req.getParameter("devLang");
+    String [] devLangs = req.getParameterValues("devLang");
 
     System.out.println(devName + devAge + devEmail + devGender);
-    for(String a : devLangs) System.out.println(s);
+    for(String s : devLangs) System.out.println(s);
     //404뜨면서 syso console에 찍힘
 
     return "demo/demoResult";
   }
+}
