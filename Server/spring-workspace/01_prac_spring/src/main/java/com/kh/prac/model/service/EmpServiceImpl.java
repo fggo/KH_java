@@ -2,6 +2,7 @@ package com.kh.prac.model.service;
 
 import static common.SqlSessionTemplate.getSession;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -24,5 +25,17 @@ public class EmpServiceImpl implements EmpService {
 
     return result;
   }
+
+  @Override
+  public List<Map> searchEmp(Map<String, Object> param) {
+    SqlSession session = getSession();
+    List<Map> list = dao.searchEmp(session, param);
+    
+    session.close();
+    
+    return list;
+  }
+
+
 
 }

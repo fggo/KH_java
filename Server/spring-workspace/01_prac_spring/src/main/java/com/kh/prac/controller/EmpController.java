@@ -3,6 +3,7 @@ package com.kh.prac.controller;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -78,6 +79,52 @@ public class EmpController {
       System.out.println(e.getMessage());
     }
 
+  }
+  
+  @RequestMapping("/searchEmp.do")
+  public String empSearch() {
+    return "searchEmpView";
+  }
+  
+  @RequestMapping("/searchEmpEnd.do")
+  public String empSearchEnd(HttpServletRequest request, HttpServletResponse response) { 
+    String id = request.getParameter("id");
+    String name = request.getParameter("name");
+    String no = request.getParameter("no");
+    String email = request.getParameter("email");
+    String phone = request.getParameter("phone");
+    String deptCode = request.getParameter("deptCode");
+    String jobCode = request.getParameter("jobCode");
+    int sal = Integer.parseInt(request.getParameter("sal"));
+
+    String temp = request.getParameter("bonus");
+    double bonus = temp.equals("")? .0: Double.valueOf(request.getParameter("bonus"));
+    String mgrId = request.getParameter("mgrId");
+    Date hireDate = null;
+    Date entDate = null;
+    char entYn = 'N';
+    
+    Map<String, Object> param = new HashMap<String, Object>();
+    param.put("id", id);
+    param.put("name", name);
+    param.put("no", no);
+    param.put("email", email);
+    param.put("phone", phone);
+    param.put("deptCode", deptCode);
+    param.put("jobCode", jobCode);
+    param.put("sal", sal);
+    param.put("bonus", bonus);
+    param.put("mgrId", mgrId);
+    param.put("hireDate", hireDate);
+    param.put("entDate", entDate);
+    param.put("entYn", entYn);
+
+    List<Map> list = service.searchEmp(param);
+    request.setAttribute("list", list);
+
+    response.setContentType("text/html;charset=utf-8");
+
+    return "searchEmpEndView";
     
   }
 }
