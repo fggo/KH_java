@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="jsp_new" deleted="false" description="_footer_spring" enabled="true" name="_footer_spring">&lt;%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%&gt;&#13;
+&#13;
+  &lt;/div&gt;&#13;
+  &lt;footer&gt;&#13;
+    &lt;script&gt;&#13;
+      $$(function(){&#13;
+      });&#13;
+    &lt;/script&gt;&#13;
+  &lt;/footer&gt;&#13;
+&lt;/body&gt;&#13;
+&lt;/html&gt;&#13;
+</template></templates>

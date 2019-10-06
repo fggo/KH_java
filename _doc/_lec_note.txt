@@ -1,7 +1,6 @@
 ﻿Spring setting
 
 
-
 root-context.xml
 
 servlet-context.xml

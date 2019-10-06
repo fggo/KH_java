@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<colorTheme id="285" name="Monday Morning" modified="2011-02-15 23:02:47" author="Wim Jongman">
+    <searchResultIndication color="#077D1F" />
+    <filteredSearchResultIndication color="#077D1F" />
+    <occurrenceIndication color="#F26011" />
+    <writeOccurrenceIndication color="#592204" />
+    <findScope color="#BCADFF" />
+    <deletionIndication color="#AB8507" bold="true" underline="false" strikethrough="false" />
+    <sourceHoverBackground color="#EEEEEE" />
+    <singleLineComment color="#F2740C" />
+    <multiLineComment color="#F2740C" />
+    <commentTaskTag color="#F2740C" bold="true" italic="true" />
+    <javadoc color="#F2740C" bold="true" />
+    <javadocLink color="#F2740C" bold="true" italic="true" underline="false" strikethrough="false" />
+    <javadocTag color="#F2400A" bold="true" italic="false" />
+    <javadocKeyword color="#F2400A" bold="true" italic="false" />
+    <class color="#160050" bold="true" italic="false" />
+    <interface color="#160050" bold="false" italic="false" underline="false" strikethrough="false" />
+    <method color="#160050" />
+    <methodDeclaration color="#160050" />
+    <bracket color="#160050" bold="true" />
+    <number color="#226AF0" />
+    <string color="#226AF0" />
+    <operator color="#226AF0" />
+    <keyword color="#084FD1" bold="true" />
+    <annotation color="#AAAAFF" bold="true" />
+    <staticMethod color="#160050" italic="true" />
+    <localVariable color="#160050" />
+    <localVariableDeclaration color="#160050" bold="true" />
+    <field color="#226AF0" bold="true" />
+    <staticField color="#226AF0" italic="true" />
+    <staticFinalField color="#226AF0" bold="true" italic="true" />
+    <deprecatedMember color="#91A0BD" underline="true" strikethrough="false" />
+    <enum color="#160050" />
+    <inheritedMethod color="#160050" />
+    <abstractMethod color="#160050" />
+    <parameterVariable color="#5A22F0" bold="true" underline="false" strikethrough="false" />
+    <typeArgument color="#160050" />
+    <typeParameter color="#160050" bold="false" underline="false" strikethrough="false" />
+    <constant color="#AB2525" bold="false" italic="true" />
+    <background color="#DCDCDE" />
+    <currentLine color="#DBCFFA" />
+    <foreground color="#160050" />
+    <lineNumber color="#160050" />
+    <selectionBackground color="#CEBEF7" />
+    <selectionForeground color="#000066" />
+</colorTheme>
