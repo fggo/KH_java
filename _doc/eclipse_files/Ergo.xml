@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<colorTheme id="1822" name="Ergo" modified="2011-05-27 11:18:29" author="Stefan">
+    <searchResultIndication color="#DDDDDD" />
+    <filteredSearchResultIndication color="#DDDDDD" />
+    <occurrenceIndication color="#BBBBBB" />
+    <writeOccurrenceIndication color="#BBBBBB" />
+    <sourceHoverBackground color="#D8D8D8" />
+    <singleLineComment color="#777777" />
+    <multiLineComment color="#777777" />
+    <commentTaskTag color="#777777" />
+    <javadoc color="#777777" />
+    <javadocLink color="#777777" bold="true" />
+    <javadocTag color="#777777" bold="true" />
+    <javadocKeyword color="#777777" bold="true" />
+    <class color="#08225C" bold="true" />
+    <interface color="#08225C" />
+    <method color="#08225C" bold="true" />
+    <methodDeclaration color="#08225C" bold="true" />
+    <bracket color="#9C1A00" />
+    <number color="#820128" />
+    <string color="#821F01" />
+    <operator color="#111111" />
+    <keyword color="#961574" bold="true" />
+    <annotation color="#770000" />
+    <staticMethod color="#08225C" />
+    <localVariable color="#213B75" bold="true" />
+    <localVariableDeclaration color="#08225C" />
+    <field color="#08225C" />
+    <staticField color="#552200" />
+    <staticFinalField color="#552200" />
+    <deprecatedMember color="#D8D8D8" />
+    <enum color="#820128" />
+    <inheritedMethod color="#08225C" />
+    <abstractMethod color="#08225C" />
+    <parameterVariable color="#08225C" />
+    <typeArgument color="#08225C" />
+    <typeParameter color="#003300" />
+    <constant color="#552200" />
+    <background color="#E8E8E8" />
+    <currentLine color="#F0F0F0" />
+    <foreground color="#222222" />
+    <lineNumber color="#777777" />
+    <selectionBackground color="#CCCCCC" />
+    <selectionForeground color="#111111" />
+</colorTheme>

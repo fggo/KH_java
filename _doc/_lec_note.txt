@@ -1,5 +1,103 @@
-﻿Spring setting
+﻿
+통합구현 프레임워크 myabatis
 
+<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <beans:property name="prefix" value="/WEB-INF/views/" />
+      <beans:property name="suffix" value=".jsp" />
+   </beans:bean>
+pre suffiix앞뒤에다가 붙힘 
+
+바꾸고 싶으면 InternalResourceViewResolver로 클래스명만 바꾸면 됨
+
+mybatis 동적쿼리
+if, choose 구문 select에 맞혀 동작에 맞게 쿼리문 작성
+select 속성 여러가지
+
+use general key X
+
+프레임워크 주요기능중 jdbc는 영속성 프레임워크 아님
+
+mvc2패턴흐름 view에서 request - controller -service-reposiroty-
+
+view reserve벨로시티 뷰 리졸 뷰네임 리졸버는 상관없음
+뷰네임 빈 연결시키는 내용
+ResourceViewResolver
+name="view class"
+value="class 명칭"
+
+mybatis 동적 query
+
+use generator key? 없음
+그냥 이거 찍으면됨 
+
+framework!
+기능중에서 spring jdbc 영속성이 없음
+spring orm등이 잇음
+
+mvc2 pattern 흐름
+view에서 req 요청 dispatcher 받음
+controller -> method -> service -> repository.....
+
+view resolver
+bean name resolver view??- 상관이 없음 - 
+view name-name하고 연결 시키는 것 
+
+
+
+viewResolver 설정 바꿀려면
+  viewclass="클래스네임"
+
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+
+usegeneral key 속성 없음
+spring jdbc
+
+mvc2 pattern 
+view  -> dispatcher servlet -> controller -> method ->service ->repository
+
+
+
+ResourceViewResolver
+name="view class"
+value="class 명칭"
+
+mybatis 동적 query
+
+use generator key? 없음
+그냥 이거 찍으면됨 
+
+framework!
+기능중에서 spring jdbc 영속성이 없음
+spring orm등이 잇음
+
+mvc2 pattern 흐름
+view에서 req 요청 dispatcher 받음
+controller -> method -> service -> repository.....
+
+view resolver
+bean name resolver view??- 상관이 없음 - 
+view name-name하고 연결 시키는 것 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Spring setting
 
 root-context.xml
 

@@ -4,43 +4,42 @@
   <jsp:param name="pageTitle" value="Homepage" />
 </jsp:include>
 
-  <section id="content">
-    <a id="toggleInsertBtn" href="javascript:void(0);">insert Employee</a>
-    <div id="insertArea" class="container"></div>
+  <!-- Page Content  -->
+  <div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn btn-info">
+          <i class="fa fa-align-left"></i>
+          <span>Toggle Sidebar</span>
+        </button>
+        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-align-justify"></i>
+        </button>
 
-  </section>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Page</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Page</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Page</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Page</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container card my-5 col-md-10 jumbotron">
+      <a id="toggleInsertBtn" href="javascript:void(0);">insert Employee</a>
+      <div id="insertArea" class="container"></div>
 
-  <script>
-    var insertToggled = false;
-    var searchToggled = false;
-    var updateToggled = false;
-    var deleteToggled = false;
+    </div>
+  </div>
 
-    $(function(){
-      $('#toggleInsertBtn').click(function(e){
-
-        if(insertToggled)
-          $('#insertArea').html("");
-        else{
-          $.ajax({
-            type: "POST",
-            url: "${pageContext.request.contextPath }/insertEmp.do",
-            dataType: "html",
-            success: function(data){
-              html = $('<div>').html(data);
-
-              $('#insertArea').html(html.find("div#insertFrm"));
-            },
-            error: function(request, status, error){
-              console.log(error);
-              alert("insert ajax ERROR!");
-            }
-          });
-        }
-
-        insertToggled = !insertToggled;
-      });
-    });
-  </script>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

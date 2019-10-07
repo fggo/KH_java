@@ -70,6 +70,14 @@
         <div class="list-group">
           <button type="button" onclick="demo1();" id="demoFrmBtn" class="list-group-item list-group-item-action">HttpServlet 파라미터 이용 전송</button>
 
+          <button type="button" onclick="demo2();" id="demoFrmBtn" class="list-group-item list-group-item-action">@RequestParam 파라미터 이용 전송</button>
+
+          <button type="button" onclick="demo3();" id="demoFrmBtn" class="list-group-item list-group-item-action">@RequestParam 파라미터 Map객체 이용 전송</button>
+
+          <button type="button" onclick="demo4();" id="demoFrmBtn" class="list-group-item list-group-item-action">VO(COMMAND객체) 이용 전송</button>
+
+          <button type="button" onclick="insertDev();" id="demoFrmBtn" class="list-group-item list-group-item-action">dev등록</button>
+
         </div>
       </form>
 
@@ -79,6 +87,23 @@
   <script>
     function demo1(){
       $('#devFrm').attr({"action" : "${path }/demo/demo1.do" } );
+      $('#devFrm').submit();
+    }
+    function demo2(){
+      $('#devFrm').attr({"action" : "${path }/demo/demo2.do" } );
+      $('#devFrm').submit();
+    }
+    function demo3(){
+      $('#devFrm').attr({"action" : "${path }/demo/demo3.do" } );
+      $('#devFrm').submit();
+    }
+    function demo4(){
+      $('#devFrm').attr({"action" : "${path }/demo/demo4.do" } );
+      $('#devFrm').submit();
+    }
+
+    function insertDev(){
+      $('#devFrm').attr({"action" : "${path }/demo/insertDev.do" } );
       $('#devFrm').submit();
     }
     // $(function(){
