@@ -4,15 +4,13 @@
   <jsp:param name="pageTitle" value="Homepage" />
 </jsp:include>
 
-  <!-- Page Content  -->
-  <div id="content">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <button type="button" id="sidebarCollapse" class="btn btn-info">
+        <!-- <button type="button" id="sidebarCollapse" class="btn btn-sm btn-outline-primary">
           <i class="fa fa-align-left"></i>
           <span>Toggle Sidebar</span>
-        </button>
-        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        </button> -->
+        <button class="btn btn-sm btn-outline-primary d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <i class="fa fa-align-justify"></i>
         </button>
 
@@ -34,12 +32,9 @@
         </div>
       </div>
     </nav>
-    <div class="container card my-5 col-md-10 jumbotron">
+    <div class="container card my-5 w-100 jumbotron">
       <a id="toggleInsertBtn" href="javascript:void(0);">insert Employee</a>
       <div id="insertArea" class="container"></div>
-
     </div>
-  </div>
-
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

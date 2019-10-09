@@ -1,7 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-  <footer>
-  </footer>
+  <div class="container footer card my-5 w-100 form">
+    <div class="input-group">
+      <div class="input-group-append">
+        <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+      </div>
+      <textarea name="" class="form-control type_msg" placeholder="Type your message..." style="resize:none;"></textarea>
+      <div class="input-group-append">
+        <span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
+      </div>
+    </div>
+
+    <!-- <button type="button" class="form-control btn btn-sm">attach</button>
+    <textarea name="" id="" rows="3" style="resize:none;" placeholder="hello footer"></textarea>
+    <button type="button" class="form-control btn btn-sm">submit</button> -->
+  </div>
+
   <!-- Popper.JS -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script> -->
   <!-- Bootstrap JS -->
@@ -55,5 +69,6 @@
       // });
     });
   </script>
+  </div>
 </body>
 </html>
