@@ -55,15 +55,22 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="devLang" class="col-sm-2 col-form-label">언어</label>
+          <label class="col-sm-2 col-form-label">개발언어</label>
           <div class="col-sm-10">
             <div class="form-check form-check-inline">
-              <input type="radio" class="form-check-input" id="devLang0" name="devLang" value="Java" />
-              <label for="devLang0" class="form-check-label">Java</label>
-              <input type="radio" class="form-check-input" id="devLang1" name="devLang" value="C" />
-              <label for="devLang1" class="form-check-label">C</label>
-              <input type="radio" class="form-check-input" id="devLang2" name="devLang" value="Javascript" />
-              <label for="devLang2" class="form-check-label">Javascript</label>
+              <input class="form-check-input" type="checkbox" name="devLang"
+              id="devLang0" value="Java"/>
+              <label class="form-check-label" for="devLang0">Java</label>
+            </div>	
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="devLang"
+              id="devLang1" value="C"/>
+              <label class="form-check-label" for="devLang1">C</label>
+            </div>	
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="devLang"
+              id="devLang2" value="Javascript"/>
+              <label class="form-check-label" for="devLang2">Javascript</label>
             </div>
           </div>
         </div>
@@ -83,36 +90,6 @@
 
     </div>
   </section>
-
-  <script>
-    function demo1(){
-      $('#devFrm').attr({"action" : "${path }/demo/demo1.do" } );
-      $('#devFrm').submit();
-    }
-    function demo2(){
-      $('#devFrm').attr({"action" : "${path }/demo/demo2.do" } );
-      $('#devFrm').submit();
-    }
-    function demo3(){
-      $('#devFrm').attr({"action" : "${path }/demo/demo3.do" } );
-      $('#devFrm').submit();
-    }
-    function demo4(){
-      $('#devFrm').attr({"action" : "${path }/demo/demo4.do" } );
-      $('#devFrm').submit();
-    }
-
-    function insertDev(){
-      $('#devFrm').attr({"action" : "${path }/demo/insertDev.do" } );
-      $('#devFrm').submit();
-    }
-    // $(function(){
-    //   $('#demoFrmBtn').click(function(){
-    //     $('#devFrm').attr({"action" : "${path }/demo/demo1.do" } );
-    //     $('#devFrm').submit();
-    //   });
-    // });
-  </script>
 
   <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 

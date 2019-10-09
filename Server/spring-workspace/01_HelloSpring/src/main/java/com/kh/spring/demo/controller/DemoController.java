@@ -1,9 +1,11 @@
 package com.kh.spring.demo.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.spring.demo.model.service.DevService;
 import com.kh.spring.demo.model.vo.Dev;
+import com.kh.spring.demo.model.vo.Member;
 
 //bean 등록(import stereotype) + method와 mapping @RequestMapping("");
 @Controller
@@ -122,4 +125,35 @@ public class DemoController{
 //    return "redirect:/demo/demo2";
   }
 
+  @RequestMapping("/demo/selectDevList.do")
+  public String selectDevList(Model model) {
+
+    List<Dev> list = devService.selectDevList();
+
+    model.addAttribute("devList", list);
+
+    return "demo/devList";
+  }
+  
+  @RequestMapping("/demo/updateDev.do")
+  public String updateDev(Dev dev) {
+    System.out.println(dev);
+    return "demo/devUpdateView";
+  }
+
+  @RequestMapping("/demo/updateDevEnd.do")
+  public String updateDevEnd(Dev dev) {
+    int result = devService.updateDev(dev);
+    System.out.println("update result : " + result);
+    return "redirect:/";
+  }
+  
+  @RequestMapping("/demo/deleteDev.do")
+  public String deleteDevEnd(Dev dev) {
+    System.out.println(dev);
+    int result = devService.deleteDev(dev);
+    
+
+    return "redirect:/demo/selectDevList.do";
+  }
 }

@@ -1,4 +1,42 @@
-﻿
+﻿lombok -> vo 자동 생성 : mvnrepository lombok
+  C:\maven\repository\org\projectlombok\lombok\1.18.10
+  open powershell
+    > java -jar .\lombok-1.18.10.jar
+
+tomcat 재시작 안해도 자동 reload되는 dependency 추가 mvnrepository-> springloaded
+<!-- https://mvnrepository.com/artifact/org.springframework/springloaded -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>springloaded</artifactId>
+    <version>1.2.8.RELEASE</version>
+    <scope>provided</scope>
+</dependency>
+Maven Dependencies 에 .jar파일 받아짐
+Tomcat server double click : Module Auto Reload 해제 uncheck
+ > module 탭에서 edit web module: auto reload (uncheck)
+ > overview탭에서 publishing> Automatically publish when resources change
+ > overview탭에서 open launch configuarton> arguments
+ -javaagent:C:\maven\repository\org\springframework\springloaded\
+    1.2.8.RELEASE\springloaded-1.2.8.RELEASE.jar -noverify
+
+
+SPRING LOG
+
+등록된 bean과 autowiring된 것들을 생성 및
+bean으로 등록된 controller load?
+
+10월 08, 2019 9:10:58 오전 org.apache.catalina.core.ApplicationContext log
+정보: Initializing Spring FrameworkServlet 'appServlet'
+INFO : org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Oct 08 09:10:58 KST 2019]; parent: Root WebApplicationContext
+INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+INFO : org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/demo/demo3.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo3(java.util.Map,org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/demo/demo4.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo4(com.kh.spring.demo.model.vo.Dev,org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/demo/demo.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo()
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/demo/demo1.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo1(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/demo/demo2.do]}" onto public java.lang.String com.kh.spring.demo.controller.DemoController.demo2(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String[],org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/demo/insertDev.do]}"
+
 통합구현 프레임워크 myabatis
 
 <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

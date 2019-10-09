@@ -1,8 +1,10 @@
 package com.kh.spring.demo.model.vo;
 
+import java.util.Arrays;
+
 public class Dev {
-  private String devName;
   private int devNo;
+  private String devName;
   private int devAge;
   private String devEmail;
   private String devGender;
@@ -19,6 +21,12 @@ public class Dev {
     this.devEmail = devEmail;
     this.devGender = devGender;
     this.devLang = devLang;
+  }
+
+  @Override
+  public String toString() {
+    return "Dev [devNo=" + devNo + ", devName=" + devName + ", devAge=" + devAge + ", devEmail=" + devEmail
+        + ", devGender=" + devGender + ", devLang=" + Arrays.toString(devLang) + "]";
   }
 
   public String getDevName() { return devName; }

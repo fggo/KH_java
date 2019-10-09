@@ -5,11 +5,34 @@
 
   <insert id="insertDev" parameterType="dev">
     insert into dev values(seq_dev_no.nextval, #{devName}, #{devAge}, #{devEmail}, #{devGender},
-    <foreach collection="devLang" item="lang" separator="," open="'" close="'">
-      ${lang}
-      <!-- #{lang}? -->
-    </foreach>
-    )
+    <!-- 배열을 #{devLang}할수 없음: foreach로 직접 파싱해서 가져옴
+       mybatis가 쓸수있는 typehandler 등록 가능 jdbc타입에 배열이 없으므로 type 만들어 추가해줌(mybatis에 특정 규칙있음)
+       : 한개의 문자열로 ,를 사이에 두고 합쳐줌-->
+    <!-- 
+    <foreach collection="devLang" item="lang" separator="," open="'" close="'">${lang}</foreach>)
+     -->
+     <!-- #{devLang, typeHandler=com.kh.spring.common.ArrayTypeHandler}) -->
+     #{devLang, typeHandler=arrType })
   </insert>
+  
+  <!-- arrType -->
+  <resultMap type="dev" id="devMap">
+    <result column="devLang" property="devLang" typeHandler="arrType" />
+  </resultMap>
+  <!-- <select id="selectDevList" resultType="dev"> -->
+  <select id="selectDevList" resultMap="devMap">
+    <!-- DB하고 컬럼명 맞춰줘서 *로도 가능 -->
+    select * from dev
+  </select>
+  <update id="updateDev">
+    UPDATE DEV SET DEVNAME=#{devName}, DEVAGE=#{devAge},
+                   DEVEMAIL=#{devEmail}, DEVGENDER=#{devGender},
+                   DEVLANG=#{devLang, typeHandler=arrType}
+     WHERE DEVNO=#{devNo}
+  </update>
+  
+  <delete id="deleteDev">
+    DELETE FROM DEV WHERE DEVNO=${devNo}
+  </delete>
 
 </mapper>
