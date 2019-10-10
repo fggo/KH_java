@@ -66,20 +66,23 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Demo </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="${path }/demo/demo.do">Dev 등록</a>
-                <a class="dropdown-item" href="${path }/demo/selectDevList.do">Dev 목록</a>
+                <a class="dropdown-item" href=save"${path }/demo/selectDevList.do">Dev 목록</a>
               </div>
             </li>
           </ul>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal" 
-            data-target="#loginModal">로그인</button>&nbsp;
-          <button class="btn btn-outline-success my-2 my-sm-0" type="button" 
-            onclick="location.href='${path }/member/memberEnroll.do'">회원가입</button>
+          <c:if test="${empty loginMember}">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal" 
+              data-target="#loginModal">로그인</button>&nbsp;
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" 
+              onclick="location.href='${path }/member/memberEnroll.do'">회원가입</button>
+          </c:if>
 
           <div>
-
             <c:if test="${not empty loginMember}">
               <span><i class="fa fa-person"></i></span>
-              Hello! ${loginMember.userId}
+              <span><a href="#">Hello ${loginMember.userName}</a>. Welcome Back!</span>&nbsp;
+              <button class="btn btn-outline-success my-2 my-sm-0" type="button" 
+                onclick="location.href='${path}/member/memberLogout.do'">Log Out</button>
             </c:if>
           </div>
         </div>

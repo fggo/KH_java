@@ -16,10 +16,16 @@ public class MemberServiceImpl implements MemberService {
 
   @Autowired
   SqlSessionTemplate sqlSession;
+  //spring bean으로 등록되어 있어서 자동으로 관리
 
   @Override
   public Member selectMemberOne(Member m) {
     return dao.selectMemberOne(sqlSession, m);
+  }
+
+  @Override
+  public int insertMember(Member m) {
+    return dao.insertMember(sqlSession, m);
   }
   
 }

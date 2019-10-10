@@ -7,4 +7,5 @@ import com.kh.spring.demo.model.vo.Member;
 
 public interface MemberDao {
   Member selectMemberOne(SqlSessionTemplate sqlSession, Member member);
+  int insertMember(SqlSessionTemplate sqlSession, Member m);
 }

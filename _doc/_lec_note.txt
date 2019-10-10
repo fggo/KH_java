@@ -1,4 +1,108 @@
-﻿java는 멀티스레드 기반임 스프링은 멀티스레드 기반
+﻿암호화 처리 spring security:  .jar파일 다운로드 mvnrepository spring-security(web/config/core 3개 다 받기)
+  -> pom.xml
+ root-context.xml -> spring폴더에 spring bean configuration파일 추가(security-context.xml)
+          -> next(고르지않고) -> finish
+          security-context.xml -> tomcat에 설정해야함 web.xml?
+          <!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+          <context-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>
+                  /WEB-INF/spring/root-context.xml
+                  /WEB-INF/spring/security-context.xml
+                </param-value>
+          </context-param>
+
+pom.xml log4j mvnrepository is included in default
+   <!-- Logging -->
+   <dependency>
+     <groupId>org.slf4j</groupId>
+     <artifactId>slf4j-api</artifactId>
+        <dependency>
+     <groupId>log4j</groupId>
+     <artifactId>log4j</artifactId>
+     <version>1.2.15</version>
+
+    resource -> log4j.xml
+
+log4j 구조
+  1. Appender 태그 : log출력에 대한 환경설정하는 태그
+    * 로그를 어디로 출력을 할지 : (콘솔/파일/DB)
+  2. Logger 태그 : 어디 부분에서 Appender를 실행 할 지
+     어떤 단계에서 실행할지
+  3. Root 태그 : 기본적용 Logger (부모; 최상위 객체)
+
+---
+기본 패턴설정 : %-5p: %c - %m%n
+			이벤트명, 카테고리명, 로그전달메세지 개행
+
+* %c : 카테고리명(logger이름)을 표시
+	* 카테고리명이 a.b.c일때, %c{2}는 b.c를 출력
+* %C : 클래스명을 표시함.	
+	* 풀 클래스 명이 com.kh.logger일때, %C{2}는 kh.logger를 출력
+* %d : 로그 시간을 출력한다. java.text.SimpleDateFormat에서 적절한 출력 포맷을 지정할 수 있다. 
+	* %d{HH:mm:ss, SSS}
+	* %d{yyyy MMM dd HH:mm:ss, SSS}
+	* %d{ABSOLUTE} 
+	* %d{DATE} 
+	* %d{ISO8601}
+* %F : 파일명을 출력. 로그시 수행한 메소드, 라인번호가 함께 출력된다.
+* %l : 로깅이 발생한 caller의 위치정보. 자바파일명:라인번호(링크제공) 
+* %L : 라인 번호만 출력한다(링크없음)
+* %m : 로그로 전달된 메시지를 출력한다.
+* %M : 로그를 수행한 메소드명을 출력한다. 
+* %n : 플랫폼 종속적인 개행문자가 출력. rn 또는 n
+* %p : 로그 이벤트명등의 priority 가 출력(debug, info, warn, error, fatal )
+* %r : 로그 처리시간 (milliseconds)
+* %t : 로그이벤트가 발생된 쓰레드의 이름을 출력
+* %% : % 표시를 출력. escaping
+* %r : 어플리케이션 시작 이후 부터 로깅이 발생한 시점의 시간(milliseconds)
+* %X : 로깅이 발생한 thread와 관련된 MDC(mapped diagnostic context)를 출력합니다. %X{key} 형태.
+
+  log4j.xml
+  <!-- Root Logger -->
+  <root>
+    <priority value="warn" />
+    <appender-ref ref="console" />
+    <appender-ref ref="filelogger" />
+  </root>
+
+method mapping 실행전,후, 응답완료후,  -> filter대신에 interception 사용
+
+interceptor
+구현 : HandlerInterceptorAdapter를 상속해서 구현
+
+전처리(preHandler) : dispatcherServlet이 컨트롤러가 매핑된 메소드 호출전에 실행되는 로직구현
+후처리(postHandler) : 컨트롤러가 매핑된 메소드 실행 후 실행되는 로직 구현
+뷰처리후(afterCompletion) : 응답까지 완료된 후 실행되는 매소드 구현
+
+1. intercepter클래스를 등록을 해야함
+   -> Servlet-context.xml에 등록!
+   
+
+-----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+java는 멀티스레드 기반임 스프링은 멀티스레드 기반
 그럼 스레드 풀을 관리해줘야하고 그렇게 도면 스레드 관리하는 방법은 여러가지 있음
 일단 친구가 아는 방법은 무한루프 돌리는 방법이고,
 멀티스레드 관리 + 무한루프 잘못관리하면 서버가 뻗음

@@ -28,7 +28,7 @@ public class Member {
   private String email;
   private String phone;
   private String address;
-  private String hobby;
-  private Date date;
+  private String[] hobby;
+  private Date enrollDate;
 
 }
