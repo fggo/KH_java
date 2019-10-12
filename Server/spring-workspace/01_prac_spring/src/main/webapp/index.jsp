@@ -21,7 +21,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style2.css">
   <!-- Scrollbar Custom CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
@@ -37,36 +36,140 @@
       -o-background-size: cover;
       background-size: cover;
     }
+
+    .site-header { /* custom transparent header */
+      /* background-color: rgba(19, 37, 53, .80); */
+      background-color: rgb(42, 42, 42);
+    }
+    .site-header a {
+      transition: ease-in-out color .15s;
+    }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">DevelopMental</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-                  <span class="sr-only">(current)</span>
-                </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="${pageContext.request.contextPath}/homeView">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="${pageContext.request.contextPath}/homeView">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="${pageContext.request.contextPath}/homeView">Contact</a>
-          </li>
-        </ul>
+  <header>
+    <a id="back-to-top" href="#" class="btn btn-info border-light back-to-top py-1 px-2" role="button">
+      <i class="fa fa-chevron-up">&nbsp;&nbsp;Top</i>
+    </a>
+
+    <!-- Navigation bar -->
+    <nav class="site-header navbar navbar-expand-md navbar-dark fixed-top py-0 justify-content-center">
+      <!-- d-flex container -->
+      <div class="container d-flex justify-content-center row">
+        <!-- Logo -->
+        <div class='py-0 mr-auto inline px-0' id="navbar-logo">
+          <a class="navbar-brand" href="<%=request.getContextPath() %>" >
+            <img src="<%=request.getContextPath() %>/images/logo_white.png">
+          </a>
+        </div>
+        <!-- Nav search bar -->
+        <div id="nav-searchbar" class="col-lg-6 py-0 inline-block px-0 ml-0 mr-1">
+          <form action="<%=request.getContextPath()%>/map/mapListView" method="POST" class='w-100'>
+            <input type="hidden" name="userCode" value="${ userCode }">
+            <div class="input-group">
+              <input type="search" placeholder="   Where do you need parking?" aria-describedby="button-addon5" class="form-control" name="search" id="nav-search">
+              <div class="input-group-append">
+                <button id="button-addon5" type="submit" class="btn btn-light" id="nav-searchbar-btn"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- toggle button -->
+        <button class="navbar-toggler ml-auto inline my-1" type="button" data-toggle="collapse" data-target="#navbarCollapsible" aria-controls="navbarCollapsible" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- collapsible elements -->
+        <div class="collapse navbar-collapse" id="navbarCollapsible">
+          <ul class="navbar-nav ml-auto" id='collapseItems'>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle menu-item mt-1 mr-0 text-white" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe"></i></a>
+
+              <div class="dropdown-menu mt-1" aria-labelledby="dropdown01">
+                <div id="google_translate_element" class="dropdown-item fa fa-globe"></div>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle menu-item mt-1 mr-0 text-white" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help</a>
+
+              <div class="dropdown-menu mt-1" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="<%=request.getContextPath() %>/board/helpBoardList" ><i class="fa fa-info-circle">&nbsp;&nbsp;</i>Help</a>
+                <a class="dropdown-item" href="<%=request.getContextPath() %>/board/qnaBoardList" ><i class="fa fa-question-circle-o">&nbsp;&nbsp;</i>Q&amp;A Board</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle menu-item mt-1 mr-2 text-white" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+
+              <div class="dropdown-menu mt-1" aria-labelledby="dropdown01">
+
+              <a class="dropdown-item" href=""><i class="fa fa-cog">&nbsp;&nbsp;</i>Account Settings</a>
+              <a class="dropdown-item" href=""><i class="fa fa-bookmark">&nbsp;&nbsp;</i>Bookmark</a>
+              <a class="dropdown-item" href=""><i class="fa fa-edit">&nbsp;&nbsp;</i>My Reviews</a>
+              <a class="dropdown-item" href=""><i class="fa fa-credit-card">&nbsp;&nbsp;</i>Payment Methods</a>
+              <a class="dropdown-item" href=""><i class="fa fa-won">&nbsp;&nbsp;</i>Credit Balance</a>
+              <a class="dropdown-item" href=""><i class="fa fa-car">&nbsp;&nbsp;</i>My Vehicle</a>
+
+              <a class="dropdown-item" href="${path }/views/member/memberView.jsp"><i class="fa fa-cog">&nbsp;&nbsp;</i>Settings</a>
+              <a class="dropdown-item" href="${path }/bookmark/bookmarkView"><i class="fa fa-bookmark">&nbsp;&nbsp;</i>Bookmark</a>
+              <a class="dropdown-item" href="${path }/board/reviewList"><i class="fa fa-edit">&nbsp;&nbsp;</i>My Reviews</a>
+
+              <a class="dropdown-item" href="${path }"><i class="fa fa-list">&nbsp;&nbsp;</i>Member List</a>
+
+              <script>
+
+                /**
+                * sends a request to the specified url from a form. this will change the window location.
+                * @param {string} urlMapping the path to send the post request to
+                * @param {object} params the paramiters to add to the url
+                * @param {string} [method=post] the method to use on the form
+                */
+                function mypageLoad(urlMapping, params){ var form = $("<form>");
+                  form.attr({"method": "POST",
+                             "action" : urlMapping,
+                  });
+                  $.each(params, function(key, value){
+                    var input = $("<input>");
+                    input.attr({"type": "hidden",
+                                "name": key,
+                                "value": value,
+                    });
+                    form.append(input);
+                  });
+
+                  form.submit();
+                }
+              </script>
+
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <form action="<%=request.getContextPath() %>/logout" method="post">
+                <button type="submit" class="btn btn-sm btn-outline-light mt-2 mr-1" onclick="return logoutSnsAccount();" style="width: 72px;">Log Out</button>
+              </form>
+            </li>
+
+            <script>
+              function logoutSnsAccount(){
+                googleLogout();
+                return true;
+              }
+            </script>
+
+            <li class="nav-item">
+              <form action="${path }/views/member/loginView.jsp" method="post">
+                <button type="submit" class="btn btn-sm btn-outline-light mt-2 mr-1" style="width:67px;">Log In</button>
+              </form>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-sm btn-outline-light mt-2" onclick='location.href="<%=request.getContextPath() %>/memberEnroll"' style="width:70px;">Sign Up</button>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
+
 
   <header>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

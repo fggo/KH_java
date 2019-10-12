@@ -7,7 +7,6 @@
   <!-- DB JDBC MYBATIS 설정 (pom.xml에서 필요한 resource 저장해놓음) jar file -> dependency 등록 -->
   <!-- mybatis-config.xml을 spring에 맞게 수정
   spring이 시작하면서 이용할 수 있는 객체로 등록됨
-
   Spring 설정파일: BasicDataSource를 spring/spring 계정에게 부여. spring bean 등록
   close 생성자를 이용해서 destroy. Spring xml 파일을 보고 생성자를 생성. 연결내용.
   DB에 필요한 데이터를 BasicDataSource객체에 값을 넣음 setter(=property)-->

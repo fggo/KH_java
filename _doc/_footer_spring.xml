@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="jsp_new" deleted="false" description="_footer_spring" enabled="true" name="_footer_spring">&lt;%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%&gt;&#13;
 &#13;
   &lt;/div&gt;&#13;
+
   &lt;footer&gt;&#13;
-    &lt;script&gt;&#13;
-      $$(function(){&#13;
-      });&#13;
-    &lt;/script&gt;&#13;
   &lt;/footer&gt;&#13;
+
+  &lt;!-- jQuery --&gt;&#13;
+  &lt;script src="https://code.jquery.com/jquery-3.4.1.min.js"&#13;
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"&gt;&lt;/script&gt;&#13;
+    &#13;
+  &lt;!-- JAVASCRIPT --&gt;&#13;
+  &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"&#13;
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"&gt;&lt;/script&gt;&#13;
+
+  &lt;script&gt;&#13;
+    $$(function(){&#13;
+    });&#13;
+  &lt;/script&gt;&#13;
 &lt;/body&gt;&#13;
 &lt;/html&gt;&#13;
 </template></templates>

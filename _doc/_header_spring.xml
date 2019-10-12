@@ -20,14 +20,9 @@
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"&gt;&#13;
   &lt;link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&amp;display=swap" rel="stylesheet"&gt;&#13;
   &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"&gt;&#13;
-&#13;
-  &lt;!-- jQuery --&gt;&#13;
-  &lt;script src="https://code.jquery.com/jquery-3.4.1.min.js"&#13;
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"&gt;&lt;/script&gt;&#13;
-    &#13;
-  &lt;!-- JAVASCRIPT --&gt;&#13;
-  &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"&#13;
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"&gt;&lt;/script&gt;&#13;
+  &lt;!-- Custom CSS --&gt;&#13;
+  &lt;!--&lt;link rel="stylesheet" href="${path }/resources/css/sidebar.css"&gt; --&gt;&#13;
+
 &lt;/head&gt;&#13;
 &lt;body&gt;&#13;
   &lt;div class="container card my-5 col-md-10 jumbotron"&gt;&#13;

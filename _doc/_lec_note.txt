@@ -1,4 +1,24 @@
-﻿암호화 처리 spring security:  .jar파일 다운로드 mvnrepository spring-security(web/config/core 3개 다 받기)
+﻿
+1. 입사지원서 관련 내용 말씀드리면..
+
+
+
+10/13(일) 자정까지 KH홈페이지에서 입사지원서 양식 다운로드 및  작성 후 제출. ->  정해진 취업상담 일정에 취업 상담(희망분야, 연봉, 거리  등 파악) & 입사지원서 첨삭 및 피드백
+
+-> 입사지원서 수정해서 정해진 기간까지 수정본 메일로 제출 -> 메일로 입사지원서 수정 및 첨삭해서 피드백 -> 다시 수정본 작성해서 제출(2~3회 정도 피드백 제공/ 메일로 발송 및 회신)  -> 수정할 내용 없을 경우 실전대비면 용으로 사용.(세미프로젝트  내용까지 포함)
+
+-> 수료후 파이널 프로젝트 내용 추가해서 "입사지원서 최종본" 제출.
+
+
+
+2. 취업지원 관련 프로세스.
+
+희망조건에 맞는 채용공고 메일로 발송(취업담임) -> 채용공고 메일 확인(수료생) -> 지원의사 메일로 회신(수료생) -> 보관하고 있는 입사지원서  최종본 날짜  수정해서 해당 기업에 지원(취업담임)
+
+-> 면접일정 안내(면접대상자로 선정될 경우/취업담임 or 회사에서 개별연락) -> 면접(일정 조율) -> 채용.
+
+
+암호화 처리 spring security:  .jar파일 다운로드 mvnrepository spring-security(web/config/core 3개 다 받기)
   -> pom.xml
  root-context.xml -> spring폴더에 spring bean configuration파일 추가(security-context.xml)
           -> next(고르지않고) -> finish
@@ -143,7 +163,6 @@ Tomcat server double click : Module Auto Reload 해제 uncheck
 
 
 SPRING LOG
-
 등록된 bean과 autowiring된 것들을 생성 및
 bean으로 등록된 controller load?
 

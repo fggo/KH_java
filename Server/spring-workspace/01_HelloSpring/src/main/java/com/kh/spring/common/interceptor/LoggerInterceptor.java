@@ -8,9 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class LoggerInterceptor extends HandlerInterceptorAdapter {
-  
-  private Logger logger=LoggerFactory.getLogger(LoggerInterceptor.class);
 
+  private Logger logger=LoggerFactory.getLogger(LoggerInterceptor.class);
 
   //전 처리용 매소드
   @Override
