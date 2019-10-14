@@ -5,7 +5,6 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 
 import com.kh.spring.demo.model.vo.Dev;
-import com.kh.spring.demo.model.vo.Member;
 
 public interface DevDao {
   int insertDev(SqlSessionTemplate sqlSession, Dev dev);

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.kh.spring.demo.model.dao.DevDao;
 import com.kh.spring.demo.model.vo.Dev;
-import com.kh.spring.demo.model.vo.Member;
 
 @Service
 public class DevServiceImpl implements DevService {

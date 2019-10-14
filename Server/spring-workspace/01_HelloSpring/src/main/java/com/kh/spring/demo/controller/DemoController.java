@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.spring.demo.model.service.DevService;
 import com.kh.spring.demo.model.vo.Dev;
-import com.kh.spring.demo.model.vo.Member;
 
 //bean 등록(import stereotype) + method와 mapping @RequestMapping("");
 @Controller

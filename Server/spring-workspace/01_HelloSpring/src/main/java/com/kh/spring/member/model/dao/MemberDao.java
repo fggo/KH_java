@@ -1,9 +1,9 @@
-package com.kh.spring.demo.model.dao;
+package com.kh.spring.member.model.dao;
 
 
 import org.mybatis.spring.SqlSessionTemplate;
 
-import com.kh.spring.demo.model.vo.Member;
+import com.kh.spring.member.model.vo.Member;
 
 public interface MemberDao {
   Member selectMemberOne(SqlSessionTemplate sqlSession, Member member);

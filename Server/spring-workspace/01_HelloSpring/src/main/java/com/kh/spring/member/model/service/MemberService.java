@@ -1,6 +1,6 @@
-package com.kh.spring.demo.model.service;
+package com.kh.spring.member.model.service;
 
-import com.kh.spring.demo.model.vo.Member;
+import com.kh.spring.member.model.vo.Member;
 
 public interface MemberService {
   Member selectMemberOne(Member m);

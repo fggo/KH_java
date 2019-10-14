@@ -1,4 +1,4 @@
-package com.kh.spring.demo.controller;
+package com.kh.spring.member.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.kh.spring.demo.model.service.MemberService;
-import com.kh.spring.demo.model.vo.Member;
+import com.kh.spring.member.model.service.MemberService;
+import com.kh.spring.member.model.vo.Member;
 
 //bean 등록(import stereotype) + method와 mapping @RequestMapping("");
 //sessionAttribute에 model에서 loginMember찾아서 session에 자동으로 올림

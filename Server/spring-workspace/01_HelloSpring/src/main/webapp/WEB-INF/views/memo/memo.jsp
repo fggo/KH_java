@@ -29,8 +29,8 @@
         <fmt:parseDate value="${task.startDate}" pattern="yyyy-MM-dd HH:mm:ss" var="myDate"/>
         <fmt:formatDate value="${myDate}" var="startFormat" pattern="yyyy-MM-dd"/> --%>
     </tr>
-    //삭제/수정
+    <!-- 삭제/수정 -->
   </c:forEach>
-  //리스트 직접구현
+  <!-- 리스트 직접구현 -->
 </table>
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
