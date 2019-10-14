@@ -10,11 +10,23 @@
   Spring 설정파일: BasicDataSource를 spring/spring 계정에게 부여. spring bean 등록
   close 생성자를 이용해서 destroy. Spring xml 파일을 보고 생성자를 생성. 연결내용.
   DB에 필요한 데이터를 BasicDataSource객체에 값을 넣음 setter(=property)-->
-  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+  <!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> -->
+  <bean id="realDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
     <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
     <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
     <property name="username" value="spring"/>
     <property name="password" value="spring"/>
+  </bean>
+  <!-- log를 추가하기 위한 라이브러리 추가 -->
+  <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource" >
+    <!-- 생성자를 이용해서 생성하되 realDataSource를 사용하여 생성 -->
+    <constructor-arg ref="realDataSource" />
+    <property name="logFormatter">
+      <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+        <property name="loggingType" value="MULTI_LINE" />
+        <property name="sqlPrefix" value="[SQL]" />
+      </bean>
+    </property>
   </bean>
 
   <!-- Mybatis에서 SqlSession 객체를 생성하는 FactoryBean 을 springbean으로 등록 

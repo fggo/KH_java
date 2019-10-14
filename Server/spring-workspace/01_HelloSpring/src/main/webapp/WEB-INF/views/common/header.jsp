@@ -66,9 +66,10 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Demo </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="${path }/demo/demo.do">Dev 등록</a>
-                <a class="dropdown-item" href=save"${path }/demo/selectDevList.do">Dev 목록</a>
+                <a class="dropdown-item" href="${path }/demo/selectDevList.do">Dev 목록</a>
               </div>
             </li>
+            <li class="nav-item"><a class="nav-link" href="${path }/memo/memo.do">메모</a></li>
           </ul>
           <c:if test="${empty loginMember}">
             <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal" 
