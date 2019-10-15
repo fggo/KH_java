@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <colorTheme id="66" name="Sublime Text 2" modified="2011-01-29 11:20:12" author="Filip Minev">
-    <searchResultIndication color="#D8D8D8" />
-    <filteredSearchResultIndication color="#D8D8D8" />
+    <searchResultIndication color="#878787" />
+    <filteredSearchResultIndication color="#878787" />
     <occurrenceIndication color="#000000" />
     <writeOccurrenceIndication color="#000000" />
     <findScope color="#000000" />

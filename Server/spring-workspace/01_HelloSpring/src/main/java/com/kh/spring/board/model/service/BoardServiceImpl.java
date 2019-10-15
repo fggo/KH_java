@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.spring.board.model.dao.BoardDao;
+import com.kh.spring.board.model.vo.Attachment;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -29,9 +30,21 @@ public class BoardServiceImpl implements BoardService {
   public int selectBoardCount() {
     return dao.selectBoardCount(sqlSession);
   }
-  
-  
-  
-  
+
+  @Override
+  public int insertBoard(Map<String, String> param, List<Attachment> attachList) {
+    //세션 트랜젝션 관리(by spring)
+    int result = 0;
+    result = dao.insertBoard(sqlSession, param); //board테이블에 데이터 입력!
+
+    if(attachList.size() > 0) {
+      for(Attachment a : attachList) {
+        a.setBoardNo(Integer.parseInt(param.get("boardNo")));
+        result = dao.insertAttachment(sqlSession, a);
+      }
+    }
+    
+    return result;
+  }
   
 }

@@ -37,8 +37,14 @@
 
       <!-- <mapping path="/member/*" /> -->
       <mapping path="/demo/*" />
+      <mapping path="/board/*" />
       <beans:bean id="loggerInterceptor" class="com.kh.spring.common.interceptor.LoggerInterceptor" />
     </interceptor>
   </interceptors>
+  
+  <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
+    <beans:property name="maxUploadSize" value="1048750" />
+  </beans:bean>
+
   
 </beans:beans>

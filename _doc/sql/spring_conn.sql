@@ -1,6 +1,8 @@
 
 SELECT * FROM DEV;
 SELECT * FROM MEMBER;
+select * from board;
+select * from attachment;
 
 INSERT INTO SPRING.MEMBER VALUES ('abcde','1234','아무개','M',25,'abcde@naver.com','01012345678','서울시 강남구','운동,등산,독서',DEFAULT);
 INSERT INTO SPRING.MEMBER VALUES ('qwerty','1234','김말년','F',30,'qwerty@naver.com','01098765432','서울시 관악구','운동,등산',DEFAULT);

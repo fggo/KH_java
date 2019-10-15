@@ -574,3 +574,31 @@ aop설정 메소드에 어노테이션 표시
 
 ## appServlet 밑에 spring bean configuration file (xml)
 ```aspect-context-xml```
+
+
+## paging
+```xml
+<!-- board들어갈떄 로그인유저만 servlet-context.xml -->
+  <!-- 인터셉터 등록하기 -->
+  <interceptors>
+    <interceptor>
+      <!-- ** 전체에 interceptor 적용하여 log 찍음 -->
+      <!-- <mapping path="/**" /> -->
+      <!-- member만 interceptor 적용하여 log 찍도록 -->
+      <!-- [2019-10-14 09:15:22] DEBUG: com.kh.spring.common.interceptor.LoggerInterceptor.preHandle(LoggerInterceptor.java:19) - ======================start====================== -->
+      <!-- [2019-10-14 09:15:22] DEBUG: com.kh.spring.common.interceptor.LoggerInterceptor.preHandle(LoggerInterceptor.java:20) - /spring/member/memberEnroll.do -->
+
+      <!-- exclude mapping -->
+      <!-- <exclude-mapping path="/member/*" /> -->
+
+      <!-- <mapping path="/member/*" /> -->
+      <mapping path="/demo/*" />
+      <mapping path="/board/*" />
+      <beans:bean id="loggerInterceptor" class="com.kh.spring.common.interceptor.LoggerInterceptor" />
+    </interceptor>
+  </interceptors>
+
+```
+
+## file upload
+mvnrepository 

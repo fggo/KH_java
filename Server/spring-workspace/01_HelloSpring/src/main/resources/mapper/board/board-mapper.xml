@@ -7,7 +7,20 @@
     select count(*) from board
   </select>
   <select id="selectBoardList" resultType="map">
-    SELECT A.*, (SELECT COUNT(*) FROM ATTACHMENT WHERE BOARDNO=A.BOARDNO) AS  ATTACHCOUNT
-    FROM BOARD A ORDER BY BOARDDATE DESC;
+    SELECT A.*, (SELECT COUNT(*) FROM ATTACHMENT WHERE BOARDNO=A.BOARDNO) AS ATTACHCOUNT
+    FROM BOARD A ORDER BY BOARDDATE DESC
   </select>
+  
+  <insert id="insertBoard" parameterType="map">
+    insert into board values(seq_boardNo.nextval,
+                             #{boardTitle}, #{boardWriter},
+                             #{boardContent}, DEFAULT, DEFAULT)
+    <selectKey keyProperty="boardNo" resultType="string" order="AFTER">
+      select seq_boardNo.currval from dual
+    </selectKey>
+  </insert>
+  <insert id="insertAttachment" parameterType="com.kh.spring.board.model.vo.Attachment">
+    insert into attachment values(seq_attachmentno.nextval, #{boardNo}, #{originalFileName},
+                                  #{renamedFileName}, DEFAULT, DEFAULT, DEFAULT)
+  </insert>
 </mapper>
