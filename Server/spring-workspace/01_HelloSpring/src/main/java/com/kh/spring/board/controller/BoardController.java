@@ -1,12 +1,18 @@
 package com.kh.spring.board.controller;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -100,7 +106,13 @@ public class BoardController {
         attachList.add(att);
       }
     }
-    int result = service.insertBoard(param, attachList);
+    int result = 0;
+    try {
+      result=service.insertBoard(param,attachList);
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+    
     String msg ="";
     String loc="/board/boardList.do";
     if( result >0)
@@ -117,5 +129,58 @@ public class BoardController {
   }
 
 
+  @RequestMapping("/board/boardView.do")
+  public ModelAndView boardView(int boardNo) {
+    ModelAndView mv = new ModelAndView();
+    Map<String, String> board = service.selectBoard(boardNo);
+    List<Attachment> att = service.selectAttachList(boardNo);
+    
+    mv.addObject("board", board);
+    mv.addObject("att", att);
+    mv.setViewName("board/boardView");
+
+    return mv;
+  }
+  
+  @RequestMapping("/board/filedownLoad.do")
+  public void boardFileDownLoad(String rName, String oName, HttpServletRequest request,
+        HttpServletResponse response) {
+     BufferedInputStream bis = null;
+     ServletOutputStream sos = null;
+     String dir = request.getSession().getServletContext().getRealPath("/resources/upload/board");
+     File saveFile = new File(dir + "/" + rName);
+     try {
+        FileInputStream fis = new FileInputStream(saveFile);
+        bis = new BufferedInputStream(fis);
+        sos = response.getOutputStream();
+        String resFileName = "";
+        boolean isMSIE = request.getHeader("user-agent").indexOf("MSIE") != -1
+              || request.getHeader("user-agent").indexOf("Trident") != -1;
+
+        if (isMSIE) {
+           resFileName = URLEncoder.encode(oName, "UTF-8");
+           resFileName = resFileName.replaceAll("\\", "%20");
+        } else {
+           resFileName = new String(oName.getBytes("UTF-8"), "ISO-8859-1");
+        }
+        response.setContentType("application/octet-stream;charset=utf-8");
+        response.addHeader("Content-Disposition", "attachment;filename=\"" + resFileName + "\"");
+        response.setContentLength((int) saveFile.length());
+
+        int read = 0;
+        while ((read = bis.read()) != -1) {
+           sos.write(read);
+        }
+     } catch (IOException e) {
+        e.printStackTrace();
+     } finally {
+        try {
+           sos.close();
+           bis.close();
+        } catch (IOException e) {
+           e.printStackTrace();
+        }
+     }
+  }
 
 }

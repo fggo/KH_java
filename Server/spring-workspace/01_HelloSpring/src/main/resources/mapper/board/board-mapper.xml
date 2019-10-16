@@ -19,8 +19,16 @@
       select seq_boardNo.currval from dual
     </selectKey>
   </insert>
+
   <insert id="insertAttachment" parameterType="com.kh.spring.board.model.vo.Attachment">
-    insert into attachment values(seq_attachmentno.nextval, #{boardNo}, #{originalFileName},
-                                  #{renamedFileName}, DEFAULT, DEFAULT, DEFAULT)
+    insert into attachment values(seq_attachmentno.nextval, #{boardNo},#{originalFileName},#{renamedFileName}, default,default,default)
   </insert>
+  
+  <select id="selectBoard" resultType="map" parameterType="_int">
+    select * from board where boardNo = #{boardNo}
+  </select>
+  
+  <select id="selectAttachList" resultType="com.kh.spring.board.model.vo.Attachment" parameterType="_int">
+    select * from attachment where boardNo= #{boardNo}
+  </select>
 </mapper>

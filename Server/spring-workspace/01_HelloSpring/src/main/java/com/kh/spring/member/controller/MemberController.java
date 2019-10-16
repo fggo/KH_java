@@ -1,5 +1,8 @@
 package com.kh.spring.member.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +10,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kh.spring.board.model.service.BoardService;
 import com.kh.spring.member.model.service.MemberService;
 import com.kh.spring.member.model.vo.Member;
 
@@ -25,6 +32,9 @@ public class MemberController{
   //의존성 주입으로 자동으로 연결 (= new MemberServiceImpl())
   @Autowired
   private MemberService memberService;
+  @Autowired
+  private BoardService bService;
+
 
   @Autowired
   private BCryptPasswordEncoder pwEncoder;
@@ -40,6 +50,53 @@ public class MemberController{
 //
 //    return "redirect:/";
 //  }
+
+
+//  //1. Ajax 통신 - stream 이용하는 방법 
+//  @RequestMapping("/member/checkId.do")
+//  public void ajaxStream(String userId, HttpServletResponse res) throws IOException {
+//    Member m = new Member();
+//    m.setUserId(userId);
+//    
+//    m = memberService.selectMemberOne(m);
+//    boolean isUsable = (m!= null && m.getUserId() !=null )? false : true;
+//    res.getWriter().print(isUsable);
+//  }
+  
+  //2. Ajax통신 - viewResolver(jsonView를 이용)로 처리하는 방법
+  //pom.xml에 의존성 등록
+//  @RequestMapping("/member/checkId.do")
+//  public ModelAndView ajaxViewResolver(String userId, ModelAndView mv) {
+//    Member m = new Member();
+//    m.setUserId(userId);
+//    m = memberService.selectMemberOne(m);
+//
+////    Member member = memberService.selectMemberOne(m); //객체넘기기
+//
+//    boolean isUsable =  (m!=null && m.getUserId()!=null)? false:true;
+//
+//    mv.addObject("userId", "dsads");
+//    mv.addObject("isUsable", isUsable);
+//    mv.setViewName("jsonView"); //명칭을 반드시 jsonView로 해야됨!
+//
+//    return mv;
+//  }
+  
+  //3. jackson형식 jackson mapper 필요
+  @RequestMapping("/member/checkId.do")
+  @ResponseBody
+  public String responseBody (String userId, Model model) throws JsonProcessingException{
+    Member m = new Member();
+    m.setUserId(userId);
+    m = memberService.selectMemberOne(m);
+    //jackson은 gson과 비슷한 역할, better functionality
+    ObjectMapper mapper = new ObjectMapper();
+//    mapper.readValue(json값, vo클래스);
+
+    List<Map<String, String>> list = bService.selectBoardList(1, 5);
+//    return mapper.writeValueAsString(m);
+    return mapper.writeValueAsString(list);
+  }
 
   /**
    * 
@@ -126,6 +183,7 @@ public class MemberController{
 //    int result = memberService.deleteMember(m);
 //    return "common/msg";
 //  }
+  
   
   
 }

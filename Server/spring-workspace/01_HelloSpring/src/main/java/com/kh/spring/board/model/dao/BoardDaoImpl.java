@@ -34,6 +34,17 @@ public class BoardDaoImpl implements BoardDao {
   public int insertAttachment(SqlSessionTemplate sqlSession, Attachment att) {
     return sqlSession.insert("board.insertAttachment", att);
   }
+
+  @Override
+  public Map<String, String> selectBoard(SqlSessionTemplate session, int no) {
+    return session.selectOne("board.selectBoard", no);
+  }
+
+  @Override
+  public List<Attachment> selectAttachList(SqlSessionTemplate session, int no) {
+    return session.selectList("board.selectAttachList", no);
+  }
+  
   
   
   

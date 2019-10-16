@@ -212,6 +212,26 @@
     </dependency>
     
 
+  <!-- ajax viewResolver jasonView 등록 -->
+  <!-- https://mvnrepository.com/artifact/net.sf.json-lib/json-lib-ext-spring -->
+  <dependency>
+    <groupId>net.sf.json-lib</groupId>
+    <artifactId>json-lib-ext-spring</artifactId>
+    <version>1.0.2</version>
+  </dependency>
+  
+  
+  <!--   ## jackson-databind
+  mvnrepo jackson-databind
+   -->
+   <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.9.10</version>
+    </dependency>
+  
+  
     
    <!-- Test -->
   <dependency>

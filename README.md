@@ -602,3 +602,212 @@ aop설정 메소드에 어노테이션 표시
 
 ## file upload
 mvnrepository 
+
+
+## transaction manager 
+insert into attachmet : tablename ('attachmet') exception :
+board is still inserted & committed
+
+```
+transaction시에는 aop와 연결해서 구현 -> 에러 발생시 rollback!
+처리하는 객체를 spring 이 만들어 놓음 : transaction manager
+```
+
+transaction:
+```
+spring에서는 트랜젝션 관리자가 처리함(transaction manager)
+spring에서는 DB에 접근해서 처리할 수 있는 방법이 다양함
+jsp, 하이버네이트, mybatis 여러가지 라이브러리, 프레임워크를
+적용할 수 있기 때문에, 이를 통합적으로 관리 할 수있는 관리자를 둔것임
+```
+
+트렌젝션 처리하는 방법:
+```xml
+<!--
+1. 선언적 방법: -> xml설정
+ - transaction 관리하는 xml을 만들어서 처리
+  root-context.xml에 태그를 추가해서
+-->
+<tx:advice transaction-Manager="transactionManager">
+  <tx:attributes>
+    <!-- 해당하는 메소드 지정 -->
+    <!-- => 트랜젝션 매니져를 통해 관리되야할 메소드 -->
+    <!-- insert로 시작되는 메소드를 매니져 관리 안으로 집어 넣음 -->
+    <tx:method name="insert*" rollback-for="Exception" />
+  </tx:attributes>
+</tx:advice>
+<!-- runtime exception 발생했을때 처리 기본적으로 기능 있음
+syntax 에러 및 다른 에러 처리도 범위 확장/축소 가능 -->
+<bean id="transactionManager" class="a123asdf" >
+
+<!--
+2. 어노테이션 방법(programatic) - 소스코드상에 @으로 처리
+-->
+1) root-context.xml : 어노테이션 살펴봐. servlet-context : 어노테이션 driven
+ -> annotation표시를 검색할 수 있게 설정
+<tx:annotation-driven transaction-manager="" />
+2) Service 객체 트렌젝션 처리
+메소드 마다 -> insert, update, delete 메소드에 트랜젝션
+```
+```java
+@Service
+class EmpService{
+
+  @Override
+  @Transactional
+  // @Transactional([옵션])
+  // @Transactional(rollback-for="Exception.class")
+  // @Transactional(rollback-for="타임아웃:일정시간 지나면 rollback")
+  public int insertEmp(){
+
+  }
+}
+```
+
+* 옵션
+```
+propatation 트랜젝션.
+  기존에 트렌젝션이 발생한 뒤 다른 트렌젝션이 참여하는 방법을 설정
+
+  REQUIRED = DEFAULT //기본적으로 그냥 이걸로 하세요!
+    이미 시작된 트랜젝션이 있으면 참여하고 아니면 새로 생성
+
+  SUPPORT
+    이미 시작된 트랜젝션이 있으면 참여, 없으면 트랜젝션 없이 처리
+
+  MANDATORY
+    REQUIRED와 비슷. 이미 시작된 트렌젝션이 있으면 참여, 없으면 예외발생 시킴
+
+  REQUIRED_NEW
+    항상 새로운 트렌젝션을 수행. 이미 사자된 트렌젝션은 보류
+  NEVER, NOT_SUPPORTED
+
+  ISOLATION 격리수준 (commit 된것을 select또는 이전 것 을 select 한 것인지 등 설정)
+
+  DEFAULT : DBMS가 가지고 있는 트렌젝션 설정을 따르는 것
+
+  READ_COMMITTED
+    기본적으로 가장 많이 쓰는 방법 COMMIT 까지 SELECT 대기
+
+  READ_UNCOMMITTED 가장 낮은 격리수준
+    COMMIT이 되기 전에 SELECT 됨. DIRTYREAD발생
+
+  REPEATABLE_READ
+    트랜젝션이 읽은 row를 다른 트렌젝션이 수정하는 것을 막는 것
+
+  SERIALIZABLE
+    격리수준 가장 강력(READ 못하게), 성능을 떨어뜨림... 자주 사용 안함
+
+  기타: TIMEOUT 커밋하는 기간을 정해놓음, READONLY
+ ```
+ ```xml
+    <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.6.10</version>
+    </dependency>
+기존에 추가한 aspectjweaver 사용함 
+
+ ```
+ namespace탭에서 tx 체크하기
+ ```java
+ // boardServiceImpl.java
+  //  @Transactional //트랜젝션의 기준이 되는 것 : RunTimeException 발생시! Exception으로 하면 안됨
+  //  @Transactional(rollbackFor = Exception.class) //트랜젝션의 기준이 되는 것 : 모든 에러 Exception (RunTimeException 포함) 발생시!
+  //annotation 방식 말고 root-context.xml에 등록가능
+  public int insertBoard(Map<String, String> param, List<Attachment> attachList) {
+    //세션 트랜젝션 관리(by spring)
+    int result = 0;
+    result = dao.insertBoard(sqlSession, param); //board테이블에 데이터 입력!
+
+    if(result ==0)
+      throw new RuntimeException(); //TransactionManager가 자동으로 롤백 처리함
+
+    if(attachList.size() > 0) {
+      for(Attachment a : attachList) {
+        a.setBoardNo(Integer.parseInt(param.get("boardNo")));
+        result = dao.insertAttachment(sqlSession, a);
+      }
+    }
+    
+    return result;
+  }
+  
+
+ ```
+
+ ```xml
+ <!-- root-context.xml -->
+   <!-- annotation 방식으로 처리하기 -->
+  <!-- tx는 namespace에 있는 것: namespace 등록하기 -->
+  <!-- <tx:annotation-driven transaction-manager="transactionManager" /> -->
+  
+  <!-- 선언적 방식으로 Transaction 처리 -->
+  <tx:advice id="txAdvice" transaction-manager="transactionManager">
+    <tx:attributes>
+      <tx:method name="insert*" rollback-for="Exception" />
+    </tx:attributes>
+  </tx:advice>
+
+  <!-- aop와 연결하여 트랜젝션을 적용 -->
+  <aop:config>
+    <aop:pointcut expression="execution(* com.kh.spring..*ServiceImpl.*(..))" id="serviceMethod" />
+    <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod" />
+  </aop:config>
+
+
+ ```
+
+ ## 스프링 Ajax 처리하기
+ 3가지 방법 있음
+ ```
+ 1. ServletOutStream 이용하는 방법
+ 2. ModelAndView 객체를 반환형으로 하고, viewResolver를 이용하는 방법
+ 3. @Repository 어노테이션을 이용하는 방법
+
+  2~3 jackson ObjectMapper를 이용함
+ ```
+
+
+mvnrepository - Json Lib4Spring 1.0.2
+```
+ json-lib-ext-spring
+```
+
+```xml
+  <!-- servlet-context.xml -->
+  <!-- jsonView 등록하기 -->
+  <beans:bean id="viewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+  </beans:bean>
+
+```
+
+## jackson-databind
+mvnrepo jackson-databind
+```xml
+<!-- pom.xml -->
+<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.9.10</version>
+</dependency>
+
+```
+
+```xml
+<!-- servlet-context.xml -->
+  <!-- jackson -->
+  <beans:bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+  </beans:bean>
+  
+  <!-- jackson handler -->
+  <beans:bean id="" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+    <beans:property name="messageConverters">
+      <beans:list>
+        <beans:ref bean="jacksonMessageConverter" />
+      </beans:list>
+    </beans:property>
+  </beans:bean>
+```

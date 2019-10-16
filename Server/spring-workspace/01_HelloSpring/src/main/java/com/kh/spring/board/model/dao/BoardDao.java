@@ -12,5 +12,8 @@ public interface BoardDao {
   int selectBoardCount(SqlSessionTemplate sqlSession);
   int insertBoard(SqlSessionTemplate sqlSession, Map<String,String> param);
   int insertAttachment(SqlSessionTemplate sqlSession, Attachment att);
+  
+  Map<String, String> selectBoard(SqlSessionTemplate session, int no);
+  List<Attachment> selectAttachList(SqlSessionTemplate session, int no);
 
 }
