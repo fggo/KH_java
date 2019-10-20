@@ -3,6 +3,8 @@ package com.kh.spring.member.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -106,8 +108,7 @@ public class MemberController{
    * @return String(jsp)
    */
   @RequestMapping("/member/memberLogin.do")
-//  public String login(Member m, Model model, HttpSession session) {
-  public String login(Member m, Model model, SessionStatus session) {
+  public String login(Member m, Model model, HttpSession session) {
 
     Member loginMember = memberService.selectMemberOne(m);
 //    Model: request 대신에 씀
@@ -121,7 +122,8 @@ public class MemberController{
     logger.debug(pwEncoder.encode(m.getPassword()));
     logger.debug(loginMember.getPassword());
 
-    if(loginMember != null && pwEncoder.matches(m.getPassword(), loginMember.getPassword())) {
+    if(loginMember != null &&
+        pwEncoder.matches(m.getPassword(), loginMember.getPassword())) {
       msg ="login success";
       model.addAttribute("loginMember", loginMember); //model은 request같아서 세션 유지 X
       //@SessionAttributes등록하면 loginMember를 session에 올림
@@ -129,8 +131,6 @@ public class MemberController{
     else
       msg = "login fail";
     
-//    session.setAttribute("loginMember", loginMember);
-
     model.addAttribute("msg", msg);
     model.addAttribute("loc", loc);
 

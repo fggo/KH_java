@@ -55,7 +55,7 @@ Go to preferences - maven -user settings - change
 
 ## UTF-8 inside .jsp
 ```jsp
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" page Encoding="UTF-8"%> 
 ```
 
 ## pom.xml
@@ -810,4 +810,11 @@ mvnrepo jackson-databind
       </beans:list>
     </beans:property>
   </beans:bean>
+```
+
+## Changing Context root
+```xml
+<!-- project r_click -> Web project setting -> edit context path
+Servers/server.xml -->
+<Context docBase="ParkingSpring" path="/parking" reloadable="true" source="org.eclipse.jst.jee.server:ParkingSpring"/></Host>
 ```

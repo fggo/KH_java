@@ -19,6 +19,6 @@
                    #{userId},#{password},#{userName},#{gender},
                    #{age},#{email},#{phone},
                    #{address},#{hobby, typeHandler=arrType},SYSDATE)
-<!--   private String[] hobby; private Date enrollDate; -->
+<!-- private String[] hobby; private Date enrollDate; -->
   </insert>
 </mapper>
