@@ -818,3 +818,70 @@ mvnrepo jackson-databind
 Servers/server.xml -->
 <Context docBase="ParkingSpring" path="/parking" reloadable="true" source="org.eclipse.jst.jee.server:ParkingSpring"/></Host>
 ```
+
+
+## WEB RTC
+peer to peer
+NAT 사설망 ->공유기
+
+```
+P 공유기 [공인] 공유기 P
+  사설주소는 공유기만 알고 있음. 공유기(NAT) 
+  Stun 서버 : 통신을 하도록 사설.공인주소 정보를 알려주는 기능을 함
+  브라우저가 Web RTC 기능을 구현해 놓고 있음
+
+  데이터를 주고 받기 위해서는 신호를 주고 받아야.
+  Network 연결된 상태에서 signaling server에게 연락 메시지보내서
+  string을 video 태그에 집어넣음
+
+  Web socket이해가 필요함 
+  192.168.20.34:9090/spring
+```
+
+HelloSpring
+Ip
+SSLEnabled="true"
+
+server.xml
+```xml
+    <!-- Define a SSL/TLS HTTP/1.1 Connector on port 8443
+         This connector uses the NIO implementation. The default
+         SSLImplementation will depend on the presence of the APR/native
+         library and the useOpenSSL attribute of the
+         AprLifecycleListener.
+         Either JSSE or OpenSSL style configuration may be used regardless of
+         the SSLImplementation selected. JSSE style configuration is used below.
+    -->
+
+    <Connector clientAuth="false" keystoreFile="C:\.keystore" keystorePass="rclass" port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol" maxThreads="150" SSLEnabled="true" sslProtocol="TLS">
+    </Connector>
+```
+
+https
+: packet전송할떄 암호화 해서 전송
+```commandline
+cmd -> ipconfig (ipv4)
+https://192.168.120.164:8443/spring/index.jsp
+```
+
+## WebSocket module 적용
+```xml
+<!-- pom.xml (mvn > 'spring websocket' copy & paste) -->
+<!-- servlet-context.xml > namespace 밑에 websocket 체크 -->
+
+<!-- root-context.xml -->
+  <!-- 웹소켓 설정 bean 등록 -->
+  <beans:bean id="chatting" class="com.kh.spring.chatting.ViewChatting" />
+  
+  <websocket:handlers>
+    <websocket:mapping handler="chatting" path="/viewChatting"/>
+    <websocket:handshake-interceptors>
+      <beans:bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor" />
+    </websocket:handshake-interceptors>
+  </websocket:handlers>
+  <beans:bean class="org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean">
+    <beans:property name="maxBinaryMessageBufferSize" value="1020400" />
+  </beans:bean>
+
+
+```

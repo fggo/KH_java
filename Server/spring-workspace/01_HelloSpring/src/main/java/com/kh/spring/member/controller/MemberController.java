@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -183,6 +184,11 @@ public class MemberController{
 //    int result = memberService.deleteMember(m);
 //    return "common/msg";
 //  }
+  
+  @RequestMapping("/viewChatting.do")
+  public String viewChatting() {
+    return "chatting/viewChatting";
+  }
   
   
   

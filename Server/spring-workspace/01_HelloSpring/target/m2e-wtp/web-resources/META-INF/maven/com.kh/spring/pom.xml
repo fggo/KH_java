@@ -221,8 +221,7 @@
   </dependency>
   
   
-  <!--   ## jackson-databind
-  mvnrepo jackson-databind
+  <!--  ## jackson-databind. mvnrepo jackson-databind
    -->
    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
     <dependency>
@@ -231,6 +230,14 @@
       <version>2.9.10</version>
     </dependency>
   
+  
+  <!-- ## WebSocket module 적용 -->
+  <!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-websocket</artifactId>
+    <version>${org.springframework-version}</version>
+  </dependency>
   
     
    <!-- Test -->
