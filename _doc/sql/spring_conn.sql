@@ -9,6 +9,7 @@ INSERT INTO SPRING.MEMBER VALUES ('qwerty','1234','김말년','F',30,'qwerty@nav
 INSERT INTO SPRING.MEMBER VALUES ('admin','1234','관리자','F',33,'admin@naver.com','01012345678','서울시 강남구','독서',DEFAULT);
 
 commit;
+delete from member where userid='user00';
 
 CREATE TABLE DEV (
   DEVNO NUMBER PRIMARY KEY,
@@ -32,6 +33,10 @@ CREATE TABLE MEMBER(
  ,ENROLLDATE DATE DEFAULT SYSDATE
 );
 
+ALTER TABLE MEMBER modify address varchar2(2000);
+ALTER TABLE MEMBER modify email varchar2(800);
+ALTER TABLE MEMBER modify phone varchar2(800);
+commit;
 CREATE SEQUENCE SEQ_DEV_NO
 START WITH 1
 INCREMENT BY 1

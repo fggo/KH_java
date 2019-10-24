@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kh.spring.board.model.service.BoardService;
+import com.kh.spring.common.encrypt.MyEncrypt;
 import com.kh.spring.member.model.service.MemberService;
 import com.kh.spring.member.model.vo.Member;
 
@@ -34,17 +34,22 @@ public class MemberController{
   
   //의존성 주입으로 자동으로 연결 (= new MemberServiceImpl())
   @Autowired
-  private MemberService memberService;
+  private MemberService service;
   @Autowired
   private BoardService bService;
 
-
   @Autowired
   private BCryptPasswordEncoder pwEncoder;
+  
+  @Autowired
+  private MyEncrypt enc;
+//  bean 등록방법
+//  1.annotation / 2.xml
+//  AEScrypto 클래스를 bean으로 등록 @Component
  
 //  @RequestMapping("/member/memberLogin.do")
 //  public String login(Member m, HttpSession session) {
-//    Member loginMember = memberService.selectMemberOne(m);
+//    Member loginMember = service.selectMemberOne(m);
 //
 //    if(loginMember !=null) {
 //      session.setAttribute("loginMember", loginMember);
@@ -61,7 +66,7 @@ public class MemberController{
 //    Member m = new Member();
 //    m.setUserId(userId);
 //    
-//    m = memberService.selectMemberOne(m);
+//    m = service.selectMemberOne(m);
 //    boolean isUsable = (m!= null && m.getUserId() !=null )? false : true;
 //    res.getWriter().print(isUsable);
 //  }
@@ -72,9 +77,9 @@ public class MemberController{
 //  public ModelAndView ajaxViewResolver(String userId, ModelAndView mv) {
 //    Member m = new Member();
 //    m.setUserId(userId);
-//    m = memberService.selectMemberOne(m);
+//    m = service.selectMemberOne(m);
 //
-////    Member member = memberService.selectMemberOne(m); //객체넘기기
+////    Member member = service.selectMemberOne(m); //객체넘기기
 //
 //    boolean isUsable =  (m!=null && m.getUserId()!=null)? false:true;
 //
@@ -91,7 +96,7 @@ public class MemberController{
   public String responseBody (String userId, Model model) throws JsonProcessingException{
     Member m = new Member();
     m.setUserId(userId);
-    m = memberService.selectMemberOne(m);
+    m = service.selectMemberOne(m);
     //jackson은 gson과 비슷한 역할, better functionality
     ObjectMapper mapper = new ObjectMapper();
 //    mapper.readValue(json값, vo클래스);
@@ -111,7 +116,7 @@ public class MemberController{
   @RequestMapping("/member/memberLogin.do")
   public String login(Member m, Model model, HttpSession session) {
 
-    Member loginMember = memberService.selectMemberOne(m);
+    Member loginMember = service.selectMemberOne(m);
 //    Model: request 대신에 씀
 
     String msg="";
@@ -147,7 +152,15 @@ public class MemberController{
   @RequestMapping("/member/memberEnrollEnd.do")
   public String enrollEnd(Member m, Model model) {
     m.setPassword(pwEncoder.encode(m.getPassword()));
-    int result = memberService.insertMember(m);
+    try {
+      m.setEmail(enc.encrpt(m.getEmail())); //이메일 암호화
+      m.setAddress(enc.encrpt(m.getAddress())); //이메일 암호화
+      m.setPhone(enc.encrpt(m.getPhone())); //이메일 암호화
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+
+    int result = service.insertMember(m);
 
     String msg ="";
     String loc= "/";
@@ -181,7 +194,7 @@ public class MemberController{
 //  public String delete(Member m, Model model) {
 //    String msg = "";
 //    String loc="/";
-//    int result = memberService.deleteMember(m);
+//    int result = service.deleteMember(m);
 //    return "common/msg";
 //  }
   
@@ -190,6 +203,20 @@ public class MemberController{
     return "chatting/viewChatting";
   }
   
+	@RequestMapping("/member/memberView.do")
+	public String memberView(Member m, Model model) {
+	  Member result = service.selectMemberOne(m);
+	  try {
+	    result.setEmail(enc.decrypt(result.getEmail()));
+	    result.setPhone(enc.decrypt(result.getPhone()));
+	    result.setAddress(enc.decrypt(result.getAddress()));
+	  } catch(Exception e){
+	    e.printStackTrace();
+	  }
+	  model.addAttribute("member", result);
+	  
+	  return "member/memberView";
+	}
   
   
 }

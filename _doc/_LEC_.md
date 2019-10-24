@@ -1,4 +1,31 @@
-﻿
+﻿1. job search API
+2. insert jobBoard(for test)
+3. joboard list click -> modal invisible? Company info
+4. <selectKey>
+
+RSA 양자간 통신시에 메시지 encode 암호화 통신
+
+암호화/복호화 : 양방향 암호화
+key를 가지고 암호화 복호화를 진행함
+대칭키 암호화 -> AES256방식
+비대칭키 암호화 -> RSA방식
+  공개키/비공개, 개인키
+
+  A
+a.publicKey
+a.privateKey
+  B
+a.publicKey
+b.privateKey
+
+public key로 encode->private key로 decode
+
+공용으로 참조할수있는 공간에 publicKey(b.publicKey a.publicKey)를 올려놓음
+풀수있는건 나 자신의 privateKey 밖에없음
+
+A<->B 암호화 통신
+B-> A publicKey로 암호화 ->A가 privateKey로 만 decode가능
+A-> B publicKey로 암호화 ->B가 privateKey로 만 decode가능
 
 Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ
 

@@ -91,6 +91,8 @@
               <span><i class="fa fa-person"></i></span>
               <span><a href="#">Hello ${loginMember.userName}</a>. Welcome Back!</span>&nbsp;
               <button class="btn btn-outline-success my-2 my-sm-0" type="button" 
+                onclick="location.href='${path}/member/memberView.do?userId=${loginMember.userId}'">My Page</button>
+              <button class="btn btn-outline-success my-2 my-sm-0" type="button" 
                 onclick="location.href='${path}/member/memberLogout.do'">Log Out</button>
             </c:if>
           </div>
