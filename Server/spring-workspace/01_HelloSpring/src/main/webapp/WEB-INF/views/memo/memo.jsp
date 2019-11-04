@@ -23,9 +23,10 @@
       <td><c:out value="${m['MEMO']}"/></td>
       <td><c:out value="${m['PASSWORD']}"/></td>
       <td><c:out value="${m['MEMODATE']}"/></td>
-      <%-- <td><fmt:formatDate value="${m['MEMODATE']}" pattern="yyyy-MMM-dd"></td> --%>
+      <%-- <td><fmt:formatDate value="${m['MEMODATE']}" pattern="yyyy-MMM-dd" /></td> --%>
       
-      <%-- The value for fmt:formatDate is suppose to be a Date object (java.util.Date). If the task.startDate is a date as a String, then you need to convert it beforehand.
+      <%-- The value for fmt:formatDate is supposed to be a Date object (java.util.Date).
+           If the task.startDate is a date as a String, then you need to convert it beforehand.
         <fmt:parseDate value="${task.startDate}" pattern="yyyy-MM-dd HH:mm:ss" var="myDate"/>
         <fmt:formatDate value="${myDate}" var="startFormat" pattern="yyyy-MM-dd"/> --%>
     </tr>

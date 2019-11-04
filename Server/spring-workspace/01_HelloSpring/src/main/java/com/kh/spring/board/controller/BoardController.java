@@ -78,7 +78,7 @@ public class BoardController {
     /* 파일업로드 처리하기 */
     //1.저장경로 지정하기
     String saveDir = request.getSession().getServletContext().getRealPath("/resources/upload/board");
-    List<Attachment> attachList = new ArrayList<Attachment>(); //에러파일 보관용
+    List<Attachment> attachList = new ArrayList<Attachment>(); //여러파일 보관용
 
     File dir = new File(saveDir);
 

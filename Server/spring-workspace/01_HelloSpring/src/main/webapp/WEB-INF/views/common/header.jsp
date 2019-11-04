@@ -63,7 +63,7 @@
             <li class="nav-item"><a class="nav-link" href="${path }/board/boardList.do">Board</a></li>
             <!-- <li class="nav-item"><a class="nav-link" href="${path }/demo/demo.do">Demo</a></li> -->
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Demo </a>
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dev </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="${path }/demo/demo.do">Dev Enroll</a>
                 <a class="dropdown-item" href="${path }/demo/selectDevList.do">Dev List</a>

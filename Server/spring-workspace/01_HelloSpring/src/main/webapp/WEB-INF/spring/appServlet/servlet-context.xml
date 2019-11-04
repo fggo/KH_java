@@ -50,9 +50,7 @@
   <beans:bean id="viewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
     <beans:property name="order" value="1" />
   </beans:bean>
-   <!-- jsonView 등록하기 -->
-  <beans:bean id="jasonView" class="net.sf.json.spring.web.servlet.view.JsonView">
-  </beans:bean>
+  <beans:bean id="jasonView" class="net.sf.json.spring.web.servlet.view.JsonView"/>
   
   <!-- jackson -->
   <beans:bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">

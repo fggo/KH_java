@@ -23,13 +23,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class RSAEncrypto implements MyEncrypt {
 
-  private PublicKey publickey;
-  private PrivateKey privatekey;
+  private PublicKey publickey; //암호화키 (네트워크에 public으로 올려놓음)
+  private PrivateKey privatekey; //복호화 키 (public 과 matching 되어 있음 paired)
+//  A->B 전송 시 (A가 B의 public key를 이용해서  암호화 -> B가 A로부터 받은 것을 private key로 복호화!)
+  //정기적으로 key를 바꿔줌
 
   public RSAEncrypto() {
     String path = this.getClass().getResource("/").getPath();
     path = path.substring(0, path.lastIndexOf("/target/"));
-    File f= new File(path + "/src/main/java/webapp/WEB-INF/keys.jh");
+    File f= new File(path + "/src/main/webapp/WEB-INF/keys.jh");
     if(f.exists()) {
       try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f))) {
         try {
@@ -46,7 +48,7 @@ public class RSAEncrypto implements MyEncrypt {
     } else {
       if(publickey==null || privatekey==null) {
         try {
-           getKey();
+           this.getKey();
         } catch(NoSuchAlgorithmException e) {
           e.printStackTrace();
         }
@@ -98,7 +100,7 @@ public class RSAEncrypto implements MyEncrypt {
     Cipher cipher = Cipher.getInstance("RSA");
     cipher.init(Cipher.DECRYPT_MODE, privatekey);
     byte[] encStr = Base64.getDecoder().decode(msg.getBytes());
-    byte[] result = cipher.doFinal();
+    byte[] result = cipher.doFinal(encStr);
         
     return new String(result, "UTF-8");
   }

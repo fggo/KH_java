@@ -18,17 +18,18 @@ import org.springframework.stereotype.Component;
 
 //@Component
 public class AEScrypto implements MyEncrypt {
+//  키 한개로 둘다 같은 키 사용 : 문제(암호화된 키를 네트워크로 전송할때 시큐리티 위험)
   //자바는 기본적으로 암호화객체를 API로 제공하고 있음
   //javax.crypto 패키지에서 암호화 관련 내용을 제공
   //암호화 알고리즘은 java.security 패키지에서 제공
   //대칭 암호화를 위한 대칭키가 필요함
+  //서버와 DB가 통신이라, AES로도 괜찮음.
   
   private SecretKey key; //암호화 키
   
   public AEScrypto() throws NoSuchAlgorithmException {
     //key 생성파일이 있는지 확인하고 있으면, 파일에 저장된 key값을 가져오고
     //없으면  getkey를 통해서 key파일을 생성
-
     String path = this.getClass().getResource("/").getPath();//클래스 위치
     path = path.substring(0, path.lastIndexOf("/target"));
     File f = new File(path + "/src/main/webapp/WEB-INF/mykey.key");

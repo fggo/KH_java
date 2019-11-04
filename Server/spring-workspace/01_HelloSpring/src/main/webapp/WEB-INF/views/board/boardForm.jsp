@@ -15,7 +15,7 @@
   div#board-continer input{margin-bottom:15px;} */
  </style>
   <div id="board-container" class="container">
-    <form name="boardFrm" action="${pageContext.request.contextPath}/board/boardFormEnd.do" method="post" onsubmit="return validate();" enctype="multipart/form-data" >
+    <form name="boardFrm" action="${path}/board/boardFormEnd.do" method="post" enctype="multipart/form-data" >
       <input type="text" class="form-control " placeholder="제목" name="boardTitle" id="boardTitle" required>
       <input type="text" class="form-control" placeholder="아이디 (4글자이상)" name="boardWriter" value="${loginMember.userId}" readonly required>
       <div class="input-group mb-3" style="padding:0px;">

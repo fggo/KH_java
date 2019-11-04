@@ -1,7 +1,167 @@
-﻿1. job search API
-2. insert jobBoard(for test)
-3. joboard list click -> modal invisible? Company info
-4. <selectKey>
+﻿안녕하세요 지원자 이준호 입니다.
+저는 이번 국비 교육과정을 시작하면서 세가지를 지키려고
+
+첫번째는 간절함 입니다. 이 간절함은 교육과정을 들으면서, 점차 프로그래밍에 대한 열정으로 바꼈고,
+6개월 동안 필요한 기술들을 향상 시키는데 제 모든 열정을 쏟아붓는 원동력이 됐습니다.
+결과적으로 병원 2일을 제외한 모든 일수를 출석 할 수있었습니다.
+
+두번째는 도움받은 만큼 베풀자 입니다. 저는 문득
+매일 저와 같은 예비개발자들에게 지식을 가르치러 오시는 분들의 성의에 대해 생각해 봤습니다.
+또한 회사를 다니면서 조언과 도움을 준 분들을 생각해 봤습니다. 
+저도 그분들과 같이 제 팀원들을 돕는 노력했습니다. 특히 여송씨나 장원씨와 
+프로젝트를 하면서 서로 모르는 것을 물어보면서 돕는것이 굉장히 즐거웠습니다.
+
+세번째는 패배는 쓰러질 때가 아닌 다시 일어서길 거부할 때 라는 것 입니다.
+저에게 퇴사는 쓰러진 것과 같았지만, 공백기간을  실패라고 생각하지 않았고, 
+교육과정을 통해 다시 일어설수 있었습니다. 저는 앞으로 어떤 시련이 와도 다시 일어설 자신이 있습니다.
+
+저는 소프트원에 입사하기 위한 이 세가지 마음가짐 외에, 6개월간 얻은 직무능력을 증명하려는
+목표를 가지고 있으며, 객관적이고 솔직한 답변 드릴 것을 약속합니다.
+
+
+* controller new service 결합도증가. interface : 결합도 감소
+
+* 응집도 높음
+ aop : service insertmethod (값을 받아서 db에 insert)
+ 응집도 낮은것: insertMember 안에 db 커넥션 관리 및 close()등 모든걸  코드
+ connection 및 다른 메소드 필요없이 compact하게 insert기능만 구현하여 응집도 높힘
+------------------------------------------------
+aop : 코드 중복을 줄여줌
+응집도를 높혀 oop 답게 만들어줌
+
+# IOC Inversion Of Control
+제어의 역전.
+객체 without iod 객체 생성 소멸
+spring container 로 알아서 관리 (DI로) 하도록 하는 것
+
+Q4. What Is Dependency Injection?
+Dependency Injection, an aspect of Inversion of Control (IoC), is a general concept stating that you do not create your objects manually but instead describe how they should be created. An IoC container will instantiate required classes if needed.
+
+For more details, please refer here.
+# DI dependency injection
+
+* How Can We Inject Beans in Spring?
+A few different options exist:
+- Setter Injection
+- Constructor Injection
+- Field Injection
+- The configuration can be done using XML files or annotations.
+
+
+* Which Is the Best Way of Injecting Beans and Why?
+The recommended approach is to use constructor arguments for mandatory dependencies and setters for optional ones. Constructor injection allows injecting values to immutable fields and makes testing easier.
+
+* POJO
+plain old java object
+bean ?
+
+* WAS (apache tomcat) vs Web Server
+WAS db 연동하여 서버 로직으로 동적으로 페이지 구성 할 수 있도록
+Web Server 정적으로 등록된 페이지 출력하는 서버
+
+* Benefits of Using Spring Framework
+Spring targets to make Java EE development easier. Here are the advantages of using it:
+
+- Lightweight: there is a slight overhead of using the framework in development
+- Inversion of Control (IoC): Spring container takes care of wiring dependencies of various objects, instead of creating or looking for dependent objects
+- Aspect Oriented Programming (AOP): Spring supports AOP to separate business logic from system services
+- IoC container: it manages Spring Bean life cycle and project specific configurations
+- MVC framework: that is used to create web applications or RESTful web services, capable of returning XML/JSON responses
+- Transaction management: reduces the amount of boiler-plate code in JDBC operations, file uploading, etc., either by using Java annotations or by Spring Bean XML configuration file
+- Exception Handling: Spring provides a convenient API for translating technology-specific exceptions into unchecked exceptions
+
+* interface 다중상속 가능 vs absract method+field 다중상속 안됨
+Main difference is methods of a Java interface are implicitly abstract and cannot have implementations. A Java abstract class can have instance methods that implements a default behavior.
+Variables declared in a Java interface is by default final. An  abstract class may contain non-final variables.
+
+Members of a Java interface are public by default. A Java abstract class can have the usual flavors of class members like private, protected, etc..
+Java interface should be implemented using keyword “implements”; A Java abstract class should be extended using keyword “extends”.
+An interface can extend another Java interface only, an abstract class can extend another Java class and implement multiple Java interfaces.
+A Java class can implement multiple interfaces but it can extend only one abstract class.
+Interface is absolutely abstract and cannot be instantiated; A Java abstract class also cannot be instantiated, but can be invoked if a main() exists.
+In comparison with java abstract classes, java interfaces are slow as it requires extra indirection.
+
+* LEFT OUTER JOIN
+Another type of join is called an Oracle LEFT OUTER JOIN. This type of join returns all rows from the LEFT-hand table specified in the ON condition and only those rows from the other table where the joined fields are equal (join condition is met).
+
+table1+ 공통 공통데이터
+```sql
+SELECT columns
+FROM table1
+LEFT [OUTER] JOIN table2
+ON table1.column = table2.column;
+-- In some databases, the LEFT OUTER JOIN keywords are replaced with LEFT JOIN.
+```
+
+* RIGHT OUTER JOIN
+table2+ 공통 데이터
+```sql
+SELECT columns
+FROM table1
+RIGHT [OUTER] JOIN table2
+ON table1.column = table2.column;
+```
+-------------------------------------------------------------------------------------
+OOP concepts
+  Polymorphism 
+  Abstraction
+  Inheritance
+  Aggregation
+  Encapsulation
+  Association
+  Composition
+
+[Abstraction, Inheritance, Polymorphism, Encapsulation]
+
+Abstraction means using simple things to represent complexity.
+We all know how to turn the TV on, but we don’t need to know how it works in order to enjoy it.
+In Java, abstraction means simple things like objects, classes, and variables represent more complex underlying code and data. This is important because it lets avoid repeating the same work multiple times.
+
+Encapsulation. This is the practice of keeping fields within a class private, then providing access to them via public methods. It’s a protective barrier that keeps the data and code safe within the class itself.
+This way, we can re-use objects like code components or variables without allowing open access to the data system-wide.
+
+Inheritance. This is a special feature of Object Oriented Programming in Java. It lets programmers create new classes that share some of the attributes of existing classes. This lets us build on previous work without reinventing the wheel.
+
+Polymorphism. This Java OOP concept lets programmers use the same word to mean different things in different contexts. One form of polymorphism in Java is method OVERLOADING. That’s when different meanings are implied by the code itself. The other form is method OVERRIDING. That’s when the different meanings are implied by the values of the supplied variables.
+
+framework good/bad
+
+spring framework
+explain project process
+java memory 영역
+mvc pattern
+java interface good/bad
+outer /inner join
+
+1min intro
+personality good/bad
+education / major(subjects)
+motivation for appl
+tell us about softone / visit homepage
+explain your role in projects
+how did you overcome recent hardships
+most/least(how to compensate) confident skill
+expected salary level 
+reason why softone has to hire you
+-javascript + oracle db  +mobile web +progressive & social person
+
+
+
+
+
+
+11.4. 면접진행
+1관 2층 - 양복
+13:50~ 40분 - 소프트원
+
+10.30일 14:50 softone
+
+1. job search API
+2. joboard list click -> modal invisible? Company info
+3. <selectKey>
+4. mainpage - 
+5. jobboard list ->  title click
+6. crawling
 
 RSA 양자간 통신시에 메시지 encode 암호화 통신
 
@@ -525,7 +685,26 @@ Maven
 
 
 
+Ⅰ. Job Type
+Ⅱ. Location : NewYork
+Ⅲ. Description
+Ⅳ. How to Apply 
 
+
+
+WANT SOME EASY $? Anyone wtih good mindsets are welcome! :)
+Extra-territorial-super-secret-cool-place
+Hi. We are looking for noobies. We teach everything from A to Z. So please have a good mindset and we can grow together. Required social skills are listed in our page(www.linkedin.com/USER01Corp). We will test your physical ability as well as metal ability. blaah blahg blah~~~
+Please don't forget to visit https://wwww.helloWorld.com and submit your resume!
+
+
+일종의 협상
+협상 전략을 구상
+제 자신이 어떤 사람인지 솔직하게 말씀 드리늠것
+제가 가진 역량이 회사기대에 맞는지
+저는 길게 보고싶습니다
+어떤 기능을 구현하는 능력도 갈고 닦았지만
+전 멀리볼수 있는 비전을 가지고 있습니다
 
 
 
