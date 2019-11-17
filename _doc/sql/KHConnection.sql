@@ -1,20 +1,38 @@
 select * from employee;
 select * from department;
 select * from job;
-select * from sal_grade;
---delete from employee where emp_id='3';
-select count(*) from employee;
 
-COMMIT;
-ROLLBACK;
+--200	선동일	621235-1985634	sun_di@kh.or.kr	01099546325	D9	J1	S1	8000000	0.3		90/02/06
+--222	이태림	760918-2854697	lee_tr@kh.or.kr	01033000002	D8	J6	S5	2436240	0.35	100	97/09/12
+--904	서현희	910804-2123412				J3	S1				
 --905	M0NK	980101-1111222	monk@bb.com	01011112222	D1	J1	S1	99822201	0.5	200	19/07/01
 --906	BABA	911111-1122333	BABA@baba.com	01011111111	D2	J2	S2	800000	0.7	201	19/07/06
 --909	abb	2929292-2     	dsadsa	1001223	O2	O2	O2	9002202	0.6	200	19/07/07
 
+--D1	인사관리부	L1
+--D2	회계관리부	L1
+--D3	마케팅부	L1
+--D4	국내영업부	L1
+--D5	해외영업1부	L2
+--D6	해외영업2부	L3
+--D7	해외영업3부	L4
+--D8	기술지원부	L5
+--D9	총무부	L1
+
+--J1	대표
+--J2	부사장
+--J3	부장
+--J4	차장
+--J5	과장
+--J6	대리
+--J7	사원
+
 select * from user_cons_columns where table_name='EMPLOYEE';
 select * from user_constraints where table_name='EMPLOYEE';
 
---NUMBER(p ��ü�ڸ� ��, s ��ü�ڸ��� �� �Ҽ��� ��);
+
+--NUMBER(p 전체자리 수, s 전체자리수 중 소숫점 수);
+
 CREATE TABLE NUMBERTEST(
     A NUMBER(7,3),
     B NUMBER(7),
@@ -28,17 +46,17 @@ SELECT * FROM NUMBERTEST;
 INSERT INTO NUMBERTEST
     VALUES(1234.567, 1234.567, 1234.567, 1234.567, 1234.567);
 
---char �������� �ִ� 2000byte
---nchar �����ڵ� �������� (������ ó��) �ִ� ���ڼ� 1000��
---varchar2 �������� �ִ� 4000byte
---nvarchar2 �����ڵ� �������� �ִ� ���ڼ� 2000������
+--char 고정길이 최대 2000byte
+--nchar 유니코드 고정길이 (갯수로 처리) 최대 글자수 1000개
+--varchar2 가변길이 최대 4000byte
+--nvarchar2 유니코드 가변길이 최대 글자수 2000개까지
 --
---char(10) 10 byte ��ŭ ������ �Ǵ� ����. ������ 10byte �� ���
---	���� ������ whitespace�� ä����
---varchar2(10) 10 byte��ŭ ������ �Ǵ� ����, ���ԵǴ� ����
---	ũ�⿡ ���� ��� ������ ������
---	����Ŭ express�������� �ѱ��� 3byte�� ó��; �ѱ� 4�����̻� ERROR
---nchar(10) nvarchar(10) ���ڼ� ���� 10���� ��ŭ ����Ǵ� ���� Ȯ��
+--char(10) 10 byte 만큼 저장이 되는 공간. 무조건 10byte 다 사용
+--	남은 공간은 whitespace로 채워짐
+--varchar2(10) 10 byte만큼 저장이 되는 공간, 대입되는 값의
+--	크기에 따라 사용 공간이 정해짐
+--	오라클 express버젼에서 한글은 3byte로 처리; 한글 4글자이상 ERROR
+--nchar(10) nvarchar(10) 글자수 설정 10글자 만큼 저장되는 공간 확보
 
 create table chartest(
     a char(6),
@@ -54,19 +72,19 @@ insert into chartest values('abcefg','abcefg','abcdef','abcdef');
 --ERROR
 insert into chartest values('abcefg123','abcefg123','abcdef','abcdef');
 
-insert into chartest values('�ٹ�', '�ٹ�', '�ٹٹ�', '�ٹٹ�');
+insert into chartest values('바바', '바바', '바바바', '바바바');
 
-insert into chartest values('�ٹ�', '�ٹ�', '�ٹٹ�õ��', '�ٹٹ�õ��');
+insert into chartest values('바바', '바바', '바바바천재', '바바바천재');
 
 DELETE FROM CHARTEST;
 
 select * from chartest;
 
---�޸� �������� �����ϰ� �ִ� ���� Ʈ������ ����!
---commit �ϱ� ���� sqlplus kh/kh�� select�ϸ� �ݿ� �ȵǾ� ����
---develop ������ �ȿ��� ������ �����ϰ� select �ϸ� ������ ��������
---sqlplus�δ� database(������ �������)���� ��ȸ�ϴ�, ������ �ȳ���
---commit���� ������ ��������� ��������� sqlplus��ȸ ����
+--메모리 공간에서 저장하고 있는 상태 트랜젝션 관리!
+--commit 하기 전에 sqlplus kh/kh로 select하면 반영 안되어 있음
+--develop 램공간 안에만 데이터 저장하고 select 하면 데이터 나오지만
+--sqlplus로는 database(영속적 저장공간)에서 조회하니, 데이터 안나옴
+--commit으로 영속적 저장공간에 집어넣으면 sqlplus조회 가능
 
 commit;
 
@@ -77,24 +95,24 @@ select a, length(a) length_A_char, lengthb(a) lengthb_A_char,
     d, length(d) length_D_nvarchar2, lengthb(d) lengthb_D_nvarchar2
 from chartest;
 
---��¥�ڷ���
---���糯¥�� ǥ�����ִ� system �÷�: sysdate
---dual: ����Ŭ���� �����ϴ� template ���̺�(�׽�Ʈ��)
+--날짜자료형
+--현재날짜를 표시해주는 system 컬럼: sysdate
+--dual: 오라클에서 제공하는 template 테이블(테스트용)
 select sysdate from dual;
 
-select length('ū���'), lengthb('ū���') from dual;
+select length('큰언니'), lengthb('큰언니') from dual;
 
---��¥�� ��� ����
-select sysdate-1 ����, sysdate ����, sysdate+1 ���� from dual;
+--날짜의 산술 연산
+select sysdate-1 어제, sysdate 오늘, sysdate+1 내일 from dual;
 
 select to_char(sysdate, 'mm-dd-yyyy hh24:mi:ss') "NOW" from dual;
 
---��¥�� ��¥������ ��� ����
---�ϼ�(int) ������ ���
+--날짜와 날짜끼리의 산술 연산
+--일수(int) 값으로 출력
 select sysdate - to_date('19990224', 'yyyymmdd') from dual;
 select sysdate - to_date('19990224') from dual;
 
---�ð����� ���
+--시간까지 출력
 select systimestamp from dual;
 
 select to_date('19990224', 'yyyy-mm-dd') from dual;
@@ -111,86 +129,86 @@ insert into datetest values(
     
 select * from datetest;
 
---���̺� �÷��� �ڷ����� Ȯ���ϰ� ������
+--테이블 컬럼의 자료형을 확인하고 싶을때
 DESC chartest;
 DESC datetest;
 
 create table member_table (
-    id CHAR(15), --����x 6-15�ڸ�
-    password VARCHAR2(15), --8-15�ڸ�
-    name VARCHAR2(15), --�ѱ��Է�
-    phone NUMBER(11), --�ڵ��� -����
-    ssn NUMBER(13), --�ֹι�ȣ
-    mileage NUMBER, --���ϸ���
+    id CHAR(15), --변동x 6-15자리
+    password VARCHAR2(15), --8-15자리
+    name VARCHAR2(15), --한글입력
+    phone NUMBER(11), --핸드폰 -없이
+    ssn NUMBER(13), --주민번호
+    mileage NUMBER, --마일리지
     reg_date DATE);
 
 select * from member_table;
 
--- ���̺��� �ִ� ������ ��ȸ�ϱ�
--- ���ɾ� select
--- ���ɱ��� select �÷�1,...,�÷�n from ���̺��� where �˻�����
+-- 테이블에 있는 데이터 조회하기
+-- 명령어 select
+-- 명령구조 select 컬럼1,...,컬럼n from 테이블명 where 검색조건
 select emp_name, email, ent_date from kh.employee;
 select emp_name, email, ent_date from employee;
 
 select dept_id, dept_title from department;
 
---select �������� ��� ���굵 ����
---������ �ϱ� ���ؼ��� ������� �÷����� ���� ������
---������ ���ָ� �� ���� ���� �÷����� �ǰ�, ���� ����
---�� row�� ����.
+--select 문에서는 산술 연산도 가능
+--연산을 하기 위해서는 연산식의 컬럼명이 들어가는 곳에서
+--연산을 해주면 그 연산 명이 컬럼명이 되고, 계산된 값이
+--각 row에 들어간다.
 
 --ERROR
 select emp_name, salary, email*12 from employee;
 
---%�Լ� ����. MOD�̿�
+--%함수 없음. MOD이용
 --select bonus %12 from employee; --ERROR
 select MOD(salary, 12) from employee;
 
---nvl�Լ��� �÷������Ͱ� null�϶�,
---�� ���� ��ü���� ���� ����
---nvl(�÷���, null ��ü��)
-select emp_name �̸�,
-    salary*12 AS "1�� �޿�(����)",
-    12*salary*(1+ nvl(bonus,0)) AS �Ѽ��ɾ�,
-    12*salary*((1-.03) + nvl(bonus,0)) �Ǽ��ɾ�,
-    '��' AS ��ȭ
+--nvl함수는 컬럼데이터가 null일때,
+--그 값을 대체해줄 값을 지정
+--nvl(컬럼명, null 대체값)
+select emp_name 이름,
+    salary*12 AS "1년 급여(연봉)",
+    12*salary*(1+ nvl(bonus,0)) AS 총수령액,
+    12*salary*((1-.03) + nvl(bonus,0)) 실수령액,
+    '원' AS 통화
 from employee;
 
 select emp_name, sysdate-hire_date from employee;
 
---DISTINCT �ߺ��� ���� ������ �ѹ��� ���
+--DISTINCT 중복된 값이 있으면 한번만 출력
 select distinct dept_code from employee;
 
---(dept_code, job_code)�� �Ѱ� �����ͷ� distinct�� ���� select
+--(dept_code, job_code)를 한개 데이터로 distinct인 것을 select
 select distinct dept_code, job_code from employee;
 
---�� ������: where clause filters resultset
---select �÷�1,...,�÷�n from ���̺��� where �÷��� �񱳿����� ��;
+--비교 연산자: where clause filters resultset
+--select 컬럼1,...,컬럼n from 테이블명 where 컬럼명 비교연산자 값;
 select * from employee where job_code = 'J5';
 
 select emp_name, salary, hire_date, phone from employee
     where sal_level='S1';
 
 select emp_name, salary,
-    12*salary*(1+nvl(bonus, 0)-.03) AS �Ǽ��ɾ�
+    12*salary*(1+nvl(bonus, 0)-.03) AS 실수령액
 from employee
 where 12*salary*(1-.03 + nvl(bonus,0)) > 50000000;
 
---���������� ����ϱ� AND/OR
+--논리연산자 사용하기 AND/OR
 select * from employee
     where dept_code != 'D6' AND salary >= 3000000;
 
 select emp_name, hire_date, salary from employee
     where job_code='J3' OR sal_level='S5';
 
---�񱳿����ڸ� ������
+--비교연산자를 여러개
 select * from employee where dept_code='D5' AND hire_date >'02/01/01';
 
 select distinct sal_level from employee
 where job_code ^= 'J1'; --job_code != 'J1'
 
 select emp_no || emp_name || email from employee;
-select emp_name ||'�� '|| salary || '��' from employee;
+select emp_name ||'님 '|| salary || '원' from employee;
 
 select emp_name, salary from employee
 where salary between 3500000 and 6000000;
@@ -203,20 +221,20 @@ select emp_name, hire_date, dept_code, salary from employee
     where hire_date between '90/01/01' and '01/01/01';
 --where hire_date >= '90/01/01' and hire_date <='01/01/01';
 
---LIKE ���� �����̿��Ͽ� �˻�
-select * from employee where emp_name like '%��';
+--LIKE 문자 패턴이용하여 검색
+select * from employee where emp_name like '%희';
 
--- ����ٴ� �ڸ��� ǥ��
-select * from employee where emp_name like '__��';
+-- 언더바는 자릿수 표시
+select * from employee where emp_name like '__희';
 
--- email ����° �ڸ��� 'n'�� ���
+-- email 세번째 자리가 'n'인 사람
 select * from employee where email like '__n%';
 
-select * from employee where emp_name like '__��';
+select * from employee where emp_name like '__석';
 
-select * from employee where emp_name like '_��_';
+select * from employee where emp_name like '_옹_';
     
-select * from employee where emp_name like '%��%';
+select * from employee where emp_name like '%이%';
 
 --ESCAPE CHARACTER
 select * from employee
@@ -233,11 +251,11 @@ create table tbl_escape_watch(
     description varchar2(200)
 );
 
-insert into tbl_escape_watch values('�ݽð�', '���� 99.99% ���� ���޽ð�');
+insert into tbl_escape_watch values('금시계', '순금 99.99% 함유 고급시계');
 insert into tbl_escape_watch values(
-	'���ð�', '���������� 99.99���� ȹ���� ���޽ð�');
+	'은시계', '고객만족도 99.99점을 획득한 고급시계');
 
---description�� '99.99%' ��� ���� �� �ִ� �ุ �����ϼ���
+--description에 '99.99%' 라는 말이 들어가 있는 행만 추출하세요
 select * from tbl_escape_watch
 where description like '%99.99^%%' ESCAPE '^';
 
@@ -249,8 +267,8 @@ where email like '%_____^_%' ESCAPE '^'
 and dept_code in ('D6', 'D9');
 
 
---is null / is not null : null���� ã���� ���
--- ���: �÷��� is null or �÷��� is not null
+--is null / is not null : null값을 찾을때 사용
+-- 사용: 컬럼명 is null or 컬럼명 is not null
 select * from employee where bonus is null;
 
 select salary + bonus AS totalPay from employee
@@ -262,9 +280,9 @@ where dept_code is null;
 select * from employee where nvl(bonus, 0)=0;
 
 
---subquery ������, �÷��� �Ѱ� �̻��϶�, 'IN' ���
---�������� or�� �����Ͽ� ������ϴ� ��!
--- ���: �÷��� in (�񱳰�1,...,�񱳰�n);
+--subquery 썼을때, 컬럼이 한개 이상일때, 'IN' 사용
+--여러값을 or로 연결하여 동등비교하는 것!
+-- 사용: 컬럼값 in (비교값1,...,비교값n);
 
 select * from employee where job_code in ('J3', 'J2');
 -- job_code ='J3' or job_code='J2';
@@ -274,9 +292,9 @@ where job_code in (select job_code from employee
                     where salary > 3000000);
 
 select emp_name, dept_code, salary, sal_level from employee
-where emp_name in ('������', '�����', '���¸�');
+where emp_name in ('전형돈', '유재식', '이태림');
 
---AND�� OR���� �켱�� ��!
+--AND가 OR보다 우선시 됨!
 
 select * from employee
 where dept_code='D9' or dept_code='D6'
@@ -287,16 +305,16 @@ select * from employee
 --where (job_code='J7' or job_code='J2') and salary > 2000000;
 where salary > 2000000 and job_code='J7' or job_code='J2';
 
---order by�� �������� �ۼ� ASC(����Ʈ), DESC;
---�⺻������ primary key�� ���ĵ�
---order by �÷�1, �÷�2;
+--order by는 마지막에 작성 ASC(디폴트), DESC;
+--기본적으로 primary key로 정렬됨
+--order by 컬럼1, 컬럼2;
 select * from employee order by emp_name desc;
 
---null�� order by ASC ������ null�� �ǵڷ�
+--null을 order by ASC 했을때 null은 맨뒤로
 select emp_name, salary, bonus from employee
 order by bonus DESC;
 
--- null�� ��������� �����ϰ� ������, nulls �ɼ� ���
+-- null의 변경순서를 변경하고 싶을, nulls 옵션 사용
 select emp_name, salary, bonus from employee
 order by bonus ASC nulls first;
 
@@ -306,22 +324,22 @@ order by bonus nulls last;
 select emp_name, dept_code, job_code from employee
 order by emp_name, dept_code desc;
 
---�÷����� �ƴ� index ��ȣ�� ���� ����
+--컬럼명이 아닌 index 번호로 정렬 가능
 select emp_name, salary, bonus from employee
 order by 2;
 --order by salary;
---2��° select�÷� salary �������� ����
+--2번째 select컬럼 salary 기준으로 정렬
 
---�Լ� function
+--함수 function
 select length(emp_name), lengthb(emp_name),
        length(email), lengthb(email)
 from employee;
 
-select length('�ٹٹ�') from dual;
-select lengthb('�ٹٹ�') from dual;
+select length('바바바') from dual;
+select lengthb('바바바') from dual;
 
---INSTR(����, ã�¹���, +/-�����ĭ, ���°��������)
---�Ű� ������ ���� ���ڿ��� Ư�������� ��ġ�� ã����
+--INSTR(문자, 찾는문자, +/-방향몇칸, 몇번째문자인지)
+--매개 변수로 들어온 문자에서 특정문자의 위치를 찾을때
 select INSTR('monkkky', 'k') from dual;
 select INSTR('monkkkaaakay', 'k', -4, 2) from dual;
 select INSTR('monkkkaaakay', 'a', -4, 2) from dual;
@@ -333,12 +351,12 @@ select email, substr(email, 1, instr(email, '@') -1) from employee;
 
 select rpad('monkey', 10, '^') from dual;
 
-select rpad('�ٹ�', 10, '^') from dual;
+select rpad('바바', 10, '^') from dual;
 
-select rpad(emp_name, 8, '��') from employee;
+select rpad(emp_name, 8, '님') from employee;
 
---LTRIM/RTRIM ���ڿ��� ���� �Ǵ� �������� ������ ���ڸ� ����
---false ���ǵǴ� ���� TRIM �ߴ�
+--LTRIM/RTRIM 문자열의 왼쪽 또는 오른쪽의 지정된 문자를 제거
+--false 조건되는 순간 TRIM 중단
 select LTRIM('     TRIM') from dual;
 
 select 'kkkkktrim', LTRIM('kkkkktrim', 'k') from dual;
@@ -347,16 +365,16 @@ select LTRIM('hhhkhkhkhkhakhzzzz', 'kh') from dual;
 
 select RTRIM('kkkkahhhhtrim', 'kh') from dual;
 
-select substr('1523213213213������',
-    instr('1523213213213������', '��')) from dual;
+select substr('1523213213213유병승',
+    instr('1523213213213유병승', '유')) from dual;
 
-select LTRIM('321389219328913������', '0123456789') from dual;
+select LTRIM('321389219328913유병승', '0123456789') from dual;
 
-select RTRIM(LTRIM('32132132132������321321321321',
+select RTRIM(LTRIM('32132132132유병승321321321321',
     '0123456789'), '0123456789') from dual;
 
-select SUBSTR('321312321������321321312',
-    INSTR('321312321������321321312', '��'),3)
+select SUBSTR('321312321유병승321321312',
+    INSTR('321312321유병승321321312', '유'),3)
 from dual;
 
 select '    kh    ', TRIM('     kh    ') from dual;
@@ -371,7 +389,7 @@ select 'zzzzzzkhzzzz',
 select 'zzzzzzkhzzzz', 
     TRIM(both 'z' from 'zzzzzkhzzzz') from dual;
 
---substr Ư�� ���ڿ��� �߶�
+--substr 특정 문자열을 잘라낸
 select substr('abcdefg', 3,2) from dual;
 
 select substr('showmethemoney', '5', '2') from dual;
@@ -380,28 +398,28 @@ select substr('showmethemoney', 5) from dual;
 
 select substr('showmethemoney', -8, 3) from dual;
 
-select substr('�����ٶ� �ٻ������ īŸ', 7, 5) from dual;
+select substr('가나다라마 바사아자차 카타', 7, 5) from dual;
 
 select distinct substr(emp_name,1,1) AS name from employee
 --order by substr(emp_name,1,1);
 --order by 1;
 --order by emp_name --ERROR
---order by�� select���� �ִ� �÷���
+--order by는 select문에 있는 컬럼만
 order by name;
 
 
---������ �빮�� �ҹ��� camel case
+--영문자 대문자 소문자 camel case
 --UPPER LOWER INITCAP
 select upper('hello world'), lower('HELLO WORLD'), INITCAP('hello world')
 from dual;
 
 select INITCAP('show me the money') from dual;
 
---CONCAT ���ڿ��� �����ϴ� �Լ�
+--CONCAT 문자열을 결합하는 함수
 select CONCAT(emp_name, hire_date) from employee;
 select emp_name || email from employee;
 
---REPLACE Ư�� ���ڸ� ����
+--REPLACE 특정 문자를 변경
 select REPLACE('monkey', 'o', '@') from dual;
 
 select REPLACE(email, substr(email, instr(email,'@')), '@naver.com')
@@ -410,7 +428,7 @@ from employee;
 select * from employee
 where substr(emp_no,8,1) = 1;
 
---���� ó���Լ� ABS MOD ROUND TRUNC FLOOR CEIL
+--숫자 처리함수 ABS MOD ROUND TRUNC FLOOR CEIL
 select ABS(-3.1415) from dual;
 
 select MOD(10, 3) from dual;
@@ -425,19 +443,19 @@ select round(nvl(bonus,0), 2) from employee;
 
 select round(sysdate-hire_date) from employee;
 
---FLOOR �Ҽ����� ���� ����
+--FLOOR 소숫점을 전부 버림
 select FLOOR(33.1415) from dual;
 
 select FLOOR(bonus) from employee;
 
---TRUNC Ư�� ��ġ���� �Ҽ����� ����
+--TRUNC 특정 위치에서 소숫점을 버림
 select TRUNC(33.1415, -1) from dual;
 select TRUNC(33.1415, 1) from dual;
 select TRUNC(33.1415, 2) from dual;
 select TRUNC(33.1415, 3) from dual;
 select TRUNC(33.1415, 4) from dual;
 
---CEIL �Ҽ��� ���� �ø�
+--CEIL 소숫점 전부 올림
 select CEIL(nvl(bonus,0)) from employee;
 
 create table tbl_files(
@@ -449,12 +467,12 @@ insert into tbl_files values(3, 'c:\documents\resume.hwp');
 
 select * from tbl_files;
 
---���ϸ��� ���
+--파일명만 출력
 --select substr(filepath, instr(filepath, '\', -1) + 1)
 --from tbl_files;
 
 
---��¥ ó�� �Լ�
+--날짜 처리 함수
 select sysdate from dual;
 
 select FLOOR(months_between(sysdate, to_date('20000224', 'yyyymmdd'))) ||''
@@ -464,21 +482,21 @@ select ROUND(months_between(sysdate, hire_date), 0) months from employee;
 
 select add_months(to_date('20000224', 'yyyy/mm/dd'), 3) from dual;
 
---���úη� ���� �Դ�, 1��6���� ������ �Ⱓ ����.
---1.������,2.����«���--�Ϸ翡 ����
-select sysdate AS �Դ���,
-    add_months(sysdate, 18) AS ������,
-    add_months(sysdate,18) - sysdate AS ����Ȱ�ϼ�, 
-    3*(add_months(sysdate,18) - sysdate) AS «���
+--오늘부로 군대 입대, 1년6개월 군복무 기간 가정.
+--1.제대일,2.먹을짬밥수--하루에 세끼
+select sysdate AS 입대일,
+    add_months(sysdate, 18) AS 제대일,
+    add_months(sysdate,18) - sysdate AS 군생활일수, 
+    3*(add_months(sysdate,18) - sysdate) AS 짬밥수
 from dual;
 
---next_day : ������ ��¥�� ������ ������ ��¥�� ������
---��:1 ��:2 ȭ:3 ��:4 ��:5 ��:6 ��:7
-select next_day(sysdate, '������') from dual;
-select next_day(sysdate, '��') from dual;
+--next_day : 지정한 날짜의 지정한 요일의 날짜를 구해줌
+--일:1 월:2 화:3 수:4 목:5 금:6 토:7
+select next_day(sysdate, '월요일') from dual;
+select next_day(sysdate, '월') from dual;
 select next_day(sysdate, 2) from dual;
 
---�����Ͽ� ���� �����ϴ� �� �ٸ��� �ؾ�. �ѱ� ���� MON ��� �Ұ�
+--로케일에 따라 대입하는 걸 다르게 해야. 한국 기준 MON 사용 불가
 select next_day(sysdate, 'MON') from dual;
 select next_day(sysdate, 'MONDAY') from dual;
 
@@ -488,38 +506,38 @@ alter session set NLS_LANGUAGE=AMERICAN;
 
 alter session set NLS_LANGUAGE=KOREAN;
 
---LAST_DAY ���޹��� ��¥�� ���� ���� ������ ���� ǥ��
+--LAST_DAY 전달받은 날짜가 속한 달의 마지막 날을 표시
 
 select LAST_DAY(sysdate) from dual;
 
 select LAST_DAY('00/02/24') from dual;
 
---���� �� ��������
+--세달 후 마지막날
 select LAST_DAY(ADD_MONTHS(sysdate, 3)) from dual;
 
---EXTRACT ��¥�� �� �� ���� ���� �����Ͽ� ����
-select EXTRACT(year from sysdate) AS ��,
-    EXTRACT(month from sysdate) AS ��,
-    EXTRACT(day from sysdate) AS ��,
-    EXTRACT(hour from CAST(sysdate as timestamp)) AS ��,
-    EXTRACT(minute from CAST(sysdate as timestamp)) AS ��,
-    EXTRACT(second from CAST(sysdate as timestamp)) AS ��
+--EXTRACT 날짜의 년 월 일을 따로 구분하여 관리
+select EXTRACT(year from sysdate) AS 년,
+    EXTRACT(month from sysdate) AS 월,
+    EXTRACT(day from sysdate) AS 일,
+    EXTRACT(hour from CAST(sysdate as timestamp)) AS 시,
+    EXTRACT(minute from CAST(sysdate as timestamp)) AS 분,
+    EXTRACT(second from CAST(sysdate as timestamp)) AS 초
 from dual;
 
 
---TO_CHAR ���ڿ��� �������ִ� �Լ�
---����� ���� ��ȣ
--- yyyy, yy (���� 4�ڸ�, 2�ڸ�)
--- month: locale ������ �°� ���
--- mm: ���� ���ڷ� ǥ��
--- mon: ���� ���ĺ����� ǥ��
--- dd: ��¥�� ǥ��
--- d: ���� ���ڷ� ǥ��
--- dy: ������ ���� ǥ��: ��ȭ���������
--- day: ���� (��: ������)
--- hh: �ð�, hh24: 24�ð�, hh12: 12�ð�
--- mi: ��
--- si: ��
+--TO_CHAR 문자열로 변경해주는 함수
+--변경시 문자 기호
+-- yyyy, yy (연도 4자리, 2자리)
+-- month: locale 설정에 맞게 출력
+-- mm: 월을 숫자로 표현
+-- mon: 월을 알파벳으로 표현
+-- dd: 날짜를 표현
+-- d: 요일 수자로 표현
+-- dy: 요일을 약어로 표현: 월화수목금토일
+-- day: 요일 (예: 월요일)
+-- hh: 시간, hh24: 24시간, hh12: 12시간
+-- mi: 분
+-- si: 초
 select TO_CHAR(
 sysdate, 'yyyy-mm-dd day hh24:mi:ss') from dual;
 
@@ -535,15 +553,15 @@ TO_CHAR(hire_date, 'yyyy/mm/dd hh24:mi:ss') from employee;
 select emp_name, TO_CHAR(hire_date, 'yyyy-mm-dd(dy)') from employee;
 
 
---���ڿ��� ����� ��������
---, comma �������� ��ȯ(3°�ڸ��� , ���̱�) : 1,900,000
---. period �Ҽ��� �������� ��ȯ: 3.1415
---9 �ش��ڸ��� �����ǹ�: ���� ������� �Ҽ��� �̻��� ����, 
---      �Ҽ������ϴ� 0
---0 �ش��ڸ��� �����ǹ�: ���� ������� 0���� ������ ǥ��,
---      ���ڸ� ���������� ǥ���� ���
---$ ��ȭ ǥ��(��) : �޷�$ ǥ��
---L ������ȭ�� ǥ�� (��: ��ȭǥ��)
+--문자열로 변경시 포멧형식
+--, comma 형식으로 변환(3째자리에 , 붙이기) : 1,900,000
+--. period 소숫점 형식으로 변환: 3.1415
+--9 해당자리의 숫자의미: 값이 없을경우 소숫점 이상은 공백, 
+--      소수점이하는 0
+--0 해당자리의 숫자의미: 값이 없을경우 0으로 무조건 표시,
+--      숫자를 고정적으로 표시할 경우
+--$ 통화 표시(돈) : 달러$ 표시
+--L 로컬통화로 표시 (예: 원화표시)
 select TO_CHAR(123456, '999,999,999') from dual; --123,456
 
 select TO_CHAR(123456, '000,000,000') from dual; --000,123,456
@@ -558,149 +576,149 @@ select TO_CHAR(1234.56, '99999.9999') from dual;
 
 select TO_CHAR(1234.56, '00000.0000') from dual;
 
---1.salary�� ��ȭǥ�÷� ��ǥ �ٲ㼭
---2.������ ����Ͽ� ��ȭǥ�÷�
-select emp_name, TO_CHAR(salary, 'L999,999,999') AS ����,
-    TO_CHAR(12*salary, 'L999,999,999,999') AS ����
+--1.salary를 원화표시로 쉼표 바꿔서
+--2.연봉을 계산하여 원화표시로
+select emp_name, TO_CHAR(salary, 'L999,999,999') AS 월급,
+    TO_CHAR(12*salary, 'L999,999,999,999') AS 연봉
 from employee;
 
---TO_DATE: ��¥�������� ��ȯ
--- �ۼ���: TO_DATE(char, format): ���ڸ� ��¥�� ����
---      TO_DATE(number, format): ���ڸ� ��¥�� ����
---  �ð����� ��¥�� ���氡��
+--TO_DATE: 날짜형식으로 변환
+-- 작성법: TO_DATE(char, format): 문자를 날짜로 변경
+--      TO_DATE(number, format): 숫자를 날짜로 변경
+--  시간까지 날짜로 변경가능
 select TO_CHAR(
 TO_DATE('19500101 15:30:20', 'yyyymmdd hh24:mi:ss'),
 'yyyymmdd hh24:mi:ss')
-    AS ���� from dual;
+    AS 생신 from dual;
 
 select TO_CHAR(hire_date, 'yyyymmdd hh24:mi:ss')
 from employee
 where hire_date > '00/01/01';
 --where hire_date > TO_DATE('20000101', 'yyyymmdd');
 
---���� ��¥�� ��ȯ
+--숫자 날짜로 전환
 select TO_DATE(19960626, 'yyyy-mm-dd') from dual;
 
---ERROR! ����! �տ� 0�� ���� ������ ������ �ȵ�
+--ERROR! 주의! 앞에 0이 들어가는 연도가 나오면 안됨
 select TO_DATE(010224, 'yy-mm-dd') from dual;
 --OK!
 select TO_DATE('010224', 'yy-mm-dd') from dual;
 
---DECODE ���ǹ� (switch���� ���)
--- ����: decode(���ǽ�,
---                  ����1, ����1���,
+--DECODE 조건문 (switch문과 비슷)
+-- 사용법: decode(조건식,
+--                  조건1, 조건1결과,
 --                  ...
---                  ����n, ����n���,
+--                  조건n, 조건n결과,
 --                  default)
 select emp_name, emp_no,
     DECODE( substr(emp_no,8, 1),
-        '1', '��', '2', '��',
-        '3', '��', '4', '��') AS ����
+        '1', '남', '2', '여',
+        '3', '남', '4', '여') AS 성별
 from employee;
 
---dept_code: D1�̸�
-select emp_name AS �����,
-    nvl(dept_code,'NULL') AS �μ��ڵ�,
+--dept_code: D1이면
+select emp_name AS 사원명,
+    nvl(dept_code,'NULL') AS 부서코드,
     DECODE(dept_code,
-        'D1', '�λ����',
-        'D2', 'ȸ�����',
-        'D3', '������',
-        'D4', '��������',
-        'D5', '�ؿܿ���1',
-        'D6', '�ؿܿ���2',
-        'D8', '�������',
-        'D9', '�ѹ�',
-        '�μ�����') AS �μ���
+        'D1', '인사관리',
+        'D2', '회계관리',
+        'D3', '마케팅',
+        'D4', '국내영업',
+        'D5', '해외영업1',
+        'D6', '해외영업2',
+        'D8', '기술지원',
+        'D9', '총무',
+        '부서없음') AS 부서명
 from employee;
 
-select emp_name AS �����,
-    nvl(dept_code, 'NULL') AS �μ��ڵ�,
-    CASE WHEN dept_code='D1' THEN '�λ����'
-        WHEN dept_code='D2' THEN 'ȸ�����'
-        WHEN dept_code='D3' THEN '������'
-        WHEN dept_code='D4' THEN '��������'
-        WHEN dept_code='D5' THEN '�ؿܿ���1'
-        WHEN dept_code='D6' THEN '�ؿܿ���2'
-        WHEN dept_code='D8' THEN '�������'
-        WHEN dept_code='D9' THEN '�ѹ�'
-    ELSE '�μ�����' END AS �μ���
+select emp_name AS 사원명,
+    nvl(dept_code, 'NULL') AS 부서코드,
+    CASE WHEN dept_code='D1' THEN '인사관리'
+        WHEN dept_code='D2' THEN '회계관리'
+        WHEN dept_code='D3' THEN '마케팅'
+        WHEN dept_code='D4' THEN '국내영업'
+        WHEN dept_code='D5' THEN '해외영업1'
+        WHEN dept_code='D6' THEN '해외영업2'
+        WHEN dept_code='D8' THEN '기술지원'
+        WHEN dept_code='D9' THEN '총무'
+    ELSE '부서없음' END AS 부서명
 from employee;
 
-select emp_name AS �����, emp_no AS �ֹε�Ϲ�ȣ,
+select emp_name AS 사원명, emp_no AS 주민등록번호,
     CASE
-        WHEN substr(emp_no, 8,1)=1 THEN '��'
-        ELSE '��' END AS ����
+        WHEN substr(emp_no, 8,1)=1 THEN '남'
+        ELSE '여' END AS 성별
 from employee;
 
 insert into employee values(
-    '250', '���ι�', '470808-2123341', 'go@kh.or.kr', 
+    '250', '고두밋', '470808-2123341', 'go@kh.or.kr', 
     null, 'D2', 'J2', 'S5', 448000, null, null, 
     TO_DATE('94/01/20', 'rr/mm/dd'), null, 'N');
 
 commit;
 
-select emp_id AS �����ȣ, 
-    emp_name AS �����,
-    RPAD(substr(emp_no, 1,8), 13, '*') AS �ֹι�ȣ,
-    CASE WHEN substr(emp_no, 8,1) in (1,3) THEN '��'
-        WHEN substr(emp_no, 8,1) in (2,4) THEN '��'
-    ELSE '?' END AS ����,
+select emp_id AS 사원번호, 
+    emp_name AS 사원명,
+    RPAD(substr(emp_no, 1,8), 13, '*') AS 주민번호,
+    CASE WHEN substr(emp_no, 8,1) in (1,3) THEN '남'
+        WHEN substr(emp_no, 8,1) in (2,4) THEN '여'
+    ELSE '?' END AS 성별,
     EXTRACT(year from sysdate) 
-        - EXTRACT(year from TO_DATE(substr(emp_no, 1,2), 'RR')) + 1 AS ����,
+        - EXTRACT(year from TO_DATE(substr(emp_no, 1,2), 'RR')) + 1 AS 나이,
     TO_NUMBER(EXTRACT(year from sysdate))- 
         TO_NUMBER(substr(emp_no,1,2) + 
             CASE WHEN substr(emp_no,8,1) in(1,2) THEN 1900
-                    ELSE 2000 END) + 1 AS ���糪��
+                    ELSE 2000 END) + 1 AS 현재나이
 from employee
-order by ���糪�� DESC;
--- yy�� 20�� ����(���� ����).  rr�� ��ȯ
--- rr�� 1950 ������ �¾ ����� ������ 
---      ex) ���ι� 2019 - (1947->2047) + 1 = -27
---      rr�� 50���� ������ '20xx' 50���� ũ�� '19xx'
--- ��¥�� ������ yy �α��ڸ� �����ö�,
---      YY: ���� ����� ��� (99 -> 2099)
+order by 현재나이 DESC;
+-- yy는 20이 붙음(현재 세기).  rr로 변환
+-- rr은 1950 이전에 태어난 사람은 계산오류 
+--      ex) 고두미 2019 - (1947->2047) + 1 = -27
+--      rr은 50보다 작으면 '20xx' 50보다 크면 '19xx'
+-- 날짜의 연도는 yy 두글자만 가져올때,
+--      YY: 현재 세기로 계산 (99 -> 2099)
 --      RR: 
---    TO_CHAR(sysdate, 'yyyy')- CONCAT(19,substr(emp_no,1,2)) +1 AS ����
+--    TO_CHAR(sysdate, 'yyyy')- CONCAT(19,substr(emp_no,1,2)) +1 AS 나이
 
 
---RR ��ȯ ����
---���翬��   �Է¿���  ��꿬��
+--RR 변환 공식
+--현재연도   입력연도  계산연도
 -------------------------------
---  00~49      00~49   ���缼��
---  00~49      50~99   ������
---  50~99      00~49   ��������
---  50~99      50~99   ���缼��
+--  00~49      00~49   현재세기
+--  00~49      50~99   전세기
+--  50~99      00~49   다음세기
+--  50~99      50~99   현재세기
 
 select TO_DATE('880101', 'RR') from dual;
 
---�׷��Լ�
+--그룹함수
 --COUNT, MAX, SUM, AVG,
---result ���� �Ѱ��� row�� �Ǿ� �ֱ� ������,
---  �÷��� ������ �� ����.
+--result 셋이 한개의 row로 되어 있기 때문에,
+--  컬럼을 선택할 수 없다.
 select emp_name, SUM(salary) from employee
 --where substr(emp_no, 8,1) in (1,3);
-where emp_name like '��__'
+where emp_name like '유__'
 GROUP BY emp_name;
 
-select SUM(salary*12) AS ����,
-    SUM(12*salary*(1-.03 +nvl(bonus,0))) AS �Ǽ��ɾ�
+select SUM(salary*12) AS 연봉,
+    SUM(12*salary*(1-.03 +nvl(bonus,0))) AS 실수령액
 from employee;
 
---null ���� sum���� �ڵ����� ����
+--null 값은 sum에서 자동으로 제외
 select SUM(bonus) from employee;
 
 select bonus from employee
 where bonus is not null;
 
---null�̸� ���ʽ� �հ踦 ���� ��� ������ �޶����Ƿ�
---���� ���̰� ��
+--null이면 보너스 합계를 나눌 사원 명수도 달라지므로
+--값에 차이가 남
 select ROUND(avg(bonus), 3), ROUND(AVG(nvl(bonus, 0)),3) from employee;
 
 select ROUND(avg(bonus), 3) from employee
 where bonus is not null;
 
---���̺� ��ü �� ��
---count(�÷��� or *)
+--테이블 전체 행 수
+--count(컬럼명 or *)
 select COUNT(*) from employee
 where dept_code='D9';
 
@@ -709,7 +727,7 @@ where salary >= 3000000;
 
 select COUNT(emp_name) from employee;
 
---dept_code null���� ������
+--dept_code null값은 빼버림
 select COUNT(dept_code) from employee;
 select COUNT(*) from employee where dept_code is not null;
 
@@ -720,12 +738,12 @@ select MAX(salary), MIN(salary) from employee;
 select MAX(hire_date), MIN(hire_date) from employee;
 
 --GROUP BY
---�μ��� ������ ���
+--부서별 월급의 평균
 select dept_code, FLOOR(AVG(salary)) from employee
 GROUP BY dept_code
 HAVING dept_code='D5';
 
---group by �����ϸ� �� �׷����� ���Ǵ� �׷��Լ��� ��밡��
+--group by 선언하면 그 그룹으로 계산되는 그룹함수를 사용가능
 select dept_code, count(dept_code), sum(salary),
 floor(avg(salary)), min(salary)
 from employee
@@ -733,32 +751,32 @@ GROUP BY dept_code
 HAVING dept_code IS NOT NULL
 order by dept_code;
 
---�����÷����� ���� ��տ���, �հ� �ο���
-select CASE WHEN substr(emp_no, 8,1)=1 then '��'
-            ELSE '��'
+--성별컬럼으로 남여 평균월급, 합계 인원수
+select CASE WHEN substr(emp_no, 8,1)=1 then '남'
+            ELSE '여'
            END AS GENDER,
-       COUNT(*) AS �ο���,
-       TO_CHAR(sum(salary), 'L999,999,999') AS �����հ�,
-       TO_CHAR(FLOOR(AVG(salary)), 'L999,999,999') AS �������
+       COUNT(*) AS 인원수,
+       TO_CHAR(sum(salary), 'L999,999,999') AS 월급합계,
+       TO_CHAR(FLOOR(AVG(salary)), 'L999,999,999') AS 월급평균
 from employee
 GROUP BY 
-        CASE WHEN substr(emp_no, 8,1)=1 THEN '��'
-        ELSE '��'
+        CASE WHEN substr(emp_no, 8,1)=1 THEN '남'
+        ELSE '여'
 END;
 
---dept_code�� �������� salary �հ�� ���
---WHERE������ �׷��Լ� ���� ����.
---HAVING���� �׷��Լ� ���� ����
+--dept_code를 기준으로 salary 합계와 평균
+--WHERE절에는 그룹함수 쓸수 없음.
+--HAVING절에 그룹함수 조건 가능
 select job_code,
-    sum(salary) AS �����Ѿ�,
-    FLOOR(avg(salary)) AS �������
+    sum(salary) AS 월급총액,
+    FLOOR(avg(salary)) AS 월급평균
 from employee
 where dept_code is not NULL
 GROUP BY job_code
 HAVING sum(salary) > 9000000
 ORDER BY job_code;
 
---�μ��ο����� 4���̻��� �μ���
+--부서인원수가 4명이상인 부서만
 select dept_code, count(*)
     from employee
 where dept_code is not null
@@ -766,9 +784,9 @@ GROUP BY dept_code
 HAVING count(*) >= 4
 order by dept_code;
 
---GROUP BY�� ���� �� �Ӿƴ϶�
---�׷����� �Լ� ROLLUP CUBE�� �׷쿡 ���� ���հ� ����
---�ΰ��̻� �÷��� GROUP BY �ϸ� CUBE�� 
+--GROUP BY로 묶인 합 뿐아니라
+--그룹집계 함수 ROLLUP CUBE로 그룹에 대한 총합계 구함
+--두개이상 컬럼을 GROUP BY 하면 CUBE는 
 
 select dept_code, sum(salary)
 from employee
@@ -780,17 +798,17 @@ from employee
 GROUP BY ROLLUP(dept_code)
 order by 1;
 
---�ΰ� �÷��� ���� �Ѱ踦 ���
---�հ�� �տ� �ִ� dept_code�� �������� ����
+--두개 컬럼에 대한 총계를 계산
+--합계는 앞에 있는 dept_code를 기준으로 묶음
 select dept_code, job_code, sum(salary)
 from employee
 GROUP BY ROLLUP(dept_code, job_code)
 order by 1;
---D1 J7�� ���� row�� �Ѱ��� �׷��� ��
---(dept_code, job_code)�� �׷��� ��
---job_code=null �ΰ��� dept_code�� ���� �հ�
---�ٸ� 
---dept_code is null: �ΰ��� 
+--D1 J7이 묶인 row가 한개의 그룹이 됨
+--(dept_code, job_code)가 그룹이 됨
+--job_code=null 인것은 dept_code에 대한 합계
+--다만 
+--dept_code is null: 인것은 
 --	J6	2320000
 --	J7	2890000
 
@@ -799,36 +817,36 @@ from employee
 GROUP BY ROLLUP(job_code, dept_code)
 order by 1;
 
---�μ��� �ο� ������ ����ϴµ�, ���ο����� ���
-select dept_code, count(*) AS �ο�
+--부서별 인원 정보를 출력하는데, 총인원까지 출력
+select dept_code, count(*) AS 인원
 from employee
 GROUP BY ROLLUP(dept_code);
---GROUP BY CUBE(dept_code); --������ group �϶��� CUBE�ϰ� �������
+--GROUP BY CUBE(dept_code); --단일행 group 일때는 CUBE하고 같은결과
 
---�μ���, ���޺� �ο��� ����ϰ� �μ��� �Ұ���ü �Ѱ踦 ���
+--부서별, 직급별 인원수 출력하고 부서별 소계전체 총계를 출력
 select dept_code, job_code, 
-    count(*) AS �ο���,
-    sum(salary) AS �����հ�
+    count(*) AS 인원수,
+    sum(salary) AS 월급합계
 from employee
 GROUP BY ROLLUP(dept_code, job_code)
 order by 1;
 
---CUBE�� �Ѱ� �׷츸 ó���Ҷ��� ROLLUP�� ��� ����
---  �ΰ� �̻� �÷��� �׷����� ������ ��� �߰���
---  �ι�° �̻� �÷� �������� �հ赵 ���� ����
--- 1.job_code �������� Group + �հ�
--- 2.dept_code���� Group,
--- 3.(job_code,dept_code) ���� Group
+--CUBE는 한개 그룹만 처리할때는 ROLLUP과 결과 동일
+--  두개 이상 컬럼이 그룹으로 설정될 경우 추가로
+--  두번째 이상 컬럼 기준으로 합계도 전부 구함
+-- 1.job_code 기준으로 Group + 합계
+-- 2.dept_code기준 Group,
+-- 3.(job_code,dept_code) 기준 Group
 
 
 select dept_code, job_code,
-    count(*) AS �ο���, 
-    sum(salary) AS �����հ�
+    count(*) AS 인원수, 
+    sum(salary) AS 월급합계
 from employee
 GROUP BY CUBE(dept_code, job_code)
 order by 1;
--- (null)   J6	1	2320000  --dept_code NULL�� ��
--- (null)   J6	6	15746240 --job_code=6�� ���� �հ�
+-- (null)   J6	1	2320000  --dept_code NULL인 행
+-- (null)   J6	6	15746240 --job_code=6인 행의 합계
 
 --D1   NULL   3	7820000
 --D2   NULL   4	6968000
@@ -836,7 +854,7 @@ order by 1;
 --D6   NULL   3	10100000
 --D8   NULL   3	6986240
 --D9   NULL   3	17700000
---NULL NULL   2	5210000 --DEPT_CODE=NULL�� ��
+--NULL NULL   2	5210000 --DEPT_CODE=NULL인 행
 --
 --NULL J1     1	 8000000
 --NULL J2     3	 10148000
@@ -847,28 +865,28 @@ order by 1;
 --NULL J7	  4	 8070000
 --NULL NULL   24 70544240
 
---GROUP�� �Լ�
+--GROUP별 함수
 select dept_code, job_code,
-count(*) AS �ο���,
-sum(salary) AS �ѿ���,
+count(*) AS 인원수,
+sum(salary) AS 총월급,
 CASE
     WHEN GROUPING(dept_code)=0 AND GROUPING(job_code)=1
-        THEN '�μ����հ�'
+        THEN '부서별합계'
     WHEN GROUPING(dept_code)=1 AND GROUPING(job_code)=0
-        THEN '���޺��հ�'
+        THEN '직급별합계'
     WHEN GROUPING(dept_code)=1 AND GROUPING(job_code)=1
-        THEN '���հ�'
+        THEN '총합계'
     WHEN GROUPING(dept_code)=0 AND GROUPING(job_code)=0
-        THEN '�׷캰 �հ�'
+        THEN '그룹별 합계'
     ELSE '??' END
   AS "GROUPING"
 from employee
 GROUP BY CUBE(dept_code, job_code)
 order by "GROUPING", 1, 2;
 
---���� ������ (set operation)
+--집합 연산자 (set operation)
 --UNION UNION ALL
--- 1.�÷��� ��ġ�ؾ� 2.�ڷ��� ��ġ�ؾ�
+-- 1.컬럼수 일치해야 2.자료형 일치해야
 select emp_id, emp_name, dept_code, salary
     from employee
     where dept_code= 'D5'    
@@ -879,9 +897,9 @@ select emp_id, emp_name, dept_code, salary
 order by dept_code;
 
 --UNION
---�÷� �����ʹ� �� �÷����� �䱸�ϴ�
---�ڷᰡ ���� �ʾƵ� ��:
---���� ������ �ڷ����� ���� ������ UNION ����
+--컬럼 데이터는 꼭 컬럼명에 요구하는
+--자료가 들어가지 않아도 됨:
+--열의 개수와 자료형만 서로 같으면 UNION 가능
 select emp_name, emp_no
 from employee
 where salary > 3000000
@@ -889,8 +907,8 @@ UNION
 select dept_title, dept_id
 from department;
 
---�ٸ� �÷��� UNION�ҋ� ������ ������ 
---ū������ ĳ���� �Ǿ� ��
+--다른 컬럼들 UNION할 데이터 사이즈 
+--큰값으로 캐스팅 되어 들어감
 select dept_title, dept_id
 from department
 UNION
@@ -898,7 +916,7 @@ select emp_name, emp_no
 from employee
 where salary > 3000000;
 
---UNION ALL �ߺ��� ��� ���
+--UNION ALL 중복값 모두 출력
 select emp_id, emp_name, dept_code, salary
     from employee
     where dept_code= 'D5'
@@ -908,7 +926,7 @@ select emp_id, emp_name, dept_code, salary
     where salary >= 3000000
 order by dept_code;
 
---INTERSECT: �ΰ��̻��� result set�� �ߺ����� ���
+--INTERSECT: 두개이상의 result set의 중복값만 출력
 select emp_id, emp_name , dept_code, salary
 from employee
 where dept_code = 'D5'
@@ -917,8 +935,8 @@ select emp_id, emp_name , dept_code, salary
 from employee
 where salary > 3000000;
 
---MINUS: �ΰ� �̻��� result set����
---�� select ������ �ߺ����� ������
+--MINUS: 두개 이상의 result set에서
+--위 select 무에서 중복값을 빼버림
 select emp_id, emp_name , dept_code, salary
 from employee
 where dept_code = 'D5'
@@ -927,7 +945,7 @@ select emp_id, emp_name , dept_code, salary
 from employee
 where salary > 3000000;
 
---INTERSECT�� �����Ƿ�, ���� select�� result �״�� ��ȸ
+--INTERSECT가 없으므로, 위에 select문 result 그대로 조회
 select emp_id, emp_name , dept_code, salary
 from employee
 where dept_code = 'D8'
@@ -943,12 +961,12 @@ MINUS
 select dept_id
 from department;
 
---GROUPING SETS: GROUP BY �� result ���̺��� ���� ������
+--GROUPING SETS: GROUP BY 된 result 테이블을 합쳐 보여줌
 --group by GROUPING SETS
---group by�� �����Ǿ� �ִ� result set���� �����Ͽ� ������
---GROUPING SETS�� ���� �������
+--group by로 설정되어 있는 result set들을 결합하여 보여줌
+--GROUPING SETS는 순서 상관없음
 select dept_code, job_code, manager_id,
-    count(*) AS �ο���,
+    count(*) AS 인원수,
     floor(AVG(salary))
 from employee
 group by GROUPING SETS(
@@ -958,34 +976,34 @@ group by GROUPING SETS(
 )
 order by 1 NULLS LAST, 2 NULLS LAST, 3 NULLS LAST;
 
---���� GROUPING_SETS�� �ؿ� 3���� ��ģ��
+--위에 GROUPING_SETS는 밑에 3개를 합친것
 select dept_code, job_code, manager_id,
-    count(*) AS �ο���,
+    count(*) AS 인원수,
     floor(AVG(salary))
 from employee
 group by dept_code, job_code, manager_id
 order by 1,2;
 
 select dept_code, manager_id,
-    count(*) AS �ο���,
+    count(*) AS 인원수,
     floor(AVG(salary))
 from employee
 group by dept_code, manager_id
 order by 1,2;
 
 select job_code, manager_id,
-    count(*) AS �ο���,
+    count(*) AS 인원수,
     floor(AVG(salary))
 from employee
 group by job_code, manager_id
 order by 1,2;
 
---JOIN : �ΰ��� ���̺��� �����Ͽ�, �Ѱ��� ���̺��� ���
---row ������ �����ϱ� ������, ���� ���εǴ� ���� �ʿ���
---��κ��� ��� : ���̺�1�� FOREGIN KEY�� 
---                ���̺�2�� PRIMARY KEY�� �����
+--JOIN : 두개의 테이블을 결합하여, 한개의 테이블로 출력
+--row 단위로 결합하기 때문에, 서로 맵핑되는 값이 필요함
+--대부분의 경우 : 테이블1의 FOREGIN KEY와 
+--                테이블2의 PRIMARY KEY가 연결됨
 
---1. ����Ŭ ���� INNER JOIN(or JOIN)
+--1. 오라클 전용 INNER JOIN(or JOIN)
 select emp_name, e.job_code, j.job_name
 from employee e, job j
 where e.job_code = j.job_code;
@@ -995,21 +1013,21 @@ from employee e, department d
 where dept_code = dept_id
 order by 2,1;
 
---2. ANSI ǥ�� = SQL ǥ�� INNER JOIN
---(1). �÷����� ��ġ�Ҷ�
---  select �÷�1,...,�÷�n 
---  from ���̺�1 JOIN ���̺�2
---  USING ���÷�
---   where [����]
+--2. ANSI 표준 = SQL 표준 INNER JOIN
+--(1). 컬럼명이 일치할때
+--  select 컬럼1,...,컬럼n 
+--  from 테이블1 JOIN 테이블2
+--  USING 비교컬럼
+--   where [조건]
 select emp_id, emp_name, job_code, job_name
 from employee
 JOIN JOB USING(JOB_CODE);
 
---(2). �÷����� �ٸ���
---  select �÷�1,...,�÷�n 
---  from ���̺�1 JOIN ���̺�2
---   on ���÷�1=���÷�2
---  where [����]
+--(2). 컬럼명이 다를때
+--  select 컬럼1,...,컬럼n 
+--  from 테이블1 JOIN 테이블2
+--   on 비교컬럼1=비교컬럼2
+--  where [조건]
 select emp_name, job_name
 from employee e JOIN job j 
     ON e.job_code = j.job_code;
@@ -1017,19 +1035,19 @@ from employee e JOIN job j
 select emp_name, dept_title
 from employee INNER JOIN department 
     ON dept_code= dept_id
-where dept_title='�ѹ���';
+where dept_title='총무부';
 
 --OUTER JOIN
---������ �Ǵ� ���̶� ��ġ�ϴ� ���� ������ �� row��
---������� ����.
---22�� ��µ�: dept_code �� null�� row ����
+--기준이 되는 값이랑 일치하는 값이 없으면 그 row를
+--출력하지 않음.
+--22개 출력됨: dept_code 가 null인 row 제외
 select count(*) from employee
     JOIN department ON dept_code = dept_id;
 
---�����÷��� ���(null), OUTER JOIN����
---����(LEFT, RIGHT)�������� ������ ��� ��°���
+--한쪽컬럼이 없어도(null), OUTER JOIN으로
+--한쪽(LEFT, RIGHT)기준으로 한쪽은 모두 출력가능
 
---LEFT JOIN : ������ �÷��� �������� 
+--LEFT JOIN : 오른쪽 컬럼을 기준으로 
 select e.emp_name, e.dept_code, d.dept_title
     from employee e LEFT JOIN department d
         ON e.dept_code = d.dept_id;
@@ -1038,7 +1056,7 @@ select d.dept_title, e.dept_code, e.emp_name
     from department d LEFT JOIN employee e
         ON e.dept_code = d.dept_id;
 
---RIGHT JOIN : ������ �÷��� �������� 
+--RIGHT JOIN : 오른쪽 컬럼을 기준으로 
 select e.emp_name, e.dept_code, d.dept_title
     from employee e RIGHT JOIN department d
         ON e.dept_code = d.dept_id;
@@ -1047,8 +1065,8 @@ select d.dept_title, e.emp_name, e.dept_code
     from department d RIGHT JOIN employee e
         ON e.dept_code = d.dept_id;
 
---����Ŭ OUTER ���� ���
--- +���°��� ����: LEFT JOIN
+--오라클 OUTER 조인 방법
+-- +없는것이 기준: LEFT JOIN
 select emp_name, dept_code, dept_title, dept_id
 from employee, department
 where dept_code =dept_id(+);
@@ -1058,8 +1076,8 @@ select emp_name, dept_code, dept_title, dept_id
 from employee, department
 where dept_code(+) =dept_id;
 
---FULL JOIN : ��ġ�Ǵ°��� ���
---���� ���̺� ������ ��� ���
+--FULL JOIN : 일치되는것이 없어도
+--양쪽 테이블 데이터 모두 출력
 select emp_name, dept_code, dept_title, dept_id
 from employee FULL JOIN department 
         ON dept_code=dept_id;
@@ -1070,38 +1088,38 @@ select emp_name, dept_code, dept_title, dept_id
 from employee, department
 order by 1,3;
 --from employee department;
---������ row�� �����
+--각각의 row기 결과됨
 
---NON-EQUAL JOIN: ����񱳰� �ƴ϶�, ��ũ�� �񱳷� ����
+--NON-EQUAL JOIN: 동등비교가 아니라, 값크기 비교로 조인
 select emp_name, salary, s.sal_level, s.min_sal, s.max_sal
 from employee JOIN sal_grade s
     ON (salary between min_sal and max_sal);
 
---SELF JOIN: ���� ���̺��� ���������Ͽ� �����ϴ� ��
---  �ڱ� ���̺��� �÷���(���еǴ�)�� �����ִ� �÷��� �����ؾ���
+--SELF JOIN: 본인 테이블을 본인참조하여 연결하는 것
+--  자기 테이블의 컬럼값(구분되는)을 갖고있는 컬럼이 존재해야함
 -- employee : emp_id = manager_id
 --1. SELF INNER JOIN
-select E.emp_id, E.emp_name ����̸�, E.dept_code, 
-    E.manager_ID AS �Ŵ���ID,
-    M.emp_name AS �Ŵ����̸�
+select E.emp_id, E.emp_name 사원이름, E.dept_code, 
+    E.manager_ID AS 매니져ID,
+    M.emp_name AS 매니져이름
 from employee E JOIN employee M
     ON E.manager_id = M.emp_id;
 
 --2. SELF OUTER JOIN
---    M �Ŵ��� ������ NULL�ΰ͵� ��µǵ���
-select E.emp_id, E.emp_name ����̸�, E.dept_code, 
-    E.manager_ID �Ŵ���, M.emp_name AS �Ŵ����̸�
+--    M 매니져 데이터 NULL인것도 출력되도록
+select E.emp_id, E.emp_name 사원이름, E.dept_code, 
+    E.manager_ID 매니져, M.emp_name AS 매니져이름
 from employee E LEFT JOIN employee M
     ON E.manager_id = M.emp_id;
---where E.emp_name = '������';
+--where E.emp_name = '선동일';
 
---  manager_id�� 100�� �߸��� ������!
---  FOREIGN KEY�� �����ϸ� 100 ��ü�� �ȳ����� ����
+--  manager_id가 100인 잘못된 데이터!
+--  FOREIGN KEY로 설정하면 100 자체가 안나오게 가능
 
---����JOIN: ���̺��� �ΰ��̻� �����ϴ� ���� �ǹ��Ѵ�
---  from ���� join������ ��� ����ϸ� ��
---  join�� �Ҷ� ����Ǵ� �÷��� �ݵ�� ������ ���յ� ���̺��� ����
-select E.emp_id, nvl(D.dept_title, '����') �μ���, 
+--다중JOIN: 테이블을 두개이상 결합하는 것을 의미한다
+--  from 절에 join구문을 계속 사용하면 됨
+--  join을 할때 연결되는 컬럼이 반드시 이전에 결합된 테이블에 존재
+select E.emp_id, nvl(D.dept_title, '인턴') 부서명, 
     E.dept_code,
     J.job_name,
     E.job_code,
@@ -1114,14 +1132,14 @@ from employee E
 --    JOIN job J USING (job_code);
 
 
---SUBQUERY ��������
---  JOIN�� SUBQUERY���� ������ ����
+--SUBQUERY 서브쿼리
+--  JOIN이 SUBQUERY보다 성능은 좋음
 
---������ ��������
+--단일행 서브쿼리
 select dept_id, dept_title
 from department
 where dept_id=
-    (select dept_id from department where dept_title='�ؿܿ���1��');
+    (select dept_id from department where dept_title='해외영업1부');
 
 select emp_name, salary, dept_code from employee
 where salary > (select avg(salary) from employee);
@@ -1129,31 +1147,31 @@ where salary > (select avg(salary) from employee);
 select emp_name, dept_code, salary
 from employee
 where dept_code = (select dept_id 
-                    from department where dept_title='�ѹ���')
+                    from department where dept_title='총무부')
     and salary > (select AVG(salary) from employee);
 
---������ �������� : result set�� ���� �������� ���
---  ���߱� �ڳ����� �����μ��� ������
+--다중행 서브쿼리 : result set의 행이 여러행인 경우
+--  송중기 박나래와 같은부서인 직원들
 select emp_name, dept_code, salary
 from employee
 where dept_code in (select dept_code from employee 
-    where emp_name in ('������', '�ڳ���'));
+    where emp_name in ('송종기', '박나라'));
 
 
---���߿� ��������: select������ �÷��� �ټ������ϴ� ���
---�񱳴�� 1:1��Ī�� �Ǿ� �Ѵ�.
---  ����� �������� ���� ����, ���� �μ��� ���
+--다중열 서브쿼리: select문에서 컬럼을 다수선택하는 경우
+--비교대상도 1:1매칭이 되야 한다.
+--  퇴사한 여직원과 같은 직급, 같은 부서인 사원
 select emp_name, emp_no, job_code, dept_code, ent_yn
 from employee 
 where (job_code, dept_code) IN
     (select job_code, dept_code from employee where
         substr(emp_no, 8,1) in (2,4) and ent_yn='Y');
 
---���߿� ���߼�������: ���������� result set��
---  ��� row�� 2���̻�, column�� 2���̻��� ����� ������ 
---  select���� ��� ������.
---  ���޺� �ּұ޿��� �޴� ������
---  ��� �̸� ���� �޿� ��ȸ
+--다중열 다중서브쿼리: 서브쿼리의 result set의
+--  결과 row가 2개이상, column도 2개이상의 결과를 가지는 
+--  select문을 사용 했을때.
+--  직급별 최소급여를 받는 직원의
+--  사번 이름 직급 급여 조회
 select emp_id, emp_name, job_code, salary
 from employee where (job_code, salary) in
     (select job_code, MIN(salary)
@@ -1161,50 +1179,50 @@ from employee where (job_code, salary) in
 order by job_code;
 
 
---������ ���������� ��Һ� �Ҷ� ANY, ALL
+--다중행 서브쿼리로 대소비교 할때 ANY, ALL
 
 
---ALL: ���������� ����� �ϳ��� ���̸� ���̴�.
---  x>ANY(subquery) ������� ũ�⸸ �ϸ� ��
+--ALL: 서브쿼리에 결과중 하나라도 참이면 참이다.
+--  x>ANY(subquery) 어떤값보다 크기만 하면 참
 
---�ּҰ����� ũ�� ��
+--최소값보다 크면 됨
 select emp_name, salary from employee 
 where salary > ANY(select min(salary) from employee);
 
 select emp_name, salary from employee 
 where salary = ANY(select salary from employee);
 
---�ִ밪���ٸ� ������ ��
+--최대값보다만 작으면 됨
 select emp_name, salary from employee 
 where salary < ANY(select salary from employee);
 
---ALL: ���������� ����� ��� ���̸� ��
--- X > ALL : ���������� ��� ������ ũ�� ��
---      �ִ밪���� ũ�� ��.
--- X < ALL : ���������� ��� ������ ������ ��
---      �ּҰ����� ������ ��.
+--ALL: 서브쿼리의 결과값 모두 참이면 참
+-- X > ALL : 서브쿼리의 모든 값보다 크면 참
+--      최대값보다 크면 참.
+-- X < ALL : 서브쿼리의 모든 값보다 작으면 참
+--      최소값보다 작으면 참.
 select emp_name, salary from employee 
 where salary > ALL(select min(salary) from employee
                     HAVING min(salary) < 6000000);
 
---��� ��������: MAIN select���� subselect���� ���� ����� ������ �ִ°�
---�Ŵ��� ���̵� �ִ� ������ return
---���ذ� E.manager_id�� �����Ǵ� ���� EXIST�ΰ�� ��� M.emp_id IS NOT NULL
+--상관 서브쿼리: MAIN select문과 subselect문이 서로 결과에 영향을 주는것
+--매니져 아이디 있는 직원만 return
+--기준값 E.manager_id에 대응되는 값이 EXIST인경우 출력 M.emp_id IS NOT NULL
 select emp_id, emp_name, manager_id
 from employee E
 where EXISTS(select * from employee M
                 where E.manager_id = M.emp_id);
                 
---���ذ� E.manager_id�� �����Ǵ� ���� NOT EXIST�ΰ�� ��� M.emp_id IS NULL
+--기준값 E.manager_id에 대응되는 값이 NOT EXIST인경우 출력 M.emp_id IS NULL
 select emp_id, emp_name, manager_id
 from employee E
 where NOT EXISTS(select * from employee M
                 where E.manager_id = M.emp_id);
 
 
---������ J1, J2, J3�� �ƴ� ����߿��� 
---�ڽ��� �μ��� ��ձ޿����� ���� �޿��� �޴� ������.
--- �μ��ڵ�, �����, �޿�, �μ��� �޿����
+--직급이 J1, J2, J3이 아닌 사원중에서 
+--자신의 부서별 평균급여보다 많은 급여를 받는 사원출력.
+-- 부서코드, 사원명, 급여, 부서별 급여평균
 select E.dept_code, E.emp_name, E.salary, E2.AVG_SAL
 from employee E
     JOIN ( select dept_code, ROUND(avg(salary)) AVG_SAL
@@ -1229,12 +1247,12 @@ where job_code NOT IN ('J1', 'J2', 'J3')
 order by dept_code;
 
 
---��Į�� ��������: ��������ε� �װ�� result set�� ������ �Ѱ��� �ִ°�!
---AVG_SAL�� where������ ���� ����. select���� �������� ���� �ǹǷ�
---��Į��: sql���� ���ϰ��� ���� �����͸� ��Į�� ��� ��.
---  ���: 1. select���� column���� ��밡��
---        2. where�������� ��� ����
---        3. order by�������� ��� ����
+--스칼라 서브쿼리: 상관쿼리인데 그결과 result set이 무조건 한개만 있는것!
+--AVG_SAL는 where절에서 접근 못함. select문은 마지막에 실행 되므로
+--스칼라: sql에서 단일값을 갖는 데이터를 ㅡ칼라 라고 함.
+--  사용: 1. select문의 column에서 사용가능
+--        2. where절에서도 사용 가능
+--        3. order by절에서도 사용 가능
 select dept_code, emp_name, salary, 
     (select round(avg(salary))
         from employee E2
@@ -1246,35 +1264,35 @@ where E1.job_code NOT IN ('J1', 'J2', 'J3')
                        where E1.dept_code = E2.dept_code)
 order by dept_code;
 
---select���� ��Į�� �������� ����ϱ�
---������� ���, �̸�, �����ڻ��, �����ڸ� ��ȸ
+--select문에 스칼라 서브쿼리 사용하기
+--모든사원의 사번, 이름, 관리자사번, 관리자명 조회
 select E.emp_id, E.emp_name, E.manager_id, M.emp_name
 from employee E
     JOIN employee M ON E.mananger_id=M.emp_id;
 
---��Į��� ��ȯ (������: manager_id null�̾ null�� ��µ�)
---(select ���ϰ� from ���̺�)���θ� ��Į�� �������� ���� ����
+--스칼라로 변환 (차이점: manager_id null이어도 null로 출력됨)
+--(select 단일값 from 테이블)으로만 스칼라 서브쿼리 정의 가능
 select emp_id, emp_name, manager_id, 
     nvl((select emp_id 
         from employee M 
-      where E.manager_id = M.emp_id), '����') AS �����ڸ�
+      where E.manager_id = M.emp_id), '없음') AS 관리자명
 from employee E;
 
---�����, �μ��ڵ�, �μ���,�μ��� ����ӱ��� ���������� �̿������
+--사원명, 부서코드, 부서명,부서별 평균임금을 서브쿼리를 이용해출력
 select emp_name, dept_code, D.dept_title, 
     (select round(avg(salary))
         from employee E2
-        where E2.dept_code = E1.dept_code) AS �μ�������ӱ�
+        where E2.dept_code = E1.dept_code) AS 부서별평균임금
 from employee E1
    JOIN department D ON E1.dept_code=D.dept_id
 order by dept_code;
 
---������ J1 �ƴѻ���� �ڽ��� �μ��� ��� �޿����� ���� �޿��޴� �����
---�μ��ڵ�, �����, �޿�, �μ��� �޿����
+--직급이 J1 아닌사원중 자신의 부서별 평균 급여보다 적은 급여받는 사원들
+--부서코드, 사원명, 급여, 부서별 급여평균
 select dept_code, emp_name, salary,
     (select round(avg(salary))
         from employee E2
-        where E1.dept_code = E2.dept_code) AS �μ����޿����
+        where E1.dept_code = E2.dept_code) AS 부서별급여평균
 from employee E1
 where E1.job_code <> 'J1'
     and E1.salary < (select round(avg(salary))
@@ -1282,9 +1300,9 @@ where E1.job_code <> 'J1'
                         where E1.dept_code = E2.dept_code)
 order by dept_code;
 
---��Į�� where���� ����ϱ�
---�ڽ��� ���� ������ ��ձ޿����� ���� �޴� ������ 
---�̸�, ����, �޿��� ��ȸ
+--스칼라 where절에 사용하기
+--자신이 속한 직급의 평균급여보다 많이 받는 직원의 
+--이름, 직급, 급여를 조회
 select emp_name, J.job_name, salary
 from  employee E1
     JOIN job J ON E1.job_code = J.job_code
@@ -1293,64 +1311,64 @@ where E1.salary > (select round(avg(salary))
                         where E1.job_code= E2.job_code)
 order by E1.job_code;
 
---��Į�� ���������� order by��
---��� ������ ���, �̸�, �ҼӺμ� ��ȸ��, �μ������� ��������
+--스칼라 서브쿼리를 order by에
+--모든 직원의 사번, 이름, 소속부서 조회후, 부서명으로 오름차순
 select emp_id, emp_name, dept_code
 from employee E
 order by (select dept_title from department D
             where E.dept_code = D.dept_id) DESC nulls last;
 
---���������� FROM ���� ���
+--서브쿼리를 FROM 절에 사용
 select emp_id, emp_name, dept_code,
-    DECODE(substr(emp_no,8,1), 1,'��', 2,'��') AS ����
+    DECODE(substr(emp_no,8,1), 1,'남', 2,'여') AS 성별
 from employee
 where substr(emp_no,8,1) in (1,3);
 
 select * 
-from (select emp_id AS ���, emp_name AS �����, 
-             dept_code AS �μ��ڵ�,
-             DECODE(substr(emp_no,8,1), 1,'��', 2,'��') AS ����
+from (select emp_id AS 사번, emp_name AS 사원명, 
+             dept_code AS 부서코드,
+             DECODE(substr(emp_no,8,1), 1,'남', 2,'여') AS 성별
         from employee)
         --where emp_id like '20%');
-where ����='��' and ���='200'; --�÷����� �ٲ�. where�� emp_id ���Ұ�
+where 성별='남' and 사번='200'; --컬럼명이 바뀜. where에 emp_id 사용불가
 
 --INLINE VIEW
---Employee ���̺����� 1990�⵵�� �Ի��� ����� 
---���, �����, �Ի�⵵
+--Employee 테이블에서 1990년도에 입사한 사원의 
+--사번, 사원명, 입사년도
 select *
-from (select emp_id, emp_name, EXTRACT(year from hire_date) AS �Ի�⵵
+from (select emp_id, emp_name, EXTRACT(year from hire_date) AS 입사년도
         from employee
         where EXTRACT(year from hire_date) like '199_'
         order by emp_id, hire_date);
---where �Ի�⵵ - 1990 between 0 and 9
+--where 입사년도 - 1990 between 0 and 9
 
---Employee ���̺����� ����� 30, 40���� ���ڻ���� 
---���, �μ���, ����, ���̸� ���
+--Employee 테이블에서 사원중 30, 40대인 여자사원의 
+--사번, 부서명, 성별, 나이를 출력
 select *
 from (select emp_id, emp_name, dept_title, 
-        DECODE(substr(emp_no,8,1), 1,'��',2,'��') AS ����, 
+        DECODE(substr(emp_no,8,1), 1,'남',2,'여') AS 성별, 
         EXTRACT(year from sysdate)
             - TO_NUMBER(DECODE(substr(emp_no,8,1),1,19,2,19,20)
-              || substr(emp_no,1,2)) + 1 AS ����
+              || substr(emp_no,1,2)) + 1 AS 나이
         from employee E
             LEFT JOIN department D ON dept_code=dept_id)
-where ����='��'
-    and substr(����,1,1) in(3,4);
---and (trunc(����/10)) in (3,4);
+where 성별='여'
+    and substr(나이,1,1) in(3,4);
+--and (trunc(나이/10)) in (3,4);
 
 --WITH AS
---���������� ��Ī �ο��Ͽ� �� ��Ī���� ���������� ����ϴ� ��
+--서브쿼리에 별칭 부여하여 그 별칭으로 서브쿼리를 사용하는 것
 WITH TT AS(select emp_id, emp_name, salary 
             from employee
             order by salary desc)
 select TT.emp_id, TT.emp_name, TT.salary 
     from TT;
 
---RANKING ������ ��ȸ�ϴ� ��ȸ���� �˾ƺ���.
---  ���޸��� top3�� ��ȸ
---����Ŭ�� ���̺��̸� �����ϴ� �÷�
---ROWNUM : �÷��� ���� �ڵ����� 1~�������� ��ȣ�ο�
---ROWID : row�� ã�ư� �� �ְ� ���ִ� �ּҰ�!
+--RANKING 순위를 조회하는 조회문을 알아보자.
+--  월급많은 top3를 조회
+--오라클이 테이블이면 제공하는 컬럼
+--ROWNUM : 컬럼에 대해 자동으로 1~끝번까지 번호부여
+--ROWID : row를 찾아갈 수 있게 해주는 주소값!
 CREATE TABLE TEST(
     BOARDNO NUMBER,
     TITLE VARCHAR2(10),
@@ -1360,19 +1378,19 @@ CREATE TABLE TEST(
 
 select ROWID, ROWNUM, boardno, title, content, writer from test;
 
---ROWNUM�� ���̺� ������ Insert������� ���������� ������ ��. (������ ����)
---�׷��Ƿ�, order by�� ���� ROWNUM�� ������ �ʴ´�.
---���� select * from (select ROWNUM R, ... from TABLE)
---���� ����� order by salary�� ���� ������ ��µ��� �ʴ´�.
+--ROWNUM은 테이블 생성시 Insert순서대로 내부적으로 정해진 값. (변하지 않음)
+--그러므로, order by에 의해 ROWNUM이 변하지 않는다.
+--따라서 select * from (select ROWNUM R, ... from TABLE)
+--다음 결과는 order by salary가 높은 순으로 출력되지 않는다.
 select ROWNUM, emp_id, emp_name, salary
     from employee
 where ROWNUM <=3
 order by salary desc;
 
---ROWNUM �ڵ����� ���ںο�. �ο��Ǵ� ������ FROM(��������)
---ORDER BY�� FROM ���� �������� ����ǹǷ�
---INLINE VIEW�� �̸� �־��
---������, ROWNUM�� 1���� row�� ���õǸ鼭 �����ϹǷ�, ROWNUM >=3�� ��� ����
+--ROWNUM 자동으로 숫자부여. 부여되는 시점은 FROM(서브쿼리)
+--ORDER BY는 FROM 이후 마지막에 실행되므로
+--INLINE VIEW로 미리 넣어둠
+--하지만, ROWNUM은 1부터 row가 선택되면서 증가하므로, ROWNUM >=3는 결과 없음
 select ROWNUM, E.*
 from (select emp_id, emp_name, salary 
         from employee order by salary desc) E
@@ -1383,29 +1401,29 @@ select ROWNUM, * from employee;
 --OK!
 select ROWNUM, EMPLOYEE.* from employee;
 
---D5�μ����� ���� ���� 3���� �������
---����, ���, �����, ����
+--D5부서에서 연봉 상위 3명의 정보출력
+--순위, 사번, 사원명, 연봉
 select ROWNUM, E.*
 from (select emp_id, emp_name,
-        TO_CHAR(12*salary, 'L999,999,999') AS ����
+        TO_CHAR(12*salary, 'L999,999,999') AS 연봉
         from employee 
-        where dept_code='D5' order by ���� DESC) E
+        where dept_code='D5' order by 연봉 DESC) E
 where ROWNUM <=3;
 
---������ 5����� 10�����
---�����, ����
---�ȳ���!! ROWNUM BETWEEN A and B (A=1�ƴϸ� ��¾ȵ�)
+--월급이 5등부터 10등까지
+--사원명, 월급
+--안나옴!! ROWNUM BETWEEN A and B (A=1아니면 출력안됨)
 --NOT WORKING!
 select ROWNUM, E.*
     from (select emp_name, salary
             from employee order by salary DESC) E
 where ROWNUM between 5 and 10; --NOT SHOWING ANY RESULTS
 
---paging ó���ÿ� �ʼ�
---INLINE VIEW�� �ι� �����
---ROWNUM����������� selected�ɶ� ���� �ο���,
---�� where���� ���������� row�� ���õǸ鼭 �ο��ǹǷ�,
---row>N�϶� (N>1) 
+--paging 처리시에 필수
+--INLINE VIEW를 두번 써야함
+--ROWNUM은쿼리결과가 selected될때 값이 부여됨,
+--즉 where절이 끝나고나서 row가 선택되면서 부여되므로,
+--row>N일때 (N>1) 
 
 --When assigning ROWNUM to a row, 
 --Oracle starts at 1 and only increments the value when a row 
@@ -1419,14 +1437,14 @@ from ( select ROWNUM RNUM, E.*
     )
 where RNUM between 5 and 10;
 
---������ ����
---      ������ ����, �޴�, �亯�� �Խ���(���)
---  FROM ������ �ɼ� ���� ����ؼ� ó����
---  START WITH: �θ���(��Ʈ���) ����
---  CONNECT BY: �θ�-�ڽİ��� ����
---  PRIOR: START WITH ������ ������ �θ����� �����÷��� ����
---  LEVEL: ���������� ��Ÿ���� ������ �÷�
--- ��� �ý��� ���鶧 ���
+--계층형 쿼리
+--      조직도 구성, 메뉴, 답변형 게시판(댓글)
+--  FROM 다음에 옵션 값을 등록해서 처리함
+--  START WITH: 부모행(루트노드) 지정
+--  CONNECT BY: 부모-자식관계 설정
+--  PRIOR: START WITH 절에서 제시한 부모행의 기준컬럼을 지정
+--  LEVEL: 계층정보를 나타내는 가상의 컬럼
+-- 댓글 시스템 만들때 사용
 select LEVEL, emp_id, emp_name, manager_id
 from employee
 start with emp_id=200
@@ -1434,23 +1452,23 @@ connect by prior emp_id = manager_id
 order by LEVEL;
 
 select LPAD(' ', (LEVEL-1)*5, ' ') || 
-    EMP_NAME ||NVL2(MANAGER_ID, '(' || MANAGER_ID||')', '') AS ������
+    EMP_NAME ||NVL2(MANAGER_ID, '(' || MANAGER_ID||')', '') AS 조직도
 from employee
 start with manager_id IS NULL
 connect by prior emp_id=manager_id;
 
---RANK() �������Լ�: ����Ŭ�� �����ϴ� ������ȸ �Լ�
---  ROWNUM�� �� ���� ��.
-select ����, emp_name, salary
+--RANK() 윈도우함수: 오라클이 제공하는 순위조회 함수
+--  ROWNUM을 더 많이 씀.
+select 순위, emp_name, salary
 from (select emp_name, salary,
-            RANK() OVER(order by salary desc) AS ����
+            RANK() OVER(order by salary desc) AS 순위
             from employee order by salary desc);
 
-select ����, emp_name, salary
+select 순위, emp_name, salary
 from (select emp_name, salary,
-            DENSE_RANK() OVER(order by salary desc) AS ����
+            DENSE_RANK() OVER(order by salary desc) AS 순위
             from employee order by salary desc)
-where ���� between 5 and 10;
+where 순위 between 5 and 10;
 
 --DML
 --  Manipulates Table Data
@@ -1464,24 +1482,24 @@ where ���� between 5 and 10;
 --INSERT into TABLE_NAME
 --    VALUES(VAL_1,...VAL_TOTALCOLNUM);
 
---oracle�� DEFAULT �����ؾߵ�, 
---mysql�� �ڵ����� �����尪 ������
+--oracle은 DEFAULT 명시해야됨, 
+--mysql은 자동으로 디폴드값 대입함
 INSERT INTO employee VALUES(
-    900, '��ä��', '901123-1080503', 'jang_ch@kh.or.kr', '01055569512',
+    900, '장채현', '901123-1080503', 'jang_ch@kh.or.kr', '01055569512',
     'D1', 'J8', 'S3', 4300000, 0.2, '200', SYSDATE, DEFAULT, DEFAULT);
 
 INSERT INTO employee VALUES(
-    901, '������', '781020-2123453', 'hamham@kh.or.kr', '01012341234',
+    901, '함지민', '781020-2123453', 'hamham@kh.or.kr', '01012341234',
     'D1', 'J4', 'S3', 4500000, DEFAULT, 
-        (SELECT emp_id from employee where emp_name='�̿���'), 
+        (SELECT emp_id from employee where emp_name='이오리'), 
         SYSDATE, DEFAULT, DEFAULT);
 
 INSERT INTO employee(emp_id, emp_name, emp_no, email, phone,
     dept_code, job_code, sal_level, salary, bonus, manager_id)
-VALUES(903, '������', '000224-3123412', 'prince0324@naver.com',
+VALUES(903, '유병승', '000224-3123412', 'prince0324@naver.com',
         '01036446259', 'D2','J1','S1', '99900000', 0.8, '200');
 
-select * from employee where emp_name in('��ä��', '������', '������');
+select * from employee where emp_name in('장채현', '함지민', '유병승');
 
 COMMIT;
  
@@ -1492,22 +1510,22 @@ COMMIT;
 --  "EMP_NAME" IS NOT NULL
 --  "EMP_ID" IS NOT NULL
 INSERT INTO employee(emp_id, emp_name, emp_no, sal_level, job_code)
-    VALUES(904, '������', '910804-2123412', 'S1', 'J3');
+    VALUES(904, '서현희', '910804-2123412', 'S1', 'J3');
 
---INSERT���� �������� �̿��ϱ�
+--INSERT문에 서브쿼리 이용하기
 CREATE TABLE emp_01(
     EMP_ID NUMBER,
     EMP_NAME VARCHAR2(30),
     EMP_TITLE VARCHAR2(20));
 
-INSERT INTO emp_01 VALUES(999, '������', '��ǥ�̻�');
+INSERT INTO emp_01 VALUES(999, '유병승', '대표이사');
 
 INSERT INTO emp_01( select emp_id, emp_name, J.job_name
     from employee E JOIN job J ON E.job_code = J.job_code);
 
 select * from emp_01;
 
---CREATE�� �ڵ� COMMIT ��
+--CREATE은 자동 COMMIT 됨
 CREATE TABLE emp_hire_date(
     emp_id NUMBER,
     emp_name VARCHAR2(30),
@@ -1537,9 +1555,9 @@ INSERT ALL
 select emp_id, emp_name, hire_date, manager_id
     from employee;
 
---INSERT ALL ���� ���̺��� �ѹ��� ���� ����
---���� ������, ���ǿ� ���� ���� ���� �� ����.
---CASE �� �� ����� WHEN�� ����ؼ� ó����.
+--INSERT ALL 여러 테이블에 한번에 값을 삽입
+--값을 넣을때, 조건에 따라서 값을 넣을 수 있음.
+--CASE 절 과 비슷한 WHEN을 사용해서 처리함.
 CREATE TABLE emp_old(
     emp_id NUMBER,
     emp_name VARCHAR2(30),
@@ -1552,8 +1570,8 @@ CREATE TABLE emp_new(
     hire_date DATE,
     salary NUMBER);
 
---OLD employee���̺����� 00.01.01 ���� �Ի��� ���
---NEW employee���̺����� 00.01.01 ���� �Ի��� ���
+--OLD employee테이블에서 00.01.01 이전 입사한 사원
+--NEW employee테이블에서 00.01.01 이후 입사한 사원
 INSERT INTO emp_old( select emp_id , emp_name, hire_date, salary
                     from employee
                     where hire_date < '00/01/01');
@@ -1574,25 +1592,25 @@ INSERT ALL
 select emp_id, emp_name, hire_date, salary
 from employee;
 
---UPDATE ���̺��� ������ �����ϴ� ��
---  UPDATE table_name SET ������÷�=����ɰ�;
+--UPDATE 테이블의 내용을 수정하는 것
+--  UPDATE table_name SET 변경된컬럼=변경될값;
 CREATE TABLE copy_dept 
     AS select * from department;
 
---�ѹ��� -> ������ȹ��
-UPDATE copy_dept SET dept_title='������ȹ��', location_id='L1'
+--총무부 -> 전략기획부
+UPDATE copy_dept SET dept_title='전략기획부', location_id='L1'
 where dept_id='D9';
 
---UPDATE���� ���������� �̿��� �� ����
+--UPDATE문도 서브쿼리를 이용할 수 있음
 CREATE table emp_salary
 AS select emp_id, emp_name, salary, bonus from employee;
 
 UPDATE emp_salary SET bonus = ( select bonus from emp_salary
-            where emp_name='������')
+            where emp_name='하이유')
     where emp_id = ( select emp_id from emp_salary
-            where emp_name='������');
+            where emp_name='송종기');
 
---�μ��� ȸ������� �� ������� ���ʽ��� .4�� ����
+--부서가 회계관리부 인 사원들의 보너스를 .4로 수정
 CREATE table emp_salary1
 AS select emp_id, emp_name, dept_code, salary, bonus
     from employee;
@@ -1601,29 +1619,29 @@ UPDATE emp_salary1
 SET bonus=.4
 where dept_code=(
     select dept_code from department
-        where dept_title = 'ȸ�������');
+        where dept_title = '회계관리부');
 
 select * from emp_salary1;
 
---�ѹ��� ����� ������ 100000�� ������Ű��
+--총무부 사원의 월급이 100000원 증가시키기
 UPDATE emp_salary1
 SET salary = (salary+100000)
 where dept_code= (select dept_id from department
-                where dept_title='�ѹ���');
+                where dept_title='총무부');
 
---���� �� UPDATE
+--다중 열 UPDATE
 select emp_name, salary, bonus from emp_salary1
-where emp_name in ('�����', '�����');
+where emp_name in ('유재식', '방명수');
 
 UPDATE emp_salary1
 SET (salary, bonus) = (select salary, bonus
-from emp_salary1 where emp_name ='�����')
-where emp_name = '�����';
+from emp_salary1 where emp_name ='유재식')
+where emp_name = '방명수';
 
 CREATE table emp_local
 as select * from employee;
 
---�ٹ������� ������ ��� ���ʽ��� .5
+--근무지역이 유럽인 사람 보너스를 .5
 UPDATE emp_local
 SET bonus =.5
 where dept_code = (select dept_id
@@ -1632,12 +1650,12 @@ where dept_code = (select dept_id
 
 select bonus from emp_local where dept_code='D8';
 
---MERGE �ΰ��� ���̺�����ġ�� �۾�
---  ���: row���� ����
---  MERGE INTO ���̺��� USING ���������̺���
---      ON (�����ұ��ذ�)
---  WHEN MATCHED THEN UPDATE����
---  WHEN NOT MATCHED THEN INSERT����
+--MERGE 두개의 테이블을합치는 작업
+--  사용: row끼리 병합
+--  MERGE INTO 테이블명 USING 합쳐질테이블명
+--      ON (결합할기준값)
+--  WHEN MATCHED THEN UPDATE구문
+--  WHEN NOT MATCHED THEN INSERT구문
 CREATE TABLE MERGE_TEST
     AS (select * from employee);
 
@@ -1648,7 +1666,7 @@ select * from merge_test where dept_code ='D8';
 select * from merge_test2;
 
 INSERT INTO merge_test2
-VALUES(998, '�ٹ�', '171230-1234555','baba@b.com',
+VALUES(998, '바바', '171230-1234555','baba@b.com',
     '01011112222', 'D2', 'J2', 'S2', 100, .1, 
     NULL, sysdate, DEFAULT, DEFAULT);
 
@@ -1661,7 +1679,7 @@ ON(merge_test.emp_id = merge_test2.emp_id)
 WHEN MATCHED THEN 
     UPDATE SET merge_test.salary = merge_test2.salary,
            merge_test.bonus = merge_test2.bonus
-    --��� �÷� UPDATE SET(��� ������ ���� MERGE �Ϸ���)
+    --모든 컬럼 UPDATE SET(모든 데이터 전부 MERGE 하려면)
     --merge_test.emp_name = merge_test2.emp_name, ...
 WHEN NOT MATCHED THEN
     INSERT VALUES( merge_test2.EMP_ID, merge_test2.EMP_NAME, 
@@ -1673,8 +1691,8 @@ WHEN NOT MATCHED THEN
 select emp_name, dept_code, salary, bonus from merge_test
 where dept_code='D8';
 
---DELETE: where���� pk �÷� �ַ� ��
-DELETE from merge_test where emp_name='������';
+--DELETE: where절에 pk 컬럼 주로 씀
+DELETE from merge_test where emp_name='유병승';
 
 ALTER TABLE EMPLOYEE ADD FOREIGN KEY(dept_code)
     REFERENCES DEPARTMENT(dept_id);
@@ -1685,11 +1703,11 @@ ALTER TABLE EMPLOYEE ADD FOREIGN KEY(dept_code)
 --  (KH.SYS_C007055) violated - parent key not found
 INSERT INTO EMPLOYEE(emp_id, emp_name, emp_no, 
         sal_level, dept_code, job_code)
-    VALUES(997, '���', '990101-1311333', 'S2','D0', 'J2');
+    VALUES(997, '루루', '990101-1311333', 'S2','D0', 'J2');
 
 INSERT INTO EMPLOYEE(emp_id, emp_name, emp_no, 
         sal_level, dept_code, job_code)
-    VALUES(997, '���', '990101-1311333', 'S2','D1', 'J2');
+    VALUES(997, '루루', '990101-1311333', 'S2','D1', 'J2');
 
 --NO RESULT!
 select * from department where dept_id='D0';
@@ -1702,7 +1720,7 @@ DELETE from department where dept_id='D1';
 --OK! Because 'D4' has NO CHILD RECORD!
 DELETE from department where dept_id='D4';
 
---TRUNCATE (DELETE�� ������, ROLLBACK �ȵ�)
+--TRUNCATE (DELETE와 같지만, ROLLBACK 안됨)
 DELETE from merge_test;
 ROLLBACK; --OK
 
@@ -1710,11 +1728,11 @@ TRUNCATE TABLE merge_test;
 ROLLBACK; --CANNOT retrieve data...
 
 --DDL
---  CREATE ������Ʈ ����
---  ALTER ������Ʈ ����
---  DROP ������Ʈ ����
---  ������Ʈ: table ,view, index, sequence, user ...
---���: CREATE ������Ʈ���� ������Ʈ��Ī
+--  CREATE 오브젝트 생성
+--  ALTER 오브젝트 수정
+--  DROP 오브젝트 삭제
+--  오브젝트: table ,view, index, sequence, user ...
+--사용: CREATE 오브젝트종류 오브젝트명칭
 CREATE TABLE member1(
     mem_name VARCHAR2(20),
     mem_password VARCHAR2(30),
@@ -1723,15 +1741,15 @@ CREATE TABLE member1(
 
 select * from member1;
 
---���̺� �÷��� �ּ��ޱ�.
-COMMENT ON COLUMN member1.mem_name IS 'ȸ�� �̸�';
-COMMENT ON COLUMN member1.mem_password IS 'ȸ�� ��й�ȣ';
-COMMENT ON COLUMN member1.mem_id IS 'ȸ�� ���̵�';
+--테이블 컬럼에 주석달기.
+COMMENT ON COLUMN member1.mem_name IS '회원 이름';
+COMMENT ON COLUMN member1.mem_password IS '회원 비밀번호';
+COMMENT ON COLUMN member1.mem_id IS '회원 아이디';
 
 --select * from all_tab_comments where table_name='MEMBER1';
 select * from user_col_comments where table_name='MEMBER1';
 
---CONSTRAINTS ��������
+--CONSTRAINTS 제약조건
 --  NOT NULL
 --  UNIQUE
 --  PRIMARY KEY(NOT NULL & UNIQUE)
@@ -1743,10 +1761,10 @@ CREATE TABLE member2(
     MEM_ID VARCHAR2(10) UNIQUE,
     MEM_PASSWORD varchar2(20));
 
---CONSTRAINT_TYPE='C' CHECK �Ǵ� NOT NULL
---CONSTRAINT_TYPE='R' FOREIGN KEY ������
---CONSTRAINT_TYPE='P' PRIMARY KEY ������
---CONSTRAINT_TYPE='U' UNIQUE ������
+--CONSTRAINT_TYPE='C' CHECK 또는 NOT NULL
+--CONSTRAINT_TYPE='R' FOREIGN KEY 설정됨
+--CONSTRAINT_TYPE='P' PRIMARY KEY 설정됨
+--CONSTRAINT_TYPE='U' UNIQUE 설정됨
 
 select * from user_cons_columns;
 select * from user_constraints;
@@ -1754,9 +1772,9 @@ select table_name, constraint_name, constraint_type
     from user_constraints 
     where table_name in ('MEMBER1', 'MEMBER2');
 
---NOT NULL Ư�� �÷��� ������ �����͸� �־�� �� ��
---NULL�� ���� ���������� �������� ������ ������ NULL ���
---ID, PW, NO���� ���� �ݵ�� �ʿ�. NULL���� ����� ���� ����
+--NOT NULL 특정 컬럼에 무조건 데이터를 넣어야 할 때
+--NULL에 대해 제약조건을 설정하지 않으면 무조건 NULL 허용
+--ID, PW, NO에는 값이 반드시 필요. NULL값이 못들어 오게 설정
 CREATE TABLE user_ncons(
     user_no NUMBER NOT NULL,
     user_id VARCHAR2(30) NOT NULL,
@@ -1820,7 +1838,7 @@ INSERT INTO user_uni VALUES(
 --ERROR! ORA-00001: unique constraint (KH.SYS_C007066) violated
 INSERT INTO user_uni VALUES(
 2, 'admin', 1234, 'administrator2', 'F', '01012345555', 'admin@a.com');
---OK! NULL�� �ߺ� ��� �ȵ� -> NOT NULL CONSTRAINT�� NULL insert �����ؾ���.
+--OK! NULL은 중복 취급 안됨 -> NOT NULL CONSTRAINT로 NULL insert 방지해야함.
 INSERT INTO user_uni VALUES(
 3, NULL, 1234, 'administrator2', 'F', '01012345555', 'admin@a.com');
 
@@ -1885,8 +1903,8 @@ INSERT INTO user_primary VALUES(
 select * from user_primary;
 
 --PRIMARY KEY (COMPOSITE)
---  PRIMARY KEY ����Ű�� ���̺������� ����
---user(n), product(n) �̾��ִ� ���̺��� ���� ����
+--  PRIMARY KEY 복합키는 테이블레벨로 생성
+--user(n), product(n) 이어주는 테이블로 정의 가능
 CREATE TABLE tbl_composite_key(
     proc_no VARCHAR2(20),
     user_id VARCHAR2(20),
@@ -1903,17 +1921,17 @@ INSERT INTO tbl_composite_key VALUES('P111', 'user01', '19/06/25', 10); --ERROR!
 select * from tbl_composite_key;
 
 
---FOREIGN KEY : �����Ǵ� �÷� �� NULL ����
---�ܺ� ���̺����� ���� �������°�!
---REFERENCE ������ �÷� �����ϸ�, �����ϴ� ���̺��� primary key�� ����!
+--FOREIGN KEY : 참조되는 컬럼 값 NULL 가능
+--외부 테이블에서 값을 가져오는것!
+--REFERENCE 참조할 컬럼 생략하면, 참조하는 테이블의 primary key를 참조!
 CREATE TABLE user_grade(
     grade_no NUMBER PRIMARY KEY,
     grade_name VARCHAR2(10)
 );
 
-INSERT INTO user_grade VALUES(10, '�Ϲ�');
-INSERT INTO user_grade VALUES(20, '�ǹ�');
-INSERT INTO user_grade VALUES(30, '���');
+INSERT INTO user_grade VALUES(10, '일반');
+INSERT INTO user_grade VALUES(20, '실버');
+INSERT INTO user_grade VALUES(30, '골드');
 
 select * from user_grade;
 
@@ -2000,9 +2018,9 @@ INSERT INTO user_tbl VALUES('USER01', '1234', 'auauau', 'aa@rr.com');
 INSERT INTO user_tbl VALUES('USER02', '1234', 'bububu', 'bb@rr.com');
 INSERT INTO user_tbl VALUES('USER03', '1234', 'cucucu', 'cc@rr.com');
 
-INSERT INTO product_tbl VAlUES('F01', 'ħ��', 1000000);
-INSERT INTO product_tbl VAlUES('F02', '��ǻ��', 1200000);
-INSERT INTO product_tbl VAlUES('F03', '������', 2000000);
+INSERT INTO product_tbl VAlUES('F01', '침대', 1000000);
+INSERT INTO product_tbl VAlUES('F02', '컴퓨터', 1200000);
+INSERT INTO product_tbl VAlUES('F03', '에어컨', 2000000);
 
 CREATE TABLE shop(
     user_id VARCHAR2(20),
@@ -2014,7 +2032,7 @@ INSERT INTO shop VALUES('user03', 'f01', sysdate);
 
 select * from shop;
 
---user_id ��ҹ��� �޶� ��ã��
+--user_id 대소문자 달라서 못찾음
 select * from shop S
     LEFT JOIN user_tbl U ON S.user_id = U.user_id;
 
@@ -2032,7 +2050,7 @@ INSERT INTO shop1 VALUES('USER03', 'F01', sysdate);
 select * from shop1 S
     LEFT JOIN user_tbl U ON S.user_id = U.user_id;
 
---FOREIGN KEY���� NULL ���Ե� �������� NOT NULL�� �߰�
+--FOREIGN KEY에는 NULL 대입됨 막으려면 NOT NULL도 추가
 INSERT INTO shop1 VALUES(NULL, NULL, sysdate);
 
 select * from shop1;
@@ -2045,12 +2063,12 @@ delete from user_tbl where user_id = 'USER03';
 --OK
 delete from user_tbl where user_id = 'USER01';
 
---fk�� reference �ɷ��ִ� ������ ���� �ǵ���
---���̺� ������ �ɼ� ����
---����Ű�� ������ ���� �ɼ��� ������ �� ����
---  ON DELETE �ɼ�
---    SET NULL : NULL�� �ٲ���(�θ�reference �Ǿ��־ �ڽ��÷� NULL ��ȯ��)
---    SET CASCADE : �θ� �������� �ڽĵ����͵� ���� ����
+--fk로 reference 걸려있는 데이터 삭제 되도록
+--테이블 생성시 옵션 지정
+--참조키에 삭제에 대한 옵션을 설정할 수 있음
+--  ON DELETE 옵션
+--    SET NULL : NULL로 바꿔줌(부모에reference 되어있어도 자식컬럼 NULL 변환됨)
+--    SET CASCADE : 부모값 지워지면 자식데이터도 같이 삭제
 select * from user_tbl;
 
 CREATE TABLE shop2(
@@ -2104,15 +2122,15 @@ DELETE from user_tbl where user_id='USER03';
 select * from user_tbl;
 select * from shop4;
 
---CHECK ��������: �����ͷ� �����°��� Ư�������� ����
+--CHECK 제약조건: 데이터로 들어오는값을 특정값으로 제한
 CREATE TABLE check_tbl(
     username VARCHAR2(20),
-    gender VARCHAR2(10) CHECK(gender in ('��','��'))
+    gender VARCHAR2(10) CHECK(gender in ('남','여'))
 );
-INSERT INTO check_tbl VALUES('�ٹٹ�', '����'); --ERROR
-INSERT INTO check_tbl VALUES('�ٹٹ�', '��'); --OK
+INSERT INTO check_tbl VALUES('바바바', '남자'); --ERROR
+INSERT INTO check_tbl VALUES('바바바', '여'); --OK
 
---SUBQUERY �̿��� CREATE TABLE
+--SUBQUERY 이용한 CREATE TABLE
 CREATE TABLE employee_tbl
 AS select * from employee 
     JOIN department ON dept_id= dept_code
@@ -2121,13 +2139,13 @@ AS select * from employee
 
 select emp_name, dept_title, job_name from employee_tbl;
 
---�÷��� ���� WHERE 1=0
+--컬럼만 복사 WHERE 1=0
 CREATE TABLE temp AS select emp_name, salary, bonus 
         from employee where 1=0;
 select * from temp;
 
--- ALTER TABLE ���̺��� ADD (COL DataType);
--- ���̺��� ������ ������ �߰� ����, ���� ������ �߰�/����
+-- ALTER TABLE 테이블명 ADD (COL DataType);
+-- 테이블에 설정된 설정을 추가 변경, 제약 조건을 추가/변경
 select * from user_tbl;
 
 ALTER TABLE user_tbl ADD(age NUMBER);
@@ -2136,7 +2154,7 @@ ALTER TABLE user_tbl ADD(address VARCHAR2(30));
 
 select * from user_tbl;
 
---COLUMN �߰��� DEFAULT �� ��������
+--COLUMN 추가시 DEFAULT 값 설정가능
 CREATE TABLE defaulttest(
     age NUMBER default 10
 );
@@ -2147,18 +2165,18 @@ INSERT INTO defaulttest VALUES(default);
 select * from defaulttest;
 
 --DEFAULT -> NOT NULL
---�÷� �߰��ϸ鼭 �������� ����
+--컬럼 추가하면서 제약조건 설정
 ALTER TABLE user_tbl ADD(
-    national VARCHAR2(20) DEFAULT '�ѱ�');
+    national VARCHAR2(20) DEFAULT '한국');
 ALTER TABLE user_tbl ADD(
     user_no VARCHAR2(20) UNIQUE);
 ALTER TABLE user_tbl ADD(
-    gender VARCHAR2(10) DEFAULT '��' check(gender in ('��','��')));
+    gender VARCHAR2(10) DEFAULT '여' check(gender in ('남','여')));
 
 select * from user_tbl;
 
 
---�������� ���̺� ���� �Ŀ� ���� �߰�
+--제약조건 테이블 생성 후에 새로 추가
 CREATE TABLE add_cons(
     emp_no NUMBER,
     emp_id VARCHAR2(20),
@@ -2168,14 +2186,14 @@ CREATE TABLE add_cons(
 ALTER TABLE add_cons
 ADD CONSTRAINT pk_add_cons PRIMARY KEY (emp_no);
  
---emp_id unique �������� ����!
+--emp_id unique 제약조건 설정!
 ALTER TABLE add_cons
 ADD CONSTRAINT unq_cons UNIQUE(emp_id);
 
---ERROR �ȵ�!
---emp_pwd not null �������� ����! 
---null able �⺻ ���������� null�� �̹� ���� �Ǿ� ����
---���������� �߰��ϴ� ���� �ƴ϶�, �̹� ������
+--ERROR 안됨!
+--emp_pwd not null 제약조건 설정! 
+--null able 기본 제약조건이 null이 이미 설정 되어 있음
+--제약조건을 추가하는 것이 아니라, 이미 설정된
 --null -> not null;
 --ERROR!!
 ALTER TABLE add_cons
@@ -2184,36 +2202,36 @@ ADD CONSTRAINT nn_cons NOT NULL(emp_pw);
 ALTER TABLE add_cons
 MODIFY emp_pw CONSTRAINT nn_cons NOT NULL;
 
---�÷��� ������ ����(�ڷ���, ����)
+--컬럼의 내용을 수정(자료형, 길이)
 ALTER TABLE add_cons
 MODIFY emp_no VARCHAR2(20);
 
 
---emp_id ���̸� 100���� ����
---���̸� ����Ҷ�, ������ �����ϸ� ���� �Ұ�.
+--emp_id 길이를 100으로 증가
+--길이를 축소할때, 데이터 존재하면 변경 불가.
 ALTER TABLE add_cons
 MODIFY emp_id VARCHAR2(100);
 
---�÷� �����ϱ�
---ALTER TABLE ���̺��� DROP COLUMN �÷���
+--컬럼 삭제하기
+--ALTER TABLE 테이블명 DROP COLUMN 컬럼명
 ALTER TABLE add_cons DROP COLUMN emp_pw;
 
---�������� ����
---ALTER TABLE ���̺��� DROP CONSTRAINT �������Ǹ�
+--제약조건 삭제
+--ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명
 select * from user_constraints;
 --PK_ADD_CONS
 --UNQ_CONS
 
 ALTER TABLE add_cons DROP CONSTRAINT PK_ADD_CONS;
 
---�÷� ��Ī�� ����
---ALTER TABLE ���̺��� RENAME COLUMN ��� to ���氪
+--컬럼 명칭을 변경
+--ALTER TABLE 테이블명 RENAME COLUMN 대상 to 변경값
 ALTER TABLE add_cons RENAME COLUMN emp_no TO no;
 ALTER TABLE add_cons RENAME COLUMN no TO emp_no;
 
 select * from add_cons;
 
---���̺� �̸� ����
+--테이블 이름 변경
 ALTER TABLE add_cons RENAME TO add_training;
 ALTER TABLE add_training RENAME TO add_cons;
 
@@ -2223,27 +2241,27 @@ select * from add_cons;
 RENAME add_training TO add_cons;
 RENAME add_cons TO add_training;
 
---���̺� ����
+--테이블 삭제
 DROP TABLE add_cons;
 DROP TABLE add_training;
 DROP TABLE shop2;
 
---����� ����
+--사용자 삭제
 DROP USER user_name;
 
 --DCL(Data Control Language)
---�����Ϳ� ����, ����, ���� �� �����͸� �����ϴ� ����� ����
---grant(���Ѻο�), revoke(����ȸ��), 
---commit(������Ȯ��), rollback(�ǵ�����)
+--데이터에 접근, 수정, 삭제 등 데이터를 조작하는 기능을 통제
+--grant(권한부여), revoke(권한회수), 
+--commit(데이터확정), rollback(되돌리기)
 
---GRANT ���Ѹ�(select, update, delete, ...) 
---  || role(���ѵ��� ����, �׷� ��Ű��ȭ e.g. resource)
--- TO ���user [option]
---  option = "with admin option"(�ο����� ������ �� �ٸ�������� �ο�����)
+--GRANT 권한명(select, update, delete, ...) 
+--  || role(권한들의 모음, 그룹 패키지화 e.g. resource)
+-- TO 대상user [option]
+--  option = "with admin option"(부여받은 권한을 또 다른사람에게 부여가능)
 CONN sys/oracle
 
 select * from dba_sys_privs
-where GRANTEE='KH';  --tablespace ���̺� ���� �� �ִ� ����
+where GRANTEE='KH';  --tablespace 테이블 만들 수 있는 공간
 
 select * from dba_role_privs
 where GRANTEE='KH';
@@ -2261,20 +2279,20 @@ select * from user_role_privs;
 
 REVOKE update ON scott.emp FROM kh;
 
---ROLE �ο��� ���Ѻ���
+--ROLE 부여된 권한보기
 select * from dba_sys_privs
     where grantee in ('CONNECT', 'RESOURCE');
 
---VIEW ���� ���̺�
---  select ������ ����� ȭ�鿡 ��� ��ü
---  select ���� ��ü�� �����Ͽ� ȣ���� ������ �ش����� ����
---  ���������� DB�� �����ϰ� ���� ����.
---  �˻��� ȿ����: ���� ã���� �ϴ� ������ ��ȸ
---  ���ȼ�: ���̺��� ������ ���� �� ����
---  CREATE or REPLACE VIEW view_name[col1 ��Ī1, col2 ��Ī2, ...]
+--VIEW 가상 테이블
+--  select 실행한 결과를 화면에 담는 객체
+--  select 문장 자체를 저장하여 호출할 때마다 해당쿼리 실행
+--  실질적으로 DB를 저장하고 있지 않음.
+--  검색의 효율성: 내가 찾고자 하는 정보만 조회
+--  보안성: 테이블의 정보를 숨길 수 있음
+--  CREATE or REPLACE VIEW view_name[col1 별칭1, col2 별칭2, ...]
 --      AS (select emp_id, emp_name, dept_code from employee);
 --  SELECT * from view_name;
---  GRANT CREATE VIEW To db_user; --VIEW �� GRANT ���� �ο�(conn system/oracle)
+--  GRANT CREATE VIEW To db_user; --VIEW 에 GRANT 권한 부여(conn system/oracle)
 CONN system/oracle
 GRANT CREATE VIEW TO KH;
 CONN kh/kh
@@ -2287,111 +2305,111 @@ select * from view_emp;
 
 select * from user_views where view_name='VIEW_EMP';
 
---���, �̸�, ���޸�, �μ���, �ٹ�������
---v_resultset_emp ��� �信
+--사번, 이름, 직급명, 부서명, 근무지역을
+--v_resultset_emp 라는 뷰에
 CREATE OR REPLACE VIEW v_resultset_emp AS(
-    select emp_id AS ���, emp_name, J.job_name, D.dept_title, L.local_name
+    select emp_id AS 사번, emp_name, J.job_name, D.dept_title, L.local_name
         from employee E
             LEFT JOIN job J USING (job_code)
             LEFT JOIN department D ON E.dept_code = D.dept_id
             LEFT JOIN location L ON D.location_id = L.local_code);
 
-select * from v_resultset_emp V where V.��� = '205';
+select * from v_resultset_emp V where V.사번 = '205';
 
---TABLE ����� VIEW���� �Բ� �����: VIEW���� '���߾�'
---  VIEW���� �������� ����Ǿ� �����Ƿ�.
-UPDATE employee  SET emp_name='���߾�' WHERE emp_id='205';
-select * from v_resultset_emp V where V.��� = '205';
+--TABLE 변경시 VIEW에도 함께 적용됨: VIEW에도 '정중앙'
+--  VIEW에는 쿼리문이 저장되어 있으므로.
+UPDATE employee  SET emp_name='정중앙' WHERE emp_id='205';
+select * from v_resultset_emp V where V.사번 = '205';
 
---VIEW Ư¡
---1.�÷��� �ƴ϶�, ������� ó���� view ������ ����
+--VIEW 특징
+--1.컬럼뿐 아니라, 산술연산 처리한 view 생성도 가능
 CREATE OR REPLACE VIEW view_emp_salary AS(
-    select emp_name AS �����, 12*salary*(1+nvl(bonus,0)) AS ����
+    select emp_name AS 사원명, 12*salary*(1+nvl(bonus,0)) AS 연봉
     from employee);
 
 select * from view_emp_salary;
 
---JOIN �� �̿��� view�� ���� ����
---employee���� ���, ����̸�, ����, �μ���
---�÷�(����NULL -> ����) view_emp_read
+--JOIN 을 이용한 view도 생성 가능
+--employee에서 사번, 사원이름, 직급, 부서명
+--컬럼(직급NULL -> 인턴) view_emp_read
 CREATE OR REPLACE VIEW view_emp_read AS(
-    select emp_id, emp_name, nvl(job_name, '����') AS ����, dept_title
+    select emp_id, emp_name, nvl(job_name, '인턴') AS 직급, dept_title
     from employee
         LEFT JOIN department ON dept_code= dept_id
         LEFT JOIN job USING (job_code));
 
 select * from view_emp_read;
 
---VIEW������ ������ �߰�,����,������ ����
--- ���� 6���� ��Ȳ������ �Ұ���
---1. �信 ���ǵ��� ���� �÷� ����
---2. �信 ������ �ʴ� �÷� �� NOT NULL �������� ���� �÷� �������
---3. ��� ������ ����� �÷��� ���� ���
---4. JOIN�� ���� �������̺��� ������ ���
---    ��ȸ�� ���̺��� ���� �߿� �⺻Ű�� 
---    �� �Ѱ��� ���� ���� ����
---5. DISTINCT�� ����Ͽ� ���� �������� ������ ��Ȯ���� ���� ���
---6. �׷��Լ��� GROUP BY ������ ����ؼ� ��ȸ�� ������ ���
+--VIEW에서도 데이터 추가,수정,삭제가 가능
+-- 다음 6가지 상황에서는 불가능
+--1. 뷰에 정의되지 않은 컬럼 수정
+--2. 뷰에 보이지 않는 컬럼 중 NOT NULL 제약조건 가진 컬럼 있을경우
+--3. 산술 연산이 적용된 컬럼이 있을 경우
+--4. JOIN을 통해 여러테이블을 참조할 경우
+--    조회한 테이블의 정보 중에 기본키가 
+--    단 한개일 경우는 변경 가능
+--5. DISTINCT를 사용하여 실제 데이터의 내용이 명확하지 않은 경우
+--6. 그룹함수나 GROUP BY 구문을 사용해서 조회한 쿼리일 경우
 UPDATE view_emp SET emp_no='881123-2000123' where emp_id=500; 
 DELETE FROM view_emp where emp_id=500;
 
-select * from view_emp where emp_name='������';
+select * from view_emp where emp_name='강오덩';
 
---1. �信 ���ǵ��� ���� �÷��� ����
+--1. 뷰에 정의되지 않은 컬럼을 수정
 CREATE OR REPLACE VIEW V_JOB AS(
     select job_code from job);
 
-INSERT INTO v_job VALUES('J8', '����'); --ERROR
-UPDATE v_job SET job_name='����' where job_code is null; --ERROR
+INSERT INTO v_job VALUES('J8', '인턴'); --ERROR
+UPDATE v_job SET job_name='인턴' where job_code is null; --ERROR
 
---2. �信 ������ �ʴ� �÷� ��
---   NOT NULL �������� ���� �÷� �������
---VIEW�� DML ���: ������ VIEW�� ������ DML ������ ��� ����
---  DML ������ ������ view ���̺��� ������ �����ϸ� ���� ���̺��� ����
+--2. 뷰에 보이지 않는 컬럼 중
+--   NOT NULL 제약조건 가진 컬럼 있을경우
+--VIEW의 DML 사용: 생성된 VIEW를 가지고 DML 구문이 사용 가능
+--  DML 구문을 가지고 view 테이블에 내용을 변경하면 실제 테이블도 변경
 --vim_emp -> emp_id, emp_name, email, phone, job_code, sal_level
 --ORA-01400: cannot insert NULL into ("KH"."EMPLOYEE"."EMP_NO")
 CREATE OR REPLACE VIEW view_emp AS (
     select emp_id, emp_name, email, phone, job_code, sal_level
     from employee);
 --ERROR
-INSERT INTO view_emp VALUES(500, '������', 'kang@a.com', 
+INSERT INTO view_emp VALUES(500, '강오덩', 'kang@a.com', 
             '01012345555', 'J5', 'S3');
 DROP VIEW view_emp;
 
 CREATE OR REPLACE VIEW view_emp AS (
     select emp_id, emp_no, emp_name, email, phone, job_code, sal_level
     from employee);
---OK! EMPLOYEE ���̺����� �����Ͱ� �߰���!!!
-INSERT INTO view_emp VALUES(500, '790626-1034555', '������', 'kang@a.com', 
+--OK! EMPLOYEE 테이블에도 데이터가 추가됨!!!
+INSERT INTO view_emp VALUES(500, '790626-1034555', '강오덩', 'kang@a.com', 
             '01012345555', 'J5', 'S3');
 
---����! VIEW�� INSERT�ϸ� TABLE �����͵� �Բ� �����!
-DELETE FROM view_emp where emp_name='������';
-DELETE FROM EMPLOYEE where emp_name='������';
+--주의! VIEW에 INSERT하면 TABLE 데이터도 함께 변경됨!
+DELETE FROM view_emp where emp_name='강오덩';
+DELETE FROM EMPLOYEE where emp_name='강오덩';
 select * from view_emp;
-select * from view_emp where emp_name='������';
-select * from employee where emp_name='������';
+select * from view_emp where emp_name='강오덩';
+select * from employee where emp_name='강오덩';
 
---3. ��� ������ ����� �÷��� ���� ���
+--3. 산술 연산이 적용된 컬럼이 있을 경우
 CREATE OR REPLACE VIEW v_emp_sal AS(
     select emp_id, emp_name, salary, 
-           12*salary*(1+nvl(bonus,0)) AS ����
+           12*salary*(1+nvl(bonus,0)) AS 연봉
     from employee);
 
 --ERROR! virtual column not allowed here
-INSERT INTO v_emp_sal VALUES(901, '���︸', 3000000,40000000);
+INSERT INTO v_emp_sal VALUES(901, '손흥만', 3000000,40000000);
 
---4. JOIN�� ���� �������̺��� ������ ���
+--4. JOIN을 통해 여러테이블을 참조할 경우
 CREATE OR REPLACE VIEW v_join_emp AS(
     select emp_id, emp_name, dept_title from employee
         LEFT JOIN department ON dept_id=dept_code);
 
-INSERT INTO v_join_emp VALUES(911, '�����', '���������'); --ERROR
-UPDATE v_join_emp SET dept_title='���������' where emp_id=218; --ERROR
+INSERT INTO v_join_emp VALUES(911, '댕댕이', '기술지원부'); --ERROR
+UPDATE v_join_emp SET dept_title='기술지원부' where emp_id=218; --ERROR
 
---4-1 ��ȸ�� ���̺��� ���� �߿� �⺻Ű�� �� �Ѱ��� ���� ���� ����
+--4-1 조회한 테이블의 정보 중에 기본키가 단 한개일 경우는 변경 가능
 --OK
-DELETE from v_join_emp where dept_title = '���������';
+DELETE from v_join_emp where dept_title = '기술지원부';
 ROLLBACK;
 COMMIT;
 
@@ -2399,17 +2417,17 @@ select * from v_join_emp;
 select * from department;
 select * from employee;
 
---5. DISTINCT�� ����Ͽ� ���� �������� ������ ��Ȯ���� ���� ���
+--5. DISTINCT를 사용하여 실제 데이터의 내용이 명확하지 않은 경우
 CREATE OR REPLACE VIEW v_dept_emp AS (
     select distinct dept_code from employee);
 INSERT INTO v_dept_emp VALUES('D0'); --ERROR
-DELETE FROM v_dept_emp where dept_code='D9'; --ERROR --  ��� �����͸� ������ distinct ������ �Ҹ�Ȯ��.
+DELETE FROM v_dept_emp where dept_code='D9'; --ERROR --  몇개의 데이터를 지울지 distinct 때문애 불명확함.
 
 select * from v_dept_emp;
 
---6. �׷��Լ��� GROUP BY ������ ����ؼ� ��ȸ�� ������ ���
+--6. 그룹함수나 GROUP BY 구문을 사용해서 조회한 쿼리일 경우
 CREATE OR REPLACE VIEW v_group_dept AS (
-    select dept_code, SUM(salary) AS �հ�, TRUNC(AVG(salary),-4) AS ���
+    select dept_code, SUM(salary) AS 합계, TRUNC(AVG(salary),-4) AS 평균
     from employee GROUP BY dept_code);
 --ERROR : virtual column not allowed here
 INSERT INTO v_group_dept VALUES('D10', 50000, 50000);
@@ -2417,13 +2435,13 @@ UPDATE v_group_dept SET dept_code='D10' where dept_code='D5';
 DELETE FROM v_group_dept where dept_code='D6';
 
 
---VIEW ������ ������ �� �ִ� �ɼ�
---  OR REPLACE: ���� �� �̸� �並 replace(�����)
---  FORCE / NO FORCE : ���������� �ҿ��
---      ���̺��� ��� �ϴ� VIEW�� ����(force)
+--VIEW 생성시 설정할 수 있는 옵션
+--  OR REPLACE: 동일 한 이름 뷰를 replace(덮어씌움)
+--  FORCE / NO FORCE : 서브쿼리에 할용된
+--      테이블이 없어도 일단 VIEW를 생성(force)
 --  WITH CHECK / READ ONLY:
---      CHECK: ������ �÷����� ���� ���ϰ� ����
---      READ ONLY: �信�� � �÷��� VIEW�� ���ؼ� �������� ���ϵ���
+--      CHECK: 설정한 컬럼값을 수정 못하게 막음
+--      READ ONLY: 뷰에서 어떤 컬럼도 VIEW를 통해서 변경하지 못하도록
 CREATE OR REPLACE FORCE VIEW v_emp AS (
     select t_code, t_name, t_content from test_table);
 
@@ -2431,51 +2449,51 @@ select * from v_emp;
 select * from user_views where view_name = 'V_EMP';
 DROP VIEW v_emp;
 
---NO FORCE ������ view�� ���̺��� ���� ���� ������,�並 �������� �ʰڴ�.
--- ������ ���� NOFORCE
+--NO FORCE 생성시 view의 테이블이 존재 하지 않을때,뷰를 생성하지 않겠다.
+-- 디폴드 값이 NOFORCE
 CREATE OR REPLACE NOFORCE VIEW v_emp AS (
     select t_code, t_name, t_content from test_table);
 
---WITH CHECK ���� �÷��� ���� ���ϰ�.
+--WITH CHECK 설정 컬럼을 수정 못하게.
     CREATE OR REPLACE VIEW v_emp AS
         select * from employee WITH CHECK OPTION;
 
-    --ERROR! CHECK option������
-    INSERT INTO v_emp VALUES(810, '������', '101010-1234567',
+    --ERROR! CHECK option때문에
+    INSERT INTO v_emp VALUES(810, '류별리', '101010-1234567',
             'ryu@kh.co.kr', '01012345555', 'D1', 'J7', 'S1',
             800000, .1, 200, SYSDATE, NULL, DEFAULT);
 select * from v_emp;
 
---DELETE�� ����
+--DELETE는 가능
 DELETE from v_emp where emp_id=500;
 
---WITH READ ONLY: ������ �Է�/����/���� ���� ����
+--WITH READ ONLY: 데이터 입력/수정/삭제 전부 막음
 CREATE OR REPLACE VIEW v_emp AS
     select * from employee WITH READ ONLY;
 
 --ERROR
-INSERT INTO v_emp VALUES(810, '������', '101010-1234567',
+INSERT INTO v_emp VALUES(810, '류별리', '101010-1234567',
             'ryu@kh.co.kr', '01012345555', 'D1', 'J7', 'S1',
             800000, .1, 200, SYSDATE, NULL, DEFAULT);
 DELETE from v_emp where t_id=200;
 DELETE from v_emp where emp_id='200';
 
 --SEQUENCE
---1,2,3,4,5 �̷��� �������� ���� �����͸� 
--- �ڵ����� ī��Ʈ �ϴ� ��ü
---CREATE sequence ��������
---  [INCREMENT BY ����] : �������� ���� ������ġ. ������, 1�� ����
+--1,2,3,4,5 이러한 형식으로 숫자 데이터를 
+-- 자동으로 카운트 하는 객체
+--CREATE sequence 시퀀스명
+--  [INCREMENT BY 숫자] : 다음값에 대한 증감수치. 생략시, 1씩 증가
 --  INCREMENT BY 5;
 --  INCREMENT BY -5;
---  [START WITH ����] : ���۰�. ������ 1�� ����
---  [MAX VALUE ���� | NOMAXVALUE] : �߻� ��ų ���� �ִ밪 ����
---      10^27-1 ���� ����
---  [MIN VALUE ���� | NOMINVALUE] : �ּҰ� ����
+--  [START WITH 숫자] : 시작값. 생략시 1씩 증가
+--  [MAX VALUE 숫자 | NOMAXVALUE] : 발생 시킬 값의 최대값 설정
+--      10^27-1 까지 가능
+--  [MIN VALUE 숫자 | NOMINVALUE] : 최소값 설정
 --      -10^26
---  [CYCLE | NOCYCLE] ���� ��ȯ ����
---  [CACHE ����Ʈ ũ�� | NOCACHE] ���� �̸� ���س���,
---      �������� �ݿ��� �� Ȱ���ϴ� ����
---      �⺻�� 20Byte | �ּҰ� 2Byte
+--  [CYCLE | NOCYCLE] 값의 순환 여부
+--  [CACHE 바이트 크기 | NOCACHE] 값을 미리 구해놓고,
+--      다음값을 반영할  활용하는 설정
+--      기본값 20Byte | 최소값 2Byte
 
 CREATE SEQUENCE seq_empid
 START WITH 300
@@ -2487,7 +2505,7 @@ NOCACHE;
 select seq_empid.nextval from dual;
 select seq_empid.currval from dual;
 
---START WITH �������� �ٲ� �� ����
+--START WITH 시작점을 바꿀 수 없음
 ALTER SEQUENCE seq_empid
 --START WITH 300
 INCREMENT BY 10
@@ -2498,11 +2516,11 @@ NOCACHE;
 select * from user_sequences;
 
 --SEQUENCE:
---  SELECT �������� ������ ��ȸ�� ��밡��
---  INSERT UPDATE������ ��밡��
---  VIEW������ sequence ���Ұ�
+--  SELECT 구문에서 데이터 조회시 사용가능
+--  INSERT UPDATE에서도 사용가능
+--  VIEW에서는 sequence 사용불가
 
---������ �����ϱ�
+--시퀀스 삭제하기
 DROP SEQUENCE seq_empid;
 
 CREATE SEQUENCE seq_eid
@@ -2517,17 +2535,17 @@ select seq_eid.currval from dual;
 DROP SEQUENCE seq_eid;
 select * from user_sequences;
 
---������ �߰�
+--데이터 추가
 INSERT INTO EMPLOYEE VALUES(
-    seq_eid.NEXTVAL, '���ֹ�', '121203-1234567',
+    seq_eid.NEXTVAL, '송주미', '121203-1234567',
     'song@kh.co.kr', '01012334556', 'D2', 'J7',
     'S1', 5000000, 0.1, 200, SYSDATE, NULL, DEFAULT);
 );
 
 select emp_id, emp_name, dept_code, job_code, sal_level
-from employee where emp_name='���ֹ�';
+from employee where emp_name='송주미';
 
---D9�μ��� J7 ������ ��� 4���� �������� Ȱ���Ͽ� �߰�
+--D9부서에 J7 직급의 사원 4명을 시퀀스를 활용하여 추가
 INSERT INTO EMPLOYEE VALUES( seq_eid.NEXTVAL, 'AGENT1', '881111-1234567',
     'agent1@kh.co.kr', '01012334556', 'D9', 'J7',
     'S1', 9000000, 0.1, 200, SYSDATE, NULL, DEFAULT);
@@ -2548,9 +2566,9 @@ INSERT INTO EMPLOYEE VALUES( seq_eid.NEXTVAL, 'AGENT4', '831010-1234567',
 select * from employee
 where emp_name like '%AGENT%';
 
---SEQUENCE �ɼ� CYCLE/CACHE
---  CYCLE : ������ ���� �ִ�/�ּҰ� ����������, 
---      �ٽ� �ݴ� ������ �����ϴ� �ɼ�
+--SEQUENCE 옵션 CYCLE/CACHE
+--  CYCLE : 시퀀스 값이 최대/최소값 도달했을때, 
+--      다시 반대 값부터 시작하는 옵션
 CREATE SEQUENCE seq_cycle
 START WITH 200
 INCREMENT BY 10
@@ -2569,10 +2587,10 @@ DROP SEQUENCE seq_cycle;
 select * from user_sequences;
 
 --CACHE / NOCACHE
--- CACHE : ��ǻ�Ͱ� ������������ ����� 
---          �׶��׶� �������� �ʰ� �̸� ����� ���� ��
--- NOCACHE : ��ǻ�Ͱ� �����Ұ��� �׶��׶� ó�� �ϴ� ��.
---LAST_VALUE 120 �̸� ����. CURRVAL 121�Ǹ� LAST_VALUE=140
+-- CACHE : 컴퓨터가 다음값에대한 연산들 
+--          그때그때 수행하지 않고 미리 계산해 놓는 것
+-- NOCACHE : 컴퓨터가 수행할값을 그때그때 처리 하는 것.
+--LAST_VALUE 120 미리 계산됨. CURRVAL 121되면 LAST_VALUE=140
 CREATE SEQUENCE SEQ_CACHE
 START WITH 100
 INCREMENT BY 1
@@ -2585,33 +2603,33 @@ SELECT * FROM USER_SEQUENCES;
 
 
 --INDEX
--- SQL ���ɾ� ��ȸó���ӵ��� ����Ű�� ���� ��ü��.
--- ���̺��� �ĺ���(PK, UNIQUE Key)�� �Ǵ� �÷���������
--- �� �÷������� ���������� ����Ͽ� ��ȸ�ӵ��� ���
---����: �˻��ӵ��� �⼧�ȴ�.
---����: �ε����� �����ϴ� ���̺��� ������ ���ֺ���Ǵ� ���̺��̶��
---      �ε����� �Ź� �ٽ� ��� => ���� ����
---      �ε��� �����ϱ� ���� ������ ���� �Ҵ��ؾ� ��.
---      �б⼺���� ��������� ���, ���� ������ ����� ����
+-- SQL 명령어 조회처리속도를 향상시키기 위한 객체다.
+-- 테이블의 식별자(PK, UNIQUE Key)가 되는 컬럼값에대해
+-- 각 컬럼단위로 일정간격을 계산하여 조회속도를 향상
+--장점: 검색속도가 향샹된다.
+--단점: 인덱스가 존재하느 테이블의 내용이 자주변경되는 테이블이라면
+--      인덱스를 매번 다시 계산 => 성능 저하
+--      인덱스 저장하기 위한 별도의 공간 할당해야 함.
+--      읽기성능은 비약적으로 향상, 쓰기 성능은 비관적 하향
 -- CREATE [UNIQUE] INDEX index_name
 -- ON table_name(column_name);
 
 SELECT * FROM USER_IND_COLUMNS;
 
---�ε����� ���� - ROWID
-SELECT ROWID, EMP_ID, EMP_NAME FROM EMPLOYEE; --�ε����� ROWID�� search?
+--인덱스의 구조 - ROWID
+SELECT ROWID, EMP_ID, EMP_NAME FROM EMPLOYEE; --인덱스가 ROWID로 search?
 
--- �ε����� ����
--- 1. �����ε���( UNIQUE INDEX )
--- 2. ������ε���( NOUNIQUE INDEX )
--- 3. �����ε���( SINGLE INDEX )
--- 4. �����ε��� ( COMPOSITE INDEX )
--- 5. �Լ�����ε��� ( FUNCTION BASED INDEX )
+-- 인덱스의 종류
+-- 1. 고유인덱스( UNIQUE INDEX )
+-- 2. 비고유인덱스( NOUNIQUE INDEX )
+-- 3. 단일인덱스( SINGLE INDEX )
+-- 4. 결합인덱스 ( COMPOSITE INDEX )
+-- 5. 함수기반인덱스 ( FUNCTION BASED INDEX )
 
---1. ���� �ε���
+--1. 고유 인덱스
 -- UNIQUE INDEX
--- �ε��� ������ �������� �������� �����ϴ� �ε���
--- ����Ŭ���� PRIMARY KEY ���������� ����ϸ� �ڵ����� ���� �Ѵ�.
+-- 인덱스 생성시 고유값을 기준으로 생성하는 인덱스
+-- 오라클에서 PRIMARY KEY 제약조건을 사용하면 자동으로 생성 한다.
 
 
 CREATE UNIQUE INDEX IDX_EMP_NO
@@ -2620,39 +2638,39 @@ ON EMPLOYEE(EMP_NO);
 SELECT * FROM USER_IND_COLUMNS WHERE TABLE_NAME='EMPLOYEE';
 
 
---���̺��� �ߺ��� ������ ��� ����Ű ���� �Ұ�
---emp_no�� ���� ������ ���� �����ϸ� UNIQUE �ε��� �����Ұ�
+--테이블에 중복값 존재할 경우 고유키 생성 불가
+--emp_no가 같은 테이터 행이 존재하면 UNIQUE 인덱스 생성불가
 CREATE UNIQUE INDEX IDX_DEPT_CODE
 ON EMPLOYEE(DEPT_CODE);
 
--- 2. ����� �ε���(DEFAULT)  �ߺ��� ���� ���� �÷��� ��� ����
+-- 2. 비고유 인덱스(DEFAULT)  중복된 값을 가진 컬럼에 사용 가능
 CREATE INDEX IDX_DEPT_CODE
 ON EMPLOYEE(DEPT_CODE);
 
--- ���ݱ����� �÷� �ϳ� -> ���� �ε���
+-- 지금까지는 컬럼 하나 -> 단일 인덱스
 
--- 3. ���� �ε��� : �ΰ� �̻��� �÷����� �ε����� �����ϴ� ��
+-- 3. 결합 인덱스 : 두개 이상의 컬럼으로 인덱스를 구성하는 것
 CREATE INDEX IDX_DEPT
 ON DEPARTMENT( DEPT_ID, DEPT_TITLE );
 
 SELECT DEPT_ID, DEPT_TITLE FROM DEPARTMENT
-WHERE DEPT_ID !='D1' AND DEPT_TITLE != '���������';
+WHERE DEPT_ID !='D1' AND DEPT_TITLE != '기술지원부';
 
 DROP INDEX IDX_DEPT;
 
---�ε��� Ȯ��
+--인덱스 확인
 SELECT * FROM USER_IND_COLUMNS;
--- �����̸� �ε��� 2�� Ȯ�� ���� 
--- => �÷��������� Ȯ�� �غ��� 1,2 �������� �ִ°� Ȯ�� ����
+-- 같은이름 인덱스 2개 확인 가능 
+-- => 컬럼포지션을 확인 해보면 1,2 나누어져 있는거 확인 가능
 
---4. �Լ� ��� �ε���
--- ��ȸ�� ���� ����ϴ� �Լ����� �ִٸ�
--- �ش� �Լ����� �ε����� �ݿ��ؼ� �˻������� �����Ѵ�.
+--4. 함수 기반 인덱스
+-- 조회시 자주 사용하는 함수식이 있다면
+-- 해당 함수식을 인덱스에 반영해서 검색조건을 생성한다.
 
--- SAL*12 �Ҷ� SAL�� �ε����� �ִ��� �������� �ϰԵǸ�
--- SAL�� ����� INDEX�� ����Ҽ� ����.
--- �̷��� �������� �˻��ϴ� ��찡 ���ٰ� �Ѵٸ�, 
--- �ƿ� ������ �Լ��� ����� ���Լ��� �ε��� �ݿ�
+-- SAL*12 할때 SAL에 인덱스가 있더라도 산술계산을 하게되면
+-- SAL에 적용된 INDEX를 사용할수 없다.
+-- 이렇게 수식으로 검색하는 경우가 많다고 한다면, 
+-- 아예 수식을 함수로 만들고 그함수에 인덱스 반영
 
 CREATE INDEX IDX_EMP_SAL_CAL
 ON EMPLOYEE( 12*salary*(1+ NVL(bonus,0));
@@ -2661,64 +2679,64 @@ SELECT EMP_ID, EMP_NAME, SALARY FROM EMPLOYEE
 WHERE 12*salary*(1+nvl(bonus,0)) >1000000;
 
 -- PL/SQL (PROCEDURAL LANGUAGE EXTENSION TO SQL)
--- SQL���� Ȯ��� ������ ���
--- ����Ŭ ��ü���� ����� ������ ���
--- ���� SQL�� ���� �غ� �ϱ� ���ؼ� ����Ѵ�.
--- ������ ����, ���� ó��, �ݺ�ó��, ���ܸ� ó������ �����ϴ�.
+-- SQL에서 확장된 형태의 언어
+-- 오라클 자체에서 내장된 절차적 언어
+-- 기존 SQL의 단점 극복 하기 위해서 사용한다.
+-- 변수의 정의, 조건 처리, 반복처리, 예외를 처리등을 지원하다.
 
--- PL/SQL�� ����
+-- PL/SQL의 구조
 /*
-    �����, �����, ����ó���� ������
-    ����� : DECLARE, ����, ��� �����ϴ� �κ�
-    ����� : BEGIN ~ END, ���, �ݺ���, �Լ����� ���� �۾��� �ϴ� �κ� 
-    ����ó���� : EXCEPTION, ���� �߻��� ó���� ������ �ۼ��ϴ� �κ�
+    선언부, 실행부, 예외처리부 구성됨
+    선언부 : DECLARE, 변수, 상수 선언하는 부분
+    실행부 : BEGIN ~ END, 제어문, 반복문, 함수정의 등의 작업을 하는 부분 
+    예외처리부 : EXCEPTION, 예외 발생시 처리할 내용을 작성하는 부분
 */
 /*
-    PL/SQL �ۼ� ���
-    1. PL/SQL ���� �������� �ѹ����� �����Ҷ� ���� �����ݷ��� ���
-    2. END �ڿ� ;�� ����Ͽ� �ϳ��� ������ �����ٴ°��� ����
-    3. DELCARE �� BEGIN Ű����� PL/SQL������ �����̶�°��� �˼��ִ�.
-    4. ������ �����ϱ� ���ؼ��� /�� �ݵ�� �Է� �Ǿ�� �Ѵ�.
-        PL/SQL ������ �࿡ / ������ ����Ȱ����� �����Ѵ�.
+    PL/SQL 작성 요령
+    1. PL/SQL 블록 내에서는 한문장을 종료할때 마다 세미콜론을 사용
+    2. END 뒤에 ;을 사용하여 하나의 블록이 끝났다는것을 명시
+    3. DELCARE 나 BEGIN 키워드로 PL/SQL블록이 시작이라는것을 알수있다.
+    4. 쿼리문 수행하기 위해서는 /가 반드시 입력 되어야 한다.
+        PL/SQL 블록은 행에 / 있으면 종결된것으로 생각한다.
 */
 
--- �� : SELECT���� �����ؼ� �ʿ䶧���� ���, ������ ���̺�
--- ���ν��� : PL/SQL ���� �����ؼ� ���, �Լ�
+-- 뷰 : SELECT문을 저장해서 필요때마다 사용, 가상의 테이블
+-- 프로시저 : PL/SQL 문을 저장해서 사용, 함수
 
--- ����� ����ؼ� ������ ������ ���
+-- 실행부 사용해서 간단한 문장을 출력
 BEGIN
     DBMS_OUTPUT.PUT_LINE('HELLO WORLD');
-    -- DBMS_OUTPUT ��Ű���� PUT_LINE()���ν����� ȣ��
+    -- DBMS_OUTPUT 패키지의 PUT_LINE()프로시저를 호출
 END;
 /
 
--- ȭ�鿡 �ۼ�����¹��� ���̵��� ����
--- �ý��� ���� �����̴�.
--- �⺻�� OFF -> ON���� ����
+-- 화면에 작성한출력문이 보이도록 설정
+-- 시스템 관련 설정이다.
+-- 기본값 OFF -> ON으로 변경
 SET SERVEROUTPUT ON;
 
--- ���� ����
---[1] �Ϲݺ���
+-- 변수 선언
+--[1] 일반변수
 DECLARE 
     V_ID NUMBER; 
 BEGIN
     SELECT EMP_ID
     INTO V_ID
     FROM EMPLOYEE
-    WHERE EMP_NAME = '������';
+    WHERE EMP_NAME = '선동일';
 END;
 /
 
--- ������ �� ���� varname := value;
+-- 변수에 값 대입 varname := value;
 DECLARE 
     v_empno NUMBER(4);
     v_empname varchar2(10);
     test_num number(5) := 10*20;
 BEGIN
     v_empno := 1001;
-    v_empname := '������';
+    v_empname := '윤원택';
 
-    DBMS_OUTPUT.PUT_LINE('���       �̸�');
+    DBMS_OUTPUT.PUT_LINE('사번       이름');
     DBMS_OUTPUT.PUT_LINE('--------------');
     DBMS_OUTPUT.PUT_LINE(v_empno ||'   '||v_empname);
     DBMS_OUTPUT.PUT_LINE('TEST_NUM = '||test_num);
@@ -2726,8 +2744,8 @@ END;
 /
 
 
---[2] ���۷��� ����
--- %TYPE : �� �÷��� �ڷ����� �޾� �ö� ����ϴ� �ڷ��� Ÿ��
+--[2] 레퍼런스 변수
+-- %TYPE : 한 컬럼의 자료형을 받아 올때 사용하는 자료형 타입
 DECLARE 
     emp_id EMPLOYEE.EMP_ID%TYPE;
     emp_name EMPLOYEE.EMP_NAME%TYPE;
@@ -2738,23 +2756,23 @@ BEGIN
     SELECT EMP_ID, EMP_NAME, NVL(DEPT_CODE,'-'), JOB_CODE, SALARY
     INTO emp_id, emp_name, dept_code, job_code, salary
     FROM EMPLOYEE
-    WHERE EMP_NAME = &����̸�;
+    WHERE EMP_NAME = &사원이름;
     
     DBMS_OUTPUT.PUT_LINE('EMP_ID : '|| EMP_ID);
     DBMS_OUTPUT.PUT_LINE('EMP_NAME : '|| EMP_NAME);
     DBMS_OUTPUT.PUT_LINE('DEPT_CODE : '|| DEPT_CODE);
 END;
 /
--- %ROWTYPE : ���̺��� ��� �÷��� �ڷ����� ����
--- Ư�����̺��� �÷� ���� ������ ������ ���� �����Ҽ� �ִ�.
--- SELECT �������� ���� �˻� �Ҷ� �����ϴ�.
+-- %ROWTYPE : 테이블의 모든 컬럼의 자료형을 참조
+-- 특정테이블의 컬럼 수나 데이터 형식을 몰라도 지정할수 있다.
+-- SELECT 문장으로 행을 검색 할때 유리하다.
 DECLARE 
     MYROW EMPLOYEE%ROWTYPE;
 BEGIN
     SELECT EMP_ID, EMP_NAME
     INTO MYROW.EMP_ID, MYROW.EMP_NAME 
     FROM EMPLOYEE
-    WHERE EMP_NAME='��';
+    WHERE EMP_NAME='이';
     
     DBMS_OUTPUT.PUT_LINE(MYROW.EMP_ID||' '||MYROW.EMP_NAME);
     
@@ -2763,24 +2781,24 @@ BEGIN
 END;
 /
 
---���, �ݺ��� 
---IF�� --
---1. IF ~ THEN : if(���ǽ�){�����}
+--제어문, 반복문 
+--IF문 --
+--1. IF ~ THEN : if(조건식){실행부}
 --               IF ~ THEN 
 /*
-    IF ���� THEN 
-        ���Ǹ����� ó������;
+    IF 조건 THEN 
+        조건만족시 처리구문;
 */
 BEGIN
-    IF '&�̸�' = '������' THEN
-        DBMS_OUTPUT.PUT_LINE('���� �������̳�!!!');
+    IF '&이름' = '서선덕' THEN
+        DBMS_OUTPUT.PUT_LINE('님이 서선덕이냐!!!');
     END IF;
 END;
 /
 
 -- 2. IF ~ THEN ~ ELSE ~ END IF
---  �����ȣ�� �Է¹޾Ƽ� ����� ���,�̸�,�޿�,���ʽ����� ���
---  �����ڵ忡 ���� ���޸�(�Ҽ�) ��� 
+--  사원번호를 입력받아서 사원의 사번,이름,급여,보너스율을 출력
+--  직급코드에 따라 직급명(소속) 출력 
 DECLARE
     emp_id EMPLOYEE.emp_id%TYPE;
     emp_name EMPLOYEE.emp_name%TYPE;
@@ -2794,66 +2812,66 @@ BEGIN
     SELECT emp_id, emp_name, salary, nvl(bonus,0), job_code, job_name
     INTO emp_id, emp_name, salary, bonus, job_code, job_name
     FROM EMPLOYEE JOIN JOB USING (job_code)
-    WHERE emp_id = &�����ȣ;
+    WHERE emp_id = &사원번호;
     
-    IF job_code = 'J1' THEN emp_position := '��ǥ��';
+    IF job_code = 'J1' THEN emp_position := '대표님';
     ELSE emp_position :=job_name;
     END IF;
 
-    DBMS_OUTPUT.PUT_LINE('���: ' || emp_id);
-    DBMS_OUTPUT.PUT_LINE('�̸�: ' || emp_name);
-    DBMS_OUTPUT.PUT_LINE('�޿�: ' || salary);
-    DBMS_OUTPUT.PUT_LINE('���ʽ���: ' || bonus*100 ||'%');
-    DBMS_OUTPUT.PUT_LINE('����: ' || emp_position);
+    DBMS_OUTPUT.PUT_LINE('사번: ' || emp_id);
+    DBMS_OUTPUT.PUT_LINE('이름: ' || emp_name);
+    DBMS_OUTPUT.PUT_LINE('급여: ' || salary);
+    DBMS_OUTPUT.PUT_LINE('보너스율: ' || bonus*100 ||'%');
+    DBMS_OUTPUT.PUT_LINE('직급: ' || emp_position);
 END;
 /
 
 -- 3. IF ~ THEN ~ ELSIF ~ ELSE ~ END IF;
--- ELSE IF �� �ƴ϶� ELSIF
+-- ELSE IF 가 아니라 ELSIF
 /*
-    IF ���� 1 THEN
-        ����1�� ������ ��� ó������;
-    ELSIF ����2 THEN
-        ����2�� ������ ��� ó������;
+    IF 조건 1 THEN
+        조건1이 만족할 경우 처리구문;
+    ELSIF 조건2 THEN
+        조건2가 만족할 경우 처리구문;
     ELSE 
-        ������ �������� ���� ��� ó��
+        조건을 만족하지 않을 경우 처리
 */
 
---������ �Է¹޾Ƽ� SCORE ������ �����ϰ�
---90�� �̻��� 'A'
---75�� �̻��� 'B'
---60�� �̻��� 'C'
--- �� ���ϴ� 'F'�� ä÷�Ͽ�
--- ��� ->'����� ������ 00�̰�, O�����Դϴ�.'
+--점수를 입력받아서 SCORE 변수에 저장하고
+--90점 이상은 'A'
+--75점 이상은 'B'
+--60점 이상은 'C'
+-- 그 이하는 'F'로 채첨하여
+-- 출력 ->'당신의 점수는 00이고, O학점입니다.'
 DECLARE
     SCORE INT;
     GRADE VARCHAR2(2);
 BEGIN
-    SCORE := '&����';
+    SCORE := '&점수';
     
-    -- IF�� --
+    -- IF문 --
     IF SCORE >=90 THEN GRADE := 'A';
     ELSIF SCORE >=75 THEN GRADE :='B';
     ELSIF SCORE >= 60 THEN GRADE :='C';
     ELSE GRADE := 'F';
     END IF;
     
-    DBMS_OUTPUT.PUT_LINE('����� ������ '||SCORE 
-            ||'���̰�, ������ '||GRADE||'�����Դϴ�.');
+    DBMS_OUTPUT.PUT_LINE('당신의 점수는 '||SCORE 
+            ||'점이고, 학점은 '||GRADE||'학점입니다.');
     
 END;
 /
 
---4. CASE ��
---�ڹٿ��� SWITCH��
+--4. CASE 문
+--자바에서 SWITCH문
 -- CASE ~ END CASE;
 /*
     CASE 
-        WHEN ǥ����1 THEN 
-            ���๮1;
-        WHEN ǥ����2 THEN
-            ���๮2;
-        ELSE �⺻���๮3;
+        WHEN 표현식1 THEN 
+            실행문1;
+        WHEN 표현식2 THEN
+            실행문2;
+        ELSE 기본실행문3;
 */
 -- 
 DECLARE 
@@ -2863,19 +2881,19 @@ BEGIN
     
     CASE INPUTVALUE
         WHEN 1 THEN 
-            DBMS_OUTPUT.PUT_LINE(INPUTVALUE||'�Է���');    
+            DBMS_OUTPUT.PUT_LINE(INPUTVALUE||'입력함');    
         WHEN 2 THEN
-            DBMS_OUTPUT.PUT_LINE(INPUTVALUE||'�Է���');
+            DBMS_OUTPUT.PUT_LINE(INPUTVALUE||'입력함');
         WHEN 3 THEN 
-            DBMS_OUTPUT.PUT_LINE(INPUTVALUE||'�Է���');
+            DBMS_OUTPUT.PUT_LINE(INPUTVALUE||'입력함');
         ELSE 
-            DBMS_OUTPUT.PUT_LINE('1,2,3 ��� �ƴϾ�~!');
+            DBMS_OUTPUT.PUT_LINE('1,2,3 모두 아니야~!');
     END CASE;
 END;
 /
 
---�����ȣ�� �Է¹޾Ƽ� �����ڵ�� 
---��ǥ(J1),�ӿ���(J2), �Ϲ�����(������) ������ ������ CASE������ ����
+--사원번호를 입력받아서 직급코드로 
+--대표(J1),임원진(J2), 일반직원(나머지) 구분한 예제를 CASE문으로 구현
 DECLARE 
     JOB_CODE EMPLOYEE.JOB_CODE%TYPE;
     EMP_TEAM VARCHAR2(20);
@@ -2886,16 +2904,16 @@ BEGIN
     WHERE EMP_ID = '&EMP_ID';
     
     CASE JOB_CODE
-        WHEN 'J1' THEN EMP_TEAM := '��ǥ';
-        WHEN 'J2' THEN EMP_TEAM := '�ӿ�';
-        ELSE EMP_TEAM := '�Ϲ�����';
+        WHEN 'J1' THEN EMP_TEAM := '대표';
+        WHEN 'J2' THEN EMP_TEAM := '임원';
+        ELSE EMP_TEAM := '일반직원';
     END CASE;
     
-    DBMS_OUTPUT.PUT_LINE('�Ҽ� : '||EMP_TEAM);
+    DBMS_OUTPUT.PUT_LINE('소속 : '||EMP_TEAM);
 END;
 /
 
--- �ݺ���
+-- 반복문
 DECLARE 
     E EMPLOYEE%ROWTYPE;
 BEGIN
@@ -2909,20 +2927,20 @@ END;
 
 -- LOOP, FOR, WHILE
 
---�Ϲ� LOOP ��
+--일반 LOOP 문
 /*
     LOOP
-        �ݺ���ų ����
+        반복시킬 내용
         --method1--
-        IF �ݺ� ���� ���� EXIT;
+        IF 반복 종료 조건 EXIT;
         END IF;
 
         --method2--
-        EXIT WHEN �ݺ���������;
+        EXIT WHEN 반복종료조건;
     END LOOP;
 */
 
--- 1 ~5 ������ �ݺ����� �����ϴ� LOOP �ݺ��� ����
+-- 1 ~5 까지의 반복문을 수행하는 LOOP 반복문 구현
 DECLARE 
     N INT:=1;
 BEGIN
@@ -2933,7 +2951,7 @@ BEGIN
     END LOOP;
 END;
 /
--- 5 ~ 1 ����ϴ� LOOP���� �ۼ��غ���
+-- 5 ~ 1 출력하는 LOOP문을 작성해보자
 DECLARE 
     N INT := 5;
 BEGIN
@@ -2953,18 +2971,18 @@ CREATE OR REPLACE view_name AS (
         FROM employee);
 */
 --SEQUENCE
---  1,2,3... ���� ���ڸ� ������Ű�� ��ü
+--  1,2,3... 등의 숫자를 증감시키는 객체
 /*
 CREATE SEQUENCE seq_name
 START WITH 200
 INCREMENT BY 5
 MAXVALUE 250
-CYCLE/NOCYCLE --��ȯ����
+CYCLE/NOCYCLE --순환여부
 NOCACHE;
 */
 
 --INDEX
---���̺����� Ư�������͸� �˻��Ҷ�, ȿ�������� �˻��ϱ� ���� ��ü
+--테이블에서 특정데이터를 검색할때, 효율적으로 검색하기 위한 객체
 --CREATE INDEX idx_name ON table_name (col1, col2,...);
 
 --PL/SQL procedual script language
@@ -2977,7 +2995,7 @@ END;
 */
 SET SERVEROUTPUT ON;
 
---1~10 ���� 5�� ���
+--1~10 난수 5개 출력
 --  Function that generates random number LOW <= N <HIGH
 --  DBMS_RANDOM.VALUE(LOW, HIGH);
 DECLARE
@@ -3002,11 +3020,11 @@ END;
 
 --FOR loop--
 /*
-    FOR ī���ͺ��� IN [REVERSE] ���۰�..���ᰪ LOOP
-        �ݺ��� ����
+    FOR 카운터변수 IN [REVERSE] 시작값..종료값 LOOP
+        반복할 내용
     END LOOP;
-    --ī���ͺ��� ->�ڵ�����
-    --����Ʈ ���� �ڵ����� 1������
+    --카운터변수 ->자동선언
+    --마운트 값은 자동으로 1씩증가
 */
 BEGIN
     FOR N IN 1..5 LOOP
@@ -3019,8 +3037,8 @@ BEGIN
 END;
 /
 
---��ø FOR LOOP
---������ ���
+--중첩 FOR LOOP
+--구구단 출력
 BEGIN
     FOR I IN 2..9 LOOP
         FOR J IN 1..9 LOOP
@@ -3031,7 +3049,7 @@ BEGIN
 END;
 /
 
---¦�� �� ���
+--짝수 단 출력
 DECLARE
     RES NUMBER;
 BEGIN
@@ -3047,7 +3065,7 @@ BEGIN
 END;
 /
 
---FOR�� �̿��� INSERT
+--FOR문 이용한 INSERT
 CREATE TABLE tb_test_for(
     no NUMBER,
     test_date DATE
@@ -3062,8 +3080,8 @@ END;
 
 select * from tb_test_for;
 
---PL/SQL FOR �ݺ��� �̿��Ͽ� employee ���̺���
---200���� 210������ ����� ���̵�,�̸�,�̸��� ���
+--PL/SQL FOR 반복문 이용하여 employee 테이블의
+--200부터 210번까지 사원의 아이디,이름,이메일 출력
 DECLARE
     E EMPLOYEE%ROWTYPE;
 BEGIN
@@ -3114,12 +3132,12 @@ BEGIN
 END;
 /
 
---2~9���� �� �Է� �޾� ������ ���
+--2~9사이 수 입력 받아 구구단 출력
 DECLARE
     DAN NUMBER;
     N NUMBER := 1;
 BEGIN
-    DAN := &��;
+    DAN := &단;
     IF DAN BETWEEN 2 AND 9 THEN
         WHILE N <=9 LOOP
             DBMS_OUTPUT.PUT_LINE(DAN||' * '||N||' = '||DAN*N);
@@ -3129,38 +3147,38 @@ BEGIN
 END;
 /
 
---������ '=' '&' �ΰ��� ���
---  '=' �� ���� ����
---  '&' ����� �Է°� ����
---      ������ ������ ������ ��, ������ SQL���� �����
---      ������ SQL�� ����
+--대입할 '=' '&' 두가지 사용
+--  '=' 값 직접 대입
+--  '&' 사용자 입력값 대입
+--      기존의 데이터 접근할 때, 정적인 SQL에서 벗어나서
+--      동적인 SQL을 구현
 
---  ���� '����' SQL
-select * from employee where emp_name='�����';
---  '����' SQL
+--  기존 '정적' SQL
+select * from employee where emp_name='유재식';
+--  '동적' SQL
 DECLARE
     E EMPLOYEE%ROWTYPE;
 BEGIN
     SELECT *
     INTO E
     FROM EMPLOYEE
-    WHERE emp_name = '&�����';
-    DBMS_OUTPUT.PUT_LINE('�����ȣ: ' || E.emp_id);
-    DBMS_OUTPUT.PUT_LINE('�����: ' || E.emp_name);
-    DBMS_OUTPUT.PUT_LINE('����޿�: ' || E.salary);
+    WHERE emp_name = '&사원명';
+    DBMS_OUTPUT.PUT_LINE('사원번호: ' || E.emp_id);
+    DBMS_OUTPUT.PUT_LINE('사원명: ' || E.emp_name);
+    DBMS_OUTPUT.PUT_LINE('사원급여: ' || E.salary);
 END;
 /
 
---RECORD �ڷ���
---  ���� �Ϲݺ��� / ��������
---  %ROWTYPE�� ������ ���̺� �÷������� Ÿ���� �ڵ����� ������
+--RECORD 자료형
+--  기존 일반변수 / 참조변수
+--  %ROWTYPE이 참조할 테이블 컬럼데이터 타입을 자동으로 가져옴
 
---  RECORD Ư�� ���̺��� �÷��� ���� �̾� ������
---  ����¥�� �ڷ��� ������ �ϴ°�.
+--  RECORD 특정 테이블의 컬럼을 각각 뽑아 별도의
+--  한행짜리 자료형 선언을 하는것.
 
-/*  ����
-    TYPE record_type_name IS RECORD(������ ����Ÿ��, ...);
-    ���ڵ尴ü ���ڵ�Ÿ�Ը�;
+/*  사용법
+    TYPE record_type_name IS RECORD(변수명 변수타입, ...);
+    레코드객체 레코드타입명;
 */
 DECLARE
     TYPE my_record IS RECORD(
@@ -3172,15 +3190,15 @@ BEGIN
     SELECT emp_id, emp_name
     INTO v_emp
     FROM EMPLOYEE
-    WHERE emp_name='������';
+    WHERE emp_name='선동일';
 
-    DBMS_OUTPUT.PUT_LINE('���: '||v_emp.my_id);
-    DBMS_OUTPUT.PUT_LINE('�����: ' || v_emp.my_name);
+    DBMS_OUTPUT.PUT_LINE('사번: '||v_emp.my_id);
+    DBMS_OUTPUT.PUT_LINE('사원명: ' || v_emp.my_name);
 END;
 /
 
---��� ����� ���޸� ���� ���������� ��������
---���,�����,���޸� ���
+--사번 사원명 직급명 담을 참조변수로 송종기사원
+--사번,사원명,직급명 출력
 DECLARE
     TYPE my_r_type IS RECORD(
         emp_id EMPLOYEE.emp_id%TYPE,
@@ -3192,7 +3210,7 @@ BEGIN
     SELECT emp_id, emp_name, job_name
     INTO v_emp
     FROM EMPLOYEE JOIN JOB USING (job_code)
-    WHERE emp_name = '������';
+    WHERE emp_name = '송종기';
 
     DBMS_OUTPUT.PUT_LINE('id = ' || v_emp.emp_id);
     DBMS_OUTPUT.PUT_LINE('name = ' || v_emp.emp_name);
@@ -3200,21 +3218,21 @@ BEGIN
 END;
 /
 
---EXCEPTION ����ó��: ����� �ȿ��� ���
+--EXCEPTION 예외처리: 실행부 안에서 사용
 /*
     EXCEPTION
-        WHEN ���ܸ� THEN ó������1
-        WHEN ���ܸ� THEN ó������2
-        WHEN ����1 OR ����2 THEN ó������3
-        WHEN OTHERS THEN ó������4
+        WHEN 예외명 THEN 처리문장1
+        WHEN 예외명 THEN 처리문장2
+        WHEN 예외1 OR 예외2 THEN 처리문장3
+        WHEN OTHERS THEN 처리문장4
 */
 /*
-����Ŭ���� �����ϴ� ���� ��Ī��... �����..
-    NO_DATA_FOUND : select �� ����� �ϳ��� ���� ���.
-    CASE_NOT_FOUND : CASE ���� ��ġ�ϴ� ����� ����, ELSE ó���� ���� ���� ���.
-    LOGIN_DENIED : �߸��� ���̵� ��й�ȣ�� �Է��Ͽ��� ���
-    DUP_VAL_ON_INDEX : UNIQUE ���� ������ �������� ���
-    INVALID_NUMBER : ���ڵ����͸� ���ڷ� �����Ҷ� ������ �� ���� ������ ���.
+오라클에서 제공하는 예외 별칭들... 몇가지만..
+    NO_DATA_FOUND : select 한 결과가 하나도 없는 경우.
+    CASE_NOT_FOUND : CASE 구문 일치하는 결과가 없고, ELSE 처리를 하지 않은 경우.
+    LOGIN_DENIED : 잘못된 아이디나 비밀번호를 입력하였을 경우
+    DUP_VAL_ON_INDEX : UNIQUE 제약 조건을 위배했을 경우
+    INVALID_NUMBER : 문자데이터를 숫자로 변경할때 변경할 수 없는 문자인 경우.
 */
 BEGIN
     UPDATE EMPLOYEE
@@ -3222,20 +3240,20 @@ BEGIN
     WHERE emp_id=200;
 EXCEPTION
     WHEN DUP_VAL_ON_INDEX THEN
-        DBMS_OUTPUT.PUT_LINE('�̹� �����ϴ� ����Դϴ�.');
+        DBMS_OUTPUT.PUT_LINE('이미 존재하는 사원입니다.');
 END;
 /
 
---����� ���� ����ó��
---���α׷��Ӱ� ����
---RAISE_APPLICATION_ERROR() ����Ͽ�
---�����ڵ� -20000~-20999�� �������� ����ų�
---RAISE(�ڹٿ����� THROW) ����ؼ� ���ܸ� �߻� ��ų �� �ִ�.
+--사용자 정의 예외처리
+--프로그래머가 정의
+--RAISE_APPLICATION_ERROR() 사용하여
+--오류코드 -20000~-20999의 범위에서 만들거나
+--RAISE(자바에서는 THROW) 사용해서 예외를 발생 시킬 수 있다.
 
 /*
-�����
-    RAISE_APPLICATION_ERROR (�����ڵ�, �޽���);
-    RAISE ����;
+사용방법
+    RAISE_APPLICATION_ERROR (에러코드, 메시지);
+    RAISE 예외;
 */
 
 CREATE TABLE test_member(
@@ -3254,61 +3272,61 @@ DECLARE
     PRAGMA EXCEPTION_INIT(toolong_name, -12899);
     PRAGMA EXCEPTION_INIT(tooshort_pwd, -20001);
     PRAGMA EXCEPTION_INIT(toolong_pwd, -20999);
-    --PRAGMA EXCEPTION_INIT(���ܸ�, ���ܹ�ȣ);
-     --���ܹ�ȣ�� �����ؼ�, �����Ϸ��� �� ���ܸ�
-    --����Ѵٴ� ���� �˸��� ����
+    --PRAGMA EXCEPTION_INIT(예외명, 예외번호);
+     --예외번호를 명시해서, 컴파일러에 이 예외를
+    --사용한다는 것을 알리는 역할
 BEGIN
-    v_pwd := '&��й�ȣ';
+    v_pwd := '&비밀번호';
     IF LENGTH(v_pwd) <8 THEN
         RAISE tooshort_pwd;
     ELSIF LENGTH(v_pwd) > 20 THEN
         RAISE toolong_pwd;
     END IF;
 
-    INSERT INTO test_member VALUES('USER02', v_pwd, '���浿');
+    INSERT INTO test_member VALUES('USER02', v_pwd, '고길동');
 EXCEPTION
     WHEN tooshort_pwd THEN
-        DBMS_OUTPUT.PUT_LINE('��й�ȣ�� 8�ڸ� �̻�����!!!');
+        DBMS_OUTPUT.PUT_LINE('비밀번호는 8자리 이상으로!!!');
     WHEN toolong_pwd THEN
-        DBMS_OUTPUT.PUT_LINE('��й�ȣ�� 20�ڸ� ���Ϸ�!!!');
+        DBMS_OUTPUT.PUT_LINE('비밀번호는 20자리 이하로!!!');
 END;
 /
 
 --PROCEDURE
---  PL/SQL�� �̸� �����س���, procedure_name���� ȣ���Ͽ�
---  �Լ�ó�� ���۽�Ű�� PL/SQL ��ü
-/* [�������]
-    CREATE [OR REPLACE] PROCEDURE ���ν����� (
-        �Ű����� 1 [IN/OUT/IN OUT] �ڷ���,
-        �Ű����� 2,
+--  PL/SQL을 미리 저장해놓고, procedure_name으로 호출하여
+--  함수처럼 동작시키는 PL/SQL 객체
+/* [사용형식]
+    CREATE [OR REPLACE] PROCEDURE 프로시저명 (
+        매개변수 1 [IN/OUT/IN OUT] 자료형,
+        매개변수 2,
         ...
     );
-    -- IN : ���ν������� ����� �������� �ܺο��� �ְڴ�.
-    -- OUT : ���ν����� ������ ����� �ܺη� �����Ҷ�(RETURN)
-    -- INOUT : IN�� OUT �ΰ��� ��� �Ѵ� ����
-               (��, IN�� OUT �ΰ��� �� �ϳ��� ��� ���� - ���� X)
+    -- IN : 프로시저에서 사용할 변수값을 외부에서 넣겠다.
+    -- OUT : 프로시저를 실행한 결과를 외부로 추출할때(RETURN)
+    -- INOUT : IN과 OUT 두가지 기능 둘다 가능
+               (단, IN과 OUT 두가지 중 하나만 사용 가능 - 권장 X)
     IS
-    DECLARE(�����)
+    DECLARE(선언부)
     BEGIN
-        ������ �κ�
+        실행할 부분
     END;
     /
 
-  [ȣ����]
+  [호출방식]
     EXECUTE procedure_name(param1, param2, ...);
        EXEC procedure_name(param1, param2, ...);
-  [����]
-    DROP PROCEDURE ���ν�����;
+  [삭제]
+    DROP PROCEDURE 프로시저명;
 
-  [���ν����� ��ȸ]
-    -- �����ͻ���: user_source;
+  [프로시저를 조회]
+    -- 데이터사전: user_source;
     select * from user_soruce;
 */
 
---���� ������ ��� �����ϴ� ���ν��� �����ϱ�
+--직원 정보를 모두 삭제하는 프로시져 구현하기
 CREATE TABLE emp_tmp AS (select * from employee);
 
---���ν��� ����
+--프로시져 생성
 CREATE OR REPLACE PROCEDURE del_all_emp
 IS
 BEGIN
@@ -3317,48 +3335,48 @@ BEGIN
 END;
 /
 
---���ν��� ���� �߰�, �ٷ� ����ȵ�
+--프로시져 선언만 했고, 바로 실행안됨
 select count(*) from emp_tmp; --33
 EXEC del_all_emp;
 select count(*) from emp_tmp; --0
 
 DROP TABLE emp_tmp;
 
---�Ű������� ���� ���ν���
+--매개변수를 갖는 프로시져
 --  [IN]
 CREATE TABLE emp_tmp_01 AS (select * from EMPLOYEE);
 
---���ν��� ����(�Ű�����)
+--프로시져 생성(매개변수)
 CREATE OR REPLACE PROCEDURE del_emp_name (
     v_name IN EMP_TMP_01.EMP_NAME%TYPE)
 IS
 BEGIN
     DELETE FROM emp_tmp_01
     WHERE emp_name like v_name;
-    DBMS_OUTPUT.PUT_LINE(v_name || '�������� ����!!');
+    DBMS_OUTPUT.PUT_LINE(v_name || '직원정보 삭제!!');
     COMMIT;
 END;
 /
 
---Ư�� �̸��� ���� ��� ����
-select * from emp_tmp_01 where emp_name='�̿���';
-EXEC DEL_EMP_NAME('�̿���');
-select * from emp_tmp_01 where emp_name='�̿���';
+--특정 이름을 가진 사원 삭제
+select * from emp_tmp_01 where emp_name='이오리';
+EXEC DEL_EMP_NAME('이오리');
+select * from emp_tmp_01 where emp_name='이오리';
 
-select * from emp_tmp_01 where emp_name like '��%';
-EXEC DEL_EMP_NAME('��%');
-select * from emp_tmp_01 where emp_name like '��%';
+select * from emp_tmp_01 where emp_name like '이%';
+EXEC DEL_EMP_NAME('이%');
+select * from emp_tmp_01 where emp_name like '이%';
 
 
 --[OUT]
---  ������ ���� �ܺη� �����ϴ� ���
---  ���� ���� �� �ְ� ���� ����
+--  내부의 값을 외부로 전달하는 방식
+--  값을 받을 수 있게 변수 생성
 
---  ��������
---  VARIABLE ������ �ڷ���(����Ʈ);
+--  변수선언
+--  VARIABLE 변수명 자료형(바이트);
 
---  ����
---  EXEC ���ν�����(���ް�, :���޹��� ������);
+--  실행
+--  EXEC 프로시져명(전달값, :전달받을 변수명);
 
 /*
 METHOD(30);
@@ -3366,10 +3384,10 @@ INT NO = METHOD2();
 INT NO = METHOD3(30);
 */
 
---���� ������ ��ȸ�Ͽ� ������ ���� ���� �߰� ��
---������ OUT �غ���
+--직원 정보를 조회하여 변수에 직원 정보 추가 후
+--밖으로 OUT 해보자
 CREATE OR REPLACE PROCEDURE
-    emp_info(vemp_id IN EMPLOYEE.EMP_ID%TYPE, --�Ű������� ����
+    emp_info(vemp_id IN EMPLOYEE.EMP_ID%TYPE, --매개변수들 선언
              vemp_name OUT EMPLOYEE.EMP_NAME%TYPE,
              vphone OUT EMPLOYEE.PHONE%TYPE,
              vemail OUT EMPLOYEE.EMAIL%TYPE)
@@ -3382,27 +3400,27 @@ BEGIN
 END;
 /
 
---�������� -> ���ν����� ���� OUT�Ǵ� �����͸� ��´�.
+--변수선언 -> 프로시져를 통해 OUT되는 데이터를 담는다.
 VARIABLE var_ename VARCHAR2(20);
 VARIABLE var_phone VARCHAR2(20);
 VARIABLE var_email VARCHAR2(20);
 
 EXEC emp_info(201, :var_ename, :var_phone, :var_email);
 
---����Ȯ��
+--변수확인
 PRINT var_ename;
 PRINT var_phone;
 PRINT var_email;
 
 SET AUTOPRINT ON;
---���ν��� �����ϰ� EXEC�ϸ�, ���� ��µ�
+--프로시져 실행하고 EXEC하면, 전부 출력됨
 
 select * from user_source;
 
---�μ��ڵ� �Է¹޾� �ش� �μ� ���� ������
---  ������ �μ��̸��� ����ϴ� ���ν���
---  �� ���� ��ȸ�� �μ� �����ܿ�
---  NO_DATA_FOUND ����Ͽ� '�ش� �μ��� �������� �ʽ��ϴ�.' ���
+--부서코드 입력받아 해당 부서 정보 삭제후
+--  삭제된 부서이름을 출력하는 프로시져
+--  단 만약 조회한 부서 없을겨우
+--  NO_DATA_FOUND 사용하여 '해당 부서가 존재하지 않습니다.' 출력
 CREATE TABLE dept_01 AS (select * from department);
 DROP TABLE dept_01;
 
@@ -3420,29 +3438,29 @@ BEGIN
     WHERE dept_id=v_dept_id;
 
     COMMIT;
-    DBMS_OUTPUT.PUT_LINE(v_dept_title || ' �μ��� ���������� �����Ǿ����ϴ�.');
+    DBMS_OUTPUT.PUT_LINE(v_dept_title || ' 부서가 성공적으로 삭제되었습니다.');
 
 EXCEPTION 
     WHEN NO_DATA_FOUND
-        THEN DBMS_OUTPUT.PUT_LINE('�ش�μ� ' || v_dept_id || ' �� �������� �ʽ��ϴ�.');
+        THEN DBMS_OUTPUT.PUT_LINE('해당부서 ' || v_dept_id || ' 가 존재하지 않습니다.');
         RETURN;
 END;
 /
 
 VARIABLE dept_title VARCHAR2(35);
 select * from dept_01;
-EXEC del_dept('&�μ��ڵ�', :dept_title);
+EXEC del_dept('&부서코드', :dept_title);
 select * from dept_01;
 EXEC del_dept('D2', :dept_title);
 
 PRINT dept_title;
 
 
---FUNCTION �Լ�
+--FUNCTION 함수
 --  similar to procedure, 
 --  but has RETURN value.
---  �����ȣ�� �Է¹޾� 1��ġ ����+���ʽ� ����Ͽ�
---  ��ȯ�ϴ� �Լ��� �����ϼ���
+--  사원번호를 입력받아 1년치 연봉+보너스 계산하여
+--  반환하는 함수를 정의하세요
 
 CREATE OR REPLACE FUNCTION bonus_cal(
     v_emp_id EMPLOYEE.emp_id%TYPE)
@@ -3472,7 +3490,7 @@ VARIABLE var_re NUMBER;
 EXEC :var_re := bonus_cal('&emp_id');
 PRINT var_re;
 
---�����ȣ�� �Է¹޾� ���� RETURN
+--사원번호를 입력받아 성별 RETURN
 CREATE OR REPLACE FUNCTION f_gender(
     v_emp_id EMPLOYEE.emp_id%TYPE)
 RETURN VARCHAR2
@@ -3480,7 +3498,7 @@ IS
     v_gender VARCHAR2(10);
 BEGIN
     SELECT DECODE( substr(emp_no,8, 1),
-           '1', '��', '3', '��', '��')
+           '1', '남', '3', '남', '여')
     INTO v_gender
     FROM EMPLOYEE
     WHERE emp_id = v_emp_id;
@@ -3498,25 +3516,25 @@ PRINT var_re;
 select * from all_errors;
 
 --CURSOR
---  SELECT �� ��� ����ROW�϶�, �Ѱ� �྿  �����Ͽ� ó��
---  CURSOR�� RESULTSET�� �����ϰ� FETCH�� ���������� ����
+--  SELECT 문 결과 여러ROW일때, 한개 행씩  접근하여 처리
+--  CURSOR에 RESULTSET을 보관하고 FETCH로 다음행으로 연결
 --
---  [����]
---  CURSOR�� ������ �����ϰ�, ������ ���� CURSOR�� OPEN���� ����.
---  �ݺ��� �ȿ��� FETCH�� ���� �� �྿ ����Ǹ�, CLOSE �������� CURSOR ����
+--  [사용법]
+--  CURSOR를 변수로 선언하고, 선언한 변수 CURSOR를 OPEN으로 연다.
+--  반복문 안에서 FETCH를 통해 한 행씩 종료되면, CLOSE 명령으로 CURSOR 닫음
 --
---  [CURSOR�� ������ ���翩�� Ȯ���ϴ� ���]
---  %NOTFOUND : OPEN �� FETCH ���� NULL, FETCH�� ���� �����ϸ� FALSE, �������� ������ TRUE
---  %FOUND : FETCH �� ���� �����ϸ� TRUE, �ƴϸ� FALSE
---  %ISOPEN : �ֱ� ����� CURSOR�� OPEN �� �����̸� TRUE, �ƴϸ� FALSE
---  %ROWCOUNT : CURSOR�� �� �ִ� ROW ��
+--  [CURSOR에 데이터 존재여부 확인하는 방법]
+--  %NOTFOUND : OPEN 후 FETCH 전에 NULL, FETCH된 행이 존재하면 FALSE, 존재하지 않으면 TRUE
+--  %FOUND : FETCH 된 행이 존재하면 TRUE, 아니면 FALSE
+--  %ISOPEN : 최근 실행된 CURSOR가 OPEN 된 상태이면 TRUE, 아니면 FALSE
+--  %ROWCOUNT : CURSOR에 들어가 있는 ROW 수
 
---  �μ��ڵ� �μ��� �����ڵ带 ��� ����ϴ�
---  Ŀ���� �̿��� ���ν����� �ۼ�
+--  부서코드 부서명 지역코드를 모두 출력하는
+--  커서를 이용한 프로시져를 작성
 CREATE OR REPLACE PROCEDURE cursortest
 IS
     v_dept DEPARTMENT%ROWTYPE;
-    CURSOR C1  -- 9���� ���� CURSOR C1 �� ���� ��
+    CURSOR C1  -- 9개의 행이 CURSOR C1 로 전부 들어감
     IS
     SELECT * FROM DEPARTMENT;
 BEGIN
@@ -3526,9 +3544,9 @@ BEGIN
                       v_dept.dept_title,
                       v_dept.location_id;
         EXIT WHEN C1%NOTFOUND;
-        DBMS_OUTPUT.PUT_LINE('�μ��ڵ�: ' || v_dept.dept_id
-                             ||', �μ���: ' || v_dept.dept_title
-                             ||', �����ڵ�: '|| v_dept.location_id);
+        DBMS_OUTPUT.PUT_LINE('부서코드: ' || v_dept.dept_id
+                             ||', 부서명: ' || v_dept.dept_title
+                             ||', 지역코드: '|| v_dept.location_id);
     END LOOP;
     CLOSE C1;
 END;
@@ -3546,14 +3564,14 @@ BEGIN
     LOOP
         FETCH C1 INTO v_user;
         EXIT WHEN C1%NOTFOUND;
-        DBMS_OUTPUT.PUT_LINE('�̸� : ' || v_user.emp_name);
+        DBMS_OUTPUT.PUT_LINE('이름 : ' || v_user.emp_name);
     END LOOP;
     CLOSE C1;
 END;
 /
 
---FOR IN �� �̿��Ͽ� ó���ϴ� ���
---  CURSOR�� open/close ���ص� ��.
+--FOR IN 을 이용하여 처리하는 방법
+--  CURSOR를 open/close 안해도 됨.
 DECLARE
     v_dept DEPARTMENT%ROWTYPE;
     CURSOR C2
@@ -3562,67 +3580,67 @@ BEGIN
     --OPEN C2
     --FETCH C2 INTO
     FOR v_dept IN C2 LOOP
-        DBMS_OUTPUT.PUT_LINE('�μ��ڵ�' || v_dept.dept_id);
+        DBMS_OUTPUT.PUT_LINE('부서코드' || v_dept.dept_id);
     END LOOP;
 END;
 /
 
---TRIGGER : DML(insert,update,delete)������,�Ŀ� �߻���Ų
---  ���� ������ ���س��� �����Ű�� ��
---  CREATE ���ɾ�� ����
---  after/before �������
---  ������ ���ɾ ����
---  ������� ���� �� �� ����.
+--TRIGGER : DML(insert,update,delete)실행전,후에 발생시킨
+--  실행 구문을 정해놓고 실행시키는 것
+--  CREATE 명령어로 생성
+--  after/before 실행시점
+--  실행할 명령어를 지정
+--  행단위로 실행 할 지 여부.
 --  CREATE TRIGGER trigger_name
---  AFTER/BEFORE ������ɾ� ON table_name
+--  AFTER/BEFORE 실행명령어 ON table_name
 --  FOR EACH ROW
---  PL/SQL �������� (BEGIN~END)
---  ���ɾ� : 
---      new.�÷� : ���� ���� ���Ե� �ڷ�(update,insert����)
---      old.�÷� : ����, ���� ������ �ִ� �� (update, delete����)
+--  PL/SQL 구문실행 (BEGIN~END)
+--  명령어 : 
+--      new.컬럼 : 지금 수정 삽입된 자료(update,insert에만)
+--      old.컬럼 : 수정, 삭제 이전에 있던 값 (update, delete에만)
 
--- trigger �����ϸ� �ڵ����� ���ư�
+-- trigger 생성하면 자동으로 돌아감
 CREATE OR REPLACE TRIGGER tg_empnew
 AFTER INSERT ON EMPLOYEE
 FOR EACH ROW
 BEGIN
-    DBMS_OUTPUT.PUT_LINE('���Ի�� ��ϿϷ�!');
+    DBMS_OUTPUT.PUT_LINE('신입사원 등록완료!');
 END;
 /
 
 SELECT * from user_triggers;
 
 INSERT INTO employee VALUES(
-    996, '�ڼ���', '961222-2112333', 'red@sm.co.kr', '01011223344',
+    996, '박수영', '961222-2112333', 'red@sm.co.kr', '01011223344',
     'D1', 'J2', 'S2', 1500000, 0.3, 200, SYSDATE, DEFAULT, DEFAULT);
 INSERT INTO employee VALUES(
-    996, '�ڼ���', '961222-2112333', 'red@sm.co.kr', '01011223344',
+    996, '박수영', '961222-2112333', 'red@sm.co.kr', '01011223344',
     'D1', 'J2', 'S2', 1500000, 0.3, 200, SYSDATE, DEFAULT, DEFAULT);
 select * from employee;
 
-DELETE FROM employee where emp_name='�ڼ���';
+DELETE FROM employee where emp_name='박수영';
 
-COMMIT; --COMMIT�ؾ� �޽��� ���
---AUTO COMMIT ������ INSERT ���� ���
+COMMIT; --COMMIT해야 메시지 출력
+--AUTO COMMIT 설정시 INSERT 마다 출력
 
 --
 CREATE OR REPLACE TRIGGER tg_sal
 AFTER UPDATE ON EMPLOYEE
 FOR EACH ROW
 BEGIN
-    DBMS_OUTPUT.PUT_LINE('������ �� : ' || :OLD.salary);
-    DBMS_OUTPUT.PUT_LINE('������ �� : ' || :NEW.salary);
+    DBMS_OUTPUT.PUT_LINE('변경전 값 : ' || :OLD.salary);
+    DBMS_OUTPUT.PUT_LINE('변경후 값 : ' || :NEW.salary);
 END;
 /
 
-UPDATE employee SET SALARY = SALARY * 3 WHERE emp_name='������';
-select emp_name, salary from employee where emp_name='������';
+UPDATE employee SET SALARY = SALARY * 3 WHERE emp_name='유병승';
+select emp_name, salary from employee where emp_name='유병승';
 
 ROLLBACK;
 
 SELECT * from user_triggers;
 
---TRIGGER �����ϱ�
+--TRIGGER 적용하기
 CREATE TABLE product(
     pcode NUMBER PRIMARY KEY,
     pname VARCHAR2(30),
@@ -3630,13 +3648,13 @@ CREATE TABLE product(
     price NUMBER,
     stock NUMBER DEFAULT 0
 );
---�԰� ��� ���� ���̺�
+--입고 출고 관리 테이블
 CREATE TABLE product_IO(
     icode NUMBER PRIMARY KEY,
     pcode NUMBER,
     pdate DATE,
     amount NUMBER,
-    status VARCHAR2(10) CHECK(status in ('�԰�', '���')),
+    status VARCHAR2(10) CHECK(status in ('입고', '출고')),
     CONSTRAINT fk_proc_io FOREIGN KEY(pcode) REFERENCES product(pcode)
 );
 DROP TABLE product;
@@ -3657,17 +3675,17 @@ INSERT INTO product VALUES(seq_proc.nextval, 'Galaxy S10', 'SAMSUNG', 190000, DE
 
 select * from product;
 
---TRIGGER IO���̺� ���� �ԷµǸ� �ԷµǴ� ���� ��������
---product ������ �����ϴ� trigger ����
+--TRIGGER IO테이블 값이 입력되면 입력되는 것을 기준으로
+--product 수량의 수정하는 trigger 생성
 CREATE TRIGGER tg_product
 AFTER INSERT ON PRODUCT_IO
 FOR EACH ROW
 BEGIN
-    IF :new.status='�԰�' THEN
+    IF :new.status='입고' THEN
         UPDATE product
         SET stock = stock +:new.amount
         WHERE pcode = :new.pcode;
-    ELSIF :new.status='���' THEN
+    ELSIF :new.status='출고' THEN
         UPDATE product
         SET stock = stock  - :new.amount
         WHERE pcode = :new.pcode;
@@ -3676,18 +3694,18 @@ END;
 /
 DROP TRIGGER tg_product;
 
-INSERT INTO product_io VALUES(seq_proc_io.nextval, 1, SYSDATE, 10, '�԰�');
-INSERT INTO product_io VALUES(seq_proc_io.nextval, 2, SYSDATE, 50, '�԰�');
-INSERT INTO product_io VALUES(seq_proc_io.nextval, 3, SYSDATE, 100, '�԰�');
+INSERT INTO product_io VALUES(seq_proc_io.nextval, 1, SYSDATE, 10, '입고');
+INSERT INTO product_io VALUES(seq_proc_io.nextval, 2, SYSDATE, 50, '입고');
+INSERT INTO product_io VALUES(seq_proc_io.nextval, 3, SYSDATE, 100, '입고');
 
 select * from user_sequences;
---EMPLOYEE ���̺����� ����� �����ϸ� �������̺��� �̵�
+--EMPLOYEE 테이블에서 사원을 삭제하면 삭제테이블로 이동
 CREATE TABLE del_emp AS (select * from employee where 1=0);
 
 CREATE TRIGGER tg_del_emp
 AFTER DELETE ON EMPLOYEE
 FOR EACH ROW
-WHEN (OLD.emp_name <> '������')
+WHEN (OLD.emp_name <> '유병승')
 BEGIN
     INSERT INTO del_emp VALUES
     (:OLD.EMP_ID, :OLD.EMP_NAME, :OLD.EMP_NO, :OLD.EMAIL, :OLD.PHONE, 
@@ -3698,11 +3716,11 @@ END;
 
 DROP TRIGGER tg_del_emp;
 
-INSERT INTO employee VALUES( 995, '�ڼ���2', '961223-2112333', 'red@sm.co.kr',
+INSERT INTO employee VALUES( 995, '박수영2', '961223-2112333', 'red@sm.co.kr',
     '01011223344', 'D1', 'J2', 'S2', 1500000, 0.3, 200, SYSDATE, DEFAULT, DEFAULT);
 
-DELETE FROM EMPLOYEE WHERE  emp_name='�ڼ���2';
-DELETE FROM EMPLOYEE WHERE  emp_name='������';
+DELETE FROM EMPLOYEE WHERE  emp_name='박수영2';
+DELETE FROM EMPLOYEE WHERE  emp_name='유병승';
 ROLLBACK;
 
 select * from del_emp;
@@ -3711,4 +3729,3 @@ DESC EMPLOYEE;
 
 COMMIT;
 ROLLBACK;
-

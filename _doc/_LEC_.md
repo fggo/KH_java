@@ -1,5 +1,38 @@
-﻿안녕하세요 지원자 이준호 입니다.
-저는 이번 국비 교육과정을 시작하면서 세가지를 지키려고
+﻿
+# TODO 19.11.11
+- HashTag
+```
+enroll (add manually)
+apply (add automatically w/ crawling)
+
+TABLE : 
+- INSERT hashtag (no, name, count)
+- INSERT hashtag_job (boardNo, hashtagNo)
+```
+
+시험
+spring framework: aop (xml 또는 anno방식)
+mvc
+mybatis
+spring 용어 구조적인 illust로 어디에 전달 되는지.handler 에 어떻게 전달
+advice 시점
+pom.xml
+  module : core context test websocket
+
+aop특징 표준화 ioc 데이터액세스 mvc패턴 지원
+마이바티스 동적커리
+스프링 사용되는 용어들 요청들어오면 누구한테가고 등등
+프레임워크 정리
+aop개념 정리
+어드바이스 시점
+마이바티스 동적커리
+aop적용 xml anotation방식
+프레임워크 모듈 특징 (컨텍스트 웹소켓)
+
+
+
+안녕하세요 지원자 이준호 입니다.
+저는 이번 국비 교육과정을 시작하면서 세가지를 지키려고 했습니다.
 
 첫번째는 간절함 입니다. 이 간절함은 교육과정을 들으면서, 점차 프로그래밍에 대한 열정으로 바꼈고,
 6개월 동안 필요한 기술들을 향상 시키는데 제 모든 열정을 쏟아붓는 원동력이 됐습니다.
@@ -8,7 +41,7 @@
 두번째는 도움받은 만큼 베풀자 입니다. 저는 문득
 매일 저와 같은 예비개발자들에게 지식을 가르치러 오시는 분들의 성의에 대해 생각해 봤습니다.
 또한 회사를 다니면서 조언과 도움을 준 분들을 생각해 봤습니다. 
-저도 그분들과 같이 제 팀원들을 돕는 노력했습니다. 특히 여송씨나 장원씨와 
+저도 그분들과 같이 제 팀원들을 돕는 노력했습니다. 특히 여송씨나 장원씨와
 프로젝트를 하면서 서로 모르는 것을 물어보면서 돕는것이 굉장히 즐거웠습니다.
 
 세번째는 패배는 쓰러질 때가 아닌 다시 일어서길 거부할 때 라는 것 입니다.
@@ -18,21 +51,26 @@
 저는 소프트원에 입사하기 위한 이 세가지 마음가짐 외에, 6개월간 얻은 직무능력을 증명하려는
 목표를 가지고 있으며, 객관적이고 솔직한 답변 드릴 것을 약속합니다.
 
-
-* controller new service 결합도증가. interface : 결합도 감소
+* 결합도 높음
+- controller new service
+- interface 사용: 결합도 감소: 기능 바꼈을 떄, interface는 그대로
 
 * 응집도 높음
- aop : service insertmethod (값을 받아서 db에 insert)
- 응집도 낮은것: insertMember 안에 db 커넥션 관리 및 close()등 모든걸  코드
- connection 및 다른 메소드 필요없이 compact하게 insert기능만 구현하여 응집도 높힘
-------------------------------------------------
+서블릿을 사용했을 때는 connection 및 resultset statement 등의 transaction 관리를 직접코드로 구현 했지만
+응집도 낮은것: insertMember 안에 db 커넥션 관리 및 close()등 모든걸 코드
+connection 및 다른 메소드 필요없이 compact하게 insert기능만 구현하여 응집도 높힘
+
+aop : service insertmethod (값을 받아서 db에 insert)
+---------------------------------------------------
 aop : 코드 중복을 줄여줌
 응집도를 높혀 oop 답게 만들어줌
 
 # IOC Inversion Of Control
 제어의 역전.
-객체 without iod 객체 생성 소멸
+객체 without ioc 객체 생성 소멸
 spring container 로 알아서 관리 (DI로) 하도록 하는 것
+
+동기식: 순서대로, 비동기식: 하던것 멈추고 다른것으로 빠지는 것
 
 Q4. What Is Dependency Injection?
 Dependency Injection, an aspect of Inversion of Control (IoC), is a general concept stating that you do not create your objects manually but instead describe how they should be created. An IoC container will instantiate required classes if needed.
